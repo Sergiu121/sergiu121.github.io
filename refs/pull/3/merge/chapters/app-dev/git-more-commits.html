@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html >
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+      <title>Noi comiteri</title>
+    
+      <link rel="stylesheet" href="../../_static/pygments.css">
+      <link rel="stylesheet" href="../../_static/theme.css">
+      <link rel="stylesheet" href="../../_static/romnnn_sphinx_press_theme.css">
+      
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+
+      <!-- sphinx script_files -->
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+
+      
+      <script src="../../_static/theme-vendors.js"></script>
+      <script src="../../_static/theme.js" defer></script>
+    
+  <link rel="index" title="Index" href="../../genindex.html" />
+  <link rel="search" title="Search" href="../../search.html" />
+  <link rel="next" title="Contribuirea la un alt repository" href="git-contribute.html" />
+  <link rel="prev" title="Primul commit" href="git-first-commit.html" />
+    <link href="../../_static/my_theme.css" rel="stylesheet" type="text/css">
+
+  </head>
+
+  <body>
+    <div id="app" class="theme-container" :class="pageClasses"><navbar @toggle-sidebar="toggleSidebar">
+  <div class="home-link-container">
+      <router-link to="../../index.html" class="home-link">
+      
+        <span class="site-name">USO Lab Book</span>
+    </router-link>
+  </div>
+
+  <div class="links">
+    <navlinks class="can-hide">
+
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Networking:
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link  router-link-active">
+         Dezvoltarea aplicațiilor
+      </a>
+    </div>
+  
+
+
+
+  
+    <div class="nav-item">
+      <a href="https://github.com/Sergiu121/uso-lab-book"
+        class="nav-link external">
+          Github <outboundlink/>
+      </a>
+    </div>
+  
+
+    </navlinks>
+  </div>
+</navbar>
+
+      
+      <div class="sidebar-mask" @click="toggleSidebar(false)">
+      </div>
+        <sidebar @toggle-sidebar="toggleSidebar">
+          
+          <navlinks>
+            
+
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Networking:
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link  router-link-active">
+         Dezvoltarea aplicațiilor
+      </a>
+    </div>
+  
+
+
+
+  
+    <div class="nav-item">
+      <a href="https://github.com/Sergiu121/uso-lab-book"
+        class="nav-link external">
+          Github <outboundlink/>
+      </a>
+    </div>
+  
+
+            
+          </navlinks><div id="searchbox" class="searchbox" role="search">
+  <div class="caption"><span class="caption-text">Search</span>
+    <div class="searchformwrapper">
+      <form autocomplete="off" class="search" action="../../search.html" method="get">
+        <input type="text" name="q" autocomplete="off" />
+        <input type="submit" value="Go" />
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div><div class="sidebar-links" role="navigation" aria-label="main navigation">
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#uso-lab-book">Networking:</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../net/browser.html" class="reference internal ">Efficient browser usage</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../net/troubleshoot.html" class="reference internal ">Troubleshooting network connections</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../net/services.html" class="reference internal ">Basic network service usage</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../net/extra.html" class="reference internal ">Extra networking tasks</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#uso-lab-book">Dezvoltarea aplicațiilor</a></span>
+      </p>
+      <ul class="current">
+        
+          <li class="toctree-l1 "><a href="git-intro.html" class="reference internal ">Introducere în git și Github</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="git-first-commit.html" class="reference internal ">Primul commit</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 current"><a href="#" class="reference internal current">Noi comiteri</a>
+
+            
+              <ul>
+                
+                  <li class="toctree-l2"><a href="#repetarea-pasilor-anteriori" class="reference internal">1) Repetarea pașilor anteriori</a></li>
+                
+                  <li class="toctree-l2"><a href="#modificarea-mesajului-de-commit" class="reference internal">2) Modificarea mesajului de commit</a></li>
+                
+              </ul>
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="git-contribute.html" class="reference internal ">Contribuirea la un alt repository</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="make-setup.html" class="reference internal ">Pregătirea spațiului de lucru</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="make-intro.html" class="reference internal ">Compilarea unui cod sursă C simplu</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="make-header.html" class="reference internal ">Compilarea unui cod sursă C cu fișier header asociat</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="make-lib.html" class="reference internal ">Legarea executabilelor la biblioteci externe</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="make-debug.html" class="reference internal ">Folosirea macro-ului DEBUG în C pentru depanare</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="make-simple-automation.html" class="reference internal ">Introducere în utilitarul make și fișiere Makefile</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="make-advanced-automation.html" class="reference internal ">Aprofundare în utilizarea utilitarului make și fișiere Makefile</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="make-contribute.html" class="reference internal ">Contribuirea la un proiect deja existent</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="extra.html" class="reference internal ">Exerciții suplimentare</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+</div>
+        </sidebar>
+
+      <page>
+          <div class="body-header" role="navigation" aria-label="navigation">
+  
+  <ul class="breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+    
+    <li>Noi comiteri</li>
+  </ul>
+  
+
+  <ul class="page-nav">
+  <li class="prev">
+    <a href="git-first-commit.html"
+       title="previous chapter">← Primul commit</a>
+  </li>
+  <li class="next">
+    <a href="git-contribute.html"
+       title="next chapter">Contribuirea la un alt repository →</a>
+  </li>
+</ul>
+  
+</div>
+<hr>
+          <div class="content" role="main">
+            
+  <div class="section" id="noi-comiteri">
+<h1>Noi comiteri<a class="headerlink" href="#noi-comiteri" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="repetarea-pasilor-anteriori">
+<h2>1) Repetarea pașilor anteriori<a class="headerlink" href="#repetarea-pasilor-anteriori" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="a-creare-un-branch-separat">
+<h3>a. Creare un branch separat<a class="headerlink" href="#a-creare-un-branch-separat" title="Permalink to this headline">¶</a></h3>
+<p><cite>git checkout -b &lt;new-branch&gt;</cite></p>
+</div>
+<div class="section" id="b-modificarea-fisierului-readme">
+<h3>b. Modificarea fișierului README<a class="headerlink" href="#b-modificarea-fisierului-readme" title="Permalink to this headline">¶</a></h3>
+<p>modificat folosit nano un fișier</p>
+</div>
+<div class="section" id="c-revenire-la-un-alt-branch-fara-comiterea-schimbarilor-curente">
+<h3>c. Revenire la un alt branch fără comiterea schimbărilor curente<a class="headerlink" href="#c-revenire-la-un-alt-branch-fara-comiterea-schimbarilor-curente" title="Permalink to this headline">¶</a></h3>
+<p><cite>git stash</cite> + <cite>git checkout master</cite></p>
+</div>
+<div class="section" id="d-crearea-unui-al-doilea-commit-pe-branch-ul-master">
+<h3>d. Crearea unui al doilea commit pe branch-ul master<a class="headerlink" href="#d-crearea-unui-al-doilea-commit-pe-branch-ul-master" title="Permalink to this headline">¶</a></h3>
+<p><cite>git add</cite> + <cite>git commit -m</cite> + <cite>git push</cite></p>
+</div>
+<div class="section" id="e-revenirea-la-branch-ul-cu-modificari-si-comiterea-schimbarilor">
+<h3>e. Revenirea la branch-ul cu modificări și comiterea schimbărilor<a class="headerlink" href="#e-revenirea-la-branch-ul-cu-modificari-si-comiterea-schimbarilor" title="Permalink to this headline">¶</a></h3>
+<p><cite>git stash pop</cite> + <cite>git add</cite> + <cite>git commit</cite> + <cite>git commit</cite></p>
+</div>
+</div>
+<div class="section" id="modificarea-mesajului-de-commit">
+<h2>2) Modificarea mesajului de commit<a class="headerlink" href="#modificarea-mesajului-de-commit" title="Permalink to this headline">¶</a></h2>
+<p><cite>git rebase -i HEAD~n</cite> + <cite>git push –force</cite></p>
+</div>
+</div>
+
+
+          </div>
+          <div class="page-nav">
+            <div class="inner"><ul class="page-nav">
+  <li class="prev">
+    <a href="git-first-commit.html"
+       title="previous chapter">← Primul commit</a>
+  </li>
+  <li class="next">
+    <a href="git-contribute.html"
+       title="next chapter">Contribuirea la un alt repository →</a>
+  </li>
+</ul><div class="footer" role="contentinfo">
+      &#169; Copyright 2020, USO Team.
+    <br>
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.1.2 with <a href="https://github.com/romnnn/sphinx_press_theme">Press Theme</a>.
+</div>
+            </div>
+          </div>
+      </page>
+    </div>
+    
+    
+  </body>
+</html>
