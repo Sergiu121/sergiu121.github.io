@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html >
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+      <title>O folosire mai bună a comenzilor uzuale</title>
+    
+      <link rel="stylesheet" href="../../_static/pygments.css">
+      <link rel="stylesheet" href="../../_static/theme.css">
+      <link rel="stylesheet" href="../../_static/romnnn_sphinx_press_theme.css">
+      
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+
+      <!-- sphinx script_files -->
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+
+      
+      <script src="../../_static/theme-vendors.js"></script>
+      <script src="../../_static/theme.js" defer></script>
+    
+  <link rel="index" title="Index" href="../../genindex.html" />
+  <link rel="search" title="Search" href="../../search.html" />
+  <link rel="next" title="O înțelegere mai bună a shell-ului" href="improve-shell.html" />
+  <link rel="prev" title="Îmbunătățirea lucrului în linia de comandă" href="improve-terminal.html" />
+    <link href="../../_static/my_theme.css" rel="stylesheet" type="text/css">
+
+  </head>
+
+  <body>
+    <div id="app" class="theme-container" :class="pageClasses"><navbar @toggle-sidebar="toggleSidebar">
+  <div class="home-link-container">
+      <router-link to="../../index.html" class="home-link">
+      
+        <span class="site-name">USO Lab Book</span>
+    </router-link>
+  </div>
+
+  <div class="links">
+    <navlinks class="can-hide">
+
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Networking:
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link  router-link-active">
+         Becoming a CLI ninja apprentice:
+      </a>
+    </div>
+  
+
+
+
+  
+    <div class="nav-item">
+      <a href="https://github.com/Sergiu121/uso-lab-book"
+        class="nav-link external">
+          Github <outboundlink/>
+      </a>
+    </div>
+  
+
+    </navlinks>
+  </div>
+</navbar>
+
+      
+      <div class="sidebar-mask" @click="toggleSidebar(false)">
+      </div>
+        <sidebar @toggle-sidebar="toggleSidebar">
+          
+          <navlinks>
+            
+
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Networking:
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link  router-link-active">
+         Becoming a CLI ninja apprentice:
+      </a>
+    </div>
+  
+
+
+
+  
+    <div class="nav-item">
+      <a href="https://github.com/Sergiu121/uso-lab-book"
+        class="nav-link external">
+          Github <outboundlink/>
+      </a>
+    </div>
+  
+
+            
+          </navlinks><div id="searchbox" class="searchbox" role="search">
+  <div class="caption"><span class="caption-text">Search</span>
+    <div class="searchformwrapper">
+      <form autocomplete="off" class="search" action="../../search.html" method="get">
+        <input type="text" name="q" autocomplete="off" />
+        <input type="submit" value="Go" />
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div><div class="sidebar-links" role="navigation" aria-label="main navigation">
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#uso-lab-book">Networking:</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../net/browser.html" class="reference internal ">Efficient browser usage</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../net/troubleshoot.html" class="reference internal ">Troubleshooting network connections</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../net/services.html" class="reference internal ">Basic network service usage</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../net/extra.html" class="reference internal ">Extra networking tasks</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#uso-lab-book">Becoming a CLI ninja apprentice:</a></span>
+      </p>
+      <ul class="current">
+        
+          <li class="toctree-l1 "><a href="improve-terminal.html" class="reference internal ">Îmbunătățirea lucrului în linia de comandă</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 current"><a href="#" class="reference internal current">O folosire mai bună a comenzilor uzuale</a>
+
+            
+              <ul>
+                
+                  <li class="toctree-l2"><a href="#inspectarea-sistemului-de-fisiere" class="reference internal">1) Inspectarea sistemului de fișiere</a></li>
+                
+                  <li class="toctree-l2"><a href="#inspectarea-sistemului" class="reference internal">3) Inspectarea sistemului</a></li>
+                
+                  <li class="toctree-l2"><a href="#inspectarea-fisierelor" class="reference internal">3) Inspectarea fișierelor</a></li>
+                
+                  <li class="toctree-l2"><a href="#prelucrarea-fisierelor" class="reference internal">4) Prelucrarea fișierelor</a></li>
+                
+              </ul>
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="improve-shell.html" class="reference internal ">O înțelegere mai bună a shell-ului</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+</div>
+        </sidebar>
+
+      <page>
+          <div class="body-header" role="navigation" aria-label="navigation">
+  
+  <ul class="breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+    
+    <li>O folosire mai bună a comenzilor uzuale</li>
+  </ul>
+  
+
+  <ul class="page-nav">
+  <li class="prev">
+    <a href="improve-terminal.html"
+       title="previous chapter">← Îmbunătățirea lucrului în linia de comandă</a>
+  </li>
+  <li class="next">
+    <a href="improve-shell.html"
+       title="next chapter">O înțelegere mai bună a shell-ului →</a>
+  </li>
+</ul>
+  
+</div>
+<hr>
+          <div class="content" role="main">
+            
+  <div class="section" id="o-folosire-mai-buna-a-comenzilor-uzuale">
+<h1>O folosire mai bună a comenzilor uzuale<a class="headerlink" href="#o-folosire-mai-buna-a-comenzilor-uzuale" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="inspectarea-sistemului-de-fisiere">
+<h2>1) Inspectarea sistemului de fișiere<a class="headerlink" href="#inspectarea-sistemului-de-fisiere" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="a-cea-mai-importanta-comanda">
+<h3>a. Cea mai importantă comandă<a class="headerlink" href="#a-cea-mai-importanta-comanda" title="Permalink to this headline">¶</a></h3>
+<p>Comanda <code class="docutils literal notranslate"><span class="pre">man</span></code>, <code class="docutils literal notranslate"><span class="pre">man</span> <span class="pre">man</span></code>.</p>
+<ul class="simple">
+<li><p>Prezentarea secțiunilor din manual: <code class="docutils literal notranslate"><span class="pre">man</span> <span class="pre">printf</span></code> vs <code class="docutils literal notranslate"><span class="pre">man</span> <span class="pre">3</span> <span class="pre">printf</span></code>.</p></li>
+<li><p>Navigarea prin paginile manualului: search (/, ?, n, N), go up (g), go down (G), help (h) în timp ce folosim comanda man pt a afla mai multe despre cum o putem folosi mai bine; bonus: j/k pt navigare jos/sus</p></li>
+<li><p>Prezentarea pachetului <code class="docutils literal notranslate"><span class="pre">tldr</span></code> - poate fi util pentru cazurile uzuale, dar nu trebuie să ne fie frică să căutăm în <code class="docutils literal notranslate"><span class="pre">man</span></code> pentru detalii</p></li>
+</ul>
+</div>
+<div class="section" id="b-comanda-cd">
+<h3>b. Comanda <code class="docutils literal notranslate"><span class="pre">cd</span></code><a class="headerlink" href="#b-comanda-cd" title="Permalink to this headline">¶</a></h3>
+<p>Shortcut-uri pt cd: <cite>cd</cite> echivalent cu <cite>cd ~</cite>, <cite>cd -</cite> pt a sări la calea anterioară.</p>
+<ul class="simple">
+<li><p>Recapitulare căi absolute vs căi relative?</p></li>
+</ul>
+</div>
+<div class="section" id="c-comanda-ls">
+<h3>c. Comanda <code class="docutils literal notranslate"><span class="pre">ls</span></code><a class="headerlink" href="#c-comanda-ls" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">ls,</span> <span class="pre">ls</span> <span class="pre">-a,</span> <span class="pre">ls</span> <span class="pre">-l,</span> <span class="pre">ls</span> <span class="pre">-ld</span></code></p>
+<div class="section" id="globbing">
+<h4>Globbing<a class="headerlink" href="#globbing" title="Permalink to this headline">¶</a></h4>
+<p>Ce este globbing?</p>
+<p>Folosire caractere <code class="docutils literal notranslate"><span class="pre">*</span></code>, <code class="docutils literal notranslate"><span class="pre">?</span></code>, [seturi] și {liste,grupuri}, escaping folosind <code class="docutils literal notranslate"><span class="pre">“</span></code> ex.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>ls “[USO] file”
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="d-find-si-locate">
+<h3>d. <code class="docutils literal notranslate"><span class="pre">find</span></code> și <code class="docutils literal notranslate"><span class="pre">locate</span></code><a class="headerlink" href="#d-find-si-locate" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">find</span></code></p>
+<ul class="simple">
+<li><p>La ce este util și cum îl folosim</p></li>
+<li><p>Exerciții folosind <code class="docutils literal notranslate"><span class="pre">find</span></code>: toate fișierele de tip <strong>regular file</strong> (trebuie să folosească <code class="docutils literal notranslate"><span class="pre">man</span> <span class="pre">find</span></code>)</p></li>
+<li><dl class="simple">
+<dt>Follow-up la exercițiul anterior: rulat comenzi pe fișierele respective</dt><dd><ul>
+<li><p>În cazul ăsta vom da un <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-l</span></code></p></li>
+<li><p>Exercițiul ăsta pune o bază. O să folosesc asta pentru a da search&amp;replace recursiv folosind <code class="docutils literal notranslate"><span class="pre">find</span></code> și <code class="docutils literal notranslate"><span class="pre">sed</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">locate</span></code></p>
+<ul class="simple">
+<li><p>Ce este?</p></li>
+<li><p>Q: De ce îl folosim? A: Mai semnificativ mai rapid decât find</p></li>
+<li><p>Q: Ce dezavantaj are? A: Trebuie reconstruită baza de date periodic</p></li>
+<li><p>Takeaway: <code class="docutils literal notranslate"><span class="pre">locate</span></code> este probabil sufient pentru majoritatea cazurilor; folosim <code class="docutils literal notranslate"><span class="pre">find</span></code> atunci când vrem să căutăm după criterii mai complexe (ex. tipul fișierelor, data creării/ultimei modificări, etc.) sau dacă vrem să rulăm o comandă pe fișierele găsite</p></li>
+</ul>
+</div>
+<div class="section" id="e-file-si-touch">
+<h3>e. <code class="docutils literal notranslate"><span class="pre">file</span></code> și <code class="docutils literal notranslate"><span class="pre">touch</span></code><a class="headerlink" href="#e-file-si-touch" title="Permalink to this headline">¶</a></h3>
+<p>În contextul ăsta arătăm că touch actualizează data ultimei modificări pentru un fișier existent</p>
+</div>
+<div class="section" id="f-procfs">
+<h3>f. procfs?<a class="headerlink" href="#f-procfs" title="Permalink to this headline">¶</a></h3>
+</div>
+</div>
+<div class="section" id="inspectarea-sistemului">
+<h2>3) Inspectarea sistemului<a class="headerlink" href="#inspectarea-sistemului" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="a-uname-si-lsb-release">
+<h3>a. <code class="docutils literal notranslate"><span class="pre">uname</span></code> și <code class="docutils literal notranslate"><span class="pre">lsb_release</span></code><a class="headerlink" href="#a-uname-si-lsb-release" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Două cuvinte despre ele</p></li>
+</ul>
+</div>
+<div class="section" id="a-meminfo-si-cpuinfo">
+<h3>a. <code class="docutils literal notranslate"><span class="pre">meminfo</span></code> și <code class="docutils literal notranslate"><span class="pre">cpuinfo</span></code><a class="headerlink" href="#a-meminfo-si-cpuinfo" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Două cuvinte despre ele</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="inspectarea-fisierelor">
+<h2>3) Inspectarea fișierelor<a class="headerlink" href="#inspectarea-fisierelor" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="a-inspectarea-rapida-a-continutului-fisierelor">
+<h3>a. Inspectarea rapida a conținutului fișierelor<a class="headerlink" href="#a-inspectarea-rapida-a-continutului-fisierelor" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">cat,</span> <span class="pre">head,</span> <span class="pre">tail,</span> <span class="pre">less,</span> <span class="pre">cat</span> <span class="pre">|</span> <span class="pre">less,</span> <span class="pre">view</span></code></p>
+<ul class="simple">
+<li><p>Navigarea în less: ca la man; bonus: reload (:Examine non_existing_file, ex. :e ee)</p></li>
+<li><p>Încurajați să folosească less în loc de cat pt a inspecta un fișier: așa își păstrează consola curată și pot urmări mai ușor ce comenzi au dat și care au fost rezultatele</p></li>
+</ul>
+</div>
+<div class="section" id="b-compararea-fisierelor">
+<h3>b. Compararea fișierelor<a class="headerlink" href="#b-compararea-fisierelor" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">cmp</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">diff</span></code></p></li>
+<li><p>Bonus: <code class="docutils literal notranslate"><span class="pre">vimdiff</span></code></p></li>
+</ul>
+</div>
+<div class="section" id="c-cautarea-in-fisiere">
+<h3>c. Căutarea în fișiere<a class="headerlink" href="#c-cautarea-in-fisiere" title="Permalink to this headline">¶</a></h3>
+<p>Opțiuni uzualre pentru <code class="docutils literal notranslate"><span class="pre">grep</span></code>:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">-n</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-r</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-i</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-v</span></code></p></li>
+</ul>
+<p>Expresii regulate uzuale: <code class="docutils literal notranslate"><span class="pre">.</span></code>, <code class="docutils literal notranslate"><span class="pre">+</span></code>, <code class="docutils literal notranslate"><span class="pre">?</span></code>, <code class="docutils literal notranslate"><span class="pre">*</span></code>, <code class="docutils literal notranslate"><span class="pre">[seturi]</span></code>, <code class="docutils literal notranslate"><span class="pre">|</span></code></p>
+<ul class="simple">
+<li><p>Utilizare <code class="docutils literal notranslate"><span class="pre">grep</span> <span class="pre">-e</span></code> sau <code class="docutils literal notranslate"><span class="pre">egrep</span></code></p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="prelucrarea-fisierelor">
+<h2>4) Prelucrarea fișierelor<a class="headerlink" href="#prelucrarea-fisierelor" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="a-crearea-si-stergerea-fisierelor">
+<h3>a. Crearea și ștergerea fișierelor<a class="headerlink" href="#a-crearea-si-stergerea-fisierelor" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">touch</span></code>, <code class="docutils literal notranslate"><span class="pre">echo</span> <span class="pre">&gt;</span> <span class="pre">file</span></code>, <code class="docutils literal notranslate"><span class="pre">mkdir</span> <span class="pre">-p</span></code></p></li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">rm</span></code></dt><dd><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">-f</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-r</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">rm</span> <span class="pre">-r</span></code> vs <code class="docutils literal notranslate"><span class="pre">rmdir</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tar</span></code>, <code class="docutils literal notranslate"><span class="pre">zip</span></code>, <code class="docutils literal notranslate"><span class="pre">unzip</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">wget</span></code> și <code class="docutils literal notranslate"><span class="pre">curl</span></code></p></li>
+</ul>
+</div>
+<div class="section" id="b-prelucrarea-datelor">
+<h3>b. Prelucrarea datelor<a class="headerlink" href="#b-prelucrarea-datelor" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">wc</span></code>, <code class="docutils literal notranslate"><span class="pre">cut</span></code>, <code class="docutils literal notranslate"><span class="pre">tr</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">awk</span></code></p></li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">sed</span></code></dt><dd><ul>
+<li><p>inplace replacement <code class="docutils literal notranslate"><span class="pre">-i</span> <span class="pre">-e</span></code></p></li>
+<li><p>search &amp; replace recursiv cu <code class="docutils literal notranslate"><span class="pre">find</span> <span class="pre">--exec</span> <span class="pre">sed</span> <span class="pre">-i</span> <span class="pre">-e</span> <span class="pre">...</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<div class="section" id="exercitii">
+<h4>Exerciții<a class="headerlink" href="#exercitii" title="Permalink to this headline">¶</a></h4>
+<ol class="arabic simple">
+<li><p>Avem două fișiere care conțin informații pe coloane. Să se unească cele două fișiere, într-unul singur, păstrându-se structura pe coloane.</p></li>
+<li><p>Se dă un fișier text, în format csv, cu informații despre persoane (nume, prenume, adresă, etc.) Extras informații despre persoanele din fișier și schimbată ordinea coloanelor. Eliminare leading/trailing/extra whitespaces. Sortare după diferite chei. Eliminare duplicate. Adăugare informații default pentru fiecare intrare (ex. cetățenie, angajator, etc.)</p></li>
+<li><dl class="simple">
+<dt>Urmărirea evoluției unui proces (ex. <code class="docutils literal notranslate"><span class="pre">watch</span> <span class="pre">top</span></code>)</dt><dd><ul class="simple">
+<li><p>Consum de memorie, utilizare CPU, utilizare disk (1)</p></li>
+<li><p>Formatare date: transformare (<code class="docutils literal notranslate"><span class="pre">cut</span></code>, <code class="docutils literal notranslate"><span class="pre">tr</span></code>, <code class="docutils literal notranslate"><span class="pre">awk</span></code>, etc.) din snapshots la 2s de informații pe linii, în csv pe coloane</p></li>
+<li><p>Generare grafice cu informațiile de la (1) folosind <code class="docutils literal notranslate"><span class="pre">gnuplot</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ol>
+</div>
+</div>
+<div class="section" id="c-bune-practici-pentru-editarea-fisierelor-reminder">
+<h3>c. Bune practici pentru editarea fișierelor (reminder)<a class="headerlink" href="#c-bune-practici-pentru-editarea-fisierelor-reminder" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Prezentarea conceptului de <code class="docutils literal notranslate"><span class="pre">fg</span></code> (foreground) și <code class="docutils literal notranslate"><span class="pre">bg</span></code> (background)</p></li>
+<li><p>După ce am editat un fișier îl trimitem în background (nu îl închidem) prin <code class="docutils literal notranslate"><span class="pre">ctrl+z</span></code>. Verificăm ce ne interesa (ex. Compilăm și rulăm fișierul. Avem o eroare segfault). Folosim <code class="docutils literal notranslate"><span class="pre">fg</span></code> pentru a aduce în foreground fișierul text și reluăm editatul. Acum avem avantajul că isoricul modificărilor nu s-a pierdut, ex. putem da undo</p></li>
+<li><p>Dacă edităm mai multe fișiere în paralel, folosim comanda jobs pt a vedea fișierele deschise în background și un index asociat. Folosim <code class="docutils literal notranslate"><span class="pre">fg</span> <span class="pre">#index</span></code> pentru a aduce în prim plan fișierul indicat de indexul respectiv</p></li>
+<li><dl class="simple">
+<dt>Bonus: pentru cei care vor să învețe <code class="docutils literal notranslate"><span class="pre">vim</span></code> -&gt; comanda <code class="docutils literal notranslate"><span class="pre">vimtutor</span></code></dt><dd><ul>
+<li><p>Prezentarea conceptului de plugin de snippets: ex. <code class="docutils literal notranslate"><span class="pre">Ultisnips</span></code> pt <code class="docutils literal notranslate"><span class="pre">vim</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+<div class="section" id="d-rularea-comenzilor-cu-privilegii-elevate">
+<h3>d. Rularea comenzilor cu privilegii elevate<a class="headerlink" href="#d-rularea-comenzilor-cu-privilegii-elevate" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">su</span></code> și <code class="docutils literal notranslate"><span class="pre">sudo</span></code></dt><dd><ul>
+<li><p>Verificat mesajul de eroare al comenzilor. Nu trebuie dat cu <code class="docutils literal notranslate"><span class="pre">sudo</span></code> atunci când apare o eroare</p></li>
+<li><p>Aici aș pune mai mult accent pe faptul că nu vrei să stai logat ca root (faci o greșeală ca zeu și ai stricat tot sistemu) și nu arunci cu sudo la orice eroare pe care o primești de la o comandă</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+          </div>
+          <div class="page-nav">
+            <div class="inner"><ul class="page-nav">
+  <li class="prev">
+    <a href="improve-terminal.html"
+       title="previous chapter">← Îmbunătățirea lucrului în linia de comandă</a>
+  </li>
+  <li class="next">
+    <a href="improve-shell.html"
+       title="next chapter">O înțelegere mai bună a shell-ului →</a>
+  </li>
+</ul><div class="footer" role="contentinfo">
+      &#169; Copyright 2020, USO Team.
+    <br>
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.1.2 with <a href="https://github.com/romnnn/sphinx_press_theme">Press Theme</a>.
+</div>
+            </div>
+          </div>
+      </page>
+    </div>
+    
+    
+  </body>
+</html>

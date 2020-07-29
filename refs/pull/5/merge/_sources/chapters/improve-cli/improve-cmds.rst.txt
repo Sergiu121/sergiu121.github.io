@@ -1,0 +1,183 @@
+#######################################
+O folosire mai bună a comenzilor uzuale
+#######################################
+
+************************************
+1) Inspectarea sistemului de fișiere
+************************************
+
+
+a. Cea mai importantă comandă
+=============================
+
+Comanda ``man``, ``man man``.
+
+* Prezentarea secțiunilor din manual: ``man printf`` vs ``man 3 printf``.
+* Navigarea prin paginile manualului: search (/, ?, n, N), go up (g), go down (G), help (h) în timp ce folosim comanda man pt a afla mai multe despre cum o putem folosi mai bine; bonus: j/k pt navigare jos/sus
+* Prezentarea pachetului ``tldr`` - poate fi util pentru cazurile uzuale, dar nu trebuie să ne fie frică să căutăm în ``man`` pentru detalii
+
+
+b. Comanda ``cd``
+=================
+
+Shortcut-uri pt cd: `cd` echivalent cu `cd ~`, `cd -` pt a sări la calea anterioară.
+
+* Recapitulare căi absolute vs căi relative?
+
+
+c. Comanda ``ls``
+=================
+
+``ls, ls -a, ls -l, ls -ld``
+
+Globbing
+--------
+
+Ce este globbing?
+
+Folosire caractere ``*``, ``?``, [seturi] și {liste,grupuri}, escaping folosind ``“`` ex.
+::
+
+	ls “[USO] file”
+
+
+d. ``find`` și ``locate``
+=========================
+
+``find``
+
+* La ce este util și cum îl folosim
+* Exerciții folosind ``find``: toate fișierele de tip **regular file** (trebuie să folosească ``man find``)
+* Follow-up la exercițiul anterior: rulat comenzi pe fișierele respective
+	* În cazul ăsta vom da un ``ls -l``
+	* Exercițiul ăsta pune o bază. O să folosesc asta pentru a da search&replace recursiv folosind ``find`` și ``sed``
+
+``locate``
+
+* Ce este?
+* Q: De ce îl folosim? A: Mai semnificativ mai rapid decât find
+* Q: Ce dezavantaj are? A: Trebuie reconstruită baza de date periodic
+
+* Takeaway: ``locate`` este probabil sufient pentru majoritatea cazurilor; folosim ``find`` atunci când vrem să căutăm după criterii mai complexe (ex. tipul fișierelor, data creării/ultimei modificări, etc.) sau dacă vrem să rulăm o comandă pe fișierele găsite
+
+
+e. ``file`` și ``touch``
+========================
+
+În contextul ăsta arătăm că touch actualizează data ultimei modificări pentru un fișier existent
+
+
+f. procfs?
+==========
+
+
+*************************
+3) Inspectarea sistemului
+*************************
+
+
+a. ``uname`` și ``lsb_release``
+===============================
+
+* Două cuvinte despre ele
+
+
+a. ``meminfo`` și ``cpuinfo``
+===============================
+
+* Două cuvinte despre ele
+
+
+*************************
+3) Inspectarea fișierelor
+*************************
+
+
+a. Inspectarea rapida a conținutului fișierelor
+===============================================
+
+``cat, head, tail, less, cat | less, view``
+
+* Navigarea în less: ca la man; bonus: reload (:Examine non_existing_file, ex. :e ee)
+* Încurajați să folosească less în loc de cat pt a inspecta un fișier: așa își păstrează consola curată și pot urmări mai ușor ce comenzi au dat și care au fost rezultatele
+
+
+b. Compararea fișierelor
+========================
+
+* ``cmp``
+* ``diff``
+* Bonus: ``vimdiff``
+
+
+c. Căutarea în fișiere
+======================
+
+Opțiuni uzualre pentru ``grep``:
+
+* ``-n``
+* ``-r``
+* ``-i``
+* ``-v``
+
+Expresii regulate uzuale: ``.``, ``+``, ``?``, ``*``, ``[seturi]``, ``|``
+
+* Utilizare ``grep -e`` sau ``egrep``
+
+
+*************************
+4) Prelucrarea fișierelor 
+*************************
+
+
+a. Crearea și ștergerea fișierelor
+==================================
+
+* ``touch``, ``echo > file``, ``mkdir -p``
+* ``rm``
+	* ``-f``
+	* ``-r``
+	* ``rm -r`` vs ``rmdir``
+* ``tar``, ``zip``, ``unzip``
+* ``wget`` și ``curl``
+
+
+b. Prelucrarea datelor
+======================
+
+* ``wc``, ``cut``, ``tr``
+* ``awk``
+* ``sed``
+	* inplace replacement ``-i -e``
+	* search & replace recursiv cu ``find --exec sed -i -e ...``
+
+
+Exerciții
+---------
+
+1. Avem două fișiere care conțin informații pe coloane. Să se unească cele două fișiere, într-unul singur, păstrându-se structura pe coloane.
+
+#. Se dă un fișier text, în format csv, cu informații despre persoane (nume, prenume, adresă, etc.) Extras informații despre persoanele din fișier și schimbată ordinea coloanelor. Eliminare leading/trailing/extra whitespaces. Sortare după diferite chei. Eliminare duplicate. Adăugare informații default pentru fiecare intrare (ex. cetățenie, angajator, etc.)
+
+#. Urmărirea evoluției unui proces (ex. ``watch top``)
+	* Consum de memorie, utilizare CPU, utilizare disk (1)
+	* Formatare date: transformare (``cut``, ``tr``, ``awk``, etc.) din snapshots la 2s de informații pe linii, în csv pe coloane
+	* Generare grafice cu informațiile de la (1) folosind ``gnuplot``
+
+
+c. Bune practici pentru editarea fișierelor (reminder)
+======================================================
+
+* Prezentarea conceptului de ``fg`` (foreground) și ``bg`` (background)
+* După ce am editat un fișier îl trimitem în background (nu îl închidem) prin ``ctrl+z``. Verificăm ce ne interesa (ex. Compilăm și rulăm fișierul. Avem o eroare segfault). Folosim ``fg`` pentru a aduce în foreground fișierul text și reluăm editatul. Acum avem avantajul că isoricul modificărilor nu s-a pierdut, ex. putem da undo
+* Dacă edităm mai multe fișiere în paralel, folosim comanda jobs pt a vedea fișierele deschise în background și un index asociat. Folosim ``fg #index`` pentru a aduce în prim plan fișierul indicat de indexul respectiv
+* Bonus: pentru cei care vor să învețe ``vim`` -> comanda ``vimtutor``
+	* Prezentarea conceptului de plugin de snippets: ex. ``Ultisnips`` pt ``vim``
+
+
+d. Rularea comenzilor cu privilegii elevate
+===========================================
+
+* ``su`` și ``sudo``
+	* Verificat mesajul de eroare al comenzilor. Nu trebuie dat cu ``sudo`` atunci când apare o eroare
+	* Aici aș pune mai mult accent pe faptul că nu vrei să stai logat ca root (faci o greșeală ca zeu și ai stricat tot sistemu) și nu arunci cu sudo la orice eroare pe care o primești de la o comandă
