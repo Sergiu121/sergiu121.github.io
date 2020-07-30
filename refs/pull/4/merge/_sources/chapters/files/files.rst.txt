@@ -35,8 +35,7 @@ folosim comanda ``ls``. Putem învăța mai multe detalii despre comandă uitân
 manual ``man ls``. Pentru a vedea mai multe informații despre fișiere și directoare
 putem folosi opțiunea *-l* în felul următor: ``ls -l``.
 
-.. code-block:: bash
-    :linenos
+.. code-block::
 
     PERMISSIONS  L USER  GROUP  SIZE    DATE      NAME
     drwxrwxr-x+ 46 root  admin  1472 Jul 23 22:46 Applications
@@ -63,11 +62,12 @@ director (**d**), fișier (**-**) sau legături (**l**). Vom discuta despre leg�
 capitol ulterior.
 **Legături:** Numărul de legături către acest fișier/director. Vom detalia într-un capitol
 ulterior.
-**USER:** Utilizatorul ce deține acest fișier/director.
-**GROUP:** Grupul ce deține acest fisier/director.
-**SIZE:** Dimensiunea fișierului/directorului.
-**DATE:** Data la care a fost creat/modificat.
-**NAME:** Numele fișierului/directorului
+
+* **USER:** Utilizatorul ce deține acest fișier/director.
+* **GROUP:** Grupul ce deține acest fisier/director.
+* **SIZE:** Dimensiunea fișierului/directorului.
+* **DATE:** Data la care a fost creat/modificat.
+* **NAME:** Numele fișierului/directorului
 
 
 **Exercițiu:** Afișați conținutul directorului curent folosind opțiunea **-l**.
@@ -112,6 +112,7 @@ g) Redenumirea fișierelor și directoarelor
 Fișierele și directoarele se redenumesc în mod similar, folosind comanda ``mv``
 astfel: ``mv nume_actual nume_nou``. Putem învăța mai multe detalii despre comandă
 uitându-ne în manual ``man mv``.
+
 Un alt rol al comenzii ``mv`` este de a muta fișierele și directoarele, în ierarhia
 de fișiere, dintr-un loc în altul. Exemplu ``mv cale_actuală cale_nouă``. Putem
 folosi atât căi relative cât și căi absolute.
@@ -140,7 +141,7 @@ i) Afișarea metadatelor unui fișier
 
 Pentru a afla informații suplimentare despre fișiere, putem folosi comanda ``stat``.
 Putem învăța mai multe detalii despre comandă uitându-ne în manual: ``man stat``.
-TODO: interpretat output
+**TODO: interpretat output**
 
 Pentru a vedea tipul de fișier putem folosi comanda ``file``. Putem învăța mai multe
 detalii despre comandă uitându-ne în manual: ``man file``.
@@ -155,8 +156,7 @@ multe tipuri: citibile, binare, imagini, arhive, etc. Pentru a afla tipul fișie
 folosim comanda ``file``. Putem învăța mai multe detalii despre comandă uitându-ne
 în manual ``man file``. 
 
-.. code-block:: bash
-    :linenos
+.. code-block::
 
     $ file Picture.png
     Picture.png: PNG image data, 742 x 320, 8-bit/color RGBA, non-interlaced
@@ -169,8 +169,7 @@ folosim comanda ``file``. Putem învăța mai multe detalii despre comandă uit�
 ######################
 
 Fișierele sunt dispuse într-o formă arborescentă, ierarhică:
-.. code-block:: bash
-    :linenos
+.. code-block::
 
     $ tree
     .
@@ -206,13 +205,14 @@ Fișierele sunt dispuse într-o formă arborescentă, ierarhică:
 Putem vedea că directorul curent **chapter** include 2 directoare **files** și **net**.
 Directorul **files** conține 6 fișiere, iar directorul **net** conține 4 fișiere și un
 director **img** care conține la rândul său un fișier.
+
 Pentru a vedea fișierele sub formă arborescentă, folosim comanda ``tree``. Putem învăța
 mai multe detalii despre comandă uitându-ne în manual: ``man tree``.
 
 **Exercițiu:** Afișați ierarhia de fișiere pornind de la directorul vostru home (~).
 **Exercițiu:** Creați următoarea ierarhie pornind de la directorul home:
-.. code-block:: bash
-    :linenos
+
+.. code-block::
 
     .
     ├── prime video
@@ -245,14 +245,14 @@ unui director care nu este gol. Confirmați ștergerea prin afișarea directorul
 **Exercițiu:** Creați ierarhia de directoare de mai jos. Căutați parametrul necesar pentru
 ``mkdir`` pentru a crea toată ierarhia **dintr-o singură executare a comenzii**:
 
-.. code-block:: bash
-    :linenos
+.. code-block::
 
     .
     └─── Cale
         └─── Lungă
              └─── De
                   └─── Directoare
+
 **Exercițiu:** Mutați ierarhia copiată anterior în **/tmp** în directorul **Directoare**.
 
 3) Legaturi
@@ -262,14 +262,16 @@ O legătură este o scurtătură către un fișier sau un director. Mai multe le
 același director/fișier.
 
 Există 2 tipuri de legături:
+
 * Legături simbolice (soft links)
 * Legături strânse (hard links)
 
 
 a) Legături simbolice (Soft Links)
-*********************
+**********************************
 
-Caracteristici:
+**Caracteristici:**
+
 * Similar *Shortcut* din Windows;
 * Orice modificare în fisierul țintă, se vede și în fișierul legătură;
 * Este o legătură către numele fișierului și nu către conținut;
@@ -278,13 +280,18 @@ Caracteristici:
 
 Putem crea legături simbolice folosin comanda ``ln -s fișier_țintă legătură``.
 
-b) Legături strânse (Hard Links)
-*******************
+**Exercițiu:** Creați o legătură simbolică către directorul *Netflix*. Verificați crearea legăturii prin afișarea conținutului directorului părinte.
+**Exercițiu:** Afișați conținutul legăturii.
+**Exercițiu:** Ștergeți directorul  *Netflix*. Afișați conținutul legăturii.
 
-Caracteristici:
+
+b) Legături strânse (Hard Links)
+********************************
+
+**Caracteristici:**
+
 * Rămân legate indiferent dacă fișierul țintă este mutat sau redenumit;
-* Chiar dacă fișierul inițial este șters, legătura conține datele fișierului
-  țintă;
+* Chiar dacă fișierul inițial este șters, legătura conține datele fișierului țintă;
 * Orice modificare în fișierul țintă, se vede și în fișierul legătură.
 * Au conținutul(dimensiunea) fișierului țintă;
 * Nu putem crea legături strânse către directoare.
@@ -294,11 +301,8 @@ Putem crea legături strânse folosind comanda ``ln fișier_țintă legătură``
 
 **Exercițiu:** Creați o legătură strânsă către un fișierul *Modern Family.txt* din ierarhia
 creată. Verificați crearea legăturii prin afișarea conținutului directorului părinte.
-**Exercițiu:** Creați o legătură simbolică către directorul *Netflix*. Verificați crearea
-legăturii prin afișarea conținutului directorului părinte.
-**Exercițiu:** Afișați conținutul legăturilor. 
-**Exercițiu:** Ștergeți fișerul *Modern Family.txt* și directorul  *Netflix*. Afișați
-conținutul legăturilor.
+**Exercițiu:** Afișați conținutul legăturii. 
+**Exercițiu:** Ștergeți fișierul *Modern Family.txt*. Afișați conținutul legăturii.
 
 4) Execuția programelor
 #######################
@@ -310,8 +314,7 @@ sau absolută. Exemplu: ``./executabil`` sau ``/home/student/executabil``.
 vizualizate cu comanda ``env``. În aceste variabile de mediu se află și variabila **PATH**.
 Aceasta conține căi predefinite unde se pun de obicei executabilele. Exemplu:
 
-.. code-block:: bash
-    :linenos
+.. code-block::
 
     $ echo $PATH
     /usr/local/bin:/usr/bin:/bin:/usr/games
@@ -321,7 +324,6 @@ Interpretorul de comenzi încearcă să găsească numele executabilului în ace
 De aceea utilitarele **ls**, **pwd**, **cd**, etc. funcționează. Noi executăm comanda ``ls``,
 iar interpretorul de comenzi caută în aceste căi.
 
-**Exercițiu:** Puneți un executabil creat de voi în **/usr/local/bin**. Executați folosind
-**doar* numele**, nu și calea.
+**Exercițiu:** Puneți un executabil creat de voi în **/usr/local/bin**. Executați folosind **doar numele**, nu și calea.
 
 
