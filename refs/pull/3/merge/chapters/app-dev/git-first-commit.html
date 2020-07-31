@@ -23,8 +23,8 @@
     
   <link rel="index" title="Index" href="../../genindex.html" />
   <link rel="search" title="Search" href="../../search.html" />
-  <link rel="next" title="Noi comiteri" href="git-more-commits.html" />
-  <link rel="prev" title="Introducere în git și Github" href="git-intro.html" />
+  <link rel="next" title="Noi autori ai unui commit" href="git-more-commits.html" />
+  <link rel="prev" title="Introducere în Git și GitHub" href="git-intro.html" />
     <link href="../../_static/my_theme.css" rel="stylesheet" type="text/css">
 
   </head>
@@ -160,7 +160,7 @@
       </p>
       <ul class="current">
         
-          <li class="toctree-l1 "><a href="git-intro.html" class="reference internal ">Introducere în git și Github</a>
+          <li class="toctree-l1 "><a href="git-intro.html" class="reference internal ">Introducere în Git și GitHub</a>
 
             
           </li>
@@ -182,7 +182,7 @@
           </li>
 
         
-          <li class="toctree-l1 "><a href="git-more-commits.html" class="reference internal ">Noi comiteri</a>
+          <li class="toctree-l1 "><a href="git-more-commits.html" class="reference internal ">Noi autori ai unui commit</a>
 
             
           </li>
@@ -206,19 +206,13 @@
           </li>
 
         
-          <li class="toctree-l1 "><a href="make-header.html" class="reference internal ">Compilarea unui cod sursă C cu fișier header asociat</a>
+          <li class="toctree-l1 "><a href="make-lib.html" class="reference internal ">Legarea executabilelor folosind biblioteci externe</a>
 
             
           </li>
 
         
-          <li class="toctree-l1 "><a href="make-lib.html" class="reference internal ">Legarea executabilelor la biblioteci externe</a>
-
-            
-          </li>
-
-        
-          <li class="toctree-l1 "><a href="make-debug.html" class="reference internal ">Folosirea macro-ului DEBUG în C pentru depanare</a>
+          <li class="toctree-l1 "><a href="make-debug.html" class="reference internal ">Depanare condițională / configurabilă</a>
 
             
           </li>
@@ -236,7 +230,7 @@
           </li>
 
         
-          <li class="toctree-l1 "><a href="make-contribute.html" class="reference internal ">Contribuirea la un proiect deja existent</a>
+          <li class="toctree-l1 "><a href="make-contribute.html" class="reference internal ">Contribuirea la un proiect de pe GitHub deja existent</a>
 
             
           </li>
@@ -267,11 +261,11 @@
   <ul class="page-nav">
   <li class="prev">
     <a href="git-intro.html"
-       title="previous chapter">← Introducere în git și Github</a>
+       title="previous chapter">← Introducere în Git și GitHub</a>
   </li>
   <li class="next">
     <a href="git-more-commits.html"
-       title="next chapter">Noi comiteri →</a>
+       title="next chapter">Noi autori ai unui commit →</a>
   </li>
 </ul>
   
@@ -283,34 +277,36 @@
 <h1>Primul commit<a class="headerlink" href="#primul-commit" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="branch-ul-master">
 <h2>1) Branch-ul master<a class="headerlink" href="#branch-ul-master" title="Permalink to this headline">¶</a></h2>
-<p><cite>git branch</cite> + explicat că pot exista mai multe branch-uri simultan</p>
+<p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">branch</span></code> + explicat că pot exista mai multe branch-uri simultan. De adăugat că este best practice să existe câte un branch pentru fiecare feature/bug/fix.</p>
 </div>
 <div class="section" id="adaugarea-unui-readme-si-a-unui-fisier-gitignore">
 <h2>2) Adăugarea unui README și a unui fișier .gitignore<a class="headerlink" href="#adaugarea-unui-readme-si-a-unui-fisier-gitignore" title="Permalink to this headline">¶</a></h2>
-<p>Crearea unui fișier README.md și un .gitignore.</p>
+<p>Crearea unui fișier <code class="docutils literal notranslate"><span class="pre">README.md</span></code> și un <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code>.</p>
 </div>
 <div class="section" id="crearea-primului-commit">
 <h2>3) Crearea primului commit<a class="headerlink" href="#crearea-primului-commit" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="a-verificarea-statusului">
-<h3>a. Verificarea statusului<a class="headerlink" href="#a-verificarea-statusului" title="Permalink to this headline">¶</a></h3>
-<p><cite>git status</cite> + explicații pe output</p>
+<div class="section" id="a-verificarea-starii-clonei">
+<h3>a. Verificarea stării clonei<a class="headerlink" href="#a-verificarea-starii-clonei" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">status</span></code> + explicații pe output</p>
 </div>
 <div class="section" id="b-adaugarea-stage-fisierelor">
 <h3>b. Adăugarea (stage) fișierelor<a class="headerlink" href="#b-adaugarea-stage-fisierelor" title="Permalink to this headline">¶</a></h3>
-<p><cite>git add</cite> + <cite>git status</cite> + explicații pe output</p>
+<p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">add</span></code> + <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">status</span></code> + explicații pe output</p>
 </div>
 <div class="section" id="c-crearea-commitului-local-cu-un-mesaj-corespunzator">
 <h3>c. Crearea commitului local cu un mesaj corespunzător<a class="headerlink" href="#c-crearea-commitului-local-cu-un-mesaj-corespunzator" title="Permalink to this headline">¶</a></h3>
-<p><cite>git pull</cite> + explicații (de ce trebuie să dăm mai întâi pull și după aceea push)
-<cite>git commit -m “bla”</cite> + bune practici pentru a scrie un mesaj de commit bun</p>
+<p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">fetch</span></code> și cum git pull == git fetch + git merge
+<code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">pull</span> <span class="pre">--ff-only</span></code> la bune practici
+<code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">pull</span></code> + explicații (de ce trebuie să dăm mai întâi pull și după aceea push)
+<code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">commit</span> <span class="pre">-m</span> <span class="pre">&quot;bla&quot;</span></code> + bune practici pentru a scrie un mesaj de commit bun</p>
 </div>
 <div class="section" id="d-publicarea-commitului-pe-respository-ul-la-distanta">
 <h3>d. Publicarea commitului pe respository-ul la distanță<a class="headerlink" href="#d-publicarea-commitului-pe-respository-ul-la-distanta" title="Permalink to this headline">¶</a></h3>
-<p><cite>git push</cite> + verificare pe Github că apar schimbările.</p>
+<p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">push</span></code> + verificare pe GitHub că apar schimbările.</p>
 </div>
 <div class="section" id="e-verificarea-istoricului-de-commituri">
 <h3>e. Verificarea istoricului de commituri<a class="headerlink" href="#e-verificarea-istoricului-de-commituri" title="Permalink to this headline">¶</a></h3>
-<p><cite>git log</cite> pentru a vedea toate commit-urile făcute pe acest respository</p>
+<p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">log</span></code> pentru a vedea toate commit-urile făcute pe acest respository</p>
 </div>
 </div>
 </div>
@@ -321,11 +317,11 @@
             <div class="inner"><ul class="page-nav">
   <li class="prev">
     <a href="git-intro.html"
-       title="previous chapter">← Introducere în git și Github</a>
+       title="previous chapter">← Introducere în Git și GitHub</a>
   </li>
   <li class="next">
     <a href="git-more-commits.html"
-       title="next chapter">Noi comiteri →</a>
+       title="next chapter">Noi autori ai unui commit →</a>
   </li>
 </ul><div class="footer" role="contentinfo">
       &#169; Copyright 2020, USO Team.

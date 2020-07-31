@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-      <title>Legarea executabilelor la biblioteci externe</title>
+      <title>Legarea executabilelor folosind biblioteci externe</title>
     
       <link rel="stylesheet" href="../../_static/pygments.css">
       <link rel="stylesheet" href="../../_static/theme.css">
@@ -23,8 +23,8 @@
     
   <link rel="index" title="Index" href="../../genindex.html" />
   <link rel="search" title="Search" href="../../search.html" />
-  <link rel="next" title="Folosirea macro-ului DEBUG în C pentru depanare" href="make-debug.html" />
-  <link rel="prev" title="Compilarea unui cod sursă C cu fișier header asociat" href="make-header.html" />
+  <link rel="next" title="Depanare condițională / configurabilă" href="make-debug.html" />
+  <link rel="prev" title="Compilarea unui cod sursă C simplu" href="make-intro.html" />
     <link href="../../_static/my_theme.css" rel="stylesheet" type="text/css">
 
   </head>
@@ -160,7 +160,7 @@
       </p>
       <ul class="current">
         
-          <li class="toctree-l1 "><a href="git-intro.html" class="reference internal ">Introducere în git și Github</a>
+          <li class="toctree-l1 "><a href="git-intro.html" class="reference internal ">Introducere în Git și GitHub</a>
 
             
           </li>
@@ -172,7 +172,7 @@
           </li>
 
         
-          <li class="toctree-l1 "><a href="git-more-commits.html" class="reference internal ">Noi comiteri</a>
+          <li class="toctree-l1 "><a href="git-more-commits.html" class="reference internal ">Noi autori ai unui commit</a>
 
             
           </li>
@@ -196,13 +196,7 @@
           </li>
 
         
-          <li class="toctree-l1 "><a href="make-header.html" class="reference internal ">Compilarea unui cod sursă C cu fișier header asociat</a>
-
-            
-          </li>
-
-        
-          <li class="toctree-l1 current"><a href="#" class="reference internal current">Legarea executabilelor la biblioteci externe</a>
+          <li class="toctree-l1 current"><a href="#" class="reference internal current">Legarea executabilelor folosind biblioteci externe</a>
 
             
               <ul>
@@ -218,7 +212,7 @@
           </li>
 
         
-          <li class="toctree-l1 "><a href="make-debug.html" class="reference internal ">Folosirea macro-ului DEBUG în C pentru depanare</a>
+          <li class="toctree-l1 "><a href="make-debug.html" class="reference internal ">Depanare condițională / configurabilă</a>
 
             
           </li>
@@ -236,7 +230,7 @@
           </li>
 
         
-          <li class="toctree-l1 "><a href="make-contribute.html" class="reference internal ">Contribuirea la un proiect deja existent</a>
+          <li class="toctree-l1 "><a href="make-contribute.html" class="reference internal ">Contribuirea la un proiect de pe GitHub deja existent</a>
 
             
           </li>
@@ -260,18 +254,18 @@
   <ul class="breadcrumbs">
     <li><a href="../../index.html">Docs</a> &raquo;</li>
     
-    <li>Legarea executabilelor la biblioteci externe</li>
+    <li>Legarea executabilelor folosind biblioteci externe</li>
   </ul>
   
 
   <ul class="page-nav">
   <li class="prev">
-    <a href="make-header.html"
-       title="previous chapter">← Compilarea unui cod sursă C cu fișier header asociat</a>
+    <a href="make-intro.html"
+       title="previous chapter">← Compilarea unui cod sursă C simplu</a>
   </li>
   <li class="next">
     <a href="make-debug.html"
-       title="next chapter">Folosirea macro-ului DEBUG în C pentru depanare →</a>
+       title="next chapter">Depanare condițională / configurabilă →</a>
   </li>
 </ul>
   
@@ -279,8 +273,8 @@
 <hr>
           <div class="content" role="main">
             
-  <div class="section" id="legarea-executabilelor-la-biblioteci-externe">
-<h1>Legarea executabilelor la biblioteci externe<a class="headerlink" href="#legarea-executabilelor-la-biblioteci-externe" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="legarea-executabilelor-folosind-biblioteci-externe">
+<h1>Legarea executabilelor folosind biblioteci externe<a class="headerlink" href="#legarea-executabilelor-folosind-biblioteci-externe" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="inspectarea-fisierelor">
 <h2>1) Inspectarea fișierelor<a class="headerlink" href="#inspectarea-fisierelor" title="Permalink to this headline">¶</a></h2>
 <p>Analiză statică pe codul sursă dat. Trebuie să observe ce headere sunt
@@ -289,7 +283,8 @@ legarea la o bibliotecă externă.</p>
 </div>
 <div class="section" id="compilarea-fisierelor">
 <h2>2) Compilarea fișierelor<a class="headerlink" href="#compilarea-fisierelor" title="Permalink to this headline">¶</a></h2>
-<p>Aici vor avea nevoie să compileze cu -l&lt;lib&gt; pentru a funcționa.</p>
+<p>Aici vor avea nevoie să compileze cu -l&lt;lib&gt; pentru a funcționa.
+Și cu -L &lt;path-to-lib&gt; pentru a-i spune path-ul unde să caute &lt;lib&gt;.</p>
 <div class="section" id="a-instalarea-bibliotecii-necesare-pentru-compilarea-codului">
 <h3>a. Instalarea bibliotecii necesare pentru compilarea codului<a class="headerlink" href="#a-instalarea-bibliotecii-necesare-pentru-compilarea-codului" title="Permalink to this headline">¶</a></h3>
 <p>Lipsește una dintre bibliotecile necesare, trebuie instalată.</p>
@@ -310,12 +305,12 @@ legarea la o bibliotecă externă.</p>
           <div class="page-nav">
             <div class="inner"><ul class="page-nav">
   <li class="prev">
-    <a href="make-header.html"
-       title="previous chapter">← Compilarea unui cod sursă C cu fișier header asociat</a>
+    <a href="make-intro.html"
+       title="previous chapter">← Compilarea unui cod sursă C simplu</a>
   </li>
   <li class="next">
     <a href="make-debug.html"
-       title="next chapter">Folosirea macro-ului DEBUG în C pentru depanare →</a>
+       title="next chapter">Depanare condițională / configurabilă →</a>
   </li>
 </ul><div class="footer" role="contentinfo">
       &#169; Copyright 2020, USO Team.
