@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-      <title>Basic network service usage</title>
+      <title>Aprofundarea folosirii fișierelor Makefile</title>
     
       <link rel="stylesheet" href="../../_static/pygments.css">
       <link rel="stylesheet" href="../../_static/theme.css">
@@ -23,8 +23,8 @@
     
   <link rel="index" title="Index" href="../../genindex.html" />
   <link rel="search" title="Search" href="../../search.html" />
-  <link rel="next" title="Extra networking tasks" href="extra.html" />
-  <link rel="prev" title="Troubleshooting network connections" href="troubleshoot.html" />
+  <link rel="next" title="Contribuirea la un proiect existent pe GitHub" href="make-contribute.html" />
+  <link rel="prev" title="Introducere în utilitarul Make și fișiere Makefile" href="make-simple-automation.html" />
     <link href="../../_static/my_theme.css" rel="stylesheet" type="text/css">
 
   </head>
@@ -44,14 +44,14 @@
   
     <div class="nav-item">
       <a href="../../index.html#uso-lab-book"
-         class="nav-link ">
+         class="nav-link  router-link-active">
          Dezvoltarea aplicațiilor
       </a>
     </div>
   
     <div class="nav-item">
       <a href="../../index.html#uso-lab-book"
-         class="nav-link  router-link-active">
+         class="nav-link ">
          Networking:
       </a>
     </div>
@@ -90,14 +90,14 @@
   
     <div class="nav-item">
       <a href="../../index.html#uso-lab-book"
-         class="nav-link ">
+         class="nav-link  router-link-active">
          Dezvoltarea aplicațiilor
       </a>
     </div>
   
     <div class="nav-item">
       <a href="../../index.html#uso-lab-book"
-         class="nav-link  router-link-active">
+         class="nav-link ">
          Networking:
       </a>
     </div>
@@ -139,81 +139,91 @@
       <p class="caption">
         <span class="caption-text"><a href="../../index.html#uso-lab-book">Dezvoltarea aplicațiilor</a></span>
       </p>
-      <ul class="">
+      <ul class="current">
         
-          <li class="toctree-l1 "><a href="../app-dev/git-intro.html" class="reference internal ">Introducere în Git și GitHub</a>
+          <li class="toctree-l1 "><a href="git-intro.html" class="reference internal ">Introducere în Git și GitHub</a>
 
             
           </li>
 
         
-          <li class="toctree-l1 "><a href="../app-dev/git-first-commit.html" class="reference internal ">Primul commit</a>
+          <li class="toctree-l1 "><a href="git-first-commit.html" class="reference internal ">Primul commit</a>
 
             
           </li>
 
         
-          <li class="toctree-l1 "><a href="../app-dev/git-more-commits.html" class="reference internal ">Crearea unui nou commit</a>
+          <li class="toctree-l1 "><a href="git-more-commits.html" class="reference internal ">Crearea unui nou commit</a>
 
             
           </li>
 
         
-          <li class="toctree-l1 "><a href="../app-dev/git-contribute.html" class="reference internal ">Contribuirea la un alt repository</a>
+          <li class="toctree-l1 "><a href="git-contribute.html" class="reference internal ">Contribuirea la un alt repository</a>
 
             
           </li>
 
         
-          <li class="toctree-l1 "><a href="../app-dev/make-setup.html" class="reference internal ">Pregătirea mediului de lucru</a>
+          <li class="toctree-l1 "><a href="make-setup.html" class="reference internal ">Pregătirea mediului de lucru</a>
 
             
           </li>
 
         
-          <li class="toctree-l1 "><a href="../app-dev/make-intro.html" class="reference internal ">Compilarea unui fișier cod sursă C</a>
+          <li class="toctree-l1 "><a href="make-intro.html" class="reference internal ">Compilarea unui fișier cod sursă C</a>
 
             
           </li>
 
         
-          <li class="toctree-l1 "><a href="../app-dev/make-multiple.html" class="reference internal ">Compilarea unui program din fișiere multiple</a>
+          <li class="toctree-l1 "><a href="make-multiple.html" class="reference internal ">Compilarea unui program din fișiere multiple</a>
 
             
           </li>
 
         
-          <li class="toctree-l1 "><a href="../app-dev/make-lib.html" class="reference internal ">Legarea executabilelor folosind biblioteci externe</a>
+          <li class="toctree-l1 "><a href="make-lib.html" class="reference internal ">Legarea executabilelor folosind biblioteci externe</a>
 
             
           </li>
 
         
-          <li class="toctree-l1 "><a href="../app-dev/make-debug.html" class="reference internal ">Depanare condițională / configurabilă</a>
+          <li class="toctree-l1 "><a href="make-debug.html" class="reference internal ">Depanare condițională / configurabilă</a>
 
             
           </li>
 
         
-          <li class="toctree-l1 "><a href="../app-dev/make-simple-automation.html" class="reference internal ">Introducere în utilitarul Make și fișiere Makefile</a>
+          <li class="toctree-l1 "><a href="make-simple-automation.html" class="reference internal ">Introducere în utilitarul Make și fișiere Makefile</a>
 
             
           </li>
 
         
-          <li class="toctree-l1 "><a href="../app-dev/make-advanced-automation.html" class="reference internal ">Aprofundarea folosirii fișierelor Makefile</a>
+          <li class="toctree-l1 current"><a href="#" class="reference internal current">Aprofundarea folosirii fișierelor Makefile</a>
+
+            
+              <ul>
+                
+                  <li class="toctree-l2"><a href="#adaugarea-dependentelor-pentru-fiecare-regula-existenta" class="reference internal">1) Adăugarea dependențelor pentru fiecare regulă existentă</a></li>
+                
+                  <li class="toctree-l2"><a href="#folosirea-de-variabile-in-fisiere-makefile" class="reference internal">2) Folosirea de variabile în fișiere Makefile</a></li>
+                
+                  <li class="toctree-l2"><a href="#regula-phony" class="reference internal">2) Regula .PHONY</a></li>
+                
+              </ul>
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="make-contribute.html" class="reference internal ">Contribuirea la un proiect existent pe GitHub</a>
 
             
           </li>
 
         
-          <li class="toctree-l1 "><a href="../app-dev/make-contribute.html" class="reference internal ">Contribuirea la un proiect existent pe GitHub</a>
-
-            
-          </li>
-
-        
-          <li class="toctree-l1 "><a href="../app-dev/extra.html" class="reference internal ">Exerciții suplimentare</a>
+          <li class="toctree-l1 "><a href="extra.html" class="reference internal ">Exerciții suplimentare</a>
 
             
           </li>
@@ -226,33 +236,27 @@
       <p class="caption">
         <span class="caption-text"><a href="../../index.html#uso-lab-book">Networking:</a></span>
       </p>
-      <ul class="current">
+      <ul class="">
         
-          <li class="toctree-l1 "><a href="browser.html" class="reference internal ">Efficient browser usage</a>
+          <li class="toctree-l1 "><a href="../net/browser.html" class="reference internal ">Efficient browser usage</a>
 
             
           </li>
 
         
-          <li class="toctree-l1 "><a href="troubleshoot.html" class="reference internal ">Troubleshooting network connections</a>
+          <li class="toctree-l1 "><a href="../net/troubleshoot.html" class="reference internal ">Troubleshooting network connections</a>
 
             
           </li>
 
         
-          <li class="toctree-l1 current"><a href="#" class="reference internal current">Basic network service usage</a>
+          <li class="toctree-l1 "><a href="../net/services.html" class="reference internal ">Basic network service usage</a>
 
-            
-              <ul>
-                
-                  <li class="toctree-l2"><a href="#basic-network-service-usage" class="reference internal">Basic network service usage</a></li>
-                
-              </ul>
             
           </li>
 
         
-          <li class="toctree-l1 "><a href="extra.html" class="reference internal ">Extra networking tasks</a>
+          <li class="toctree-l1 "><a href="../net/extra.html" class="reference internal ">Extra networking tasks</a>
 
             
           </li>
@@ -321,18 +325,18 @@
   <ul class="breadcrumbs">
     <li><a href="../../index.html">Docs</a> &raquo;</li>
     
-    <li>Basic network service usage</li>
+    <li>Aprofundarea folosirii fișierelor Makefile</li>
   </ul>
   
 
   <ul class="page-nav">
   <li class="prev">
-    <a href="troubleshoot.html"
-       title="previous chapter">← Troubleshooting network connections</a>
+    <a href="make-simple-automation.html"
+       title="previous chapter">← Introducere în utilitarul Make și fișiere Makefile</a>
   </li>
   <li class="next">
-    <a href="extra.html"
-       title="next chapter">Extra networking tasks →</a>
+    <a href="make-contribute.html"
+       title="next chapter">Contribuirea la un proiect existent pe GitHub →</a>
   </li>
 </ul>
   
@@ -340,8 +344,40 @@
 <hr>
           <div class="content" role="main">
             
-  <div class="section" id="basic-network-service-usage">
-<h1>Basic network service usage<a class="headerlink" href="#basic-network-service-usage" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="aprofundarea-folosirii-fisierelor-makefile">
+<h1>Aprofundarea folosirii fișierelor Makefile<a class="headerlink" href="#aprofundarea-folosirii-fisierelor-makefile" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="adaugarea-dependentelor-pentru-fiecare-regula-existenta">
+<h2>1) Adăugarea dependențelor pentru fiecare regulă existentă<a class="headerlink" href="#adaugarea-dependentelor-pentru-fiecare-regula-existenta" title="Permalink to this headline">¶</a></h2>
+<p>Adăugarea dependențelor pentru regulile deja existente.</p>
+</div>
+<div class="section" id="folosirea-de-variabile-in-fisiere-makefile">
+<h2>2) Folosirea de variabile în fișiere Makefile<a class="headerlink" href="#folosirea-de-variabile-in-fisiere-makefile" title="Permalink to this headline">¶</a></h2>
+<p>Introducerea variabilelor. De adăugat și ceva despre variabile de debug și specificarea arhitecturii la bonus/best practice</p>
+<div class="section" id="a-variabile-pentru-compilator">
+<h3>a. Variabile pentru compilator<a class="headerlink" href="#a-variabile-pentru-compilator" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="b-variabile-pentru-linker">
+<h3>b. Variabile pentru linker<a class="headerlink" href="#b-variabile-pentru-linker" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="c-modificarea-fisierului-makefile-folosind-variabile">
+<h3>c. Modificarea fișierului Makefile folosind variabile<a class="headerlink" href="#c-modificarea-fisierului-makefile-folosind-variabile" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="d-crearea-unui-nou-commit-cu-schimbarile-facute">
+<h3>d. Crearea unui nou commit cu schimbările făcute<a class="headerlink" href="#d-crearea-unui-nou-commit-cu-schimbarile-facute" title="Permalink to this headline">¶</a></h3>
+</div>
+</div>
+<div class="section" id="regula-phony">
+<h2>2) Regula .PHONY<a class="headerlink" href="#regula-phony" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="a-necesitatea-folosirii-targetului-phony">
+<h3>a. Necesitatea folosirii targetului .PHONY<a class="headerlink" href="#a-necesitatea-folosirii-targetului-phony" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="b-adaugarea-targetului-phony">
+<h3>b. Adăugarea targetului .PHONY<a class="headerlink" href="#b-adaugarea-targetului-phony" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="c-comiterea-schimbarilor-facute">
+<h3>c. Comiterea schimbărilor făcute<a class="headerlink" href="#c-comiterea-schimbarilor-facute" title="Permalink to this headline">¶</a></h3>
+</div>
+</div>
 </div>
 
 
@@ -349,12 +385,12 @@
           <div class="page-nav">
             <div class="inner"><ul class="page-nav">
   <li class="prev">
-    <a href="troubleshoot.html"
-       title="previous chapter">← Troubleshooting network connections</a>
+    <a href="make-simple-automation.html"
+       title="previous chapter">← Introducere în utilitarul Make și fișiere Makefile</a>
   </li>
   <li class="next">
-    <a href="extra.html"
-       title="next chapter">Extra networking tasks →</a>
+    <a href="make-contribute.html"
+       title="next chapter">Contribuirea la un proiect existent pe GitHub →</a>
   </li>
 </ul><div class="footer" role="contentinfo">
       &#169; Copyright 2020, USO Team.
