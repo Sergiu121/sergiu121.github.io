@@ -1,8 +1,8 @@
 Verificarea conectivităţii la reţea
 ===================================
 
-Vom descompune fiecare strat din stiva TCP/IP (implicit, nu le vom spune
-efectiv ce face tot stack-ul) şi le vom arăta cum arată ea la nivelul sistemului
+Vom descompune fiecare nivel din stiva TCP/IP (implicit, nu le vom spune
+efectiv ce face tot stiva) şi le vom arăta cum arată ea la nivelul sistemului
 de operare, respectiv cum se verifică dacă funcţionează corespunzător nivelul
 respectiv.
 
@@ -31,7 +31,7 @@ intrare de interfaţă şi ce înseamnă că o interfaţă este up.
 Îi punem sa dea `ip link set up` şi să vadă ce se schimbă la output-ul lui `ip a
 s` şi să vadă că acum le merge netul.
 
-2) Configurarea nivelului internet
+2) Configurarea nivelului Internet
 ----------------------------------
 
 a. Configurarea unei adrese IP
@@ -42,8 +42,8 @@ interfaţă. Le arătăm comanda `dhclient <interfaţă>` pentru a obţine adres
 le arătăm că pot să dea ping la un calculator, dar nu se pot da ping la anumite
 adrese IP.
 
-b. Configurearea unei rute
-^^^^^^^^^^^^^^^^^^^^^^^^^^
+b. Inspectarea rutelor din sistem
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Le explicăm ce înseamnă o reţea de calculatoare şi de ce nu le merge să iasă din
 reţeaua lor, că nu este setat un default gateway. Îi punem să dea `traceroute`
@@ -64,7 +64,7 @@ d. Verificarea conectivității la un server
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Le vom arăta cum să folosească comanda `ping` pentru a verifica conexiunea cu
-diverse host-uri.
+diverse stații.
 
 Pentru a face troubleshooting facil este necesar să porniţi de la primul nivel
 al stivei de reţea şi să verificaţi folosind comenzile de verificare de mai sus
@@ -80,8 +80,8 @@ configurat temporar din /etc/resolv.conf, pentru a testa alte servere de DNS.
 Le vom arăta cum se foloseşte comanda `dig`, pentru a verifica răspunsurile de
 la diverse DNS-uri, gen Google şi CloudFlare.
 
-3) Configurarea nivelului TCP
------------------------------
+3) Configurarea nivelului transport
+-----------------------------------
 
 a. Conectivitatea folosind porturi
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -96,8 +96,8 @@ b. Pornirea unei aplicaţii care folosește porturi
 Studenţii se vor conecta la portul deschis folosind `netcat`, şi vor scrie la
 tastatura ceva pentru a apărea pe server.
 
-c. Conectarea la porturile unei aplicaţii
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+c. Conectarea TCP la o aplicație
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Vom pune studenţii sa se conecteze la portul 80 al unui site (cum ar fi
 elf.cs.pub.ro) şi să vadă ce apare la terminal. Astfel, le vom explica ca
