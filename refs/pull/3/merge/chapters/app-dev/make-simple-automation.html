@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-      <title>Introducere în utilitarul make și fișiere Makefile</title>
+      <title>Introducere în utilitarul Make și fișiere Makefile</title>
     
       <link rel="stylesheet" href="../../_static/pygments.css">
       <link rel="stylesheet" href="../../_static/theme.css">
@@ -23,7 +23,7 @@
     
   <link rel="index" title="Index" href="../../genindex.html" />
   <link rel="search" title="Search" href="../../search.html" />
-  <link rel="next" title="Aprofundare în utilizarea utilitarului make și fișiere Makefile" href="make-advanced-automation.html" />
+  <link rel="next" title="Aprofundarea folosirii fișierelor Makefile" href="make-advanced-automation.html" />
   <link rel="prev" title="Depanare condițională / configurabilă" href="make-debug.html" />
     <link href="../../_static/my_theme.css" rel="stylesheet" type="text/css">
 
@@ -172,7 +172,7 @@
           </li>
 
         
-          <li class="toctree-l1 "><a href="git-more-commits.html" class="reference internal ">Noi autori ai unui commit</a>
+          <li class="toctree-l1 "><a href="git-more-commits.html" class="reference internal ">Crearea unui nou commit</a>
 
             
           </li>
@@ -184,19 +184,19 @@
           </li>
 
         
-          <li class="toctree-l1 "><a href="make-setup.html" class="reference internal ">Pregătirea spațiului de lucru</a>
+          <li class="toctree-l1 "><a href="make-setup.html" class="reference internal ">Pregătirea mediului de lucru</a>
 
             
           </li>
 
         
-          <li class="toctree-l1 "><a href="make-intro.html" class="reference internal ">Compilarea unui cod sursă C simplu</a>
+          <li class="toctree-l1 "><a href="make-intro.html" class="reference internal ">Compilarea unui fișier cod sursă C</a>
 
             
           </li>
 
         
-          <li class="toctree-l1 "><a href="make-multiple.html" class="reference internal ">Compilarea unui program din surse și fișiere header multiple</a>
+          <li class="toctree-l1 "><a href="make-multiple.html" class="reference internal ">Compilarea unui program din fișiere multiple</a>
 
             
           </li>
@@ -214,25 +214,31 @@
           </li>
 
         
-          <li class="toctree-l1 current"><a href="#" class="reference internal current">Introducere în utilitarul make și fișiere Makefile</a>
+          <li class="toctree-l1 current"><a href="#" class="reference internal current">Introducere în utilitarul Make și fișiere Makefile</a>
 
             
               <ul>
                 
-                  <li class="toctree-l2"><a href="#folosirea-unui-makefile-deja-existenta" class="reference internal">1) Folosirea unui Makefile deja existentă</a></li>
+                  <li class="toctree-l2"><a href="#folosirea-unui-makefile-existenta" class="reference internal">1) Folosirea unui Makefile existentă</a></li>
+                
+                  <li class="toctree-l2"><a href="#crearea-primului-makefile" class="reference internal">2) Crearea primului Makefile</a></li>
+                
+                  <li class="toctree-l2"><a href="#fisiere-makefile-cu-alte-nume" class="reference internal">3) Fișiere Makefile cu alte nume</a></li>
+                
+                  <li class="toctree-l2"><a href="#adaugarea-unor-reguli-de-creare-a-fisierelor-obiect" class="reference internal">4) Adăugarea unor reguli de creare a fișierelor obiect</a></li>
                 
               </ul>
             
           </li>
 
         
-          <li class="toctree-l1 "><a href="make-advanced-automation.html" class="reference internal ">Aprofundare în utilizarea utilitarului make și fișiere Makefile</a>
+          <li class="toctree-l1 "><a href="make-advanced-automation.html" class="reference internal ">Aprofundarea folosirii fișierelor Makefile</a>
 
             
           </li>
 
         
-          <li class="toctree-l1 "><a href="make-contribute.html" class="reference internal ">Contribuirea la un proiect de pe GitHub deja existent</a>
+          <li class="toctree-l1 "><a href="make-contribute.html" class="reference internal ">Contribuirea la un proiect existent pe GitHub</a>
 
             
           </li>
@@ -256,7 +262,7 @@
   <ul class="breadcrumbs">
     <li><a href="../../index.html">Docs</a> &raquo;</li>
     
-    <li>Introducere în utilitarul make și fișiere Makefile</li>
+    <li>Introducere în utilitarul Make și fișiere Makefile</li>
   </ul>
   
 
@@ -267,7 +273,7 @@
   </li>
   <li class="next">
     <a href="make-advanced-automation.html"
-       title="next chapter">Aprofundare în utilizarea utilitarului make și fișiere Makefile →</a>
+       title="next chapter">Aprofundarea folosirii fișierelor Makefile →</a>
   </li>
 </ul>
   
@@ -276,57 +282,57 @@
           <div class="content" role="main">
             
   <div class="section" id="introducere-in-utilitarul-make-si-fisiere-makefile">
-<h1>Introducere în utilitarul make și fișiere Makefile<a class="headerlink" href="#introducere-in-utilitarul-make-si-fisiere-makefile" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="folosirea-unui-makefile-deja-existenta">
-<h2>1) Folosirea unui Makefile deja existentă<a class="headerlink" href="#folosirea-unui-makefile-deja-existenta" title="Permalink to this headline">¶</a></h2>
+<h1>Introducere în utilitarul Make și fișiere Makefile<a class="headerlink" href="#introducere-in-utilitarul-make-si-fisiere-makefile" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="folosirea-unui-makefile-existenta">
+<h2>1) Folosirea unui Makefile existentă<a class="headerlink" href="#folosirea-unui-makefile-existenta" title="Permalink to this headline">¶</a></h2>
 <p>Aici vor avea la dispoziție un director cu cod sursă și Makefile și vor
 rula toate regulile din Makefile, pe rând, și vor observa care este efectul fiecăreia.
 Abia după ce se acomodează cu acest lucru își vor crea propriul Makefile.</p>
+</div>
 <div class="section" id="crearea-primului-makefile">
-<h3>2) Crearea primului Makefile<a class="headerlink" href="#crearea-primului-makefile" title="Permalink to this headline">¶</a></h3>
-<p>Vor crea un Makefile simplu cu regulă de build.</p>
+<h2>2) Crearea primului Makefile<a class="headerlink" href="#crearea-primului-makefile" title="Permalink to this headline">¶</a></h2>
+<p>Vor crea un Makefile simplu.</p>
+<div class="section" id="a-adaugarea-regulii-all">
+<h3>a. Adăugarea regulii all<a class="headerlink" href="#a-adaugarea-regulii-all" title="Permalink to this headline">¶</a></h3>
+<p>Vor adăuga regulă all.</p>
 </div>
-<div class="section" id="adaugarea-regulii-de-run">
-<h3>3) Adăugarea regulii de run<a class="headerlink" href="#adaugarea-regulii-de-run" title="Permalink to this headline">¶</a></h3>
-<p>Vor adăuga regulă de run.</p>
+<div class="section" id="b-adaugarea-regulii-clean">
+<h3>b. Adăugarea regulii clean<a class="headerlink" href="#b-adaugarea-regulii-clean" title="Permalink to this headline">¶</a></h3>
+<p>Vor adăuga regulă clean.</p>
 </div>
-<div class="section" id="adaugarea-regulii-de-clean">
-<h3>4) Adăugarea regulii de clean<a class="headerlink" href="#adaugarea-regulii-de-clean" title="Permalink to this headline">¶</a></h3>
-<p>Vor adăuga regulă de clean.</p>
-</div>
-<div class="section" id="adaugarea-fisierului-makefile-in-repository">
-<h3>5) Adăugarea fișierului Makefile în repository<a class="headerlink" href="#adaugarea-fisierului-makefile-in-repository" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="c-adaugarea-fisierului-makefile-in-repository">
+<h3>c. Adăugarea fișierului Makefile în repository<a class="headerlink" href="#c-adaugarea-fisierului-makefile-in-repository" title="Permalink to this headline">¶</a></h3>
 <p>Vor comite modificările făcute anterior.</p>
 </div>
-<div class="section" id="makefile-uri-cu-nume-speciale">
-<h3>6) Makefile-uri cu nume speciale<a class="headerlink" href="#makefile-uri-cu-nume-speciale" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="fisiere-makefile-cu-alte-nume">
+<h2>3) Fișiere Makefile cu alte nume<a class="headerlink" href="#fisiere-makefile-cu-alte-nume" title="Permalink to this headline">¶</a></h2>
 <p>Aici vor redenumi fișierul Makefile creat anterior și îl vor folosi folosind <cite>make -f</cite>.
 De asemenea vor comite această schimbare.</p>
 </div>
 <div class="section" id="adaugarea-unor-reguli-de-creare-a-fisierelor-obiect">
-<h3>7) Adăugarea unor reguli de creare a fișierelor obiect<a class="headerlink" href="#adaugarea-unor-reguli-de-creare-a-fisierelor-obiect" title="Permalink to this headline">¶</a></h3>
+<h2>4) Adăugarea unor reguli de creare a fișierelor obiect<a class="headerlink" href="#adaugarea-unor-reguli-de-creare-a-fisierelor-obiect" title="Permalink to this headline">¶</a></h2>
 <p>Vor adăuga câte o regulă pentru fiecare fișier cod sursă pentru a-l compila până la modul obiect.</p>
-</div>
 <div class="section" id="modificarea-regulii-de-creare-a-executabilului">
-<h3>8) Modificarea regulii de creare a executabilului<a class="headerlink" href="#modificarea-regulii-de-creare-a-executabilului" title="Permalink to this headline">¶</a></h3>
+<h3>5) Modificarea regulii de creare a executabilului<a class="headerlink" href="#modificarea-regulii-de-creare-a-executabilului" title="Permalink to this headline">¶</a></h3>
 <p>Vor modifica regula existentă astfel încât executabilul final să fie
 obținut din module obiect.</p>
 </div>
-<div class="section" id="modificarea-regulii-de-clean">
-<h3>9) Modificarea regulii de clean<a class="headerlink" href="#modificarea-regulii-de-clean" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="modificarea-regulii-clean">
+<h3>6) Modificarea regulii clean<a class="headerlink" href="#modificarea-regulii-clean" title="Permalink to this headline">¶</a></h3>
 <p>Vor adăuga fișierele obiect la regula clean.</p>
 </div>
 <div class="section" id="testarea-fisierului-makefile">
-<h3>10) Testarea fișierului Makefile<a class="headerlink" href="#testarea-fisierului-makefile" title="Permalink to this headline">¶</a></h3>
+<h3>7) Testarea fișierului Makefile<a class="headerlink" href="#testarea-fisierului-makefile" title="Permalink to this headline">¶</a></h3>
 <p>Vor testa toate regulile și vor observa încă de aici că fișierele se recompilează
 la fiecare rulare a regulii indiferent dacă fișierul obținut a fost modificat sau nu.</p>
 </div>
-<div class="section" id="comiterea-modificarilor-facute">
-<h3>11) Comiterea modificărilor făcute<a class="headerlink" href="#comiterea-modificarilor-facute" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="crearea-unui-nou-commit-cu-modificarilor-facute">
+<h3>8) Crearea unui nou commit cu modificărilor făcute<a class="headerlink" href="#crearea-unui-nou-commit-cu-modificarilor-facute" title="Permalink to this headline">¶</a></h3>
 <p>Vor comite modificările aduse asupra fișierului Makefile.</p>
 </div>
 <div class="section" id="wildcards">
-<h3>12) Wildcards<a class="headerlink" href="#wildcards" title="Permalink to this headline">¶</a></h3>
+<h3>9) Wildcards<a class="headerlink" href="#wildcards" title="Permalink to this headline">¶</a></h3>
 <p>Acum că ați înțeles importanța compilării separate, cum am proceda
 pentru un proiect care are sute de fișiere sursă? Goto wildcards.</p>
 </div>
@@ -343,7 +349,7 @@ pentru un proiect care are sute de fișiere sursă? Goto wildcards.</p>
   </li>
   <li class="next">
     <a href="make-advanced-automation.html"
-       title="next chapter">Aprofundare în utilizarea utilitarului make și fișiere Makefile →</a>
+       title="next chapter">Aprofundarea folosirii fișierelor Makefile →</a>
   </li>
 </ul><div class="footer" role="contentinfo">
       &#169; Copyright 2020, USO Team.
