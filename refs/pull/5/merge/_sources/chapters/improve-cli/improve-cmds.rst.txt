@@ -1,14 +1,9 @@
-#######################################
-O folosire mai bună a comenzilor uzuale
-#######################################
-
-************************************
 1) Inspectarea sistemului de fișiere
-************************************
+====================================
 
 
 a. Cea mai importantă comandă
-=============================
+-----------------------------
 
 Comanda ``man``, ``man man``.
 
@@ -18,7 +13,7 @@ Comanda ``man``, ``man man``.
 
 
 b. Comanda ``cd``
-=================
+-----------------
 
 Shortcut-uri pt cd: `cd` echivalent cu `cd ~`, `cd -` pt a sări la calea anterioară.
 
@@ -26,12 +21,12 @@ Shortcut-uri pt cd: `cd` echivalent cu `cd ~`, `cd -` pt a sări la calea anteri
 
 
 c. Comanda ``ls``
-=================
+-----------------
 
 ``ls, ls -a, ls -l, ls -ld``
 
 Globbing
---------
+^^^^^^^^
 
 Ce este globbing?
 
@@ -42,7 +37,7 @@ Folosire caractere ``*``, ``?``, [seturi] și {liste,grupuri}, escaping folosind
 
 
 d. ``find`` și ``locate``
-=========================
+-------------------------
 
 ``find``
 
@@ -62,39 +57,37 @@ d. ``find`` și ``locate``
 
 
 e. ``file`` și ``touch``
-========================
+------------------------
 
 În contextul ăsta arătăm că touch actualizează data ultimei modificări pentru un fișier existent
 
 
-f. procfs?
-==========
+f. Bonus: procfs
+----------------
 
 
-*************************
 2) Inspectarea sistemului
-*************************
+=========================
 
 
 a. ``uname`` și ``lsb_release``
-===============================
+-------------------------------
 
 * Două cuvinte despre ele
 
 
 a. ``meminfo`` și ``cpuinfo``
-===============================
+-----------------------------
 
 * Două cuvinte despre ele
 
 
-*************************
 3) Inspectarea fișierelor
-*************************
+=========================
 
 
 a. Inspectarea rapida a conținutului fișierelor
-===============================================
+-----------------------------------------------
 
 ``cat, head, tail, less, cat | less, view``
 
@@ -103,7 +96,7 @@ a. Inspectarea rapida a conținutului fișierelor
 
 
 b. Compararea fișierelor
-========================
+------------------------
 
 * ``cmp``
 * ``diff``
@@ -111,7 +104,7 @@ b. Compararea fișierelor
 
 
 c. Căutarea în fișiere
-======================
+----------------------
 
 Opțiuni uzualre pentru ``grep``:
 
@@ -125,13 +118,12 @@ Expresii regulate uzuale: ``.``, ``+``, ``?``, ``*``, ``[seturi]``, ``|``
 * Utilizare ``grep -e`` sau ``egrep``
 
 
-*************************
 4) Prelucrarea fișierelor 
-*************************
+=========================
 
 
 a. Crearea și ștergerea fișierelor
-==================================
+----------------------------------
 
 * ``touch``, ``echo > file``, ``mkdir -p``
 * ``rm``
@@ -143,7 +135,7 @@ a. Crearea și ștergerea fișierelor
 
 
 b. Prelucrarea datelor
-======================
+----------------------
 
 * ``wc``, ``cut``, ``tr``
 * ``awk``
@@ -153,7 +145,7 @@ b. Prelucrarea datelor
 
 
 Exerciții
----------
+^^^^^^^^^
 
 1. Avem două fișiere care conțin informații pe coloane. Să se unească cele două fișiere, într-unul singur, păstrându-se structura pe coloane.
 
@@ -166,7 +158,7 @@ Exerciții
 
 
 c. Bune practici pentru editarea fișierelor (reminder)
-======================================================
+------------------------------------------------------
 
 * Prezentarea conceptului de ``fg`` (foreground) și ``bg`` (background)
 * După ce am editat un fișier îl trimitem în background (nu îl închidem) prin ``ctrl+z``. Verificăm ce ne interesa (ex. Compilăm și rulăm fișierul. Avem o eroare segfault). Folosim ``fg`` pentru a aduce în foreground fișierul text și reluăm editatul. Acum avem avantajul că isoricul modificărilor nu s-a pierdut, ex. putem da undo
@@ -176,7 +168,7 @@ c. Bune practici pentru editarea fișierelor (reminder)
 
 
 d. Rularea comenzilor cu privilegii elevate
-===========================================
+-------------------------------------------
 
 * ``su`` și ``sudo``
 	* Verificat mesajul de eroare al comenzilor. Nu trebuie dat cu ``sudo`` atunci când apare o eroare
