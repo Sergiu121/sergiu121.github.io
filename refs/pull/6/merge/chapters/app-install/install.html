@@ -201,6 +201,8 @@
                 
                   <li class="toctree-l2"><a href="#identificarea-unei-aplicatii-dupa-fisier" class="reference internal">Identificarea unei aplicații după fișier</a></li>
                 
+                  <li class="toctree-l2"><a href="#bune-practici-si-pitfalls" class="reference internal">Bune practici și pitfalls</a></li>
+                
               </ul>
             
           </li>
@@ -274,7 +276,7 @@ inkscape</p>
 <h2>Identificarea unei aplicații de instalat<a class="headerlink" href="#identificarea-unei-aplicatii-de-instalat" title="Permalink to this headline">¶</a></h2>
 <p><strong>breviar</strong>: avem situația în care știm ce aplicație să instalăm sau în care avem un use case</p>
 <p><strong>breviar</strong>: în general căutăm după aplicație sau după un șir</p>
-<p><strong>tutorial</strong>: căutăm o aplicați pentru e-book
+<p><strong>tutorial</strong>: căutăm o aplicație pentru e-book
 Internet sau apt search calibre,rezultă calibre</p>
 <p><strong>tutorial</strong>: căutăm un editor de PDF
 apt search pdf | grep -C 2 -i edit, nu ajută, folosim Internet-ul</p>
@@ -291,6 +293,12 @@ folosit ssconvert pentru a converti un fișier .csv la .xls</p>
 <p><strong>exercițiu</strong>: un fișier Makefile conține comanda arm-linux-gnueabihf-gcc pentru a compila un fișier C pe arhitectura ARM
 trebuie instalat pachetul corespunzătoră (găsit cu apt-file sau apt search)</p>
 <p>TODO: dezinstalări</p>
+</div>
+<div class="section" id="bune-practici-si-pitfalls">
+<h2>Bune practici și pitfalls<a class="headerlink" href="#bune-practici-si-pitfalls" title="Permalink to this headline">¶</a></h2>
+<p><strong>tutorial</strong>: putem instala o aplicație <code class="docutils literal notranslate"><span class="pre">apt</span> <span class="pre">install</span> <span class="pre">-y</span></code> și atunci nu mai este nevoie de confirmare, dar …</p>
+<p><strong>breviar</strong>: atunci când instalăm o aplicație este posibil să dezinstalăm alte aplicații; similar, când instalăm o aplicație este posibil să instalăm alte aplicații care ne încarcă foarte mult sistemul (și îl deschide la posibile vulnerabilități); e important să urmărim promptul <code class="docutils literal notranslate"><span class="pre">apt</span></code> / <code class="docutils literal notranslate"><span class="pre">dnf</span></code> și, dacă facem operații critice, să <strong>nu</strong> folosim <code class="docutils literal notranslate"><span class="pre">-y</span></code></p>
+<p><strong>tutorial</strong>: TODO: o aplicație mai accesibilă (nu un server web) care va dezinstala o altă aplicație</p>
 </div>
 </div>
 
