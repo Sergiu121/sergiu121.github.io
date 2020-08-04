@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-      <title>Îmbunătățirea lucrului în linia de comandă</title>
+      <title>Inspectarea fișierelor</title>
     
       <link rel="stylesheet" href="../../_static/pygments.css">
       <link rel="stylesheet" href="../../_static/theme.css">
@@ -23,8 +23,8 @@
     
   <link rel="index" title="Index" href="../../genindex.html" />
   <link rel="search" title="Search" href="../../search.html" />
-  <link rel="next" title="Inspectarea sistemului de fișiere" href="inspect-fs.html" />
-  <link rel="prev" title="Extra networking tasks" href="../net/extra.html" />
+  <link rel="next" title="Prelucrarea fișierelor" href="process-files.html" />
+  <link rel="prev" title="Inspectarea sistemului" href="inspect-sys.html" />
     <link href="../../_static/my_theme.css" rel="stylesheet" type="text/css">
 
   </head>
@@ -160,14 +160,8 @@
       </p>
       <ul class="current">
         
-          <li class="toctree-l1 current"><a href="#" class="reference internal current">Îmbunătățirea lucrului în linia de comandă</a>
+          <li class="toctree-l1 "><a href="improve-terminal.html" class="reference internal ">Îmbunătățirea lucrului în linia de comandă</a>
 
-            
-              <ul>
-                
-                  <li class="toctree-l2"><a href="#a-bune-practici" class="reference internal">a. Bune practici</a></li>
-                
-              </ul>
             
           </li>
 
@@ -184,8 +178,18 @@
           </li>
 
         
-          <li class="toctree-l1 "><a href="inspect-files.html" class="reference internal ">Inspectarea fișierelor</a>
+          <li class="toctree-l1 current"><a href="#" class="reference internal current">Inspectarea fișierelor</a>
 
+            
+              <ul>
+                
+                  <li class="toctree-l2"><a href="#a-inspectarea-rapida-a-continutului-fisierelor" class="reference internal">a. Inspectarea rapida a conținutului fișierelor</a></li>
+                
+                  <li class="toctree-l2"><a href="#b-compararea-fisierelor" class="reference internal">b. Compararea fișierelor</a></li>
+                
+                  <li class="toctree-l2"><a href="#c-cautarea-in-fisiere" class="reference internal">c. Căutarea în fișiere</a></li>
+                
+              </ul>
             
           </li>
 
@@ -220,18 +224,18 @@
   <ul class="breadcrumbs">
     <li><a href="../../index.html">Docs</a> &raquo;</li>
     
-    <li>Îmbunătățirea lucrului în linia de comandă</li>
+    <li>Inspectarea fișierelor</li>
   </ul>
   
 
   <ul class="page-nav">
   <li class="prev">
-    <a href="../net/extra.html"
-       title="previous chapter">← Extra networking tasks</a>
+    <a href="inspect-sys.html"
+       title="previous chapter">← Inspectarea sistemului</a>
   </li>
   <li class="next">
-    <a href="inspect-fs.html"
-       title="next chapter">Inspectarea sistemului de fișiere →</a>
+    <a href="process-files.html"
+       title="next chapter">Prelucrarea fișierelor →</a>
   </li>
 </ul>
   
@@ -239,22 +243,36 @@
 <hr>
           <div class="content" role="main">
             
-  <div class="section" id="imbunatatirea-lucrului-in-linia-de-comanda">
-<h1>Îmbunătățirea lucrului în linia de comandă<a class="headerlink" href="#imbunatatirea-lucrului-in-linia-de-comanda" title="Permalink to this headline">¶</a></h1>
-<p>Exercițiul este mai mult un walkthrough tutorial</p>
+  <div class="section" id="inspectarea-fisierelor">
+<h1>Inspectarea fișierelor<a class="headerlink" href="#inspectarea-fisierelor" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="a-inspectarea-rapida-a-continutului-fisierelor">
+<h2>a. Inspectarea rapida a conținutului fișierelor<a class="headerlink" href="#a-inspectarea-rapida-a-continutului-fisierelor" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">cat,</span> <span class="pre">head,</span> <span class="pre">tail,</span> <span class="pre">less,</span> <span class="pre">cat</span> <span class="pre">|</span> <span class="pre">less,</span> <span class="pre">view</span></code></p>
 <ul class="simple">
-<li><p>Deschidere de terminale noi (ctrl+alt+t), deschidere de taburi noi (ctrl+shift+t)</p></li>
-<li><p>Navigare între taburi (alt+#num)</p></li>
-<li><p>Redimensionare și auto-snap pt ferestre (alt+arrow_keys), poate mutat între workspace-uri?</p></li>
-<li><p>Navigat în interiorul unei comenzi (ctrl+a, ctrl+e, alt+f, alt+b), modificări (ctrl+k, ctrl+u, alt+d) și paste (ctrl+y)</p></li>
-<li><p>History + navigat în istoricul comenzilor: arrow_keys, reverse search (ctrl+r) și ciclat prin ultimul argument al comenzilor anterioare (alt+., !!). Modificat dimensiune istoric</p></li>
+<li><p>Navigarea în less: ca la man; bonus: reload (:Examine non_existing_file, ex. :e ee)</p></li>
+<li><p>Încurajați să folosească less în loc de cat pt a inspecta un fișier: așa își păstrează consola curată și pot urmări mai ușor ce comenzi au dat și care au fost rezultatele</p></li>
 </ul>
-<div class="section" id="a-bune-practici">
-<h2>a. Bune practici<a class="headerlink" href="#a-bune-practici" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="b-compararea-fisierelor">
+<h2>b. Compararea fișierelor<a class="headerlink" href="#b-compararea-fisierelor" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p>Pornirea mai multor instanțe de shell în aceelași terminal. Comanda exit și shortcut-ul ctrl+d</p></li>
-<li><p>Comanda <cite>clear</cite> și alternativa ctrl+l; bonus pt ctrl+l îl putem folosi în timp ce scriem deja o comandă</p></li>
-<li><p>Insistat pe importanța tastei tab și a autocompletion-ului; nu ne face doar mai rapizi, dar putem folosi tab și pt a valida că comanda este validă</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cmp</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">diff</span></code></p></li>
+<li><p>Bonus: <code class="docutils literal notranslate"><span class="pre">vimdiff</span></code></p></li>
+</ul>
+</div>
+<div class="section" id="c-cautarea-in-fisiere">
+<h2>c. Căutarea în fișiere<a class="headerlink" href="#c-cautarea-in-fisiere" title="Permalink to this headline">¶</a></h2>
+<p>Opțiuni uzualre pentru <code class="docutils literal notranslate"><span class="pre">grep</span></code>:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">-n</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-r</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-i</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-v</span></code></p></li>
+</ul>
+<p>Expresii regulate uzuale: <code class="docutils literal notranslate"><span class="pre">.</span></code>, <code class="docutils literal notranslate"><span class="pre">+</span></code>, <code class="docutils literal notranslate"><span class="pre">?</span></code>, <code class="docutils literal notranslate"><span class="pre">*</span></code>, <code class="docutils literal notranslate"><span class="pre">[seturi]</span></code>, <code class="docutils literal notranslate"><span class="pre">|</span></code></p>
+<ul class="simple">
+<li><p>Utilizare <code class="docutils literal notranslate"><span class="pre">grep</span> <span class="pre">-e</span></code> sau <code class="docutils literal notranslate"><span class="pre">egrep</span></code></p></li>
 </ul>
 </div>
 </div>
@@ -264,12 +282,12 @@
           <div class="page-nav">
             <div class="inner"><ul class="page-nav">
   <li class="prev">
-    <a href="../net/extra.html"
-       title="previous chapter">← Extra networking tasks</a>
+    <a href="inspect-sys.html"
+       title="previous chapter">← Inspectarea sistemului</a>
   </li>
   <li class="next">
-    <a href="inspect-fs.html"
-       title="next chapter">Inspectarea sistemului de fișiere →</a>
+    <a href="process-files.html"
+       title="next chapter">Prelucrarea fișierelor →</a>
   </li>
 </ul><div class="footer" role="contentinfo">
       &#169; Copyright 2020, USO Team.
