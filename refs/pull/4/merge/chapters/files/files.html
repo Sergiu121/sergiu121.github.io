@@ -341,7 +341,7 @@
                 
                   <li class="toctree-l2"><a href="#ierarhie-de-fisiere" class="reference internal">2) Ierarhie de fișiere</a></li>
                 
-                  <li class="toctree-l2"><a href="#legaturi" class="reference internal">3) Legături</a></li>
+                  <li class="toctree-l2"><a href="#legaturi-links" class="reference internal">3) Legături (Links)</a></li>
                 
                   <li class="toctree-l2"><a href="#executia-programelor" class="reference internal">4) Execuția programelor</a></li>
                 
@@ -453,21 +453,18 @@ lrwxr-xr-x@  1 root  admin    11 Nov 26  2019 var -&gt; private/var
 </pre></div>
 </div>
 <p>Mai sus avem afișarea comenzii <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-l</span></code>. Avem fiecare fișier sau director pe
-câte o linie. Semnificația coloanelor este:
-* <strong>Tipul fișierului:</strong> Primul caracter specifică dacă este un director (<strong>d</strong>),</p>
-<blockquote>
-<div><p>fișier (<strong>-</strong>) sau legături (<strong>l</strong>). Vom discuta despre legături într-un capitol ulterior.</p>
-</div></blockquote>
+câte o linie. Semnificația coloanelor este:</p>
 <ul class="simple">
+<li><p><strong>Tipul fișierului:</strong> Primul caracter specifică dacă este un director (<strong>d</strong>), fișier (<strong>-</strong>) sau legătură (<strong>l</strong>).
+Vom discuta despre legături într-un capitol ulterior.</p></li>
 <li><p><strong>Permisiuni:</strong> avem 2 tipuri de informații:</p></li>
-<li><p><strong>Legături:</strong> Numărul de legături către acest fișier/director. Vom detalia într-un capitol</p></li>
+<li><p><strong>Legături:</strong> Numărul de legături către acest fișier/director. Vom detalia într-un capitol ulterior.</p></li>
+<li><p><strong>USER:</strong> Utilizatorul care deține acest fișier/director.</p></li>
+<li><p><strong>GROUP:</strong> Grupul ce deține acest fisier/director.</p></li>
+<li><p><strong>SIZE:</strong> Dimensiunea fișierului/directorului.</p></li>
+<li><p><strong>DATE:</strong> Data la care a fost creat/modificat.</p></li>
+<li><p><strong>NAME:</strong> Numele fișierului/directorului</p></li>
 </ul>
-<p>ulterior.
-* <strong>USER:</strong> Utilizatorul care deține acest fișier/director.
-* <strong>GROUP:</strong> Grupul ce deține acest fisier/director.
-* <strong>SIZE:</strong> Dimensiunea fișierului/directorului.
-* <strong>DATE:</strong> Data la care a fost creat/modificat.
-* <strong>NAME:</strong> Numele fișierului/directorului</p>
 <p><strong>Exercițiu:</strong> Afișați conținutul directorului curent folosind opțiunea <strong>-l</strong>.</p>
 <p><strong>Exercițiu:</strong> Creați fișierul cu numele <em>Ioana Popescu</em>.
 Afișați conținutul directorului.
@@ -516,7 +513,7 @@ Redenumiți apoi în <em>Maria.pdf</em> și afișați conținutul. Redenumiți a
 și afișați conținutul. Ce observați?</p>
 </div>
 <div class="section" id="h-fisiere-si-directoare-ascunse">
-<h3>h) Fișiere și Directoare ascunse<a class="headerlink" href="#h-fisiere-si-directoare-ascunse" title="Permalink to this headline">¶</a></h3>
+<h3>h) Fișiere și directoare ascunse<a class="headerlink" href="#h-fisiere-si-directoare-ascunse" title="Permalink to this headline">¶</a></h3>
 <p>Un fișier sau director este ascuns atunci când nu apare în mod normal în ierarhia de fișiere.
 Pentru a vedea un fișier ascuns se folosește opțiunea <strong>-a</strong> a utilitarului ls, astfel: <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-a</span></code>.
 Pentru a crea un fișier/director ascuns în Linux, acesta trebuie să înceapă cu caracterul <em>.</em>: <code class="docutils literal notranslate"><span class="pre">touch</span> <span class="pre">**.**fisier_ascuns</span></code> sau <code class="docutils literal notranslate"><span class="pre">mkdir</span> <span class="pre">**.**director_ascuns</span></code>.</p>
@@ -633,8 +630,8 @@ unui director care nu este gol. Confirmați ștergerea prin afișarea directorul
 </div>
 <p><strong>Exercițiu:</strong> Mutați ierarhia copiată anterior în <strong>/tmp</strong> în directorul <strong>Directoare</strong>.</p>
 </div>
-<div class="section" id="legaturi">
-<h2>3) Legături<a class="headerlink" href="#legaturi" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="legaturi-links">
+<h2>3) Legături (Links)<a class="headerlink" href="#legaturi-links" title="Permalink to this headline">¶</a></h2>
 <p>O legătură este o scurtătură către un fișier sau un director. Mai multe legături pot referi
 același director/fișier.</p>
 <p>Există 2 tipuri de legături:</p>
