@@ -294,9 +294,15 @@
             
               <ul>
                 
-                  <li class="toctree-l2"><a href="#pornirea-aplicatiilor-grafice" class="reference internal">1. Pornirea aplicațiilor grafice</a></li>
+                  <li class="toctree-l2"><a href="#pornirea-si-oprirea-aplicatiilor-grafice" class="reference internal">1. Pornirea și oprirea aplicațiilor grafice</a></li>
                 
-                  <li class="toctree-l2"><a href="#pornirea-aplicatiilor-in-linia-de-comanda" class="reference internal">Pornirea aplicațiilor în linia de comandă</a></li>
+                  <li class="toctree-l2"><a href="#pornirea-aplicatiilor-in-linia-de-comanda" class="reference internal">2. Pornirea aplicațiilor în linia de comandă</a></li>
+                
+                  <li class="toctree-l2"><a href="#aplicatii-executabile-si-procese" class="reference internal">3. Aplicații, executabile și procese</a></li>
+                
+                  <li class="toctree-l2"><a href="#d-sumar-aplicatii-executabile-procese" class="reference internal">d. Sumar: Aplicații, executabile, procese</a></li>
+                
+                  <li class="toctree-l2"><a href="#scenarii-avansate" class="reference internal">4. Scenarii avansate</a></li>
                 
               </ul>
             
@@ -494,8 +500,8 @@ De exemplu sistemul pornește un client DHCP pentru a obține automat parametrii
 <p>Utilizatorul poate porni aplicațiile folosind interfața grafică (<em>Graphical User Interface</em>, GUI) sau interfața în linia de comandă (<em>Command Line Interface</em>, CLI).
 În cazul interfeței grafice pornirea se face folosind elementele grafice (mouse, meniuri, iconuri de desktop).
 În cazul interfeței în linia de comandă pornirea se face introducând și rulând comenzi.</p>
-<div class="section" id="pornirea-aplicatiilor-grafice">
-<h2>1. Pornirea aplicațiilor grafice<a class="headerlink" href="#pornirea-aplicatiilor-grafice" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="pornirea-si-oprirea-aplicatiilor-grafice">
+<h2>1. Pornirea și oprirea aplicațiilor grafice<a class="headerlink" href="#pornirea-si-oprirea-aplicatiilor-grafice" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="a-pornirea-unei-aplicatii-grafice-folosind-iconuri">
 <h3>a. Pornirea unei aplicații grafice folosind iconuri<a class="headerlink" href="#a-pornirea-unei-aplicatii-grafice-folosind-iconuri" title="Permalink to this headline">¶</a></h3>
 <p>Cel mai simplu mod de a porni o aplicație grafică este folosind iconuri.
@@ -595,74 +601,8 @@ Porniți utilitarul <code class="docutils literal notranslate"><span class="pre"
 Acest lucru se întâmplă pentru că linia de comandă înseamnă existența unui terminal unde putem vizualiza mesajele.</p>
 </div>
 </div>
-<div class="section" id="e-identificarea-fisierului-executabil-al-unei-aplicatii">
-<h3>e. Identificarea fișierului executabil al unei aplicații<a class="headerlink" href="#e-identificarea-fisierului-executabil-al-unei-aplicatii" title="Permalink to this headline">¶</a></h3>
-<p>Pornirea unei aplicații înseamnă că se alocă resursele sistemului (procesor, memorie, dispozitive de intrare/ieșire) pentru a rula aplicația.
-Aplicația are asociat un fișier care conține codul (instrucțiunile) și datele aplicației.
-Codul aplicației este executat, de aceea acest fișier se numește fișier executabil.
-Acest fișier executabil este încărcat în memoria sistemului și codul este executat; din acest moment spunem că aplicația <strong>rulează</strong>.</p>
-<p>De exemplu aplicația Firefox (browser web) are asociat fișierul executabil <code class="docutils literal notranslate"><span class="pre">/usr/bin/firefox</span></code>; aplicația Vim (editor) are asociat fișierul executabil <code class="docutils literal notranslate"><span class="pre">/usr/bin/vim</span></code>; aplicația LibreOffice (suită office) are asociat fișierul executabil <code class="docutils literal notranslate"><span class="pre">/usr/bin/libreoffice</span></code>.
-Putem identifica fișierul executabil al unei aplicații folosind comanda <code class="docutils literal notranslate"><span class="pre">which</span></code> urmată de comanda pentru pornirea aplicației ca mai jos:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ which firefox
-/usr/bin/firefox
-student@uso:~$ which vim
-/usr/bin/vim
-student@uso:~$ which libreoffice
-/usr/bin/libreoffice
-</pre></div>
-</div>
-</div>
-<div class="section" id="f-vizualizarea-proceselor">
-<h3>f. Vizualizarea proceselor<a class="headerlink" href="#f-vizualizarea-proceselor" title="Permalink to this headline">¶</a></h3>
-<p>O aplicația care rulează, adică folosește resursele sistemului pentru a executa cod și a prelucra date, se numește <strong>proces</strong>.
-Atunci când pornim o aplicație se creează un proces; atunci când oprim aplicația sau își încheie execuția ne referim la încheierea execuției procesului.</p>
-<p>Putem vizualiza aplicațiile care rulează (procesele) în mediul grafic folosind, în mediul GNOME, aplicația <strong>GNOME System Monitor</strong> <a class="footnote-reference brackets" href="#taskmanager" id="id1">1</a>.
-Pornim aplicația folosind <code class="docutils literal notranslate"><span class="pre">Alt+F2</span></code> și comanda <code class="docutils literal notranslate"><span class="pre">gnome-system-monitor</span></code>.
-Procesele sunt afișate în tabul <code class="docutils literal notranslate"><span class="pre">Processes</span></code> al aplicației ca în imaginea de mai jos:</p>
-<img alt="GNOME System Monitor" class="align-center" src="../../_images/system-monitor.png" />
-<p>Pentru a vizualiza procesele în linia de comandă folosim utilitarul <code class="docutils literal notranslate"><span class="pre">ps</span></code> ca mai jos:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ ps
-  PID TTY          TIME CMD
- <span class="m">3370</span> pts/4    <span class="m">00</span>:00:00 bash
- <span class="m">3912</span> pts/4    <span class="m">00</span>:00:00 ps
-student@uso:~$ ps -e
-  PID TTY          TIME CMD
-    <span class="m">1</span> ?        <span class="m">00</span>:00:02 systemd
-    <span class="m">2</span> ?        <span class="m">00</span>:00:00 kthreadd
-    <span class="m">4</span> ?        <span class="m">00</span>:00:00 kworker/0:0H
-    <span class="m">6</span> ?        <span class="m">00</span>:00:00 mm_percpu_wq
-    <span class="m">7</span> ?        <span class="m">00</span>:00:00 ksoftirqd/0
-    <span class="m">8</span> ?        <span class="m">00</span>:00:00 rcu_sched
-<span class="o">[</span>...<span class="o">]</span>
-</pre></div>
-</div>
-<p>Nu detaliem aici rezultatul rulării comenzilor de mai sus.
-Vom afla mai multe despre folosirea <code class="docutils literal notranslate"><span class="pre">ps</span></code> și a altor aplicații de vizualizare a proceselor în <span class="xref std std-ref">app_install_run</span>.</p>
-</div>
-<div class="section" id="g-fazele-utilizarii-unei-aplicatii">
-<h3>g. Fazele utilizării unei aplicații<a class="headerlink" href="#g-fazele-utilizarii-unei-aplicatii" title="Permalink to this headline">¶</a></h3>
-<p>Pentru utilizarea sa, aplicația trece prin două faze.</p>
-<ol class="arabic simple">
-<li><p>Faza pornirii aplicației, adică a încărcării fișierului executabil în memorie și a creării procesului, se numește <em>loading</em> sau <em>load-time</em>.</p></li>
-<li><p>Faza rulării procesului se numește <em>running</em> sau <em>run-time</em>.</p></li>
-</ol>
-<p>În faza de <em>load-time</em> se alocă resursele necesare pentru pornirea procesului, se creează procesul și se pornește execuția sa.
-În termeni de programator, atunci se începe execuția codului programului corespunzător procesului, uzual de la funcția <code class="docutils literal notranslate"><span class="pre">main()</span></code> a acestuia.
-Această faza nu este vizibilă utilizatorului.
-Utilizatorul folosește un icon sau introduce o comandă și apoi vede aplicația pornită ca proces.</p>
-<p>În faza de <em>run-time</em> procesul nou creat folosește resursele sistemului (procesor, memorie, intrare/ieșire) pentru a îndeplini nevoile utilizatorului sau ale sistemului.
-Această fază este cea vizibilă utilizatorului, este faza în care acesta folosește efectiv aplicația.</p>
-<p>Aceste două faze vin în continuarea celor două faze prezentate în capitolul TODO:</p>
-<ul class="simple">
-<li><p>faza compilării (<em>compiling</em>, <em>compile-time</em>) în care codul sursă al programului este compilat în cod obiect</p></li>
-<li><p>faza legării (<em>linking</em>, <em>link-time</em>) în care mai multe fișiere cod obiect sunt legate într-un fișier executabil</p></li>
-</ul>
-<p>Fișierul executabil obținut la finalul fazei de <em>link-time</em> este asociat aplicației și este folosit pentru pornirea procesului.</p>
-<p>Avem, astfel, imaginea completă a creării și rulării unei aplicații, din momentul scrierii codului său sursă până la folosirea sa de utilizator, ca mai jos:</p>
-<img alt="../../_images/ditaa-45c55033eada7c2395964b14e138914d0a9ae230.png" src="../../_images/ditaa-45c55033eada7c2395964b14e138914d0a9ae230.png" />
-</div>
-<div class="section" id="h-exercitii-de-aprofundare">
-<h3>h. Exerciții de aprofundare<a class="headerlink" href="#h-exercitii-de-aprofundare" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="e-exercitii-de-aprofundare">
+<h3>e. Exerciții de aprofundare<a class="headerlink" href="#e-exercitii-de-aprofundare" title="Permalink to this headline">¶</a></h3>
 <p>Porniți aplicațiile:</p>
 <ul class="simple">
 <li><p>Shutter (identificată de șirul <code class="docutils literal notranslate"><span class="pre">shutter</span></code>), aplicație de creare de screenshoturi</p></li>
@@ -678,8 +618,8 @@ Localizați iconul în meniurile interfeței grafice.</p></li>
 <li><p>Folosind interfața în linia de comandă (CLI).</p></li>
 </ol>
 </div>
-<div class="section" id="i-sumar-pornirea-aplicatiilor-grafice">
-<h3>i. Sumar: Pornirea aplicațiilor grafice<a class="headerlink" href="#i-sumar-pornirea-aplicatiilor-grafice" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="f-sumar-pornirea-aplicatiilor-grafice">
+<h3>f. Sumar: Pornirea aplicațiilor grafice<a class="headerlink" href="#f-sumar-pornirea-aplicatiilor-grafice" title="Permalink to this headline">¶</a></h3>
 <p>O aplicație grafică poate fi pornită în 3 moduri:</p>
 <ol class="arabic simple">
 <li><p>Folosind iconuri în interfața grafică.
@@ -693,17 +633,12 @@ La acest prompt se introduce șirul (comanda) care identifică aplicația.</p></
 <li><p>Folosind interfața în linia de comandă.
 La promptul terminalului se introduce șirul (comanda) care identifică aplicația.</p></li>
 </ol>
-<p>O aplicație este pornită dintr-un fișier executabil care conține codul (intrucțiunile) și datele aplicației.
-O aplicație care rulează este numită proces.
-Procesul folosește resursele sistemului (procesor, memorie, intrare/ieșire) pentru a executa codul și pentru a prelucra date specifice aplicației.
-Faza pornirii aplicației, adică a încărcării fișierului executabil în memorie și a creării procesului, se numește <em>loading</em> sau <em>load-time</em>.
-Faza rulării procesului se numește <em>running</em> sau <em>run-time</em>.</p>
 </div>
 </div>
 <div class="section" id="pornirea-aplicatiilor-in-linia-de-comanda">
-<h2>Pornirea aplicațiilor în linia de comandă<a class="headerlink" href="#pornirea-aplicatiilor-in-linia-de-comanda" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="j-mentinerea-accesului-la-terminal">
-<h3>j. Menținerea accesului la terminal<a class="headerlink" href="#j-mentinerea-accesului-la-terminal" title="Permalink to this headline">¶</a></h3>
+<h2>2. Pornirea aplicațiilor în linia de comandă<a class="headerlink" href="#pornirea-aplicatiilor-in-linia-de-comanda" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="a-mentinerea-accesului-la-terminal">
+<h3>a. Menținerea accesului la terminal<a class="headerlink" href="#a-mentinerea-accesului-la-terminal" title="Permalink to this headline">¶</a></h3>
 <p>Atunci când pornim o aplicație grafică din linia de comandă, aplicația “acaparează” terminalul; nu mai putem introduce noi comenzi pentru a porni alte aplicații.
 Putem rezolva acest lucru prin trecerea aplicației grafice în <strong>backgroundul</strong> shellului.
 Adică urmăm pașii:</p>
@@ -733,12 +668,11 @@ Adică urmăm pașii:</p>
 <p>Vom afla mai multe despre background și suspendarea proceselor în <span class="xref std std-ref">app_install_run_signal</span>.</p>
 </div>
 </div>
-<div class="section" id="a-pornirea-aplicatiilor-in-linie-de-comanda">
-<h3>a. Pornirea aplicațiilor în linie de comandă<a class="headerlink" href="#a-pornirea-aplicatiilor-in-linie-de-comanda" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="b-pornirea-aplicatiilor-in-linie-de-comanda">
+<h3>b. Pornirea aplicațiilor în linie de comandă<a class="headerlink" href="#b-pornirea-aplicatiilor-in-linie-de-comanda" title="Permalink to this headline">¶</a></h3>
 <p>Aplicațiile în linie de comandă nu au nevoie de mediu grafic.
 Interacțiunea lor cu utilizatorul se face prin intermediul terminalului: la terminal se introduc informații de la utilizator și tot la terminal se afișează rezultatele rulării aplicațiilor.
-Cel mai adesemea numim aplicațiile în linie de comandă <strong>utilitare</strong>.
-La fel ca în cazul aplicațiilor grafice, la porniree unui utilitar în linia de comandă se creează un proces.</p>
+Cel mai adesemea numim aplicațiile în linie de comandă <strong>utilitare</strong>.</p>
 <p>Pentru a porni aplicații / utilitare în linia de comandă, folosim comenzi care conțin numele utilitarului urmate, eventual, de argumente.
 Astfel, pentru a porni utiltarele <code class="docutils literal notranslate"><span class="pre">ls</span></code> sau <code class="docutils literal notranslate"><span class="pre">ps</span></code> folosim comenzi precum cele de mai jos, simple sau cu argumente:</p>
 <blockquote>
@@ -770,8 +704,8 @@ student   <span class="m">7982</span>  <span class="m">3370</span>  <span class=
 </div>
 </div></blockquote>
 </div>
-<div class="section" id="b-aplicatii-interactive-in-linia-de-comanda">
-<h3>b. Aplicații interactive în linia de comandă<a class="headerlink" href="#b-aplicatii-interactive-in-linia-de-comanda" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="c-aplicatii-interactive-in-linia-de-comanda">
+<h3>c. Aplicații interactive în linia de comandă<a class="headerlink" href="#c-aplicatii-interactive-in-linia-de-comanda" title="Permalink to this headline">¶</a></h3>
 <p>Utilitarele <code class="docutils literal notranslate"><span class="pre">ls</span></code> și <code class="docutils literal notranslate"><span class="pre">ps</span></code> pe care le-am folosit mai sus pornesc, rulează, afișează informații utilizatorului la terminal și apoi se opresc.
 Alte utilitare în linia de comandă sunt interactive.
 Adică folosesc date introduse de utilizator și își încheie execuția doar după introducerea acestor date sau la comanda utilizatorului.</p>
@@ -785,8 +719,8 @@ Pentru a opri utilitarul folosim tasta <code class="docutils literal notranslate
 <p>Porniți în linia de comandă aplicația interactivă <code class="docutils literal notranslate"><span class="pre">vim</span></code> pentru a edita fișierul <code class="docutils literal notranslate"><span class="pre">~/.bashrc</span></code>.
 Opriți aplicația folosind combinația de taste <code class="docutils literal notranslate"><span class="pre">&lt;Esc&gt;:q!</span></code> urmată de <code class="docutils literal notranslate"><span class="pre">Enter</span></code>.</p>
 </div>
-<div class="section" id="c-oprirea-fortata-a-aplicatiilor-in-linia-de-comanda">
-<h3>c. Oprirea forțată a aplicațiilor în linia de comandă<a class="headerlink" href="#c-oprirea-fortata-a-aplicatiilor-in-linia-de-comanda" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="d-oprirea-fortata-a-aplicatiilor-in-linia-de-comanda">
+<h3>d. Oprirea forțată a aplicațiilor în linia de comandă<a class="headerlink" href="#d-oprirea-fortata-a-aplicatiilor-in-linia-de-comanda" title="Permalink to this headline">¶</a></h3>
 <p>Se poate întâmpla ca o aplicație în linia de comandă să ruleze pentru prea mult sau să se blocheze.
 Caz în care dorim să o oprim.
 Soluția de avarie este să închidem fereastra de terminal, lucru care, de obicei, închide și aplicația.
@@ -808,14 +742,106 @@ Vom discuta despre semnale în <span class="xref std std-ref">app_install_run_si
 </div>
 <div class="section" id="oprire-fortata-de-aplicatii">
 <h4>Oprire forțată de aplicații<a class="headerlink" href="#oprire-fortata-de-aplicatii" title="Permalink to this headline">¶</a></h4>
-<p>Folosiți următoarele comenzi care pornesc procese care durează mult și opriți-le forțat:
+<p>Folosiți următoarele comenzi care pornesc aplicații care durează mult și opriți-le forțat:
 * <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-R</span> <span class="pre">/usr</span></code>: pentru a afișa recursiv conținutul directorului <code class="docutils literal notranslate"><span class="pre">/usr</span></code>
 * <code class="docutils literal notranslate"><span class="pre">dd</span> <span class="pre">if=/dev/zero</span> <span class="pre">of=/dev/null</span></code>: pentru a consuma timp de procesor (<em>busy waiting</em>)
 * <code class="docutils literal notranslate"><span class="pre">watch</span> <span class="pre">ps</span></code>: pentru a monitoriza procesele din terminalul curent</p>
 </div>
 </div>
-<div class="section" id="d-studiu-de-caz-emacs-aplicatie-hibrida">
-<h3>d. Studiu de caz: Emacs: Aplicație hibridă<a class="headerlink" href="#d-studiu-de-caz-emacs-aplicatie-hibrida" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="e-sumar-pornirea-aplicatiilor-in-linia-de-comanda">
+<h3>e. Sumar: Pornirea aplicațiilor în linia de comandă<a class="headerlink" href="#e-sumar-pornirea-aplicatiilor-in-linia-de-comanda" title="Permalink to this headline">¶</a></h3>
+<p>Aplicațiile în linia de comandă sunt adesea numite utilitare.
+Un utilitar în linia de comandă este pornit cu ajutorul unei comenzi.
+O comandă este un șir care conține numele utilitarului urmat, dacă este cazul, de argumente.
+Aplicația este pornită când se tastează <code class="docutils literal notranslate"><span class="pre">Enter</span></code> după șirul care reprezintă comanda.</p>
+<p>De multe ori, aplicațiile în linia comandă execută acțiuni, afișează un mesaj în terminal și se opresc.
+Unele aplicații în linia de comandă sunt interactive și trebuie oprite explicit de utilizator folosind comenzi sau combinații de taste interne.
+Dacă o aplicație în linia de comandă se blochează sau durează foarte mult, poate fi oprită folosind combinația de taste <code class="docutils literal notranslate"><span class="pre">Ctrl+c</span></code>.</p>
+<p>O aplicația grafică pornită din terminal va “acapara” terminalul și acesta nu va accepta alte comenzi.
+Pentru acesta putem trece aplicația grafică în background, folosind combinația de taste <code class="docutils literal notranslate"><span class="pre">Ctrl+z</span></code> urmată de comanda <code class="docutils literal notranslate"><span class="pre">bg</span></code>.</p>
+</div>
+</div>
+<div class="section" id="aplicatii-executabile-si-procese">
+<h2>3. Aplicații, executabile și procese<a class="headerlink" href="#aplicatii-executabile-si-procese" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="a-identificarea-fisierului-executabil-al-unei-aplicatii">
+<h3>a. Identificarea fișierului executabil al unei aplicații<a class="headerlink" href="#a-identificarea-fisierului-executabil-al-unei-aplicatii" title="Permalink to this headline">¶</a></h3>
+<p>Pornirea unei aplicații înseamnă că se alocă resursele sistemului (procesor, memorie, dispozitive de intrare/ieșire) pentru a rula aplicația.
+Aplicația are asociat un fișier care conține codul (instrucțiunile) și datele aplicației.
+Codul aplicației este executat, de aceea acest fișier se numește fișier executabil.
+Acest fișier executabil este încărcat în memoria sistemului și codul este executat; din acest moment spunem că aplicația <strong>rulează</strong>.</p>
+<p>De exemplu aplicația Firefox (browser web) are asociat fișierul executabil <code class="docutils literal notranslate"><span class="pre">/usr/bin/firefox</span></code>; aplicația Vim (editor) are asociat fișierul executabil <code class="docutils literal notranslate"><span class="pre">/usr/bin/vim</span></code>; aplicația LibreOffice (suită office) are asociat fișierul executabil <code class="docutils literal notranslate"><span class="pre">/usr/bin/libreoffice</span></code>.
+Putem identifica fișierul executabil al unei aplicații folosind comanda <code class="docutils literal notranslate"><span class="pre">which</span></code> urmată de comanda pentru pornirea aplicației ca mai jos:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ which firefox
+/usr/bin/firefox
+student@uso:~$ which vim
+/usr/bin/vim
+student@uso:~$ which libreoffice
+/usr/bin/libreoffice
+</pre></div>
+</div>
+</div>
+<div class="section" id="b-vizualizarea-proceselor">
+<h3>b. Vizualizarea proceselor<a class="headerlink" href="#b-vizualizarea-proceselor" title="Permalink to this headline">¶</a></h3>
+<p>O aplicația care rulează, adică folosește resursele sistemului pentru a executa cod și a prelucra date, se numește <strong>proces</strong>.
+Atunci când pornim o aplicație se creează un proces; atunci când oprim aplicația sau își încheie execuția ne referim la încheierea execuției procesului.</p>
+<p>Putem vizualiza aplicațiile care rulează (procesele) în mediul grafic folosind, în mediul GNOME, aplicația <strong>GNOME System Monitor</strong> <a class="footnote-reference brackets" href="#taskmanager" id="id1">1</a>.
+Pornim aplicația folosind <code class="docutils literal notranslate"><span class="pre">Alt+F2</span></code> și comanda <code class="docutils literal notranslate"><span class="pre">gnome-system-monitor</span></code>.
+Procesele sunt afișate în tabul <code class="docutils literal notranslate"><span class="pre">Processes</span></code> al aplicației ca în imaginea de mai jos:</p>
+<img alt="GNOME System Monitor" class="align-center" src="../../_images/system-monitor.png" />
+<p>Pentru a vizualiza procesele în linia de comandă folosim utilitarul <code class="docutils literal notranslate"><span class="pre">ps</span></code> ca mai jos:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ ps
+  PID TTY          TIME CMD
+ <span class="m">3370</span> pts/4    <span class="m">00</span>:00:00 bash
+ <span class="m">3912</span> pts/4    <span class="m">00</span>:00:00 ps
+student@uso:~$ ps -e
+  PID TTY          TIME CMD
+    <span class="m">1</span> ?        <span class="m">00</span>:00:02 systemd
+    <span class="m">2</span> ?        <span class="m">00</span>:00:00 kthreadd
+    <span class="m">4</span> ?        <span class="m">00</span>:00:00 kworker/0:0H
+    <span class="m">6</span> ?        <span class="m">00</span>:00:00 mm_percpu_wq
+    <span class="m">7</span> ?        <span class="m">00</span>:00:00 ksoftirqd/0
+    <span class="m">8</span> ?        <span class="m">00</span>:00:00 rcu_sched
+<span class="o">[</span>...<span class="o">]</span>
+</pre></div>
+</div>
+<p>Nu detaliem aici rezultatul rulării comenzilor de mai sus.
+Vom afla mai multe despre folosirea <code class="docutils literal notranslate"><span class="pre">ps</span></code> și a altor aplicații de vizualizare a proceselor în <span class="xref std std-ref">app_install_run</span>.</p>
+</div>
+<div class="section" id="c-fazele-utilizarii-unei-aplicatii">
+<h3>c. Fazele utilizării unei aplicații<a class="headerlink" href="#c-fazele-utilizarii-unei-aplicatii" title="Permalink to this headline">¶</a></h3>
+<p>Pentru utilizarea sa, aplicația trece prin două faze.</p>
+<ol class="arabic simple">
+<li><p>Faza pornirii aplicației, adică a încărcării fișierului executabil în memorie și a creării procesului, se numește <em>loading</em> sau <em>load-time</em>.</p></li>
+<li><p>Faza rulării procesului se numește <em>running</em> sau <em>run-time</em>.</p></li>
+</ol>
+<p>În faza de <em>load-time</em> se alocă resursele necesare pentru pornirea procesului, se creează procesul și se pornește execuția sa.
+În termeni de programator, atunci se începe execuția codului programului corespunzător procesului, uzual de la funcția <code class="docutils literal notranslate"><span class="pre">main()</span></code> a acestuia.
+Această faza nu este vizibilă utilizatorului.
+Utilizatorul folosește un icon sau introduce o comandă și apoi vede aplicația pornită ca proces.</p>
+<p>În faza de <em>run-time</em> procesul nou creat folosește resursele sistemului (procesor, memorie, intrare/ieșire) pentru a îndeplini nevoile utilizatorului sau ale sistemului.
+Această fază este cea vizibilă utilizatorului, este faza în care acesta folosește efectiv aplicația.</p>
+<p>Aceste două faze vin în continuarea celor două faze prezentate în capitolul TODO:</p>
+<ul class="simple">
+<li><p>faza compilării (<em>compiling</em>, <em>compile-time</em>) în care codul sursă al programului este compilat în cod obiect</p></li>
+<li><p>faza legării (<em>linking</em>, <em>link-time</em>) în care mai multe fișiere cod obiect sunt legate într-un fișier executabil</p></li>
+</ul>
+<p>Fișierul executabil obținut la finalul fazei de <em>link-time</em> este asociat aplicației și este folosit pentru pornirea procesului.</p>
+<p>Avem, astfel, imaginea completă a creării și rulării unei aplicații, din momentul scrierii codului său sursă până la folosirea sa de utilizator, ca mai jos:</p>
+<img alt="../../_images/ditaa-45c55033eada7c2395964b14e138914d0a9ae230.png" src="../../_images/ditaa-45c55033eada7c2395964b14e138914d0a9ae230.png" />
+</div>
+</div>
+<div class="section" id="d-sumar-aplicatii-executabile-procese">
+<h2>d. Sumar: Aplicații, executabile, procese<a class="headerlink" href="#d-sumar-aplicatii-executabile-procese" title="Permalink to this headline">¶</a></h2>
+<p>O aplicație este pornită dintr-un fișier executabil care conține codul (intrucțiunile) și datele aplicației.
+O aplicație care rulează este numită proces.
+Procesul folosește resursele sistemului (procesor, memorie, intrare/ieșire) pentru a executa codul și pentru a prelucra date specifice aplicației.
+Faza pornirii aplicației, adică a încărcării fișierului executabil în memorie și a creării procesului, se numește <em>loading</em> sau <em>load-time</em>.
+Faza rulării procesului se numește <em>running</em> sau <em>run-time</em>.</p>
+</div>
+<div class="section" id="scenarii-avansate">
+<h2>4. Scenarii avansate<a class="headerlink" href="#scenarii-avansate" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="a-studiu-de-caz-emacs-aplicatie-hibrida">
+<h3>a. Studiu de caz: Emacs: Aplicație hibridă<a class="headerlink" href="#a-studiu-de-caz-emacs-aplicatie-hibrida" title="Permalink to this headline">¶</a></h3>
 <p>Aplicația Emacs (un editor) poate rula cu interfața grafică și cu interfață în linia de comandă.
 Dacă pornim aplicația Emacs în linia de comandă, folosind comanda <code class="docutils literal notranslate"><span class="pre">emacs</span></code>, se va crea un proces cu interfața grafică, așa cum apare în imaginea de mai jos:</p>
 <img alt="Emacs cu interfața grafică" class="align-center" src="../../_images/emacs-gui.png" />
@@ -826,22 +852,88 @@ Pentru a face acest lucru, folosim comanda <code class="docutils literal notrans
 În interfața grafică poate fi oprită folosind butonul de închidere a ferestrei sau combinația de taste <code class="docutils literal notranslate"><span class="pre">Alt+F4</span></code>.
 În linia de comandă (și în interfața grafică) poate fi oprită folosind combinația de taste specifică pentru oprirea aplicației: <code class="docutils literal notranslate"><span class="pre">Ctrl+x</span></code> urmat de <code class="docutils literal notranslate"><span class="pre">Ctrl+c</span></code>.</p>
 </div>
-<div class="section" id="e-pornirea-aplicatiilor-grafice-in-modul-headless">
-<h3>e. Pornirea aplicațiilor grafice în modul headless<a class="headerlink" href="#e-pornirea-aplicatiilor-grafice-in-modul-headless" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="b-pornirea-aplicatiilor-grafice-in-modul-headless">
+<h3>b. Pornirea aplicațiilor grafice în modul headless<a class="headerlink" href="#b-pornirea-aplicatiilor-grafice-in-modul-headless" title="Permalink to this headline">¶</a></h3>
 <p>Atunci când lucrăm la distanță e posibil să nu avem facil acces la interfață grafică.
 Sau, chiar când lucrăm pe sistemul local, nu vrem să complicăm sau interfața cu o încă o aplicație care rulează cu interfața grafică.
 Dorim să rulăm o aplicație în background fără interfață grafică.
 Nu interacționăm cu aplicația direct, cu butoane, meniuri, clickuri, ci indirect, prin comenzi specializate.
 Anumite aplicații au acest mod, numit mod <em>headless</em>.</p>
-<p><strong>exercițiu</strong>: pornire virtualbox în modul headless</p>
-<p><strong>exercițiu</strong>: pornire deluge în modul headless
-dificultate sporită</p>
+<p>De exemplu, Firefox are modul headless.
+Acest mod nu este util pentru navigarea web, neefiind interactiv.
+Dar este folosit pentru testarea sa automată folosind, de exemplu, <a class="reference external" href="https://www.selenium.dev/">Selenium</a>.</p>
+<p>Pentru pornirea Firefox în modul headless folosim, într-un terminal, comanda:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ firefox -headless
+*** You are running in headless mode.
+</pre></div>
+</div>
+<p>Aplicația Firefox este pornită, fără interfață grafică. Putem vedea existența unui proces Firefox rulând, într-un alt terminal, comanda:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ ps -e <span class="p">|</span> grep firefox
+ <span class="m">9897</span> pts/5    <span class="m">00</span>:00:02 firefox
+</pre></div>
+</div>
+<p>Pentru a opri procesul Firefox pornit în modul headless folosim, în primul terminal, combinația de taste <code class="docutils literal notranslate"><span class="pre">Ctrl+c</span></code>.</p>
+<div class="section" id="folosirea-inkscape-fara-interfata-grafica">
+<h4>Folosirea Inkscape fără interfață grafică<a class="headerlink" href="#folosirea-inkscape-fara-interfata-grafica" title="Permalink to this headline">¶</a></h4>
+<p>Aplicația Inkscape este folosită pentru crearea și editarea de imagini format SVG (<em>Scalable Vector Graphics</em>).
+Inkscape nu are propriu zis un mod headless dar poate fi folosită în mod neinteractiv pentru exportarea fișierelor într-un anumit format și chiar editarea acestora <a class="footnote-reference brackets" href="#inkscape" id="id2">2</a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Aplicația trebuie instalată dacă nu există deja.
+Pe sistemele Debian/Ubuntu folosim comenzi precum cele de mai jos:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ sudo apt update
+student@uso:~$ sudo apt -y install inkscape
+</pre></div>
+</div>
+<p>Vom detalia instalarea aplicații în <span class="xref std std-ref">app_install_install_uninstall</span>.</p>
+</div>
+<p>De exemplu, pentru a converti o imagine SVG în format PDF folosim o comandă precum cea de mai jos:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/uso-lab-book$ inkscape chapters/app-install/support/Tux.svg --export-pdf Tux.pdf
+student@uso:~/uso-lab-book$ file Tux.pdf
+Tux.pdf: PDF document, version <span class="m">1</span>.4
+</pre></div>
+</div>
+<p>În mod similar, pentru a converti o imagine SVG în format PNG folosim o comanda precum cea de mai jos:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/uso-lab-book$ inkscape chapters/app-install/support/Tux.svg --export-png Tux.png
+Background RRGGBBAA: ffffff00
+Area <span class="m">0</span>:0:299.149:354.188 exported to <span class="m">299</span> x <span class="m">354</span> pixels <span class="o">(</span><span class="m">96</span> dpi<span class="o">)</span>
+Bitmap saved as: Tux.png
+student@uso:~/uso-lab-book$ file Tux.png
+Tux.png: PNG image data, <span class="m">299</span> x <span class="m">354</span>, <span class="m">8</span>-bit/color RGBA, non-interlaced
+</pre></div>
+</div>
+</div>
+<div class="section" id="folosirea-emacs-daemon">
+<h4>Folosirea Emacs Daemon<a class="headerlink" href="#folosirea-emacs-daemon" title="Permalink to this headline">¶</a></h4>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Acest exercițiu are dificultate sporită.</p>
+</div>
+<p>Emacs este o aplicație consumatoare de resurse.
+Pentru a reduce timpul de pornire, este ideal să fie pornită o singură dată și apoi să fie folosită acea instanță.
+Pentru a nu încărca interfața grafică, Emacs are o formă de server, numită Emacs Daemon.
+În forma de server, procesul Emacs este pornit dar fără interfață grafică.
+Pentru a folosi Emacs, se folosește o aplicație minimală (<em>lightweight</em>) numită <strong>emacsclient</strong>.</p>
+<p>Realizați următoarele:</p>
+<ol class="arabic simple">
+<li><p>Porniți Emacs Daemon.</p></li>
+<li><p>Verificați folosind <code class="docutils literal notranslate"><span class="pre">ps</span></code> sau GNOME System Monitor că procesul Emacs există.</p></li>
+<li><p>Conectați-vă la Emacs Daemon folosind emacsclient.</p></li>
+<li><p>Deconectați-vă de la Emacs Daemon.</p></li>
+<li><p>Conectați-vă din nou la Emacs Daemon.</p></li>
+<li><p>Opriți Emacs Daemon.</p></li>
+<li><p>Verificați folosind <code class="docutils literal notranslate"><span class="pre">ps</span></code> sau GNOME System Monitor că procesul Emacs nu mai există.</p></li>
+</ol>
 <p class="rubric">Note de subsol</p>
 <dl class="footnote brackets">
 <dt class="label" id="taskmanager"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
 <dd><p>Aplicația <strong>GNOME System Monitor</strong> este similară aplicației <strong>Task Manager</strong> din Windows.</p>
 </dd>
+<dt class="label" id="inkscape"><span class="brackets"><a class="fn-backref" href="#id2">2</a></span></dt>
+<dd><p><a class="reference external" href="https://wiki.inkscape.org/wiki/index.php/Using_the_Command_Line">https://wiki.inkscape.org/wiki/index.php/Using_the_Command_Line</a></p>
+</dd>
 </dl>
+</div>
 </div>
 </div>
 </div>
