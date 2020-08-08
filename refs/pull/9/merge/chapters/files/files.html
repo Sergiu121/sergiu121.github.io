@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html >
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+      <title>Interacțiunea cu fișiere în linia de comandă</title>
+    
+      <link rel="stylesheet" href="../../_static/pygments.css">
+      <link rel="stylesheet" href="../../_static/theme.css">
+      <link rel="stylesheet" href="../../_static/romnnn_sphinx_press_theme.css">
+      
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+
+      <!-- sphinx script_files -->
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+
+      
+      <script src="../../_static/theme-vendors.js"></script>
+      <script src="../../_static/theme.js" defer></script>
+    
+  <link rel="index" title="Index" href="../../genindex.html" />
+  <link rel="search" title="Search" href="../../search.html" />
+  <link rel="next" title="Editor de text" href="file_editor.html" />
+  <link rel="prev" title="Căi absolute și relative" href="paths.html" />
+    <link href="../../_static/my_theme.css" rel="stylesheet" type="text/css">
+
+  </head>
+
+  <body>
+    <div id="app" class="theme-container" :class="pageClasses"><navbar @toggle-sidebar="toggleSidebar">
+  <div class="home-link-container">
+      <router-link to="../../index.html" class="home-link">
+      
+        <span class="site-name">USO Lab Book</span>
+    </router-link>
+  </div>
+
+  <div class="links">
+    <navlinks class="can-hide">
+
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Dezvoltarea aplicațiilor
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Networking:
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Instalarea și utilizarea aplicațiilor:
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Becoming a CLI ninja apprentice:
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link  router-link-active">
+         Fișiere
+      </a>
+    </div>
+  
+
+
+
+  
+    <div class="nav-item">
+      <a href="https://github.com/Sergiu121/uso-lab-book"
+        class="nav-link external">
+          Github <outboundlink/>
+      </a>
+    </div>
+  
+
+    </navlinks>
+  </div>
+</navbar>
+
+      
+      <div class="sidebar-mask" @click="toggleSidebar(false)">
+      </div>
+        <sidebar @toggle-sidebar="toggleSidebar">
+          
+          <navlinks>
+            
+
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Dezvoltarea aplicațiilor
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Networking:
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Instalarea și utilizarea aplicațiilor:
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Becoming a CLI ninja apprentice:
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link  router-link-active">
+         Fișiere
+      </a>
+    </div>
+  
+
+
+
+  
+    <div class="nav-item">
+      <a href="https://github.com/Sergiu121/uso-lab-book"
+        class="nav-link external">
+          Github <outboundlink/>
+      </a>
+    </div>
+  
+
+            
+          </navlinks><div id="searchbox" class="searchbox" role="search">
+  <div class="caption"><span class="caption-text">Search</span>
+    <div class="searchformwrapper">
+      <form autocomplete="off" class="search" action="../../search.html" method="get">
+        <input type="text" name="q" autocomplete="off" />
+        <input type="submit" value="Go" />
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div><div class="sidebar-links" role="navigation" aria-label="main navigation">
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#uso-lab-book">Dezvoltarea aplicațiilor</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../app-dev/git-intro.html" class="reference internal ">Introducere în Git și GitHub</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/git-first-commit.html" class="reference internal ">Primul commit</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/git-more-commits.html" class="reference internal ">Crearea unui nou commit</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/git-contribute.html" class="reference internal ">Contribuirea la un alt repository</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/make-setup.html" class="reference internal ">Pregătirea mediului de lucru</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/make-intro.html" class="reference internal ">Compilarea unui fișier cod sursă C</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/make-multiple.html" class="reference internal ">Compilarea unui program din fișiere multiple</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/make-lib.html" class="reference internal ">Legarea executabilelor folosind biblioteci externe</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/make-debug.html" class="reference internal ">Depanare condițională / configurabilă</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/make-simple-automation.html" class="reference internal ">Introducere în utilitarul Make și fișiere Makefile</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/make-advanced-automation.html" class="reference internal ">Aprofundarea folosirii fișierelor Makefile</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/make-contribute.html" class="reference internal ">Contribuirea la un proiect existent pe GitHub</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/extra.html" class="reference internal ">Exerciții suplimentare</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#uso-lab-book">Networking:</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../net/browser.html" class="reference internal ">Efficient browser usage</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../net/troubleshoot.html" class="reference internal ">Troubleshooting network connections</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../net/services.html" class="reference internal ">Basic network service usage</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../net/extra.html" class="reference internal ">Extra networking tasks</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#uso-lab-book">Instalarea și utilizarea aplicațiilor:</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../app-install/start.html" class="reference internal ">Pornirea și oprirea aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-install/run.html" class="reference internal ">Rularea aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-install/config.html" class="reference internal ">Configurarea aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-install/summary1.html" class="reference internal ">Sumar: Pornirea, rularea și configurarea aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-install/show-config.html" class="reference internal ">Vizualizarea configurației sistemului</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-install/install.html" class="reference internal ">Instalarea și dezinstalarea aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-install/install-non-standard.html" class="reference internal ">Instalarea și dezinstalarea aplicațiilor în mod nestandard</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-install/update.html" class="reference internal ">Actualizarea aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-install/show.html" class="reference internal ">Investigarea aplicațiilor instalate</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-install/summary2.html" class="reference internal ">Sumar: Instalarea, dezinstalarea, investigarea, actualizarea aplicațiilor</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#uso-lab-book">Becoming a CLI ninja apprentice:</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../improve-cli/improve-terminal.html" class="reference internal ">Îmbunătățirea lucrului în linia de comandă</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../improve-cli/inspect-fs.html" class="reference internal ">Inspectarea sistemului de fișiere</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../improve-cli/inspect-sys.html" class="reference internal ">Inspectarea sistemului</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../improve-cli/inspect-files.html" class="reference internal ">Inspectarea fișierelor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../improve-cli/process-files.html" class="reference internal ">Prelucrarea fișierelor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../improve-cli/improve-shell.html" class="reference internal ">O înțelegere mai bună a shell-ului</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../improve-cli/term-multiplexing.html" class="reference internal ">Multiplexarea terminalului</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#uso-lab-book">Fișiere</a></span>
+      </p>
+      <ul class="current">
+        
+          <li class="toctree-l1 "><a href="paths.html" class="reference internal ">Căi absolute și relative</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 current"><a href="#" class="reference internal current">Interacțiunea cu fișiere în linia de comandă</a>
+
+            
+              <ul>
+                
+                  <li class="toctree-l2"><a href="#manipularea-fisierelor-si-directoarelor" class="reference internal">1) Manipularea fișierelor și directoarelor</a></li>
+                
+                  <li class="toctree-l2"><a href="#ierarhie-de-fisiere" class="reference internal">2) Ierarhie de fișiere</a></li>
+                
+                  <li class="toctree-l2"><a href="#legaturi-links" class="reference internal">3) Legături (Links)</a></li>
+                
+                  <li class="toctree-l2"><a href="#executia-programelor" class="reference internal">4) Execuția programelor</a></li>
+                
+              </ul>
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="file_editor.html" class="reference internal ">Editor de text</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="io_redirection.html" class="reference internal ">Redirectări</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="archive.html" class="reference internal ">Arhive</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="file_system.html" class="reference internal ">Sistemul de fișiere</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+</div>
+        </sidebar>
+
+      <page>
+          <div class="body-header" role="navigation" aria-label="navigation">
+  
+  <ul class="breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+    
+    <li>Interacțiunea cu fișiere în linia de comandă</li>
+  </ul>
+  
+
+  <ul class="page-nav">
+  <li class="prev">
+    <a href="paths.html"
+       title="previous chapter">← Căi absolute și relative</a>
+  </li>
+  <li class="next">
+    <a href="file_editor.html"
+       title="next chapter">Editor de text →</a>
+  </li>
+</ul>
+  
+</div>
+<hr>
+          <div class="content" role="main">
+            
+  <div class="section" id="interactiunea-cu-fisiere-in-linia-de-comanda">
+<h1>Interacțiunea cu fișiere în linia de comandă<a class="headerlink" href="#interactiunea-cu-fisiere-in-linia-de-comanda" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="manipularea-fisierelor-si-directoarelor">
+<h2>1) Manipularea fișierelor și directoarelor<a class="headerlink" href="#manipularea-fisierelor-si-directoarelor" title="Permalink to this headline">¶</a></h2>
+<p>În această secțiune vom detalia modalități de interacțiune cu fișierele.</p>
+<div class="section" id="a-crearea-fisierelor">
+<h3>a) Crearea fișierelor<a class="headerlink" href="#a-crearea-fisierelor" title="Permalink to this headline">¶</a></h3>
+<p>Fișierele se creează folosind utilitarul <code class="docutils literal notranslate"><span class="pre">touch</span></code>. Putem învăța mai
+multe detalii despre comandă uitându-ne în manual <code class="docutils literal notranslate"><span class="pre">man</span> <span class="pre">touch</span></code>. Pentru a crea
+un fișier cu spațiu înclus în nume este nevoie să folosim ghilimelele la
+începutul și sfârșitul numelui astfel: <code class="docutils literal notranslate"><span class="pre">touch</span> <span class="pre">numele_ales_de_mine</span></code>.</p>
+<p><strong>Exercițiu:</strong> Creați două fișiere cu numele <em>Mircea</em> și <em>Ioana</em>.</p>
+</div>
+<div class="section" id="b-crearea-directoarelor">
+<h3>b) Crearea directoarelor<a class="headerlink" href="#b-crearea-directoarelor" title="Permalink to this headline">¶</a></h3>
+<p>Directoarele se creează folosind utilitarul <code class="docutils literal notranslate"><span class="pre">mkdir</span></code>. Etimologia comenzii
+provine din engleză - <em>Make Directory</em>. Putem învăța mai multe detalii despre
+comandă uitându-ne în manual <code class="docutils literal notranslate"><span class="pre">man</span> <span class="pre">mkdir</span></code>.</p>
+<p><strong>Exercițiu:</strong> Creați două directoare cu nume de orașe din România.</p>
+</div>
+<div class="section" id="c-afisarea-continutului-unui-director">
+<h3>c) Afișarea conținutului unui director<a class="headerlink" href="#c-afisarea-continutului-unui-director" title="Permalink to this headline">¶</a></h3>
+<p>Precum conținutul unui dosar ce constă în mai multe foi, conținutul directoarelor
+este format din fișiere și alte directoare. Pentru a afișa conținutul unui director
+folosim comanda <code class="docutils literal notranslate"><span class="pre">ls</span></code>. Putem învăța mai multe detalii despre comandă uitându-ne în
+manual <code class="docutils literal notranslate"><span class="pre">man</span> <span class="pre">ls</span></code>. Pentru a vedea mai multe informații despre fișiere și directoare
+putem folosi opțiunea <em>-l</em> în felul următor: <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-l</span></code>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>student@uso:~$ ls -l
+PERMISSIONS  L USER  GROUP  SIZE    DATE      NAME
+drwxrwxr-x+ 46 root  admin  1472 Jul 23 22:46 Applications
+drwxr-xr-x  69 root  wheel  2208 Jul 20 09:49 Library
+drwxr-xr-x@  8 root  wheel   256 Oct 24  2019 System
+drwxr-xr-x   7 root  admin   224 Oct 24  2019 Users
+drwxr-xr-x   4 root  wheel   128 Jul 22 05:23 Volumes
+drwxr-xr-x@ 38 root  wheel  1216 Jul 20 09:45 bin
+drwxr-xr-x   2 root  wheel    64 Aug 24  2019 cores
+dr-xr-xr-x   3 root  wheel  4761 Jul 20 09:52 dev
+lrwxr-xr-x@  1 root  admin    11 Nov 26  2019 etc -&gt; private/etc
+lrwxr-xr-x   1 root  wheel    25 Jul 20 09:53 home -&gt; /System/Volumes/Data/home
+drwxr-xr-x   4 root  wheel   128 Nov 26  2019 opt
+drwxr-xr-x   6 root  wheel   192 Jul 20 09:46 private
+drwxr-xr-x@ 63 root  wheel  2016 Jul 20 09:45 sbin
+lrwxr-xr-x@  1 root  admin    11 Nov 26  2019 tmp -&gt; private/tmp
+drwxr-xr-x@ 11 root  wheel   352 Nov 26  2019 usr
+lrwxr-xr-x@  1 root  admin    11 Nov 26  2019 var -&gt; private/var
+</pre></div>
+</div>
+<p>Mai sus avem afișarea comenzii <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-l</span></code>. Avem fiecare fișier sau director pe
+câte o linie. Semnificația coloanelor este:</p>
+<ul class="simple">
+<li><p><strong>Tipul fișierului:</strong> Primul caracter specifică dacă este un director (<strong>d</strong>), fișier (<strong>-</strong>) sau legătură (<strong>l</strong>).
+Vom discuta despre legături într-un capitol ulterior.</p></li>
+<li><p><strong>Permisiuni:</strong> avem 2 tipuri de informații:</p></li>
+<li><p><strong>Legături:</strong> Numărul de legături către acest fișier/director. Vom detalia într-un capitol ulterior.</p></li>
+<li><p><strong>USER:</strong> Utilizatorul care deține acest fișier/director.</p></li>
+<li><p><strong>GROUP:</strong> Grupul ce deține acest fisier/director.</p></li>
+<li><p><strong>SIZE:</strong> Dimensiunea fișierului/directorului.</p></li>
+<li><p><strong>DATE:</strong> Data la care a fost creat/modificat.</p></li>
+<li><p><strong>NAME:</strong> Numele fișierului/directorului</p></li>
+</ul>
+<p><strong>Exercițiu:</strong> Afișați conținutul directorului curent folosind opțiunea <strong>-l</strong>.</p>
+<p><strong>Exercițiu:</strong> Creați fișierul cu numele <em>Ioana Popescu</em>.
+Afișați conținutul directorului.
+Este important de reținut: orice comandă executați aceasta trebuie succedată de o verificare.
+De exemplu, la crearea unui fișier (<code class="docutils literal notranslate"><span class="pre">touch</span></code>), executăm comanda de verificare <code class="docutils literal notranslate"><span class="pre">ls</span></code>.</p>
+</div>
+<div class="section" id="d-afisarea-continutului-unui-fisier">
+<h3>d) Afișarea conținutului unui fișier<a class="headerlink" href="#d-afisarea-continutului-unui-fisier" title="Permalink to this headline">¶</a></h3>
+<p>Afișarea conținutului unui fișier se poate face prin mai multe moduri. Unul din ele
+este folosind comanda <strong>cat</strong> astfel: <code class="docutils literal notranslate"><span class="pre">cat</span> <span class="pre">fișier</span></code>. O altă metodă este de a folosi
+un editor de text: <strong>vim</strong>, <em>gedit*</em>, <strong>emacs</strong>, <strong>nano</strong>, <strong>sublime</strong>, etc. Vom
+detalia utilizarea unui editor de text într-o secțiune ulterioară.</p>
+<p><strong>Exercițiu:</strong> Afișați conținutul fișierului <em>Mircea</em>.</p>
+</div>
+<div class="section" id="e-stergerea-fisierelor">
+<h3>e) Ștergerea fișierelor<a class="headerlink" href="#e-stergerea-fisierelor" title="Permalink to this headline">¶</a></h3>
+<p>Fișierele se șterg folosind utilitarul <code class="docutils literal notranslate"><span class="pre">rm</span></code>. Putem învăța mai multe
+detalii despre comandă uitându-ne în manual <code class="docutils literal notranslate"><span class="pre">man</span> <span class="pre">rm</span></code>.</p>
+<p><strong>Exercițiu:</strong> Ștergeți fișierul <em>Mircea</em>. Confirmați ștergerea prin afișarea
+conținutului directorului părinte.</p>
+</div>
+<div class="section" id="f-stergerea-directoarelor">
+<h3>f) Ștergerea directoarelor<a class="headerlink" href="#f-stergerea-directoarelor" title="Permalink to this headline">¶</a></h3>
+<p>Directoarele se șterg folosind comanda <code class="docutils literal notranslate"><span class="pre">rmdir</span></code>.
+Etimologia comenzii provine din engleză - <em>Remove Directory</em>.
+Putem învăța mai multe detalii despre comandă uitându-ne în manual <code class="docutils literal notranslate"><span class="pre">man</span> <span class="pre">rmdir</span></code>.
+Dacă directorul nu este gol, comanda <code class="docutils literal notranslate"><span class="pre">rmdir</span></code> se întoarce cu eroare.
+Pentru a șterge un director gol, folosim utilitarul <code class="docutils literal notranslate"><span class="pre">rm</span></code> cu opțiunile de recursivitate <code class="docutils literal notranslate"><span class="pre">-r</span></code> și forțat <code class="docutils literal notranslate"><span class="pre">-f</span></code>: <code class="docutils literal notranslate"><span class="pre">rm</span> <span class="pre">-rf</span></code>.</p>
+<p><strong>Exercițiu:</strong> Ștergeți unul din directoarele create. Confirmați ștergerea prin
+afișarea conținutului directorului părinte.</p>
+</div>
+<div class="section" id="g-redenumirea-fisierelor-si-directoarelor">
+<h3>g) Redenumirea fișierelor și directoarelor<a class="headerlink" href="#g-redenumirea-fisierelor-si-directoarelor" title="Permalink to this headline">¶</a></h3>
+<p>Fișierele și directoarele se redenumesc în mod similar, folosind comanda <code class="docutils literal notranslate"><span class="pre">mv</span></code>
+astfel: <code class="docutils literal notranslate"><span class="pre">mv</span> <span class="pre">nume_actual</span> <span class="pre">nume_nou</span></code>. Putem învăța mai multe detalii despre comandă
+uitându-ne în manual <code class="docutils literal notranslate"><span class="pre">man</span> <span class="pre">mv</span></code>.</p>
+<p>Un alt rol al comenzii <code class="docutils literal notranslate"><span class="pre">mv</span></code> este de a muta fișierele și directoarele, în ierarhia
+de fișiere, dintr-un loc în altul. Exemplu <code class="docutils literal notranslate"><span class="pre">mv</span> <span class="pre">cale_actuală</span> <span class="pre">cale_nouă</span></code>. Putem
+folosi atât căi relative cât și căi absolute.</p>
+<p><strong>Exercițiu:</strong> Redenumiți fișierul <em>Ioana</em> în <em>Maria</em>. Confirmați ștergerea prin
+afișarea conținutului directorului părinte.</p>
+<p><strong>Exercițiu:</strong> Mutați fișierul <em>Maria</em> în directorul creat anterior. Confirmați
+ștergerea prin afișarea conținutului directorului părinte.</p>
+<p><strong>Exercițiu:</strong> Redenumiți fișierului <em>Maria</em> în <em>Maria.txt</em> și afișați conținutul.
+Redenumiți apoi în <em>Maria.pdf</em> și afișați conținutul. Redenumiți apoi în <em>Maria.qzy</em>
+și afișați conținutul. Ce observați?</p>
+</div>
+<div class="section" id="h-fisiere-si-directoare-ascunse">
+<h3>h) Fișiere și directoare ascunse<a class="headerlink" href="#h-fisiere-si-directoare-ascunse" title="Permalink to this headline">¶</a></h3>
+<p>Un fișier sau director este ascuns atunci când nu apare în mod normal în ierarhia de fișiere.
+Pentru a vedea un fișier ascuns se folosește opțiunea <strong>-a</strong> a utilitarului ls, astfel: <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-a</span></code>.
+Pentru a crea un fișier/director ascuns în Linux, acesta trebuie să înceapă cu caracterul <em>.</em>: <code class="docutils literal notranslate"><span class="pre">touch</span> <span class="pre">**.**fisier_ascuns</span></code> sau <code class="docutils literal notranslate"><span class="pre">mkdir</span> <span class="pre">**.**director_ascuns</span></code>.</p>
+<p><strong>Exercițiu:</strong> Creați un fișier numit <strong>fișierul_meu_ascuns</strong> și un director cu numele <strong>directorul_meu_ascuns</strong>.
+Confirmați crearea prin afișarea conținutului directorului părinte.</p>
+</div>
+<div class="section" id="i-afisarea-informatiilor-de-tip-metadata-pentru-un-fisier">
+<h3>i) Afișarea informațiilor de tip metadata pentru un fișier<a class="headerlink" href="#i-afisarea-informatiilor-de-tip-metadata-pentru-un-fisier" title="Permalink to this headline">¶</a></h3>
+<p>Informațiile de tip metadata pentru un fișier/director includ informații legate de dimensiune, data de creare/accesare, permisiuni, tipul de fișier.
+Pentru a afla informații suplimentare despre fișiere, putem folosi comanda <code class="docutils literal notranslate"><span class="pre">stat</span></code>.
+Putem învăța mai multe detalii despre comandă uitându-ne în manual: <code class="docutils literal notranslate"><span class="pre">man</span> <span class="pre">stat</span></code>.
+<strong>TODO: interpretat output</strong></p>
+<p>Pentru a vedea tipul de fișier putem folosi comanda <code class="docutils literal notranslate"><span class="pre">file</span></code>.
+Putem învăța mai multe detalii despre comandă uitându-ne în manual: <code class="docutils literal notranslate"><span class="pre">man</span> <span class="pre">file</span></code>.</p>
+<p><strong>Exercițiu:</strong> Afișați metadatele fișierului <em>Maria</em>.</p>
+</div>
+<div class="section" id="j-afisarea-tipului-de-fisier">
+<h3>j) Afișarea tipului de fișier<a class="headerlink" href="#j-afisarea-tipului-de-fisier" title="Permalink to this headline">¶</a></h3>
+<p>O ierarhie de fișiere este formată din directoare și fișiere. Fișierele pot fi de mai
+multe tipuri: text, binare, imagini, arhive, etc. Pentru a afla tipul fișierului
+folosim comanda <code class="docutils literal notranslate"><span class="pre">file</span></code>. Putem învăța mai multe detalii despre comandă uitându-ne
+în manual <code class="docutils literal notranslate"><span class="pre">man</span> <span class="pre">file</span></code>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>student@uso:~$ file Picture.png
+Picture.png: PNG image data, 742 x 320, 8-bit/color RGBA, non-interlaced
+student@uso:~$ file index.rst
+index.rst: ASCII text
+student@uso:~$ file archive.tar
+archive.tar: POSIX tar archive (GNU)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="ierarhie-de-fisiere">
+<h2>2) Ierarhie de fișiere<a class="headerlink" href="#ierarhie-de-fisiere" title="Permalink to this headline">¶</a></h2>
+<p>Fișierele sunt dispuse într-o formă arborescentă, ierarhică:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>student@uso:~$ tree
+.
+├── Makefile
+├── README.md
+├── _static
+│   └── my_theme.css
+├── _templates
+│   └── layout.html
+├── chapters
+│   ├── files
+│   │   ├── archive.rst
+│   │   ├── file_editor.rst
+│   │   ├── file_system.rst
+│   │   ├── files.rst
+│   │   ├── io_redirection.rst
+│   │   └── paths.rst
+│   └── net
+│       ├── browser.rst
+│       ├── extra.rst
+│       ├── img
+│       │   └── browser.png
+│       ├── services.rst
+│       └── troubleshoot.rst
+├── conf.py
+├── docker
+│   ├── Dockerfile
+│   └── docker-compose.yml
+├── index.rst
+├── make.bat
+└── requirements.txt
+</pre></div>
+</div>
+<p>Putem vedea că directorul curent <strong>chapter</strong> include 2 directoare <strong>files</strong> și <strong>net</strong>.
+Directorul <strong>files</strong> conține 6 fișiere, iar directorul <strong>net</strong> conține 4 fișiere și un
+director <strong>img</strong> care conține la rândul său un fișier.</p>
+<p>Pentru a vedea fișierele sub formă arborescentă, folosim comanda <code class="docutils literal notranslate"><span class="pre">tree</span></code>. Putem învăța
+mai multe detalii despre comandă uitându-ne în manual: <code class="docutils literal notranslate"><span class="pre">man</span> <span class="pre">tree</span></code>.</p>
+<p><strong>Exercițiu:</strong> Afișați ierarhia de fișiere pornind de la directorul vostru home (~).</p>
+<p><strong>Exercițiu:</strong> Creați următoarea ierarhie pornind de la directorul <strong>/home/student/</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>student@uso:~$ tree
+.
+├── prime video
+├── Hulu
+│   └── Favorite
+├── Netflix
+│   ├── Filme
+│   │   ├── filme 2020.txt
+│   │   ├── filme 2019.txt
+│   │   ├── filme vechi
+│   └── Seriale
+│       ├── seriale 2020
+│       ├── seriale 2019.txt
+│       └── seriale vechi
+├── HBO GO
+│   ├── Modern Family.txt
+│   └── Harry Potter
+└── YouTube TV
+</pre></div>
+</div>
+<p><strong>Exercițiu:</strong> Copiați întreaga ierarhie în calea <strong>/tmp</strong>. Folosiți comanda <code class="docutils literal notranslate"><span class="pre">cp</span></code>.
+Confirmați copierea prim afișarea directorului părinte.</p>
+<p><strong>Exercițiu:</strong> Ștergeți fișierul <em>Favorite</em> din Directorul Hulu. Confirmați ștergerea
+prin afișarea directorului părinte.</p>
+<p><strong>Exercițiu:</strong> Ștergeți directorul <em>prime video</em>. Confirmați ștergerea prin afișarea
+directorului părinte.</p>
+<p><strong>Exercițiu:</strong> Ștergeți directorul <em>HBO GO</em>. Găsiți parametrii corespunzători ștergerii
+unui director care nu este gol. Confirmați ștergerea prin afișarea directorului părinte.</p>
+<p><strong>Exercițiu:</strong> Ștergeri ierarhia de directoare începând cu directorul <em>Netflix</em>. Conformați
+ștergerea prin afișarea directorului părinte.</p>
+<p><strong>Exercițiu:</strong> Creați ierarhia de directoare de mai jos. Căutați parametrul necesar pentru
+<code class="docutils literal notranslate"><span class="pre">mkdir</span></code> pentru a crea toată ierarhia <strong>dintr-o singură executare a comenzii</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>student@uso:~$ tree
+.
+└─── Cale
+    └─── Lungă
+         └─── De
+              └─── Directoare
+</pre></div>
+</div>
+<p><strong>Exercițiu:</strong> Mutați ierarhia copiată anterior în <strong>/tmp</strong> în directorul <strong>Directoare</strong>.</p>
+</div>
+<div class="section" id="legaturi-links">
+<h2>3) Legături (Links)<a class="headerlink" href="#legaturi-links" title="Permalink to this headline">¶</a></h2>
+<p>O legătură este o scurtătură către un fișier sau un director. Mai multe legături pot referi
+același director/fișier.</p>
+<p>Există 2 tipuri de legături:</p>
+<ul class="simple">
+<li><p>Legături simbolice (soft links)</p></li>
+<li><p>Legături strânse (hard links)</p></li>
+</ul>
+<div class="section" id="a-legaturi-simbolice-soft-links">
+<h3>a) Legături simbolice (Soft Links)<a class="headerlink" href="#a-legaturi-simbolice-soft-links" title="Permalink to this headline">¶</a></h3>
+<p><strong>Caracteristici:</strong></p>
+<ul class="simple">
+<li><p>Similar <em>Shortcut</em> din Windows;</p></li>
+<li><p>Orice modificare în fisierul țintă, se vede și în fișierul legătură;</p></li>
+<li><p>Este o legătură către numele fișierului și nu către conținut;</p></li>
+<li><p>Dacă fișierul este mutat sau redenumit, legătura se pierde;</p></li>
+<li><p>Putem crea legături simbolice către directoare.</p></li>
+</ul>
+<p>Putem crea legături simbolice folosin comanda <code class="docutils literal notranslate"><span class="pre">ln</span> <span class="pre">-s</span> <span class="pre">fișier_țintă</span> <span class="pre">legătură</span></code>.</p>
+<p><strong>Exercițiu:</strong> Creați o legătură simbolică către directorul <em>Netflix</em>. Verificați crearea legăturii prin afișarea conținutului directorului părinte.</p>
+<p><strong>Exercițiu:</strong> Afișați conținutul legăturii.</p>
+<p><strong>Exercițiu:</strong> Ștergeți directorul  <em>Netflix</em>. Afișați conținutul legăturii.</p>
+</div>
+<div class="section" id="b-legaturi-stranse-hard-links">
+<h3>b) Legături strânse (Hard Links)<a class="headerlink" href="#b-legaturi-stranse-hard-links" title="Permalink to this headline">¶</a></h3>
+<p><strong>Caracteristici:</strong></p>
+<ul class="simple">
+<li><p>Rămân legate indiferent dacă fișierul țintă este mutat sau redenumit;</p></li>
+<li><p>Chiar dacă fișierul inițial este șters, legătura conține datele fișierului țintă;</p></li>
+<li><p>Orice modificare în fișierul țintă, se vede și în fișierul legătură.</p></li>
+<li><p>Au conținutul(dimensiunea) fișierului țintă;</p></li>
+<li><p>Nu putem crea legături strânse către directoare.</p></li>
+</ul>
+<p>Putem crea legături strânse folosind comanda <code class="docutils literal notranslate"><span class="pre">ln</span> <span class="pre">fișier_țintă</span> <span class="pre">legătură</span></code>.</p>
+<p><strong>Exercițiu:</strong> Creați o legătură strânsă către un fișierul <em>Modern Family.txt</em> din ierarhia
+creată. Verificați crearea legăturii prin afișarea conținutului directorului părinte.</p>
+<p><strong>Exercițiu:</strong> Afișați conținutul legăturii.</p>
+<p><strong>Exercițiu:</strong> Ștergeți fișierul <em>Modern Family.txt</em>. Afișați conținutul legăturii.</p>
+</div>
+</div>
+<div class="section" id="executia-programelor">
+<h2>4) Execuția programelor<a class="headerlink" href="#executia-programelor" title="Permalink to this headline">¶</a></h2>
+<p>Executarea fișierelor se face în felul următor: <strong>CALE+NUME</strong>. Se folosește calea relativă
+sau absolută. Exemplu: <code class="docutils literal notranslate"><span class="pre">./executabil</span></code> sau <code class="docutils literal notranslate"><span class="pre">/home/student/executabil</span></code>.</p>
+<p>În contextul interpretorului de comenzi există o serie variable de context ce pot fi
+vizualizate cu comanda <code class="docutils literal notranslate"><span class="pre">env</span></code>. În aceste variabile de mediu se află și variabila <strong>PATH</strong>.
+Aceasta conține căi predefinite unde se pun de obicei executabilele. Exemplu:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>student@uso:~$ echo $PATH
+/usr/local/bin:/usr/bin:/bin:/usr/games
+</pre></div>
+</div>
+<p>Putem vedea mai multe căi predefinite: <em>/usr/local/bin</em>, <em>/usr/bin</em>, <em>/bin</em> și <em>/usr/games</em>.
+Interpretorul de comenzi încearcă să găsească numele executabilului în acestei căi inițial.
+De aceea utilitarele <strong>ls</strong>, <strong>pwd</strong>, <strong>cd</strong>, etc. funcționează. Noi executăm comanda <code class="docutils literal notranslate"><span class="pre">ls</span></code>,
+iar interpretorul de comenzi caută în aceste căi.</p>
+<p><strong>Exercițiu:</strong> Puneți un executabil creat de voi în <strong>/usr/local/bin</strong>. Executați folosind <strong>doar numele</strong>, nu și calea.</p>
+</div>
+</div>
+
+
+          </div>
+          <div class="page-nav">
+            <div class="inner"><ul class="page-nav">
+  <li class="prev">
+    <a href="paths.html"
+       title="previous chapter">← Căi absolute și relative</a>
+  </li>
+  <li class="next">
+    <a href="file_editor.html"
+       title="next chapter">Editor de text →</a>
+  </li>
+</ul><div class="footer" role="contentinfo">
+      &#169; Copyright 2020, USO Team.
+    <br>
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.2.0 with <a href="https://github.com/romnnn/sphinx_press_theme">Press Theme</a>.
+</div>
+            </div>
+          </div>
+      </page>
+    </div>
+    
+    
+  </body>
+</html>

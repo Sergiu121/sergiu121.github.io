@@ -1,0 +1,873 @@
+<!DOCTYPE html>
+<html >
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+      <title>Pornirea și oprirea aplicațiilor</title>
+    
+      <link rel="stylesheet" href="../../_static/pygments.css">
+      <link rel="stylesheet" href="../../_static/theme.css">
+      <link rel="stylesheet" href="../../_static/romnnn_sphinx_press_theme.css">
+      
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+
+      <!-- sphinx script_files -->
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+
+      
+      <script src="../../_static/theme-vendors.js"></script>
+      <script src="../../_static/theme.js" defer></script>
+    
+  <link rel="index" title="Index" href="../../genindex.html" />
+  <link rel="search" title="Search" href="../../search.html" />
+  <link rel="next" title="Rularea aplicațiilor" href="run.html" />
+  <link rel="prev" title="Extra networking tasks" href="../net/extra.html" />
+    <link href="../../_static/my_theme.css" rel="stylesheet" type="text/css">
+
+  </head>
+
+  <body>
+    <div id="app" class="theme-container" :class="pageClasses"><navbar @toggle-sidebar="toggleSidebar">
+  <div class="home-link-container">
+      <router-link to="../../index.html" class="home-link">
+      
+        <span class="site-name">USO Lab Book</span>
+    </router-link>
+  </div>
+
+  <div class="links">
+    <navlinks class="can-hide">
+
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Dezvoltarea aplicațiilor
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Networking:
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link  router-link-active">
+         Instalarea și utilizarea aplicațiilor:
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Becoming a CLI ninja apprentice:
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Fișiere
+      </a>
+    </div>
+  
+
+
+
+  
+    <div class="nav-item">
+      <a href="https://github.com/Sergiu121/uso-lab-book"
+        class="nav-link external">
+          Github <outboundlink/>
+      </a>
+    </div>
+  
+
+    </navlinks>
+  </div>
+</navbar>
+
+      
+      <div class="sidebar-mask" @click="toggleSidebar(false)">
+      </div>
+        <sidebar @toggle-sidebar="toggleSidebar">
+          
+          <navlinks>
+            
+
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Dezvoltarea aplicațiilor
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Networking:
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link  router-link-active">
+         Instalarea și utilizarea aplicațiilor:
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Becoming a CLI ninja apprentice:
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Fișiere
+      </a>
+    </div>
+  
+
+
+
+  
+    <div class="nav-item">
+      <a href="https://github.com/Sergiu121/uso-lab-book"
+        class="nav-link external">
+          Github <outboundlink/>
+      </a>
+    </div>
+  
+
+            
+          </navlinks><div id="searchbox" class="searchbox" role="search">
+  <div class="caption"><span class="caption-text">Search</span>
+    <div class="searchformwrapper">
+      <form autocomplete="off" class="search" action="../../search.html" method="get">
+        <input type="text" name="q" autocomplete="off" />
+        <input type="submit" value="Go" />
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div><div class="sidebar-links" role="navigation" aria-label="main navigation">
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#uso-lab-book">Dezvoltarea aplicațiilor</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../app-dev/git-intro.html" class="reference internal ">Introducere în Git și GitHub</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/git-first-commit.html" class="reference internal ">Primul commit</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/git-more-commits.html" class="reference internal ">Crearea unui nou commit</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/git-contribute.html" class="reference internal ">Contribuirea la un alt repository</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/make-setup.html" class="reference internal ">Pregătirea mediului de lucru</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/make-intro.html" class="reference internal ">Compilarea unui fișier cod sursă C</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/make-multiple.html" class="reference internal ">Compilarea unui program din fișiere multiple</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/make-lib.html" class="reference internal ">Legarea executabilelor folosind biblioteci externe</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/make-debug.html" class="reference internal ">Depanare condițională / configurabilă</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/make-simple-automation.html" class="reference internal ">Introducere în utilitarul Make și fișiere Makefile</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/make-advanced-automation.html" class="reference internal ">Aprofundarea folosirii fișierelor Makefile</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/make-contribute.html" class="reference internal ">Contribuirea la un proiect existent pe GitHub</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/extra.html" class="reference internal ">Exerciții suplimentare</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#uso-lab-book">Networking:</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../net/browser.html" class="reference internal ">Efficient browser usage</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../net/troubleshoot.html" class="reference internal ">Troubleshooting network connections</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../net/services.html" class="reference internal ">Basic network service usage</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../net/extra.html" class="reference internal ">Extra networking tasks</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#uso-lab-book">Instalarea și utilizarea aplicațiilor:</a></span>
+      </p>
+      <ul class="current">
+        
+          <li class="toctree-l1 current"><a href="#" class="reference internal current">Pornirea și oprirea aplicațiilor</a>
+
+            
+              <ul>
+                
+                  <li class="toctree-l2"><a href="#pornirea-aplicatiilor-grafice" class="reference internal">1. Pornirea aplicațiilor grafice</a></li>
+                
+                  <li class="toctree-l2"><a href="#pornirea-aplicatiilor-in-linia-de-comanda" class="reference internal">Pornirea aplicațiilor în linia de comandă</a></li>
+                
+              </ul>
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="run.html" class="reference internal ">Rularea aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="config.html" class="reference internal ">Configurarea aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="summary1.html" class="reference internal ">Sumar: Pornirea, rularea și configurarea aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="show-config.html" class="reference internal ">Vizualizarea configurației sistemului</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="install.html" class="reference internal ">Instalarea și dezinstalarea aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="install-non-standard.html" class="reference internal ">Instalarea și dezinstalarea aplicațiilor în mod nestandard</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="update.html" class="reference internal ">Actualizarea aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="show.html" class="reference internal ">Investigarea aplicațiilor instalate</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="summary2.html" class="reference internal ">Sumar: Instalarea, dezinstalarea, investigarea, actualizarea aplicațiilor</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#uso-lab-book">Becoming a CLI ninja apprentice:</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../improve-cli/improve-terminal.html" class="reference internal ">Îmbunătățirea lucrului în linia de comandă</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../improve-cli/inspect-fs.html" class="reference internal ">Inspectarea sistemului de fișiere</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../improve-cli/inspect-sys.html" class="reference internal ">Inspectarea sistemului</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../improve-cli/inspect-files.html" class="reference internal ">Inspectarea fișierelor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../improve-cli/process-files.html" class="reference internal ">Prelucrarea fișierelor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../improve-cli/improve-shell.html" class="reference internal ">O înțelegere mai bună a shell-ului</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../improve-cli/term-multiplexing.html" class="reference internal ">Multiplexarea terminalului</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#uso-lab-book">Fișiere</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../files/paths.html" class="reference internal ">Căi absolute și relative</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../files/files.html" class="reference internal ">Interacțiunea cu fișiere în linia de comandă</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../files/file_editor.html" class="reference internal ">Editor de text</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../files/io_redirection.html" class="reference internal ">Redirectări</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../files/archive.html" class="reference internal ">Arhive</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../files/file_system.html" class="reference internal ">Sistemul de fișiere</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+</div>
+        </sidebar>
+
+      <page>
+          <div class="body-header" role="navigation" aria-label="navigation">
+  
+  <ul class="breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+    
+    <li>Pornirea și oprirea aplicațiilor</li>
+  </ul>
+  
+
+  <ul class="page-nav">
+  <li class="prev">
+    <a href="../net/extra.html"
+       title="previous chapter">← Extra networking tasks</a>
+  </li>
+  <li class="next">
+    <a href="run.html"
+       title="next chapter">Rularea aplicațiilor →</a>
+  </li>
+</ul>
+  
+</div>
+<hr>
+          <div class="content" role="main">
+            
+  <div class="section" id="pornirea-si-oprirea-aplicatiilor">
+<span id="app-install-start-stop"></span><h1>Pornirea și oprirea aplicațiilor<a class="headerlink" href="#pornirea-si-oprirea-aplicatiilor" title="Permalink to this headline">¶</a></h1>
+<p>Aplicațiile sunt pornite de utilizator sau de sistem.
+Utilizatorul pornește aplicațiile pentru că are o nevoie pe care aplicația o rezolvă.
+De exemplu, pornește un browser web pentru a accesa Wikipedia sau pornește aplicația Spotify pentru a asculta muzică.
+Sistemul pornește aplicații (fără intervenția utilizatorului) pentru a asigura buna funcționare a sistemului.
+De exemplu sistemul pornește un client DHCP pentru a obține automat parametrii de rețea care asigură conexiunea la Internet; sau pornește o aplicație care sincronizează data sistemului cu data indicată de un server din Internet.</p>
+<p>Utilizatorul poate porni aplicațiile folosind interfața grafică (<em>Graphical User Interface</em>, GUI) sau interfața în linia de comandă (<em>Command Line Interface</em>, CLI).
+În cazul interfeței grafice pornirea se face folosind elementele grafice (mouse, meniuri, iconuri de desktop).
+În cazul interfeței în linia de comandă pornirea se face introducând și rulând comenzi.</p>
+<div class="section" id="pornirea-aplicatiilor-grafice">
+<h2>1. Pornirea aplicațiilor grafice<a class="headerlink" href="#pornirea-aplicatiilor-grafice" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="a-pornirea-unei-aplicatii-grafice-folosind-iconuri">
+<h3>a. Pornirea unei aplicații grafice folosind iconuri<a class="headerlink" href="#a-pornirea-unei-aplicatii-grafice-folosind-iconuri" title="Permalink to this headline">¶</a></h3>
+<p>Cel mai simplu mod de a porni o aplicație grafică este folosind iconuri.
+Folosim mouse-ul și face click pe icon și pornim aplicația.
+De exemplu, în Ubuntu 18.04, pentru a porni aplicația Firefox (browser web) folosim iconul din bara de jos în stânga, la fel ca în imaginea de mai jos:</p>
+<img alt="Iconuri pentru pornire aplicații" class="align-center" src="../../_images/icons.png" />
+<p>După un click pe icon aplicația va porni și o putem folosi, ca în imaginea de mai jos:</p>
+<a class="reference internal image-reference" href="../../_images/firefox.png"><img alt="Firefox" class="align-center" src="../../_images/firefox.png" style="width: 600px;" /></a>
+<p>Spunem că acum aplicația <strong>rulează</strong>.
+Rularea înseamnă că aplicația folosește resursele sistemului pentru a îndeplini nevoile utilizatorului sau sistemului.</p>
+<p>În mod similar pornim alte aplicații care au iconuri.
+Aceste iconuri pot fi prezente pe bare de iconuri sau în diferite meniuri, depinzând de mediul grafic și distribuția folosită.</p>
+</div>
+<div class="section" id="b-oprirea-unei-aplicatii-grafice">
+<h3>b. Oprirea unei aplicații grafice<a class="headerlink" href="#b-oprirea-unei-aplicatii-grafice" title="Permalink to this headline">¶</a></h3>
+<p>O dată pornită, o aplicație grafică rulează, de obicei, până la o oprire explicită din partea utilizatorului.
+Utilizatorul poate opri o aplicație grafică în mai multe moduri:</p>
+<ul>
+<li><p>Folosind butonul de închidere a ferestrei grafice, în general în forma unui simbol <strong>x</strong>, ca în imaginea de mai jos:</p>
+<img alt="Butoane ale ferestrei grafice" class="align-center" src="../../_images/exit-gui.png" />
+</li>
+<li><p>Folosind combinația de taste <code class="docutils literal notranslate"><span class="pre">Alt+F4</span></code> care închide fereastra grafică, o scurtătură pentru folosirea butonului de închidere.</p></li>
+<li><p>Folosind intrarea de tip <em>Quit</em> / <em>Close</em> / <em>Exit</em> din meniul grafic al aplicației, ca în imaginea de mai jos, specifică aplicatiei Firefox:</p>
+<img alt="Oprirea Firefox folosind intrarea din meniul grafic al aplicației" class="align-center" src="../../_images/firefox-quit-menu.png" />
+</li>
+<li><p>Folosind o combinație de taste care este asociată intrării din meniul grafic al aplicației.
+În imaginea de mai sus, specifică Firefox, combinația de taste este <code class="docutils literal notranslate"><span class="pre">Ctrl+q</span></code>.
+Această combinație de taste depinde de aplicație, spre deosebire combinației de taste <code class="docutils literal notranslate"><span class="pre">Alt+F4</span></code> care se aplică tuturor aplicațiilor grafice.</p></li>
+</ul>
+<p>Porniți aplicația Firefox și opriți-o în toate modurile de mai sus.</p>
+</div>
+<div class="section" id="c-pornirea-unei-aplicatii-grafice-folosind-alt-f2">
+<h3>c. Pornirea unei aplicații grafice folosind Alt+F2<a class="headerlink" href="#c-pornirea-unei-aplicatii-grafice-folosind-alt-f2" title="Permalink to this headline">¶</a></h3>
+<p>Pentru a porni o aplicație grafică folosind iconuri trebuie să existe acele iconuri.
+Dacă iconul nu este prezent, sau dacă este greu accesibil (trebuie să căutăm prin meniuri), preferăm o altă soluție.
+Soluția este folosirea unui mod generic de a lansa o aplicație în interfața grafică, adică folosirea unui prompt de tip <em>application launcher</em>.</p>
+<p>În mediile grafice Linux pornim un prompt de tip <em>application launcher</em> folosind combinația de taste <code class="docutils literal notranslate"><span class="pre">Alt+F2</span></code>.
+Când apăsăm <code class="docutils literal notranslate"><span class="pre">Alt+F2</span></code> mediul grafic prezintă un prompt în care introducem șirul care identifică aplicația.
+De exemplu, pentru a porni aplicația Firefox introducem șirul <code class="docutils literal notranslate"><span class="pre">firefox</span></code> în prompt, ca în figura de mai jos:</p>
+<a class="reference internal image-reference" href="../../_images/alt+f2.png"><img alt="Pornirea firefox folosind Alt+F2" class="align-center" src="../../_images/alt+f2.png" style="width: 600px;" /></a>
+<p>În urma introducerii șirului <code class="docutils literal notranslate"><span class="pre">firefox</span></code> în prompt, urmat de apăsarea tastei <code class="docutils literal notranslate"><span class="pre">Enter</span></code>, aplicația Firefox va porni.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Funcționalitatea de tip <em>application launcher</em>, pornită folosind <code class="docutils literal notranslate"><span class="pre">Alt+F2</span></code>, se găsește și în alte sisteme de operare, nu doar în Linux.
+În Windows pornim un prompt de tip <em>application launcher</em> folosind combinația de taste <code class="docutils literal notranslate"><span class="pre">Windows+r</span></code>.
+În macOS folosim <code class="docutils literal notranslate"><span class="pre">Command+Space</span></code>.</p>
+</div>
+<p>În mod similar, dacă dorim să pornim o aplicație de tip terminal (<strong>GNOME Terminal</strong>), folosim <code class="docutils literal notranslate"><span class="pre">Alt+F2</span></code> și introducem șirul <code class="docutils literal notranslate"><span class="pre">gnome-terminal</span></code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Aplicația GNOME Terminal, pornită folosind comanda <code class="docutils literal notranslate"><span class="pre">gnome-terminal</span></code>, este aplicația de tip terminal specifică mediului GNOME.
+Alte medii pot folosi alte aplicații de tip terminal.
+De exemplu, aplicația de tip terminal pe mediul KDE este Konsole.
+Sau utilizatorul poate decide instalarea unei alte aplicații de tip terminal, precum Terminator.</p>
+</div>
+<p>Șirurile <code class="docutils literal notranslate"><span class="pre">firefox</span></code> și <code class="docutils literal notranslate"><span class="pre">gnome-terminal</span></code> sunt șiruri identifică aplicațiile Firefox, respectiv GNOME Terminal.
+Numim un astfel de șir o <strong>comandă</strong>; comenzile sunt șiruri introduse de utilizator pentru a porni o anumită aplicație.</p>
+<div class="section" id="pornirea-de-aplicatii-grafice-folosind-alt-f2">
+<h4>Pornirea de aplicații grafice folosind Alt+F2<a class="headerlink" href="#pornirea-de-aplicatii-grafice-folosind-alt-f2" title="Permalink to this headline">¶</a></h4>
+<p>Porniți o aplicație browser de fișiere (<em>file browser</em>) folosind <code class="docutils literal notranslate"><span class="pre">Alt+F2</span></code>.
+În Ubuntu 18.04 GNOME browserul de sistem de fișiere este <strong>Nautilus</strong>, identificat de șirul (comanda) <code class="docutils literal notranslate"><span class="pre">nautilus</span></code>.</p>
+<p>Porniți aplicația <strong>LibreOffice</strong>, identificată de șirul (comanda) <code class="docutils literal notranslate"><span class="pre">libreoffice</span></code>, folosind <code class="docutils literal notranslate"><span class="pre">Alt+F2</span></code>.</p>
+</div>
+<div class="section" id="pornirea-unei-aplicatii-cli-folosind-alt-f2">
+<h4>Pornirea unei aplicații CLI folosind Alt+F2<a class="headerlink" href="#pornirea-unei-aplicatii-cli-folosind-alt-f2" title="Permalink to this headline">¶</a></h4>
+<p>Porniți aplicația <code class="docutils literal notranslate"><span class="pre">ls</span></code> (de listare a conținutului unui director în linia de comandă (CLI)) folosind <code class="docutils literal notranslate"><span class="pre">Alt+F2</span></code>.
+De ce nu este afișat nimic în urma pornirii aplicației <code class="docutils literal notranslate"><span class="pre">ls</span></code>?</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Multe dintre aplicațiile în linia de comandă (precum <code class="docutils literal notranslate"><span class="pre">ls</span></code>) și unele aplicații grafice (precum <strong>GNOME System Monitor</strong>) au rolul de a informa utilizatorul și de a-l ajuta să întrețină, configureze, creeze și monitorizeze sistemul și aplicațiile acestora.
+Numim aceste aplicații <strong>utilitare</strong> sau <strong>unelte</strong> (<em>utility</em>, <em>tool</em>).
+<code class="docutils literal notranslate"><span class="pre">ls</span></code> este un utilitar în linia de comandă.</p>
+</div>
+</div>
+</div>
+<div class="section" id="d-pornirea-unei-aplicatii-grafice-folosind-linia-de-comanda">
+<h3>d. Pornirea unei aplicații grafice folosind linia de comandă<a class="headerlink" href="#d-pornirea-unei-aplicatii-grafice-folosind-linia-de-comanda" title="Permalink to this headline">¶</a></h3>
+<p>Pornirea unei aplicații grafice poate fi realizată din linia de comandă (CLI) folosind șirul care identifică aplicația, la fel ca în cazul folosirii <code class="docutils literal notranslate"><span class="pre">Alt+F2</span></code>.</p>
+<p>Pornim o aplicație de terminal folosind fie iconul corespunzător fie <code class="docutils literal notranslate"><span class="pre">Alt+F2</span></code> urmat de șirul (comanda) <code class="docutils literal notranslate"><span class="pre">gnome-terminal</span></code>.
+În aplicația de terminal, pornim aplicația Firefox scriind șirul (comanda) <code class="docutils literal notranslate"><span class="pre">firefox</span></code>, urmat de apăsarea tastei <code class="docutils literal notranslate"><span class="pre">Enter</span></code>, ca în imaginea de mai jos.
+Aplicația Firefox va porni.</p>
+<img alt="Ponirea Firefox din linia de comandă:" class="align-center" src="../../_images/firefox-cli.png" />
+<p>În acest moment, în aplicația de terminal nu mai putem introduce noi comenzi pentru a porni alte aplicații.
+Va trebui să oprim aplicația Firefox.
+Oprim aplicația Firefox din mediul grafic (click pe butonul de închidere a ferestrei sau folosirea combinației de taste <code class="docutils literal notranslate"><span class="pre">Alt+F4</span></code>) sau din terminal folosind combinația de taste <code class="docutils literal notranslate"><span class="pre">Ctrl+c</span></code>.</p>
+<div class="section" id="pornirea-de-aplicatii-grafice-folosind-linia-de-comanda">
+<h4>Pornirea de aplicații grafice folosind linia de comandă<a class="headerlink" href="#pornirea-de-aplicatii-grafice-folosind-linia-de-comanda" title="Permalink to this headline">¶</a></h4>
+<p>La fel ca mai sus, porniți o aplicație browser de fișiere (<em>file browser</em>) folosind linia de comandă.
+În Ubuntu 18.04 GNOME browserul de sistem de fișiere este <code class="docutils literal notranslate"><span class="pre">nautilus</span></code>.</p>
+<p>Porniți aplicația LibreOffice folosind linia de comandă.</p>
+</div>
+<div class="section" id="pornirea-de-aplicatii-cli-folosind-linia-de-comanda">
+<h4>Pornirea de aplicații CLI folosind linia de comandă<a class="headerlink" href="#pornirea-de-aplicatii-cli-folosind-linia-de-comanda" title="Permalink to this headline">¶</a></h4>
+<p>Porniți utilitarul <code class="docutils literal notranslate"><span class="pre">ls</span></code> (de listare a conținutului unui director în linia de comandă (CLI)) folosind linia de comandă.
+Porniți utilitarul <code class="docutils literal notranslate"><span class="pre">df</span></code> (de afișare a spațiului ocupat pe disc) folosind linia de comandă.</p>
+<p>Spre deosebire de scenariul folosirii <code class="docutils literal notranslate"><span class="pre">Alt+F2</span></code>, când folosim aplicații CLI în linia de comandă, mesajele vor fi vizibile.
+Acest lucru se întâmplă pentru că linia de comandă înseamnă existența unui terminal unde putem vizualiza mesajele.</p>
+</div>
+</div>
+<div class="section" id="e-identificarea-fisierului-executabil-al-unei-aplicatii">
+<h3>e. Identificarea fișierului executabil al unei aplicații<a class="headerlink" href="#e-identificarea-fisierului-executabil-al-unei-aplicatii" title="Permalink to this headline">¶</a></h3>
+<p>Pornirea unei aplicații înseamnă că se alocă resursele sistemului (procesor, memorie, dispozitive de intrare/ieșire) pentru a rula aplicația.
+Aplicația are asociat un fișier care conține codul (instrucțiunile) și datele aplicației.
+Codul aplicației este executat, de aceea acest fișier se numește fișier executabil.
+Acest fișier executabil este încărcat în memoria sistemului și codul este executat; din acest moment spunem că aplicația <strong>rulează</strong>.</p>
+<p>De exemplu aplicația Firefox (browser web) are asociat fișierul executabil <code class="docutils literal notranslate"><span class="pre">/usr/bin/firefox</span></code>; aplicația Vim (editor) are asociat fișierul executabil <code class="docutils literal notranslate"><span class="pre">/usr/bin/vim</span></code>; aplicația LibreOffice (suită office) are asociat fișierul executabil <code class="docutils literal notranslate"><span class="pre">/usr/bin/libreoffice</span></code>.
+Putem identifica fișierul executabil al unei aplicații folosind comanda <code class="docutils literal notranslate"><span class="pre">which</span></code> urmată de comanda pentru pornirea aplicației ca mai jos:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ which firefox
+/usr/bin/firefox
+student@uso:~$ which vim
+/usr/bin/vim
+student@uso:~$ which libreoffice
+/usr/bin/libreoffice
+</pre></div>
+</div>
+</div>
+<div class="section" id="f-vizualizarea-proceselor">
+<h3>f. Vizualizarea proceselor<a class="headerlink" href="#f-vizualizarea-proceselor" title="Permalink to this headline">¶</a></h3>
+<p>O aplicația care rulează, adică folosește resursele sistemului pentru a executa cod și a prelucra date, se numește <strong>proces</strong>.
+Atunci când pornim o aplicație se creează un proces; atunci când oprim aplicația sau își încheie execuția ne referim la încheierea execuției procesului.</p>
+<p>Putem vizualiza aplicațiile care rulează (procesele) în mediul grafic folosind, în mediul GNOME, aplicația <strong>GNOME System Monitor</strong> <a class="footnote-reference brackets" href="#taskmanager" id="id1">1</a>.
+Pornim aplicația folosind <code class="docutils literal notranslate"><span class="pre">Alt+F2</span></code> și comanda <code class="docutils literal notranslate"><span class="pre">gnome-system-monitor</span></code>.
+Procesele sunt afișate în tabul <code class="docutils literal notranslate"><span class="pre">Processes</span></code> al aplicației ca în imaginea de mai jos:</p>
+<img alt="GNOME System Monitor" class="align-center" src="../../_images/system-monitor.png" />
+<p>Pentru a vizualiza procesele în linia de comandă folosim utilitarul <code class="docutils literal notranslate"><span class="pre">ps</span></code> ca mai jos:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ ps
+  PID TTY          TIME CMD
+ <span class="m">3370</span> pts/4    <span class="m">00</span>:00:00 bash
+ <span class="m">3912</span> pts/4    <span class="m">00</span>:00:00 ps
+student@uso:~$ ps -e
+  PID TTY          TIME CMD
+    <span class="m">1</span> ?        <span class="m">00</span>:00:02 systemd
+    <span class="m">2</span> ?        <span class="m">00</span>:00:00 kthreadd
+    <span class="m">4</span> ?        <span class="m">00</span>:00:00 kworker/0:0H
+    <span class="m">6</span> ?        <span class="m">00</span>:00:00 mm_percpu_wq
+    <span class="m">7</span> ?        <span class="m">00</span>:00:00 ksoftirqd/0
+    <span class="m">8</span> ?        <span class="m">00</span>:00:00 rcu_sched
+<span class="o">[</span>...<span class="o">]</span>
+</pre></div>
+</div>
+<p>Nu detaliem aici rezultatul rulării comenzilor de mai sus.
+Vom afla mai multe despre folosirea <code class="docutils literal notranslate"><span class="pre">ps</span></code> și a altor aplicații de vizualizare a proceselor în <span class="xref std std-ref">app_install_run</span>.</p>
+</div>
+<div class="section" id="g-fazele-utilizarii-unei-aplicatii">
+<h3>g. Fazele utilizării unei aplicații<a class="headerlink" href="#g-fazele-utilizarii-unei-aplicatii" title="Permalink to this headline">¶</a></h3>
+<p>Pentru utilizarea sa, aplicația trece prin două faze.</p>
+<ol class="arabic simple">
+<li><p>Faza pornirii aplicației, adică a încărcării fișierului executabil în memorie și a creării procesului, se numește <em>loading</em> sau <em>load-time</em>.</p></li>
+<li><p>Faza rulării procesului se numește <em>running</em> sau <em>run-time</em>.</p></li>
+</ol>
+<p>În faza de <em>load-time</em> se alocă resursele necesare pentru pornirea procesului, se creează procesul și se pornește execuția sa.
+În termeni de programator, atunci se începe execuția codului programului corespunzător procesului, uzual de la funcția <code class="docutils literal notranslate"><span class="pre">main()</span></code> a acestuia.
+Această faza nu este vizibilă utilizatorului.
+Utilizatorul folosește un icon sau introduce o comandă și apoi vede aplicația pornită ca proces.</p>
+<p>În faza de <em>run-time</em> procesul nou creat folosește resursele sistemului (procesor, memorie, intrare/ieșire) pentru a îndeplini nevoile utilizatorului sau ale sistemului.
+Această fază este cea vizibilă utilizatorului, este faza în care acesta folosește efectiv aplicația.</p>
+<p>Aceste două faze vin în continuarea celor două faze prezentate în capitolul TODO:</p>
+<ul class="simple">
+<li><p>faza compilării (<em>compiling</em>, <em>compile-time</em>) în care codul sursă al programului este compilat în cod obiect</p></li>
+<li><p>faza legării (<em>linking</em>, <em>link-time</em>) în care mai multe fișiere cod obiect sunt legate într-un fișier executabil</p></li>
+</ul>
+<p>Fișierul executabil obținut la finalul fazei de <em>link-time</em> este asociat aplicației și este folosit pentru pornirea procesului.</p>
+<p>Avem, astfel, imaginea completă a creării și rulării unei aplicații, din momentul scrierii codului său sursă până la folosirea sa de utilizator, ca mai jos:</p>
+<img alt="../../_images/ditaa-45c55033eada7c2395964b14e138914d0a9ae230.png" src="../../_images/ditaa-45c55033eada7c2395964b14e138914d0a9ae230.png" />
+</div>
+<div class="section" id="h-exercitii-de-aprofundare">
+<h3>h. Exerciții de aprofundare<a class="headerlink" href="#h-exercitii-de-aprofundare" title="Permalink to this headline">¶</a></h3>
+<p>Porniți aplicațiile:</p>
+<ul class="simple">
+<li><p>Shutter (identificată de șirul <code class="docutils literal notranslate"><span class="pre">shutter</span></code>), aplicație de creare de screenshoturi</p></li>
+<li><p>Gedit (identificată de șirul <code class="docutils literal notranslate"><span class="pre">gedit</span></code>), editor</p></li>
+<li><p>Mines (identificată de șirul <code class="docutils literal notranslate"><span class="pre">gnome-mines</span></code>), joc de tip Minesweeper</p></li>
+<li><p>ToDo (identificată de șirul <code class="docutils literal notranslate"><span class="pre">gnome-todo</span></code>), aplicație de gestiune de taskuri / todo-uri</p></li>
+</ul>
+<p>Porniți fiecare aplicație în trei moduri:</p>
+<ol class="arabic simple">
+<li><p>Folosind iconuri în interfața grafică.
+Localizați iconul în meniurile interfeței grafice.</p></li>
+<li><p>Folosind <code class="docutils literal notranslate"><span class="pre">Alt+F2</span></code>.</p></li>
+<li><p>Folosind interfața în linia de comandă (CLI).</p></li>
+</ol>
+</div>
+<div class="section" id="i-sumar-pornirea-aplicatiilor-grafice">
+<h3>i. Sumar: Pornirea aplicațiilor grafice<a class="headerlink" href="#i-sumar-pornirea-aplicatiilor-grafice" title="Permalink to this headline">¶</a></h3>
+<p>O aplicație grafică poate fi pornită în 3 moduri:</p>
+<ol class="arabic simple">
+<li><p>Folosind iconuri în interfața grafică.
+Iconurile se găsesc direct pe desktop sau în barele de desktop sau în meniurile și ferestrele mediului grafic.
+Plasarea iconurilor depinde de distribuția folosită.</p></li>
+<li><p>Folosind un prompt de tip <em>application launcher</em>.
+Acest prompt este lansat, în Linux, de combinația de taste <code class="docutils literal notranslate"><span class="pre">Alt+F2</span></code>.
+În Windows se folosește combinația de taste <code class="docutils literal notranslate"><span class="pre">Windows+r</span></code>.
+În macOS se folosește combinația de taste <code class="docutils literal notranslate"><span class="pre">Command+Space</span></code>.
+La acest prompt se introduce șirul (comanda) care identifică aplicația.</p></li>
+<li><p>Folosind interfața în linia de comandă.
+La promptul terminalului se introduce șirul (comanda) care identifică aplicația.</p></li>
+</ol>
+<p>O aplicație este pornită dintr-un fișier executabil care conține codul (intrucțiunile) și datele aplicației.
+O aplicație care rulează este numită proces.
+Procesul folosește resursele sistemului (procesor, memorie, intrare/ieșire) pentru a executa codul și pentru a prelucra date specifice aplicației.
+Faza pornirii aplicației, adică a încărcării fișierului executabil în memorie și a creării procesului, se numește <em>loading</em> sau <em>load-time</em>.
+Faza rulării procesului se numește <em>running</em> sau <em>run-time</em>.</p>
+</div>
+</div>
+<div class="section" id="pornirea-aplicatiilor-in-linia-de-comanda">
+<h2>Pornirea aplicațiilor în linia de comandă<a class="headerlink" href="#pornirea-aplicatiilor-in-linia-de-comanda" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="j-mentinerea-accesului-la-terminal">
+<h3>j. Menținerea accesului la terminal<a class="headerlink" href="#j-mentinerea-accesului-la-terminal" title="Permalink to this headline">¶</a></h3>
+<p>Atunci când pornim o aplicație grafică din linia de comandă, aplicația “acaparează” terminalul; nu mai putem introduce noi comenzi pentru a porni alte aplicații.
+Putem rezolva acest lucru prin trecerea aplicației grafice în <strong>backgroundul</strong> shellului.
+Adică urmăm pașii:</p>
+<ol class="arabic">
+<li><p>Pornim, în terminal, aplicația grafică (<strong>Firefox</strong>) folosind comanda <code class="docutils literal notranslate"><span class="pre">firefox</span></code>.</p></li>
+<li><p>În terminal folosim comabinația de taste <code class="docutils literal notranslate"><span class="pre">Ctrl+z</span></code> pentru a trece aplicația în background.
+În acest moment avem din nou promptul terminalului, ca mai jos:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ firefox
+^Z
+<span class="o">[</span><span class="m">1</span><span class="o">]</span>+  Stopped                 firefox
+</pre></div>
+</div>
+<p>Dar aplicația este acum “înghețată”, nu mai este responsivă. Spunem că este <strong>suspendată</strong>.</p>
+</li>
+<li><p>Folosim, în terminal, comanda <code class="docutils literal notranslate"><span class="pre">bg</span></code>, ca mai jos:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ <span class="nb">bg</span>
+<span class="o">[</span><span class="m">1</span><span class="o">]</span>+ firefox <span class="p">&amp;</span>
+</pre></div>
+</div>
+<p>Astfel am “dezghețat” aplicația, care acum este interactivă.</p>
+</li>
+</ol>
+<p>În acest mod avem aplicația <strong>Firefox</strong> în rulare și avem acces la terminal să introducem noi comenzi.</p>
+<p>Folosiți pașii de mai sus pentru a porni și aplicația <strong>LibreOffice</strong> din linie de comandă și să mențineți accesul la terminal.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Vom afla mai multe despre background și suspendarea proceselor în <span class="xref std std-ref">app_install_run_signal</span>.</p>
+</div>
+</div>
+<div class="section" id="a-pornirea-aplicatiilor-in-linie-de-comanda">
+<h3>a. Pornirea aplicațiilor în linie de comandă<a class="headerlink" href="#a-pornirea-aplicatiilor-in-linie-de-comanda" title="Permalink to this headline">¶</a></h3>
+<p>Aplicațiile în linie de comandă nu au nevoie de mediu grafic.
+Interacțiunea lor cu utilizatorul se face prin intermediul terminalului: la terminal se introduc informații de la utilizator și tot la terminal se afișează rezultatele rulării aplicațiilor.
+Cel mai adesemea numim aplicațiile în linie de comandă <strong>utilitare</strong>.
+La fel ca în cazul aplicațiilor grafice, la porniree unui utilitar în linia de comandă se creează un proces.</p>
+<p>Pentru a porni aplicații / utilitare în linia de comandă, folosim comenzi care conțin numele utilitarului urmate, eventual, de argumente.
+Astfel, pentru a porni utiltarele <code class="docutils literal notranslate"><span class="pre">ls</span></code> sau <code class="docutils literal notranslate"><span class="pre">ps</span></code> folosim comenzi precum cele de mai jos, simple sau cu argumente:</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ ls
+Desktop  Documents  Downloads  examples.desktop  Music  Pictures  Public  snap  Templates  uso.git  Videos  vm-actions-log.txt
+student@uso:~$ ls -l
+total <span class="m">60</span>
+drwxr-xr-x  <span class="m">2</span> student student <span class="m">4096</span> Aug  <span class="m">6</span>  <span class="m">2018</span> Desktop
+drwxr-xr-x  <span class="m">3</span> student student <span class="m">4096</span> Aug <span class="m">20</span>  <span class="m">2018</span> Documents
+drwxr-xr-x  <span class="m">2</span> student student <span class="m">4096</span> Aug  <span class="m">6</span>  <span class="m">2018</span> Downloads
+-rw-r--r--  <span class="m">1</span> student student <span class="m">8980</span> Aug  <span class="m">6</span>  <span class="m">2018</span> examples.desktop
+drwxr-xr-x  <span class="m">2</span> student student <span class="m">4096</span> Aug  <span class="m">6</span>  <span class="m">2018</span> Music
+drwxr-xr-x  <span class="m">2</span> student student <span class="m">4096</span> Aug  <span class="m">8</span> <span class="m">11</span>:52 Pictures
+drwxr-xr-x  <span class="m">2</span> student student <span class="m">4096</span> Aug  <span class="m">6</span>  <span class="m">2018</span> Public
+drwxr-xr-x  <span class="m">3</span> student student <span class="m">4096</span> Aug  <span class="m">8</span> <span class="m">09</span>:02 snap
+drwxr-xr-x  <span class="m">2</span> student student <span class="m">4096</span> Aug  <span class="m">6</span>  <span class="m">2018</span> Templates
+drwxr-xr-x <span class="m">14</span> student student <span class="m">4096</span> Aug <span class="m">20</span>  <span class="m">2018</span> uso.git
+drwxr-xr-x  <span class="m">2</span> student student <span class="m">4096</span> Aug  <span class="m">6</span>  <span class="m">2018</span> Videos
+-rw-r--r--  <span class="m">1</span> student student <span class="m">4827</span> Aug <span class="m">21</span>  <span class="m">2018</span> vm-actions-log.txt
+student@uso:~$ ps
+  PID TTY          TIME CMD
+ <span class="m">3370</span> pts/4    <span class="m">00</span>:00:00 bash
+ <span class="m">7979</span> pts/4    <span class="m">00</span>:00:00 ps
+student@uso:~$ ps -f
+UID        PID  PPID  C STIME TTY          TIME CMD
+student   <span class="m">3370</span>  <span class="m">3369</span>  <span class="m">0</span> <span class="m">08</span>:55 pts/4    <span class="m">00</span>:00:00 -bash
+student   <span class="m">7982</span>  <span class="m">3370</span>  <span class="m">0</span> <span class="m">13</span>:17 pts/4    <span class="m">00</span>:00:00 ps -f
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="b-aplicatii-interactive-in-linia-de-comanda">
+<h3>b. Aplicații interactive în linia de comandă<a class="headerlink" href="#b-aplicatii-interactive-in-linia-de-comanda" title="Permalink to this headline">¶</a></h3>
+<p>Utilitarele <code class="docutils literal notranslate"><span class="pre">ls</span></code> și <code class="docutils literal notranslate"><span class="pre">ps</span></code> pe care le-am folosit mai sus pornesc, rulează, afișează informații utilizatorului la terminal și apoi se opresc.
+Alte utilitare în linia de comandă sunt interactive.
+Adică folosesc date introduse de utilizator și își încheie execuția doar după introducerea acestor date sau la comanda utilizatorului.</p>
+<p>De exemplu, utilitarul <code class="docutils literal notranslate"><span class="pre">less</span></code>, folosit pentru afișarea paginată a conținutului unui fișier, este interactiv.
+Îl folosim ca mai jos:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ less /etc/services
+</pre></div>
+</div>
+<p>O dată pornit utilitarul, putem controla afișarea sa folosind tastele săgeți sau alte combinații de taste precum <code class="docutils literal notranslate"><span class="pre">Ctrl+b</span></code> (pagină sus) sau <code class="docutils literal notranslate"><span class="pre">Ctrl+f</span></code> (pagină jos).
+Pentru a opri utilitarul folosim tasta <code class="docutils literal notranslate"><span class="pre">q</span></code> (<em>quit</em>) și obținem controlul terminalului pentru a introduce noi comenzi.</p>
+<p>Porniți în linia de comandă aplicația interactivă <code class="docutils literal notranslate"><span class="pre">vim</span></code> pentru a edita fișierul <code class="docutils literal notranslate"><span class="pre">~/.bashrc</span></code>.
+Opriți aplicația folosind combinația de taste <code class="docutils literal notranslate"><span class="pre">&lt;Esc&gt;:q!</span></code> urmată de <code class="docutils literal notranslate"><span class="pre">Enter</span></code>.</p>
+</div>
+<div class="section" id="c-oprirea-fortata-a-aplicatiilor-in-linia-de-comanda">
+<h3>c. Oprirea forțată a aplicațiilor în linia de comandă<a class="headerlink" href="#c-oprirea-fortata-a-aplicatiilor-in-linia-de-comanda" title="Permalink to this headline">¶</a></h3>
+<p>Se poate întâmpla ca o aplicație în linia de comandă să ruleze pentru prea mult sau să se blocheze.
+Caz în care dorim să o oprim.
+Soluția de avarie este să închidem fereastra de terminal, lucru care, de obicei, închide și aplicația.
+Soluția mai bună este să închidem doar aplicația.
+Acest lucru în facem folosind combinația de taste <code class="docutils literal notranslate"><span class="pre">Ctrl+c</span></code> care oprește aplicația care rulează în terminal.
+Acest lucru poate fi realizat și pentru aplicații grafice, așa cum am văzut mai sus.</p>
+<p>De exemplu, dacă folosim comanda <code class="docutils literal notranslate"><span class="pre">sleep</span> <span class="pre">100</span></code> care se va bloca pentru 100 de secunde, o vom opri folosind <code class="docutils literal notranslate"><span class="pre">Ctrl+c</span></code> ca mai jos:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ sleep <span class="m">100</span>
+^C
+student@uso:~$
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Pentru anumite aplicații combinația de taste <code class="docutils literal notranslate"><span class="pre">Ctrl+c</span></code> poate să nu funcționeze.
+În acest caz putem folosi combinația de taste <code class="docutils literal notranslate"><span class="pre">Ctrl+\</span></code>, mai puternică.
+Dacă nici <code class="docutils literal notranslate"><span class="pre">Ctrl+\</span></code> nu funcționează, va trebui să trimitem aplicației un semnal mai puternic care să o oprească.
+Vom discuta despre semnale în <span class="xref std std-ref">app_install_run_signal</span>.</p>
+</div>
+<div class="section" id="oprire-fortata-de-aplicatii">
+<h4>Oprire forțată de aplicații<a class="headerlink" href="#oprire-fortata-de-aplicatii" title="Permalink to this headline">¶</a></h4>
+<p>Folosiți următoarele comenzi care pornesc procese care durează mult și opriți-le forțat:
+* <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-R</span> <span class="pre">/usr</span></code>: pentru a afișa recursiv conținutul directorului <code class="docutils literal notranslate"><span class="pre">/usr</span></code>
+* <code class="docutils literal notranslate"><span class="pre">dd</span> <span class="pre">if=/dev/zero</span> <span class="pre">of=/dev/null</span></code>: pentru a consuma timp de procesor (<em>busy waiting</em>)
+* <code class="docutils literal notranslate"><span class="pre">watch</span> <span class="pre">ps</span></code>: pentru a monitoriza procesele din terminalul curent</p>
+</div>
+</div>
+<div class="section" id="d-studiu-de-caz-emacs-aplicatie-hibrida">
+<h3>d. Studiu de caz: Emacs: Aplicație hibridă<a class="headerlink" href="#d-studiu-de-caz-emacs-aplicatie-hibrida" title="Permalink to this headline">¶</a></h3>
+<p>Aplicația Emacs (un editor) poate rula cu interfața grafică și cu interfață în linia de comandă.
+Dacă pornim aplicația Emacs în linia de comandă, folosind comanda <code class="docutils literal notranslate"><span class="pre">emacs</span></code>, se va crea un proces cu interfața grafică, așa cum apare în imaginea de mai jos:</p>
+<img alt="Emacs cu interfața grafică" class="align-center" src="../../_images/emacs-gui.png" />
+<p>Putem opta să folosim interfața în linia de comandă a aplicației Emacs, nu interfața grafică, din rațiuni de resurse consumate, pornire mai rapidă sau interfață universală.
+Pentru a face acest lucru, folosim comanda <code class="docutils literal notranslate"><span class="pre">emacs</span> <span class="pre">-nw</span></code> (<code class="docutils literal notranslate"><span class="pre">nw</span></code> de la <em>no window system</em>), ca mai jos:</p>
+<img alt="Emacs cu interfață în linia de comandă" class="align-center" src="../../_images/emacs-nw.png" />
+<p>Aplicația este interactivă.
+În interfața grafică poate fi oprită folosind butonul de închidere a ferestrei sau combinația de taste <code class="docutils literal notranslate"><span class="pre">Alt+F4</span></code>.
+În linia de comandă (și în interfața grafică) poate fi oprită folosind combinația de taste specifică pentru oprirea aplicației: <code class="docutils literal notranslate"><span class="pre">Ctrl+x</span></code> urmat de <code class="docutils literal notranslate"><span class="pre">Ctrl+c</span></code>.</p>
+</div>
+<div class="section" id="e-pornirea-aplicatiilor-grafice-in-modul-headless">
+<h3>e. Pornirea aplicațiilor grafice în modul headless<a class="headerlink" href="#e-pornirea-aplicatiilor-grafice-in-modul-headless" title="Permalink to this headline">¶</a></h3>
+<p>Atunci când lucrăm la distanță e posibil să nu avem facil acces la interfață grafică.
+Sau, chiar când lucrăm pe sistemul local, nu vrem să complicăm sau interfața cu o încă o aplicație care rulează cu interfața grafică.
+Dorim să rulăm o aplicație în background fără interfață grafică.
+Nu interacționăm cu aplicația direct, cu butoane, meniuri, clickuri, ci indirect, prin comenzi specializate.
+Anumite aplicații au acest mod, numit mod <em>headless</em>.</p>
+<p><strong>exercițiu</strong>: pornire virtualbox în modul headless</p>
+<p><strong>exercițiu</strong>: pornire deluge în modul headless
+dificultate sporită</p>
+<p class="rubric">Note de subsol</p>
+<dl class="footnote brackets">
+<dt class="label" id="taskmanager"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd><p>Aplicația <strong>GNOME System Monitor</strong> este similară aplicației <strong>Task Manager</strong> din Windows.</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+
+
+          </div>
+          <div class="page-nav">
+            <div class="inner"><ul class="page-nav">
+  <li class="prev">
+    <a href="../net/extra.html"
+       title="previous chapter">← Extra networking tasks</a>
+  </li>
+  <li class="next">
+    <a href="run.html"
+       title="next chapter">Rularea aplicațiilor →</a>
+  </li>
+</ul><div class="footer" role="contentinfo">
+      &#169; Copyright 2020, USO Team.
+    <br>
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.2.0 with <a href="https://github.com/romnnn/sphinx_press_theme">Press Theme</a>.
+</div>
+            </div>
+          </div>
+      </page>
+    </div>
+    
+    
+  </body>
+</html>
