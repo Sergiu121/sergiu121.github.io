@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-      <title>Basic network service usage</title>
+      <title>Servicii şi clienţi de reţea</title>
     
       <link rel="stylesheet" href="../../_static/pygments.css">
       <link rel="stylesheet" href="../../_static/theme.css">
@@ -23,8 +23,8 @@
     
   <link rel="index" title="Index" href="../../genindex.html" />
   <link rel="search" title="Search" href="../../search.html" />
-  <link rel="next" title="Extra networking tasks" href="extra.html" />
-  <link rel="prev" title="Troubleshooting network connections" href="troubleshoot.html" />
+  <link rel="next" title="Funcţionalităţi suplimentare de reţelistică" href="extra.html" />
+  <link rel="prev" title="Verificarea conectivităţii la reţea" href="troubleshoot.html" />
     <link href="../../_static/my_theme.css" rel="stylesheet" type="text/css">
 
   </head>
@@ -52,7 +52,7 @@
     <div class="nav-item">
       <a href="../../index.html#uso-lab-book"
          class="nav-link  router-link-active">
-         Networking:
+         Conectarea la Internet:
       </a>
     </div>
   
@@ -112,7 +112,7 @@
     <div class="nav-item">
       <a href="../../index.html#uso-lab-book"
          class="nav-link  router-link-active">
-         Networking:
+         Conectarea la Internet:
       </a>
     </div>
   
@@ -252,35 +252,41 @@
   
     <div class="sidebar-group">
       <p class="caption">
-        <span class="caption-text"><a href="../../index.html#uso-lab-book">Networking:</a></span>
+        <span class="caption-text"><a href="../../index.html#uso-lab-book">Conectarea la Internet:</a></span>
       </p>
       <ul class="current">
         
-          <li class="toctree-l1 "><a href="browser.html" class="reference internal ">Efficient browser usage</a>
+          <li class="toctree-l1 "><a href="browser.html" class="reference internal ">Folosirea eficientă a browser-ului</a>
 
             
           </li>
 
         
-          <li class="toctree-l1 "><a href="troubleshoot.html" class="reference internal ">Troubleshooting network connections</a>
+          <li class="toctree-l1 "><a href="troubleshoot.html" class="reference internal ">Verificarea conectivităţii la reţea</a>
 
             
           </li>
 
         
-          <li class="toctree-l1 current"><a href="#" class="reference internal current">Basic network service usage</a>
+          <li class="toctree-l1 current"><a href="#" class="reference internal current">Servicii şi clienţi de reţea</a>
 
             
               <ul>
                 
-                  <li class="toctree-l2"><a href="#basic-network-service-usage" class="reference internal">Basic network service usage</a></li>
+                  <li class="toctree-l2"><a href="#clienti-web-in-linia-de-comanda" class="reference internal">1) Clienţi web în linia de comandă</a></li>
+                
+                  <li class="toctree-l2"><a href="#accesul-la-distanta-in-linie-de-comanda" class="reference internal">2) Accesul la distanţă în linie de comandă</a></li>
+                
+                  <li class="toctree-l2"><a href="#controlul-la-distanta-in-mediul-grafic" class="reference internal">3) Controlul la distanță în mediul grafic</a></li>
+                
+                  <li class="toctree-l2"><a href="#securizarea-conexiunii-la-internet-folosind-un-vpn" class="reference internal">4) Securizarea conexiunii la Internet folosind un VPN</a></li>
                 
               </ul>
             
           </li>
 
         
-          <li class="toctree-l1 "><a href="extra.html" class="reference internal ">Extra networking tasks</a>
+          <li class="toctree-l1 "><a href="extra.html" class="reference internal ">Funcţionalităţi suplimentare de reţelistică</a>
 
             
           </li>
@@ -463,18 +469,18 @@
   <ul class="breadcrumbs">
     <li><a href="../../index.html">Docs</a> &raquo;</li>
     
-    <li>Basic network service usage</li>
+    <li>Servicii şi clienţi de reţea</li>
   </ul>
   
 
   <ul class="page-nav">
   <li class="prev">
     <a href="troubleshoot.html"
-       title="previous chapter">← Troubleshooting network connections</a>
+       title="previous chapter">← Verificarea conectivităţii la reţea</a>
   </li>
   <li class="next">
     <a href="extra.html"
-       title="next chapter">Extra networking tasks →</a>
+       title="next chapter">Funcţionalităţi suplimentare de reţelistică →</a>
   </li>
 </ul>
   
@@ -482,8 +488,71 @@
 <hr>
           <div class="content" role="main">
             
-  <div class="section" id="basic-network-service-usage">
-<h1>Basic network service usage<a class="headerlink" href="#basic-network-service-usage" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="servicii-si-clienti-de-retea">
+<h1>Servicii şi clienţi de reţea<a class="headerlink" href="#servicii-si-clienti-de-retea" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="clienti-web-in-linia-de-comanda">
+<h2>1) Clienţi web în linia de comandă<a class="headerlink" href="#clienti-web-in-linia-de-comanda" title="Permalink to this headline">¶</a></h2>
+<p>Pentru accesarea unui site le arătăm că putem să descărca site-ul folosind un
+client cum ar fi <cite>wget</cite>, sau <cite>curl</cite> şi le arătăm că se descarcă un fişier HTML
+şi le vom explica că asta face şi browser-ul, dar are un motor care
+interpretează textul şi îl afişează.</p>
+</div>
+<div class="section" id="accesul-la-distanta-in-linie-de-comanda">
+<h2>2) Accesul la distanţă în linie de comandă<a class="headerlink" href="#accesul-la-distanta-in-linie-de-comanda" title="Permalink to this headline">¶</a></h2>
+<p>Pentru accesarea unui calculator de la distanţă prin shell, le arătăm cum se pot
+conecta la un alt calculator şi să ruleze pe el comenzi folosind SSH.</p>
+<p>Aici le vom arăta că există două moduri de autentificare, folosind parolă şi
+folosind chei.</p>
+<div class="section" id="a-conectarea-folosind-autentificare-cu-parola">
+<h3>a. Conectarea folosind autentificare cu parolă<a class="headerlink" href="#a-conectarea-folosind-autentificare-cu-parola" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="b-conectarea-folosind-autentificare-cu-chei">
+<h3>b. Conectarea folosind autentificare cu chei<a class="headerlink" href="#b-conectarea-folosind-autentificare-cu-chei" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="b-generarea-unei-perechi-de-chei">
+<h4>b’. Generarea unei perechi de chei<a class="headerlink" href="#b-generarea-unei-perechi-de-chei" title="Permalink to this headline">¶</a></h4>
+<p>Îi punem să îşi genereze cheia şi să o copieze pe o altă staţie, apoi să vadă că
+nu mai trebuie tastată parola.</p>
+</div>
+</div>
+<div class="section" id="c-conectarea-intre-doua-calculatoare-aflate-in-retele-private-diferite">
+<h3>c. Conectarea între două calculatoare aflate în rețele private diferite<a class="headerlink" href="#c-conectarea-intre-doua-calculatoare-aflate-in-retele-private-diferite" title="Permalink to this headline">¶</a></h3>
+<p>&lt;TODO: de adăugat diagramă&gt;</p>
+<p>Pentru a demonstra principiul tunelării, ne vom folosi iar de netcat pentru a
+realiza o conexiune între două staţii. Ei se vor conecta la localhost:2222 şi
+vor accesa o altă maşină virtuală remote. Le vom arăta cum se face tunelul.</p>
+</div>
+<div class="section" id="d-transferul-datelor-la-distanta">
+<h3>d. Transferul datelor la distanţă<a class="headerlink" href="#d-transferul-datelor-la-distanta" title="Permalink to this headline">¶</a></h3>
+<p>Pentru a transfera fişiere la distanţă îi punem să folosească <cite>scp</cite> pentru a
+trimite un director şi un fişier către o staţie remote, iar apoi îi pune, să
+copieze şi invers, de pe staţia remote pe local.</p>
+</div>
+</div>
+<div class="section" id="controlul-la-distanta-in-mediul-grafic">
+<h2>3) Controlul la distanță în mediul grafic<a class="headerlink" href="#controlul-la-distanta-in-mediul-grafic" title="Permalink to this headline">¶</a></h2>
+<p>Pentru controlul la distanţă în mod vizual le vom da doua exemple.</p>
+<div class="section" id="a-controlul-unei-ferestre-la-distanta">
+<h3>a. Controlul unei ferestre la distanţă<a class="headerlink" href="#a-controlul-unei-ferestre-la-distanta" title="Permalink to this headline">¶</a></h3>
+<p>Control folosind GUI host-at remote vor porni un browser pe o staţie remote. Le
+vom arăta de X forwarding.</p>
+</div>
+<div class="section" id="b-controlul-desktopului-la-distanta">
+<h3>b. Controlul desktopului la distanţă<a class="headerlink" href="#b-controlul-desktopului-la-distanta" title="Permalink to this headline">¶</a></h3>
+<p>Pentru control complet al sesiunii le vom arăta să folosească TeamViewer.</p>
+</div>
+</div>
+<div class="section" id="securizarea-conexiunii-la-internet-folosind-un-vpn">
+<h2>4) Securizarea conexiunii la Internet folosind un VPN<a class="headerlink" href="#securizarea-conexiunii-la-internet-folosind-un-vpn" title="Permalink to this headline">¶</a></h2>
+<p>Pentru demonstrarea funcționalității de VPN le vom da 3 maşini virtuale, două
+care nu se pot conecta între ele şi una care să fie un server de VPN şi le vom
+arăta cum să se conecteze la VPN şi să observe că a apărut o nouă interfaţă şi
+să încerce să dea ping între maşini şi să vadă că funcţionează acum. Aici putem
+sa le dăm şi exemplu cu Hamachi.</p>
+<p>Aici vom puncta şi faptul că tunelul în loc sa fie folosit ca o reţea privată
+între mai multe calculatoare, poate fi folosit pentru a ieşi prin altă cale în
+internet. Putem face asta cu “What’s my IP”, sau un serviciu similar. Este de
+cugetat aici la nivel de infrastructură cum am putea face asta.</p>
+</div>
 </div>
 
 
@@ -492,16 +561,16 @@
             <div class="inner"><ul class="page-nav">
   <li class="prev">
     <a href="troubleshoot.html"
-       title="previous chapter">← Troubleshooting network connections</a>
+       title="previous chapter">← Verificarea conectivităţii la reţea</a>
   </li>
   <li class="next">
     <a href="extra.html"
-       title="next chapter">Extra networking tasks →</a>
+       title="next chapter">Funcţionalităţi suplimentare de reţelistică →</a>
   </li>
 </ul><div class="footer" role="contentinfo">
       &#169; Copyright 2020, USO Team.
     <br>
-    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.1.2 with <a href="https://github.com/romnnn/sphinx_press_theme">Press Theme</a>.
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.2.0 with <a href="https://github.com/romnnn/sphinx_press_theme">Press Theme</a>.
 </div>
             </div>
           </div>
