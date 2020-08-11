@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html >
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+      <title>Sistemul de fișiere</title>
+    
+      <link rel="stylesheet" href="../../_static/pygments.css">
+      <link rel="stylesheet" href="../../_static/theme.css">
+      <link rel="stylesheet" href="../../_static/romnnn_sphinx_press_theme.css">
+      
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+
+      <!-- sphinx script_files -->
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+
+      
+      <script src="../../_static/theme-vendors.js"></script>
+      <script src="../../_static/theme.js" defer></script>
+    
+  <link rel="index" title="Index" href="../../genindex.html" />
+  <link rel="search" title="Search" href="../../search.html" />
+  <link rel="next" title="Introducere în Git și GitHub" href="../app-dev/git-intro.html" />
+  <link rel="prev" title="Arhive" href="archive.html" />
+    <link href="../../_static/my_theme.css" rel="stylesheet" type="text/css">
+
+  </head>
+
+  <body>
+    <div id="app" class="theme-container" :class="pageClasses"><navbar @toggle-sidebar="toggleSidebar">
+  <div class="home-link-container">
+      <router-link to="../../index.html" class="home-link">
+      
+        <span class="site-name">USO Lab Book</span>
+    </router-link>
+  </div>
+
+  <div class="links">
+    <navlinks class="can-hide">
+
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link  router-link-active">
+         Lucrul cu fișiere
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Dezvoltarea aplicațiilor
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Conectarea la Internet
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Instalarea și utilizarea aplicațiilor
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Îmbunătățirea lucrului în linia de comandă
+      </a>
+    </div>
+  
+
+
+
+  
+    <div class="nav-item">
+      <a href="https://github.com/Sergiu121/uso-lab-book"
+        class="nav-link external">
+          Github <outboundlink/>
+      </a>
+    </div>
+  
+
+    </navlinks>
+  </div>
+</navbar>
+
+      
+      <div class="sidebar-mask" @click="toggleSidebar(false)">
+      </div>
+        <sidebar @toggle-sidebar="toggleSidebar">
+          
+          <navlinks>
+            
+
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link  router-link-active">
+         Lucrul cu fișiere
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Dezvoltarea aplicațiilor
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Conectarea la Internet
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Instalarea și utilizarea aplicațiilor
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Îmbunătățirea lucrului în linia de comandă
+      </a>
+    </div>
+  
+
+
+
+  
+    <div class="nav-item">
+      <a href="https://github.com/Sergiu121/uso-lab-book"
+        class="nav-link external">
+          Github <outboundlink/>
+      </a>
+    </div>
+  
+
+            
+          </navlinks><div id="searchbox" class="searchbox" role="search">
+  <div class="caption"><span class="caption-text">Search</span>
+    <div class="searchformwrapper">
+      <form autocomplete="off" class="search" action="../../search.html" method="get">
+        <input type="text" name="q" autocomplete="off" />
+        <input type="submit" value="Go" />
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div><div class="sidebar-links" role="navigation" aria-label="main navigation">
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#uso-lab-book">Lucrul cu fișiere</a></span>
+      </p>
+      <ul class="current">
+        
+          <li class="toctree-l1 "><a href="paths.html" class="reference internal ">Căi absolute și relative</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="files.html" class="reference internal ">Interacțiunea cu fișiere în linia de comandă</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="file_editor.html" class="reference internal ">Editor de text</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="io_redirection.html" class="reference internal ">Redirectări</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="archive.html" class="reference internal ">Arhive</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 current"><a href="#" class="reference internal current">Sistemul de fișiere</a>
+
+            
+              <ul>
+                
+                  <li class="toctree-l2"><a href="#find" class="reference internal">1) Find</a></li>
+                
+                  <li class="toctree-l2"><a href="#locate" class="reference internal">2) Locate</a></li>
+                
+                  <li class="toctree-l2"><a href="#path" class="reference internal">3) PATH</a></li>
+                
+                  <li class="toctree-l2"><a href="#which" class="reference internal">4) Which</a></li>
+                
+              </ul>
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#uso-lab-book">Dezvoltarea aplicațiilor</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../app-dev/git-intro.html" class="reference internal ">Introducere în Git și GitHub</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/git-first-commit.html" class="reference internal ">Primul commit</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/git-more-commits.html" class="reference internal ">Crearea unui nou commit</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/git-contribute.html" class="reference internal ">Contribuirea la un alt repository</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/make-setup.html" class="reference internal ">Pregătirea mediului de lucru</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/make-intro.html" class="reference internal ">Compilarea unui fișier cod sursă C</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/make-multiple.html" class="reference internal ">Compilarea unui program din fișiere multiple</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/make-lib.html" class="reference internal ">Legarea executabilelor folosind biblioteci externe</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/make-debug.html" class="reference internal ">Depanare condițională / configurabilă</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/make-simple-automation.html" class="reference internal ">Introducere în utilitarul Make și fișiere Makefile</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/make-advanced-automation.html" class="reference internal ">Aprofundarea folosirii fișierelor Makefile</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/make-contribute.html" class="reference internal ">Contribuirea la un proiect existent pe GitHub</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/extra.html" class="reference internal ">Exerciții suplimentare</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#uso-lab-book">Conectarea la Internet</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../net/browser.html" class="reference internal ">Folosirea eficientă a browser-ului</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../net/troubleshoot.html" class="reference internal ">Verificarea conectivităţii la reţea</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../net/services.html" class="reference internal ">Servicii şi clienţi de reţea</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../net/extra.html" class="reference internal ">Funcţionalităţi suplimentare de reţelistică</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#uso-lab-book">Instalarea și utilizarea aplicațiilor</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../app-install/start.html" class="reference internal ">Pornirea aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-install/run.html" class="reference internal ">Rularea aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-install/config.html" class="reference internal ">Configurarea aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-install/summary1.html" class="reference internal ">Sumar: Pornirea, rularea și configurarea aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-install/show-config.html" class="reference internal ">Vizualizarea configurației sistemului</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-install/install.html" class="reference internal ">Instalarea și dezinstalarea aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-install/install-non-standard.html" class="reference internal ">Instalarea și dezinstalarea aplicațiilor în mod nestandard</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-install/update.html" class="reference internal ">Actualizarea aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-install/show.html" class="reference internal ">Investigarea aplicațiilor instalate</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-install/summary2.html" class="reference internal ">Sumar: Instalarea, dezinstalarea, investigarea, actualizarea aplicațiilor</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#uso-lab-book">Îmbunătățirea lucrului în linia de comandă</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../improve-cli/improve-terminal.html" class="reference internal ">Îmbunătățirea lucrului în linia de comandă</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../improve-cli/inspect-fs.html" class="reference internal ">Inspectarea sistemului de fișiere</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../improve-cli/inspect-sys.html" class="reference internal ">Inspectarea sistemului</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../improve-cli/inspect-files.html" class="reference internal ">Inspectarea fișierelor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../improve-cli/process-files.html" class="reference internal ">Prelucrarea fișierelor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../improve-cli/improve-shell.html" class="reference internal ">O înțelegere mai bună a shell-ului</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../improve-cli/term-multiplexing.html" class="reference internal ">Multiplexarea terminalului</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+</div>
+        </sidebar>
+
+      <page>
+          <div class="body-header" role="navigation" aria-label="navigation">
+  
+  <ul class="breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+    
+    <li>Sistemul de fișiere</li>
+  </ul>
+  
+
+  <ul class="page-nav">
+  <li class="prev">
+    <a href="archive.html"
+       title="previous chapter">← Arhive</a>
+  </li>
+  <li class="next">
+    <a href="../app-dev/git-intro.html"
+       title="next chapter">Introducere în Git și GitHub →</a>
+  </li>
+</ul>
+  
+</div>
+<hr>
+          <div class="content" role="main">
+            
+  <div class="section" id="sistemul-de-fisiere">
+<h1>Sistemul de fișiere<a class="headerlink" href="#sistemul-de-fisiere" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="find">
+<h2>1) Find<a class="headerlink" href="#find" title="Permalink to this headline">¶</a></h2>
+<p>Pentru a căuta un fișier într-o ierarhie de directoare, putem folosi utilitarul <strong>find</strong>.
+Pentru a învăța mai multe despre acest utilitar, putem inspecta manualul <code class="docutils literal notranslate"><span class="pre">man</span> <span class="pre">find</span></code>.
+Acesta nu scalează pentru situațiile când avem multe fișiere și dorim un răspuns rapid.</p>
+<div class="section" id="folosirea-utilitarului-find">
+<h3>Folosirea utilitarului <strong>find</strong><a class="headerlink" href="#folosirea-utilitarului-find" title="Permalink to this headline">¶</a></h3>
+<p>Căutați în sistem fișierul <strong>passwd</strong>.</p>
+</div>
+</div>
+<div class="section" id="locate">
+<h2>2) Locate<a class="headerlink" href="#locate" title="Permalink to this headline">¶</a></h2>
+<p>Utilitarul <strong>locate</strong> se folosește astfel: <code class="docutils literal notranslate"><span class="pre">locate</span> <span class="pre">nume_fisier</span></code>.
+Utilitarul funcționează în 2 pași:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Crearea și actualizarea unei baze de date folosind comanda <strong>updatedb</strong>;</p></li>
+<li><p>Căutarea folosind <strong>locate</strong>.</p></li>
+</ul>
+</div></blockquote>
+<p>Performanța utilitarului este foarte bună, superioară lui <strong>find</strong>.
+Partea negativă este că la fiecare căutare trebuie folosit utilitarul <strong>updatedb</strong>.</p>
+<div class="section" id="folosirea-utilitarului-locate">
+<h3>Folosirea utilitarului <strong>locate</strong><a class="headerlink" href="#folosirea-utilitarului-locate" title="Permalink to this headline">¶</a></h3>
+<p>Căutați fișierul <strong>pwd</strong> în sistemul de fișiere folosind <strong>locate</strong>.</p>
+</div>
+</div>
+<div class="section" id="path">
+<h2>3) PATH<a class="headerlink" href="#path" title="Permalink to this headline">¶</a></h2>
+<p>După cum am menționat într-un capitol anterior, PATH este
+o variabilă de mediu ce se află în contextul executării
+în linia de comandă. De fiecare dată când apelăm un program
+prima oară se verifică dacă în căile din <strong>PATH</strong> se află
+acest program.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ echo $PATH
+/usr/local/bin:/usr/bin:/bin:/usr/games
+</pre></div>
+</div>
+<p><strong>Exercițiu:</strong> Afișează valoarea PATH a sistemului tău.</p>
+</div>
+<div class="section" id="which">
+<h2>4) Which<a class="headerlink" href="#which" title="Permalink to this headline">¶</a></h2>
+<p>Acest utilitar identifică calea programelor din sistem.
+Acesta folosește variabila de mediu <strong>PATH</strong> pentru a găsi utilitarul cerut și va afișa rezultatele în ordinea directoarelor din <strong>PATH</strong>.
+Pentru mai mute detalii verificați manualul <code class="docutils literal notranslate"><span class="pre">man</span> <span class="pre">which</span></code>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>student@uso:~$ which ls
+/bin/ls
+student@uso:~$ which pwd
+/bin/pwd
+student@uso:~$ which man
+/usr/bin/man
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+          <div class="page-nav">
+            <div class="inner"><ul class="page-nav">
+  <li class="prev">
+    <a href="archive.html"
+       title="previous chapter">← Arhive</a>
+  </li>
+  <li class="next">
+    <a href="../app-dev/git-intro.html"
+       title="next chapter">Introducere în Git și GitHub →</a>
+  </li>
+</ul><div class="footer" role="contentinfo">
+      &#169; Copyright 2020, USO Team.
+    <br>
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.2.0 with <a href="https://github.com/romnnn/sphinx_press_theme">Press Theme</a>.
+</div>
+            </div>
+          </div>
+      </page>
+    </div>
+    
+    
+  </body>
+</html>
