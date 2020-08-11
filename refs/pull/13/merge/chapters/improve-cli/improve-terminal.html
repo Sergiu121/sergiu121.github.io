@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html >
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+      <title>Îmbunătățirea lucrului în linia de comandă</title>
+    
+      <link rel="stylesheet" href="../../_static/pygments.css">
+      <link rel="stylesheet" href="../../_static/theme.css">
+      <link rel="stylesheet" href="../../_static/romnnn_sphinx_press_theme.css">
+      
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+
+      <!-- sphinx script_files -->
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+
+      
+      <script src="../../_static/theme-vendors.js"></script>
+      <script src="../../_static/theme.js" defer></script>
+    
+  <link rel="index" title="Index" href="../../genindex.html" />
+  <link rel="search" title="Search" href="../../search.html" />
+  <link rel="next" title="Inspectarea sistemului de fișiere" href="inspect-fs.html" />
+  <link rel="prev" title="Sumar: Instalarea, dezinstalarea, investigarea, actualizarea aplicațiilor" href="../app-install/summary2.html" />
+    <link href="../../_static/my_theme.css" rel="stylesheet" type="text/css">
+
+  </head>
+
+  <body>
+    <div id="app" class="theme-container" :class="pageClasses"><navbar @toggle-sidebar="toggleSidebar">
+  <div class="home-link-container">
+      <router-link to="../../index.html" class="home-link">
+      
+        <span class="site-name">USO Lab Book</span>
+    </router-link>
+  </div>
+
+  <div class="links">
+    <navlinks class="can-hide">
+
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Dezvoltarea aplicațiilor
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Conectarea la Internet:
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Instalarea și utilizarea aplicațiilor:
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link  router-link-active">
+         Îmbunătățirea lucrului în linia de comandă
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Fișiere
+      </a>
+    </div>
+  
+
+
+
+  
+    <div class="nav-item">
+      <a href="https://github.com/Sergiu121/uso-lab-book"
+        class="nav-link external">
+          Github <outboundlink/>
+      </a>
+    </div>
+  
+
+    </navlinks>
+  </div>
+</navbar>
+
+      
+      <div class="sidebar-mask" @click="toggleSidebar(false)">
+      </div>
+        <sidebar @toggle-sidebar="toggleSidebar">
+          
+          <navlinks>
+            
+
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Dezvoltarea aplicațiilor
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Conectarea la Internet:
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Instalarea și utilizarea aplicațiilor:
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link  router-link-active">
+         Îmbunătățirea lucrului în linia de comandă
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Fișiere
+      </a>
+    </div>
+  
+
+
+
+  
+    <div class="nav-item">
+      <a href="https://github.com/Sergiu121/uso-lab-book"
+        class="nav-link external">
+          Github <outboundlink/>
+      </a>
+    </div>
+  
+
+            
+          </navlinks><div id="searchbox" class="searchbox" role="search">
+  <div class="caption"><span class="caption-text">Search</span>
+    <div class="searchformwrapper">
+      <form autocomplete="off" class="search" action="../../search.html" method="get">
+        <input type="text" name="q" autocomplete="off" />
+        <input type="submit" value="Go" />
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div><div class="sidebar-links" role="navigation" aria-label="main navigation">
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#uso-lab-book">Dezvoltarea aplicațiilor</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../app-dev/git-intro.html" class="reference internal ">Introducere în Git și GitHub</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/git-first-commit.html" class="reference internal ">Primul commit</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/git-more-commits.html" class="reference internal ">Crearea unui nou commit</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/git-contribute.html" class="reference internal ">Contribuirea la un alt repository</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/make-setup.html" class="reference internal ">Pregătirea mediului de lucru</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/make-intro.html" class="reference internal ">Compilarea unui fișier cod sursă C</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/make-multiple.html" class="reference internal ">Compilarea unui program din fișiere multiple</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/make-lib.html" class="reference internal ">Legarea executabilelor folosind biblioteci externe</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/make-debug.html" class="reference internal ">Depanare condițională / configurabilă</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/make-simple-automation.html" class="reference internal ">Introducere în utilitarul Make și fișiere Makefile</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/make-advanced-automation.html" class="reference internal ">Aprofundarea folosirii fișierelor Makefile</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/make-contribute.html" class="reference internal ">Contribuirea la un proiect existent pe GitHub</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/extra.html" class="reference internal ">Exerciții suplimentare</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#uso-lab-book">Conectarea la Internet:</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../net/browser.html" class="reference internal ">Folosirea eficientă a browser-ului</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../net/troubleshoot.html" class="reference internal ">Verificarea conectivităţii la reţea</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../net/services.html" class="reference internal ">Servicii şi clienţi de reţea</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../net/extra.html" class="reference internal ">Funcţionalităţi suplimentare de reţelistică</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#uso-lab-book">Instalarea și utilizarea aplicațiilor:</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../app-install/start.html" class="reference internal ">Pornirea aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-install/run.html" class="reference internal ">Rularea aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-install/config.html" class="reference internal ">Configurarea aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-install/summary1.html" class="reference internal ">Sumar: Pornirea, rularea și configurarea aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-install/show-config.html" class="reference internal ">Vizualizarea configurației sistemului</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-install/install.html" class="reference internal ">Instalarea și dezinstalarea aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-install/install-non-standard.html" class="reference internal ">Instalarea și dezinstalarea aplicațiilor în mod nestandard</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-install/update.html" class="reference internal ">Actualizarea aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-install/show.html" class="reference internal ">Investigarea aplicațiilor instalate</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-install/summary2.html" class="reference internal ">Sumar: Instalarea, dezinstalarea, investigarea, actualizarea aplicațiilor</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#uso-lab-book">Îmbunătățirea lucrului în linia de comandă</a></span>
+      </p>
+      <ul class="current">
+        
+          <li class="toctree-l1 current"><a href="#" class="reference internal current">Îmbunătățirea lucrului în linia de comandă</a>
+
+            
+              <ul>
+                
+                  <li class="toctree-l2"><a href="#scurtaturi-in-cadrul-sistemului-de-operare" class="reference internal">1. Scurtături în cadrul sistemului de operare</a></li>
+                
+                  <li class="toctree-l2"><a href="#scurtaturi-in-terminal" class="reference internal">2. Scurtături în terminal</a></li>
+                
+              </ul>
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="inspect-fs.html" class="reference internal ">Inspectarea sistemului de fișiere</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="inspect-sys.html" class="reference internal ">Inspectarea sistemului</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="inspect-files.html" class="reference internal ">Inspectarea fișierelor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="process-files.html" class="reference internal ">Prelucrarea fișierelor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="improve-shell.html" class="reference internal ">O înțelegere mai bună a shell-ului</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="term-multiplexing.html" class="reference internal ">Multiplexarea terminalului</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#uso-lab-book">Fișiere</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../files/paths.html" class="reference internal ">Căi absolute și relative</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../files/files.html" class="reference internal ">Interacțiunea cu fișiere în linia de comandă</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../files/file_editor.html" class="reference internal ">Editor de text</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../files/io_redirection.html" class="reference internal ">Redirectări</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../files/archive.html" class="reference internal ">Arhive</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../files/file_system.html" class="reference internal ">Sistemul de fișiere</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+</div>
+        </sidebar>
+
+      <page>
+          <div class="body-header" role="navigation" aria-label="navigation">
+  
+  <ul class="breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+    
+    <li>Îmbunătățirea lucrului în linia de comandă</li>
+  </ul>
+  
+
+  <ul class="page-nav">
+  <li class="prev">
+    <a href="../app-install/summary2.html"
+       title="previous chapter">← Sumar: Instalarea, dezinstalarea, investigarea, actualizarea aplicațiilor</a>
+  </li>
+  <li class="next">
+    <a href="inspect-fs.html"
+       title="next chapter">Inspectarea sistemului de fișiere →</a>
+  </li>
+</ul>
+  
+</div>
+<hr>
+          <div class="content" role="main">
+            
+  <div class="section" id="imbunatatirea-lucrului-in-linia-de-comanda">
+<h1>Îmbunătățirea lucrului în linia de comandă<a class="headerlink" href="#imbunatatirea-lucrului-in-linia-de-comanda" title="Permalink to this headline">¶</a></h1>
+<p>Principalul atu al utilizării aplicațiilor în linie de comandă, și nu în mediul grafic, îl reprezintă viteza cu care rezolvăm anumite task-uri.
+Această viteză este dată de posibilitatea de a combina utilitare în linia de comandă pentru a automatiza procese manuale, repetitive.
+Întotdeauna ne dorim să fim mai rapizi și să automatizăm cât mai mult din sarcinile noastre pentru că cu cât ne terminăm treaba mai repede, cu atât avem mai mult timp liber la dispoziție.</p>
+<p>De regulă, cu cât petrecem mai mult timp cu mâna pe tastatură și mai puțin pe mouse, cu atât suntem mai rapizi.
+Aliniate la această idee, aplicațiile ne pun la dispoziție scurtături pe care suntem încurajați să le folosim pentru a ne utiliza timpul mai eficient.</p>
+<div class="section" id="scurtaturi-in-cadrul-sistemului-de-operare">
+<h2>1. Scurtături în cadrul sistemului de operare<a class="headerlink" href="#scurtaturi-in-cadrul-sistemului-de-operare" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="a-pornirea-unei-instante-noi-de-terminal">
+<h3>a. Pornirea unei instanțe noi de terminal<a class="headerlink" href="#a-pornirea-unei-instante-noi-de-terminal" title="Permalink to this headline">¶</a></h3>
+<p>În capitolul anterior am văzut diferite moduri prin care putem porni aplicația <strong>GNOME Terminal</strong>.
+Unele distribuții pun la dispoziție scurtătura dată de combinația de taste <code class="docutils literal notranslate"><span class="pre">Ctrl+Alt+t</span></code> pentru a deschide o nouă instanță de terminal.</p>
+<p>Pentru a vedea scurtăturile disponibile la nivel de sistem, și pentru a defini noi scurtături, pe distribuțiile <strong>Ubuntu</strong> accesați <em>Settings</em> -&gt; <em>Devices</em> -&gt; <em>Keyboards</em> -&gt; <em>Keyboard Shortcuts</em> din mediul grafic al sistemului de operare, și veți ajunge la un meniu similar cu cel din imaginea de mai jos:</p>
+<img alt="Vizualizarea și definirea scurtăturilor din sistem" class="align-center" src="../../_images/settings-keyboard-shortcuts.png" />
+<p>Există scenarii în care folosirea unei singure instanțe de terminal nu este cel mai productiv mod de lucru.
+Un astfel de scenariu este dat de dezvoltarea aplicațiilor, scenariu pe care îl putem sparge în trei componente (sub-taskuri): scrierea aplicației, compilarea aplicației și testarea aplicației.
+Am putea să folosim un singur terminal pentru cele trei sub-taskuri, dar este de preferat să folosim câte un terminal pentru fiecare sub-task; astfel avem o separare logică mai clară.
+Astfel, ferestrele din sistem vor arăta similar cu imaginea de mai jos:</p>
+<img alt="Separarea unui task în sub-taskuri per terminal" class="align-center" src="../../_images/hello-multi-terms.png" />
+<p>Am făcut un pas în direcția corectă, însă această abordare poate să ducă la o complexitate sporită a managementului ferestrelor: dacă am dezvolta în paralel două aplicații?
+Am avea șase ferestre de terminal deschise, prin care trebuie să ciclăm.
+Putem găsi o abordare mai bună.</p>
+<p>În loc să pornim noi instanțe de terminal în ferestre diferite, le vom porni în taburi diferite ale aceleiași ferestre.
+Folosind scurtătura <code class="docutils literal notranslate"><span class="pre">Ctrl+Shift+t</span></code> vom deschide o instanță nouă de terminal în cadrul aceleiași ferestre, cum se poate observa în imaginea de mai jos:</p>
+<img alt="Separarea unui task în sub-taskuri per tab" class="align-center" src="../../_images/hello-multi-tabs.png" />
+<p>Acum structura este mai “curată” și am păstrat separarea logică: în primul tab vom scrie aplicația, în cel de-al doilea tab o vom compila și în ultimul tab (al treilea) o vom rula.</p>
+<p>Separarea logică în fereastră per task și tab per sub-task este benefică atunci când vă ocupați concomitent de mai multe lucruri.</p>
+<p>Deschideți două terminale în ferestre separate.
+În fiecare fereastră deschideți un terminal într-un tab nou.
+Puteți folosi exercițiile de la dezvoltarea aplicațiilor ca suport pentru spargerea în taskuri și sub-taskuri.</p>
+</div>
+<div class="section" id="b-navigarea-intre-ferestre-si-taburi">
+<h3>b. Navigarea între ferestre și taburi<a class="headerlink" href="#b-navigarea-intre-ferestre-si-taburi" title="Permalink to this headline">¶</a></h3>
+<p>Pentru a naviga între ferestrele aplicațiilor deschise în sistem putem folosi combinația de taste <code class="docutils literal notranslate"><span class="pre">Alt+Tab</span></code>.</p>
+<p>Pentru a naviga între instanțe ale aceleiași aplicații (ex. două terminale deschise în două ferestre diferite) putem folosi combinația de taste <code class="docutils literal notranslate"><span class="pre">Alt+~</span></code>.</p>
+<p>Pentru a naviga între taburi putem folosi combinația de taste <code class="docutils literal notranslate"><span class="pre">Alt+#num</span></code> unde <strong>#num</strong> reprezintă numărul tabului; taburile sunt numerotate de la unu (1) la nouă (9), de la stânga la dreapta.
+Astfel, dacă vrem să navigăm la al doilea tab, într-o fereastră cu mai multe taburi, vom folosi combinația de taste <code class="docutils literal notranslate"><span class="pre">Alt+2</span></code>.</p>
+<p>Deschideți mai mult de 10 taburi într-o fereastră și navigați între ele folosind combinația de taste <code class="docutils literal notranslate"><span class="pre">Alt+#num</span></code>.
+Puteți naviga la al 11-lea tab?</p>
+</div>
+<div class="section" id="c-redimensionarea-ferestrelor">
+<h3>c. Redimensionarea ferestrelor<a class="headerlink" href="#c-redimensionarea-ferestrelor" title="Permalink to this headline">¶</a></h3>
+<p>Pentru redimensionarea ferestrelor avem două opțiuni:</p>
+<ul class="simple">
+<li><p>Manual, folosind mouse-ul</p></li>
+<li><p>Automat, la niște valori predefinite folosind combinația de taste <code class="docutils literal notranslate"><span class="pre">Win</span> <span class="pre">Key+Arrow</span> <span class="pre">Keys</span></code></p></li>
+</ul>
+<p>Deschideți două aplicații: un terminal și un browser web (Firefox).
+Având terminalul în prim-plan, apăsați combinația de taste <code class="docutils literal notranslate"><span class="pre">Win</span> <span class="pre">Key+Arrow</span> <span class="pre">Left</span></code>.
+Observați cum fereastra s-a redimensionat și s-a aliniat în jumătatea din stânga a ecranului, în mod automat.
+Acum, având browserul în prim-plan, apăsați combinația de taste <code class="docutils literal notranslate"><span class="pre">Win</span> <span class="pre">Key+Arrow</span> <span class="pre">Right</span></code>.
+Explorați și celelalte combinații de taste.</p>
+</div>
+<div class="section" id="d-sumar-scurtaturi-in-cadrul-sistemului-de-operare">
+<h3>d. Sumar: Scurtături în cadrul sistemului de operare<a class="headerlink" href="#d-sumar-scurtaturi-in-cadrul-sistemului-de-operare" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Deschidem o instanță nouă de terminal într-o fereastră nouă folosind combinația de taste <code class="docutils literal notranslate"><span class="pre">Ctrl+Alt+t</span></code>.
+Deschidem o instanță nouă de terminal într-un tab nou în cadrul aceleiași ferestre folosind combinația de taste <code class="docutils literal notranslate"><span class="pre">Ctrl+Shift+t</span></code>.</p></li>
+<li><p>Folosim combinația de taste <code class="docutils literal notranslate"><span class="pre">Alt+Tab</span></code> pentru a naviga între aplicațiile deschise în sistem.
+Folosim combinația de taste <code class="docutils literal notranslate"><span class="pre">Alt+~</span></code> pentru a naviga între instanțe ale aceleiași aplicații.
+Folosim combinația de taste <code class="docutils literal notranslate"><span class="pre">Alt+#num</span></code> pentru a naviga între taburile din cadrul unei ferestre.</p></li>
+<li><p>Combinațiile de taste <code class="docutils literal notranslate"><span class="pre">Win</span> <span class="pre">Key+Arrow</span> <span class="pre">Keys</span></code> redimensionează și realiniază automat ferestrele.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="scurtaturi-in-terminal">
+<h2>2. Scurtături în terminal<a class="headerlink" href="#scurtaturi-in-terminal" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Navigat în interiorul unei comenzi (ctrl+a, ctrl+e, alt+f, alt+b), modificări (ctrl+k, ctrl+u, alt+d) și paste (ctrl+y)</p></li>
+<li><p>History + navigat în istoricul comenzilor: arrow_keys, reverse search (ctrl+r) și ciclat prin ultimul argument al comenzilor anterioare (alt+., !!). Modificat dimensiune istoric</p></li>
+<li><p>Pornirea mai multor instanțe de shell în aceelași terminal. Comanda exit și shortcut-ul ctrl+d</p></li>
+<li><p>Comanda <cite>clear</cite> și alternativa ctrl+l; bonus pt ctrl+l îl putem folosi în timp ce scriem deja o comandă</p></li>
+<li><p>Insistat pe importanța tastei tab și a autocompletion-ului; nu ne face doar mai rapizi, dar putem folosi tab și pt a valida că comanda este validă</p></li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+          <div class="page-nav">
+            <div class="inner"><ul class="page-nav">
+  <li class="prev">
+    <a href="../app-install/summary2.html"
+       title="previous chapter">← Sumar: Instalarea, dezinstalarea, investigarea, actualizarea aplicațiilor</a>
+  </li>
+  <li class="next">
+    <a href="inspect-fs.html"
+       title="next chapter">Inspectarea sistemului de fișiere →</a>
+  </li>
+</ul><div class="footer" role="contentinfo">
+      &#169; Copyright 2020, USO Team.
+    <br>
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.2.0 with <a href="https://github.com/romnnn/sphinx_press_theme">Press Theme</a>.
+</div>
+            </div>
+          </div>
+      </page>
+    </div>
+    
+    
+  </body>
+</html>
