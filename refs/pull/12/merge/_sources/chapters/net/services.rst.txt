@@ -1,0 +1,289 @@
+Servicii şi clienţi de reţea
+============================
+
+Ce înseamnă un serviciu?
+
+Un serviciu este o aplicație care oferă o funcționalitate utilizatorilor care
+apelează la ele. Serviciile în computer science lucrează folosind paradigma
+server-client, deoarece ne dorim să reducem complexitatea aplicațiilor pe care
+le folosesc oamenii și pentru a reduce puterea de calcul necesară pentru rularea
+aplicațiilor de către utilizatori. Astfel, aplicația client execută o cerere
+către aplicația server, serverul primește cererea, execută procesarea necesară
+pentru cerere și servește răspunsul aplicației client care a făcut cererea.
+
+Această paradigmă poate fi observată în schema <TODO>.
+
+
+
+1) Clienţi web în linia de comandă
+-----------------------------------
+
+În viață de zi cu zi aplicația pe care o folosim cel mai mult, browser-ul web.
+Browserul web este o aplicație care execută o cerere HTTP către un server web,
+indentificată printr-o adresă, un link, prin care face o acțiune și primește un
+răspuns. De exemplu, pentru o acțiune de tip GET, browser-ul primește ca răspuns
+o pagină web, în formatul HTML, pe care o afișează.
+
+Pentru înteracțiunea cu serverele web putem folosi și clienți web în linie de
+comandă. Clienții web folosiți în linie de comandă sunt folositori atunci când
+nu avem acces la o interfață GUI, sau încercăm să automatizăm un proces.
+
+Există mai multe implementări de clienți web în linie de comandă, dar noi vom
+folosi comanda `wget` pentru descărcarea unei pagini web.
+
+.. code-block::
+    student@uso:~$ wget <link>
+
+Rulați comanda de mai sus pentru a descărca pagina web de la adresa.
+
+Deschideți pagina web descărcată în browser pentru a vedea conținutul.
+
+Deschideți pagina web descărcată într-un editor de text pentru a vedea
+conținutul HTML.
+
+OBSERVAȚIE:
+
+Nu sunt accesate doar pagini web folosind clienți web. Putem folosi clienți web
+pentru a descărca fișiere indiferent de tipul acestora.
+
+Descărcați fișierul <insert link>. Observați că descărcarea nu funcționează,
+deoarece aceasta necesită autentificarea utilizatorului. Hint: căutați în pagina
+de manual a utilitarului `wget` (`man wget`), pentru a identifica opțiunea
+necesară pentru autentificarea la un server HTTP. Pentru autentificare veți
+folosi utilizatorul *student* și parola *student*.
+
+Pentru accesarea unui site le arătăm că putem să descărca site-ul folosind un
+client cum ar fi `wget`, sau `curl` şi le arătăm că se descarcă un fişier HTML
+şi le vom explica că asta face şi browser-ul, dar are un motor care
+interpretează textul şi îl afişează.
+
+2) Accesul la distanţă în linie de comandă
+------------------------------------------
+
+În multe situații atunci când lucrăm cu sisteme, este necesar să rulăm aplicații
+pe alte stații în afara calculatorului nostru fără să avem acces fizic la
+stații.
+
+Protocolul cel mai folosit pentru accesul la stații la distanță este protocolul
+SSH. SSH permite autentificarea la o stație pe care ruleaza un server SSH.
+Pentru a ne conecta la stație este nesar să introducem parola utilizatorului cu
+care vrem să ne autentificăm, sau să folosim o cheie de acces la stație.
+
+a. Conectarea folosind autentificare cu parolă
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Pentru a rula comenzi pe o altă stație putem folosi programul SSH (Secure SHell)
+pentru a ne conecta la acesta în felul următor:
+
+.. code-block::
+    student@uso:~$ ssh <username>@<statie>
+
+Unde <username> este numele utilizatorului și <stație> este adresa IP, sau
+hostname-ul stației la care vrem să ne conectăm.
+
+În mod implicit protocolul SSH va folosi autentificarea cu parolă.
+
+Baby's first SSH
+""""""""""""""""
+
+Autentificați-vă la stație <insert hostname> folosind utilizatorul <insert
+utilizator> și parola <insert parolă>
+
+OBSERVAȚIE:
+
+Atunci când ne conectăm la o stație folosind protocolul SSH este necesar să
+specificăm un nume de utilizator valid. Dacă utilizatorul nu există, server-ul
+nu va specifica faptul că utilizatorul nu există pe sistem, ci va cere parola
+utilizatorului, dar nu va permite autentificarea la stație. De ce serverul SSH
+nu specifică dacă utilizatorul exista sau nu?
+
+Atunci când ne conectăm la o stație avem acces la un shell pe care putem să îl
+folosim, dar dacă nu este necesar putem să rulăm mai multe comenzi, sau vrem să
+automatizăm rularea comenzilor pe alte stații putem folosi comanda SSH în felul
+următor:
+
+.. code-block::
+    student@uso:~$ ssh <username>@<statie> <comanda>
+
+Rulați comanda <insert comanda> pe stațiile <insert stații> fără să intrați în
+interfața în linia de comandă de pe stații.
+
+b. Conectarea folosind autentificare cu chei
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+În anumite scenarii ne dorim să evităm introducerea parolei pentru
+autentificarea la o stație la distanță. De exemplu, ne dorim să rulăm acceași
+comandă pe 10 stații. Dacă am folosi autentificare bazată pe parolă fie ar fi
+nevoie să scriem într-un fișier în clar parola, lucru care este o problema de
+securitate, deoarece daca păstrăm o cheie în format text aceasta poate fi furată
+de cineva, sau să scriem parola de 10 ori de mână.
+
+Pentru a trece de această problemă putem să folosim mecanismul de autentificare
+cu chei. Autentificarea cu chei presupune existenă a două chei pereche:
+* *cheia privată*: este o ceie secretă care este folosită de un client SSH
+  pentru a se autentifica
+* *cheia publică*, este o cheie care este copiată pe stația care rulează
+  serverul SSH care este folosită pentru identificarea clienților SSH care se
+  conectează la server.
+
+Pentru generearea perechiei de chei folosim comanda `ssh-keygen` în felul
+următor:
+
+.. code-block::
+    student@uso:~$ ssh-keygen
+    TODO
+
+Generați o pereche de chei SSH.
+
+Pentru copierea cheii publice pe o stație folosim comanda `ssh-copy-id` în felul
+următor:
+
+.. code-block::
+    student@uso:~$ ssh-copy-id <username>@<statie>
+    TODO
+
+Este necesar să cunoaștem parola utilizatorului pentru copierea cheii publice.
+
+OBSERVAȚIE:
+
+Atunci când copiem cheia publică aceasta va fi copiată pentru un singur
+utilizator. Dacă vrem sa ne autentificăm pe același calculator ca utilizatori
+diferiți fără parola, este necesar să copiem cheia publică pentru fiecare
+utilizator.
+
+Generați o nouă cheie SSH de tip ECDSA.
+
+Efectuați modificările necesare astfel încât să vă puteți autentifica drept
+utilizatorul <TODO> de pe stația <host> fară parolă.
+
+c. Conectarea între două calculatoare aflate în rețele private diferite
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+<TODO: de adăugat diagramă>
+
+Pentru a demonstra principiul tunelării, ne vom folosi iar de netcat pentru a
+realiza o conexiune între două staţii. Ei se vor conecta la localhost:2222 şi
+vor accesa o altă maşină virtuală remote. Le vom arăta cum se face tunelul.
+
+d. Transferul datelor la distanţă
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Pentru a transfera fişiere la distanţă îi punem să folosească `scp` pentru a
+trimite fișiere pe rețea. Comanda `scp` se folosește de protocolul SSH pentru
+transferul de date între stații.
+
+.. code-block::
+    student@uso:~$ scp file1 <username>@<stație>:~/file1
+    TODO
+
+OBSERVAȚIE:
+
+Trimiterea fișierelor poate fi realizată în orice direcție, de la client la
+server, sau de la server la client în funcție de ordinea parametrilor.
+
+Copiație directorul de pe stația TODO în directorul home al utilizatorului curent.
+
+3) Controlul la distanță în mediul grafic
+-----------------------------------------
+
+Există anumite tipuri de aplicații care funcționează în mod implicit și aceste
+aplcații nu pot fi rulate în înterfață în linie de comandă. De exemplu,
+installer-ul unui joc nu poate să fie rulat din linie de comandă.
+
+Controlul aplicațiilor se poate reduce la doua probleme:
+* controlul ferestrei aplicației respective;
+* controlul întregului desktop.
+
+a. Controlul unei ferestre la distanţă
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Pentru controlul unei ferestre în Linux putem să folosim protocolul SSH pentru
+transferul datelor care ar fi afișate pe stația pe care rulează serverul pe
+stația clientului.
+
+Acest mod de transfer nu este rapid, deoarece transferul se face printr-un
+protocol care nu este menit pentru trasfer de date sensibile la latență, cum
+sunt ferestrele interactive, dar pentru aplicații care nu sunt sensibile la
+latență, cum ar fi chituri de instalare ale programelor, această metodă este
+funcțională.
+
+TODO: Demo cu poze
+
+Deschideți aplicația firefox ca utilizatorul <username> pe stația <hostname>.
+
+
+b. Controlul desktopului la distanţă
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Pentru control complet al sesiunii există o multitudine de soluții, fie gratis,
+cum ar fi VNC, sau FreeRDP, dar noi ne vom concentra pe soluția numită
+TeamViewer, deoarece oferă suport pentru toate sistemele convenționale.
+
+TeamViewer poate fi descărcat de la această adresă <TODO> și permite
+autentificarea la o mașină folosind un cod.
+
+TODO: Demo cu poze
+
+Porniți TeamViewer pe stația TODO și conectați-vă la stație de pe mașina voastră
+fizică.
+
+
+4) Securizarea conexiunii la Internet folosind un VPN
+-----------------------------------------------------
+
+VPN-urile sunt aplicațiile care permit creare rețelelor de calculatoare în
+internet fără ca acestea să fie neapărat în aceeași rețea fizică.
+
+Funcționalitatea unui VPN este încapsularea datelor trimise de către un
+calculator, criptarea datelor și trimiterea lor către un server care va trimite
+mai departe datele către destinație.
+
+Primul avantaj al folosirii unui VPN sunt "ascunderea" traficului între client,
+adică stația de pe care se trimit datele. Astfel, datele nu mai pot fi văzute de
+alte entități până când ajung la server-ul VPN.
+
+Al doilea avantaj al VPN-urilor este interconectarea facilă între calculatoare
+care se află în rețele private diferite. De exemplu, pentru a juca un joc în
+LAN, putem folosi un VPN, cum ar fi Hamachi, la care se conectează doi
+utilizatori. Serverul de VPN va primi datele de la clienți și va trimite
+mai departe datele dintr-o rețea privată în alta.
+
+Porniți infrastructura
+
+Identificați adresele IP ale celor stații la care aveți acces.
+
+Verificați conectivitatea între cele doua stații.
+
+Nu există conectivitate între cele două stații, deoarece acestea se află în
+retele private diferite.
+
+Pentru a porni VPN-ul, vom folosi openvpn. Rulați următoarea comandă pe ambele
+stații pentru a porni clientul de VPN.
+
+.. code-block::
+    student@tom:~$ ip a s
+    TODO
+
+    student@jerry:~$ ip a s
+    TODO
+
+Observăm că a apărut o nouă interfață de rețea în sistem care nu are o componentă
+fizică. Adresa IP setată pe această interfață este adresa care identifică
+stațiile în rețeaua VPN-ului. Observați că ambele adrese de pe interfețele
+<TODO> sunt foarte similare. Asta înseamnă ca cele două stații sunt acum în
+aceeași rețea virtuală
+
+Testați conectivitatea de pe stația <TODO> cu stația de la adresa <TODO>.
+
+Pentru a verifica că drumul pachetului chiar trece prin VPN, rulăm comanda
+`traceroute 8.8.8.8` și observăm că mesajele spre internet nu mai trec prin
+interfața eth0 ci trec prin interața virtuală, ajung la serverul VPN în pasul
+<TODO>, iar abia apoi sunt lansate mai departe spre Internet.
+
+.. code-block::
+    student@tom:~$ traceroute 8.8.8.8
+
+Astfel, un pachet care se va îndrepta spre o destinație, poate să depășească
+anumite filtre bazate pe locație, deoarece locația va fi locația serverului de
+VPN, deoarece pachetele au fost trimise în Internet începând de la serverul DE
+VPN.
