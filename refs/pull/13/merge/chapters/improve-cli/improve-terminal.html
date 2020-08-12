@@ -486,9 +486,9 @@
             
   <div class="section" id="imbunatatirea-lucrului-in-linia-de-comanda">
 <h1>Îmbunătățirea lucrului în linia de comandă<a class="headerlink" href="#imbunatatirea-lucrului-in-linia-de-comanda" title="Permalink to this headline">¶</a></h1>
-<p>Principalul atu al utilizării aplicațiilor în linie de comandă, și nu în mediul grafic, îl reprezintă viteza cu care rezolvăm anumite task-uri.
+<p>Principalul atu al utilizării aplicațiilor în linie de comandă, și nu în mediul grafic, îl reprezintă viteza cu care rezolvăm anumite sarcini.
 Această viteză este dată de posibilitatea de a combina utilitare în linia de comandă pentru a automatiza procese manuale, repetitive.
-Întotdeauna ne dorim să fim mai rapizi și să automatizăm cât mai mult din sarcinile noastre pentru că cu cât ne terminăm treaba mai repede, cu atât avem mai mult timp liber la dispoziție.</p>
+Întotdeauna ne dorim să fim mai rapizi și să automatizăm cât mai mult din sarcinile noastre deoarece cu cât ne terminăm treaba mai repede, cu atât avem mai mult timp liber la dispoziție.</p>
 <p>De regulă, cu cât petrecem mai mult timp cu mâna pe tastatură și mai puțin pe mouse, cu atât suntem mai rapizi.
 Aliniate la această idee, aplicațiile ne pun la dispoziție scurtături pe care suntem încurajați să le folosim pentru a ne utiliza timpul mai eficient.</p>
 <div class="section" id="scurtaturi-in-cadrul-sistemului-de-operare">
@@ -500,21 +500,21 @@ Unele distribuții pun la dispoziție scurtătura dată de combinația de taste 
 <p>Pentru a vedea scurtăturile disponibile la nivel de sistem, și pentru a defini noi scurtături, pe distribuțiile <strong>Ubuntu</strong> accesați <em>Settings</em> -&gt; <em>Devices</em> -&gt; <em>Keyboards</em> -&gt; <em>Keyboard Shortcuts</em> din mediul grafic al sistemului de operare, și veți ajunge la un meniu similar cu cel din imaginea de mai jos:</p>
 <img alt="Vizualizarea și definirea scurtăturilor din sistem" class="align-center" src="../../_images/settings-keyboard-shortcuts.png" />
 <p>Există scenarii în care folosirea unei singure instanțe de terminal nu este cel mai productiv mod de lucru.
-Un astfel de scenariu este dat de dezvoltarea aplicațiilor, scenariu pe care îl putem sparge în trei componente (sub-taskuri): scrierea aplicației, compilarea aplicației și testarea aplicației.
-Am putea să folosim un singur terminal pentru cele trei sub-taskuri, dar este de preferat să folosim câte un terminal pentru fiecare sub-task; astfel avem o separare logică mai clară.
+Un astfel de scenariu este dat de dezvoltarea aplicațiilor, scenariu pe care îl putem sparge în trei componente (sub-task-uri): scrierea aplicației, compilarea aplicației și testarea aplicației.
+Am putea să folosim un singur terminal pentru cele trei sub-task-uri, dar este de preferat să folosim câte un terminal pentru fiecare sub-task; astfel avem o separare logică mai clară.
 Astfel, ferestrele din sistem vor arăta similar cu imaginea de mai jos:</p>
-<img alt="Separarea unui task în sub-taskuri per terminal" class="align-center" src="../../_images/hello-multi-terms.png" />
+<img alt="Separarea unui task în sub-task-uri per terminal" class="align-center" src="../../_images/hello-multi-terms.png" />
 <p>Am făcut un pas în direcția corectă, însă această abordare poate să ducă la o complexitate sporită a managementului ferestrelor: dacă am dezvolta în paralel două aplicații?
 Am avea șase ferestre de terminal deschise, prin care trebuie să ciclăm.
 Putem găsi o abordare mai bună.</p>
 <p>În loc să pornim noi instanțe de terminal în ferestre diferite, le vom porni în taburi diferite ale aceleiași ferestre.
 Folosind scurtătura <code class="docutils literal notranslate"><span class="pre">Ctrl+Shift+t</span></code> vom deschide o instanță nouă de terminal în cadrul aceleiași ferestre, cum se poate observa în imaginea de mai jos:</p>
-<img alt="Separarea unui task în sub-taskuri per tab" class="align-center" src="../../_images/hello-multi-tabs.png" />
-<p>Acum structura este mai “curată” și am păstrat separarea logică: în primul tab vom scrie aplicația, în cel de-al doilea tab o vom compila și în ultimul tab (al treilea) o vom rula.</p>
+<img alt="Separarea unui task în sub-task-uri per taskb" class="align-center" src="../../_images/hello-multi-tabs.png" />
+<p>Acum structura este mai “curată” și am păstrat separarea logică: în primul tab vom scrie aplicația, în cel de-al doilea tab o vom compila și în ultimul tab (al treilea) o vom executa.</p>
 <p>Separarea logică în fereastră per task și tab per sub-task este benefică atunci când vă ocupați concomitent de mai multe lucruri.</p>
 <p>Deschideți două terminale în ferestre separate.
 În fiecare fereastră deschideți un terminal într-un tab nou.
-Puteți folosi exercițiile de la dezvoltarea aplicațiilor ca suport pentru spargerea în taskuri și sub-taskuri.</p>
+Puteți folosi exercițiile de la dezvoltarea aplicațiilor ca suport pentru spargerea în task-uri și sub-task-uri.</p>
 </div>
 <div class="section" id="b-navigarea-intre-ferestre-si-taburi">
 <h3>b. Navigarea între ferestre și taburi<a class="headerlink" href="#b-navigarea-intre-ferestre-si-taburi" title="Permalink to this headline">¶</a></h3>
@@ -552,13 +552,92 @@ Folosim combinația de taste <code class="docutils literal notranslate"><span cl
 </div>
 <div class="section" id="scurtaturi-in-terminal">
 <h2>2. Scurtături în terminal<a class="headerlink" href="#scurtaturi-in-terminal" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="a-tab-completion">
+<h3>a. Tab completion<a class="headerlink" href="#a-tab-completion" title="Permalink to this headline">¶</a></h3>
+<p>Funcția de <strong>tab completion</strong> este probabil una dintre cele mai utile funcții expuse de către terminal.
+Prin simpla apăsare a tastei <code class="docutils literal notranslate"><span class="pre">Tab</span></code> în timp ce scriem numele unei comenzi, al unei opțiuni a unei comenzi sau calea către un director sau fișier, terminalul va completa în mod automat textul sau va sugera opțiuni de auto-complete.</p>
+<p>În imaginea de mai jos putem observa că pentru comanda <code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">D</span></code> funcția de <code class="docutils literal notranslate"><span class="pre">Tab</span></code> completion a găsit mai multe opțiuni valide pentru auto-complete.
+În astfel de scenarii, cu mai multe opțiuni valide, apăsarea tastei <code class="docutils literal notranslate"><span class="pre">Tab</span></code> o singură dată nu produce niciun rezultat; trebuie să apăsăm tasta <code class="docutils literal notranslate"><span class="pre">Tab</span></code> de două ori consecutiv pentru a genera afișarea opțiunilor de auto-complete.</p>
+<img alt="Demo tab completion" class="align-center" src="../../_images/tab-completion.png" />
+<p>Funcția de auto-complete este extrem de utilă și îmbunătățește în mod dramatic viteza cu care realizăm acțiuni în terminal.</p>
+<p>Funcția este extrem de utilă atunci când lucrăm cu nume de fișiere, directoare și căi din sistem.
+În loc să scriem manual o cale către un nume foarte lung, care poate implică și escaparea unor caractere speciale, lăsăm tasta <code class="docutils literal notranslate"><span class="pre">Tab</span></code> să facă asta pentru noi.</p>
+<p>Un alt avantaj al folosirii tastei <code class="docutils literal notranslate"><span class="pre">Tab</span></code> este că atunci când aceasta nu produce nici un rezultat, este un indicator foarte bun că avem o eroare în comandă: am scris greșit o anumită parte din numele comenzii sau al fișierului, fișierul nu există, etc.</p>
+<p>Folosiți funcția de <code class="docutils literal notranslate"><span class="pre">Tab</span></code> completion cât mai des cu putință.</p>
+</div>
+<div class="section" id="b-navigarea-in-istoricul-unei-comenzi">
+<h3>b. Navigarea în istoricul unei comenzi<a class="headerlink" href="#b-navigarea-in-istoricul-unei-comenzi" title="Permalink to this headline">¶</a></h3>
+<p>Terminalul implementează funcția de a reține istoricul comenzilor pe care le-am executat.
+Pentru a vedea istoricul curent putem rula comanda <code class="docutils literal notranslate"><span class="pre">history</span></code>.
+Vom obține un rezultat asemănător cu:</p>
+<img alt="Output of running the `history` command" class="align-center" src="../../_images/bash-history.png" />
+<p>Putem cicla prin comenzile date anterior folosind combinația de taste <code class="docutils literal notranslate"><span class="pre">Arrow</span> <span class="pre">Up</span></code>, respectiv <code class="docutils literal notranslate"><span class="pre">Arrow</span> <span class="pre">Down</span></code>.
+Încercați.</p>
+<div class="section" id="cautarea-inversa-in-istoricul-comenzilor">
+<h4>Căutarea inversă în istoricul comenzilor<a class="headerlink" href="#cautarea-inversa-in-istoricul-comenzilor" title="Permalink to this headline">¶</a></h4>
+<p>Terminalul ne pune la dispoziție un mod mai inteligent de a căuta în istoricul comenzilor prin combinația de taste <code class="docutils literal notranslate"><span class="pre">Ctrl+r</span></code>, ordinea căutării fiind de la cea mai recentă comandă la cea mai veche.
+Funcția este cunoscută sub numele de <strong>reverse search</strong>.</p>
+<p>Pentru a proni căutarea apăsați combinația de taste <code class="docutils literal notranslate"><span class="pre">Ctrl+r</span></code> și începeți să scrieți o parte din textul comenzii pe care o căutați, de exemplu <code class="docutils literal notranslate"><span class="pre">cd</span></code>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>(reverse-i-search)`cd&#39;: cd workspace/hello
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Pentru a continua căutarea apăsați <code class="docutils literal notranslate"><span class="pre">Ctrl+r</span></code></p></li>
+<li><p>Pentru a rula comanda pe care ați găsit-o apăsați <code class="docutils literal notranslate"><span class="pre">Ctrl+o</span></code></p></li>
+<li><p>Pentru a anula căutarea și a reveni la starea inițială apăsați <code class="docutils literal notranslate"><span class="pre">Ctrl+g</span></code></p></li>
+</ul>
+</div>
+<div class="section" id="expandarea-comenzilor-anterioare">
+<h4>Expandarea comenzilor anterioare<a class="headerlink" href="#expandarea-comenzilor-anterioare" title="Permalink to this headline">¶</a></h4>
+<p>Terminalul ne pune la dispoziție și alte moduri prin care putem reutiliza comenzile din istoric.</p>
+<p>Am observat din rezultatul rulării comenzii <code class="docutils literal notranslate"><span class="pre">history</span></code> faptul că fiecare comandă din istoric este precedată de un număr:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="m">23</span>  ls -l
+</pre></div>
+</div>
+<p>Acest număr funcționează ca un index pe care îl putem folosi pentru a executa comanda care îi corespunde:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ !23
+ls -l
+total <span class="m">60</span>
+drwxr-xr-x  <span class="m">2</span> student student <span class="m">4096</span> aug  <span class="m">6</span>  <span class="m">2018</span> Desktop
+drwxr-xr-x  <span class="m">3</span> student student <span class="m">4096</span> aug <span class="m">20</span>  <span class="m">2018</span> Documents
+drwxr-xr-x  <span class="m">2</span> student student <span class="m">4096</span> aug <span class="m">11</span> <span class="m">19</span>:35 Downloads
+drwxr-xr-x  <span class="m">2</span> student student <span class="m">4096</span> aug  <span class="m">6</span>  <span class="m">2018</span> Music
+drwxr-xr-x  <span class="m">2</span> student student <span class="m">4096</span> aug <span class="m">11</span> <span class="m">21</span>:08 Pictures
+drwxr-xr-x  <span class="m">2</span> student student <span class="m">4096</span> aug  <span class="m">6</span>  <span class="m">2018</span> Public
+drwxr-xr-x  <span class="m">2</span> student student <span class="m">4096</span> aug  <span class="m">6</span>  <span class="m">2018</span> Templates
+drwxr-xr-x  <span class="m">2</span> student student <span class="m">4096</span> aug  <span class="m">6</span>  <span class="m">2018</span> Videos
+-rw-r--r--  <span class="m">1</span> student student <span class="m">8980</span> aug  <span class="m">6</span>  <span class="m">2018</span> examples.desktop
+drwxr-xr-x <span class="m">14</span> student student <span class="m">4096</span> aug <span class="m">20</span>  <span class="m">2018</span> uso.git
+-rw-r--r--  <span class="m">1</span> student student <span class="m">4827</span> aug <span class="m">21</span>  <span class="m">2018</span> vm-actions-log.txt
+drwxr-xr-x  <span class="m">3</span> student student <span class="m">4096</span> aug <span class="m">11</span> <span class="m">20</span>:28 workspace
+</pre></div>
+</div>
+<p>Observăm că <code class="docutils literal notranslate"><span class="pre">!23</span></code> a fost înlocuit (expandat, în abuz de limbaj) cu comanda <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-l</span></code> care corespundea indexului <strong>23</strong>.</p>
+<p>Un caz particular, foarte util, este reprezentat de <code class="docutils literal notranslate"><span class="pre">!!</span></code> care se va înlocui textual cu ultima comandă executată:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ ls
+Desktop    Downloads  Pictures  Templates  examples.desktop  vm-actions-log.txt
+Documents  Music      Public    Videos     uso.git           workspace
+student@uso:~$ !! -l workspace
+ls -l workspace
+total <span class="m">4</span>
+drwxr-xr-x <span class="m">2</span> student student <span class="m">4096</span> aug <span class="m">11</span> <span class="m">21</span>:32 hello
+</pre></div>
+</div>
+<p>În exemplul de mai sus observăm că <code class="docutils literal notranslate"><span class="pre">!!</span></code> a fost înlocuit cu <code class="docutils literal notranslate"><span class="pre">ls</span></code> în textul comenzii, pentru ca apoi să se execute comanda <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-l</span> <span class="pre">workspace</span></code>.</p>
+<p>Rulați trei comenzi din istoricul vostru folosind atât înlocuirea numerică (<code class="docutils literal notranslate"><span class="pre">!2</span></code>), cât și înlocuirea ultimei comenzi (<code class="docutils literal notranslate"><span class="pre">!!</span></code>).
+Folosiți-vă de faptul că această înlocuire are loc înaintea executării comenzii pentru a adăuga argumente comenzilor, similar cum am făcut în exemplul de mai sus.</p>
+</div>
+</div>
+<div class="section" id="c-navigarea-in-interiorul-unei-comenzi">
+<h3>c. Navigarea în interiorul unei comenzi<a class="headerlink" href="#c-navigarea-in-interiorul-unei-comenzi" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Navigat în interiorul unei comenzi (ctrl+a, ctrl+e, alt+f, alt+b), modificări (ctrl+k, ctrl+u, alt+d) și paste (ctrl+y)</p></li>
-<li><p>History + navigat în istoricul comenzilor: arrow_keys, reverse search (ctrl+r) și ciclat prin ultimul argument al comenzilor anterioare (alt+., !!). Modificat dimensiune istoric</p></li>
 <li><p>Pornirea mai multor instanțe de shell în aceelași terminal. Comanda exit și shortcut-ul ctrl+d</p></li>
 <li><p>Comanda <cite>clear</cite> și alternativa ctrl+l; bonus pt ctrl+l îl putem folosi în timp ce scriem deja o comandă</p></li>
 <li><p>Insistat pe importanța tastei tab și a autocompletion-ului; nu ne face doar mai rapizi, dar putem folosi tab și pt a valida că comanda este validă</p></li>
+<li><p>History + navigat în istoricul comenzilor: arrow_keys, reverse search (ctrl+r) și ciclat prin ultimul argument al comenzilor anterioare (alt+., !!). Modificat dimensiune istoric</p></li>
 </ul>
+</div>
 </div>
 </div>
 
