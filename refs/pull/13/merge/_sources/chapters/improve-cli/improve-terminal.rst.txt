@@ -179,7 +179,7 @@ Acest număr funcționează ca un index pe care îl putem folosi pentru a execut
 
 Observăm că ``!23`` a fost înlocuit (expandat, în abuz de limbaj) cu comanda ``ls -l`` care corespundea indexului **23**.
 
-Un caz particular, foarte util, este reprezentat de ``!!`` care se va înlocui textual cu ultima comandă executată:
+Un caz particular, foarte des folosit, este reprezentat de ``!!`` care se va înlocui textual cu ultima comandă executată:
 
 .. code-block:: bash
 
@@ -196,14 +196,64 @@ Un caz particular, foarte util, este reprezentat de ``!!`` care se va înlocui t
 Rulați trei comenzi din istoricul vostru folosind atât înlocuirea numerică (``!2``), cât și înlocuirea ultimei comenzi (``!!``).
 Folosiți-vă de faptul că această înlocuire are loc înaintea executării comenzii pentru a adăuga argumente comenzilor, similar cum am făcut în exemplul de mai sus.
 
+Reutilizarea argumentelor comenzii anterioare
+"""""""""""""""""""""""""""""""""""""""""""""""
+
+Terminalul ne oferă și o sintaxă prin care avem posibilitatea de a reutiliza argumentele comenzii anterioare în corpul comenzii curente.
+Acest lucru este util în reutilizarea argumentelor lungi sau complicate, pentru că evităm rescrierea lor.
+Astfel nu doar că suntem mai rapizi, dar evităm și apariția unor probleme din categoria typourilor.
+
+Să presupunem că executăm următorul șir de comenzi:
+
+.. code-block:: bash
+
+  student@uso:~$ touch a/very/long/path/that-you-dont-want-to-retype
+  student@uso:~$ ls -l !$
+  ls -l a/very/long/path/that-you-dont-want-to-retype
+
+Observăm că șirul ``!$`` din comanda ``ls -l !$`` a fost înlocuit cu ultimul argument al comenzii, anterioare, ``touch``.
+
+Executați următoarele comenzi:
+
+.. code-block:: bash
+
+  student@uso:~$ ls ~/Desktop ~/Documents ~/Downloads
+  student@uso:~$ ls -l !^
+
+Ce semnificație are argumentul ``!^``?
+
 c. Navigarea în interiorul unei comenzi
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-* Navigat în interiorul unei comenzi (ctrl+a, ctrl+e, alt+f, alt+b), modificări (ctrl+k, ctrl+u, alt+d) și paste (ctrl+y)
+Ne găsim des în situația în care căutăm o comandă în istoric folosind funcția de reverse search, modificăm un argument al comenzii și apoi o executăm.
+Pentru navigarea în cadrul textului comenzii putem folosi ``Arrow Keys``, iar pentru ștergeri putem folosi tasta ``Backspace`` sau ``Del``.
+
+Este bine de știut, însă, că terminalul ne pune la dispoziție și o serie de scurtături cu ajutorul cărora putem face realiza aceeași acțiune mai rapid.
+Dacă vreți să vă impresionați prietenii, acesta este un mod simplu, dar eficient, de a o face.
+
+Pentru a naviga în corpul textului putem folosi combinațiile de taste:
+
+* ``Ctrl+a`` - mută cursorul la începutul liniei
+* ``Ctrl+e`` - mută cursorul la sfârșitul liniei
+* ``Ctrl+f`` - mută cursorul cu un caracter înainte
+* ``Ctrl+b`` - mută cursorul cu un caracter înapoi
+* ``Alt+f`` - mută cursorul cu un cuvânt înainte
+* ``Alt+b`` - mută cursorul cu un cuvânt înapoi
+
+Pentru a efectua ștergeri în corpul textului putem folosi combinațiile de taste:
+
+* ``Ctrl+k`` - șterge tot textul de la cursor până la sfârșitul liniei
+* ``Ctrl+u`` - șterge tot textul de la cursor până la începutul liniei
+* ``Alt+d`` - șterge tot textul de la cursor până la sfârșitul cuvântului
+
+.. note:: Textul șters este salvat într-un registru și poate fi folosit folosind combinația de taste ``Ctrl+y``.
+          Funcționalitatea este similară cu procesul de **Cut** (``Ctrl+k``, ``Ctrl+u`` sau ``Alt+d``) și **Paste** (``Ctrl+y``).
+
 
 * Pornirea mai multor instanțe de shell în aceelași terminal. Comanda exit și shortcut-ul ctrl+d
 * Comanda `clear` și alternativa ctrl+l; bonus pt ctrl+l îl putem folosi în timp ce scriem deja o comandă
 
 * Insistat pe importanța tastei tab și a autocompletion-ului; nu ne face doar mai rapizi, dar putem folosi tab și pt a valida că comanda este validă
 * History + navigat în istoricul comenzilor: arrow_keys, reverse search (ctrl+r) și ciclat prin ultimul argument al comenzilor anterioare (alt+., !!). Modificat dimensiune istoric
+* Navigat în interiorul unei comenzi (ctrl+a, ctrl+e, alt+f, alt+b), modificări (ctrl+k, ctrl+u, alt+d) și paste (ctrl+y)
 

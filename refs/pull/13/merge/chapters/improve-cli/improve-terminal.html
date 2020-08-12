@@ -613,7 +613,7 @@ drwxr-xr-x  <span class="m">3</span> student student <span class="m">4096</span>
 </pre></div>
 </div>
 <p>Observăm că <code class="docutils literal notranslate"><span class="pre">!23</span></code> a fost înlocuit (expandat, în abuz de limbaj) cu comanda <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-l</span></code> care corespundea indexului <strong>23</strong>.</p>
-<p>Un caz particular, foarte util, este reprezentat de <code class="docutils literal notranslate"><span class="pre">!!</span></code> care se va înlocui textual cu ultima comandă executată:</p>
+<p>Un caz particular, foarte des folosit, este reprezentat de <code class="docutils literal notranslate"><span class="pre">!!</span></code> care se va înlocui textual cu ultima comandă executată:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ ls
 Desktop    Downloads  Pictures  Templates  examples.desktop  vm-actions-log.txt
 Documents  Music      Public    Videos     uso.git           workspace
@@ -627,15 +627,58 @@ drwxr-xr-x <span class="m">2</span> student student <span class="m">4096</span> 
 <p>Rulați trei comenzi din istoricul vostru folosind atât înlocuirea numerică (<code class="docutils literal notranslate"><span class="pre">!2</span></code>), cât și înlocuirea ultimei comenzi (<code class="docutils literal notranslate"><span class="pre">!!</span></code>).
 Folosiți-vă de faptul că această înlocuire are loc înaintea executării comenzii pentru a adăuga argumente comenzilor, similar cum am făcut în exemplul de mai sus.</p>
 </div>
+<div class="section" id="reutilizarea-argumentelor-comenzii-anterioare">
+<h4>Reutilizarea argumentelor comenzii anterioare<a class="headerlink" href="#reutilizarea-argumentelor-comenzii-anterioare" title="Permalink to this headline">¶</a></h4>
+<p>Terminalul ne oferă și o sintaxă prin care avem posibilitatea de a reutiliza argumentele comenzii anterioare în corpul comenzii curente.
+Acest lucru este util în reutilizarea argumentelor lungi sau complicate, pentru că evităm rescrierea lor.
+Astfel nu doar că suntem mai rapizi, dar evităm și apariția unor probleme din categoria typourilor.</p>
+<p>Să presupunem că executăm următorul șir de comenzi:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ touch a/very/long/path/that-you-dont-want-to-retype
+student@uso:~$ ls -l !$
+ls -l a/very/long/path/that-you-dont-want-to-retype
+</pre></div>
+</div>
+<p>Observăm că șirul <code class="docutils literal notranslate"><span class="pre">!$</span></code> din comanda <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-l</span> <span class="pre">!$</span></code> a fost înlocuit cu ultimul argument al comenzii, anterioare, <code class="docutils literal notranslate"><span class="pre">touch</span></code>.</p>
+<p>Executați următoarele comenzi:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ ls ~/Desktop ~/Documents ~/Downloads
+student@uso:~$ ls -l !^
+</pre></div>
+</div>
+<p>Ce semnificație are argumentul <code class="docutils literal notranslate"><span class="pre">!^</span></code>?</p>
+</div>
 </div>
 <div class="section" id="c-navigarea-in-interiorul-unei-comenzi">
 <h3>c. Navigarea în interiorul unei comenzi<a class="headerlink" href="#c-navigarea-in-interiorul-unei-comenzi" title="Permalink to this headline">¶</a></h3>
+<p>Ne găsim des în situația în care căutăm o comandă în istoric folosind funcția de reverse search, modificăm un argument al comenzii și apoi o executăm.
+Pentru navigarea în cadrul textului comenzii putem folosi <code class="docutils literal notranslate"><span class="pre">Arrow</span> <span class="pre">Keys</span></code>, iar pentru ștergeri putem folosi tasta <code class="docutils literal notranslate"><span class="pre">Backspace</span></code> sau <code class="docutils literal notranslate"><span class="pre">Del</span></code>.</p>
+<p>Este bine de știut, însă, că terminalul ne pune la dispoziție și o serie de scurtături cu ajutorul cărora putem face realiza aceeași acțiune mai rapid.
+Dacă vreți să vă impresionați prietenii, acesta este un mod simplu, dar eficient, de a o face.</p>
+<p>Pentru a naviga în corpul textului putem folosi combinațiile de taste:</p>
 <ul class="simple">
-<li><p>Navigat în interiorul unei comenzi (ctrl+a, ctrl+e, alt+f, alt+b), modificări (ctrl+k, ctrl+u, alt+d) și paste (ctrl+y)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Ctrl+a</span></code> - mută cursorul la începutul liniei</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Ctrl+e</span></code> - mută cursorul la sfârșitul liniei</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Ctrl+f</span></code> - mută cursorul cu un caracter înainte</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Ctrl+b</span></code> - mută cursorul cu un caracter înapoi</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Alt+f</span></code> - mută cursorul cu un cuvânt înainte</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Alt+b</span></code> - mută cursorul cu un cuvânt înapoi</p></li>
+</ul>
+<p>Pentru a efectua ștergeri în corpul textului putem folosi combinațiile de taste:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Ctrl+k</span></code> - șterge tot textul de la cursor până la sfârșitul liniei</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Ctrl+u</span></code> - șterge tot textul de la cursor până la începutul liniei</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Alt+d</span></code> - șterge tot textul de la cursor până la sfârșitul cuvântului</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Textul șters este salvat într-un registru și poate fi folosit folosind combinația de taste <code class="docutils literal notranslate"><span class="pre">Ctrl+y</span></code>.
+Funcționalitatea este similară cu procesul de <strong>Cut</strong> (<code class="docutils literal notranslate"><span class="pre">Ctrl+k</span></code>, <code class="docutils literal notranslate"><span class="pre">Ctrl+u</span></code> sau <code class="docutils literal notranslate"><span class="pre">Alt+d</span></code>) și <strong>Paste</strong> (<code class="docutils literal notranslate"><span class="pre">Ctrl+y</span></code>).</p>
+</div>
+<ul class="simple">
 <li><p>Pornirea mai multor instanțe de shell în aceelași terminal. Comanda exit și shortcut-ul ctrl+d</p></li>
 <li><p>Comanda <cite>clear</cite> și alternativa ctrl+l; bonus pt ctrl+l îl putem folosi în timp ce scriem deja o comandă</p></li>
 <li><p>Insistat pe importanța tastei tab și a autocompletion-ului; nu ne face doar mai rapizi, dar putem folosi tab și pt a valida că comanda este validă</p></li>
 <li><p>History + navigat în istoricul comenzilor: arrow_keys, reverse search (ctrl+r) și ciclat prin ultimul argument al comenzilor anterioare (alt+., !!). Modificat dimensiune istoric</p></li>
+<li><p>Navigat în interiorul unei comenzi (ctrl+a, ctrl+e, alt+f, alt+b), modificări (ctrl+k, ctrl+u, alt+d) și paste (ctrl+y)</p></li>
 </ul>
 </div>
 </div>
