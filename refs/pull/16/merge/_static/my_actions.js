@@ -11,15 +11,14 @@ $(function() {
                 (isVisible && (visibleCaption !== tocCaption))) {
 
                 $(elem).children("ul").toggle();
+            }
         }
+    };
+
+    if (sessionStorage.getItem("visibleCaption")) {
+        $(".sidebar-group").each(toggleCaptionVisibility);
     }
-};
 
-if (sessionStorage.getItem("visibleCaption")) {
-    $(".sidebar-group").each(toggleCaptionVisibility);
-}
-
-    // $(".sidebar-group .caption-text a").attr("href", "#");
     $(".sidebar-group .caption-text a").click(function(event) {
         event.preventDefault();
     });
@@ -32,9 +31,4 @@ if (sessionStorage.getItem("visibleCaption")) {
 
         $(".sidebar-group").each(toggleCaptionVisibility);
     });
-
-    // $(".sidebar-group ul a").click(function() {
-    //     var tocCaption2 = $(this).parents("div")[0].innerText.split("\n")[0];
-    //     sessionStorage.setItem("calledFrom", tocCaption2);
-    // });
 });
