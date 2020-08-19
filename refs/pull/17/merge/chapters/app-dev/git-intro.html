@@ -489,10 +489,8 @@
             
   <div class="section" id="introducere-in-git-si-github">
 <h1>Introducere în Git și GitHub<a class="headerlink" href="#introducere-in-git-si-github" title="Permalink to this headline">¶</a></h1>
-<p>În majoritatea proiectelor la care veți lucra pe parcursul carierei voastre nu veți fi singuri.
-Cel mai probabil veți contribui la un proiect mai mare care este modificat zilnic de mai mulți oameni.
-Chiar dacă rolul vostru va fi să contribuiți la doar o componentă din cadrul proiectului, întotdeauna va trebui să vă asigurați că ceea ce modificați voi este în concordanță cu ce modificări noi aduc și colegii voștri de echipă.
-Apare astfel necesitatea unei modalități de a împarți codul și de a urmări în același timp cine ce modificări a adus programului.</p>
+<p>În majoritatea proiectelor la care vom lucra nu vom fi singuri, ci vom contribui la un proiect mai mare care este modificat zilnic de mai mulți oameni.
+În mod particular, când vorbim despre un proiect software avem nevoie de un mod de a împarți codul și de a urmări în același timp cine ce modificări a adus programului.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Să luăm următorul exemplu.</p>
@@ -507,19 +505,19 @@ Trebuie să faceți cumva să actaulizați codul vostru sursă cu noile modific�
 Cum rezolvați problema acum?</p>
 <p>Veți avea nevoie întotdeauna să rezolvați astfel de situații, iar acest proces devine anevoios.</p>
 </div>
-<p>Pentru a putea rezolva problemele de sincronizare între 2 sau mai mulți colegi de echipă care lucrează la același proiect, a fost introdusă noțiunea de <strong>versionarea codului</strong>.
+<p>Pentru a putea rezolva problemele de sincronizare între 2 sau mai mulți colegi de echipă care lucrează la același proiect, este util să avem o gestiune versionată a codului, adică să avem un istoric de modificări, adică o listă de versiuni.
 Versionarea codului aduce și alte avantaje precum posibilitatea de a reveni la o versiune mai veche a proiectului, găsirea rapidă a autorului unei secvențe de cod sau pur și simplu organizarea facilă a unui proiect.</p>
 <p><strong>Git</strong> este un sistem de management și versionare a codului sursă care permite această partajare dorită.</p>
-<p><strong>GitHub</strong> este o platformă online, bazată pe Git, pe care dezvoltatorii o pot folosi pentru a stoca și versiona codul lor sursă.
-Git este utilitarul folosit, iar GitHub este serverul pe care păstrăm repository-ul remote.
-Similar cu GitHub există și alte platforme precum Bitbucket sau GitLab.
+<p><a class="reference external" href="http://www.github.com/">GitHub</a> este o platformă online, bazată pe Git, pe care dezvoltatorii o pot folosi pentru a stoca și versiona codul lor sursă.
+Git este utilitarul folosit, iar GitHub este serverul și aplicația web pe care rulează acesta, locul în care păstrăm repository-ul remote.
+Similar cu GitHub există și alte platforme precum <a class="reference external" href="https://bitbucket.org">Bitbucket</a> sau <a class="reference external" href="https://about.gitlab.com">GitLab</a>.
 În această carte vom folosi GitHub ca suport.
 În mare parte acesta nu diferă foarte mult de alte platforme.</p>
 <p>Atunci când lucrăm cu Git și GitHub, este esențial să știm la ce se referă anumiți termeni.
-Așadar, până a începe parcurgerea secțiunilor acestui capitol, haideți să ne familiarizăm cu câțiva dintre ei.
+Așadar, până a începe parcurgerea secțiunilor acestui capitol, trebuie să ne familiarizăm cu câțiva dintre ei.
 Vom prezenta în acest breviar o parte dintre termeni, restul rămânând să fie introduși pe parcurs.</p>
-<p><strong>Repository</strong></p>
-<p>Proiectul este stocat într-un <strong>repository</strong>.
+<p><strong>Repository software</strong></p>
+<p>Proiectul este stocat într-un <strong>repository software</strong>.
 Repository-ul conține fișierele efective ale proiectului și informații despre acesta.
 Uzual acesta vine însoțit de un fișier <strong>README.md</strong> în care se găsesc mai multe informații despre proiect.
 Repository-urile sunt de 2 tipuri: locale și remote.
@@ -527,7 +525,7 @@ Acestea pot fi interconectate și să refere de fapt același proiect.</p>
 <p>Există câteva operații ce pot fi făcute asupra unui repository.</p>
 <p><strong>Init</strong></p>
 <p>Operația de <strong>init</strong> este una locală și are rolul de a inițializa un repository gol, local.
-Inițializarea repository-ului local presupune crearea, în directorul specificat, structura necesară pentru a putea iniția un proiect versionat Git.
+Inițializarea repository-ului local presupune crearea, în directorul specificat, structurii necesară pentru a putea iniția un proiect versionat Git.
 Această inițializare presupune crearea unui director numit <code class="docutils literal notranslate"><span class="pre">.git</span></code> în care se vor ține ulterior metadate despre repository.</p>
 <p><strong>Fork</strong></p>
 <p>Operația <strong>fork</strong> are rolul de a crea o copie a unui repository deja existent.
@@ -537,11 +535,6 @@ Puteți ulterior să publicați schimbările făcute în repository-ul inițial,
 <p><strong>Clone</strong></p>
 <p>Operația <strong>clone</strong> realizează o copie locală a unui repository.
 Această copie poate fi acum actualizată după bunul plac.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>În general este bine ca orice director de pe sistemul vostru care conține un proiect Git să aibă extensia <code class="docutils literal notranslate"><span class="pre">.git</span></code>.
-Spre exemplu, dacă în directorul <code class="docutils literal notranslate"><span class="pre">~/Desktop/my-project</span></code> se află un proiect Git (adică conține un subdirector numit <code class="docutils literal notranslate"><span class="pre">.git</span></code>), atunci se recomandă redenumirea lui în <code class="docutils literal notranslate"><span class="pre">~/Desktop/my-project.git</span></code>.</p>
-</div>
 <div class="section" id="crearea-unui-cont-pe-github-daca-nu-aveti-deja">
 <h2>1) Crearea unui cont pe GitHub (dacă nu aveți deja)<a class="headerlink" href="#crearea-unui-cont-pe-github-daca-nu-aveti-deja" title="Permalink to this headline">¶</a></h2>
 <p>Până a trece mai departe, trebuie să ne asigurăm că avem cont pe GitHub.
@@ -560,28 +553,18 @@ Găsiți mai multe detalii pe site-ul <a class="reference external" href="https:
 </div>
 <div class="section" id="pregatirea-initiala-a-mediului-git">
 <h2>2) Pregătirea inițială a mediului Git<a class="headerlink" href="#pregatirea-initiala-a-mediului-git" title="Permalink to this headline">¶</a></h2>
-<p>Acum că aveți un cont valid de GitHub putem trece la treabă.
-Primul pas care trebuie făcut este să setați local câteva informații despre voi.
+<p>Primul pas care trebuie făcut este să configurați local câteva informații despre voi.
 Acesta vor fi de folos în momentul în care veți contribui la un proiect.
 Practic aceste informații vor ajuta la identificarea voastră și astfel ceilalți contribuitori vor putea ști cine a făcut o anumită schimbare în repository.</p>
-<div class="section" id="a-configurarea-numelui">
-<h3>a. Configurarea numelui<a class="headerlink" href="#a-configurarea-numelui" title="Permalink to this headline">¶</a></h3>
-<p>Pentru configurarea numelui vostru rulați comanda de mai jos.</p>
+<p>Pentru configurarea numelui și adresei de e-mail rulați comenzile de mai jos.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ git config --global user.name <span class="s2">&quot;Prenume Nume&quot;</span>
+student@uso:~$ git config --global user.email <span class="s2">&quot;adresa_de_email@email.com&quot;</span>
 </pre></div>
-</div>
-</div>
-<div class="section" id="b-configurarea-adresei-de-e-mail">
-<h3>b. Configurarea adresei de e-mail<a class="headerlink" href="#b-configurarea-adresei-de-e-mail" title="Permalink to this headline">¶</a></h3>
-<p>Similar cu configurarea numelui veți configura și adresa de e-mail.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ git config --global user.email <span class="s2">&quot;adresa_de_email@email.com&quot;</span>
-</pre></div>
-</div>
 </div>
 </div>
 <div class="section" id="crearea-primului-repository">
 <h2>3) Crearea primului repository<a class="headerlink" href="#crearea-primului-repository" title="Permalink to this headline">¶</a></h2>
-<p>Pentru a putea trece la treabă, trebuie mai întâi să creăm un repository în care să lucrăm.
+<p>Mai întâi trebuie să avem un repository în care să lucrăm.
 Vom crea unul pe GitHub, unul local, după care le vom interconecta.</p>
 <div class="section" id="a-crearea-unui-repository-gol-pe-github">
 <h3>a. Crearea unui repository gol pe GitHub<a class="headerlink" href="#a-crearea-unui-repository-gol-pe-github" title="Permalink to this headline">¶</a></h3>
@@ -604,12 +587,21 @@ Acum veți vedea întreaga listă de repository-uri pe care le aveți. Pentru a 
 </div>
 <p>Acum este momentul în care veți da un nume proiectului vostru, o descriere succintă al acestuia și veți putea decide dacă să fie public (vizibil tuturor utilizatorilor) sau privat (vizibil doar pentru voi și eventualii colaboratori ai proiectului).
 Vă va apărea un form similar cu cel din imaginea de mai jos.
-Pentru acest tutorial recomandăm ca repository-ul să fie privat.
+Pentru acest tutorial vom crea un repository public.
 De asemenea, este indicat ca numele repository-ului să descrie bine proiectul.
 Descrierea proiectului este opțională, însă nicio informație în plus nu strică.</p>
-<div class="figure align-default">
-<a class="reference internal image-reference" href="../../_images/Create-new-repo-4.png"><img alt="Alternative text" src="../../_images/Create-new-repo-4.png" style="width: 774.0px; height: 685.8000000000001px;" /></a>
-</div>
+<p>TODO: schimbă poza din privat în public
+.. figure:: ./img/Create-new-repo-4.png</p>
+<blockquote>
+<div><dl class="field-list simple">
+<dt class="field-odd">scale</dt>
+<dd class="field-odd"><p>45%</p>
+</dd>
+<dt class="field-even">alt</dt>
+<dd class="field-even"><p>Alternative text</p>
+</dd>
+</dl>
+</div></blockquote>
 <p>Apăsați pe <code class="docutils literal notranslate"><span class="pre">`Create</span> <span class="pre">repository</span></code>.
 Vor apărea câteva instrucțiuni pentru crearea unui repository local noi și conectarea celui noi cu cel remote.
 Acest lucru este acoperit în secțiunile următoare.</p>
@@ -618,18 +610,18 @@ Acest lucru este acoperit în secțiunile următoare.</p>
 <h3>b. Crearea unui repository gol local<a class="headerlink" href="#b-crearea-unui-repository-gol-local" title="Permalink to this headline">¶</a></h3>
 <p>Primul pas pentru a crea un repository local este să alegeți un director în care să inițializați repository-ul.
 Navigați către acea cale.
-În acest tutorial noi vom crea acest director la calea <code class="docutils literal notranslate"><span class="pre">/home/student</span></code>, adică <code class="docutils literal notranslate"><span class="pre">~</span></code>, numit <code class="docutils literal notranslate"><span class="pre">my-first-repo.git</span></code>.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>student@uso:~$ pwd
+În acest tutorial noi vom crea acest director la calea <code class="docutils literal notranslate"><span class="pre">/home/student</span></code>, adică <code class="docutils literal notranslate"><span class="pre">~</span></code>, numit <code class="docutils literal notranslate"><span class="pre">my-first-repository.git</span></code>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ <span class="nb">pwd</span>
 /home/student
-student@uso:~$ mkdir my-first-repo.git
-student@uso:~$ cd my-first-repo.git
-student@uso:~/my-first-repo.git$
+student@uso:~$ mkdir my-first-repository.git
+student@uso:~$ <span class="nb">cd</span> my-first-repository.git
+student@uso:~/my-first-repository.git$
 </pre></div>
 </div>
 <p>Următorul pas este de a inițializa repository-ul folosind opțiunea <code class="docutils literal notranslate"><span class="pre">init</span></code>. Observați că se crează directorul <code class="docutils literal notranslate"><span class="pre">.git</span></code> în directorul nostru.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>student@uso:~/my-first-repo.git$ git init
-Initialized empty Git repository in /home/student/my-first-repo.git/.git/
-student@uso:~/my-first-repo.git$ ls -a
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/my-first-repository.git$ git init
+Initialized empty Git repository in /home/student/my-first-repository.git/.git/
+student@uso:~/my-first-repository.git$ ls -a
 ./    ../   .git/
 </pre></div>
 </div>
@@ -637,16 +629,18 @@ student@uso:~/my-first-repo.git$ ls -a
 <div class="section" id="c-conectarea-celor-2-repository-uri">
 <h3>c. Conectarea celor 2 repository-uri<a class="headerlink" href="#c-conectarea-celor-2-repository-uri" title="Permalink to this headline">¶</a></h3>
 <p>Ultimul pas rămas este să conectăm repository-urile proaspăt create.
-Acest lucru presupune setarea orginului, adică repository-ului remote la care se conectează cel local.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>student@uso:~/my-first-repo.git$  git remote add origin https://github.com/{username}/my-first-repository.git
+Acest lucru presupune setarea orginului, adică repository-ului remote la care se conectează cel local.
+În comanda de mai jos <code class="docutils literal notranslate"><span class="pre">{username}</span></code> este numele utilizatorului nostru de pe GitHub.</p>
+<p>TODO: de pus o diagramă de tip before and after cu cele două repository-uri neconectate, apoi conectate.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/my-first-repository.git$  git remote add origin https://github.com/<span class="o">{</span>username<span class="o">}</span>/my-first-repository.git
 </pre></div>
 </div>
 <p>Pentru verificarea originului unui repository local folosiți comanda următoare:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>student@uso:~/my-first-repo.git$ git remote show origin
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/my-first-repository.git$ git remote show origin
 * remote origin
-Fetch URL: https://github.com/{username}/my-first-repository.git
-Push  URL: https://github.com/{username}/my-first-repository.git
-HEAD branch: (unknown)
+Fetch URL: https://github.com/<span class="o">{</span>username<span class="o">}</span>/my-first-repository.git
+Push  URL: https://github.com/<span class="o">{</span>username<span class="o">}</span>/my-first-repository.git
+HEAD branch: <span class="o">(</span>unknown<span class="o">)</span>
 </pre></div>
 </div>
 <p>Vom detalia în următoarele secțiuni ce este un <code class="docutils literal notranslate"><span class="pre">branch</span></code> și de ce acum apare <code class="docutils literal notranslate"><span class="pre">HEAD</span> <span class="pre">branch</span></code> ca fiind necunoscut (<code class="docutils literal notranslate"><span class="pre">unknown</span></code>).</p>
