@@ -489,38 +489,226 @@
             
   <div class="section" id="primul-commit">
 <h1>Primul commit<a class="headerlink" href="#primul-commit" title="Permalink to this headline">¶</a></h1>
+<p>Odată creat repository-ul, putem să începem să aducem modificări asupra lui.
+Atunci când vrem să salvăm (în Git, nu doar în editorul text) modificările făcute local spunem că facem un <strong>commit</strong>.
+Starea proiectului se modifică local, fără acțiuni ulterioare aceasta nu va fi făcută publică.
+Dacă starea proiectului nu se publică, atunci ceilalți colaboratori nu vor putea vedea modificările tale.
+Pentru a putea publica o schimbare trebuie să faceți operația <strong>push</strong>.
+Vom vedea în următoarele secțiuni care sunt pașii pentru a crea un commit și pentru a-l publica.</p>
 <div class="section" id="branch-ul-master">
 <h2>1) Branch-ul master<a class="headerlink" href="#branch-ul-master" title="Permalink to this headline">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">branch</span></code> + explicat că pot exista mai multe branch-uri simultan. De adăugat că este best practice să existe câte un branch pentru fiecare feature/bug/fix.</p>
+<p>Un <strong>branch</strong> este echivalentul unui fir de evoluție a codului sursă.
+Prin analogie, branch-ul <code class="docutils literal notranslate"><span class="pre">master</span></code> este firul principal de evoluție al codului sursă.
+Cu alte cuvinte, uzual, branch-ul master este cel care va conține codul sursă la zi.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Să luăm următoarea situație.</p>
+<p>Un colaborator al proiectului vrea să facă schimbări asupra codului sursă, acesta va trebui să facă aceste modificări față de o referință.
+În general, acesta va lua ultima versiune a codului sursă și va începe să facă modificări pe acesta.
+După cum am menționat mai devreme, ultima versiune se află pe branch-ul master.
+Așadar putem spune că acest colaborator <strong>lucrează pe branch-ul master</strong>.</p>
+<p>Un alt colaborator dorește să facă o altă schimbare asupra codului sursă în același timp cu primul.
+La fel ca primul colaborator, acesta va lua ultima versiune a codului sursă și îl va modifica.</p>
+<p>Ambii colaboratori vor face câte un <strong>commit</strong> și un <strong>push</strong> pe branch-ul <strong>master</strong> pentru a propaga schimbările.</p>
+<p>Ce se întâmplă în momentul în care modificările celor 2 sunt contradictorii?</p>
+<p>Cum alegem care modificare este cea corectă?</p>
+<p>Cum alegem ce modificare vrem să păstrăm?</p>
+</div>
+<p>În realitate, situația prezentată mai sus se rezolvă rapid.
+Unul dintre colaboratori va publica schimbările la un moment <code class="docutils literal notranslate"><span class="pre">T</span></code> de timp.
+În acel moment, branch-ul master este actualizat astfel încât cea mai nouă versiune de cod este cea modificată de cel care a efectuat primul un commit.
+La momentul <code class="docutils literal notranslate"><span class="pre">T+x</span></code>, celălalt colaborator publică și el schimbările sale și acum branch-ul master va referi codul sursă ce conține schimbările aduse de cel de-al doilea commit.
+Practic, toate modificările aduse pe branch (în acest caz master) sunt ordonate cronologic.</p>
+<p>TODO: diagramă cu commit-uri pe branch-ul master.</p>
+<p>Problema este rezolvată, însă ce se întâmplă dacă al doilea commit nu este tocmai în regulă, iar primul da?
+Avem nevoie de o modalitate de “a da timpul înapoi”.
+Din fericire, există o modalitate de a face asta, însă nu este foarte eficientă în cazul proiectelor cu mulți colaboratori care aduc multe schimbări.</p>
+<div class="section" id="branch-uri-secundare">
+<h3>Branch-uri secundare<a class="headerlink" href="#branch-uri-secundare" title="Permalink to this headline">¶</a></h3>
+<p>Pe lângă branch-ul master, pot exista mai multe branch-uri secundare.
+Acestea ajută rezolvarea problemelor precum cea descrisă mai sus.
+Se recomandă folosirea unui branch pentru fiecare modificare a codului în parte.
+Astfel, în situația de mai sus, fiecare colaborator ar crea un nou branch (care inițial va fi identic cu cel master) și vor lucra în continuare pe acel fir de evoluție.
+În momentul în care unul a terminat de lucrat, acesta poate publica modificările pe branch-ul său.
+Astfel branch-ul master rămăne neatins.
+În acest moment, codul sursă de pe branch-ul secundar poate fi revizuit și ulterior publicat în branch-ul master dacă se decide că totul este în regulă.
+Vom vedea care sunt pașii pentru a face acest lucru într-o secțiune viitoare.</p>
+<p>În terminal putem verifica rapid pe ce branch ne aflăm folosind comanda <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">branch</span></code>.
+În acest moment comanda nu va arăta nimic pentru că nu am făcut niciun commit și deci, nu avem niciun fir de evoluție al codului sursă.
+De aceea, în secțiunea anterioară am văzut că <code class="docutils literal notranslate"><span class="pre">HEAD</span> <span class="pre">branch</span></code> este unknown.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/my-first-repository.git$ git branch
+student@uso:~/my-first-repository.git$
+</pre></div>
+</div>
+</div>
 </div>
 <div class="section" id="adaugarea-unui-readme-si-a-unui-fisier-gitignore">
 <h2>2) Adăugarea unui README și a unui fișier .gitignore<a class="headerlink" href="#adaugarea-unui-readme-si-a-unui-fisier-gitignore" title="Permalink to this headline">¶</a></h2>
-<p>Crearea unui fișier <code class="docutils literal notranslate"><span class="pre">README.md</span></code> și un <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code>.</p>
+<p>Am stabilit mai devreme că într-un repository se află întreg codul sursă al unui proiect.
+Pe lângă codul sursă se recomandă adăugarea unui fișier (de obicei intitulat README) în care se află diverse informații despre un proiect.
+Spre exemplu în README se află informații despre cum se compilează un proiect, cum se rulează, ce funcționalități are proiectul, pe ce tip de platforme poate fi rulat etc.</p>
+<p>Haide să adăugăm proiectului nostru un fișier <code class="docutils literal notranslate"><span class="pre">README.md</span></code>.
+Folosim extensia <code class="docutils literal notranslate"><span class="pre">.md</span></code> care semnalează un fișier de tip Markdown.
+Facem acest lucru deoarece pe GitHub fișierele README sunt afișate în format Markdown.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/my-first-repository.git$ <span class="nb">echo</span> <span class="s2">&quot;# My first project ever&quot;</span> &gt;&gt; README.md
+student@uso:~/my-first-repository.git$ ls -a
+./         ../        .git/      README.md
+</pre></div>
+</div>
+<p>În general nu se recomandă publicarea executabilelor (programelor compilate) pe GitHub deoarece executabile sunt dependente de sistemul pe care au fost create.
+Este bine ca în cazul proiectelor de pe GitHub să existe instrucțiuni despre cum se poate obține programul final pe propriu sistem pentru a evita astfel de probleme de compatibilitate.
+Așadar, pentru a nu publica fișiere executabile, vrem ca ele să nu facă parte din commiturile noastre.
+Pentru a fi siguri că anumite fișiere sunt ignorate, putem să le adăugăm într-un fișier numit <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code>.
+Aici vom trece, câte una pe fiecare linie, fișierele pe care nu vrem să le publicăm.
+Momentan nu avem fișiere pe care vrem să le ignorăm, așa că vom crea un fișier <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code> gol.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/my-first-repository.git$ touch .gitignore
+student@uso:~/my-first-repository.git$ ls -a
+./          ../         .git/       .gitignore  README.md
+</pre></div>
+</div>
 </div>
 <div class="section" id="crearea-primului-commit">
 <h2>3) Crearea primului commit<a class="headerlink" href="#crearea-primului-commit" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="a-verificarea-starii-clonei">
 <h3>a. Verificarea stării clonei<a class="headerlink" href="#a-verificarea-starii-clonei" title="Permalink to this headline">¶</a></h3>
-<p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">status</span></code> + explicații pe output</p>
+<p>Starea unei clone este dată de fapt de starea branch-ului pe care ați lucrat.
+În cazul vostru este vorba de branch-ul master.
+Pentru a verifica starea clonei folosiți comanda <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">status</span></code>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/my-first-repository.git$ git status
+On branch master
+
+No commits yet
+
+Untracked files:
+<span class="o">(</span>use <span class="s2">&quot;git add &lt;file&gt;...&quot;</span> to include in what will be committed<span class="o">)</span>
+
+    .gitignore
+    README.md
+</pre></div>
+</div>
+<p>Prima linie afișată <code class="docutils literal notranslate"><span class="pre">On</span> <span class="pre">branch</span> <span class="pre">master</span></code> se referă la branch-ul master local.
+Ne indică faptul că modificările făcute, adică crearea fișierelor <code class="docutils literal notranslate"><span class="pre">README.md</span></code> și <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code> au fost făcute pe branch-ul master.</p>
+<p>A doua linie afișată <code class="docutils literal notranslate"><span class="pre">No</span> <span class="pre">commit</span> <span class="pre">yet</span></code> se referă la faptul că nu am făcut până acum niciun comit, adică am pornit de la un repository gol.</p>
+<p>În ultima parte a outputului vedem că se află o listă de fișiere <code class="docutils literal notranslate"><span class="pre">untracked</span></code>, adică lista fișierelor pe care Git le vede ca modificate/nou adăugate, însă nu știe cum să le catalogheze.
+Este datoria noastră de a adăuga fișierele în aria de vizibilitate pentru Git.</p>
 </div>
 <div class="section" id="b-adaugarea-fisierelor-in-staging">
 <h3>b. Adăugarea fișierelor (în staging)<a class="headerlink" href="#b-adaugarea-fisierelor-in-staging" title="Permalink to this headline">¶</a></h3>
-<p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">add</span></code> + <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">status</span></code> + explicații pe output</p>
+<p>Pentru a adăuga fișierele în <code class="docutils literal notranslate"><span class="pre">staging</span></code>, adică pentru a le face vizibile pentru Git, folosim comanda <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">add</span></code>.
+Avem două variante pentru a adăuga ambele fișiere.</p>
+<p>Prima variantă presupune folosirea opțiunii <code class="docutils literal notranslate"><span class="pre">-A</span></code> care va pune în staging toate fișierele modificate (include fișierele deja existente modificate, fișierele nou create și fișierele șterse).
+Opțiunea <code class="docutils literal notranslate"><span class="pre">.</span></code> va ignora fișierele șterse, iar opțiunea <code class="docutils literal notranslate"><span class="pre">-u</span></code> va ignora fișierele nou create.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/my-first-repository.git$ git add -A
+student@uso:~/my-first-repository.git$
+</pre></div>
+</div>
+<p>A doua variantă presupunerea adăugării fișierelor individual.
+Această variantă este de folos atunci când avem mai multe fișiere modificate, însă nu vrem să facem un commit decât cu o parte dintre ele.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/my-first-repository.git$ git add .gitignore README.md
+student@uso:~/my-first-repository.git$
+</pre></div>
+</div>
+<p>Ambele situații de mai sus produc, în acest caz același efect.
+În urma stagingului, comanda <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">status</span></code> va produce un nou output. Haideți să-l interpretăm.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/my-first-repository.git$ git status
+On branch master
+
+No commits yet
+
+Changes to be committed:
+<span class="o">(</span>use <span class="s2">&quot;git rm --cached &lt;file&gt;...&quot;</span> to unstage<span class="o">)</span>
+
+    new file:   .gitignore
+    new file:   README.md
+</pre></div>
+</div>
+<p>Primele 2 mesaje afișate au rămas neschimbate.
+Partea interesantă apare la ultima parte a outputului.
+Vedem că mesajul a devenit <code class="docutils literal notranslate"><span class="pre">Changes</span> <span class="pre">to</span> <span class="pre">be</span> <span class="pre">commited</span></code>.
+Asta înseamnă că acum Git știe de noile modificări și așteaptă ca modificările să fie adunate într-un commit.</p>
 </div>
 <div class="section" id="c-crearea-commitului-local-cu-un-mesaj-corespunzator">
 <h3>c. Crearea commitului local cu un mesaj corespunzător<a class="headerlink" href="#c-crearea-commitului-local-cu-un-mesaj-corespunzator" title="Permalink to this headline">¶</a></h3>
-<p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">fetch</span></code> și cum git pull ^^ git fetch + git merge
+<p>Următorul pas în etapa de dezvoltare este chiar crearea unui nou commit cu modificările făcute.
+Până atunci însă, există câteva bune practici de care ar trebui să țineți întotdeauna cont.</p>
+<p>E bine ca atunci când ne apucăm de lucru să avem în vedere să sincronizăm din când în când repository-ul local cu cel remote.
+Pot apărea diferențe în momentul în care altcineva a publicat schimbări remote după ce am făcut noi ultima sincronizare.
+În momentul în care cineva a publicat modificări asupra unei secvențe de cod pe care și noi o modificăm, apar conflicte.
+Conflictele trebuie rezolvate.</p>
+<p>Putem face acest lucru în două moduri.
+Operația <code class="docutils literal notranslate"><span class="pre">fetch</span></code> are rolul de a aduce local toate schimbările, însă nu va face și operația de <code class="docutils literal notranslate"><span class="pre">merge</span></code> care presupune rezolvarea conflictelor și ajungerea a un front comun.
+Operația <code class="docutils literal notranslate"><span class="pre">pull</span></code> face, de fapt, un <code class="docutils literal notranslate"><span class="pre">fetch</span></code> și un <code class="docutils literal notranslate"><span class="pre">merge</span></code>, adică va aduce local toate modificările și va încerca să rezolve conflicetele în mod automat.
+Dacă rezolvarea conflictelor nu se poate face automat, trebuie să ne ocupăm de acest pas.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>În acest moment repository-ul remote este gol, nu are niciun branch activ și niciun commit, iar operația de sincronizare nu își are rostul.
+Vom ține cont însă de acest aspect în secțiunile următoare.</p>
+</div>
+<p>Crearea unui commit nou se face prin intermediul comenzii <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">commit</span></code> ca în exemplul de mai jos.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>student@uso:~/my-first-repository.git$ git commit -m &quot;Add README.md and .gitignore&quot;
+[master (root-commit) 0dfb632] Add README.md and .gitignore
+2 files changed, 1 insertion(+)
+create mode 100644 .gitignore
+create mode 100644 README.md
+student@uso:~/my-first-repository.git$ git status
+On branch master
+nothing to commit, working tree clean
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Fiecare commit trebuie să vină cu un mesaj alăturat în care se explică pe scurt ce modificări aduce acesta.</p>
+</div>
+<p>TODO: de integrat următoarele unde își vor avea locul.
 <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">pull</span> <span class="pre">--ff-only</span></code> la bune practici
-<code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">pull</span></code> + explicații (de ce trebuie să dăm mai întâi pull și după aceea push)
-<code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">commit</span> <span class="pre">-m</span> <span class="pre">&quot;bla&quot;</span></code> + bune practici pentru a scrie un mesaj de commit bun</p>
+<code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">pull</span></code> + explicații (de ce trebuie să dăm mai întâi pull și după aceea push)</p>
 </div>
-<div class="section" id="d-publicarea-commitului-pe-repository-ul-remote">
-<h3>d. Publicarea commitului pe repository-ul remote<a class="headerlink" href="#d-publicarea-commitului-pe-repository-ul-remote" title="Permalink to this headline">¶</a></h3>
-<p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">push</span></code> + verificare pe GitHub că apar schimbările.</p>
+<div class="section" id="d-verificarea-istoricului-de-commituri">
+<h3>d. Verificarea istoricului de commituri<a class="headerlink" href="#d-verificarea-istoricului-de-commituri" title="Permalink to this headline">¶</a></h3>
+<p>Pentru verificarea istoricului de commituri din repository folosim comanda <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">log</span></code>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>student@uso:~/my-first-repository.git$ git log
+commit 0dfb632b9de79f9a25011e8b98be48c7b1a0aad8 (HEAD -&gt; master)
+Author: Prenume Nume &lt;adresa_de_email@email.com&gt;
+Date:   Wed Aug 19 17:24:01 2020 +0300
+
+    Add README.md and .gitignore
+</pre></div>
 </div>
-<div class="section" id="e-verificarea-istoricului-de-commituri">
-<h3>e. Verificarea istoricului de commituri<a class="headerlink" href="#e-verificarea-istoricului-de-commituri" title="Permalink to this headline">¶</a></h3>
-<p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">log</span></code> pentru a vedea toate commiturile făcute pe acest repository</p>
+<p>Fiecare commit are un hash asociat care identifică unic commitul.
+Aici este vorba despre <code class="docutils literal notranslate"><span class="pre">0dfb632b9de79f9a25011e8b98be48c7b1a0aad8</span></code>.
+Acum vedem că repository-ul indică spre acest nou commit.
+Ne dăm seama de acest lucru pentru că <code class="docutils literal notranslate"><span class="pre">HEAD</span></code> se află în dreptul commitului tocmai făcut.</p>
+</div>
+<div class="section" id="e-publicarea-commitului-pe-repository-ul-remote">
+<h3>e. Publicarea commitului pe repository-ul remote<a class="headerlink" href="#e-publicarea-commitului-pe-repository-ul-remote" title="Permalink to this headline">¶</a></h3>
+<p>Vrem să publicăm noile schimbări și pe repository-ul remote.
+Pentru a face acest lucru folosim comanda <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">push</span></code>.
+Output-ul acestei comenzi ne indică faptul că în repository-ul remote nu avem niciun branch numit <code class="docutils literal notranslate"><span class="pre">master</span></code>.
+Remediem această situație folosind indicațiile din mesaj.
+După ce am creat branch-ul master, îl putem identifica și din linia de comandă.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>student@uso:~/my-first-repository.git$ git push
+fatal: The current branch master has no upstream branch.
+To push the current branch and set the remote as upstream, use
+
+    git push --set-upstream origin master
+student@uso:~/my-first-repository.git$ git push --set-upstream origin master
+Enumerating objects: 4, done.
+Counting objects: 100% (4/4), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (4/4), 299 bytes | 299.00 KiB/s, done.
+Total 4 (delta 0), reused 0 (delta 0)
+To https://github.com/{username}/my-first-repository.git
+* [new branch]      master -&gt; master
+Branch &#39;master&#39; set up to track remote branch &#39;master&#39; from &#39;origin&#39;.
+student@uso:~/my-first-repository.git$ git branch
+* master
+</pre></div>
+</div>
+<p>Întrăm pe GitHub să vedem că schimbările au fost propagate.</p>
+<div class="figure align-default">
+<a class="reference internal image-reference" href="../../_images/GitHub-first-commit.png"><img alt="Alternative text" src="../../_images/GitHub-first-commit.png" style="width: 952.2px; height: 373.5px;" /></a>
+</div>
 </div>
 </div>
 </div>
