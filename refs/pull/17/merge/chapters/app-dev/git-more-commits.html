@@ -491,30 +491,568 @@
 <h2><span class="section-number">3.1. </span>Repetarea pașilor anteriori<a class="headerlink" href="#repetarea-pasilor-anteriori" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="crearea-unui-branch-separat">
 <h3><span class="section-number">3.1.1. </span>Crearea unui branch separat<a class="headerlink" href="#crearea-unui-branch-separat" title="Permalink to this headline">¶</a></h3>
-<p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">checkout</span> <span class="pre">-b</span> <span class="pre">&lt;new-branch&gt;</span></code></p>
+<p>Vrem ca următoarele modificări pe care le facem să fie făcute pe un branch diferit, nu pe branch-ul master.
+Pentru a crea un nou branch, folosim comanda <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">checkout</span></code>.
+Opțiunea <code class="docutils literal notranslate"><span class="pre">-b</span></code> urmată de un nume pentru branch specifică faptul că trebuie creat un nou branch cu acel nume.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/my-first-repository.git$ git branch
+* master
+student@uso:~/my-first-repository.git$ git checkout -b my-new-branch
+Switched to a new branch <span class="s1">&#39;my-new-branch&#39;</span>
+student@uso:~/my-first-repository.git$ git branch
+  master
+* my-new-branch
+</pre></div>
+</div>
+<p><strong>Exercițiu:</strong> Treceți înapoi pe branch-ul <code class="docutils literal notranslate"><span class="pre">master</span></code>.
+După ce dați comanda, verificați că sunteți într-adevăr sunteți pe branch-ul <code class="docutils literal notranslate"><span class="pre">master</span></code>.
+<strong>Exercițiu:</strong> Reveniți pe branch-ul nou creat.</p>
 </div>
 <div class="section" id="modificarea-fisierului-readme">
 <h3><span class="section-number">3.1.2. </span>Modificarea fișierului README<a class="headerlink" href="#modificarea-fisierului-readme" title="Permalink to this headline">¶</a></h3>
-<p>modificat folosit nano un fișier</p>
+<p>Vom modifica fișierul README.
+Adăugăm o linie la sfârșitul fișierului <code class="docutils literal notranslate"><span class="pre">README.md</span></code>.
+Verificăm starea clonei folosind comanda <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">status</span></code>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/my-first-repository.git$ <span class="nb">echo</span> <span class="s2">&quot;This line was added through a second branch&quot;</span> &gt;&gt; README.md
+student@uso:~/my-first-repository.git$ cat README.md
+<span class="c1"># My first project ever</span>
+This line was added through a second branch
+student@uso:~/my-first-repository.git$ git status
+On branch my-new-branch
+Changes not staged <span class="k">for</span> commit:
+<span class="o">(</span>use <span class="s2">&quot;git add &lt;file&gt;...&quot;</span> to update what will be committed<span class="o">)</span>
+<span class="o">(</span>use <span class="s2">&quot;git checkout -- &lt;file&gt;...&quot;</span> to discard changes in working directory<span class="o">)</span>
+
+    modified:   README.md
+
+no changes added to commit <span class="o">(</span>use <span class="s2">&quot;git add&quot;</span> and/or <span class="s2">&quot;git commit -a&quot;</span><span class="o">)</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Observați că outputul comenzii <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">status</span></code> arată faptul că modificările aduse au fost făcute într-adevăr pe branch-ul nou creat.</p>
+</div>
+<p><strong>Exercițiu:</strong> Adăugați o nouă linie în fișierul README.md. Puteți folosi orice editor de text doriți.</p>
 </div>
 <div class="section" id="revenirea-la-alt-branch-fara-crearea-unui-nou-commit-cu-schimbarilor-curente">
 <h3><span class="section-number">3.1.3. </span>Revenirea la alt branch fără crearea unui nou commit cu schimbărilor curente<a class="headerlink" href="#revenirea-la-alt-branch-fara-crearea-unui-nou-commit-cu-schimbarilor-curente" title="Permalink to this headline">¶</a></h3>
-<p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">stash</span></code> + <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">checkout</span> <span class="pre">master</span></code></p>
+<p>Mai devreme am modificat un fișier din repository, iar acum vrem să ajungem din nou pe branch-ul <code class="docutils literal notranslate"><span class="pre">master</span></code> fără să propagăm noile schimbări.
+Dacă vom încerca să schimbăm direct branch-ul pe care lucrăm ca mai devreme folosind comanda <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">checkout</span></code> vedem că outputul ne semnalează ceva diferit.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/my-first-repository.git$ git checkout master
+M   README.md
+Switched to branch <span class="s1">&#39;master&#39;</span>
+Your branch is up to date with <span class="s1">&#39;origin/master&#39;</span>.
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Observăm că prima linie afișată în urma rulării comenzii <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">checkout</span> <span class="pre">master</span></code> indică faptul că fișierul <code class="docutils literal notranslate"><span class="pre">README.md</span></code> a fost modificat (<code class="docutils literal notranslate"><span class="pre">M</span></code>).</p>
+</div>
+<p>În mod obișnuit, nu vrem să apară astfel de situații întrucât schimbarea branch-ului se face de obicei când vrem să lucrăm la altă parte a proiectului, fără să ținem cont de modificările făcute pe alt branch.</p>
+<p>Reveniți pe branch-ul creat de voi folosind comanda <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">checkout</span> <span class="pre">my-new-branch</span></code>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/my-first-repository.git$ git checkout my-new-branch
+Switched to branch <span class="s1">&#39;my-new-branch&#39;</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Acum branch-ul <code class="docutils literal notranslate"><span class="pre">master</span></code> a revenit la starea anterioară (adică nu conține modificările făcute asupra fișierului README), iar branch-ul <code class="docutils literal notranslate"><span class="pre">my-new-branch</span></code> conține aceste modificări.</p>
+</div>
+<p>Pentru a evita astfel de probleme folosim o nouă funcționalitatea a utilitarului Git numită <code class="docutils literal notranslate"><span class="pre">stash</span></code>.
+Git are posibilitatea de a păstra o stivă de modificări făcute de către utilizator fără ca acesta să creeze un nou commit.
+Fiecare comandă <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">stash</span></code> adaugă în stivă o nouă stare a clonei, iar branch-ul apare ca fiind nealterat.
+Astfel, putem să schimbăm branch-ul pe care lucrăm fără să ducem modificările de pe un branch pe altul.</p>
+<p>Pentru a putea păstra starea fișierelor modificate, acestea trebuie să fie vizibile de către Git, adică să fie <code class="docutils literal notranslate"><span class="pre">staged</span></code>.
+Fișierele care sunt <code class="docutils literal notranslate"><span class="pre">untracked</span></code> nu pot fi salvate în acest fel.
+Facem fișierul README vizibil pentru Git.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/my-first-repository.git$ git status
+On branch my-new-branch
+Changes not staged <span class="k">for</span> commit:
+<span class="o">(</span>use <span class="s2">&quot;git add &lt;file&gt;...&quot;</span> to update what will be committed<span class="o">)</span>
+<span class="o">(</span>use <span class="s2">&quot;git checkout -- &lt;file&gt;...&quot;</span> to discard changes in working directory<span class="o">)</span>
+
+    modified:   README.md
+
+no changes added to commit <span class="o">(</span>use <span class="s2">&quot;git add&quot;</span> and/or <span class="s2">&quot;git commit -a&quot;</span><span class="o">)</span>
+student@uso:~/my-first-repository.git$ git add README.md
+student@uso:~/my-first-repository.git$ git status
+On branch my-new-branch
+Changes to be committed:
+<span class="o">(</span>use <span class="s2">&quot;git reset HEAD &lt;file&gt;...&quot;</span> to unstage<span class="o">)</span>
+
+    modified:   README.md
+</pre></div>
+</div>
+<p>Acum fișierul README.md este vizibil pentru Git, așadar poate fi păstrat în stiva de modificări.
+Folosim comanda <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">stash</span></code> pentru a salva starea fișierului.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/my-first-repository.git$ git stash
+Saved working directory and index state WIP on my-new-branch: 0dfb632 Add README.md and .gitignore
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Comanda <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">stash</span></code> nu primește ca argument numele unui fișier care să fie păstrat în stivă, ci va păstra la aceeași intrare în stivă toate modificările care sunt vizibile pentru Git la momentul rulării comenzii.</p>
+</div>
+<p>Vizualizăm conținutul stivei de modificări folosind opțiunea <code class="docutils literal notranslate"><span class="pre">list</span></code> a comenzii <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">stash</span></code>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/my-first-repository.git$ git stash list
+stash@<span class="o">{</span><span class="m">0</span><span class="o">}</span>: WIP on my-new-branch: 0dfb632 Add README.md and .gitignore
+</pre></div>
+</div>
+<p>Putem verifica ce fișiere sunt modificate din starea salvată vârful stivei folosind opțiunea <code class="docutils literal notranslate"><span class="pre">show</span></code> pentru <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">stash</span></code>.
+Fără nicio altă opțiune, aceasta ne arată câte linii diferă, sunt adăugate și/sau șterse în versiunea salvată față de versiunea curentă.
+Pentru a vedea și care sunt acele linii adăugăm opțiunea <code class="docutils literal notranslate"><span class="pre">-p</span></code> la această comandă.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/my-first-repository.git$ git stash show
+README.md <span class="p">|</span> <span class="m">2</span> ++
+<span class="m">1</span> file changed, <span class="m">2</span> insertions<span class="o">(</span>+<span class="o">)</span>
+student@uso:~/my-first-repository.git$ git stash show -p
+diff --git a/README.md b/README.md
+index cfc5253..31d5f20 <span class="m">100644</span>
+--- a/README.md
++++ b/README.md
+@@ -1 +1,3 @@
+<span class="c1"># My first project ever</span>
++This line was added through a second branch
++This line is also added through a second branch
+</pre></div>
+</div>
+<p><strong>Exercițiu:</strong> Verificați starea clonei curente.
+Dacă nu apare nicio modificare făcută, atunci puteți să treceți pe branch-ul master.
+Dacă apare vreun fișier ca fiind modificați, reluați pașii de mai sus până să schimbați branch-ul de lucru.</p>
 </div>
 <div class="section" id="crearea-unui-al-doilea-commit-pe-branch-ul-master">
 <h3><span class="section-number">3.1.4. </span>Crearea unui al doilea commit pe branch-ul master<a class="headerlink" href="#crearea-unui-al-doilea-commit-pe-branch-ul-master" title="Permalink to this headline">¶</a></h3>
-<p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">add</span></code> + <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">commit</span> <span class="pre">-m</span></code> + <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">push</span></code></p>
+<p>Vrem să creăm un al doilea commit pe branch-ul master.</p>
+<p><strong>Exercițiu:</strong> Modificați titlul fișierului <code class="docutils literal notranslate"><span class="pre">README.md</span></code> în <code class="docutils literal notranslate"><span class="pre">#</span> <span class="pre">My</span> <span class="pre">first</span> <span class="pre">REAL</span> <span class="pre">project</span> <span class="pre">ever</span></code>.</p>
+<p>Verificăm starea clonei după ce facem modificarea titlului.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/my-first-repository.git$ git status
+On branch master
+Your branch is up to date with <span class="s1">&#39;origin/master&#39;</span>.
+
+Changes not staged <span class="k">for</span> commit:
+<span class="o">(</span>use <span class="s2">&quot;git add &lt;file&gt;...&quot;</span> to update what will be committed<span class="o">)</span>
+<span class="o">(</span>use <span class="s2">&quot;git checkout -- &lt;file&gt;...&quot;</span> to discard changes in working directory<span class="o">)</span>
+
+    modified:   README.md
+
+no changes added to commit <span class="o">(</span>use <span class="s2">&quot;git add&quot;</span> and/or <span class="s2">&quot;git commit -a&quot;</span><span class="o">)</span>
+</pre></div>
+</div>
+<p><strong>Exercițiu:</strong> Urmați pașii prezentați anterior pentru a crea un nou commit cu noile modificări.
+Țineți cont de bunile practici legate de alegerea mesajului de commit corespunzător.
+<strong>Exercițiu:</strong> Publicați commitul și pe repository-ul remote și verificați că acest lucru s-a reflectat și pe GitHub.</p>
 </div>
 <div class="section" id="revenirea-la-branch-ul-cu-modificari-si-crearea-unui-nou-commit">
 <h3><span class="section-number">3.1.5. </span>Revenirea la branch-ul cu modificări și crearea unui nou commit<a class="headerlink" href="#revenirea-la-branch-ul-cu-modificari-si-crearea-unui-nou-commit" title="Permalink to this headline">¶</a></h3>
-<p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">stash</span> <span class="pre">pop</span></code> + <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">add</span></code> + <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">commit</span></code> + <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">commit</span></code>
-<code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">stash</span> <span class="pre">list</span></code> <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">stash</span> <span class="pre">show</span> <span class="pre">-p</span></code> <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">stash</span> <span class="pre">apply</span></code>
-Poți să faci apply/pop și la altceva decât vârful stivei stash folosind <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">stash</span> <span class="pre">pop</span> <span class="pre">stash&#64;{2}</span></code>.</p>
+<p>Revenim pe branch-ul secundar creat la începutul acestei secțiuni.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/my-first-repository.git$ git checkout my-new-branch
+Switched to branch <span class="s1">&#39;my-new-branch&#39;</span>
+</pre></div>
+</div>
+<p>Ne amintim de la subsecțiunile anterioare că am salvat modificările aduse asupra fișierului README.md în stivă.
+Așadar, acum la verificarea statusului pare că nu a fost facută de fapt nicio modificare pe acest branch.
+Verificăm și stiva de modificări pentru a vedea că schimbările au rămas salvate.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/my-first-repository.git$ git status
+On branch my-new-branch
+nothing to commit, working tree clean
+student@uso:~/my-first-repository.git$ git stash show -p
+diff --git a/README.md b/README.md
+index cfc5253..31d5f20 <span class="m">100644</span>
+--- a/README.md
++++ b/README.md
+@@ -1 +1,3 @@
+<span class="c1"># My first project ever</span>
++This line was added through a second branch
++This line is also added through a second branch
+</pre></div>
+</div>
+<p>Pentru a reveni la starea repository-ului de dinainte trebuie să aplicăm modificările salvate în stivă pe starea curentă.
+Cu alte cuvinte, trebuie să facem operația inversă lui <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">stash</span></code> pentru a scoate modificările din stivă și reveni la starea de dinainte de operația <code class="docutils literal notranslate"><span class="pre">stash</span></code>.
+Facem acest lucru folosind opțiunea <code class="docutils literal notranslate"><span class="pre">pop</span></code> a comenzii <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">stash</span></code>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/my-first-repository.git$ git stash pop
+On branch my-new-branch
+Changes not staged <span class="k">for</span> commit:
+<span class="o">(</span>use <span class="s2">&quot;git add &lt;file&gt;...&quot;</span> to update what will be committed<span class="o">)</span>
+<span class="o">(</span>use <span class="s2">&quot;git checkout -- &lt;file&gt;...&quot;</span> to discard changes in working directory<span class="o">)</span>
+
+    modified:   README.md
+
+no changes added to commit <span class="o">(</span>use <span class="s2">&quot;git add&quot;</span> and/or <span class="s2">&quot;git commit -a&quot;</span><span class="o">)</span>
+Dropped refs/stash@<span class="o">{</span><span class="m">0</span><span class="o">}</span> <span class="o">(</span>be347fc63e79ece56759fda9b617f03e12b9b93b<span class="o">)</span>
+student@uso:~/my-first-repository.git$ git stash list
+student@uso:~/my-first-repository.git$ git stash show
+No stash entries found.
+</pre></div>
+</div>
+<p>Observăm că operația <code class="docutils literal notranslate"><span class="pre">pop</span></code> are ca rezultat scoaterea ultimei intrări din stivă (adică cea din vârf) și revenirea la starea anterioara operației <code class="docutils literal notranslate"><span class="pre">stash</span></code>.
+În acest moment stiva de modificări s-a golit.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Observăm faptul că fișierul readus la starea anterioară nu se află în starea <code class="docutils literal notranslate"><span class="pre">staged</span></code>.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Comanda <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">stash</span> <span class="pre">list</span></code> nu produce niciun output dacă stiva este goală.</p>
+</div>
+<p>Git oferă și posibilitatea de a nu scoate din vârful stivei starea salvată, dar totuși starea branch-ului să revină la forma în care se afla înainte de operația <code class="docutils literal notranslate"><span class="pre">stash</span></code>.
+Acest lucru se poate face folosind opțiunea <code class="docutils literal notranslate"><span class="pre">apply</span></code> a comenzii <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">stash</span></code>.</p>
+<p><strong>Exercițiu:</strong> Faceți o nouă modificare asupra fișierului <code class="docutils literal notranslate"><span class="pre">README.md</span></code>.
+<strong>Exercițiu:</strong> Treceți fișierul <code class="docutils literal notranslate"><span class="pre">README.md</span></code> în starea <code class="docutils literal notranslate"><span class="pre">staged</span></code>.
+<strong>Exercițiu:</strong> Folosind comanda <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">stash</span></code> salvați starea curentă a clonei.</p>
+<p>În acest moment stiva de modificări ar trebui să conțină o singură intrare.
+Folosim opțiunea <code class="docutils literal notranslate"><span class="pre">apply</span></code> pentru a readuce branch-ul la starea anterioară și a menține stiva cu o singură intrare care referă această schimbare.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/my-first-repository.git$ git stash list
+stash@<span class="o">{</span><span class="m">0</span><span class="o">}</span>: WIP on my-new-branch: 0dfb632 Add README.md and .gitignore
+student@uso:~/my-first-repository.git$ git stash apply
+On branch my-new-branch
+Changes not staged <span class="k">for</span> commit:
+<span class="o">(</span>use <span class="s2">&quot;git add &lt;file&gt;...&quot;</span> to update what will be committed<span class="o">)</span>
+<span class="o">(</span>use <span class="s2">&quot;git checkout -- &lt;file&gt;...&quot;</span> to discard changes in working directory<span class="o">)</span>
+
+    modified:   README.md
+
+no changes added to commit <span class="o">(</span>use <span class="s2">&quot;git add&quot;</span> and/or <span class="s2">&quot;git commit -a&quot;</span><span class="o">)</span>
+student@uso:~/my-first-repository.git$ git stash list
+stash@<span class="o">{</span><span class="m">0</span><span class="o">}</span>: WIP on my-new-branch: 0dfb632 Add README.md and .gitignore
+</pre></div>
+</div>
+<p>În stivă se pot afla mai multe intrări simultan, iar noi nu suntem limitați la a reveni la starea aflată în vârful stivei în momentul în care executăm operația <code class="docutils literal notranslate"><span class="pre">pop</span></code>.</p>
+<p><strong>Exercițiu:</strong> Creați un nou fișier numit <code class="docutils literal notranslate"><span class="pre">FakeREADME.md</span></code> care să fie identic cu fișierul <code class="docutils literal notranslate"><span class="pre">README.md</span></code>.</p>
+<p>În acest moment stiva de modificări ar trebui să conțină o singură intrare, iar repository-ul conține 2 fișiere README și unul <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code>.
+Facem ambele fișiere README vizibile pentru Git folosind comanda <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">add</span></code>, după care salvăm starea clonei folosind comanda <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">stash</span></code>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/my-first-repository.git$ git stash list
+stash@<span class="o">{</span><span class="m">0</span><span class="o">}</span>: WIP on my-new-branch: 0dfb632 Add README.md and .gitignore
+student@uso:~/my-first-repository.git$ git status
+On branch my-new-branch
+Changes not staged <span class="k">for</span> commit:
+<span class="o">(</span>use <span class="s2">&quot;git add &lt;file&gt;...&quot;</span> to update what will be committed<span class="o">)</span>
+<span class="o">(</span>use <span class="s2">&quot;git checkout -- &lt;file&gt;...&quot;</span> to discard changes in working directory<span class="o">)</span>
+
+    modified:   README.md
+
+Untracked files:
+<span class="o">(</span>use <span class="s2">&quot;git add &lt;file&gt;...&quot;</span> to include in what will be committed<span class="o">)</span>
+
+    FakeREADME.md
+
+no changes added to commit <span class="o">(</span>use <span class="s2">&quot;git add&quot;</span> and/or <span class="s2">&quot;git commit -a&quot;</span><span class="o">)</span>
+student@uso:~/my-first-repository.git$ git add -A
+On branch my-new-branch
+Changes to be committed:
+<span class="o">(</span>use <span class="s2">&quot;git reset HEAD &lt;file&gt;...&quot;</span> to unstage<span class="o">)</span>
+
+    new file:   FakeREADME.md
+    modified:   README.md
+
+student@uso:~/my-first-repository.git$ git stash
+Saved working directory and index state WIP on my-new-branch: 0dfb632 Add README.md and .gitignore
+</pre></div>
+</div>
+<p>În acest moment în stivă se află 2 intrări, una de mai devreme (pe care doar am aplicat-o) și cea de acum.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/my-first-repository.git$ git stash list
+stash@<span class="o">{</span><span class="m">0</span><span class="o">}</span>: WIP on my-new-branch: 0dfb632 Add README.md and .gitignore
+stash@<span class="o">{</span><span class="m">1</span><span class="o">}</span>: WIP on my-new-branch: 0dfb632 Add README.md and .gitignore
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Fiecare intrare în stivă are un index asociat, 0 fiind cea mai recentă intrare.</p>
+</div>
+<p><strong>Exercițiu:</strong> Inspectați ambele intrări folosind comanda <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">stash</span> <span class="pre">show</span> <span class="pre">-p</span></code>.</p>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>O intrare în stivă se referă prin construcția <code class="docutils literal notranslate"><span class="pre">stash&#64;{N}</span></code>, unde <code class="docutils literal notranslate"><span class="pre">N</span></code> este indexul ei în stivă.
+Așadar, pentru intrarea <code class="docutils literal notranslate"><span class="pre">stash&#64;{1}</span></code> va trebui să adăugați argumentul <code class="docutils literal notranslate"><span class="pre">stash&#64;{1}</span></code> comenzii <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">stash</span> <span class="pre">show</span> <span class="pre">-p</span></code>.</p>
+</div>
+<p>Vrem să revenim la starea indicată de <code class="docutils literal notranslate"><span class="pre">stash&#64;{1}</span></code>, adică cea care conține un singur fișier README.
+Putem face acest lucru folosind opțiunea <code class="docutils literal notranslate"><span class="pre">pop</span></code> a comenzii <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">stash</span></code>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/my-first-repository.git$ git stash pop stash@<span class="o">{</span><span class="m">1</span><span class="o">}</span>
+On branch my-new-branch
+Changes not staged <span class="k">for</span> commit:
+<span class="o">(</span>use <span class="s2">&quot;git add &lt;file&gt;...&quot;</span> to update what will be committed<span class="o">)</span>
+<span class="o">(</span>use <span class="s2">&quot;git checkout -- &lt;file&gt;...&quot;</span> to discard changes in working directory<span class="o">)</span>
+
+    modified:   README.md
+
+no changes added to commit <span class="o">(</span>use <span class="s2">&quot;git add&quot;</span> and/or <span class="s2">&quot;git commit -a&quot;</span><span class="o">)</span>
+Dropped stash@<span class="o">{</span><span class="m">1</span><span class="o">}</span> <span class="o">(</span>972b398a58501c742a349e7eb8a26a5e5c16a892<span class="o">)</span>
+student@uso:~/my-first-repository.git$ git stash list
+stash@<span class="o">{</span><span class="m">0</span><span class="o">}</span>: WIP on my-new-branch: 0dfb632 Add README.md and .gitignore
+student@uso:~/my-first-repository.git$ ls -a
+./          ../         .git/       .gitignore  README.md
+</pre></div>
+</div>
+<p>Am ajuns acum la starea clonei dorită.
+Eliminăm acum din stiva de modificări intrarea rămasă (adică cea care conține un al doilea README).</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/my-first-repository.git$ git stash list
+stash@<span class="o">{</span><span class="m">0</span><span class="o">}</span>: WIP on my-new-branch: 0dfb632 Add README.md and .gitignore
+student@uso:~/my-first-repository.git$ git stash list
+student@uso:~/my-first-repository.git$ git stash clear
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>În acest moment stiva este goală și starea repository-ului a revenit la forma dorită.</p>
+</div>
+<p><strong>Exercițiu:</strong> Creați un commit cu modificările aduse asupra fișierului <code class="docutils literal notranslate"><span class="pre">README.md</span></code>.
+Aveți grijă să îl creați pe branch-ul creat de voi (și nu pe branch-ul <code class="docutils literal notranslate"><span class="pre">master</span></code>).
+Țineți cont de bunile practici legate de alegerea mesajului de commit.
+Verificați că noul commit a fost făcut folosind comanda <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">log</span></code>.</p>
+<p><strong>Exercițiu:</strong> Publicați pe GitHub noul commit.
+Verificați că schimbările sunt vizibile și din interfața grafică.</p>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>Branch-ul creat de voi nu există și remote.
+Urmăriți indicațiile utilitarului Git la executarea comenzii <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">push</span></code>.</p>
+</div>
+<p>Putem vizualiza branch-urile de pe GitHub din interfața grafică apăsând pe butonul indicat în imagine.</p>
+<div class="figure align-default">
+<a class="reference internal image-reference" href="chapters/app-dev/./img/GitHub-branches.png"><img alt="Alternative text" src="chapters/app-dev/./img/GitHub-branches.png" /></a>
+</div>
 </div>
 </div>
 <div class="section" id="modificarea-mesajului-de-commit">
 <h2><span class="section-number">3.2. </span>Modificarea mesajului de commit<a class="headerlink" href="#modificarea-mesajului-de-commit" title="Permalink to this headline">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">rebase</span> <span class="pre">-i</span> <span class="pre">HEAD~n</span></code> + <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">push</span> <span class="pre">--force</span></code></p>
+<p>Putem schimba mesajele de commit pentru orice commit făcut, fie că a fost sau nu publicat pe GitHub, fie care este ultimul creat sau nu.
+Vom lua toate cele 4 cazuri în parte.</p>
+<div class="section" id="ultimul-commit-nepublicat">
+<h3><span class="section-number">3.2.1. </span>Ultimul commit nepublicat<a class="headerlink" href="#ultimul-commit-nepublicat" title="Permalink to this headline">¶</a></h3>
+<p><strong>Exercițiu:</strong> Creați un fișier nou denumit <code class="docutils literal notranslate"><span class="pre">error-file.txt</span></code>.
+Creați un nou commit cu mesajul <code class="docutils literal notranslate"><span class="pre">Add</span> <span class="pre">eror-file.txt</span></code>.
+<strong>NU</strong> publicați commitul pe GitHub.</p>
+<p>În acest moment ne aflăm în situația în care avem un commit local care nu a fost publicat.
+Acesta este ultimul commit și vrem să modificăm mesajul asociat.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/my-first-repository.git$ git log
+commit 196c3061f84c728febbadf03d5ec97d498ef6e3e <span class="o">(</span>HEAD -&gt; my-new-branch<span class="o">)</span>
+Author: Prenume Nume &lt;adresa_de_email@email.com&gt;
+Date:   Thu Aug <span class="m">20</span> <span class="m">01</span>:02:40 <span class="m">2020</span> +0300
+
+    Add eror-file.txt
+
+commit 4b9ba014d71c020fbb19e0d7240cbe5bd13fe20e <span class="o">(</span>origin/my-new-branch<span class="o">)</span>
+Author: Prenume Nume &lt;adresa_de_email@email.com&gt;
+Date:   Thu Aug <span class="m">20</span> <span class="m">00</span>:00:25 <span class="m">2020</span> +0300
+
+    Update README.md
+
+commit 0dfb632b9de79f9a25011e8b98be48c7b1a0aad8
+Author: Prenume Nume &lt;adresa_de_email@email.com&gt;
+Date:   Wed Aug <span class="m">19</span> <span class="m">17</span>:24:01 <span class="m">2020</span> +0300
+
+    Add README.md and .gitignore
+</pre></div>
+</div>
+<p>Rezolvăm această problemă folosind opțiunea <code class="docutils literal notranslate"><span class="pre">--amend</span></code> pentru <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">commit</span></code>.
+La executarea comenzii se va deschire un fișier care conține pe prima linie mesajul de commit <code class="docutils literal notranslate"><span class="pre">Add</span> <span class="pre">eror-file.txt</span></code>.
+Modificăm aceasta linie cu mesajul potrivit, după care salvăm fișierul.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Editorul text prestabilit este <a class="reference external" href="https://www.vim.org">Vim</a>.
+Pentru a modifica textul apăsați mai întâi tasta <code class="docutils literal notranslate"><span class="pre">i</span></code>, faceți modificările necesare, după care apăsați <code class="docutils literal notranslate"><span class="pre">Esc+w+q</span></code> și apăsați tasta enter.
+Pentru a schimba setarea implicită urmați tutorialul de <a class="reference external" href="https://help.github.jp/enterprise/2.11/user/articles/associating-text-editors-with-git/">aici</a>.</p>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/my-first-repository.git$ git commit --amend
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Add error-file.txt
+
+<span class="c1"># Please enter the commit message for your changes. Lines starting</span>
+<span class="c1"># with &#39;#&#39; will be ignored, and an empty message aborts the commit.</span>
+<span class="c1">#</span>
+<span class="c1"># Date:      Thu Aug 20 01:02:40 2020 +0300</span>
+<span class="c1">#</span>
+<span class="c1"># On branch my-new-branch</span>
+<span class="c1"># Your branch is ahead of &#39;origin/my-new-branch&#39; by 1 commit.</span>
+<span class="c1">#   (use &quot;git push&quot; to publish your local commits)</span>
+<span class="c1">#</span>
+<span class="c1"># Changes to be committed:</span>
+<span class="c1">#       new file:   error-file.txt</span>
+<span class="c1">#</span>
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/my-first-repository.git$ git log
+commit 196c3061f84c728febbadf03d5ec97d498ef6e3e <span class="o">(</span>HEAD -&gt; my-new-branch<span class="o">)</span>
+Author: Prenume Nume &lt;adresa_de_email@email.com&gt;
+Date:   Thu Aug <span class="m">20</span> <span class="m">01</span>:02:40 <span class="m">2020</span> +0300
+
+    Add error-file.txt
+
+commit 4b9ba014d71c020fbb19e0d7240cbe5bd13fe20e <span class="o">(</span>origin/my-new-branch<span class="o">)</span>
+Author: Prenume Nume &lt;adresa_de_email@email.com&gt;
+Date:   Thu Aug <span class="m">20</span> <span class="m">00</span>:00:25 <span class="m">2020</span> +0300
+
+    Update README.md
+
+commit 0dfb632b9de79f9a25011e8b98be48c7b1a0aad8
+Author: Prenume Nume &lt;adresa_de_email@email.com&gt;
+Date:   Wed Aug <span class="m">19</span> <span class="m">17</span>:24:01 <span class="m">2020</span> +0300
+
+    Add README.md and .gitignore
+</pre></div>
+</div>
+<p>Acum commitul are mesajul de commit asociat corect.</p>
+<p><strong>Exercițiu:</strong> Publicați commitul pentru a trece la următoarea subsecțiune.</p>
+</div>
+<div class="section" id="ultimul-commit-publicat">
+<h3><span class="section-number">3.2.2. </span>Ultimul commit publicat<a class="headerlink" href="#ultimul-commit-publicat" title="Permalink to this headline">¶</a></h3>
+<p>În acest moment singura diferență față de exemplul anterior este faptul că avem un commit local care a fost și publicat și vrem să îi schimbăm mesajul de commit.
+Repetăm toți pașii de mai devreme.</p>
+<p><strong>Exercițiu:</strong> Modificați mesajul ultimului commit din <code class="docutils literal notranslate"><span class="pre">Add</span> <span class="pre">error-file.txt</span></code> în <code class="docutils literal notranslate"><span class="pre">Add</span> <span class="pre">error-file.txt</span> <span class="pre">2</span></code>.</p>
+<p>Pentru a publica noua schimbare trebuie să folosim comanda <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">push</span></code>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/my-first-repository.git$ git push
+To https://github.com/lizababu/my-first-repository.git
+! <span class="o">[</span>rejected<span class="o">]</span>        my-new-branch -&gt; my-new-branch <span class="o">(</span>non-fast-forward<span class="o">)</span>
+error: failed to push some refs to <span class="s1">&#39;https://github.com/lizababu/my-first-repository.git&#39;</span>
+hint: Updates were rejected because the tip of your current branch is behind
+hint: its remote counterpart. Integrate the remote changes <span class="o">(</span>e.g.
+hint: <span class="s1">&#39;git pull ...&#39;</span><span class="o">)</span> before pushing again.
+hint: See the <span class="s1">&#39;Note about fast-forwards&#39;</span> in <span class="s1">&#39;git push --help&#39;</span> <span class="k">for</span> details.
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Acest mesaj apare din cauza faptului că modificările locale (în acest caz mesajul de commit) nu corespund cu ceea ce se află remote.</p>
+</div>
+<p>Puteam sesiza o problemă și din outputul comenzii <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">status</span></code>: <code class="docutils literal notranslate"><span class="pre">Your</span> <span class="pre">branch</span> <span class="pre">and</span> <span class="pre">'origin/my-new-branch'</span> <span class="pre">have</span> <span class="pre">diverged,</span> <span class="pre">and</span> <span class="pre">have</span> <span class="pre">1</span> <span class="pre">and</span> <span class="pre">1</span> <span class="pre">different</span> <span class="pre">commits</span> <span class="pre">each,</span> <span class="pre">respectively.</span></code>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/my-first-repository.git$ git status
+On branch my-new-branch
+Your branch and <span class="s1">&#39;origin/my-new-branch&#39;</span> have diverged,
+and have <span class="m">1</span> and <span class="m">1</span> different commits each, respectively.
+<span class="o">(</span>use <span class="s2">&quot;git pull&quot;</span> to merge the remote branch into yours<span class="o">)</span>
+
+nothing to commit, working tree clean
+</pre></div>
+</div>
+<p>Pentru a depăși această situație, folosim opțiunea <code class="docutils literal notranslate"><span class="pre">--force</span></code> a lui <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">push</span></code>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/my-first-repository.git$ git push --force
+Enumerating objects: <span class="m">3</span>, <span class="k">done</span>.
+Counting objects: <span class="m">100</span>% <span class="o">(</span><span class="m">3</span>/3<span class="o">)</span>, <span class="k">done</span>.
+Delta compression using up to <span class="m">4</span> threads
+Compressing objects: <span class="m">100</span>% <span class="o">(</span><span class="m">2</span>/2<span class="o">)</span>, <span class="k">done</span>.
+Writing objects: <span class="m">100</span>% <span class="o">(</span><span class="m">2</span>/2<span class="o">)</span>, <span class="m">302</span> bytes <span class="p">|</span> <span class="m">302</span>.00 KiB/s, <span class="k">done</span>.
+Total <span class="m">2</span> <span class="o">(</span>delta <span class="m">0</span><span class="o">)</span>, reused <span class="m">0</span> <span class="o">(</span>delta <span class="m">0</span><span class="o">)</span>
+To https://github.com/<span class="o">{</span>username<span class="o">}</span>/my-first-repository.git
++ 57f911f...483f1a1 my-new-branch -&gt; my-new-branch <span class="o">(</span>forced update<span class="o">)</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>{username} este numele nostru de utilizator de pe GitHub.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Nu se recomandă folosirea opțiunii <code class="docutils literal notranslate"><span class="pre">--force</span></code> decât dacă suntem siguri că modificările pe care le facem aduc un beneficiu repository-ului.
+De asemenea, nu este recomandat să folosim această opțiune pe un branch care nu ne aparține.
+Implicit pe branch-ul <code class="docutils literal notranslate"><span class="pre">master</span></code> se preferă <strong>evitarea folosirii</strong> acestei opțiuni.</p>
+</div>
+</div>
+<div class="section" id="orice-alt-commit-publicat">
+<h3><span class="section-number">3.2.3. </span>Orice alt commit publicat<a class="headerlink" href="#orice-alt-commit-publicat" title="Permalink to this headline">¶</a></h3>
+<p>În acest moment, outputul comenzii <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">log</span></code> ne arată că avem 3 commit-uri, toate publicate.
+Vrem să modificăm mesajul de commit al celui de-al doilea commit.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/my-first-repository.git$ git log
+commit 483f1a1b41c609248d2c15dd9a27ada706be15ef <span class="o">(</span>HEAD -&gt; my-new-branch, origin/my-new-branch<span class="o">)</span>
+Author: Liza Babu &lt;lizza.babu@gmail.com&gt;
+Date:   Thu Aug <span class="m">20</span> <span class="m">01</span>:02:40 <span class="m">2020</span> +0300
+
+    Add error-file.txt <span class="m">2</span>
+
+commit 4b9ba014d71c020fbb19e0d7240cbe5bd13fe20e
+Author: Liza Babu &lt;lizza.babu@gmail.com&gt;
+Date:   Thu Aug <span class="m">20</span> <span class="m">00</span>:00:25 <span class="m">2020</span> +0300
+
+    Update README.md
+
+commit 0dfb632b9de79f9a25011e8b98be48c7b1a0aad8
+Author: Liza Babu &lt;lizza.babu@gmail.com&gt;
+Date:   Wed Aug <span class="m">19</span> <span class="m">17</span>:24:01 <span class="m">2020</span> +0300
+
+    Add README.md and .gitignore
+</pre></div>
+</div>
+<p>Numărând de la cel mai recent la cel mai vechi, vedem că al doilea commit este cel cu mesajul <code class="docutils literal notranslate"><span class="pre">Update</span> <span class="pre">README.md</span></code>.
+Vrem să modificăm acest mesaj în <code class="docutils literal notranslate"><span class="pre">Update</span> <span class="pre">README.md</span> <span class="pre">2</span></code>
+Astfel, folosit comanda <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">rebase</span></code> putem să ne situăm, în timp, în momentul în care commitul al doilea era de fapt primul, adică <code class="docutils literal notranslate"><span class="pre">HEAD</span></code> referea acel commit.
+Ne va apărea din nou un fișier deschis în editorul Vim pe care trebuie să-l modificăm.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/my-first-repository.git$ git rebase -i HEAD~2
+</pre></div>
+</div>
+<p>Mai jos se poate observa conținutul fișierului ce trebuie modificat.
+Primele 2 rânduri conțin mesajele de comit ale celor mai recente N (în cazul acesta 2) commituri.
+Îl alegem pe cel pe care vrem să-l modificăm și modificăm keywordul <code class="docutils literal notranslate"><span class="pre">pick</span></code> în <code class="docutils literal notranslate"><span class="pre">reword</span></code> sau <code class="docutils literal notranslate"><span class="pre">r</span></code>.
+Salvăm fișierul.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pick 4b9ba01 Update README.md
+pick 483f1a1 Add error-file.txt <span class="m">2</span>
+
+<span class="c1"># Rebase 0dfb632..483f1a1 onto 0dfb632 (2 commands)</span>
+<span class="c1">#</span>
+<span class="c1"># Commands:</span>
+<span class="c1"># p, pick &lt;commit&gt; = use commit</span>
+<span class="c1"># r, reword &lt;commit&gt; = use commit, but edit the commit message</span>
+<span class="c1"># e, edit &lt;commit&gt; = use commit, but stop for amending</span>
+<span class="c1"># s, squash &lt;commit&gt; = use commit, but meld into previous commit</span>
+<span class="c1"># f, fixup &lt;commit&gt; = like &quot;squash&quot;, but discard this commit&#39;s log message</span>
+<span class="c1"># x, exec &lt;command&gt; = run command (the rest of the line) using shell</span>
+<span class="c1"># b, break = stop here (continue rebase later with &#39;git rebase --continue&#39;)</span>
+<span class="c1"># d, drop &lt;commit&gt; = remove commit</span>
+<span class="c1"># l, label &lt;label&gt; = label current HEAD with a name</span>
+<span class="c1"># t, reset &lt;label&gt; = reset HEAD to a label</span>
+<span class="c1"># m, merge [-C &lt;commit&gt; | -c &lt;commit&gt;] &lt;label&gt; [# &lt;oneline&gt;]</span>
+<span class="c1"># .       create a merge commit using the original merge commit&#39;s</span>
+<span class="c1"># .       message (or the oneline, if no original merge commit was</span>
+<span class="c1"># .       specified). Use -c &lt;commit&gt; to reword the commit message.</span>
+<span class="c1">#</span>
+<span class="c1"># These lines can be re-ordered; they are executed from top to bottom.</span>
+<span class="c1">#</span>
+<span class="c1"># If you remove a line here THAT COMMIT WILL BE LOST.</span>
+<span class="c1">#</span>
+<span class="c1"># However, if you remove everything, the rebase will be aborted.</span>
+<span class="c1">#</span>
+<span class="c1"># Note that empty commits are commented out</span>
+</pre></div>
+</div>
+<p>Se va deschide un al doilea fișier care conține pe prima linie mesajul de commit pe care vrem să-l modificăm.
+După ce modificăm mesajul salvăm fișierul.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Update README.md <span class="m">2</span>
+
+<span class="c1"># Please enter the commit message for your changes. Lines starting</span>
+<span class="c1"># with &#39;#&#39; will be ignored, and an empty message aborts the commit.</span>
+<span class="c1">#</span>
+<span class="c1"># Date:      Thu Aug 20 00:00:25 2020 +0300</span>
+<span class="c1">#</span>
+<span class="c1"># interactive rebase in progress; onto 0dfb632</span>
+<span class="c1"># Last command done (1 command done):</span>
+<span class="c1">#    reword 4b9ba01 Update README.md</span>
+<span class="c1"># Next command to do (1 remaining command):</span>
+<span class="c1">#    pick 483f1a1 Add error-file.txt 2</span>
+<span class="c1"># You are currently editing a commit while rebasing branch &#39;my-new-branch&#39; on &#39;0dfb632&#39;.</span>
+<span class="c1">#</span>
+<span class="c1"># Changes to be committed:</span>
+<span class="c1">#       modified:   README.md</span>
+<span class="c1">#</span>
+</pre></div>
+</div>
+<p>La fel ca mai devreme, trebuie să forțăm publicarea noilor schimbări.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/my-first-repository.git$ git push --force
+Enumerating objects: <span class="m">7</span>, <span class="k">done</span>.
+Counting objects: <span class="m">100</span>% <span class="o">(</span><span class="m">7</span>/7<span class="o">)</span>, <span class="k">done</span>.
+Delta compression using up to <span class="m">4</span> threads
+Compressing objects: <span class="m">100</span>% <span class="o">(</span><span class="m">5</span>/5<span class="o">)</span>, <span class="k">done</span>.
+Writing objects: <span class="m">100</span>% <span class="o">(</span><span class="m">5</span>/5<span class="o">)</span>, <span class="m">569</span> bytes <span class="p">|</span> <span class="m">569</span>.00 KiB/s, <span class="k">done</span>.
+Total <span class="m">5</span> <span class="o">(</span>delta <span class="m">1</span><span class="o">)</span>, reused <span class="m">0</span> <span class="o">(</span>delta <span class="m">0</span><span class="o">)</span>
+remote: Resolving deltas: <span class="m">100</span>% <span class="o">(</span><span class="m">1</span>/1<span class="o">)</span>, <span class="k">done</span>.
+To https://github.com/<span class="o">{</span>username<span class="o">}</span>/my-first-repository.git
++ 483f1a1...5de7231 my-new-branch -&gt; my-new-branch <span class="o">(</span>forced update<span class="o">)</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>{username} este numele nostru de utilizator de pe GitHub.</p>
+</div>
+<p><strong>Exercițiu:</strong> Verificați că modificările au fost făcute cum trebuie atât local, cât și pe GitHub.</p>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">log</span></code> și <a class="reference external" href="https://github.com/{username}/my-first-repository/tree/my-new-branch">https://github.com/{username}/my-first-repository/tree/my-new-branch</a></p>
+</div>
+</div>
 </div>
 </div>
 

@@ -631,10 +631,13 @@ Asta înseamnă că acum Git știe de noile modificări și așteaptă ca modifi
 <h3><span class="section-number">2.3.3. </span>Crearea commitului local cu un mesaj corespunzător<a class="headerlink" href="#crearea-commitului-local-cu-un-mesaj-corespunzator" title="Permalink to this headline">¶</a></h3>
 <p>Următorul pas în etapa de dezvoltare este chiar crearea unui nou commit cu modificările făcute.
 Până atunci însă, există câteva bune practici de care ar trebui să țineți întotdeauna cont.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
 <p>E bine ca atunci când ne apucăm de lucru să avem în vedere să sincronizăm din când în când repository-ul local cu cel remote.
 Pot apărea diferențe în momentul în care altcineva a publicat schimbări remote după ce am făcut noi ultima sincronizare.
 În momentul în care cineva a publicat modificări asupra unei secvențe de cod pe care și noi o modificăm, apar conflicte.
 Conflictele trebuie rezolvate.</p>
+</div>
 <p>Putem face acest lucru în două moduri.
 Operația <code class="docutils literal notranslate"><span class="pre">fetch</span></code> are rolul de a aduce local toate schimbările, însă nu va face și operația de <code class="docutils literal notranslate"><span class="pre">merge</span></code> care presupune rezolvarea conflictelor și ajungerea a un front comun.
 Operația <code class="docutils literal notranslate"><span class="pre">pull</span></code> face, de fapt, un <code class="docutils literal notranslate"><span class="pre">fetch</span></code> și un <code class="docutils literal notranslate"><span class="pre">merge</span></code>, adică va aduce local toate modificările și va încerca să rezolve conflicetele în mod automat.
