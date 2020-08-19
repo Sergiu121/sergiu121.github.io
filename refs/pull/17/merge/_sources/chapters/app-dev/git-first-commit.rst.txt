@@ -8,8 +8,8 @@ Dacă starea proiectului nu se publică, atunci ceilalți colaboratori nu vor pu
 Pentru a putea publica o schimbare trebuie să faceți operația **push**.
 Vom vedea în următoarele secțiuni care sunt pașii pentru a crea un commit și pentru a-l publica.
 
-1) Branch-ul master
--------------------
+Branch-ul master
+----------------
 
 Un **branch** este echivalentul unui fir de evoluție a codului sursă.
 Prin analogie, branch-ul ``master`` este firul principal de evoluție al codului sursă.
@@ -69,8 +69,8 @@ De aceea, în secțiunea anterioară am văzut că ``HEAD branch`` este unknown.
     student@uso:~/my-first-repository.git$
 
 
-2) Adăugarea unui README și a unui fișier .gitignore
-----------------------------------------------------
+Adăugarea unui README și a unui fișier .gitignore
+-------------------------------------------------
 
 Am stabilit mai devreme că într-un repository se află întreg codul sursă al unui proiect.
 Pe lângă codul sursă se recomandă adăugarea unui fișier (de obicei intitulat README) în care se află diverse informații despre un proiect.
@@ -101,11 +101,11 @@ Momentan nu avem fișiere pe care vrem să le ignorăm, așa că vom crea un fi�
     ./          ../         .git/       .gitignore  README.md
 
 
-3) Crearea primului commit
---------------------------
+Crearea primului commit
+-----------------------
 
-a. Verificarea stării clonei
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Verificarea stării clonei
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Starea unei clone este dată de fapt de starea branch-ului pe care ați lucrat.
 În cazul vostru este vorba de branch-ul master.
@@ -132,8 +132,8 @@ A doua linie afișată ``No commit yet`` se referă la faptul că nu am făcut p
 În ultima parte a outputului vedem că se află o listă de fișiere ``untracked``, adică lista fișierelor pe care Git le vede ca modificate/nou adăugate, însă nu știe cum să le catalogheze.
 Este datoria noastră de a adăuga fișierele în aria de vizibilitate pentru Git.
 
-b. Adăugarea fișierelor (în staging)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Adăugarea fișierelor (în staging)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Pentru a adăuga fișierele în ``staging``, adică pentru a le face vizibile pentru Git, folosim comanda ``git add``.
 Avem două variante pentru a adăuga ambele fișiere.
@@ -176,8 +176,8 @@ Vedem că mesajul a devenit ``Changes to be commited``.
 Asta înseamnă că acum Git știe de noile modificări și așteaptă ca modificările să fie adunate într-un commit.
 
 
-c. Crearea commitului local cu un mesaj corespunzător
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Crearea commitului local cu un mesaj corespunzător
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Următorul pas în etapa de dezvoltare este chiar crearea unui nou commit cu modificările făcute.
 Până atunci însă, există câteva bune practici de care ar trebui să țineți întotdeauna cont.
@@ -214,8 +214,8 @@ TODO: de integrat următoarele unde își vor avea locul.
 ``git pull --ff-only`` la bune practici
 ``git pull`` + explicații (de ce trebuie să dăm mai întâi pull și după aceea push)
 
-d. Verificarea istoricului de commituri
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Verificarea istoricului de commituri
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Pentru verificarea istoricului de commituri din repository folosim comanda ``git log``.
 
@@ -233,8 +233,8 @@ Aici este vorba despre ``0dfb632b9de79f9a25011e8b98be48c7b1a0aad8``.
 Acum vedem că repository-ul indică spre acest nou commit.
 Ne dăm seama de acest lucru pentru că ``HEAD`` se află în dreptul commitului tocmai făcut.
 
-e. Publicarea commitului pe repository-ul remote
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Publicarea commitului pe repository-ul remote
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Vrem să publicăm noile schimbări și pe repository-ul remote.
 Pentru a face acest lucru folosim comanda ``git push``.
