@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-      <title>Arhive</title>
+      <title>5. Arhive</title>
     
       <link rel="stylesheet" href="../../_static/pygments.css">
       <link rel="stylesheet" href="../../_static/theme.css">
@@ -24,8 +24,8 @@
     
   <link rel="index" title="Index" href="../../genindex.html" />
   <link rel="search" title="Search" href="../../search.html" />
-  <link rel="next" title="Sistemul de fișiere" href="file_system.html" />
-  <link rel="prev" title="Redirectări" href="io_redirection.html" />
+  <link rel="next" title="6. Sistemul de fișiere" href="file_system.html" />
+  <link rel="prev" title="4. Redirectări" href="io_redirection.html" />
     <link href="../../_static/my_theme.css" rel="stylesheet" type="text/css">
 
   </head>
@@ -466,18 +466,18 @@
   <ul class="breadcrumbs">
     <li><a href="../../index.html">Docs</a> &raquo;</li>
     
-    <li>Arhive</li>
+    <li><span class="section-number">5. </span>Arhive</li>
   </ul>
   
 
   <ul class="page-nav">
   <li class="prev">
     <a href="io_redirection.html"
-       title="previous chapter">← Redirectări</a>
+       title="previous chapter">← <span class="section-number">4. </span>Redirectări</a>
   </li>
   <li class="next">
     <a href="file_system.html"
-       title="next chapter">Sistemul de fișiere →</a>
+       title="next chapter"><span class="section-number">6. </span>Sistemul de fișiere →</a>
   </li>
 </ul>
   
@@ -486,7 +486,7 @@
           <div class="content" role="main">
             
   <div class="section" id="arhive">
-<h1>Arhive<a class="headerlink" href="#arhive" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">5. </span>Arhive<a class="headerlink" href="#arhive" title="Permalink to this headline">¶</a></h1>
 <p>Arhivele sunt o agregare a mai multor fișiere și directoare într-un singur fișier.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -495,9 +495,9 @@ Rezultatul este similar: agregarea într-un singur fișier.</p>
 </div>
 <p>În acest capitol vom folos arhive de tipul <strong>zip</strong> și <strong>tar</strong>.</p>
 <div class="section" id="arhive-tar">
-<h2>1. Arhive <strong>tar</strong><a class="headerlink" href="#arhive-tar" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">5.1. </span>1. Arhive <strong>tar</strong><a class="headerlink" href="#arhive-tar" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="a-crearea-arhivelor">
-<h3>a. Crearea arhivelor<a class="headerlink" href="#a-crearea-arhivelor" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">5.1.1. </span>a. Crearea arhivelor<a class="headerlink" href="#a-crearea-arhivelor" title="Permalink to this headline">¶</a></h3>
 <p>Folosim utilitarul <strong>tar</strong> împreună cu parametrii potriviți:</p>
 <ul class="simple">
 <li><p>-c: creează arhiva;</p></li>
@@ -527,10 +527,13 @@ total 19M
 </div>
 <p>Putem observa că fișierul de tipul <strong>tar</strong> nou creat <strong>nu</strong> ocupă mai puțin spațiu; din contră, ocupă mai mult spațiu din cauza metadatelor fișierului.
 Pentru o mai bună înțelegere a comenzii de creare a arhivelor inspectați manualul: <code class="docutils literal notranslate"><span class="pre">man</span> <span class="pre">tar</span></code>.</p>
-<p><strong>Exercițiu:</strong> Creați 3 fișiere ca în exemplu. Creați o arhivă de tipul <strong>tar</strong> a fișierelor cu numele <strong>fisiere.tar</strong>.</p>
+<div class="section" id="exercitiu-creare-arhive">
+<h4><span class="section-number">5.1.1.1. </span>Exercițiu - creare arhive<a class="headerlink" href="#exercitiu-creare-arhive" title="Permalink to this headline">¶</a></h4>
+<p>Creați 3 fișiere ca în exemplu. Creați o arhivă de tipul <strong>tar</strong> a fișierelor cu numele <strong>fisiere.tar</strong>.</p>
+</div>
 </div>
 <div class="section" id="b-afisarea-continutului-arhivelor">
-<h3>b. Afișarea conținutului arhivelor<a class="headerlink" href="#b-afisarea-continutului-arhivelor" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">5.1.2. </span>b. Afișarea conținutului arhivelor<a class="headerlink" href="#b-afisarea-continutului-arhivelor" title="Permalink to this headline">¶</a></h3>
 <p>Pentru a vizualiza arhiva <strong>fără</strong> dezarhivare folosim opțiunea <strong>-t</strong> ca în exemplul de mai jos:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso-demo:~$ tar -tf fisiere.tar
 fisier1
@@ -539,10 +542,13 @@ fisier3
 </pre></div>
 </div>
 <p>Opțiunea <strong>-f</strong> este pentru a specifica ce arhivă vrem să afișăm.</p>
-<p><strong>Exercițiu:</strong> Afișați conținutul arhivei <strong>fără</strong> dezarhivare.</p>
+<div class="section" id="exercitiu-afisarea-continutului-unei-arhive">
+<h4><span class="section-number">5.1.2.1. </span>Exercițiu - afișarea conținutului unei arhive<a class="headerlink" href="#exercitiu-afisarea-continutului-unei-arhive" title="Permalink to this headline">¶</a></h4>
+<p>Afișați conținutul arhivei <strong>fără</strong> dezarhivare.</p>
+</div>
 </div>
 <div class="section" id="c-dezarhivarea-arhivelor">
-<h3>c. Dezarhivarea arhivelor<a class="headerlink" href="#c-dezarhivarea-arhivelor" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">5.1.3. </span>c. Dezarhivarea arhivelor<a class="headerlink" href="#c-dezarhivarea-arhivelor" title="Permalink to this headline">¶</a></h3>
 <p>Dezarhivăm o arhivă folosim opțiunea <strong>-x</strong>, ca în exemplul de mai jos.
 Pentru acest exemplu ștergem înainte fișierele existente.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso-demo:~$ rm fisier1 fisier2 fisier3
@@ -622,13 +628,16 @@ drwxr-xr-x <span class="m">3</span> student student    <span class="m">4096</spa
 <p class="admonition-title">Note</p>
 <p>Obervăm cum după comenzile de ștergere și dezarhivare s-a verificat corectitudinea operațiilor.</p>
 </div>
-<p><strong>Exercițiu</strong>: Creați un director cu numele <strong>dezarhivare</strong> și în acest director încă unul cu numele <strong>tar</strong> ca în ierarhia de mai sus.
+<div class="section" id="exercitiu-dezarhivarea-unei-arhive">
+<h4><span class="section-number">5.1.3.1. </span>Exercițiu - dezarhivarea unei arhive<a class="headerlink" href="#exercitiu-dezarhivarea-unei-arhive" title="Permalink to this headline">¶</a></h4>
+<p>Creați un director cu numele <strong>dezarhivare</strong> și în acest director încă unul cu numele <strong>tar</strong> ca în ierarhia de mai sus.
 Dezarhivați arhiva în directorul <strong>dezarhivare/tar/</strong>.
 Dezarhivați <strong>doar</strong> fișierul <strong>fisier2</strong> în directorul curent.
 Verificați corectitudinea operațiilor.</p>
 </div>
+</div>
 <div class="section" id="d-adaugarea-de-noi-fisiere-la-arhive">
-<h3>d. Adăugarea de noi fișiere la arhive<a class="headerlink" href="#d-adaugarea-de-noi-fisiere-la-arhive" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">5.1.4. </span>d. Adăugarea de noi fișiere la arhive<a class="headerlink" href="#d-adaugarea-de-noi-fisiere-la-arhive" title="Permalink to this headline">¶</a></h3>
 <p>Adăugăm un nou fișier la arhivă folosind opțiunea <strong>-r</strong>:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso-demo:~$ ls -l
 total <span class="m">25608</span>
@@ -657,14 +666,17 @@ fisier4
 <p class="admonition-title">Note</p>
 <p>Observăm cum după comanda de adăugare de fișier la arhivă, am verificat corectitudinea operației.</p>
 </div>
-<p><strong>Exercițiu:</strong> Creați un fișier <strong>fisier4</strong> și adăugați-l la arhivă, ca în exemplul de mai sus.
+<div class="section" id="exercitiu-adaugare-de-noi-fisiere">
+<h4><span class="section-number">5.1.4.1. </span>Exercițiu - adăugare de noi fișiere<a class="headerlink" href="#exercitiu-adaugare-de-noi-fisiere" title="Permalink to this headline">¶</a></h4>
+<p>Creați un fișier <strong>fisier4</strong> și adăugați-l la arhivă, ca în exemplul de mai sus.
 Verificați corectitudinea operației.</p>
 </div>
 </div>
+</div>
 <div class="section" id="arhive-zip">
-<h2>2. Arhive <strong>zip</strong><a class="headerlink" href="#arhive-zip" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">5.2. </span>2. Arhive <strong>zip</strong><a class="headerlink" href="#arhive-zip" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="id1">
-<h3>a. Crearea arhivelor<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">5.2.1. </span>a. Crearea arhivelor<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
 <p>Folosim utilitarul <strong>zip</strong> împreună cu parametrii potriviți:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso-demo:~$ ll
 total <span class="m">16388</span>
@@ -695,10 +707,13 @@ drwxr-xr-x <span class="m">3</span> student student <span class="m">4</span>.0K 
 </div>
 <p>Putem observa că fișierul de tipul <strong>zip</strong> nou creat <strong>nu</strong> ocupă mai puțin spațiu; din contră, ocupă mai mult spațiu din cauza metadatelor fișierului.
 Pentru o mai bună înțelegere a comenzii de creare a arhivelor inspectați manualul: <code class="docutils literal notranslate"><span class="pre">man</span> <span class="pre">zip</span></code>.</p>
-<p><strong>Exercițiu:</strong> Creați o arhivă de tipul <strong>zip</strong> a fișierelor cu numele <strong>fisiere.zip</strong>.</p>
-</div>
 <div class="section" id="id2">
-<h3>b. Afișarea conținutului arhivelor<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<h4><span class="section-number">5.2.1.1. </span>Exercițiu - creare arhive<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h4>
+<p>Creați o arhivă de tipul <strong>zip</strong> a fișierelor cu numele <strong>fisiere.zip</strong>.</p>
+</div>
+</div>
+<div class="section" id="id3">
+<h3><span class="section-number">5.2.2. </span>b. Afișarea conținutului arhivelor<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
 <p>Pentru a vizualiza arhiva <strong>fără</strong> dezarhivare folosim opțiunea <strong>-sf</strong> ca în exemplul de mai jos:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso-demo:~$ zip -sf fisiere.zip
 Archive contains:
@@ -709,10 +724,13 @@ Total <span class="m">3</span> entries <span class="o">(</span><span class="m">9
 </pre></div>
 </div>
 <p>Opțiunea <strong>-f</strong> este pentru a specifica ce arhivă vrem să afișăm.</p>
-<p><strong>Exercițiu:</strong> Afișați conținutul arhivei <strong>fără</strong> dezarhivare.</p>
+<div class="section" id="exercitiu-afisarea-continutului-unei-arhivei">
+<h4><span class="section-number">5.2.2.1. </span>Exercițiu - afișarea conținutului unei arhivei<a class="headerlink" href="#exercitiu-afisarea-continutului-unei-arhivei" title="Permalink to this headline">¶</a></h4>
+<p>Afișați conținutul arhivei <strong>fără</strong> dezarhivare.</p>
 </div>
-<div class="section" id="id3">
-<h3>c. Dezarhivarea arhivelor<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="id4">
+<h3><span class="section-number">5.2.3. </span>c. Dezarhivarea arhivelor<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
 <p>Pentru a dezarhiva o arhivă folosim utilitarul <strong>unzip</strong>.
 Pentru acest exemplu ștergem înainte fișierele existente.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso-demo:~$ ll
@@ -816,13 +834,16 @@ drwxr-xr-x <span class="m">4</span> student student <span class="m">4</span>.0K 
 <p class="admonition-title">Note</p>
 <p>Obervăm cum după comenzile de ștergere și dezarhivare s-a verificat corectitudinea operațiilor.</p>
 </div>
-<p><strong>Exercițiu</strong>: Creați un director cu numele <strong>dezarhivare</strong> și în acest director încă unul cu numele <strong>tar</strong> ca în ierarhia de mai sus.
+<div class="section" id="id5">
+<h4><span class="section-number">5.2.3.1. </span>Exercițiu - dezarhivarea unei arhive<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h4>
+<p>Creați un director cu numele <strong>zip</strong> în directorului <strong>dezarhivare</strong> ca în ierarhia de mai sus.
 Dezarhivați arhiva în directorul <strong>dezarhivare/zip/</strong>.
 Dezarhivați <strong>doar</strong> fișierul <strong>fisier2</strong> în directorul curent.
 Verificați corectitudinea operațiilor.</p>
 </div>
-<div class="section" id="id4">
-<h3>d. Adăugarea de noi fișiere la arhive<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="id6">
+<h3><span class="section-number">5.2.4. </span>d. Adăugarea de noi fișiere la arhive<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
 <p>Adăugăm un nou fișier la arhivă folosind opțiunea <strong>-u</strong>:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso-demo:~$ zip -u fisiere.zip fisier4
   adding: fisier4 <span class="o">(</span>deflated <span class="m">0</span>%<span class="o">)</span>
@@ -840,8 +861,11 @@ Total <span class="m">4</span> entries <span class="o">(</span><span class="m">1
 <p class="admonition-title">Note</p>
 <p>Observăm cum după comanda de adăugare de fișier la arhivă, am verificat corectitudinea operației.</p>
 </div>
-<p><strong>Exercițiu:</strong> Creați un fișier <strong>fisier4</strong> și adăugați-l la arhivă, ca în exemplul de mai sus.
+<div class="section" id="exercitiu-adaugarea-unui-fisier-in-arhiva">
+<h4><span class="section-number">5.2.4.1. </span>Exercițiu - adăugarea unui fișier în arhivă<a class="headerlink" href="#exercitiu-adaugarea-unui-fisier-in-arhiva" title="Permalink to this headline">¶</a></h4>
+<p>Creați un fișier <strong>fisier4</strong> și adăugați-l la arhivă, ca în exemplul de mai sus.
 Verificați corectitudinea operației.</p>
+</div>
 </div>
 </div>
 </div>
@@ -852,11 +876,11 @@ Verificați corectitudinea operației.</p>
             <div class="inner"><ul class="page-nav">
   <li class="prev">
     <a href="io_redirection.html"
-       title="previous chapter">← Redirectări</a>
+       title="previous chapter">← <span class="section-number">4. </span>Redirectări</a>
   </li>
   <li class="next">
     <a href="file_system.html"
-       title="next chapter">Sistemul de fișiere →</a>
+       title="next chapter"><span class="section-number">6. </span>Sistemul de fișiere →</a>
   </li>
 </ul><div class="footer" role="contentinfo">
       &#169; Copyright 2020, USO Team.
