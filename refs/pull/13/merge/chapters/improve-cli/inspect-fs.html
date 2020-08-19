@@ -415,7 +415,7 @@
             
               <ul>
                 
-                  <li class="toctree-l2"><a href="#cea-mai-importanta-comanda" class="reference internal">1) Cea mai importantă comandă</a></li>
+                  <li class="toctree-l2"><a href="#cea-mai-importanta-comanda" class="reference internal">1. Cea mai importantă comandă</a></li>
                 
                   <li class="toctree-l2"><a href="#comanda-cd" class="reference internal">2) Comanda cd</a></li>
                 
@@ -496,13 +496,246 @@
   <div class="section" id="inspectarea-sistemului-de-fisiere">
 <h1>Inspectarea sistemului de fișiere<a class="headerlink" href="#inspectarea-sistemului-de-fisiere" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="cea-mai-importanta-comanda">
-<h2>1) Cea mai importantă comandă<a class="headerlink" href="#cea-mai-importanta-comanda" title="Permalink to this headline">¶</a></h2>
-<p>Comanda <code class="docutils literal notranslate"><span class="pre">man</span></code>, <code class="docutils literal notranslate"><span class="pre">man</span> <span class="pre">man</span></code>.</p>
+<h2>1. Cea mai importantă comandă<a class="headerlink" href="#cea-mai-importanta-comanda" title="Permalink to this headline">¶</a></h2>
+<p>Așa cum spuneam mai devreme, marele avantaj al utilizării terminalului este că ne ajută să rezolvăm sarcini foarte rapid.
+Rezolvăm sarcini folosind utilitarele pe care le avem disponibile în linia de comandă, fie că acestea fac parte din sistemul nostru sau le-am instalat.</p>
+<p>Cel mai important utilitar pe care îl avem la dispoziție este <code class="docutils literal notranslate"><span class="pre">man</span></code>.
+Utilitarul <code class="docutils literal notranslate"><span class="pre">man</span></code> ne deschide pagina de manual în care este documentat un alt utilitar pe care dorim să-l folosim.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ man
+What manual page <span class="k">do</span> you want?
+</pre></div>
+</div>
+<p>Putem consulta însăși pagina de manual a utilitarului <code class="docutils literal notranslate"><span class="pre">man</span></code></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ man man
+</pre></div>
+</div>
+<p>Vom fi întâmpinați de următorul program interactiv:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>MAN<span class="o">(</span><span class="m">1</span><span class="o">)</span>                        Manual pager utils                        MAN<span class="o">(</span><span class="m">1</span><span class="o">)</span>
+
+NAME
+       man - an interface to the on-line reference manuals
+
+SYNOPSIS
+       man  <span class="o">[</span>-C  file<span class="o">]</span>  <span class="o">[</span>-d<span class="o">]</span>  <span class="o">[</span>-D<span class="o">]</span>  <span class="o">[</span>--warnings<span class="o">[=</span>warnings<span class="o">]]</span>  <span class="o">[</span>-R encoding<span class="o">]</span> <span class="o">[</span>-L
+       locale<span class="o">]</span> <span class="o">[</span>-m system<span class="o">[</span>,...<span class="o">]]</span> <span class="o">[</span>-M path<span class="o">]</span> <span class="o">[</span>-S list<span class="o">]</span>  <span class="o">[</span>-e  extension<span class="o">]</span>  <span class="o">[</span>-i<span class="p">|</span>-I<span class="o">]</span>
+       <span class="o">[</span>--regex<span class="p">|</span>--wildcard<span class="o">]</span>   <span class="o">[</span>--names-only<span class="o">]</span>  <span class="o">[</span>-a<span class="o">]</span>  <span class="o">[</span>-u<span class="o">]</span>  <span class="o">[</span>--no-subpages<span class="o">]</span>  <span class="o">[</span>-P
+       pager<span class="o">]</span> <span class="o">[</span>-r prompt<span class="o">]</span> <span class="o">[</span>-7<span class="o">]</span> <span class="o">[</span>-E encoding<span class="o">]</span> <span class="o">[</span>--no-hyphenation<span class="o">]</span> <span class="o">[</span>--no-justifi‐
+       cation<span class="o">]</span>  <span class="o">[</span>-p  string<span class="o">]</span>  <span class="o">[</span>-t<span class="o">]</span>  <span class="o">[</span>-T<span class="o">[</span>device<span class="o">]]</span>  <span class="o">[</span>-H<span class="o">[</span>browser<span class="o">]]</span> <span class="o">[</span>-X<span class="o">[</span>dpi<span class="o">]]</span> <span class="o">[</span>-Z<span class="o">]</span>
+       <span class="o">[[</span>section<span class="o">]</span> page<span class="o">[</span>.section<span class="o">]</span> ...<span class="o">]</span> ...
+       man -k <span class="o">[</span>apropos options<span class="o">]</span> regexp ...
+       man -K <span class="o">[</span>-w<span class="p">|</span>-W<span class="o">]</span> <span class="o">[</span>-S list<span class="o">]</span> <span class="o">[</span>-i<span class="p">|</span>-I<span class="o">]</span> <span class="o">[</span>--regex<span class="o">]</span> <span class="o">[</span>section<span class="o">]</span> term ...
+       man -f <span class="o">[</span>whatis options<span class="o">]</span> page ...
+       man -l <span class="o">[</span>-C file<span class="o">]</span> <span class="o">[</span>-d<span class="o">]</span> <span class="o">[</span>-D<span class="o">]</span> <span class="o">[</span>--warnings<span class="o">[=</span>warnings<span class="o">]]</span>  <span class="o">[</span>-R  encoding<span class="o">]</span>  <span class="o">[</span>-L
+       locale<span class="o">]</span>  <span class="o">[</span>-P  pager<span class="o">]</span>  <span class="o">[</span>-r  prompt<span class="o">]</span>  <span class="o">[</span>-7<span class="o">]</span> <span class="o">[</span>-E encoding<span class="o">]</span> <span class="o">[</span>-p string<span class="o">]</span> <span class="o">[</span>-t<span class="o">]</span>
+       <span class="o">[</span>-T<span class="o">[</span>device<span class="o">]]</span> <span class="o">[</span>-H<span class="o">[</span>browser<span class="o">]]</span> <span class="o">[</span>-X<span class="o">[</span>dpi<span class="o">]]</span> <span class="o">[</span>-Z<span class="o">]</span> file ...
+       man -w<span class="p">|</span>-W <span class="o">[</span>-C file<span class="o">]</span> <span class="o">[</span>-d<span class="o">]</span> <span class="o">[</span>-D<span class="o">]</span> page ...
+       man -c <span class="o">[</span>-C file<span class="o">]</span> <span class="o">[</span>-d<span class="o">]</span> <span class="o">[</span>-D<span class="o">]</span> page ...
+       man <span class="o">[</span>-?V<span class="o">]</span>
+
+ Manual page man<span class="o">(</span><span class="m">1</span><span class="o">)</span> line <span class="m">1</span> <span class="o">(</span>press h <span class="k">for</span> <span class="nb">help</span> or q to quit<span class="o">)</span>
+</pre></div>
+</div>
+<p>Observăm că ultima linie din terminal, <strong>Manual page man(1) line 1 (press h for help or q to quit)</strong>, ne oferă mai multe informații:</p>
 <ul class="simple">
-<li><p>Prezentarea secțiunilor din manual: <code class="docutils literal notranslate"><span class="pre">man</span> <span class="pre">printf</span></code> vs <code class="docutils literal notranslate"><span class="pre">man</span> <span class="pre">3</span> <span class="pre">printf</span></code>.</p></li>
+<li><p>Ne aflăm pe prima linie din prima pagină a manualului</p></li>
+<li><p>Putem apăsa tasta <code class="docutils literal notranslate"><span class="pre">h</span></code> pentru a acesa meniul de ajutor</p></li>
+<li><p>Putem apăsa tasta <code class="docutils literal notranslate"><span class="pre">q</span></code> pentru a ieși din manual</p></li>
+</ul>
+<div class="section" id="a-navigarea-prin-paginile-manualului">
+<h3>a. Navigarea prin paginile manualului<a class="headerlink" href="#a-navigarea-prin-paginile-manualului" title="Permalink to this headline">¶</a></h3>
+<p>Pentru a naviga prin pagina de manual putem folosi tastele <code class="docutils literal notranslate"><span class="pre">Arrow</span> <span class="pre">Down</span></code> și <code class="docutils literal notranslate"><span class="pre">Arrow</span> <span class="pre">Up</span></code> pentru a naviga, cu câte o linie, în jos, respectiv în sus, în pagină.
+Putem folosi tastele <code class="docutils literal notranslate"><span class="pre">Pg</span> <span class="pre">Dn</span></code> și <code class="docutils literal notranslate"><span class="pre">Pg</span> <span class="pre">Up</span></code> pentru a naviga, cu câte un ecran de terminal, în jos și în sus în pagină.
+Pentru a naviga la începutul paginii putem folosi tasta <code class="docutils literal notranslate"><span class="pre">g</span></code>, iar pentru a naviga la sfârșitul paginii folosim tasta <code class="docutils literal notranslate"><span class="pre">G</span></code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Putem folosi tastele <code class="docutils literal notranslate"><span class="pre">j</span></code> și <code class="docutils literal notranslate"><span class="pre">k</span></code> ca alternative pentru <code class="docutils literal notranslate"><span class="pre">Arrow</span> <span class="pre">Down</span></code> și <code class="docutils literal notranslate"><span class="pre">Arrow</span> <span class="pre">Up</span></code>.
+Astfel suntem mai rapizi pentru că nu ne mai mutăm mâna de pe tastele caractere.</p>
+</div>
+<p>De cele mai multe ori, atunci când consultăm pagina de manual a unui utilitar suntem interesați să aflăm dacă acesta expune o anumită funcționalitate și cum o putem folosim.
+Decât să citim linie cu linie în căutarea funcționalității dorite, putem să folosim funcția de căutare a manualului:</p>
+<ol class="arabic simple">
+<li><p>Pentru a porni funcția de căutare apăsăm tasta <code class="docutils literal notranslate"><span class="pre">/</span></code> în sesiunea interactivă din <code class="docutils literal notranslate"><span class="pre">man</span></code>.</p></li>
+<li><p>În continuare vom introduce textul pe care dorim să-l căutăm: poate să fie un cuvântul cheie pe care îl știm deja sau orice text care sperăm că ne duce la rezultatul dorit.</p></li>
+<li><p>Acum apăsăm tasta <code class="docutils literal notranslate"><span class="pre">Enter</span></code>.
+Vom fi duși la primul rezultat care se potrivește căutării, dacă acesta există.</p></li>
+<li><p>Dacă vrem să navigăm la următorul rezultat apăsăm tasta <code class="docutils literal notranslate"><span class="pre">n</span></code>.
+Dacă vrem să navigăm la un rezultat anterior apăsăm tasta <code class="docutils literal notranslate"><span class="pre">N</span></code>.</p></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Căutarea are loc de la poziția curentă în pagină către sfârșitul paginii.
+Dacă am navigat deja în interiorul paginii, trebuie să avem în vedere că rezultatul de interes al căutării noastre se poate alfa undeva între începutul paginii și poziția noastră curentă.
+Putem folosi tasta <code class="docutils literal notranslate"><span class="pre">?</span></code> pentru a porni o căutare de la poziția curentă către începutul paginii.
+Alternativ, putem naviga la începutul paginii prin apăsarea unei singure taste (<code class="docutils literal notranslate"><span class="pre">g</span></code>) și apoi pornim căutarea <code class="docutils literal notranslate"><span class="pre">/</span></code> de acolo.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Căutarea este case-sensitive.
+Putem să schimbăm acest comportament prin introducerea opțiunii <code class="docutils literal notranslate"><span class="pre">-I</span></code> în sesiunea interactivă, înainte de a porni căutarea.
+Dacă doriți să aflați mai multe despre opțiunile pe care le putem introduce apăsați tasta <code class="docutils literal notranslate"><span class="pre">h</span></code> într-o sesiune interactivă și căutați textul “OPTIONS”.</p>
+</div>
+</div>
+<div class="section" id="b-interpretarea-paginii-de-manual">
+<h3>b. Interpretarea paginii de manual<a class="headerlink" href="#b-interpretarea-paginii-de-manual" title="Permalink to this headline">¶</a></h3>
+<p>La o primă vedere, textul paginii de manual poate fi intimidant; unele utilitare au mai multe opțiuni și argumente, unele opționale, altele nu.
+O să trecem prin syntaxă și o să vedem că lucrurile sunt mult mai simple decât par.
+Să analizăm pagina de manual a utilitarului <code class="docutils literal notranslate"><span class="pre">ls</span></code>; <code class="docutils literal notranslate"><span class="pre">man</span> <span class="pre">ls</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>LS<span class="o">(</span><span class="m">1</span><span class="o">)</span>                            User Commands                           LS<span class="o">(</span><span class="m">1</span><span class="o">)</span>
+
+NAME
+       ls - list directory contents
+
+SYNOPSIS
+       ls <span class="o">[</span>OPTION<span class="o">]</span>... <span class="o">[</span>FILE<span class="o">]</span>...
+
+DESCRIPTION
+       List  information  about  the FILEs <span class="o">(</span>the current directory by default<span class="o">)</span>.
+       Sort entries alphabetically <span class="k">if</span> none of -cftuvSUX nor --sort  is  speci‐
+       fied.
+
+       Mandatory  arguments  to  long  options are mandatory <span class="k">for</span> short options
+       too.
+
+       -a, --all
+              <span class="k">do</span> not ignore entries starting with .
+
+       -A, --almost-all
+              <span class="k">do</span> not list implied . and ..
+
+       --author
+ Manual page ls<span class="o">(</span><span class="m">1</span><span class="o">)</span> line <span class="m">1</span> <span class="o">(</span>press h <span class="k">for</span> <span class="nb">help</span> or q to quit<span class="o">)</span>
+</pre></div>
+</div>
+<ol class="arabic">
+<li><p>Prima secțiune care ne interesează este “DESCRIPTION”.
+Citim descrierea și ne dăm seama dacă utilitarul ne va ajuta în rezolvarea sarcinii pe care o avem.
+În cazul utilitarului <code class="docutils literal notranslate"><span class="pre">ls</span></code>, descrierea ne informează că acesta afișează informații despre fișierele din calea indicată, sau din directorul curent atunci când nu specificăm o cale.
+Informațiile sunt sortate alfabetic, dacă utilizatorul nu specifică altceva prin opțiunile disponibile.</p></li>
+<li><p>Cea de-a doua secțiune care ne interesează este “SYNOPSIS”.
+Aceasta ne spune cum putem să rulăm utilitarul, ce opțiuni și argumente sunt opționale (pot lipsi) și ce opțiuni și argumente sunt obligatorii.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>SYNOPSIS
+       ls <span class="o">[</span>OPTION<span class="o">]</span>... <span class="o">[</span>FILE<span class="o">]</span>...
+</pre></div>
+</div>
+<p>Sintaxa <strong>[ ]</strong> ne spune că acea categorie este opțională.
+Astfel, pentru <code class="docutils literal notranslate"><span class="pre">ls</span></code>, deducem că atât opțiunile (<code class="docutils literal notranslate"><span class="pre">[OPTION]...</span></code>) cât și argumentele (<code class="docutils literal notranslate"><span class="pre">[FILE]...</span></code>, calea către fișiere sau directoare) sunt opționale.
+Cele trei puncte <code class="docutils literal notranslate"><span class="pre">...</span></code> înseamnă mai multe din categoria precedentă: deci <code class="docutils literal notranslate"><span class="pre">[OPTION]...</span></code> înseamnă că nu suntem limitați la o singură opțiune, dar opțiunile pot să și lipsească în totalitate datorită <strong>[ ]</strong>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Am menționat că o comandă poate avea atât opțiuni, cât și argumente.
+Opțiunile îi spun unei comenzi cum să își modifice comportamentul, și de obicei sunt precedate de <code class="docutils literal notranslate"><span class="pre">-</span></code> (ex. <code class="docutils literal notranslate"><span class="pre">-l</span></code>, <code class="docutils literal notranslate"><span class="pre">--verbose</span></code>, etc.).
+Argumentele îi spun unei comenzi pe ce să acționeze.</p>
+<p>În exemplul de mai jos:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ ls -l Desktop/
+</pre></div>
+</div>
+<p>Avem utilitarul <code class="docutils literal notranslate"><span class="pre">ls</span></code> care primește opțiunea <code class="docutils literal notranslate"><span class="pre">-l</span></code> și argumentul <code class="docutils literal notranslate"><span class="pre">Desktop/</span></code>.</p>
+</div>
+</li>
+<li><p>Ultima observație pe care o facem este că opțiunile unei comenzi pot avea o formă prescurtată, <code class="docutils literal notranslate"><span class="pre">-a</span></code>, sau o formă lungă, <code class="docutils literal notranslate"><span class="pre">--all</span></code>.
+Nu este obligatoriu ca o opțiune să expună ambele forme, deși majoritatea o fac.
+Opțiunile în formă prescurtată pot fi concatenate și precedate de un singur <code class="docutils literal notranslate"><span class="pre">-</span></code>, ca în exemplul de mai jos:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ ls -la Desktop/
+</pre></div>
+</div>
+</li>
+</ol>
+</div>
+<div class="section" id="c-utilizarea-sectiunilor-din-manual">
+<h3>c. Utilizarea secțiunilor din manual<a class="headerlink" href="#c-utilizarea-sectiunilor-din-manual" title="Permalink to this headline">¶</a></h3>
+<p>În descrierea manualului (<code class="docutils literal notranslate"><span class="pre">man</span> <span class="pre">man</span></code>) este specificat faptul că manualul este împărțit în diferite secțiuni:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>The table below shows the section numbers of the manual followed by the types of pages they contain.
+
+<span class="m">1</span>   Executable programs or shell commands
+<span class="m">2</span>   System calls <span class="o">(</span>functions provided by the kernel<span class="o">)</span>
+<span class="m">3</span>   Library calls <span class="o">(</span>functions within program libraries<span class="o">)</span>
+<span class="m">4</span>   Special files <span class="o">(</span>usually found in /dev<span class="o">)</span>
+<span class="m">5</span>   File formats and conventions eg /etc/passwd
+<span class="m">6</span>   Games
+<span class="m">7</span>   Miscellaneous <span class="o">(</span>including macro packages and conventions<span class="o">)</span>, e.g. man<span class="o">(</span><span class="m">7</span><span class="o">)</span>, groff<span class="o">(</span><span class="m">7</span><span class="o">)</span>
+<span class="m">8</span>   System administration commands <span class="o">(</span>usually only <span class="k">for</span> root<span class="o">)</span>
+<span class="m">9</span>   Kernel routines <span class="o">[</span>Non standard<span class="o">]</span>
+</pre></div>
+</div>
+<p>Ce este important de reținut aici este că folosind <code class="docutils literal notranslate"><span class="pre">man</span></code> putem afla informații despre funcții de bibliotecă și de sistem, și multe altele, nu doar despre utilitare și comenzi shell.
+Totul este mai clar cu un exemplu.
+Dacă rulăm comanda <code class="docutils literal notranslate"><span class="pre">man</span> <span class="pre">printf</span></code> se va deschide pagina următoare din manual:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>PRINTF<span class="o">(</span><span class="m">1</span><span class="o">)</span>                        User Commands                       PRINTF<span class="o">(</span><span class="m">1</span><span class="o">)</span>
+
+NAME
+       <span class="nb">printf</span> - format and print data
+
+SYNOPSIS
+       <span class="nb">printf</span> FORMAT <span class="o">[</span>ARGUMENT<span class="o">]</span>...
+       <span class="nb">printf</span> OPTION
+
+DESCRIPTION
+       Print ARGUMENT<span class="o">(</span>s<span class="o">)</span> according to FORMAT, or execute according to OPTION:
+
+       --help display this <span class="nb">help</span> and <span class="nb">exit</span>
+
+       --version
+              output version information and <span class="nb">exit</span>
+
+       FORMAT controls the output as in C printf.  Interpreted sequences are:
+
+       <span class="se">\&quot;</span>     double quote
+
+       <span class="se">\\</span>     backslash
+
+ Manual page printf<span class="o">(</span><span class="m">1</span><span class="o">)</span> line <span class="m">1</span> <span class="o">(</span>press h <span class="k">for</span> <span class="nb">help</span> or q to quit<span class="o">)</span>
+</pre></div>
+</div>
+<p>Această pagină este pentru utilitarul <code class="docutils literal notranslate"><span class="pre">printf</span></code>.
+Observați prima linie:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>PRINTF<span class="o">(</span><span class="m">1</span><span class="o">)</span>                        User Commands                       PRINTF<span class="o">(</span><span class="m">1</span><span class="o">)</span>
+</pre></div>
+</div>
+<p>Textul <strong>PRINTF(1)</strong> ne spune că ne uităm la pagina de manual a utilitarului <code class="docutils literal notranslate"><span class="pre">printf</span></code> din secțiunea <strong>(1)</strong> a manualului.
+Exact cum ne spune descrierea din manual:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="m">1</span>   Executable programs or shell commands
+</pre></div>
+</div>
+<p>Dacă vrem să accesăm pagina de manual a funcției <code class="docutils literal notranslate"><span class="pre">printf</span></code> a bibliotecii standard C, folosim comanda <code class="docutils literal notranslate"><span class="pre">man</span> <span class="pre">3</span> <span class="pre">printf</span></code> și vom fi găsi pagina următoare din manual:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>PRINTF(3)                  Linux Programmer&#39;s Manual                 PRINTF(3)
+
+NAME
+       printf,   fprintf,   dprintf,  sprintf,  snprintf,  vprintf,  vfprintf,
+       vdprintf, vsprintf, vsnprintf - formatted output conversion
+
+SYNOPSIS
+       #include &lt;stdio.h&gt;
+
+       int printf(const char *format, ...);
+       int fprintf(FILE *stream, const char *format, ...);
+       int dprintf(int fd, const char *format, ...);
+       int sprintf(char *str, const char *format, ...);
+       int snprintf(char *str, size_t size, const char *format, ...);
+
+       #include &lt;stdarg.h&gt;
+
+       int vprintf(const char *format, va_list ap);
+       int vfprintf(FILE *stream, const char *format, va_list ap);
+       int vdprintf(int fd, const char *format, va_list ap);
+       int vsprintf(char *str, const char *format, va_list ap);
+       int vsnprintf(char *str, size_t size, const char *format, va_list ap);
+
+ Manual page printf(3) line 1 (press h for help or q to quit)
+</pre></div>
+</div>
+<p>Observăm că s-a căutat în secțiunea <strong>(3)</strong> din manual:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="m">3</span>   Library calls <span class="o">(</span>functions within program libraries<span class="o">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="d-sumar-inspectarea-paginilor-de-manual">
+<h3>d. Sumar: Inspectarea paginilor de manual<a class="headerlink" href="#d-sumar-inspectarea-paginilor-de-manual" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
 <li><p>Navigarea prin paginile manualului: search (/, ?, n, N), go up (g), go down (G), help (h) în timp ce folosim comanda man pt a afla mai multe despre cum o putem folosi mai bine; bonus: j/k pt navigare jos/sus</p></li>
+<li><p>Prezentarea secțiunilor din manual: <code class="docutils literal notranslate"><span class="pre">man</span> <span class="pre">printf</span></code> vs <code class="docutils literal notranslate"><span class="pre">man</span> <span class="pre">3</span> <span class="pre">printf</span></code>.</p></li>
 <li><p>Prezentarea pachetului <code class="docutils literal notranslate"><span class="pre">tldr</span></code> - poate fi util pentru cazurile uzuale, dar nu trebuie să ne fie frică să căutăm în <code class="docutils literal notranslate"><span class="pre">man</span></code> pentru detalii</p></li>
 </ul>
+</div>
 </div>
 <div class="section" id="comanda-cd">
 <h2>2) Comanda <code class="docutils literal notranslate"><span class="pre">cd</span></code><a class="headerlink" href="#comanda-cd" title="Permalink to this headline">¶</a></h2>
