@@ -495,11 +495,11 @@ Arhivele sunt o agregare a unei ierarhii de fișiere și directoare într-un sin
 <p><strong>Comprimarea</strong> este asemănătoare cu arhivarea dar, în plus, micșorează dimensiunea fișierului rezultat.
 Rezultatul este similar: agregarea într-un singur fișier.</p>
 </div>
-<p>În acest capitol vom folos arhive de tipul <strong>zip</strong> și <strong>tar</strong>.
-.. note:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>În mod normal acestea fac parte din suita nativă a sistemului de operare (pe Linux).
-În cazul în care nu le aveți, le puteți instala folosind comanda: ``sudo apt install tar`` (pentru mai multe detalii, vezi secțiunea de instalare de aplicații).
-</pre></div>
+<p>În acest capitol vom folos arhive de tipul <strong>zip</strong> și <strong>tar</strong>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>În mod normal acestea fac parte din suita nativă a sistemului de operare (pe Linux).
+În cazul în care nu le aveți, le puteți instala folosind comanda: <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">apt</span> <span class="pre">install</span> <span class="pre">tar</span></code> (pentru mai multe detalii, vezi secțiunea de instalare de aplicații).</p>
 </div>
 <div class="section" id="arhive-tar">
 <h2><span class="section-number">5.1. </span>Arhive <strong>tar</strong><a class="headerlink" href="#arhive-tar" title="Permalink to this headline">¶</a></h2>
@@ -621,20 +621,19 @@ student@uso-demo:~$ tree
 <p>Observăm că după crearea directoarelor și după extragerea arhivelor am verificat corectitudinea operațiilor.</p>
 </div>
 <p>După cum ați observat în exemplu de mai sus, pentru a extrage fișierele către o anumită cale, folosim opțiunea <strong>–directory</strong>:</p>
-<p>Putem extrage un singur fișier din toată arhiva, astfel:
-.. code-block:: bash</p>
-<blockquote>
-<div><p><a class="reference external" href="mailto:student&#37;&#52;&#48;uso-demo">student<span>&#64;</span>uso-demo</a>:~$ rm fisier1 fisier2 fisier3
-<a class="reference external" href="mailto:student&#37;&#52;&#48;uso-demo">student<span>&#64;</span>uso-demo</a>:~$ ls
+<p>Putem extrage un singur fișier din toată arhiva, astfel:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso-demo:~$ rm fisier1 fisier2 fisier3
+student@uso-demo:~$ ls
 dezarhivare  fisiere.tar
-<a class="reference external" href="mailto:student&#37;&#52;&#48;uso-demo">student<span>&#64;</span>uso-demo</a>:~$ tar -xvf fisiere.tar fisier1
+student@uso-demo:~$ tar -xvf fisiere.tar fisier1
 fisier1
-<a class="reference external" href="mailto:student&#37;&#52;&#48;uso-demo">student<span>&#64;</span>uso-demo</a>:~$ ls -l
-total 14344
-drwxr-xr-x 3 student student    4096 Aug 19 12:15 dezarhivare
--rw-r–r– 1 student student 5242880 Aug 19 11:55 fisier1
--rw-r–r– 1 student student 9439088 Aug 19 12:04 fisiere.tar</p>
-</div></blockquote>
+student@uso-demo:~$ ls -l
+total <span class="m">14344</span>
+drwxr-xr-x <span class="m">3</span> student student    <span class="m">4096</span> Aug <span class="m">19</span> <span class="m">12</span>:15 dezarhivare
+-rw-r--r-- <span class="m">1</span> student student <span class="m">5242880</span> Aug <span class="m">19</span> <span class="m">11</span>:55 fisier1
+-rw-r--r-- <span class="m">1</span> student student <span class="m">9439088</span> Aug <span class="m">19</span> <span class="m">12</span>:04 fisiere.tar
+</pre></div>
+</div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Obervăm cum după comenzile de ștergere și dezarhivare s-a verificat corectitudinea operațiilor.</p>
@@ -650,29 +649,28 @@ Verificați corectitudinea operațiilor.</p>
 </div>
 <div class="section" id="adaugarea-de-noi-fisiere-la-arhive">
 <h3><span class="section-number">5.1.4. </span>Adăugarea de noi fișiere la arhive<a class="headerlink" href="#adaugarea-de-noi-fisiere-la-arhive" title="Permalink to this headline">¶</a></h3>
-<p>Putem adăuga un nou fișier la arhiva existentă astfel:
-.. code-block:: bash</p>
-<blockquote>
-<div><p><a class="reference external" href="mailto:student&#37;&#52;&#48;uso-demo">student<span>&#64;</span>uso-demo</a>:~$ ls -l
-total 25608
-drwxr-xr-x 3 student student    4096 Aug 19 12:15 dezarhivare
--rw-r–r– 1 student student 5242880 Aug 19 11:55 fisier1
--rw-r–r– 1 student student 3145728 Aug 19 11:55 fisier2
--rw-r–r– 1 student student 1048576 Aug 19 11:55 fisier3
--rw-r–r– 1 student student 7340032 Aug 19 12:35 fisier4
--rw-r–r– 1 student student 9441280 Aug 19 12:36 fisiere.tar
-<a class="reference external" href="mailto:student&#37;&#52;&#48;uso-demo">student<span>&#64;</span>uso-demo</a>:~$ tar -tf fisiere.tar
+<p>Putem adăuga un nou fișier la arhiva existentă astfel:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso-demo:~$ ls -l
+total <span class="m">25608</span>
+drwxr-xr-x <span class="m">3</span> student student    <span class="m">4096</span> Aug <span class="m">19</span> <span class="m">12</span>:15 dezarhivare
+-rw-r--r-- <span class="m">1</span> student student <span class="m">5242880</span> Aug <span class="m">19</span> <span class="m">11</span>:55 fisier1
+-rw-r--r-- <span class="m">1</span> student student <span class="m">3145728</span> Aug <span class="m">19</span> <span class="m">11</span>:55 fisier2
+-rw-r--r-- <span class="m">1</span> student student <span class="m">1048576</span> Aug <span class="m">19</span> <span class="m">11</span>:55 fisier3
+-rw-r--r-- <span class="m">1</span> student student <span class="m">7340032</span> Aug <span class="m">19</span> <span class="m">12</span>:35 fisier4
+-rw-r--r-- <span class="m">1</span> student student <span class="m">9441280</span> Aug <span class="m">19</span> <span class="m">12</span>:36 fisiere.tar
+student@uso-demo:~$ tar -tf fisiere.tar
 fisier1
 fisier2
 fisier3
-<a class="reference external" href="mailto:student&#37;&#52;&#48;uso-demo">student<span>&#64;</span>uso-demo</a>:~$ tar -rvf fisiere.tar fisier4
+student@uso-demo:~$ tar -rvf fisiere.tar fisier4
 fisier4
-<a class="reference external" href="mailto:student&#37;&#52;&#48;uso-demo">student<span>&#64;</span>uso-demo</a>:~$ tar -tf fisiere.tar
+student@uso-demo:~$ tar -tf fisiere.tar
 fisier1
 fisier2
 fisier3
-fisier4</p>
-</div></blockquote>
+fisier4
+</pre></div>
+</div>
 <p>Adăugăm un nou fișier la arhivă folosind opțiunea <strong>-r</strong>:
 În primă fază am verificat că <strong>fisier4</strong> nu există în arhivă.
 În continuare am adăugat <strong>fisier4</strong> la arhivă.</p>
@@ -730,18 +728,15 @@ Pentru o mai bună înțelegere a comenzii de creare a arhivelor inspectați man
 </div>
 <div class="section" id="id3">
 <h3><span class="section-number">5.2.2. </span>Afișarea conținutului arhivelor<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
-<p>Putem vizualiza conținutul arhivei astfel:
-.. code-block:: bash</p>
-<blockquote>
-<div><p><a class="reference external" href="mailto:student&#37;&#52;&#48;uso-demo">student<span>&#64;</span>uso-demo</a>:~$ zip -sf fisiere.zip
-Archive contains:</p>
-<blockquote>
-<div><p>fisier1
-fisier2
-fisier3</p>
-</div></blockquote>
-<p>Total 3 entries (9437184 bytes)</p>
-</div></blockquote>
+<p>Putem vizualiza conținutul arhivei astfel:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso-demo:~$ zip -sf fisiere.zip
+Archive contains:
+  fisier1
+  fisier2
+  fisier3
+Total <span class="m">3</span> entries <span class="o">(</span><span class="m">9437184</span> bytes<span class="o">)</span>
+</pre></div>
+</div>
 <p>Pentru a vizualiza arhiva <strong>fără</strong> dezarhivare folosim opțiunea <strong>-sf</strong>.
 Opțiunea <strong>-f</strong> este pentru a specifica ce arhivă vrem să afișăm.</p>
 <div class="section" id="exercitiu-afisarea-continutului-unei-arhivei">
@@ -751,52 +746,47 @@ Opțiunea <strong>-f</strong> este pentru a specifica ce arhivă vrem să afiș�
 </div>
 <div class="section" id="id4">
 <h3><span class="section-number">5.2.3. </span>Dezarhivarea arhivelor<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
-<p>Dezarhivăm o arhivă de tipul <strong>zip</strong>, astfel:
-.. code-block:: bash</p>
-<blockquote>
-<div><p><a class="reference external" href="mailto:student&#37;&#52;&#48;uso-demo">student<span>&#64;</span>uso-demo</a>:~$ ll
-total 29708
-drwxr-xr-x 3 student student    4096 Aug 19 12:15 dezarhivare
--rw-r–r– 1 student student 5242880 Aug 19 11:55 fisier1
--rw-r–r– 1 student student 3145728 Aug 19 11:55 fisier2
--rw-r–r– 1 student student 1048576 Aug 19 11:55 fisier3
--rw-r–r– 1 student student 7340032 Aug 19 12:35 fisier4
--rw-r–r– 1 student student 9441280 Aug 19 17:56 fisiere.tar
--rw-r–r– 1 student student 4195250 Aug 19 18:00 fisiere.zip
-<a class="reference external" href="mailto:student&#37;&#52;&#48;uso-demo">student<span>&#64;</span>uso-demo</a>:~$ rm fisiere.zip
-<a class="reference external" href="mailto:student&#37;&#52;&#48;uso-demo">student<span>&#64;</span>uso-demo</a>:~$ zip fisiere.zip fisier1 fisier2  fisier3</p>
-<blockquote>
-<div><p>adding: fisier1 (deflated 0%)
-adding: fisier2 (deflated 0%)
-adding: fisier3 (deflated 0%)</p>
-</div></blockquote>
-<p><a class="reference external" href="mailto:student&#37;&#52;&#48;uso-demo">student<span>&#64;</span>uso-demo</a>:~$ ll
-total 34828
-drwxr-xr-x 3 student student    4096 Aug 19 12:15 dezarhivare
--rw-r–r– 1 student student 5242880 Aug 19 11:55 fisier1
--rw-r–r– 1 student student 3145728 Aug 19 11:55 fisier2
--rw-r–r– 1 student student 1048576 Aug 19 11:55 fisier3
--rw-r–r– 1 student student 7340032 Aug 19 12:35 fisier4
--rw-r–r– 1 student student 9441280 Aug 19 17:56 fisiere.tar
--rw-r–r– 1 student student 9439072 Aug 19 18:02 fisiere.zip
-<a class="reference external" href="mailto:student&#37;&#52;&#48;uso-demo">student<span>&#64;</span>uso-demo</a>:~$ rm fisier1 fisier2  fisier3
-<a class="reference external" href="mailto:student&#37;&#52;&#48;uso-demo">student<span>&#64;</span>uso-demo</a>:~$ unzip fisiere.zip
-Archive:  fisiere.zip</p>
-<blockquote>
-<div><p>inflating: fisier1
-inflating: fisier2
-inflating: fisier3</p>
-</div></blockquote>
-<p><a class="reference external" href="mailto:student&#37;&#52;&#48;uso-demo">student<span>&#64;</span>uso-demo</a>:~$ ls -lh
+<p>Dezarhivăm o arhivă de tipul <strong>zip</strong>, astfel:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso-demo:~$ ll
+total <span class="m">29708</span>
+drwxr-xr-x <span class="m">3</span> student student    <span class="m">4096</span> Aug <span class="m">19</span> <span class="m">12</span>:15 dezarhivare
+-rw-r--r-- <span class="m">1</span> student student <span class="m">5242880</span> Aug <span class="m">19</span> <span class="m">11</span>:55 fisier1
+-rw-r--r-- <span class="m">1</span> student student <span class="m">3145728</span> Aug <span class="m">19</span> <span class="m">11</span>:55 fisier2
+-rw-r--r-- <span class="m">1</span> student student <span class="m">1048576</span> Aug <span class="m">19</span> <span class="m">11</span>:55 fisier3
+-rw-r--r-- <span class="m">1</span> student student <span class="m">7340032</span> Aug <span class="m">19</span> <span class="m">12</span>:35 fisier4
+-rw-r--r-- <span class="m">1</span> student student <span class="m">9441280</span> Aug <span class="m">19</span> <span class="m">17</span>:56 fisiere.tar
+-rw-r--r-- <span class="m">1</span> student student <span class="m">4195250</span> Aug <span class="m">19</span> <span class="m">18</span>:00 fisiere.zip
+student@uso-demo:~$ rm fisiere.zip
+student@uso-demo:~$ zip fisiere.zip fisier1 fisier2  fisier3
+  adding: fisier1 <span class="o">(</span>deflated <span class="m">0</span>%<span class="o">)</span>
+  adding: fisier2 <span class="o">(</span>deflated <span class="m">0</span>%<span class="o">)</span>
+  adding: fisier3 <span class="o">(</span>deflated <span class="m">0</span>%<span class="o">)</span>
+student@uso-demo:~$ ll
+total <span class="m">34828</span>
+drwxr-xr-x <span class="m">3</span> student student    <span class="m">4096</span> Aug <span class="m">19</span> <span class="m">12</span>:15 dezarhivare
+-rw-r--r-- <span class="m">1</span> student student <span class="m">5242880</span> Aug <span class="m">19</span> <span class="m">11</span>:55 fisier1
+-rw-r--r-- <span class="m">1</span> student student <span class="m">3145728</span> Aug <span class="m">19</span> <span class="m">11</span>:55 fisier2
+-rw-r--r-- <span class="m">1</span> student student <span class="m">1048576</span> Aug <span class="m">19</span> <span class="m">11</span>:55 fisier3
+-rw-r--r-- <span class="m">1</span> student student <span class="m">7340032</span> Aug <span class="m">19</span> <span class="m">12</span>:35 fisier4
+-rw-r--r-- <span class="m">1</span> student student <span class="m">9441280</span> Aug <span class="m">19</span> <span class="m">17</span>:56 fisiere.tar
+-rw-r--r-- <span class="m">1</span> student student <span class="m">9439072</span> Aug <span class="m">19</span> <span class="m">18</span>:02 fisiere.zip
+student@uso-demo:~$ rm fisier1 fisier2  fisier3
+student@uso-demo:~$ unzip fisiere.zip
+Archive:  fisiere.zip
+  inflating: fisier1
+  inflating: fisier2
+  inflating: fisier3
+student@uso-demo:~$ ls -lh
 total 35M
-drwxr-xr-x 3 student student 4.0K Aug 19 12:15 dezarhivare
--rw-r–r– 1 student student 5.0M Aug 19 11:55 fisier1
--rw-r–r– 1 student student 3.0M Aug 19 11:55 fisier2
--rw-r–r– 1 student student 1.0M Aug 19 11:55 fisier3
--rw-r–r– 1 student student 7.0M Aug 19 12:35 fisier4
--rw-r–r– 1 student student 9.1M Aug 19 17:56 fisiere.tar
--rw-r–r– 1 student student 9.1M Aug 19 18:02 fisiere.zip</p>
-</div></blockquote>
+drwxr-xr-x <span class="m">3</span> student student <span class="m">4</span>.0K Aug <span class="m">19</span> <span class="m">12</span>:15 dezarhivare
+-rw-r--r-- <span class="m">1</span> student student <span class="m">5</span>.0M Aug <span class="m">19</span> <span class="m">11</span>:55 fisier1
+-rw-r--r-- <span class="m">1</span> student student <span class="m">3</span>.0M Aug <span class="m">19</span> <span class="m">11</span>:55 fisier2
+-rw-r--r-- <span class="m">1</span> student student <span class="m">1</span>.0M Aug <span class="m">19</span> <span class="m">11</span>:55 fisier3
+-rw-r--r-- <span class="m">1</span> student student <span class="m">7</span>.0M Aug <span class="m">19</span> <span class="m">12</span>:35 fisier4
+-rw-r--r-- <span class="m">1</span> student student <span class="m">9</span>.1M Aug <span class="m">19</span> <span class="m">17</span>:56 fisiere.tar
+-rw-r--r-- <span class="m">1</span> student student <span class="m">9</span>.1M Aug <span class="m">19</span> <span class="m">18</span>:02 fisiere.zip
+</pre></div>
+</div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Observăm cum după operațiile de ștergere și dezarhivare, am verificat corectitudinea operațiilor.</p>
