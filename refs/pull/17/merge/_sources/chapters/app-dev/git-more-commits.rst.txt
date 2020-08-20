@@ -361,7 +361,6 @@ Modificarea mesajului de commit
 -------------------------------
 
 Putem schimba mesajele de commit pentru orice commit făcut, fie că a fost sau nu publicat pe GitHub, fie care este ultimul creat sau nu.
-Vom lua toate cele 4 cazuri în parte.
 
 Ultimul commit nepublicat
 ^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -503,8 +502,10 @@ Pentru a depăși această situație, folosim opțiunea ``--force`` a lui ``git 
              De asemenea, nu este recomandat să folosim această opțiune pe un branch care nu ne aparține.
              Implicit pe branch-ul ``master`` se preferă **evitarea folosirii** acestei opțiuni.
 
-Orice alt commit publicat
-^^^^^^^^^^^^^^^^^^^^^^^^^
+Orice alt commit
+^^^^^^^^^^^^^^^^
+
+.. note:: Indiferent dacă ultimele N commit-uri sunt sau nu publicate, pașii de schimbare a mesajului de commit sunt comuni.
 
 În acest moment, outputul comenzii ``git log`` ne arată că avem 3 commit-uri, toate publicate.
 Vrem să modificăm mesajul de commit al celui de-al doilea commit.
@@ -599,6 +600,11 @@ După ce modificăm mesajul salvăm fișierul.
     #
 
 La fel ca mai devreme, trebuie să forțăm publicarea noilor schimbări.
+
+.. note:: În cazul commiturilor care au fost deja publicate, pasul următor este **esențial**.
+          
+          În cazul commiturilor care **nu** au fost publicate, acest pas se poate înlocui cu executarea comenzii ``git push`` dacă se dorește publicarea commiturilor sau se poate omite în cazul în care vrem ca aceste commituri sa rămână doar în repositoryul local.
+
 
 .. code-block:: bash 
 

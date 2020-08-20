@@ -811,8 +811,7 @@ Urmăriți indicațiile utilitarului Git la executarea comenzii <code class="doc
 </div>
 <div class="section" id="modificarea-mesajului-de-commit">
 <h2><span class="section-number">3.2. </span>Modificarea mesajului de commit<a class="headerlink" href="#modificarea-mesajului-de-commit" title="Permalink to this headline">¶</a></h2>
-<p>Putem schimba mesajele de commit pentru orice commit făcut, fie că a fost sau nu publicat pe GitHub, fie care este ultimul creat sau nu.
-Vom lua toate cele 4 cazuri în parte.</p>
+<p>Putem schimba mesajele de commit pentru orice commit făcut, fie că a fost sau nu publicat pe GitHub, fie care este ultimul creat sau nu.</p>
 <div class="section" id="ultimul-commit-nepublicat">
 <h3><span class="section-number">3.2.1. </span>Ultimul commit nepublicat<a class="headerlink" href="#ultimul-commit-nepublicat" title="Permalink to this headline">¶</a></h3>
 <p><strong>Exercițiu:</strong> Creați un fișier nou denumit <code class="docutils literal notranslate"><span class="pre">error-file.txt</span></code>.
@@ -944,8 +943,12 @@ De asemenea, nu este recomandat să folosim această opțiune pe un branch care 
 Implicit pe branch-ul <code class="docutils literal notranslate"><span class="pre">master</span></code> se preferă <strong>evitarea folosirii</strong> acestei opțiuni.</p>
 </div>
 </div>
-<div class="section" id="orice-alt-commit-publicat">
-<h3><span class="section-number">3.2.3. </span>Orice alt commit publicat<a class="headerlink" href="#orice-alt-commit-publicat" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="orice-alt-commit">
+<h3><span class="section-number">3.2.3. </span>Orice alt commit<a class="headerlink" href="#orice-alt-commit" title="Permalink to this headline">¶</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Indiferent dacă ultimele N commit-uri sunt sau nu publicate, pașii de schimbare a mesajului de commit sunt comuni.</p>
+</div>
 <p>În acest moment, outputul comenzii <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">log</span></code> ne arată că avem 3 commit-uri, toate publicate.
 Vrem să modificăm mesajul de commit al celui de-al doilea commit.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/my-first-repository.git$ git log
@@ -1031,6 +1034,11 @@ După ce modificăm mesajul salvăm fișierul.</p>
 </pre></div>
 </div>
 <p>La fel ca mai devreme, trebuie să forțăm publicarea noilor schimbări.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>În cazul commiturilor care au fost deja publicate, pasul următor este <strong>esențial</strong>.</p>
+<p>În cazul commiturilor care <strong>nu</strong> au fost publicate, acest pas se poate înlocui cu executarea comenzii <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">push</span></code> dacă se dorește publicarea commiturilor sau se poate omite în cazul în care vrem ca aceste commituri sa rămână doar în repositoryul local.</p>
+</div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/my-first-repository.git$ git push --force
 Enumerating objects: <span class="m">7</span>, <span class="k">done</span>.
 Counting objects: <span class="m">100</span>% <span class="o">(</span><span class="m">7</span>/7<span class="o">)</span>, <span class="k">done</span>.
