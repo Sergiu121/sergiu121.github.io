@@ -514,19 +514,19 @@ Vrem să modificăm mesajul de commit al celui de-al doilea commit.
 
     student@uso:~/my-first-repository.git$ git log
     commit 483f1a1b41c609248d2c15dd9a27ada706be15ef (HEAD -> my-new-branch, origin/my-new-branch)
-    Author: Liza Babu <lizza.babu@gmail.com>
+    Author: Prenume Nume <adresa_de_email@email.com>
     Date:   Thu Aug 20 01:02:40 2020 +0300
 
         Add error-file.txt 2
 
     commit 4b9ba014d71c020fbb19e0d7240cbe5bd13fe20e
-    Author: Liza Babu <lizza.babu@gmail.com>
+    Author: Prenume Nume <adresa_de_email@email.com>
     Date:   Thu Aug 20 00:00:25 2020 +0300
 
         Update README.md
 
     commit 0dfb632b9de79f9a25011e8b98be48c7b1a0aad8
-    Author: Liza Babu <lizza.babu@gmail.com>
+    Author: Prenume Nume <adresa_de_email@email.com>
     Date:   Wed Aug 19 17:24:01 2020 +0300
 
         Add README.md and .gitignore
@@ -624,3 +624,148 @@ La fel ca mai devreme, trebuie să forțăm publicarea noilor schimbări.
 **Exercițiu:** Verificați că modificările au fost făcute cum trebuie atât local, cât și pe GitHub.
 
 .. hint:: ``git log`` și `https://github.com/{username}/my-first-repository/tree/my-new-branch <https://github.com/{username}/my-first-repository/tree/my-new-branch>`_
+
+
+Operația merge dintre un branch secundar și master
+--------------------------------------------------
+
+În acest moment avem 2 branch-uri active: ``master`` și ``my-new-branch``.
+Inspectăm fișierul README.md pe ambele branch-uri.
+
+.. code-block:: bash 
+
+    student@uso:~/my-first-repository.git$ git branch
+      master
+    * my-new-branch
+    student@uso:~/my-first-repository.git$ cat README.md
+    # My first project ever
+    This line was added through a second branch
+    This line is also added through a second branch
+    student@uso:~/my-first-repository.git$ git checkout master
+    Switched to branch 'master'
+    Your branch is up to date with 'origin/master'.
+    student@uso:~/my-first-repository.git$ cat README.md
+    # My first REAL project ever
+
+Scopul este să aduce modificările făcute pe branch-ul ``my-new-branch`` pe branch-ul ``master``.
+Pentru a face acest pas, trebuie să ne asigurăm că branch-ul ``master`` local este sincronizat cu cel remote.
+După ce branch-ul master este actualizat la zi, putem efectua operația de ``merge`` cu branch-ul ``my-new-branch``.
+
+.. code-block:: bash 
+
+    student@uso:~/my-first-repository.git$ git merge my-new-branch
+    Auto-merging README.md
+    CONFLICT (content): Merge conflict in README.md
+    Automatic merge failed; fix conflicts and then commit the result.
+
+.. note:: Git a încercat să facă operația ``merge`` în mod automat, însă din cauza conflictelor nu a reușit.
+          Acum trebuie să ne ocupăm de rezolvarea conflictelor.
+
+Fișierul README.md arată acum ca mai jos, însă noi vrem să păstrăm titlul ca pe branch-ul ``master`` adică ``My first REAL project ever``, dar să conțină și cele 2 linii adăugate de pe branch-ul ``my-new-branch``.
+Prima linie din fișier (``<<<<<<< HEAD``) ne indică faptul că de acolo până la ``=======`` se află conținutul de pe branch-ul master, iar restul de la ``=======`` până la ``>>>>>>> my-new-branch`` se află conținutul de pe branch-ul ``my-new-branch``.
+
+.. code-block:: Markdown
+
+    <<<<<<< HEAD
+    # My first REAL project ever
+    =======
+    # My first project ever
+    This line was added through a second branch
+    This line is also added through a second branch
+    >>>>>>> my-new-branch
+
+Edităm fișierul astfel încât să rămânem cu conținutul dorit.
+Salvăm fișierul.
+
+.. code-block:: Markdown
+
+    # My first REAL project ever
+    This line was added through a second branch
+    This line is also added through a second branch
+
+După ce facem modificările facem un nou commit pentru a încheia procesul de merge.
+
+.. code-block:: bash 
+
+    student@uso:~/my-first-repository.git$ git status
+    On branch master
+    Your branch is up to date with 'origin/master'.
+
+    You have unmerged paths.
+    (fix conflicts and run "git commit")
+    (use "git merge --abort" to abort the merge)
+
+    Changes to be committed:
+
+        new file:   error-file.txt
+
+    Unmerged paths:
+    (use "git add <file>..." to mark resolution)
+
+        both modified:   README.md
+    student@uso:~/my-first-repository.git$ git add README.md
+    student@uso:~/my-first-repository.git$ git status
+    On branch master
+    Your branch is up to date with 'origin/master'.
+
+    All conflicts fixed but you are still merging.
+    (use "git commit" to conclude merge)
+
+    Changes to be committed:
+
+        modified:   README.md
+        new file:   error-file.txt
+    student@uso:~/my-first-repository.git$ git commit -m "Merge branch my-new-branch into master"
+    student@uso:~/my-first-repository.git$ git push
+    Enumerating objects: 7, done.
+    Counting objects: 100% (7/7), done.
+    Delta compression using up to 4 threads
+    Compressing objects: 100% (3/3), done.
+    Writing objects: 100% (3/3), 386 bytes | 386.00 KiB/s, done.
+    Total 3 (delta 1), reused 0 (delta 0)
+    remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+    To https://github.com/lizababu/my-first-repository.git
+    548723b..5470bd6  master -> master
+    student@uso:~/my-first-repository.git$ git log
+    commit 5470bd6601d4315b07fee11623e7e54f6dc498b7 (HEAD -> master, origin/master)
+    Merge: 548723b 5de7231
+    Author: Prenume Nume <adresa_de_email@email.com>
+    Date:   Thu Aug 20 13:22:30 2020 +0300
+
+        Merge branch my-new-branch into master
+
+    commit 5de723172b566fe6a64946c56fcef3c49b9a6108 (origin/my-new-branch, my-new-branch)
+    Author: Prenume Nume <adresa_de_email@email.com>
+    Date:   Thu Aug 20 01:02:40 2020 +0300
+
+        Add error-file.txt 2
+
+    commit b848deef1ae16fa4d93dabb3c562936b9dc642c5
+    Author: Prenume Nume <adresa_de_email@email.com>
+    Date:   Thu Aug 20 00:00:25 2020 +0300
+
+        Update README.md 2
+
+    commit 548723be594b1f903168673dc27b0af5f04413fe
+    Author: Prenume Nume <adresa_de_email@email.com>
+    Date:   Wed Aug 19 23:17:35 2020 +0300
+
+În acest moment branch-ul master conține și modificările făcute pe branch-ul ``my-new-branch``.
+
+Ștergerea unui branch
+---------------------
+
+Putem să ștergem branch-ul ``my-new-branch`` deoarece nu mai avem nevoie de el.
+Facem acest lucru atât pe repository-ul local, cât și cel de pe GitHub.
+
+.. code-block:: bash 
+
+    student@uso:~/my-first-repository.git$ git branch -d my-new-branch
+    Deleted branch my-new-branch (was 5de7231).
+    student@uso:~/my-first-repository.git$ git push origin --delete my-new-branch
+    To https://github.com/lizababu/my-first-repository.git
+    - [deleted]         my-new-branch
+    student@uso:~/my-first-repository.git$ git branch
+    * master
+
+**Exercițiu:** Verificați că branch-ul nu mai există pe GitHub.

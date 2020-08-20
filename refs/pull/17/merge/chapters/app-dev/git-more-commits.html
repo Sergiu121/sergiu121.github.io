@@ -236,6 +236,10 @@
                 
                   <li class="toctree-l2"><a href="#modificarea-mesajului-de-commit" class="reference internal">Modificarea mesajului de commit</a></li>
                 
+                  <li class="toctree-l2"><a href="#operatia-merge-dintre-un-branch-secundar-si-master" class="reference internal">Operația merge dintre un branch secundar și master</a></li>
+                
+                  <li class="toctree-l2"><a href="#stergerea-unui-branch" class="reference internal">Ștergerea unui branch</a></li>
+                
               </ul>
             
           </li>
@@ -953,19 +957,19 @@ Implicit pe branch-ul <code class="docutils literal notranslate"><span class="pr
 Vrem să modificăm mesajul de commit al celui de-al doilea commit.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/my-first-repository.git$ git log
 commit 483f1a1b41c609248d2c15dd9a27ada706be15ef <span class="o">(</span>HEAD -&gt; my-new-branch, origin/my-new-branch<span class="o">)</span>
-Author: Liza Babu &lt;lizza.babu@gmail.com&gt;
+Author: Prenume Nume &lt;adresa_de_email@email.com&gt;
 Date:   Thu Aug <span class="m">20</span> <span class="m">01</span>:02:40 <span class="m">2020</span> +0300
 
     Add error-file.txt <span class="m">2</span>
 
 commit 4b9ba014d71c020fbb19e0d7240cbe5bd13fe20e
-Author: Liza Babu &lt;lizza.babu@gmail.com&gt;
+Author: Prenume Nume &lt;adresa_de_email@email.com&gt;
 Date:   Thu Aug <span class="m">20</span> <span class="m">00</span>:00:25 <span class="m">2020</span> +0300
 
     Update README.md
 
 commit 0dfb632b9de79f9a25011e8b98be48c7b1a0aad8
-Author: Liza Babu &lt;lizza.babu@gmail.com&gt;
+Author: Prenume Nume &lt;adresa_de_email@email.com&gt;
 Date:   Wed Aug <span class="m">19</span> <span class="m">17</span>:24:01 <span class="m">2020</span> +0300
 
     Add README.md and .gitignore
@@ -1061,6 +1065,138 @@ To https://github.com/<span class="o">{</span>username<span class="o">}</span>/m
 <p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">log</span></code> și <a class="reference external" href="https://github.com/{username}/my-first-repository/tree/my-new-branch">https://github.com/{username}/my-first-repository/tree/my-new-branch</a></p>
 </div>
 </div>
+</div>
+<div class="section" id="operatia-merge-dintre-un-branch-secundar-si-master">
+<h2><span class="section-number">3.3. </span>Operația merge dintre un branch secundar și master<a class="headerlink" href="#operatia-merge-dintre-un-branch-secundar-si-master" title="Permalink to this headline">¶</a></h2>
+<p>În acest moment avem 2 branch-uri active: <code class="docutils literal notranslate"><span class="pre">master</span></code> și <code class="docutils literal notranslate"><span class="pre">my-new-branch</span></code>.
+Inspectăm fișierul README.md pe ambele branch-uri.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/my-first-repository.git$ git branch
+  master
+* my-new-branch
+student@uso:~/my-first-repository.git$ cat README.md
+<span class="c1"># My first project ever</span>
+This line was added through a second branch
+This line is also added through a second branch
+student@uso:~/my-first-repository.git$ git checkout master
+Switched to branch <span class="s1">&#39;master&#39;</span>
+Your branch is up to date with <span class="s1">&#39;origin/master&#39;</span>.
+student@uso:~/my-first-repository.git$ cat README.md
+<span class="c1"># My first REAL project ever</span>
+</pre></div>
+</div>
+<p>Scopul este să aduce modificările făcute pe branch-ul <code class="docutils literal notranslate"><span class="pre">my-new-branch</span></code> pe branch-ul <code class="docutils literal notranslate"><span class="pre">master</span></code>.
+Pentru a face acest pas, trebuie să ne asigurăm că branch-ul <code class="docutils literal notranslate"><span class="pre">master</span></code> local este sincronizat cu cel remote.
+După ce branch-ul master este actualizat la zi, putem efectua operația de <code class="docutils literal notranslate"><span class="pre">merge</span></code> cu branch-ul <code class="docutils literal notranslate"><span class="pre">my-new-branch</span></code>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/my-first-repository.git$ git merge my-new-branch
+Auto-merging README.md
+CONFLICT <span class="o">(</span>content<span class="o">)</span>: Merge conflict in README.md
+Automatic merge failed<span class="p">;</span> fix conflicts and <span class="k">then</span> commit the result.
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Git a încercat să facă operația <code class="docutils literal notranslate"><span class="pre">merge</span></code> în mod automat, însă din cauza conflictelor nu a reușit.
+Acum trebuie să ne ocupăm de rezolvarea conflictelor.</p>
+</div>
+<p>Fișierul README.md arată acum ca mai jos, însă noi vrem să păstrăm titlul ca pe branch-ul <code class="docutils literal notranslate"><span class="pre">master</span></code> adică <code class="docutils literal notranslate"><span class="pre">My</span> <span class="pre">first</span> <span class="pre">REAL</span> <span class="pre">project</span> <span class="pre">ever</span></code>, dar să conțină și cele 2 linii adăugate de pe branch-ul <code class="docutils literal notranslate"><span class="pre">my-new-branch</span></code>.
+Prima linie din fișier (<code class="docutils literal notranslate"><span class="pre">&lt;&lt;&lt;&lt;&lt;&lt;&lt;</span> <span class="pre">HEAD</span></code>) ne indică faptul că de acolo până la <code class="docutils literal notranslate"><span class="pre">=======</span></code> se află conținutul de pe branch-ul master, iar restul de la <code class="docutils literal notranslate"><span class="pre">=======</span></code> până la <code class="docutils literal notranslate"><span class="pre">&gt;&gt;&gt;&gt;&gt;&gt;&gt;</span> <span class="pre">my-new-branch</span></code> se află conținutul de pe branch-ul <code class="docutils literal notranslate"><span class="pre">my-new-branch</span></code>.</p>
+<div class="highlight-Markdown notranslate"><div class="highlight"><pre><span></span>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
+# My first REAL project ever
+=======
+# My first project ever
+This line was added through a second branch
+This line is also added through a second branch
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; my-new-branch
+</pre></div>
+</div>
+<p>Edităm fișierul astfel încât să rămânem cu conținutul dorit.
+Salvăm fișierul.</p>
+<div class="highlight-Markdown notranslate"><div class="highlight"><pre><span></span># My first REAL project ever
+This line was added through a second branch
+This line is also added through a second branch
+</pre></div>
+</div>
+<p>După ce facem modificările facem un nou commit pentru a încheia procesul de merge.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/my-first-repository.git$ git status
+On branch master
+Your branch is up to date with <span class="s1">&#39;origin/master&#39;</span>.
+
+You have unmerged paths.
+<span class="o">(</span>fix conflicts and run <span class="s2">&quot;git commit&quot;</span><span class="o">)</span>
+<span class="o">(</span>use <span class="s2">&quot;git merge --abort&quot;</span> to abort the merge<span class="o">)</span>
+
+Changes to be committed:
+
+    new file:   error-file.txt
+
+Unmerged paths:
+<span class="o">(</span>use <span class="s2">&quot;git add &lt;file&gt;...&quot;</span> to mark resolution<span class="o">)</span>
+
+    both modified:   README.md
+student@uso:~/my-first-repository.git$ git add README.md
+student@uso:~/my-first-repository.git$ git status
+On branch master
+Your branch is up to date with <span class="s1">&#39;origin/master&#39;</span>.
+
+All conflicts fixed but you are still merging.
+<span class="o">(</span>use <span class="s2">&quot;git commit&quot;</span> to conclude merge<span class="o">)</span>
+
+Changes to be committed:
+
+    modified:   README.md
+    new file:   error-file.txt
+student@uso:~/my-first-repository.git$ git commit -m <span class="s2">&quot;Merge branch my-new-branch into master&quot;</span>
+student@uso:~/my-first-repository.git$ git push
+Enumerating objects: <span class="m">7</span>, <span class="k">done</span>.
+Counting objects: <span class="m">100</span>% <span class="o">(</span><span class="m">7</span>/7<span class="o">)</span>, <span class="k">done</span>.
+Delta compression using up to <span class="m">4</span> threads
+Compressing objects: <span class="m">100</span>% <span class="o">(</span><span class="m">3</span>/3<span class="o">)</span>, <span class="k">done</span>.
+Writing objects: <span class="m">100</span>% <span class="o">(</span><span class="m">3</span>/3<span class="o">)</span>, <span class="m">386</span> bytes <span class="p">|</span> <span class="m">386</span>.00 KiB/s, <span class="k">done</span>.
+Total <span class="m">3</span> <span class="o">(</span>delta <span class="m">1</span><span class="o">)</span>, reused <span class="m">0</span> <span class="o">(</span>delta <span class="m">0</span><span class="o">)</span>
+remote: Resolving deltas: <span class="m">100</span>% <span class="o">(</span><span class="m">1</span>/1<span class="o">)</span>, completed with <span class="m">1</span> <span class="nb">local</span> object.
+To https://github.com/lizababu/my-first-repository.git
+548723b..5470bd6  master -&gt; master
+student@uso:~/my-first-repository.git$ git log
+commit 5470bd6601d4315b07fee11623e7e54f6dc498b7 <span class="o">(</span>HEAD -&gt; master, origin/master<span class="o">)</span>
+Merge: 548723b 5de7231
+Author: Prenume Nume &lt;adresa_de_email@email.com&gt;
+Date:   Thu Aug <span class="m">20</span> <span class="m">13</span>:22:30 <span class="m">2020</span> +0300
+
+    Merge branch my-new-branch into master
+
+commit 5de723172b566fe6a64946c56fcef3c49b9a6108 <span class="o">(</span>origin/my-new-branch, my-new-branch<span class="o">)</span>
+Author: Prenume Nume &lt;adresa_de_email@email.com&gt;
+Date:   Thu Aug <span class="m">20</span> <span class="m">01</span>:02:40 <span class="m">2020</span> +0300
+
+    Add error-file.txt <span class="m">2</span>
+
+commit b848deef1ae16fa4d93dabb3c562936b9dc642c5
+Author: Prenume Nume &lt;adresa_de_email@email.com&gt;
+Date:   Thu Aug <span class="m">20</span> <span class="m">00</span>:00:25 <span class="m">2020</span> +0300
+
+    Update README.md <span class="m">2</span>
+
+commit 548723be594b1f903168673dc27b0af5f04413fe
+Author: Prenume Nume &lt;adresa_de_email@email.com&gt;
+Date:   Wed Aug <span class="m">19</span> <span class="m">23</span>:17:35 <span class="m">2020</span> +0300
+</pre></div>
+</div>
+<p>În acest moment branch-ul master conține și modificările făcute pe branch-ul <code class="docutils literal notranslate"><span class="pre">my-new-branch</span></code>.</p>
+</div>
+<div class="section" id="stergerea-unui-branch">
+<h2><span class="section-number">3.4. </span>Ștergerea unui branch<a class="headerlink" href="#stergerea-unui-branch" title="Permalink to this headline">¶</a></h2>
+<p>Putem să ștergem branch-ul <code class="docutils literal notranslate"><span class="pre">my-new-branch</span></code> deoarece nu mai avem nevoie de el.
+Facem acest lucru atât pe repository-ul local, cât și cel de pe GitHub.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/my-first-repository.git$ git branch -d my-new-branch
+Deleted branch my-new-branch <span class="o">(</span>was 5de7231<span class="o">)</span>.
+student@uso:~/my-first-repository.git$ git push origin --delete my-new-branch
+To https://github.com/lizababu/my-first-repository.git
+- <span class="o">[</span>deleted<span class="o">]</span>         my-new-branch
+student@uso:~/my-first-repository.git$ git branch
+* master
+</pre></div>
+</div>
+<p><strong>Exercițiu:</strong> Verificați că branch-ul nu mai există pe GitHub.</p>
 </div>
 </div>
 
