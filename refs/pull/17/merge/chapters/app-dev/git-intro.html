@@ -243,7 +243,7 @@
           </li>
 
         
-          <li class="toctree-l1 "><a href="git-contribute.html" class="reference internal ">Contribuirea la un alt repository</a>
+          <li class="toctree-l1 "><a href="git-contribute.html" class="reference internal ">Crearea unui Pull Request (PR) pe GitHub</a>
 
             
           </li>
@@ -604,15 +604,15 @@ Navigați către acea cale.
 În acest tutorial noi vom crea acest director la calea <code class="docutils literal notranslate"><span class="pre">/home/student</span></code>, adică <code class="docutils literal notranslate"><span class="pre">~</span></code>, numit <code class="docutils literal notranslate"><span class="pre">my-first-repository.git</span></code>.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ <span class="nb">pwd</span>
 /home/student
-student@uso:~$ mkdir my-first-repository.git
-student@uso:~$ <span class="nb">cd</span> my-first-repository.git
-student@uso:~/my-first-repository.git$
+student@uso:~$ mkdir my-first-repository
+student@uso:~$ <span class="nb">cd</span> my-first-repository
+student@uso:~/my-first-repository$
 </pre></div>
 </div>
 <p>Următorul pas este de a inițializa repository-ul folosind opțiunea <code class="docutils literal notranslate"><span class="pre">init</span></code>. Observați că se crează directorul <code class="docutils literal notranslate"><span class="pre">.git</span></code> în directorul nostru.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/my-first-repository.git$ git init
-Initialized empty Git repository in /home/student/my-first-repository.git/.git/
-student@uso:~/my-first-repository.git$ ls -a
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/my-first-repository$ git init
+Initialized empty Git repository in /home/student/my-first-repository/.git/
+student@uso:~/my-first-repository$ ls -a
 ./    ../   .git/
 </pre></div>
 </div>
@@ -623,11 +623,11 @@ student@uso:~/my-first-repository.git$ ls -a
 Acest lucru presupune setarea orginului, adică repository-ului remote la care se conectează cel local.
 În comanda de mai jos <code class="docutils literal notranslate"><span class="pre">{username}</span></code> este numele utilizatorului nostru de pe GitHub.</p>
 <p>TODO: de pus o diagramă de tip before and after cu cele două repository-uri neconectate, apoi conectate.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/my-first-repository.git$  git remote add origin https://github.com/<span class="o">{</span>username<span class="o">}</span>/my-first-repository.git
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/my-first-repository$  git remote add origin https://github.com/<span class="o">{</span>username<span class="o">}</span>/my-first-repository.git
 </pre></div>
 </div>
 <p>Pentru verificarea originului unui repository local folosiți comanda următoare:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/my-first-repository.git$ git remote show origin
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/my-first-repository$ git remote show origin
 * remote origin
 Fetch URL: https://github.com/<span class="o">{</span>username<span class="o">}</span>/my-first-repository.git
 Push  URL: https://github.com/<span class="o">{</span>username<span class="o">}</span>/my-first-repository.git

@@ -243,7 +243,7 @@
           </li>
 
         
-          <li class="toctree-l1 "><a href="git-contribute.html" class="reference internal ">Contribuirea la un alt repository</a>
+          <li class="toctree-l1 "><a href="git-contribute.html" class="reference internal ">Crearea unui Pull Request (PR) pe GitHub</a>
 
             
           </li>
@@ -535,8 +535,8 @@ Vom vedea care sunt pașii pentru a face acest lucru într-o secțiune viitoare.
 <p>În terminal putem verifica rapid pe ce branch ne aflăm folosind comanda <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">branch</span></code>.
 În acest moment comanda nu va arăta nimic pentru că nu am făcut niciun commit și deci, nu avem niciun fir de evoluție al codului sursă.
 De aceea, în secțiunea anterioară am văzut că <code class="docutils literal notranslate"><span class="pre">HEAD</span> <span class="pre">branch</span></code> este unknown.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/my-first-repository.git$ git branch
-student@uso:~/my-first-repository.git$
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/my-first-repository$ git branch
+student@uso:~/my-first-repository$
 </pre></div>
 </div>
 </div>
@@ -549,8 +549,8 @@ Spre exemplu în README se află informații despre cum se compilează un proiec
 <p>Haide să adăugăm proiectului nostru un fișier <code class="docutils literal notranslate"><span class="pre">README.md</span></code>.
 Folosim extensia <code class="docutils literal notranslate"><span class="pre">.md</span></code> care semnalează un fișier de tip Markdown.
 Facem acest lucru deoarece pe GitHub fișierele README sunt afișate în format Markdown.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/my-first-repository.git$ <span class="nb">echo</span> <span class="s2">&quot;# My first project ever&quot;</span> &gt;&gt; README.md
-student@uso:~/my-first-repository.git$ ls -a
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/my-first-repository$ <span class="nb">echo</span> <span class="s2">&quot;# My first project ever&quot;</span> &gt;&gt; README.md
+student@uso:~/my-first-repository$ ls -a
 ./         ../        .git/      README.md
 </pre></div>
 </div>
@@ -560,8 +560,8 @@ Așadar, pentru a nu publica fișiere executabile, vrem ca ele să nu facă part
 Pentru a fi siguri că anumite fișiere sunt ignorate, putem să le adăugăm într-un fișier numit <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code>.
 Aici vom trece, câte una pe fiecare linie, fișierele pe care nu vrem să le publicăm.
 Momentan nu avem fișiere pe care vrem să le ignorăm, așa că vom crea un fișier <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code> gol.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/my-first-repository.git$ touch .gitignore
-student@uso:~/my-first-repository.git$ ls -a
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/my-first-repository$ touch .gitignore
+student@uso:~/my-first-repository$ ls -a
 ./          ../         .git/       .gitignore  README.md
 </pre></div>
 </div>
@@ -573,7 +573,7 @@ student@uso:~/my-first-repository.git$ ls -a
 <p>Starea unei clone este dată de fapt de starea branch-ului pe care ați lucrat.
 În cazul vostru este vorba de branch-ul master.
 Pentru a verifica starea clonei folosiți comanda <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">status</span></code>.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/my-first-repository.git$ git status
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/my-first-repository$ git status
 On branch master
 
 No commits yet
@@ -597,19 +597,19 @@ Este datoria noastră de a adăuga fișierele în aria de vizibilitate pentru Gi
 Avem două variante pentru a adăuga ambele fișiere.</p>
 <p>Prima variantă presupune folosirea opțiunii <code class="docutils literal notranslate"><span class="pre">-A</span></code> care va pune în staging toate fișierele modificate (include fișierele deja existente modificate, fișierele nou create și fișierele șterse).
 Opțiunea <code class="docutils literal notranslate"><span class="pre">.</span></code> va ignora fișierele șterse, iar opțiunea <code class="docutils literal notranslate"><span class="pre">-u</span></code> va ignora fișierele nou create.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/my-first-repository.git$ git add -A
-student@uso:~/my-first-repository.git$
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/my-first-repository$ git add -A
+student@uso:~/my-first-repository$
 </pre></div>
 </div>
 <p>A doua variantă presupunerea adăugării fișierelor individual.
 Această variantă este de folos atunci când avem mai multe fișiere modificate, însă nu vrem să facem un commit decât cu o parte dintre ele.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/my-first-repository.git$ git add .gitignore README.md
-student@uso:~/my-first-repository.git$
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/my-first-repository$ git add .gitignore README.md
+student@uso:~/my-first-repository$
 </pre></div>
 </div>
 <p>Ambele situații de mai sus produc, în acest caz același efect.
 În urma stagingului, comanda <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">status</span></code> va produce un nou output. Haideți să-l interpretăm.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/my-first-repository.git$ git status
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/my-first-repository$ git status
 On branch master
 
 No commits yet
@@ -647,12 +647,12 @@ Dacă rezolvarea conflictelor nu se poate face automat, trebuie să ne ocupăm d
 Vom ține cont însă de acest aspect în secțiunile următoare.</p>
 </div>
 <p>Crearea unui commit nou se face prin intermediul comenzii <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">commit</span></code> ca în exemplul de mai jos.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>student@uso:~/my-first-repository.git$ git commit -m &quot;Add README.md and .gitignore&quot;
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>student@uso:~/my-first-repository$ git commit -m &quot;Add README.md and .gitignore&quot;
 [master (root-commit) 0dfb632] Add README.md and .gitignore
 2 files changed, 1 insertion(+)
 create mode 100644 .gitignore
 create mode 100644 README.md
-student@uso:~/my-first-repository.git$ git status
+student@uso:~/my-first-repository$ git status
 On branch master
 nothing to commit, working tree clean
 </pre></div>
@@ -668,7 +668,7 @@ nothing to commit, working tree clean
 <div class="section" id="verificarea-istoricului-de-commituri">
 <h3><span class="section-number">2.3.4. </span>Verificarea istoricului de commituri<a class="headerlink" href="#verificarea-istoricului-de-commituri" title="Permalink to this headline">¶</a></h3>
 <p>Pentru verificarea istoricului de commituri din repository folosim comanda <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">log</span></code>.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>student@uso:~/my-first-repository.git$ git log
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>student@uso:~/my-first-repository$ git log
 commit 0dfb632b9de79f9a25011e8b98be48c7b1a0aad8 (HEAD -&gt; master)
 Author: Prenume Nume &lt;adresa_de_email@email.com&gt;
 Date:   Wed Aug 19 17:24:01 2020 +0300
@@ -688,12 +688,12 @@ Pentru a face acest lucru folosim comanda <code class="docutils literal notransl
 Output-ul acestei comenzi ne indică faptul că în repository-ul remote nu avem niciun branch numit <code class="docutils literal notranslate"><span class="pre">master</span></code>.
 Remediem această situație folosind indicațiile din mesaj.
 După ce am creat branch-ul master, îl putem identifica și din linia de comandă.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>student@uso:~/my-first-repository.git$ git push
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>student@uso:~/my-first-repository$ git push
 fatal: The current branch master has no upstream branch.
 To push the current branch and set the remote as upstream, use
 
     git push --set-upstream origin master
-student@uso:~/my-first-repository.git$ git push --set-upstream origin master
+student@uso:~/my-first-repository$ git push --set-upstream origin master
 Enumerating objects: 4, done.
 Counting objects: 100% (4/4), done.
 Delta compression using up to 4 threads
@@ -703,7 +703,7 @@ Total 4 (delta 0), reused 0 (delta 0)
 To https://github.com/{username}/my-first-repository.git
 * [new branch]      master -&gt; master
 Branch &#39;master&#39; set up to track remote branch &#39;master&#39; from &#39;origin&#39;.
-student@uso:~/my-first-repository.git$ git branch
+student@uso:~/my-first-repository$ git branch
 * master
 </pre></div>
 </div>

@@ -13,11 +13,11 @@ Opțiunea ``-b`` urmată de un nume pentru branch specifică faptul că trebuie 
 
 .. code-block:: bash
 
-    student@uso:~/my-first-repository.git$ git branch
+    student@uso:~/my-first-repository$ git branch
     * master
-    student@uso:~/my-first-repository.git$ git checkout -b my-new-branch
+    student@uso:~/my-first-repository$ git checkout -b my-new-branch
     Switched to a new branch 'my-new-branch'
-    student@uso:~/my-first-repository.git$ git branch
+    student@uso:~/my-first-repository$ git branch
       master
     * my-new-branch
 
@@ -35,11 +35,11 @@ Verificăm starea clonei folosind comanda ``git status``.
 
 .. code-block:: bash
 
-    student@uso:~/my-first-repository.git$ echo "This line was added through a second branch" >> README.md
-    student@uso:~/my-first-repository.git$ cat README.md
+    student@uso:~/my-first-repository$ echo "This line was added through a second branch" >> README.md
+    student@uso:~/my-first-repository$ cat README.md
     # My first project ever
     This line was added through a second branch
-    student@uso:~/my-first-repository.git$ git status
+    student@uso:~/my-first-repository$ git status
     On branch my-new-branch
     Changes not staged for commit:
     (use "git add <file>..." to update what will be committed)
@@ -62,7 +62,7 @@ Dacă vom încerca să schimbăm direct branch-ul pe care lucrăm ca mai devreme
 
 .. code-block:: bash
 
-    student@uso:~/my-first-repository.git$ git checkout master
+    student@uso:~/my-first-repository$ git checkout master
     M	README.md
     Switched to branch 'master'
     Your branch is up to date with 'origin/master'.
@@ -75,7 +75,7 @@ Reveniți pe branch-ul creat de voi folosind comanda ``git checkout my-new-branc
 
 .. code-block:: bash
 
-    student@uso:~/my-first-repository.git$ git checkout my-new-branch
+    student@uso:~/my-first-repository$ git checkout my-new-branch
     Switched to branch 'my-new-branch'
 
 .. note:: Acum branch-ul ``master`` a revenit la starea anterioară (adică nu conține modificările făcute asupra fișierului README), iar branch-ul ``my-new-branch`` conține aceste modificări.
@@ -91,7 +91,7 @@ Facem fișierul README vizibil pentru Git.
 
 .. code-block:: bash
 
-    student@uso:~/my-first-repository.git$ git status
+    student@uso:~/my-first-repository$ git status
     On branch my-new-branch
     Changes not staged for commit:
     (use "git add <file>..." to update what will be committed)
@@ -100,8 +100,8 @@ Facem fișierul README vizibil pentru Git.
         modified:   README.md
 
     no changes added to commit (use "git add" and/or "git commit -a")
-    student@uso:~/my-first-repository.git$ git add README.md
-    student@uso:~/my-first-repository.git$ git status
+    student@uso:~/my-first-repository$ git add README.md
+    student@uso:~/my-first-repository$ git status
     On branch my-new-branch
     Changes to be committed:
     (use "git reset HEAD <file>..." to unstage)
@@ -113,7 +113,7 @@ Folosim comanda ``git stash`` pentru a salva starea fișierului.
 
 .. code-block:: bash
 
-    student@uso:~/my-first-repository.git$ git stash
+    student@uso:~/my-first-repository$ git stash
     Saved working directory and index state WIP on my-new-branch: 0dfb632 Add README.md and .gitignore
 
 .. note:: Comanda ``git stash`` nu primește ca argument numele unui fișier care să fie păstrat în stivă, ci va păstra la aceeași intrare în stivă toate modificările care sunt vizibile pentru Git la momentul rulării comenzii.
@@ -122,7 +122,7 @@ Vizualizăm conținutul stivei de modificări folosind opțiunea ``list`` a come
 
 .. code-block:: bash
 
-    student@uso:~/my-first-repository.git$ git stash list
+    student@uso:~/my-first-repository$ git stash list
     stash@{0}: WIP on my-new-branch: 0dfb632 Add README.md and .gitignore
 
 Putem verifica ce fișiere sunt modificate din starea salvată vârful stivei folosind opțiunea ``show`` pentru ``git stash``.
@@ -131,10 +131,10 @@ Pentru a vedea și care sunt acele linii adăugăm opțiunea ``-p`` la această 
 
 .. code-block:: bash
 
-    student@uso:~/my-first-repository.git$ git stash show
+    student@uso:~/my-first-repository$ git stash show
     README.md | 2 ++
     1 file changed, 2 insertions(+)
-    student@uso:~/my-first-repository.git$ git stash show -p
+    student@uso:~/my-first-repository$ git stash show -p
     diff --git a/README.md b/README.md
     index cfc5253..31d5f20 100644
     --- a/README.md
@@ -160,7 +160,7 @@ Verificăm starea clonei după ce facem modificarea titlului.
 
 .. code-block:: bash
 
-    student@uso:~/my-first-repository.git$ git status
+    student@uso:~/my-first-repository$ git status
     On branch master
     Your branch is up to date with 'origin/master'.
 
@@ -184,7 +184,7 @@ Revenim pe branch-ul secundar creat la începutul acestei secțiuni.
 
 .. code-block:: bash
 
-    student@uso:~/my-first-repository.git$ git checkout my-new-branch
+    student@uso:~/my-first-repository$ git checkout my-new-branch
     Switched to branch 'my-new-branch'
 
 Ne amintim de la subsecțiunile anterioare că am salvat modificările aduse asupra fișierului README.md în stivă.
@@ -193,10 +193,10 @@ Verificăm și stiva de modificări pentru a vedea că schimbările au rămas sa
 
 .. code-block:: bash
 
-    student@uso:~/my-first-repository.git$ git status
+    student@uso:~/my-first-repository$ git status
     On branch my-new-branch
     nothing to commit, working tree clean
-    student@uso:~/my-first-repository.git$ git stash show -p
+    student@uso:~/my-first-repository$ git stash show -p
     diff --git a/README.md b/README.md
     index cfc5253..31d5f20 100644
     --- a/README.md
@@ -212,7 +212,7 @@ Facem acest lucru folosind opțiunea ``pop`` a comenzii ``git stash``.
 
 .. code-block:: bash
 
-    student@uso:~/my-first-repository.git$ git stash pop
+    student@uso:~/my-first-repository$ git stash pop
     On branch my-new-branch
     Changes not staged for commit:
     (use "git add <file>..." to update what will be committed)
@@ -222,8 +222,8 @@ Facem acest lucru folosind opțiunea ``pop`` a comenzii ``git stash``.
 
     no changes added to commit (use "git add" and/or "git commit -a")
     Dropped refs/stash@{0} (be347fc63e79ece56759fda9b617f03e12b9b93b)
-    student@uso:~/my-first-repository.git$ git stash list
-    student@uso:~/my-first-repository.git$ git stash show
+    student@uso:~/my-first-repository$ git stash list
+    student@uso:~/my-first-repository$ git stash show
     No stash entries found.
 
 Observăm că operația ``pop`` are ca rezultat scoaterea ultimei intrări din stivă (adică cea din vârf) și revenirea la starea anterioara operației ``stash``. 
@@ -247,9 +247,9 @@ Folosim opțiunea ``apply`` pentru a readuce branch-ul la starea anterioară și
 
 .. code-block:: bash
 
-    student@uso:~/my-first-repository.git$ git stash list
+    student@uso:~/my-first-repository$ git stash list
     stash@{0}: WIP on my-new-branch: 0dfb632 Add README.md and .gitignore
-    student@uso:~/my-first-repository.git$ git stash apply
+    student@uso:~/my-first-repository$ git stash apply
     On branch my-new-branch
     Changes not staged for commit:
     (use "git add <file>..." to update what will be committed)
@@ -258,7 +258,7 @@ Folosim opțiunea ``apply`` pentru a readuce branch-ul la starea anterioară și
         modified:   README.md
 
     no changes added to commit (use "git add" and/or "git commit -a")
-    student@uso:~/my-first-repository.git$ git stash list
+    student@uso:~/my-first-repository$ git stash list
     stash@{0}: WIP on my-new-branch: 0dfb632 Add README.md and .gitignore
 
 În stivă se pot afla mai multe intrări simultan, iar noi nu suntem limitați la a reveni la starea aflată în vârful stivei în momentul în care executăm operația ``pop``.
@@ -270,9 +270,9 @@ Facem ambele fișiere README vizibile pentru Git folosind comanda ``git add``, d
 
 .. code-block:: bash
 
-    student@uso:~/my-first-repository.git$ git stash list
+    student@uso:~/my-first-repository$ git stash list
     stash@{0}: WIP on my-new-branch: 0dfb632 Add README.md and .gitignore
-    student@uso:~/my-first-repository.git$ git status
+    student@uso:~/my-first-repository$ git status
     On branch my-new-branch
     Changes not staged for commit:
     (use "git add <file>..." to update what will be committed)
@@ -286,7 +286,7 @@ Facem ambele fișiere README vizibile pentru Git folosind comanda ``git add``, d
         FakeREADME.md
 
     no changes added to commit (use "git add" and/or "git commit -a")
-    student@uso:~/my-first-repository.git$ git add -A
+    student@uso:~/my-first-repository$ git add -A
     On branch my-new-branch
     Changes to be committed:
     (use "git reset HEAD <file>..." to unstage)
@@ -294,14 +294,14 @@ Facem ambele fișiere README vizibile pentru Git folosind comanda ``git add``, d
         new file:   FakeREADME.md
         modified:   README.md
     
-    student@uso:~/my-first-repository.git$ git stash
+    student@uso:~/my-first-repository$ git stash
     Saved working directory and index state WIP on my-new-branch: 0dfb632 Add README.md and .gitignore
 
 În acest moment în stivă se află 2 intrări, una de mai devreme (pe care doar am aplicat-o) și cea de acum.
 
 .. code-block:: bash
 
-    student@uso:~/my-first-repository.git$ git stash list
+    student@uso:~/my-first-repository$ git stash list
     stash@{0}: WIP on my-new-branch: 0dfb632 Add README.md and .gitignore
     stash@{1}: WIP on my-new-branch: 0dfb632 Add README.md and .gitignore
 
@@ -317,7 +317,7 @@ Putem face acest lucru folosind opțiunea ``pop`` a comenzii ``git stash``.
 
 .. code-block:: bash
 
-    student@uso:~/my-first-repository.git$ git stash pop stash@{1}
+    student@uso:~/my-first-repository$ git stash pop stash@{1}
     On branch my-new-branch
     Changes not staged for commit:
     (use "git add <file>..." to update what will be committed)
@@ -327,9 +327,9 @@ Putem face acest lucru folosind opțiunea ``pop`` a comenzii ``git stash``.
 
     no changes added to commit (use "git add" and/or "git commit -a")
     Dropped stash@{1} (972b398a58501c742a349e7eb8a26a5e5c16a892)
-    student@uso:~/my-first-repository.git$ git stash list
+    student@uso:~/my-first-repository$ git stash list
     stash@{0}: WIP on my-new-branch: 0dfb632 Add README.md and .gitignore
-    student@uso:~/my-first-repository.git$ ls -a
+    student@uso:~/my-first-repository$ ls -a
     ./          ../         .git/       .gitignore  README.md
 
 Am ajuns acum la starea clonei dorită.
@@ -337,10 +337,10 @@ Eliminăm acum din stiva de modificări intrarea rămasă (adică cea care conț
 
 .. code-block:: bash
 
-    student@uso:~/my-first-repository.git$ git stash list
+    student@uso:~/my-first-repository$ git stash list
     stash@{0}: WIP on my-new-branch: 0dfb632 Add README.md and .gitignore
-    student@uso:~/my-first-repository.git$ git stash list
-    student@uso:~/my-first-repository.git$ git stash clear
+    student@uso:~/my-first-repository$ git stash list
+    student@uso:~/my-first-repository$ git stash clear
 
 .. note:: În acest moment stiva este goală și starea repository-ului a revenit la forma dorită.
 
@@ -378,7 +378,7 @@ Acesta este ultimul commit și vrem să modificăm mesajul asociat.
 
 .. code-block:: bash
 
-    student@uso:~/my-first-repository.git$ git log
+    student@uso:~/my-first-repository$ git log
     commit 196c3061f84c728febbadf03d5ec97d498ef6e3e (HEAD -> my-new-branch)
     Author: Prenume Nume <adresa_de_email@email.com>
     Date:   Thu Aug 20 01:02:40 2020 +0300
@@ -407,7 +407,7 @@ Modificăm aceasta linie cu mesajul potrivit, după care salvăm fișierul.
 
 .. code-block:: bash
 
-    student@uso:~/my-first-repository.git$ git commit --amend
+    student@uso:~/my-first-repository$ git commit --amend
 
 .. code-block:: bash
 
@@ -428,7 +428,7 @@ Modificăm aceasta linie cu mesajul potrivit, după care salvăm fișierul.
 
 .. code-block:: bash
 
-    student@uso:~/my-first-repository.git$ git log
+    student@uso:~/my-first-repository$ git log
     commit 196c3061f84c728febbadf03d5ec97d498ef6e3e (HEAD -> my-new-branch)
     Author: Prenume Nume <adresa_de_email@email.com>
     Date:   Thu Aug 20 01:02:40 2020 +0300
@@ -463,7 +463,7 @@ Pentru a publica noua schimbare trebuie să folosim comanda ``git push``.
 
 .. code-block:: bash
 
-    student@uso:~/my-first-repository.git$ git push
+    student@uso:~/my-first-repository$ git push
     To https://github.com/lizababu/my-first-repository.git
     ! [rejected]        my-new-branch -> my-new-branch (non-fast-forward)
     error: failed to push some refs to 'https://github.com/lizababu/my-first-repository.git'
@@ -478,7 +478,7 @@ Puteam sesiza o problemă și din outputul comenzii ``git status``: ``Your branc
 
 .. code-block:: bash
 
-    student@uso:~/my-first-repository.git$ git status
+    student@uso:~/my-first-repository$ git status
     On branch my-new-branch
     Your branch and 'origin/my-new-branch' have diverged,
     and have 1 and 1 different commits each, respectively.
@@ -490,7 +490,7 @@ Pentru a depăși această situație, folosim opțiunea ``--force`` a lui ``git 
 
 .. code-block:: bash
 
-    student@uso:~/my-first-repository.git$ git push --force
+    student@uso:~/my-first-repository$ git push --force
     Enumerating objects: 3, done.
     Counting objects: 100% (3/3), done.
     Delta compression using up to 4 threads
@@ -516,7 +516,7 @@ Vrem să modificăm mesajul de commit al celui de-al doilea commit.
 
 .. code-block:: bash
 
-    student@uso:~/my-first-repository.git$ git log
+    student@uso:~/my-first-repository$ git log
     commit 483f1a1b41c609248d2c15dd9a27ada706be15ef (HEAD -> my-new-branch, origin/my-new-branch)
     Author: Prenume Nume <adresa_de_email@email.com>
     Date:   Thu Aug 20 01:02:40 2020 +0300
@@ -542,7 +542,7 @@ Ne va apărea din nou un fișier deschis în editorul Vim pe care trebuie să-l 
 
 .. code-block:: bash
 
-    student@uso:~/my-first-repository.git$ git rebase -i HEAD~2
+    student@uso:~/my-first-repository$ git rebase -i HEAD~2
 
 Mai jos se poate observa conținutul fișierului ce trebuie modificat.
 Primele 2 rânduri conțin mesajele de comit ale celor mai recente N (în cazul acesta 2) commituri.
@@ -612,7 +612,7 @@ La fel ca mai devreme, trebuie să forțăm publicarea noilor schimbări.
 
 .. code-block:: bash 
 
-    student@uso:~/my-first-repository.git$ git push --force
+    student@uso:~/my-first-repository$ git push --force
     Enumerating objects: 7, done.
     Counting objects: 100% (7/7), done.
     Delta compression using up to 4 threads
@@ -638,17 +638,17 @@ Inspectăm fișierul README.md pe ambele branch-uri.
 
 .. code-block:: bash 
 
-    student@uso:~/my-first-repository.git$ git branch
+    student@uso:~/my-first-repository$ git branch
       master
     * my-new-branch
-    student@uso:~/my-first-repository.git$ cat README.md
+    student@uso:~/my-first-repository$ cat README.md
     # My first project ever
     This line was added through a second branch
     This line is also added through a second branch
-    student@uso:~/my-first-repository.git$ git checkout master
+    student@uso:~/my-first-repository$ git checkout master
     Switched to branch 'master'
     Your branch is up to date with 'origin/master'.
-    student@uso:~/my-first-repository.git$ cat README.md
+    student@uso:~/my-first-repository$ cat README.md
     # My first REAL project ever
 
 Scopul este să aduce modificările făcute pe branch-ul ``my-new-branch`` pe branch-ul ``master``.
@@ -657,7 +657,7 @@ După ce branch-ul master este actualizat la zi, putem efectua operația de ``me
 
 .. code-block:: bash 
 
-    student@uso:~/my-first-repository.git$ git merge my-new-branch
+    student@uso:~/my-first-repository$ git merge my-new-branch
     Auto-merging README.md
     CONFLICT (content): Merge conflict in README.md
     Automatic merge failed; fix conflicts and then commit the result.
@@ -668,7 +668,7 @@ După ce branch-ul master este actualizat la zi, putem efectua operația de ``me
 Fișierul README.md arată acum ca mai jos, însă noi vrem să păstrăm titlul ca pe branch-ul ``master`` adică ``My first REAL project ever``, dar să conțină și cele 2 linii adăugate de pe branch-ul ``my-new-branch``.
 Prima linie din fișier (``<<<<<<< HEAD``) ne indică faptul că de acolo până la ``=======`` se află conținutul de pe branch-ul master, iar restul de la ``=======`` până la ``>>>>>>> my-new-branch`` se află conținutul de pe branch-ul ``my-new-branch``.
 
-.. code-block:: Markdown
+.. code-block::
 
     <<<<<<< HEAD
     # My first REAL project ever
@@ -681,7 +681,7 @@ Prima linie din fișier (``<<<<<<< HEAD``) ne indică faptul că de acolo până
 Edităm fișierul astfel încât să rămânem cu conținutul dorit.
 Salvăm fișierul.
 
-.. code-block:: Markdown
+.. code-block::
 
     # My first REAL project ever
     This line was added through a second branch
@@ -691,7 +691,7 @@ După ce facem modificările facem un nou commit pentru a încheia procesul de m
 
 .. code-block:: bash 
 
-    student@uso:~/my-first-repository.git$ git status
+    student@uso:~/my-first-repository$ git status
     On branch master
     Your branch is up to date with 'origin/master'.
 
@@ -707,8 +707,8 @@ După ce facem modificările facem un nou commit pentru a încheia procesul de m
     (use "git add <file>..." to mark resolution)
 
         both modified:   README.md
-    student@uso:~/my-first-repository.git$ git add README.md
-    student@uso:~/my-first-repository.git$ git status
+    student@uso:~/my-first-repository$ git add README.md
+    student@uso:~/my-first-repository$ git status
     On branch master
     Your branch is up to date with 'origin/master'.
 
@@ -719,8 +719,8 @@ După ce facem modificările facem un nou commit pentru a încheia procesul de m
 
         modified:   README.md
         new file:   error-file.txt
-    student@uso:~/my-first-repository.git$ git commit -m "Merge branch my-new-branch into master"
-    student@uso:~/my-first-repository.git$ git push
+    student@uso:~/my-first-repository$ git commit -m "Merge branch my-new-branch into master"
+    student@uso:~/my-first-repository$ git push
     Enumerating objects: 7, done.
     Counting objects: 100% (7/7), done.
     Delta compression using up to 4 threads
@@ -730,7 +730,7 @@ După ce facem modificările facem un nou commit pentru a încheia procesul de m
     remote: Resolving deltas: 100% (1/1), completed with 1 local object.
     To https://github.com/lizababu/my-first-repository.git
     548723b..5470bd6  master -> master
-    student@uso:~/my-first-repository.git$ git log
+    student@uso:~/my-first-repository$ git log
     commit 5470bd6601d4315b07fee11623e7e54f6dc498b7 (HEAD -> master, origin/master)
     Merge: 548723b 5de7231
     Author: Prenume Nume <adresa_de_email@email.com>
@@ -764,12 +764,12 @@ Facem acest lucru atât pe repository-ul local, cât și cel de pe GitHub.
 
 .. code-block:: bash 
 
-    student@uso:~/my-first-repository.git$ git branch -d my-new-branch
+    student@uso:~/my-first-repository$ git branch -d my-new-branch
     Deleted branch my-new-branch (was 5de7231).
-    student@uso:~/my-first-repository.git$ git push origin --delete my-new-branch
+    student@uso:~/my-first-repository$ git push origin --delete my-new-branch
     To https://github.com/lizababu/my-first-repository.git
     - [deleted]         my-new-branch
-    student@uso:~/my-first-repository.git$ git branch
+    student@uso:~/my-first-repository$ git branch
     * master
 
 **Exercițiu:** Verificați că branch-ul nu mai există pe GitHub.

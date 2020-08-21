@@ -62,8 +62,8 @@ De aceea, în secțiunea anterioară am văzut că ``HEAD branch`` este unknown.
 
 .. code-block:: bash
 
-    student@uso:~/my-first-repository.git$ git branch
-    student@uso:~/my-first-repository.git$
+    student@uso:~/my-first-repository$ git branch
+    student@uso:~/my-first-repository$
 
 
 Adăugarea unui README și a unui fișier .gitignore
@@ -79,8 +79,8 @@ Facem acest lucru deoarece pe GitHub fișierele README sunt afișate în format 
 
 .. code-block:: bash
 
-    student@uso:~/my-first-repository.git$ echo "# My first project ever" >> README.md
-    student@uso:~/my-first-repository.git$ ls -a
+    student@uso:~/my-first-repository$ echo "# My first project ever" >> README.md
+    student@uso:~/my-first-repository$ ls -a
     ./         ../        .git/      README.md
 
 
@@ -93,8 +93,8 @@ Momentan nu avem fișiere pe care vrem să le ignorăm, așa că vom crea un fi�
 
 .. code-block:: bash
 
-    student@uso:~/my-first-repository.git$ touch .gitignore
-    student@uso:~/my-first-repository.git$ ls -a
+    student@uso:~/my-first-repository$ touch .gitignore
+    student@uso:~/my-first-repository$ ls -a
     ./          ../         .git/       .gitignore  README.md
 
 
@@ -110,7 +110,7 @@ Pentru a verifica starea clonei folosiți comanda ``git status``.
 
 .. code-block:: bash
 
-    student@uso:~/my-first-repository.git$ git status
+    student@uso:~/my-first-repository$ git status
     On branch master
 
     No commits yet
@@ -140,23 +140,23 @@ Opțiunea ``.`` va ignora fișierele șterse, iar opțiunea ``-u`` va ignora fi�
 
 .. code-block:: bash
 
-    student@uso:~/my-first-repository.git$ git add -A
-    student@uso:~/my-first-repository.git$ 
+    student@uso:~/my-first-repository$ git add -A
+    student@uso:~/my-first-repository$ 
 
 A doua variantă presupunerea adăugării fișierelor individual.
 Această variantă este de folos atunci când avem mai multe fișiere modificate, însă nu vrem să facem un commit decât cu o parte dintre ele.
 
 .. code-block:: bash
 
-    student@uso:~/my-first-repository.git$ git add .gitignore README.md
-    student@uso:~/my-first-repository.git$
+    student@uso:~/my-first-repository$ git add .gitignore README.md
+    student@uso:~/my-first-repository$
 
 Ambele situații de mai sus produc, în acest caz același efect.
 În urma stagingului, comanda ``git status`` va produce un nou output. Haideți să-l interpretăm.
 
 .. code-block:: bash
 
-    student@uso:~/my-first-repository.git$ git status
+    student@uso:~/my-first-repository$ git status
     On branch master
 
     No commits yet
@@ -197,12 +197,12 @@ Crearea unui commit nou se face prin intermediul comenzii ``git commit`` ca în 
 
 .. code-block::
 
-    student@uso:~/my-first-repository.git$ git commit -m "Add README.md and .gitignore"
+    student@uso:~/my-first-repository$ git commit -m "Add README.md and .gitignore"
     [master (root-commit) 0dfb632] Add README.md and .gitignore
     2 files changed, 1 insertion(+)
     create mode 100644 .gitignore
     create mode 100644 README.md  
-    student@uso:~/my-first-repository.git$ git status
+    student@uso:~/my-first-repository$ git status
     On branch master
     nothing to commit, working tree clean  
 
@@ -219,7 +219,7 @@ Pentru verificarea istoricului de commituri din repository folosim comanda ``git
 
 .. code-block::
 
-    student@uso:~/my-first-repository.git$ git log
+    student@uso:~/my-first-repository$ git log
     commit 0dfb632b9de79f9a25011e8b98be48c7b1a0aad8 (HEAD -> master)
     Author: Prenume Nume <adresa_de_email@email.com>
     Date:   Wed Aug 19 17:24:01 2020 +0300
@@ -242,12 +242,12 @@ După ce am creat branch-ul master, îl putem identifica și din linia de comand
 
 .. code-block::
 
-    student@uso:~/my-first-repository.git$ git push
+    student@uso:~/my-first-repository$ git push
     fatal: The current branch master has no upstream branch.
     To push the current branch and set the remote as upstream, use
 
         git push --set-upstream origin master
-    student@uso:~/my-first-repository.git$ git push --set-upstream origin master
+    student@uso:~/my-first-repository$ git push --set-upstream origin master
     Enumerating objects: 4, done.
     Counting objects: 100% (4/4), done.
     Delta compression using up to 4 threads
@@ -257,7 +257,7 @@ După ce am creat branch-ul master, îl putem identifica și din linia de comand
     To https://github.com/{username}/my-first-repository.git
     * [new branch]      master -> master
     Branch 'master' set up to track remote branch 'master' from 'origin'.
-    student@uso:~/my-first-repository.git$ git branch
+    student@uso:~/my-first-repository$ git branch
     * master
 
 Întrăm pe GitHub să vedem că schimbările au fost propagate.
