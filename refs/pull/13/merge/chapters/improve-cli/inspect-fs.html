@@ -728,8 +728,55 @@ SYNOPSIS
 </pre></div>
 </div>
 </div>
+<div class="section" id="bonus-utilizarea-pachetului-tldr">
+<h3><span class="section-number">2.1.4. </span>Bonus: Utilizarea pachetului <code class="docutils literal notranslate"><span class="pre">tldr</span></code><a class="headerlink" href="#bonus-utilizarea-pachetului-tldr" title="Permalink to this headline">¶</a></h3>
+<p>Utilitarul <code class="docutils literal notranslate"><span class="pre">tldr</span></code> (too long, didn’t read) oferă o versiune simplificată a paginilor de manual.
+Acesta ne va arăta un rezumat al utilizării unei comenzi cu opțiunile cele mai des folosite în comunitate.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ tldr ls
+ls
+List directory contents.
+
+ - List files one per line:
+   ls -1
+
+ - List all files, including hidden files:
+   ls -a
+
+ - Long format list <span class="o">(</span>permissions, ownership, size and modification date<span class="o">)</span> of all files:
+   ls -la
+
+ - Long format list with size displayed using human readable units <span class="o">(</span>KB, MB, GB<span class="o">)</span>:
+   ls -lh
+
+ - Long format list sorted by size <span class="o">(</span>descending<span class="o">)</span>:
+   ls -lS
+
+ - Long format list of all files, sorted by modification date <span class="o">(</span>oldest first<span class="o">)</span>:
+   ls -ltr
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Acesta trebuie tratat ca un cheatsheet accesibil din linie de comandă.
+<code class="docutils literal notranslate"><span class="pre">tldr</span></code> nu elimină utilizarea paginilor <code class="docutils literal notranslate"><span class="pre">man</span></code>, dar ne ajută să găsim rapid opțiunile uzuale.
+Acestea fiind spuse, vă recomandăm ca întotdeaună să citiți și să înțelegeți din paginile <code class="docutils literal notranslate"><span class="pre">man</span></code> ce efect au opțiunile unei comenzi înainte de a le folosi.
+Feriți-vă să rulați comenzi orbește, pentru că așa ați găsit pe StackOverflow, tldr, etc.
+Întotdeauna asigurați-vă că ați înțeles cum și de ce rulați comanda și abia apoi treceți la fapte.</p>
+</div>
+<div class="section" id="utilizarea-pachetului-tldr">
+<h4><span class="section-number">2.1.4.1. </span>Utilizarea pachetului <code class="docutils literal notranslate"><span class="pre">tldr</span></code><a class="headerlink" href="#utilizarea-pachetului-tldr" title="Permalink to this headline">¶</a></h4>
+<p>Instalați pachetul <code class="docutils literal notranslate"><span class="pre">tldr</span></code> pe mașina voastră.</p>
+<ol class="arabic simple">
+<li><p>Accesați pagina <code class="docutils literal notranslate"><span class="pre">tldr</span></code> a utilitarului <code class="docutils literal notranslate"><span class="pre">ls</span></code>.</p></li>
+<li><p>Accesați pagina <code class="docutils literal notranslate"><span class="pre">tldr</span></code> a utilitarului <code class="docutils literal notranslate"><span class="pre">zip</span></code>.</p></li>
+<li><p>Accesați pagina <code class="docutils literal notranslate"><span class="pre">tldr</span></code> a utilitarului <code class="docutils literal notranslate"><span class="pre">tar</span></code>.</p></li>
+<li><p>Accesați pagina <code class="docutils literal notranslate"><span class="pre">tldr</span></code> a utilitarului <code class="docutils literal notranslate"><span class="pre">git</span></code>.</p></li>
+<li><p>Accesați pagina <code class="docutils literal notranslate"><span class="pre">tldr</span></code> a utilitarului <code class="docutils literal notranslate"><span class="pre">man</span></code>.</p></li>
+</ol>
+</div>
+</div>
 <div class="section" id="sumar-inspectarea-paginilor-de-manual">
-<h3><span class="section-number">2.1.4. </span>Sumar: Inspectarea paginilor de manual<a class="headerlink" href="#sumar-inspectarea-paginilor-de-manual" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">2.1.5. </span>Sumar: Inspectarea paginilor de manual<a class="headerlink" href="#sumar-inspectarea-paginilor-de-manual" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Navigarea prin paginile manualului: search (/, ?, n, N), go up (g), go down (G), help (h) în timp ce folosim comanda man pt a afla mai multe despre cum o putem folosi mai bine; bonus: j/k pt navigare jos/sus</p></li>
 <li><p>Prezentarea secțiunilor din manual: <code class="docutils literal notranslate"><span class="pre">man</span> <span class="pre">printf</span></code> vs <code class="docutils literal notranslate"><span class="pre">man</span> <span class="pre">3</span> <span class="pre">printf</span></code>.</p></li>
@@ -739,10 +786,67 @@ SYNOPSIS
 </div>
 <div class="section" id="comanda-cd">
 <h2><span class="section-number">2.2. </span>Comanda <code class="docutils literal notranslate"><span class="pre">cd</span></code><a class="headerlink" href="#comanda-cd" title="Permalink to this headline">¶</a></h2>
-<p>Shortcut-uri pt cd: <cite>cd</cite> echivalent cu <cite>cd ~</cite>, <cite>cd -</cite> pt a sări la calea anterioară.</p>
-<ul class="simple">
-<li><p>Recapitulare căi absolute vs căi relative?</p></li>
-</ul>
+<p>Comanda <code class="docutils literal notranslate"><span class="pre">cd</span></code> este una dintre cele mai folosite comenzi.
+Funcționalitatea este în numele ei, <strong>cd</strong> fiind o abreviere pentru <strong>change directory</strong>.
+Este esențial să ne simțim foarte comfortabili atunci când navigăm prin sistemul de fișiere.</p>
+<p>Întotdeauna când deschidem un terminal o facem pentru că vrem să realizăm o sarcină: vrem să redenumim rapid ultimele poze făcute cu telefonul de la genericul <strong>DCIM1001</strong> la ceva util <strong>Excursie Sinaia, Ian 2020, 1001</strong>, vrem să ne testăm proiectul și să urcăm modificările pe GitHub, etc.</p>
+<p>Pentru a ne realiza sarcina, vrem să navigăm în directorul în directorul în care ne-am salvat pozele.
+Primul pas este să aflăm directorul curent în care ne aflăm.
+Facem asta folosind comanda <code class="docutils literal notranslate"><span class="pre">pwd</span></code>, acronim pentru print working directory.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ <span class="nb">pwd</span>
+/home/student
+</pre></div>
+</div>
+<p>Observăm că ne aflăm în directorul <strong>home</strong> al utilizatorului <strong>student</strong>.
+Ne vom muta în directorul în care avem pozele</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ <span class="nb">cd</span> Pictures/Sinaia/
+student@uso:~/Pictures/Sinaia$
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Observați că rezultatul comenzii <code class="docutils literal notranslate"><span class="pre">pwd</span></code> este o cale absolută <code class="docutils literal notranslate"><span class="pre">/home/student</span></code>.
+O cale absolută este o cale care începe cu <code class="docutils literal notranslate"><span class="pre">/</span></code>, adică cu directorul <strong>root</strong> care este rădăcina sistemului nostru de fișiere.</p>
+<p>Observați calea oferită comenzii <code class="docutils literal notranslate"><span class="pre">cd</span></code>: <code class="docutils literal notranslate"><span class="pre">Pictures/Sinaia/</span></code>.
+Aceasta nu începe cu directorul rădăcină <code class="docutils literal notranslate"><span class="pre">/</span></code>, deci este o cale relativă la directorul în care ne aflam, adică relativă la <code class="docutils literal notranslate"><span class="pre">/home/student</span></code>.</p>
+</div>
+<p>Acum ne aflăm în directorul pozelor.
+Verificăm folosind <code class="docutils literal notranslate"><span class="pre">pwd</span></code></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/Pictures/Sinaia$ <span class="nb">pwd</span>
+/home/student/Pictures/Sinaia
+</pre></div>
+</div>
+<p>În cazul de față, această verificare este redundantă deoarece avem această informație afișată în prompt: <code class="docutils literal notranslate"><span class="pre">student&#64;uso:~/Pictures/Sinaia</span></code>.
+Remarcați faptul că în prompt, calea este afișată <code class="docutils literal notranslate"><span class="pre">~/Pictures/Sinaia</span></code>.
+Este afișată așa deoarece caracterul <code class="docutils literal notranslate"><span class="pre">~</span></code> (tilda) este o scurtătură pentru directorul home al utilizatorului curent, în cazul nostru <code class="docutils literal notranslate"><span class="pre">/home/student</span></code>.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Scurtătura <code class="docutils literal notranslate"><span class="pre">~</span></code> este disponibilă pentru orice comandă, nu doar pentru <code class="docutils literal notranslate"><span class="pre">cd</span></code>.
+De înlocuirea ei se ocupă terminalul înainte de a executa comanda.</p>
+</div>
+<p>Putem să revenim în directorul nostru home folosindu-ne de scurtătura <code class="docutils literal notranslate"><span class="pre">~</span></code></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/Pictures/Sinaia$ <span class="nb">cd</span> ~
+student@uso:~$
+</pre></div>
+</div>
+<p>Un mijloc și mai scurt prin care putem să revenim în directorul nostru home este să executăm comanda <code class="docutils literal notranslate"><span class="pre">cd</span></code> fără nici un argument.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Comenzile <code class="docutils literal notranslate"><span class="pre">cd</span></code> și <code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">~</span></code> sunt echivalente.
+În practică, folosim comanda <code class="docutils literal notranslate"><span class="pre">cd</span></code> simplă pentru a naviga în directorul home al utilizatorului curent.</p>
+</div>
+<p>Folosim <code class="docutils literal notranslate"><span class="pre">~</span></code> pentru a construi o cale absolută, care are ca punct de plecare directorul home al utilizatorului curent, așa cum putem vedea în exemplul de mai jos:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/workspace/uni/programming/labs/lab01$ <span class="nb">pwd</span>
+/home/student/workspace/uni/programming/labs/lab01
+student@uso:~/workspace/uni/programming/labs/lab01$ <span class="nb">cd</span> ~/Pictures/Sinaia
+student@uso:~/Pictures/Sinaia$ <span class="nb">cd</span> -
+student@uso:~/workspace/uni/programming/labs/lab01$ <span class="nb">cd</span> ../../../../../Pictures/Sinaia
+student@uso:~/Pictures/Sinaia$
+</pre></div>
+</div>
+<p>Observăm că sintaxa <code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">~/Pictures/Sinaia</span></code> este mult mai scurtă și simplă de urmărit față de alternativa <code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">../../../../../Pictures/Sinaia</span></code>.</p>
+<p>În exemplul de mai sus am folosit o altă scurtătură pusă la dispoziție de comanda <code class="docutils literal notranslate"><span class="pre">cd</span></code>, anume <code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">-</span></code>.
+Comanda <code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">-</span></code> are ca efect navigarea în directorul anterior, așa cum am văzut în exemplul anterior când am folosit-o pentru a reveni în directorul <code class="docutils literal notranslate"><span class="pre">/home/student/workspace/uni/programming/labs/lab01</span></code>.</p>
 </div>
 <div class="section" id="comanda-ls">
 <h2><span class="section-number">2.3. </span>Comanda <code class="docutils literal notranslate"><span class="pre">ls</span></code><a class="headerlink" href="#comanda-ls" title="Permalink to this headline">¶</a></h2>

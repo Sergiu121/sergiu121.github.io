@@ -263,6 +263,59 @@ Observăm că s-a căutat în secțiunea **(3)** din manual:
 
     3   Library calls (functions within program libraries)
 
+Bonus: Utilizarea pachetului ``tldr``
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Utilitarul ``tldr`` (too long, didn't read) oferă o versiune simplificată a paginilor de manual.
+Acesta ne va arăta un rezumat al utilizării unei comenzi cu opțiunile cele mai des folosite în comunitate.
+
+.. code-block:: bash
+
+    student@uso:~$ tldr ls
+    ls
+    List directory contents.
+
+     - List files one per line:
+       ls -1
+
+     - List all files, including hidden files:
+       ls -a
+
+     - Long format list (permissions, ownership, size and modification date) of all files:
+       ls -la
+
+     - Long format list with size displayed using human readable units (KB, MB, GB):
+       ls -lh
+
+     - Long format list sorted by size (descending):
+       ls -lS
+
+     - Long format list of all files, sorted by modification date (oldest first):
+       ls -ltr
+
+.. note::
+
+    Acesta trebuie tratat ca un cheatsheet accesibil din linie de comandă.
+    ``tldr`` nu elimină utilizarea paginilor ``man``, dar ne ajută să găsim rapid opțiunile uzuale.
+    Acestea fiind spuse, vă recomandăm ca întotdeaună să citiți și să înțelegeți din paginile ``man`` ce efect au opțiunile unei comenzi înainte de a le folosi.
+    Feriți-vă să rulați comenzi orbește, pentru că așa ați găsit pe StackOverflow, tldr, etc.
+    Întotdeauna asigurați-vă că ați înțeles cum și de ce rulați comanda și abia apoi treceți la fapte.
+
+Utilizarea pachetului ``tldr``
+""""""""""""""""""""""""""""""
+
+Instalați pachetul ``tldr`` pe mașina voastră.
+
+#. Accesați pagina ``tldr`` a utilitarului ``ls``.
+
+#. Accesați pagina ``tldr`` a utilitarului ``zip``.
+
+#. Accesați pagina ``tldr`` a utilitarului ``tar``.
+
+#. Accesați pagina ``tldr`` a utilitarului ``git``.
+
+#. Accesați pagina ``tldr`` a utilitarului ``man``.
+
 Sumar: Inspectarea paginilor de manual
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -274,9 +327,83 @@ Sumar: Inspectarea paginilor de manual
 Comanda ``cd``
 --------------
 
-Shortcut-uri pt cd: `cd` echivalent cu `cd ~`, `cd -` pt a sări la calea anterioară.
+Comanda ``cd`` este una dintre cele mai folosite comenzi.
+Funcționalitatea este în numele ei, **cd** fiind o abreviere pentru **change directory**.
+Este esențial să ne simțim foarte comfortabili atunci când navigăm prin sistemul de fișiere.
 
-* Recapitulare căi absolute vs căi relative?
+Întotdeauna când deschidem un terminal o facem pentru că vrem să realizăm o sarcină: vrem să redenumim rapid ultimele poze făcute cu telefonul de la genericul **DCIM1001** la ceva util **Excursie Sinaia, Ian 2020, 1001**, vrem să ne testăm proiectul și să urcăm modificările pe GitHub, etc.
+
+Pentru a ne realiza sarcina, vrem să navigăm în directorul în directorul în care ne-am salvat pozele.
+Primul pas este să aflăm directorul curent în care ne aflăm.
+Facem asta folosind comanda ``pwd``, acronim pentru print working directory.
+
+.. code-block:: bash
+
+    student@uso:~$ pwd
+    /home/student
+
+Observăm că ne aflăm în directorul **home** al utilizatorului **student**.
+Ne vom muta în directorul în care avem pozele
+
+.. code-block:: bash
+
+    student@uso:~$ cd Pictures/Sinaia/
+    student@uso:~/Pictures/Sinaia$
+
+.. note::
+
+    Observați că rezultatul comenzii ``pwd`` este o cale absolută ``/home/student``.
+    O cale absolută este o cale care începe cu ``/``, adică cu directorul **root** care este rădăcina sistemului nostru de fișiere.
+
+    Observați calea oferită comenzii ``cd``: ``Pictures/Sinaia/``.
+    Aceasta nu începe cu directorul rădăcină ``/``, deci este o cale relativă la directorul în care ne aflam, adică relativă la ``/home/student``.
+
+Acum ne aflăm în directorul pozelor.
+Verificăm folosind ``pwd``
+
+.. code-block:: bash
+
+    student@uso:~/Pictures/Sinaia$ pwd
+    /home/student/Pictures/Sinaia
+
+În cazul de față, această verificare este redundantă deoarece avem această informație afișată în prompt: ``student@uso:~/Pictures/Sinaia``.
+Remarcați faptul că în prompt, calea este afișată ``~/Pictures/Sinaia``.
+Este afișată așa deoarece caracterul ``~`` (tilda) este o scurtătură pentru directorul home al utilizatorului curent, în cazul nostru ``/home/student``.
+
+.. tip::
+
+    Scurtătura ``~`` este disponibilă pentru orice comandă, nu doar pentru ``cd``.
+    De înlocuirea ei se ocupă terminalul înainte de a executa comanda.
+
+Putem să revenim în directorul nostru home folosindu-ne de scurtătura ``~``
+
+.. code-block:: bash
+
+    student@uso:~/Pictures/Sinaia$ cd ~
+    student@uso:~$
+
+Un mijloc și mai scurt prin care putem să revenim în directorul nostru home este să executăm comanda ``cd`` fără nici un argument.
+
+.. note::
+
+    Comenzile ``cd`` și ``cd ~`` sunt echivalente.
+    În practică, folosim comanda ``cd`` simplă pentru a naviga în directorul home al utilizatorului curent.
+
+Folosim ``~`` pentru a construi o cale absolută, care are ca punct de plecare directorul home al utilizatorului curent, așa cum putem vedea în exemplul de mai jos:
+
+.. code-block:: bash
+
+    student@uso:~/workspace/uni/programming/labs/lab01$ pwd
+    /home/student/workspace/uni/programming/labs/lab01
+    student@uso:~/workspace/uni/programming/labs/lab01$ cd ~/Pictures/Sinaia
+    student@uso:~/Pictures/Sinaia$ cd -
+    student@uso:~/workspace/uni/programming/labs/lab01$ cd ../../../../../Pictures/Sinaia
+    student@uso:~/Pictures/Sinaia$
+
+Observăm că sintaxa ``cd ~/Pictures/Sinaia`` este mult mai scurtă și simplă de urmărit față de alternativa ``cd ../../../../../Pictures/Sinaia``.
+
+În exemplul de mai sus am folosit o altă scurtătură pusă la dispoziție de comanda ``cd``, anume ``cd -``.
+Comanda ``cd -`` are ca efect navigarea în directorul anterior, așa cum am văzut în exemplul anterior când am folosit-o pentru a reveni în directorul ``/home/student/workspace/uni/programming/labs/lab01``.
 
 
 Comanda ``ls``
