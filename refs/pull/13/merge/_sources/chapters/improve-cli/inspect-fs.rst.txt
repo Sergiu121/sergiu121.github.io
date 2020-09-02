@@ -331,6 +331,9 @@ Comanda ``cd`` este una dintre cele mai folosite comenzi.
 Funcționalitatea este în numele ei, **cd** fiind o abreviere pentru **change directory**.
 Este esențial să ne simțim foarte comfortabili atunci când navigăm prin sistemul de fișiere.
 
+Navigarea eficientă folosind ``cd``
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
 Întotdeauna când deschidem un terminal o facem pentru că vrem să realizăm o sarcină: vrem să redenumim rapid ultimele poze făcute cu telefonul de la genericul **DCIM1001** la ceva util **Excursie Sinaia, Ian 2020, 1001**, vrem să ne testăm proiectul și să urcăm modificările pe GitHub, etc.
 
 Pentru a ne realiza sarcina, vrem să navigăm în directorul în directorul în care ne-am salvat pozele.
@@ -438,7 +441,165 @@ Trebuie să ne fie foarte clar când folosim o cale absolută, când folosim una
 Comanda ``ls``
 --------------
 
-``ls, ls -a, ls -l, ls -ld``
+Comanda ``ls`` este și ea una dintre cele mai folosite comenzi.
+Funcționalitatea este în numele ei, **ls** fiind o abreviere pentru **list**.
+Folosim ``ls`` pentru a afișa mai multe informații despre conținutul unui director sau despre fișiere.
+
+Comanda poate fi folosită fără nici un argument, ca în exemplul de mai jos:
+
+.. code-block:: bash
+
+    student@uso:~$ ls
+    Desktop    Downloads  Pictures  Templates  examples.desktop  vm-actions-log.txt
+    Documents  Music      Public    Videos     uso.git           workspace
+
+Observă că ``ls`` ne-a afișat conținutul directorului în care ne aflăm, în exemplul de mai sus este directorul home (``~``).
+``ls`` poate să primească ca argument calea către unul sau mai multe fișiere și directoare, așa vedem în exemplul de mai jos:
+
+.. code-block:: bash
+
+    student@uso:~$ ls workspace/ Downloads/ examples.desktop nonexistent
+    ls: cannot access 'nonexistent': No such file or directory
+    examples.desktop
+
+    Downloads/:
+
+    workspace/:
+    hello  uso-lab-book
+
+Atunci când argumentul este un director, ne este afișat conținutul acestuia, așa cum se întâmplă pentru directoarele ``workspace/`` și ``Downloads``.
+Atunci când argumentul este un fișier, acesta este afișat, așa cum este cazul pentru ``examples.desktop``.
+Observăm că în cazul folosim ca argument o cale către un fișier sau director care nu există (``nonexistent`` în exemplul de mai sus) utilitarul ``ls`` nu își oprește execuția.
+Acesta afișează un mesaj de eroare pentru argumentul în cauză și apoi își continuă execuția cu restul argumentelor.
+
+Afișarea fișierelor ascunse
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+În mediul linux, un fișier este ascuns dacă numele său începe cu caracterul ``.`` (punct).
+În mod implicit, utilitarul ``ls`` omite fișierele ascunse.
+Pentru a afișa fișierele ascunse folosim opțiunea ``-a`` (all).
+
+.. code-block:: bash
+
+    student@uso:~$ ls -a
+    .              .emacs.d         .ssh                       Pictures
+    ..             .gconf           .sudo_as_admin_successful  Public
+    .ICEauthority  .gitconfig       .tmux                      Templates
+    .bash_aliases  .gnome2          .tmux.conf                 Videos
+    .bash_history  .gnome2_private  .vim                       examples.desktop
+    .bash_logout   .gnupg           .viminfo                   uso.git
+    .bashrc        .java            .vimrc                     vm-actions-log.txt
+    .cache         .lesshst         Desktop                    workspace
+    .config        .local           Documents
+    .dbus          .mozilla         Downloads
+    .emacs         .profile         Music
+
+Observăm că avem o mulțime de fișiere ascunse prezente în directorul nostru home.
+Multe dintre acestea sunt fișiere de configurare (``.bashrc``, ``.vimrc``, etc.) folosite de diferite programe instalate pe sistemul nostru.
+Vom vorbi mai multe despre acestea în viitorul apropriat.
+
+Afișarea informațiilor extinse despre fișiere
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+De cele mai multe ori suntem interesați să aflăm mai multe informații despre fișiere: cum ar fi tipul fișierului, permisiuni, ownership, dimensiunea și data ultimei modificări.
+Toate acestea sunt afișate prin utilizarea opțiunii ``-l``:
+
+.. code-block:: bash
+
+    student@uso:~$ ls -l
+    total 60
+    drwxr-xr-x  2 student student 4096 aug  6  2018 Desktop
+    drwxr-xr-x  3 student student 4096 aug 20  2018 Documents
+    drwxr-xr-x  2 student student 4096 aug 11 19:35 Downloads
+    drwxr-xr-x  2 student student 4096 aug  6  2018 Music
+    drwxr-xr-x  3 student student 4096 aug 31 23:26 Pictures
+    drwxr-xr-x  2 student student 4096 aug  6  2018 Public
+    drwxr-xr-x  2 student student 4096 aug  6  2018 Templates
+    drwxr-xr-x  2 student student 4096 aug  6  2018 Videos
+    -rw-r--r--  1 student student 8980 aug  6  2018 examples.desktop
+    drwxr-xr-x 14 student student 4096 aug 20  2018 uso.git
+    -rw-r--r--  1 student student 4827 aug 21  2018 vm-actions-log.txt
+    drwxr-xr-x  4 student student 4096 aug 13 18:38 workspace
+
+Vom analiza informațiile afișate pentru directorul **Desktop**.
+
+.. code-block:: bash
+
+    drwxr-xr-x  2 student student 4096 aug  6  2018 Desktop
+
+#. Vom începe cu prima coloană din exemplul de mai sus: ``drwxr-xr-x``.
+   Aceasta este formată din zece caractere care formează patru grupuri:
+
+   #. Primul grup este format dintr-un singur caracter, și denotă tipul fișierului.
+      În cazul de față, caracterul ``d`` ne informează că ne uităm la un fișier de tip director.
+      În cazul fișierelor obișnuite (text, imagini, etc.) primul caracter este ``-``, așa cum putem observa în cazul fișierului ``examples.desktop``.
+
+   #. Cel de-al doilea grup este format din următoarele trei caractere și denotă permisiunile pe care le are utilizatorul care deține fișierul asupra fișierului.
+      Caracterele sunt în ordine ``r`` (read) permisiuni de citire, ``w`` (write) permisiuni de scriere și ``x`` (execute) permisiuni de rulare.
+      Dacă utilizatorul nu are o anumită permisiune, caracterul corespunzător este înlocuit de caracterul ``-``.
+      Spunem că aceste permisiuni se aplică pentru **User**.
+
+   #. Cel de-al treilea grup este format din următoarele trei caractere și denotă permisiunile pe care le au membrii grupului care dețin fișierul asupra fișierului.
+      Permisiunile rămân din setul ``rwx``.
+      Spunem că aceste permisiuni se aplică pentru **Group**.
+
+   #. Cel de-al patrulea grup este format din ultimele trei caractere și denotă permisiunile pe care le are orice utilizator care nu deține fișierul și nici nu face parte din grupul care deține fișierul.
+      Permisiunile rămân din setul ``rwx``.
+      Spunem că aceste permisiuni se aplică pentru **Others**.
+
+   Acum, pe baza informațiilor din prima coloană, putem spune următoarele despre fișierul Desktop:
+
+   #. Acesta este un fișier de tip director (``d``)
+   #. Utilizatorul care îl deține are drepturi de citire (``r``), scriere (``w``) și execuție (``x``)
+   #. Grupul care îl deține are drepturi de citire (``r``), **NU** are drepturi de scriere (``-``) și are drepturi de execuție (``x``)
+   #. Iar orice alt utilizator are drepturi de citire (``r``), **NU** are drepturi de scriere (``-``) și are drepturi de execuție (``x``).
+
+   .. note::
+
+       Pentru a putea deschide un director este necesar să avem drepturi de execuție (``x``) asupra acestuia.
+       Trebuie să avem drepturi de execuție indiferent că vrem să navigăm în interiorul său, să afișăm conținutul directorului sau să creăm noi fișiere și directoare în cadrul acestuia.
+
+#. Cea de-a treia coloană ne spune care este utilizatorul care deține fișierul.
+   Astfel observăm că directorul **Desktop** este deținut de către utilizatorul ``student``.
+   Asta înseamnă că permisiunile ``rwx`` corespund utilizatorului ``student``.
+
+#. Cea de-a patra coloană ne spune care este grupul care deține fișierul.
+   Astfel observăm că directorul **Desktop** este deținut de către grupul ``student``.
+   Asta înseamnă că permisiunile ``r-x`` se aplică oricărui utilizator care este membru al grupului ``student``.
+
+#. Cea de-a cincea coloană ne arată dimensiunea fișierului, exprimată în octeți.
+   Putem să-i cerem utilitarului ``ls`` să ne afișeze dimensiunea folosind multiplii (K(ilo), M(ega), G(iga), etc) utilizând opțiunea ``-h`` (human readable)
+
+   .. code-block:: bash
+
+       student@uso:~$ ls -lh
+       total 60K
+       drwxr-xr-x  2 student student 4,0K aug  6  2018 Desktop
+       [...]
+
+#. Ultimele coloane ne arată data ultimei modificări, în ordinea lună, zi, an.
+
+Afișarea informațiilor extinse despre un fișier de tip director
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+Am observat că, în mod implicit, utilitarul ``ls`` ne afișază informații despre conținutul unui director atunci când primește calea către un director ca argument:
+
+.. code-block:: bash
+
+    student@uso:~$ ls -l Desktop/
+    total 0
+    -rw-r--r-- 1 student student 0 sep  2 19:39 todos.txt
+
+Pentru a-i specifica lui ``ls`` că suntem interesați de informații despre fișierul de tip director, și nu despre conținutul său, folosim opțiunea ``-d``.
+
+.. code-block:: bash
+
+    student@uso:~$ ls -ld Desktop/
+    drwxr-xr-x 2 student student 4096 sep  2 19:39 Desktop/
+
+#. Afișați conținutul directoarelor ``/home``, ``Downloads`` și ``/tmp``.
+
+#. Aflați care sunt permisiunile pe care le are orice utilizator asupra directoarelor ``/home``, ``/home/student`` și ``/tmp``.
 
 Globbing
 ^^^^^^^^

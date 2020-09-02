@@ -789,6 +789,8 @@ Feriți-vă să rulați comenzi orbește, pentru că așa ați găsit pe StackOv
 <p>Comanda <code class="docutils literal notranslate"><span class="pre">cd</span></code> este una dintre cele mai folosite comenzi.
 Funcționalitatea este în numele ei, <strong>cd</strong> fiind o abreviere pentru <strong>change directory</strong>.
 Este esențial să ne simțim foarte comfortabili atunci când navigăm prin sistemul de fișiere.</p>
+<div class="section" id="navigarea-eficienta-folosind-cd">
+<h3><span class="section-number">2.2.1. </span>Navigarea eficientă folosind <code class="docutils literal notranslate"><span class="pre">cd</span></code><a class="headerlink" href="#navigarea-eficienta-folosind-cd" title="Permalink to this headline">¶</a></h3>
 <p>Întotdeauna când deschidem un terminal o facem pentru că vrem să realizăm o sarcină: vrem să redenumim rapid ultimele poze făcute cu telefonul de la genericul <strong>DCIM1001</strong> la ceva util <strong>Excursie Sinaia, Ian 2020, 1001</strong>, vrem să ne testăm proiectul și să urcăm modificările pe GitHub, etc.</p>
 <p>Pentru a ne realiza sarcina, vrem să navigăm în directorul în directorul în care ne-am salvat pozele.
 Primul pas este să aflăm directorul curent în care ne aflăm.
@@ -847,6 +849,8 @@ student@uso:~/Pictures/Sinaia$
 <p>Observăm că sintaxa <code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">~/Pictures/Sinaia</span></code> este mult mai scurtă și simplă de urmărit față de alternativa <code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">../../../../../Pictures/Sinaia</span></code>.</p>
 <p>În exemplul de mai sus am folosit o altă scurtătură pusă la dispoziție de comanda <code class="docutils literal notranslate"><span class="pre">cd</span></code>, anume <code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">-</span></code>.
 Comanda <code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">-</span></code> are ca efect navigarea în directorul anterior, așa cum am văzut în exemplul anterior când am folosit-o pentru a reveni în directorul <code class="docutils literal notranslate"><span class="pre">/home/student/workspace/uni/programming/labs/lab01</span></code>.</p>
+<div class="section" id="exersarea-navigarii-in-cardul-sistemului-de-fisiere">
+<h4><span class="section-number">2.2.1.1. </span>Exersarea navigării în cardul sistemului de fișiere<a class="headerlink" href="#exersarea-navigarii-in-cardul-sistemului-de-fisiere" title="Permalink to this headline">¶</a></h4>
 <p>Prin exercițiile care urmează o să ne exersăm mâna astfel încât să devenim cât mai comfortabili cu navigarea prin sistemul de fișiere.
 Trebuie să ne fie foarte clar când folosim o cale absolută, când folosim una relativă și să devenim din ce în ce mai rapizi.</p>
 <div class="admonition tip">
@@ -873,11 +877,151 @@ Navigați în directorul <code class="docutils literal notranslate"><span class=
 Navigați în directorul <code class="docutils literal notranslate"><span class="pre">~/Music</span></code> folosind o cale relativă.</p></li>
 </ol>
 </div>
+</div>
+</div>
 <div class="section" id="comanda-ls">
 <h2><span class="section-number">2.3. </span>Comanda <code class="docutils literal notranslate"><span class="pre">ls</span></code><a class="headerlink" href="#comanda-ls" title="Permalink to this headline">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">ls,</span> <span class="pre">ls</span> <span class="pre">-a,</span> <span class="pre">ls</span> <span class="pre">-l,</span> <span class="pre">ls</span> <span class="pre">-ld</span></code></p>
+<p>Comanda <code class="docutils literal notranslate"><span class="pre">ls</span></code> este și ea una dintre cele mai folosite comenzi.
+Funcționalitatea este în numele ei, <strong>ls</strong> fiind o abreviere pentru <strong>list</strong>.
+Folosim <code class="docutils literal notranslate"><span class="pre">ls</span></code> pentru a afișa mai multe informații despre conținutul unui director sau despre fișiere.</p>
+<p>Comanda poate fi folosită fără nici un argument, ca în exemplul de mai jos:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ ls
+Desktop    Downloads  Pictures  Templates  examples.desktop  vm-actions-log.txt
+Documents  Music      Public    Videos     uso.git           workspace
+</pre></div>
+</div>
+<p>Observă că <code class="docutils literal notranslate"><span class="pre">ls</span></code> ne-a afișat conținutul directorului în care ne aflăm, în exemplul de mai sus este directorul home (<code class="docutils literal notranslate"><span class="pre">~</span></code>).
+<code class="docutils literal notranslate"><span class="pre">ls</span></code> poate să primească ca argument calea către unul sau mai multe fișiere și directoare, așa vedem în exemplul de mai jos:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ ls workspace/ Downloads/ examples.desktop nonexistent
+ls: cannot access <span class="s1">&#39;nonexistent&#39;</span>: No such file or directory
+examples.desktop
+
+Downloads/:
+
+workspace/:
+hello  uso-lab-book
+</pre></div>
+</div>
+<p>Atunci când argumentul este un director, ne este afișat conținutul acestuia, așa cum se întâmplă pentru directoarele <code class="docutils literal notranslate"><span class="pre">workspace/</span></code> și <code class="docutils literal notranslate"><span class="pre">Downloads</span></code>.
+Atunci când argumentul este un fișier, acesta este afișat, așa cum este cazul pentru <code class="docutils literal notranslate"><span class="pre">examples.desktop</span></code>.
+Observăm că în cazul folosim ca argument o cale către un fișier sau director care nu există (<code class="docutils literal notranslate"><span class="pre">nonexistent</span></code> în exemplul de mai sus) utilitarul <code class="docutils literal notranslate"><span class="pre">ls</span></code> nu își oprește execuția.
+Acesta afișează un mesaj de eroare pentru argumentul în cauză și apoi își continuă execuția cu restul argumentelor.</p>
+<div class="section" id="afisarea-fisierelor-ascunse">
+<h3><span class="section-number">2.3.1. </span>Afișarea fișierelor ascunse<a class="headerlink" href="#afisarea-fisierelor-ascunse" title="Permalink to this headline">¶</a></h3>
+<p>În mediul linux, un fișier este ascuns dacă numele său începe cu caracterul <code class="docutils literal notranslate"><span class="pre">.</span></code> (punct).
+În mod implicit, utilitarul <code class="docutils literal notranslate"><span class="pre">ls</span></code> omite fișierele ascunse.
+Pentru a afișa fișierele ascunse folosim opțiunea <code class="docutils literal notranslate"><span class="pre">-a</span></code> (all).</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ ls -a
+.              .emacs.d         .ssh                       Pictures
+..             .gconf           .sudo_as_admin_successful  Public
+.ICEauthority  .gitconfig       .tmux                      Templates
+.bash_aliases  .gnome2          .tmux.conf                 Videos
+.bash_history  .gnome2_private  .vim                       examples.desktop
+.bash_logout   .gnupg           .viminfo                   uso.git
+.bashrc        .java            .vimrc                     vm-actions-log.txt
+.cache         .lesshst         Desktop                    workspace
+.config        .local           Documents
+.dbus          .mozilla         Downloads
+.emacs         .profile         Music
+</pre></div>
+</div>
+<p>Observăm că avem o mulțime de fișiere ascunse prezente în directorul nostru home.
+Multe dintre acestea sunt fișiere de configurare (<code class="docutils literal notranslate"><span class="pre">.bashrc</span></code>, <code class="docutils literal notranslate"><span class="pre">.vimrc</span></code>, etc.) folosite de diferite programe instalate pe sistemul nostru.
+Vom vorbi mai multe despre acestea în viitorul apropriat.</p>
+</div>
+<div class="section" id="afisarea-informatiilor-extinse-despre-fisiere">
+<h3><span class="section-number">2.3.2. </span>Afișarea informațiilor extinse despre fișiere<a class="headerlink" href="#afisarea-informatiilor-extinse-despre-fisiere" title="Permalink to this headline">¶</a></h3>
+<p>De cele mai multe ori suntem interesați să aflăm mai multe informații despre fișiere: cum ar fi tipul fișierului, permisiuni, ownership, dimensiunea și data ultimei modificări.
+Toate acestea sunt afișate prin utilizarea opțiunii <code class="docutils literal notranslate"><span class="pre">-l</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ ls -l
+total <span class="m">60</span>
+drwxr-xr-x  <span class="m">2</span> student student <span class="m">4096</span> aug  <span class="m">6</span>  <span class="m">2018</span> Desktop
+drwxr-xr-x  <span class="m">3</span> student student <span class="m">4096</span> aug <span class="m">20</span>  <span class="m">2018</span> Documents
+drwxr-xr-x  <span class="m">2</span> student student <span class="m">4096</span> aug <span class="m">11</span> <span class="m">19</span>:35 Downloads
+drwxr-xr-x  <span class="m">2</span> student student <span class="m">4096</span> aug  <span class="m">6</span>  <span class="m">2018</span> Music
+drwxr-xr-x  <span class="m">3</span> student student <span class="m">4096</span> aug <span class="m">31</span> <span class="m">23</span>:26 Pictures
+drwxr-xr-x  <span class="m">2</span> student student <span class="m">4096</span> aug  <span class="m">6</span>  <span class="m">2018</span> Public
+drwxr-xr-x  <span class="m">2</span> student student <span class="m">4096</span> aug  <span class="m">6</span>  <span class="m">2018</span> Templates
+drwxr-xr-x  <span class="m">2</span> student student <span class="m">4096</span> aug  <span class="m">6</span>  <span class="m">2018</span> Videos
+-rw-r--r--  <span class="m">1</span> student student <span class="m">8980</span> aug  <span class="m">6</span>  <span class="m">2018</span> examples.desktop
+drwxr-xr-x <span class="m">14</span> student student <span class="m">4096</span> aug <span class="m">20</span>  <span class="m">2018</span> uso.git
+-rw-r--r--  <span class="m">1</span> student student <span class="m">4827</span> aug <span class="m">21</span>  <span class="m">2018</span> vm-actions-log.txt
+drwxr-xr-x  <span class="m">4</span> student student <span class="m">4096</span> aug <span class="m">13</span> <span class="m">18</span>:38 workspace
+</pre></div>
+</div>
+<p>Vom analiza informațiile afișate pentru directorul <strong>Desktop</strong>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>drwxr-xr-x  <span class="m">2</span> student student <span class="m">4096</span> aug  <span class="m">6</span>  <span class="m">2018</span> Desktop
+</pre></div>
+</div>
+<ol class="arabic">
+<li><p>Vom începe cu prima coloană din exemplul de mai sus: <code class="docutils literal notranslate"><span class="pre">drwxr-xr-x</span></code>.
+Aceasta este formată din zece caractere care formează patru grupuri:</p>
+<ol class="arabic simple">
+<li><p>Primul grup este format dintr-un singur caracter, și denotă tipul fișierului.
+În cazul de față, caracterul <code class="docutils literal notranslate"><span class="pre">d</span></code> ne informează că ne uităm la un fișier de tip director.
+În cazul fișierelor obișnuite (text, imagini, etc.) primul caracter este <code class="docutils literal notranslate"><span class="pre">-</span></code>, așa cum putem observa în cazul fișierului <code class="docutils literal notranslate"><span class="pre">examples.desktop</span></code>.</p></li>
+<li><p>Cel de-al doilea grup este format din următoarele trei caractere și denotă permisiunile pe care le are utilizatorul care deține fișierul asupra fișierului.
+Caracterele sunt în ordine <code class="docutils literal notranslate"><span class="pre">r</span></code> (read) permisiuni de citire, <code class="docutils literal notranslate"><span class="pre">w</span></code> (write) permisiuni de scriere și <code class="docutils literal notranslate"><span class="pre">x</span></code> (execute) permisiuni de rulare.
+Dacă utilizatorul nu are o anumită permisiune, caracterul corespunzător este înlocuit de caracterul <code class="docutils literal notranslate"><span class="pre">-</span></code>.
+Spunem că aceste permisiuni se aplică pentru <strong>User</strong>.</p></li>
+<li><p>Cel de-al treilea grup este format din următoarele trei caractere și denotă permisiunile pe care le au membrii grupului care dețin fișierul asupra fișierului.
+Permisiunile rămân din setul <code class="docutils literal notranslate"><span class="pre">rwx</span></code>.
+Spunem că aceste permisiuni se aplică pentru <strong>Group</strong>.</p></li>
+<li><p>Cel de-al patrulea grup este format din ultimele trei caractere și denotă permisiunile pe care le are orice utilizator care nu deține fișierul și nici nu face parte din grupul care deține fișierul.
+Permisiunile rămân din setul <code class="docutils literal notranslate"><span class="pre">rwx</span></code>.
+Spunem că aceste permisiuni se aplică pentru <strong>Others</strong>.</p></li>
+</ol>
+<p>Acum, pe baza informațiilor din prima coloană, putem spune următoarele despre fișierul Desktop:</p>
+<ol class="arabic simple">
+<li><p>Acesta este un fișier de tip director (<code class="docutils literal notranslate"><span class="pre">d</span></code>)</p></li>
+<li><p>Utilizatorul care îl deține are drepturi de citire (<code class="docutils literal notranslate"><span class="pre">r</span></code>), scriere (<code class="docutils literal notranslate"><span class="pre">w</span></code>) și execuție (<code class="docutils literal notranslate"><span class="pre">x</span></code>)</p></li>
+<li><p>Grupul care îl deține are drepturi de citire (<code class="docutils literal notranslate"><span class="pre">r</span></code>), <strong>NU</strong> are drepturi de scriere (<code class="docutils literal notranslate"><span class="pre">-</span></code>) și are drepturi de execuție (<code class="docutils literal notranslate"><span class="pre">x</span></code>)</p></li>
+<li><p>Iar orice alt utilizator are drepturi de citire (<code class="docutils literal notranslate"><span class="pre">r</span></code>), <strong>NU</strong> are drepturi de scriere (<code class="docutils literal notranslate"><span class="pre">-</span></code>) și are drepturi de execuție (<code class="docutils literal notranslate"><span class="pre">x</span></code>).</p></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Pentru a putea deschide un director este necesar să avem drepturi de execuție (<code class="docutils literal notranslate"><span class="pre">x</span></code>) asupra acestuia.
+Trebuie să avem drepturi de execuție indiferent că vrem să navigăm în interiorul său, să afișăm conținutul directorului sau să creăm noi fișiere și directoare în cadrul acestuia.</p>
+</div>
+</li>
+<li><p>Cea de-a treia coloană ne spune care este utilizatorul care deține fișierul.
+Astfel observăm că directorul <strong>Desktop</strong> este deținut de către utilizatorul <code class="docutils literal notranslate"><span class="pre">student</span></code>.
+Asta înseamnă că permisiunile <code class="docutils literal notranslate"><span class="pre">rwx</span></code> corespund utilizatorului <code class="docutils literal notranslate"><span class="pre">student</span></code>.</p></li>
+<li><p>Cea de-a patra coloană ne spune care este grupul care deține fișierul.
+Astfel observăm că directorul <strong>Desktop</strong> este deținut de către grupul <code class="docutils literal notranslate"><span class="pre">student</span></code>.
+Asta înseamnă că permisiunile <code class="docutils literal notranslate"><span class="pre">r-x</span></code> se aplică oricărui utilizator care este membru al grupului <code class="docutils literal notranslate"><span class="pre">student</span></code>.</p></li>
+<li><p>Cea de-a cincea coloană ne arată dimensiunea fișierului, exprimată în octeți.
+Putem să-i cerem utilitarului <code class="docutils literal notranslate"><span class="pre">ls</span></code> să ne afișeze dimensiunea folosind multiplii (K(ilo), M(ega), G(iga), etc) utilizând opțiunea <code class="docutils literal notranslate"><span class="pre">-h</span></code> (human readable)</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ ls -lh
+total 60K
+drwxr-xr-x  <span class="m">2</span> student student <span class="m">4</span>,0K aug  <span class="m">6</span>  <span class="m">2018</span> Desktop
+<span class="o">[</span>...<span class="o">]</span>
+</pre></div>
+</div>
+</li>
+<li><p>Ultimele coloane ne arată data ultimei modificări, în ordinea lună, zi, an.</p></li>
+</ol>
+<div class="section" id="afisarea-informatiilor-extinse-despre-un-fisier-de-tip-director">
+<h4><span class="section-number">2.3.2.1. </span>Afișarea informațiilor extinse despre un fișier de tip director<a class="headerlink" href="#afisarea-informatiilor-extinse-despre-un-fisier-de-tip-director" title="Permalink to this headline">¶</a></h4>
+<p>Am observat că, în mod implicit, utilitarul <code class="docutils literal notranslate"><span class="pre">ls</span></code> ne afișază informații despre conținutul unui director atunci când primește calea către un director ca argument:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ ls -l Desktop/
+total <span class="m">0</span>
+-rw-r--r-- <span class="m">1</span> student student <span class="m">0</span> sep  <span class="m">2</span> <span class="m">19</span>:39 todos.txt
+</pre></div>
+</div>
+<p>Pentru a-i specifica lui <code class="docutils literal notranslate"><span class="pre">ls</span></code> că suntem interesați de informații despre fișierul de tip director, și nu despre conținutul său, folosim opțiunea <code class="docutils literal notranslate"><span class="pre">-d</span></code>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ ls -ld Desktop/
+drwxr-xr-x <span class="m">2</span> student student <span class="m">4096</span> sep  <span class="m">2</span> <span class="m">19</span>:39 Desktop/
+</pre></div>
+</div>
+<ol class="arabic simple">
+<li><p>Afișați conținutul directoarelor <code class="docutils literal notranslate"><span class="pre">/home</span></code>, <code class="docutils literal notranslate"><span class="pre">Downloads</span></code> și <code class="docutils literal notranslate"><span class="pre">/tmp</span></code>.</p></li>
+<li><p>Aflați care sunt permisiunile pe care le are orice utilizator asupra directoarelor <code class="docutils literal notranslate"><span class="pre">/home</span></code>, <code class="docutils literal notranslate"><span class="pre">/home/student</span></code> și <code class="docutils literal notranslate"><span class="pre">/tmp</span></code>.</p></li>
+</ol>
+</div>
+</div>
 <div class="section" id="globbing">
-<h3><span class="section-number">2.3.1. </span>Globbing<a class="headerlink" href="#globbing" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">2.3.3. </span>Globbing<a class="headerlink" href="#globbing" title="Permalink to this headline">¶</a></h3>
 <p>Ce este globbing?</p>
 <p>Folosire caractere <code class="docutils literal notranslate"><span class="pre">*</span></code>, <code class="docutils literal notranslate"><span class="pre">?</span></code>, [seturi] și {liste,grupuri}, escaping folosind <code class="docutils literal notranslate"><span class="pre">“</span></code> ex.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>ls “[USO] file”
