@@ -1,14 +1,60 @@
 Redirectări
 ===========
 
-*TODO Teorie redirectări*
+Interacțiunea cu terminalul a fost în felul următor: am executat o comandă și am urmărit la terminam afișarea rezultatului.
+Sunt cazuri în care vrem să păstrăm rezultatul într-un fișier.
+Interpretorul de comenzi are opțiunea de a direcționa afișarea rezultatului direct într-un fișier.
+Astfel, evităm câțiva pași: copierea conținutului, crearea unui fișier, deschiderea acestuia, lipirea conținutului.
+În acest capitol vom învăța cum să facem aceste direcționări (redirectări).
 
-**Exerciții:**
+Redirectări simple
+------------------
+Pentru a direcționa rezultatul unei comenzi, folosim caracterul **>**, astfel:
 
-* Puneți textul “Vim ru||z, g3dit sux” la finalul fișierelor create anterior, fără a șterge conținutul original;
-* Verificați corectitudinea operației afișând conținutul fișierului.
+.. code-block:: bash
 
-**Exerciții:**
+    student@uso-demo:~$ ls -lh > lista_fisiere
+    total 9.0M
+    -rw-r--r-- 1 student student 5.0M Aug 19 11:55 fisier1
+    -rw-r--r-- 1 student student 3.0M Aug 19 11:55 fisier2
+    -rw-r--r-- 1 student student 1.0M Aug 19 11:55 fisier3
+    student@uso-demo:~$ ls
+    fisier1 fisier2 fisier3 lista_fisiere
+    student@uso-demo:~$ cat lista_fisiere
+    -rw-r--r-- 1 student student 5.0M Aug 19 11:55 fisier1
+    -rw-r--r-- 1 student student 3.0M Aug 19 11:55 fisier2
+    -rw-r--r-- 1 student student 1.0M Aug 19 11:55 fisier3
 
-* Puneți textul “Vim ru||z, g3dit sux” la finalul fișierelor create anterior, ștergând conținutul original;
-* Verificați corectitudinea operației afișând conținutul fișierului.
+Putem observa că acțiunea de mai sus a făcut mai multe lucruri: a creat fișierul **lista_fisiere** și a introdus în conținutul fișierului rezultatul comenzii **ls -lh**.
+
+.. warning::
+    Folosirea caracterului **>** șterge conținutul fișierului. Dacă **lista_fisiere** avea conținut, acesta era șters și înlocuit cu rezultatul comenzii **ls -lh**.
+
+
+Exercițiu - redirectări simple
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Folosiți **tree** pentru a afișa ierarhia de fișiere pornind de la **/home/student** și direcționați-o în fișierul **ierarhie_student**. Inspectați fișierul pentru a demonstra corectitudinea operației.
+
+Redirectări prin anexare
+------------------------
+Pentru a direcționa rezultatul comenzii, **fără** a pierde conținutul inițial al fișierului, folosim caracterele **>>**, astfel:
+
+.. code-block:: bash
+
+    student@uso-demo:~$ ls >> lista_fisiere
+    student@uso-demo:~$ ls
+    fisier1 fisier2 fisier3 lista_fisiere
+    student@uso-demo:~$ cat lista_fisiere
+    -rw-r--r-- 1 student student 5.0M Aug 19 11:55 fisier1
+    -rw-r--r-- 1 student student 3.0M Aug 19 11:55 fisier2
+    -rw-r--r-- 1 student student 1.0M Aug 19 11:55 fisier3
+    fisier1 fisier2 fisier3 lista_fisiere
+
+
+Putem observa că la sfârșitul fișierului s-a adăugat o linie cu noul rezultat al comenzii **>>**.
+
+Exercițiu - redirectări prin anexare
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+#. Folosiți **tree** pentru a afișa ierarhia de fișiere pornind de la **/tmp** și direcționați-o prin anexare la fișierul **ierarhie_student** creat anterior. Inspectați fișierul pentru a demonstra corectitudinea operației.
+#. Folosiți **tree** pentru a afișa ierarhia de fișiere pornind de la **/usr** și direcționați-o **fără** anexare la fișierul **ierarhie_student** folosit anterior. Inspectați fișierul pentru a demonstra corectitudinea operației. Mai exista conținutul inițial al fișierului?
