@@ -32,6 +32,7 @@ Există mai multe implementări de clienți web în linie de comandă, dar noi v
 folosi comanda `wget` pentru descărcarea unei pagini web.
 
 .. code-block::
+
     student@uso:~$ wget <link>
 
 Rulați comanda de mai sus pentru a descărca pagina web de la adresa.
@@ -52,11 +53,6 @@ de manual a utilitarului `wget` (`man wget`), pentru a identifica opțiunea
 necesară pentru autentificarea la un server HTTP. Pentru autentificare veți
 folosi utilizatorul *student* și parola *student*.
 
-Pentru accesarea unui site le arătăm că putem să descărca site-ul folosind un
-client cum ar fi `wget`, sau `curl` și le arătăm că se descarcă un fişier HTML
-şi le vom explica că asta face şi browser-ul, dar are un motor care
-interpretează textul şi îl afişează.
-
 2) Accesul la distanţă în linie de comandă
 ------------------------------------------
 
@@ -72,10 +68,11 @@ care vrem să ne autentificăm, sau să folosim o cheie de acces la stație.
 a. Conectarea folosind autentificare cu parolă
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Pentru a rula comenzi pe o altă stație putem folosi programul SSH (Secure SHell)
+Pentru a rula comenzi pe o altă stație putem folosi programul SSH (Secure Shell)
 pentru a ne conecta la acesta în felul următor:
 
 .. code-block::
+
     student@uso:~$ ssh <username>@<statie>
 
 Unde <username> este numele utilizatorului și <stație> este adresa IP, sau
@@ -103,6 +100,7 @@ automatizăm rularea comenzilor pe alte stații putem folosi comanda SSH în fel
 următor:
 
 .. code-block::
+
     student@uso:~$ ssh <username>@<statie> <comanda>
 
 Rulați comanda <insert comanda> pe stațiile <insert stații> fără să intrați în
@@ -119,17 +117,19 @@ securitate, deoarece dacă păstrăm o cheie în format text aceasta poate fi fu
 de cineva, sau să scriem parola de 10 ori de mână.
 
 Pentru a trece de această problemă putem să folosim mecanismul de autentificare
-cu chei. Autentificarea cu chei presupune existenă a două chei pereche:
-* *cheia privată*: este o ceie secretă care este folosită de un client SSH
+cu chei. Autentificarea cu chei presupune existentă a două chei pereche:
+
+* *cheia privată*: este o cheie secretă care este folosită de un client SSH
   pentru a se autentifica
 * *cheia publică*, este o cheie care este copiată pe stația care rulează
   serverul SSH care este folosită pentru identificarea clienților SSH care se
   conectează la server.
 
-Pentru generearea perechiei de chei folosim comanda `ssh-keygen` în felul
+Pentru generarea unei perechi de chei folosim comanda `ssh-keygen` în felul
 următor:
 
 .. code-block::
+
     student@uso:~$ ssh-keygen
     TODO
 
@@ -139,6 +139,7 @@ Pentru copierea cheii publice pe o stație folosim comanda `ssh-copy-id` în fel
 următor:
 
 .. code-block::
+
     student@uso:~$ ssh-copy-id <username>@<statie>
     TODO
 
@@ -154,7 +155,7 @@ utilizator.
 Generați o nouă cheie SSH de tip ECDSA.
 
 Efectuați modificările necesare astfel încât să vă puteți autentifica drept
-utilizatorul <TODO> de pe stația <host> fară parolă.
+utilizatorul <TODO> de pe stația <host> fără parolă.
 
 c. Conectarea între două calculatoare aflate în rețele private diferite
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -162,17 +163,18 @@ c. Conectarea între două calculatoare aflate în rețele private diferite
 <TODO: de adăugat diagramă>
 
 Pentru a demonstra principiul tunelării, ne vom folosi iar de netcat pentru a
-realiza o conexiune între două staţii. Ei se vor conecta la localhost:2222 şi
-vor accesa o altă maşină virtuală remote. Le vom arăta cum se face tunelul.
+realiza o conexiune între două stații. Ei se vor conecta la localhost:2222 și
+vor accesa o altă mașină virtuală remote. Le vom arăta cum se face tunelul.
 
 d. Transferul datelor la distanţă
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Pentru a transfera fişiere la distanţă îi punem să folosească `scp` pentru a
-trimite fișiere pe rețea. Comanda `scp` se folosește de protocolul SSH pentru
-transferul de date între stații.
+Pentru a transfera fișiere la distanță să folosească `scp`. Comanda `scp` se
+folosește de protocolul SSH pentru transferul de date între stații, astfel ne
+putem folosi de modelul de autentificare de la SSH
 
 .. code-block::
+
     student@uso:~$ scp file1 <username>@<stație>:~/file1
     TODO
 
@@ -181,17 +183,19 @@ OBSERVAȚIE:
 Trimiterea fișierelor poate fi realizată în orice direcție, de la client la
 server, sau de la server la client în funcție de ordinea parametrilor.
 
-Copiație directorul de pe stația TODO în directorul home al utilizatorului curent.
+Copiați directorul de pe stația TODO în directorul home al utilizatorului curent.
 
 3) Controlul la distanță în mediul grafic
 -----------------------------------------
 
 Există anumite tipuri de aplicații care funcționează în mod implicit și aceste
-aplcații nu pot fi rulate în înterfață în linie de comandă. De exemplu,
+aplicații nu pot fi rulate în interfață în linie de comandă. De exemplu,
 installer-ul unui joc nu poate să fie rulat din linie de comandă.
 
 Controlul aplicațiilor se poate reduce la doua probleme:
+
 * controlul ferestrei aplicației respective;
+
 * controlul întregului desktop.
 
 a. Controlul unei ferestre la distanţă
@@ -202,7 +206,7 @@ transferul datelor care ar fi afișate pe stația pe care rulează serverul pe
 stația clientului.
 
 Acest mod de transfer nu este rapid, deoarece transferul se face printr-un
-protocol care nu este menit pentru trasfer de date sensibile la latență, cum
+protocol care nu este menit pentru transfer de date sensibile la latență, cum
 sunt ferestrele interactive, dar pentru aplicații care nu sunt sensibile la
 latență, cum ar fi chituri de instalare ale programelor, această metodă este
 funcțională.
@@ -255,12 +259,13 @@ Identificați adresele IP ale celor stații la care aveți acces.
 Verificați conectivitatea între cele doua stații.
 
 Nu există conectivitate între cele două stații, deoarece acestea se află în
-retele private diferite.
+rețele private diferite.
 
 Pentru a porni VPN-ul, vom folosi openvpn. Rulați următoarea comandă pe ambele
 stații pentru a porni clientul de VPN.
 
 .. code-block::
+
     student@tom:~$ ip a s
     TODO
 
@@ -277,10 +282,11 @@ Testați conectivitatea de pe stația <TODO> cu stația de la adresa <TODO>.
 
 Pentru a verifica că drumul pachetului chiar trece prin VPN, rulăm comanda
 `traceroute 8.8.8.8` și observăm că mesajele spre internet nu mai trec prin
-interfața eth0 ci trec prin interața virtuală, ajung la serverul VPN în pasul
+interfața eth0 ci trec prin interfața virtuală, ajung la serverul VPN în pasul
 <TODO>, iar abia apoi sunt lansate mai departe spre Internet.
 
 .. code-block::
+
     student@tom:~$ traceroute 8.8.8.8
 
 Astfel, un pachet care se va îndrepta spre o destinație, poate să depășească

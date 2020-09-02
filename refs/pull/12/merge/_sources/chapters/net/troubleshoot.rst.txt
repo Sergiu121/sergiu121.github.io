@@ -34,6 +34,7 @@ activă folosind comanda următoare:
 
 
 .. code-block::
+
     student@uso:~$ ip link show
     1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN mode DEFAULT group default qlen 1000
         link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
@@ -54,6 +55,7 @@ DOWN.
 Pentru a porni interfața eno2 vom folosi următoarea comandă:
 
 .. code-block::
+
     student@uso:~$ ip link set up dev eno2
 
 Mereu după ce rulăm o comandă trebuie să verificăm că s-a efectuat comanda cu
@@ -61,6 +63,7 @@ succes folosind o comandă de verificare. În cazul de față vom folosi tot
 comanda `ip link show`:
 
 .. code-block::
+
     student@uso:~$ ip link show
     1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN mode DEFAULT group default qlen 1000
         link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
@@ -90,6 +93,7 @@ Pentru a vedea adresele IP configurate pe interfețele de rețea folosim
 următoarea comandă:
 
 .. code-block::
+
     student@uso:~$ ip address show
     1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
         link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
@@ -109,71 +113,287 @@ următoarea comandă:
 Adresele IP ale interfețelor sunt scrise pe liniile care conțin `inet`.
 Observăm că există două tipuri de adrese IP, în funcție de parametrul `inet`:
 
+* Adrese IPv4 care sunt de forma "A.B.C.D", unde A, B, C și D sunt numere cu
+  valori între 1 si 255
+* Adrese IPv6, care sunt de forma "A:B:C:D:E:F:G:H", unde A-H sunt numere în
+  format hexazecimal care pot lua valori de la "0x0000" la "0xFFFF"
+
 a. Configurarea unei adrese IP
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Le dăm o maşină care are interfaţa pornită, dar le arătăm ca nu are IP pe
-interfaţă. Le arătăm comanda `dhclient <interfaţă>` pentru a obţine adresa IP şi
-le arătăm că pot să dea ping la un calculator, dar nu se pot da ping la anumite
-adrese IP.
+RECAPITULARE:
 
-b. Inspectarea rutelor din sistem
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Porniți interfața eno2.
 
-Le explicăm ce înseamnă o reţea de calculatoare şi de ce nu le merge să iasă din
-reţeaua lor, că nu este setat un default gateway. Îi punem să dea `traceroute`
-înainte şi după ce adaugă o rută de mână (sau putem să îi punem sa dea iar
-dhclient, dar pe o altă maşină pe care este configurat dhclient să dea gateway)
-şi îi punem să dea a doua oară traceroute, ca să vadă că iese din reţea acum.
+Există două metode pentru configurarea unei adrese IP pe o interfață:
 
-c. Configurarea gateway-ului
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+* configurare statică, implică să cunoaștem din ce rețea face parte interfața
+  pe care vrem să o configurăm
 
-Le explicăm ce înseamnă o reţea de calculatoare şi de ce nu le merge să iasă din
-reţeaua lor, că nu este setat un default gateway. Îi punem să dea `traceroute`
-înainte şi după ce adaugă o rută de mână (sau putem să îi punem sa dea iar
-dhclient, dar pe o altă maşină pe care este configurat dhclient să dea gateway)
-şi îi punem să dea a doua oară traceroute, ca să vadă că iese din reţea acum;
+* configurare dinamică, care nu presupune cunoașterea informațiilor despre
+  rețea, deoarece acestea vor fi primite automat de pe rețea
 
-d. Verificarea conectivității la o altă stație
+Vom insista pe configurarea dinamică, deoarece majoritatea timpului nu avem cum
+să aflam informațiile despre rețea înainte de a configura interfața de rețea.
+De exemplu, atunci când ne conectăm la o rețea wireless, nu știm care sunt
+adresele IP disponibile în acea rețea, așă că folosim protocolul DHCP pentru a
+cere o adresă IP de la un server care cunoaște configurarea rețelei.
+
+
+Pentru a obține a seta dinamic o adresă IP în mod dinamic pe o interfață
+folosim comanda `dhclient` în felul următor:
+
+.. code-block::
+
+    student@uso:~$ dhclient eno2
+
+Mai sus am rulat comanda pentru a obține o adresă IP pentru interfața eno2.
+
+TASK DE RECAPITULARE:
+
+Afișați adresele IP de pe toate interfețele.
+
+Observați că am obținut o adresă IP pe interfața eno2.
+
+Pentru șterge o adresă IP de pe o interfața folosim comanda `ip address flush` în felul următor:
+
+.. code-block::
+
+    student@uso:~$ ip address flush eno2
+    student@uso:~$ ip address show
+    <TODO>
+
+TASK DE RECAPITULARE:
+
+Configurați adresa IP pe interfața eno3
+
+
+b. Verificarea conectivității la o altă stație
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Le vom arăta cum să folosească comanda `ping` pentru a verifica conexiunea cu
-diverse stații.
+Pentru a verifica conexiunea dintre două stații folosim comanda `ping`. Această
+comandă trimite mesaje către o stație și așteaptă un răspuns de la ea.
 
-Pentru a face troubleshooting facil este necesar să porniţi de la primul nivel
-al stivei de reţea şi să verificaţi folosind comenzile de verificare de mai sus
-(`ip address show`, `ip route show`, `traceroute`, `ping <adresă IP>`, `ping
-<hostname>`) pentru a verifica funcţionalitatea fiecărui nivel.
+Atunci când testăm conexiunea la internet, vrem să verificăm câteva aspecte,
+odată ce am obținut o adresă IP de la serverul DHCP:
 
-d. Investigarea serviciului DNS
+* verificăm dacă putem să ne conectăm la alte calculatoare din aceeași rețea
+
+* verificăm dacă putem să comunicăm cu stații din afara rețelei
+
+Comanda `ping` se folosește în felul următor:
+
+.. code-block::
+
+    student@uso:~$ ping 127.0.0.1
+    <TODO>
+
+Atunci când nu pot fi trimise mesaje către stația identificată prin adresa IP
+mesajul de eroare va arăta în felul următor:
+
+.. code-block::
+
+    student@uso:~$ ping <TODO>
+    <TODO>
+
+Pentru verificarea conectivității în interiorul rețelei trebuie să verificăm că
+putem să trimitem mesaje folosind ping unui calculator din rețea.
+
+O țintă bună de testare pentru trimiterea mesajelor în rețea este default
+gateway-ul. Un default gateway este un dispozitiv de rețea care se ocupă de
+interconectarea rețelelor și care primește mesaje de la toate stațiile din
+rețea pentru a le trimite în Internet.
+
+Default gateway-ul este configurat static sau dinamic, cum este configurată și adresa IP a unei interfețe.
+
+Pentru a identifica gateway-ul default folosim comanda `ip route show` în felul următor:
+
+.. code-block::
+
+    student@uso:~$ ip route show default
+    <TODO>
+
+Observăm că adresa IP a stației gateway este <TODO>.
+
+RECAPITULARE:
+
+Aflați adresa de rețea de pe interfața <TODO>.
+
+OBSERVAȚIE:
+
+După cum putem să observăm, adresa IP a gateway-ului și adresa IP a interfeței
+<TODO> sunt foarte similare. Asta se întâmplă deoarece stațiile se află în
+aceeași rețea.
+
+EXERCIȚIU:
+
+Verificați conexiunea cu gateway-ul default folosind comanda `ping`.
+
+Pentru verificarea conexiunii la Internet este bine să verificăm cu o adresă
+consacrată, care avem încredere că nu va avea probleme tehnice. Un astfel de
+exemplu este server-ul de DNS oferit de Google, care se află la adresa IP 8.8.8.8.
+
+EXERCIȚIU:
+
+Verificați conexiunea la server-ul de DNS oferit de Google folosind comanda `ping`.
+
+c. Investigarea serviciului DNS
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Le vom arăta cu o imagine cum funcţionează DNS-ul şi le vom arăta că poate fi
-configurat temporar din /etc/resolv.conf, pentru a testa alte servere de DNS.
+După cum ați observat, până acum am lucrat numai cu adrese IP, dar noi lucrăm
+în viața de zi cu zi cu numele site-urilor, deoarece ne este mai ușor să
+reținem nume decât adrese IP.
 
-Le vom arăta cum se foloseşte comanda `dig`, pentru a verifica răspunsurile de
-la diverse DNS-uri, gen Google şi CloudFlare.
+Ne dorim să avem un serviciu DNS funcțional în permanență pe sistemul pe care lucrăm.
+
+În mod implicit serviciul DNS este configurat prin DHCP.
+
+.. code-block::
+
+    student@uso:~$ nmcli dev show | grep DNS
+    <TODO>
+
+RECAPITULARE:
+
+Afișați adresa IP a default gateway-ului.
+
+OBSERVAȚIE:
+
+Observați că adresa gateway-ului este aceeași cu adresa DNS-ului. De obicei
+server-ul gateway este configurat ca server DNS, iar acesta va trimite cererile
+mai departe către un alt server DNS.
+
+Pentru a verifica funcționalitatea DNS-ului, putem să facem o cerere DNS folosind comanda `dig` în felul următor.
+
+.. code-block::
+
+    student@uso:~$ dig google.com
+    <TODO>
+
+Cererile DNS nu trebuie să fie făcute direct de noi atunci când încercăm să accesăm o resursă din internet folosind un nume, deoarece aplicațiile fac cereri în mod implicit.
+
+EXEMPLU:
+
+.. code-block::
+
+    student@uso:~$ ping google.com
+    <TODO>
+
+Observați că aplicația ping a aflat de una singură care este adresa IP asociată
+numelui google.com și a făcut cererea în fundal.
+
+În caz că vrem să schimbăm temporar DNS-ul pe care îl folosim trebuie să
+modificăm fișierul /etc/resolv.conf. Acest fișier specifică DNS-ul care va fi
+folosit pentru cereri pe linia care conține cuvântul nameserver, după cum
+puteți vedea mai jos.
+
+.. code-block::
+
+    student@uso:~$ cat /etc/resolv.conf
+    <TODO>
+
+Dacă schimbăm adresa DNS-ului cu altă adresă, cum ar fi cea a DNS-ului oferit
+de Google, putem să vedem o schimbare în răspunsurile de la serverul DNS.
+
+
+.. code-block::
+
+    student@uso:~$ dig google.com
+    <modificăm /etc/resolv.conf>
+    student@uso:~$ cat /etc/resolv.conf
+    <TODO>
+    student@uso:~$ dig google.com
+    <TODO>
+
+ATENȚIE:
+
+Acestea sunt modificări temporare folosite pentru depanarea problemelor cu
+serviciul DNS.
+
+EXERCIȚIU:
+
+Realizați modificările necesare astfel încât cererile de tip DNS să fie trimise
+către serverul de DNS oferit de CloudFlare de la adresa 1.1.1.1.
 
 3) Configurarea nivelului Transport
 -----------------------------------
 
+Atunci când folosim internetul ce facem de fapt este că ne conectăm la
+aplicații care rulează și noi pornim la rândul nostru aplicații care așteaptă
+conexiuni din exterior.
+
+Pentru a distinge aplicațiile și destinația mesajelor, folosim conceptul de
+porturi. Astfel, fiecare aplicație deschide un port pentru a comunica cu exteriorul.
+
+Există două tipuri de port-uri care pot fi deschis, în funcție de protocolul folosit:
+
+* porturi TCP, folosite de aplicații care depind de trimiterea corectă și în
+  ordine a informației, cum ar fi servere web;
+
+* porturi UDP, folosite de aplicații care trebuie să trimită informație repede
+  și care sunt rezistente la greșeli de trimitere ale pachetelor, cum ar fi
+  aplicații de video streaming
+
 a. Conectivitatea între aplicații de rețea folosind porturi
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Le arătăm că fiecare aplicaţie care vrea să răspundă la cereri se foloseşte de
-porturi. Pentru asta vom folosi `netcat` pentru a deschide un port, iar apoi
-vom folosi `netstat` pentru a vedea ca a fost deschis portul.
+Pentru afișarea porturilor deschide, pe care comunica o aplicație, folosim comanda `netstat`:
 
-b. Pornirea unei aplicaţii care folosește porturi
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. code-block::
 
-Studenţii se vor conecta la portul deschis folosind `netcat`, şi vor scrie la
-tastatura ceva pentru a apărea pe server.
+    student@uso:~$ netstat -tlpn
+    <TODO>
 
-c. Conectarea TCP la o aplicație
+OBSERVAȚIE:
+
+Pentru comanda de mai sus folosim următoarele opțiuni pentru filtrarea afișării:
+
+* `-t` afișează doar porturile TCP deschise
+
+* `-l` afișează doar porturile deschise care ascultă mesaje, nu și cele deschide pentru trimiterea mesajelor
+
+* `-p` afișează programul care a deschis portul
+
+* `-n` afișează IP-ul pe care se ascultă după conexiuni
+
+EXERCIȚIU:
+
+Afișați porturile UDP deschise pe stația pe care lucrați.
+
+După cum observăm, există un server HTTP care rulează pe mașină și ascultă pe portul 80.
+
+b. Conectarea TCP la o aplicație
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Vom pune studenții sa se conecteze la portul 80 al unui site (cum ar fi
-elf.cs.pub.ro) și să vadă ce apare la terminal. Astfel, le vom explica ca
-server-ele deschid un port la care se conectează serviciile client.
+Vrem să observăm cum răspunde această aplicație la mesaje. De regula un server HTTP răspunde printr-un mesaj în format HTML.
+
+Pentru a trimite mesaje, indiferent de tipul aplicației care primește mesajul folosim comanda `nc` în felul următor
+
+.. code-block::
+
+    student@uso:~$ nc 127.0.0.1 80
+    lala
+    HTTP/1.1 400 Bad Request
+    Server: nginx/1.18.0
+    Date: Tue, 01 Sep 2020 21:46:35 GMT
+    Content-Type: text/html
+    Content-Length: 157
+    Connection: close
+    
+    <html>
+    <head><title>400 Bad Request</title></head>
+    <body>
+    <center><h1>400 Bad Request</h1></center>
+    <hr><center>nginx/1.18.0</center>
+    </body>
+    </html>
+
+OBSERVAȚI:
+
+Mesajul primit este un răspuns de tipul "Bad Request", deoarece am trimis un
+mesaj care nu este în formatul așteptat de serverul HTTP.
+
+EXERCIȚIU:
+
+Trimiteți un mesaj către programul care ascultă pe portul 8080 pe mașina locală
+(cu IP-ul 127.0.0.1).
