@@ -1204,7 +1204,7 @@ sleep <span class="m">100</span>
 <p class="admonition-title">Note</p>
 <p>Supendarea și restaurarea proceselor sunt realizate folosind tot semnale.
 Astfel, combinația de taste <code class="docutils literal notranslate"><span class="pre">Ctrl+z</span></code> transmite un semnal, numit <code class="docutils literal notranslate"><span class="pre">SIGSTOP</span></code> procesului.
-La fel, comanda <code class="docutils literal notranslate"><span class="pre">fg</span></code> transmite un semnal numit</p>
+La fel, comanda <code class="docutils literal notranslate"><span class="pre">fg</span></code> transmite un semnal numit <code class="docutils literal notranslate"><span class="pre">SIGCONT</span></code>.</p>
 </div>
 <div class="section" id="background-si-foreground">
 <h4><span class="section-number">2.4.3.1. </span>Background și foreground<a class="headerlink" href="#background-si-foreground" title="Permalink to this headline">¶</a></h4>
@@ -1227,9 +1227,10 @@ student@uso:~$ <span class="nb">jobs</span>
 </pre></div>
 </div>
 <p>Așa cum reiese de mai sus, procesul <code class="docutils literal notranslate"><span class="pre">sleep</span></code> rulează (<code class="docutils literal notranslate"><span class="pre">Running</span></code>) în <strong>background</strong>.
+Operatorul shell <code class="docutils literal notranslate"><span class="pre">&amp;</span></code> (<em>ampersand</em>), folosit la sfârșitul unei comenzi, duce la pornirea procesului respectiv în <strong>background</strong> în starea de rulare (<code class="docutils literal notranslate"><span class="pre">Running</span></code>).
 Comanda <code class="docutils literal notranslate"><span class="pre">jobs</span></code> are astfel rolul de a afișa toate procesele aflate în <strong>background</strong>, indiferent de starea lor (suspendate sau în rulare).</p>
 <p>Sumarizat, modul în care se face tranziția între stări și între <strong>foreground</strong> și <strong>background</strong> se găsește în imaginea de mai jos:</p>
-<a class="reference internal image-reference" href="../../_images/background-foreground.svg"><img alt="Utilitarul top" class="align-center" src="../../_images/background-foreground.svg" width="600px" /></a>
+<a class="reference internal image-reference" href="../../_images/background-foreground.svg"><img alt="Foreground și background" class="align-center" src="../../_images/background-foreground.svg" width="600px" /></a>
 </div>
 </div>
 <div class="section" id="exercitii-oprirea-si-suspendarea-proceselor">
