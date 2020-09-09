@@ -1039,6 +1039,17 @@ Expresia <code class="docutils literal notranslate"><span class="pre">DCIM*</spa
 <h4><span class="section-number">2.3.3.1. </span>Caracterul special <code class="docutils literal notranslate"><span class="pre">*</span></code><a class="headerlink" href="#caracterul-special" title="Permalink to this headline">¶</a></h4>
 <p>În sintaxa globbing, caracterul <code class="docutils literal notranslate"><span class="pre">*</span></code> poate fi înlocuit cu orice caracter de oricâte ori, sau poate lipsi cu totul.
 În directorul vostru home (<code class="docutils literal notranslate"><span class="pre">~</span></code>), executați următoarele comenzi:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ ls
+Desktop    Downloads  Pictures  Templates  examples.desktop  vm-actions-log.txt
+Documents  Music      Public    Videos     uso.git           workspace
+
+student@uso:~$ ls -d D*
+Desktop  Documents  Downloads
+
+student@uso:~$ ls -d Music*
+Music
+</pre></div>
+</div>
 <p>Observăm că în expresia <code class="docutils literal notranslate"><span class="pre">D*</span></code>, caracterul <code class="docutils literal notranslate"><span class="pre">*</span></code> înglobează toate caracterele care urmează literei <strong>D</strong>: “esktop”, “ocuments” și “ownloads”.
 Observăm că în cazul expresie <code class="docutils literal notranslate"><span class="pre">Music*</span></code>, <code class="docutils literal notranslate"><span class="pre">*</span></code> nu ține locul nici unui caracter.</p>
 </div>
@@ -1046,6 +1057,16 @@ Observăm că în cazul expresie <code class="docutils literal notranslate"><spa
 <h4><span class="section-number">2.3.3.2. </span>Caracterul special <code class="docutils literal notranslate"><span class="pre">?</span></code><a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h4>
 <p>În sintaxa globbing, caracterul <code class="docutils literal notranslate"><span class="pre">?</span></code> înlocuiește exact un caracter, oricare ar fi acela.
 În directorul vostru home (<code class="docutils literal notranslate"><span class="pre">~</span></code>), executați următoarele comenzi:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ ls -d Musi?
+Music
+
+student@uso:~$ ls -d Mus??
+Music
+
+student@uso:~$ ls -d Music?
+ls: cannot access <span class="s1">&#39;Music?&#39;</span>: No such file or directory
+</pre></div>
+</div>
 <p>Observăm că expresiile <code class="docutils literal notranslate"><span class="pre">Musi?</span></code> și <code class="docutils literal notranslate"><span class="pre">Mus??</span></code> s-au înlocuit cu succes cu numele directorului <code class="docutils literal notranslate"><span class="pre">Music</span></code>, dar expresia <code class="docutils literal notranslate"><span class="pre">Music?</span></code> a generat o eroare deoarece nu există nici un fișier <strong>Music</strong> urmat de un caracter.</p>
 </div>
 <div class="section" id="sintaxa-speciala">
@@ -1053,6 +1074,13 @@ Observăm că în cazul expresie <code class="docutils literal notranslate"><spa
 <p>În sintaxa globbing, folosim sintaxa <code class="docutils literal notranslate"><span class="pre">[]</span></code> pentru a defini o listă de caractere care pot fi folosite în înlocuire.
 Această sintaxă înlocuiește exact un caracter din lista oferită.
 În directorul vostru home (<code class="docutils literal notranslate"><span class="pre">~</span></code>), executați următoarele comenzi:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ ls -d Mus<span class="o">[</span>ijk<span class="o">]</span>c
+Music
+
+student@uso:~$ ls -d Mus<span class="o">[</span>abc<span class="o">]</span>c
+ls: cannot access <span class="s1">&#39;Mus[abc]c&#39;</span>: No such file or directory
+</pre></div>
+</div>
 <p>În expresia <code class="docutils literal notranslate"><span class="pre">Musi[ijk]c</span></code>, i-am “spus” shellului că al patrulea caracter poate să fie oricare din lista <code class="docutils literal notranslate"><span class="pre">[ijk]</span></code>.
 În acest context, globbing a găsit cu succes numele fișierului <strong>Music</strong>.
 În expresia <code class="docutils literal notranslate"><span class="pre">Musi[abc]c</span></code>, i-am “spus” shellului că al patrulea caracter poate să fie oricare din lista <code class="docutils literal notranslate"><span class="pre">[abc]</span></code>.
