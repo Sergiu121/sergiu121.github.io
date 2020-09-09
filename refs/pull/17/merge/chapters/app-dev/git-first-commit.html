@@ -538,16 +538,17 @@ Untracked files:
 <p>Prima linie afișată <code class="docutils literal notranslate"><span class="pre">On</span> <span class="pre">branch</span> <span class="pre">master</span></code> se referă la branch-ul master local.
 Ne indică faptul că modificările făcute, adică crearea fișierelor <code class="docutils literal notranslate"><span class="pre">README.md</span></code> și <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code> au fost făcute pe branch-ul master.</p>
 <p>A doua linie afișată <code class="docutils literal notranslate"><span class="pre">No</span> <span class="pre">commits</span> <span class="pre">yet</span></code> se referă la faptul că nu am făcut până acum niciun comit, adică am pornit de la un repository gol.</p>
-<p>În ultima parte a outputului vedem că se află o listă de fișiere <code class="docutils literal notranslate"><span class="pre">untracked</span></code>, adică lista fișierelor pe care Git nu le are în aria de vizibilitate.</p>
+<p>În ultima parte a outputului vedem că se află o listă de fișiere <code class="docutils literal notranslate"><span class="pre">untracked</span></code>, adică lista fișierelor pe care Git le vede ca nou adăugate în repository-ul curent, dar pe care nu le monitorizează încă.
+Asta înseamnă că deocamdată orice modificare făcută asupra acestor fișiere nu va fi urmărită de Git.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Git vede ca fiind modificate sau nou adăugate aceste fișiere, însă nu știe cum să le catalogheze.
-Este datoria noastră de a adăuga fișierele în aria de vizibilitate pentru Git.</p>
+<p>Este datoria noastră de a adăuga fișierele în aria de vizibilitate pentru Git.</p>
 </div>
 </div>
 <div class="section" id="adaugarea-unui-fisier-in-staging-area">
 <h3><span class="section-number">2.2.2. </span>Adăugarea unui fișier (în staging area)<a class="headerlink" href="#adaugarea-unui-fisier-in-staging-area" title="Permalink to this headline">¶</a></h3>
-<p>Adăugăm fișierul <strong>README.md</strong> în aria de vizibilitate pentru Git, adică în <strong>staging area</strong>.</p>
+<p>Adăugăm fișierul <strong>README.md</strong> în aria de vizibilitate pentru Git, adică în <strong>staging area</strong>.
+În <strong>staging area</strong> adăugăm fișierele pe care le pregătim pentru un commit.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/my-first-repository$ git add README.md
 student@uso:~/my-first-repository$ git status
 On branch master
@@ -568,8 +569,10 @@ Asta înseamnă că acum Git știe de noile modificări și așteaptă ca modifi
 </div>
 <div class="section" id="crearea-commitului-local-cu-un-mesaj-corespunzator">
 <h3><span class="section-number">2.2.3. </span>Crearea commitului local cu un mesaj corespunzător<a class="headerlink" href="#crearea-commitului-local-cu-un-mesaj-corespunzator" title="Permalink to this headline">¶</a></h3>
-<p>Următorul pas în etapa de dezvoltare este chiar crearea unui nou commit cu modificările făcute.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>student@uso:~/my-first-repository$ git commit -m &quot;Add README.md&quot;
+<p>Următorul pas în etapa de dezvoltare este chiar crearea unui nou commit cu modificările făcute.
+Când vom da comanda <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">commit</span></code> se va deschide editorul text default al sistemului cu un fișier în care vom scrie pe prima linie o descriere a commitului, adică vom explica pe scurt ce modificări am adus cu acest commit.
+Pe următoarele linii se recomandă să facem o descriere mai detaliată a schimbărilor: care a fost problema inițială, cum am rezolvat-o.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>student@uso:~/my-first-repository$ git commit
 [master (root-commit) 0dfb632] Add README.md
 1 file changed, 1 insertion(+)
 create mode 100644 README.md
@@ -577,10 +580,6 @@ student@uso:~/my-first-repository$ git status
 On branch master
 nothing to commit, working tree clean
 </pre></div>
-</div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Fiecare commit trebuie să vină cu un mesaj alăturat în care se explică pe scurt ce modificări aduce acesta.</p>
 </div>
 <p>Există câteva bune practici de care trebuie să țineți întotdeauna cont.</p>
 <p>E bine ca atunci când ne apucăm de lucru să avem în vedere să sincronizăm din când în când repository-ul local cu cel remote.

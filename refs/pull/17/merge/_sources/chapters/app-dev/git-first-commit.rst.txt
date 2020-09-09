@@ -70,17 +70,18 @@ Ne indică faptul că modificările făcute, adică crearea fișierelor ``README
 
 A doua linie afișată ``No commits yet`` se referă la faptul că nu am făcut până acum niciun comit, adică am pornit de la un repository gol.
 
-În ultima parte a outputului vedem că se află o listă de fișiere ``untracked``, adică lista fișierelor pe care Git nu le are în aria de vizibilitate.
+În ultima parte a outputului vedem că se află o listă de fișiere ``untracked``, adică lista fișierelor pe care Git le vede ca nou adăugate în repository-ul curent, dar pe care nu le monitorizează încă.
+Asta înseamnă că deocamdată orice modificare făcută asupra acestor fișiere nu va fi urmărită de Git.
 
 .. note::
 
-    Git vede ca fiind modificate sau nou adăugate aceste fișiere, însă nu știe cum să le catalogheze.
     Este datoria noastră de a adăuga fișierele în aria de vizibilitate pentru Git.
 
 Adăugarea unui fișier (în staging area)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Adăugăm fișierul **README.md** în aria de vizibilitate pentru Git, adică în **staging area**.
+În **staging area** adăugăm fișierele pe care le pregătim pentru un commit.
 
 .. code-block:: bash
 
@@ -106,10 +107,12 @@ Crearea commitului local cu un mesaj corespunzător
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Următorul pas în etapa de dezvoltare este chiar crearea unui nou commit cu modificările făcute.
+Când vom da comanda ``git commit`` se va deschide editorul text default al sistemului cu un fișier în care vom scrie pe prima linie o descriere a commitului, adică vom explica pe scurt ce modificări am adus cu acest commit.
+Pe următoarele linii se recomandă să facem o descriere mai detaliată a schimbărilor: care a fost problema inițială, cum am rezolvat-o.
 
 .. code-block::
 
-    student@uso:~/my-first-repository$ git commit -m "Add README.md"
+    student@uso:~/my-first-repository$ git commit
     [master (root-commit) 0dfb632] Add README.md
     1 file changed, 1 insertion(+)
     create mode 100644 README.md  
@@ -117,7 +120,6 @@ Următorul pas în etapa de dezvoltare este chiar crearea unui nou commit cu mod
     On branch master
     nothing to commit, working tree clean  
 
-.. note:: Fiecare commit trebuie să vină cu un mesaj alăturat în care se explică pe scurt ce modificări aduce acesta.
 
 Există câteva bune practici de care trebuie să țineți întotdeauna cont.
 
