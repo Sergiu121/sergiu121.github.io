@@ -417,9 +417,9 @@
                 
                   <li class="toctree-l2"><a href="#cea-mai-importanta-comanda" class="reference internal">Cea mai importantă comandă</a></li>
                 
-                  <li class="toctree-l2"><a href="#comanda-cd" class="reference internal">Comanda cd</a></li>
+                  <li class="toctree-l2"><a href="#navigarea-sistemului-de-fisiere-comanda-cd" class="reference internal">Navigarea sistemului de fișiere: comanda cd</a></li>
                 
-                  <li class="toctree-l2"><a href="#comanda-ls" class="reference internal">Comanda ls</a></li>
+                  <li class="toctree-l2"><a href="#explorarea-sistemului-de-fisiere-comanda-ls" class="reference internal">Explorarea sistemului de fișiere: comanda ls</a></li>
                 
                   <li class="toctree-l2"><a href="#find-si-locate" class="reference internal">find și locate</a></li>
                 
@@ -494,7 +494,7 @@
           <div class="content" role="main">
             
   <div class="section" id="inspectarea-sistemului-de-fisiere">
-<h1><span class="section-number">2. </span>Inspectarea sistemului de fișiere<a class="headerlink" href="#inspectarea-sistemului-de-fisiere" title="Permalink to this headline">¶</a></h1>
+<span id="improve-cli-inspect-fs"></span><h1><span class="section-number">2. </span>Inspectarea sistemului de fișiere<a class="headerlink" href="#inspectarea-sistemului-de-fisiere" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="cea-mai-importanta-comanda">
 <h2><span class="section-number">2.1. </span>Cea mai importantă comandă<a class="headerlink" href="#cea-mai-importanta-comanda" title="Permalink to this headline">¶</a></h2>
 <p>Așa cum spuneam mai devreme, marele avantaj al utilizării terminalului este că ne ajută să rezolvăm sarcini foarte rapid.
@@ -784,8 +784,8 @@ Feriți-vă să rulați comenzi orbește, pentru că așa ați găsit pe StackOv
 </ul>
 </div>
 </div>
-<div class="section" id="comanda-cd">
-<h2><span class="section-number">2.2. </span>Comanda <code class="docutils literal notranslate"><span class="pre">cd</span></code><a class="headerlink" href="#comanda-cd" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="navigarea-sistemului-de-fisiere-comanda-cd">
+<h2><span class="section-number">2.2. </span>Navigarea sistemului de fișiere: comanda <code class="docutils literal notranslate"><span class="pre">cd</span></code><a class="headerlink" href="#navigarea-sistemului-de-fisiere-comanda-cd" title="Permalink to this headline">¶</a></h2>
 <p>Comanda <code class="docutils literal notranslate"><span class="pre">cd</span></code> este una dintre cele mai folosite comenzi.
 Funcționalitatea este în numele ei, <strong>cd</strong> fiind o abreviere pentru <strong>change directory</strong>.
 Este esențial să ne simțim foarte comfortabili atunci când navigăm prin sistemul de fișiere.</p>
@@ -879,8 +879,8 @@ Navigați în directorul <code class="docutils literal notranslate"><span class=
 </div>
 </div>
 </div>
-<div class="section" id="comanda-ls">
-<h2><span class="section-number">2.3. </span>Comanda <code class="docutils literal notranslate"><span class="pre">ls</span></code><a class="headerlink" href="#comanda-ls" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="explorarea-sistemului-de-fisiere-comanda-ls">
+<h2><span class="section-number">2.3. </span>Explorarea sistemului de fișiere: comanda <code class="docutils literal notranslate"><span class="pre">ls</span></code><a class="headerlink" href="#explorarea-sistemului-de-fisiere-comanda-ls" title="Permalink to this headline">¶</a></h2>
 <p>Comanda <code class="docutils literal notranslate"><span class="pre">ls</span></code> este și ea una dintre cele mai folosite comenzi.
 Funcționalitatea este în numele ei, <strong>ls</strong> fiind o abreviere pentru <strong>list</strong>.
 Folosim <code class="docutils literal notranslate"><span class="pre">ls</span></code> pentru a afișa mai multe informații despre conținutul unui director sau despre fișiere.</p>
@@ -1020,12 +1020,91 @@ drwxr-xr-x <span class="m">2</span> student student <span class="m">4096</span> 
 </ol>
 </div>
 </div>
-<div class="section" id="globbing">
-<h3><span class="section-number">2.3.3. </span>Globbing<a class="headerlink" href="#globbing" title="Permalink to this headline">¶</a></h3>
-<p>Ce este globbing?</p>
-<p>Folosire caractere <code class="docutils literal notranslate"><span class="pre">*</span></code>, <code class="docutils literal notranslate"><span class="pre">?</span></code>, [seturi] și {liste,grupuri}, escaping folosind <code class="docutils literal notranslate"><span class="pre">“</span></code> ex.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>ls “[USO] file”
+<div class="section" id="selectarea-multiplor-fisiere-folosind-globbing">
+<h3><span class="section-number">2.3.3. </span>Selectarea multiplor fișiere folosind globbing<a class="headerlink" href="#selectarea-multiplor-fisiere-folosind-globbing" title="Permalink to this headline">¶</a></h3>
+<p>Până acum am aplicat diferite comenzi fie pe fișiere individuale, fie pe întreg directorul.
+Foarte des vom avea nevoie de un mijloc prin care să putem selecta un număr variabil de fișiere care au un nume care corespunde unui tipar (pattern) comun.</p>
+<p>Să revenim la scenariul prezentat anterior: vrem să selectăm pozele din excursia din Sinaia.
+În directorul în care avem pozele din excursie avem și alte poze de la alte evenimente.
+Știm că pozele din excursie încep toate cu numele <strong>DCIM</strong> și apoi sunt urmate de un număr.
+Ceea ce vrem să facem este să selectăm toate pozele al căror nume corespunde acestui tipar și să le mutăm într-un director separat.
+Pentru asta folosim globbing, ca în exemplul de mai jos:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/Pictures$ mv DCIM* excursie-Sinaia-2020/
 </pre></div>
+</div>
+<p>Observăm argumentul pe care l-am dat comenzii <code class="docutils literal notranslate"><span class="pre">mv</span></code>, și anume <code class="docutils literal notranslate"><span class="pre">DCIM*</span></code>.
+Expresia <code class="docutils literal notranslate"><span class="pre">DCIM*</span></code> este un exemplu de globbing: adică o expresie care descrie un tipar prin folosirea unor caractere speciale, așa cum este caracterul <code class="docutils literal notranslate"><span class="pre">*</span></code>.
+În cazul de față, expresia <code class="docutils literal notranslate"><span class="pre">DCIM*</span></code> înseamnă orice fișier care începe cu șirul de caractere <code class="docutils literal notranslate"><span class="pre">DCIM</span></code>.</p>
+<div class="section" id="caracterul-special">
+<h4><span class="section-number">2.3.3.1. </span>Caracterul special <code class="docutils literal notranslate"><span class="pre">*</span></code><a class="headerlink" href="#caracterul-special" title="Permalink to this headline">¶</a></h4>
+<p>În sintaxa globbing, caracterul <code class="docutils literal notranslate"><span class="pre">*</span></code> poate fi înlocuit cu orice caracter de oricâte ori, sau poate lipsi cu totul.
+În directorul vostru home (<code class="docutils literal notranslate"><span class="pre">~</span></code>), executați următoarele comenzi:</p>
+<p>Observăm că în expresia <code class="docutils literal notranslate"><span class="pre">D*</span></code>, caracterul <code class="docutils literal notranslate"><span class="pre">*</span></code> înglobează toate caracterele care urmează literei <strong>D</strong>: “esktop”, “ocuments” și “ownloads”.
+Observăm că în cazul expresie <code class="docutils literal notranslate"><span class="pre">Music*</span></code>, <code class="docutils literal notranslate"><span class="pre">*</span></code> nu ține locul nici unui caracter.</p>
+</div>
+<div class="section" id="id1">
+<h4><span class="section-number">2.3.3.2. </span>Caracterul special <code class="docutils literal notranslate"><span class="pre">?</span></code><a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h4>
+<p>În sintaxa globbing, caracterul <code class="docutils literal notranslate"><span class="pre">?</span></code> înlocuiește exact un caracter, oricare ar fi acela.
+În directorul vostru home (<code class="docutils literal notranslate"><span class="pre">~</span></code>), executați următoarele comenzi:</p>
+<p>Observăm că expresiile <code class="docutils literal notranslate"><span class="pre">Musi?</span></code> și <code class="docutils literal notranslate"><span class="pre">Mus??</span></code> s-au înlocuit cu succes cu numele directorului <code class="docutils literal notranslate"><span class="pre">Music</span></code>, dar expresia <code class="docutils literal notranslate"><span class="pre">Music?</span></code> a generat o eroare deoarece nu există nici un fișier <strong>Music</strong> urmat de un caracter.</p>
+</div>
+<div class="section" id="sintaxa-speciala">
+<h4><span class="section-number">2.3.3.3. </span>Sintaxa specială <code class="docutils literal notranslate"><span class="pre">[]</span></code><a class="headerlink" href="#sintaxa-speciala" title="Permalink to this headline">¶</a></h4>
+<p>În sintaxa globbing, folosim sintaxa <code class="docutils literal notranslate"><span class="pre">[]</span></code> pentru a defini o listă de caractere care pot fi folosite în înlocuire.
+Această sintaxă înlocuiește exact un caracter din lista oferită.
+În directorul vostru home (<code class="docutils literal notranslate"><span class="pre">~</span></code>), executați următoarele comenzi:</p>
+<p>În expresia <code class="docutils literal notranslate"><span class="pre">Musi[ijk]c</span></code>, i-am “spus” shellului că al patrulea caracter poate să fie oricare din lista <code class="docutils literal notranslate"><span class="pre">[ijk]</span></code>.
+În acest context, globbing a găsit cu succes numele fișierului <strong>Music</strong>.
+În expresia <code class="docutils literal notranslate"><span class="pre">Musi[abc]c</span></code>, i-am “spus” shellului că al patrulea caracter poate să fie oricare din lista <code class="docutils literal notranslate"><span class="pre">[abc]</span></code>.
+Deoarece nu avem niciun fișier numit <strong>Musac</strong>, <strong>Musbc</strong> sau <strong>Muscc</strong>, comanda ne-a afișat mesajul de eroare corespunzător.</p>
+<p>Sintaxa <code class="docutils literal notranslate"><span class="pre">[]</span></code> nu ne limitează la a oferi enumarații de caractere, așa cum am făcut cu <code class="docutils literal notranslate"><span class="pre">[ijk]</span></code> sau <code class="docutils literal notranslate"><span class="pre">[abc]</span></code>.
+Sintaxa accepta și intervale, cum observăm în exemplul de mai jos:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ ls -d Mus<span class="o">[</span>A-Za-z0-9<span class="o">]</span>c
+Music
+</pre></div>
+</div>
+<p>Citim expresia <code class="docutils literal notranslate"><span class="pre">[A-Za-z0-9]</span></code> în următorul mod: această expresie înlocuiește un caracter din intervalul <code class="docutils literal notranslate"><span class="pre">A-Z</span></code> sau din intervalul <code class="docutils literal notranslate"><span class="pre">a-z</span></code> sau din intervalul <code class="docutils literal notranslate"><span class="pre">0-9</span></code>; cu alte cuvinte înlocuiește un caracter alfa-numeric.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Folosim forma <code class="docutils literal notranslate"><span class="pre">A-Za-z</span></code> pentru a spune orice caracter din alfabetul englez, indiferent dacă este majusculă sau nu.
+Nu putem folosi forma <code class="docutils literal notranslate"><span class="pre">A-z</span></code> datorită reprezentării caracterelor în tabelul ascii.
+Caracterele <strong>A-Z</strong> sunt reprezentate în intervalul <strong>65-90</strong>, iar caracterele <strong>a-z</strong> în intervalul <strong>97-122</strong> în tabelul ascii.
+Dacă am folosi forma <strong>A-z</strong>, i-am spune expresiei globbing să includă și caracterele din intervalul <strong>91-96</strong> din tabelul ascii în expresia noastră.</p>
+</div>
+</div>
+<div class="section" id="id2">
+<h4><span class="section-number">2.3.3.4. </span>Sintaxa specială <code class="docutils literal notranslate"><span class="pre">{}</span></code><a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h4>
+<p>În sintaxa globbing, folosim sintaxa <code class="docutils literal notranslate"><span class="pre">{}</span></code> pentru a defini o listă de cuvinte (grupuri de caractere) care pot fi folosite în înlocuire.
+Această sintaxă înlocuiește exact un caracter din lista oferită.
+În directorul vostru home (<code class="docutils literal notranslate"><span class="pre">~</span></code>), executați următoarele comenzi:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ ls -d <span class="o">{</span>Downloads,Music<span class="o">}</span>
+Downloads  Music
+
+student@uso:~$ ls -d <span class="o">{</span>Down,Mus<span class="o">}</span>*
+Downloads  Music
+</pre></div>
+</div>
+<p>Citim expresia <code class="docutils literal notranslate"><span class="pre">{Downloads,Music}</span></code>: în locul acestei expresii poate să existe cuvântul <strong>Downloads</strong> sau cuvântul <strong>Music</strong>.
+Observăm că putem să combinăm orice elemente de globbing, așa cum am făcut în expresia <code class="docutils literal notranslate"><span class="pre">{Down,Mus}*</span></code>.</p>
+</div>
+<div class="section" id="folosirea-ad-litteram-a-caracterelor-speciale">
+<h4><span class="section-number">2.3.3.5. </span>Folosirea ad-litteram a caracterelor speciale<a class="headerlink" href="#folosirea-ad-litteram-a-caracterelor-speciale" title="Permalink to this headline">¶</a></h4>
+<p>Există cazuri când numele fișierelor conțin caractere speciale.
+Unele fișiere pot fi prefixate cu o categorie din care fac parte, ca în exemplul de mai jos:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ ls Documents/uni
+<span class="s1">&#39;[PC] Course 01.pdf&#39;</span>  <span class="s1">&#39;[USO] Course 01.pdf&#39;</span>  <span class="s1">&#39;[USO] Course 02.pdf&#39;</span>
+</pre></div>
+</div>
+<p>În exemplul de mai sus, fișierele pdf de curs sunt prefixate cu numele materiei: [PC], [USO].
+Vrem să îi spunem sintaxei de globbing că în acest caz, șirul <strong>[USO]</strong> nu trebuie tratat ca o expresie, ci ca un șir de caracter normale.
+Pentru a face asta, încadrăm șirul între <strong>“</strong>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ ls Documents/uni/<span class="s2">&quot;[USO]&quot;</span>*
+<span class="s1">&#39;Documents/uni/[USO] Course 01.pdf&#39;</span>  <span class="s1">&#39;Documents/uni/[USO] Course 02.pdf&#39;</span>
+</pre></div>
+</div>
+<p>Citim expresia <code class="docutils literal notranslate"><span class="pre">&quot;[USO]&quot;*</span></code>: orice fișier al cărui nume începe cu șirul de caractere <strong>[USO]</strong> și este urmat de orice caracter.
+Operația prin care eliminăm semnificația specială a unui caracter poartă numele de <strong>escaping</strong>; cu alte cuvinte, informal, spunem că am făcut escaping semnificației speciale a sintaxei <code class="docutils literal notranslate"><span class="pre">[]</span></code>.
+Termenul vine de la cuvântul <strong>escape</strong> (a scăpa), și exprimă că scăpăm de semnificația specială a unui caracter / set de caractere.</p>
 </div>
 </div>
 </div>

@@ -1,3 +1,5 @@
+.. _improve_cli_inspect_fs:
+
 Inspectarea sistemului de fișiere
 =================================
 
@@ -324,8 +326,8 @@ Sumar: Inspectarea paginilor de manual
 * Prezentarea pachetului ``tldr`` - poate fi util pentru cazurile uzuale, dar nu trebuie să ne fie frică să căutăm în ``man`` pentru detalii
 
 
-Comanda ``cd``
---------------
+Navigarea sistemului de fișiere: comanda ``cd``
+-----------------------------------------------
 
 Comanda ``cd`` este una dintre cele mai folosite comenzi.
 Funcționalitatea este în numele ei, **cd** fiind o abreviere pentru **change directory**.
@@ -438,8 +440,9 @@ Trebuie să ne fie foarte clar când folosim o cale absolută, când folosim una
    Navigați în directorul ``~/Desktop`` folosind o cale absolută.
    Navigați în directorul ``~/Music`` folosind o cale relativă.
 
-Comanda ``ls``
---------------
+
+Explorarea sistemului de fișiere: comanda ``ls``
+------------------------------------------------
 
 Comanda ``ls`` este și ea una dintre cele mai folosite comenzi.
 Funcționalitatea este în numele ei, **ls** fiind o abreviere pentru **list**.
@@ -601,15 +604,147 @@ Pentru a-i specifica lui ``ls`` că suntem interesați de informații despre fi�
 
 #. Aflați care sunt permisiunile pe care le are orice utilizator asupra directoarelor ``/home``, ``/home/student`` și ``/tmp``.
 
-Globbing
-^^^^^^^^
+Selectarea multiplor fișiere folosind globbing
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Ce este globbing?
+Până acum am aplicat diferite comenzi fie pe fișiere individuale, fie pe întreg directorul.
+Foarte des vom avea nevoie de un mijloc prin care să putem selecta un număr variabil de fișiere care au un nume care corespunde unui tipar (pattern) comun.
 
-Folosire caractere ``*``, ``?``, [seturi] și {liste,grupuri}, escaping folosind ``“`` ex.
-::
+Să revenim la scenariul prezentat anterior: vrem să selectăm pozele din excursia din Sinaia.
+În directorul în care avem pozele din excursie avem și alte poze de la alte evenimente.
+Știm că pozele din excursie încep toate cu numele **DCIM** și apoi sunt urmate de un număr.
+Ceea ce vrem să facem este să selectăm toate pozele al căror nume corespunde acestui tipar și să le mutăm într-un director separat.
+Pentru asta folosim globbing, ca în exemplul de mai jos:
 
-	ls “[USO] file”
+.. code-block:: bash
+
+    student@uso:~/Pictures$ mv DCIM* excursie-Sinaia-2020/
+
+Observăm argumentul pe care l-am dat comenzii ``mv``, și anume ``DCIM*``.
+Expresia ``DCIM*`` este un exemplu de globbing: adică o expresie care descrie un tipar prin folosirea unor caractere speciale, așa cum este caracterul ``*``.
+În cazul de față, expresia ``DCIM*`` înseamnă orice fișier care începe cu șirul de caractere ``DCIM``.
+
+Caracterul special ``*``
+""""""""""""""""""""""""
+
+În sintaxa globbing, caracterul ``*`` poate fi înlocuit cu orice caracter de oricâte ori, sau poate lipsi cu totul.
+În directorul vostru home (``~``), executați următoarele comenzi:
+
+.. code-block::bash
+
+    student@uso:~$ ls
+    Desktop    Downloads  Pictures  Templates  examples.desktop  vm-actions-log.txt
+    Documents  Music      Public    Videos     uso.git           workspace
+
+    student@uso:~$ ls -d D*
+    Desktop  Documents  Downloads
+
+    student@uso:~$ ls -d Music*
+    Music
+
+Observăm că în expresia ``D*``, caracterul ``*`` înglobează toate caracterele care urmează literei **D**: "esktop", "ocuments" și "ownloads".
+Observăm că în cazul expresie ``Music*``, ``*`` nu ține locul nici unui caracter.
+
+
+Caracterul special ``?``
+""""""""""""""""""""""""
+
+În sintaxa globbing, caracterul ``?`` înlocuiește exact un caracter, oricare ar fi acela.
+În directorul vostru home (``~``), executați următoarele comenzi:
+
+.. code-block::bash
+
+    student@uso:~$ ls -d Musi?
+    Music
+
+    student@uso:~$ ls -d Mus??
+    Music
+
+    student@uso:~$ ls -d Music?
+    ls: cannot access 'Music?': No such file or directory
+
+Observăm că expresiile ``Musi?`` și ``Mus??`` s-au înlocuit cu succes cu numele directorului ``Music``, dar expresia ``Music?`` a generat o eroare deoarece nu există nici un fișier **Music** urmat de un caracter.
+
+
+Sintaxa specială ``[]``
+"""""""""""""""""""""""
+
+În sintaxa globbing, folosim sintaxa ``[]`` pentru a defini o listă de caractere care pot fi folosite în înlocuire.
+Această sintaxă înlocuiește exact un caracter din lista oferită.
+În directorul vostru home (``~``), executați următoarele comenzi:
+
+.. code-block::bash
+
+    student@uso:~$ ls -d Mus[ijk]c
+    Music
+
+    student@uso:~$ ls -d Mus[abc]c
+    ls: cannot access 'Mus[abc]c': No such file or directory
+
+În expresia ``Musi[ijk]c``, i-am "spus" shellului că al patrulea caracter poate să fie oricare din lista ``[ijk]``.
+În acest context, globbing a găsit cu succes numele fișierului **Music**.
+În expresia ``Musi[abc]c``, i-am "spus" shellului că al patrulea caracter poate să fie oricare din lista ``[abc]``.
+Deoarece nu avem niciun fișier numit **Musac**, **Musbc** sau **Muscc**, comanda ne-a afișat mesajul de eroare corespunzător.
+
+Sintaxa ``[]`` nu ne limitează la a oferi enumarații de caractere, așa cum am făcut cu ``[ijk]`` sau ``[abc]``.
+Sintaxa accepta și intervale, cum observăm în exemplul de mai jos:
+
+.. code-block:: bash
+
+    student@uso:~$ ls -d Mus[A-Za-z0-9]c
+    Music
+
+Citim expresia ``[A-Za-z0-9]`` în următorul mod: această expresie înlocuiește un caracter din intervalul ``A-Z`` sau din intervalul ``a-z`` sau din intervalul ``0-9``; cu alte cuvinte înlocuiește un caracter alfa-numeric.
+
+.. note::
+
+    Folosim forma ``A-Za-z`` pentru a spune orice caracter din alfabetul englez, indiferent dacă este majusculă sau nu.
+    Nu putem folosi forma ``A-z`` datorită reprezentării caracterelor în tabelul ascii.
+    Caracterele **A-Z** sunt reprezentate în intervalul **65-90**, iar caracterele **a-z** în intervalul **97-122** în tabelul ascii.
+    Dacă am folosi forma **A-z**, i-am spune expresiei globbing să includă și caracterele din intervalul **91-96** din tabelul ascii în expresia noastră.
+
+
+Sintaxa specială ``{}``
+"""""""""""""""""""""""
+
+În sintaxa globbing, folosim sintaxa ``{}`` pentru a defini o listă de cuvinte (grupuri de caractere) care pot fi folosite în înlocuire.
+Această sintaxă înlocuiește exact un caracter din lista oferită.
+În directorul vostru home (``~``), executați următoarele comenzi:
+
+.. code-block:: bash
+
+    student@uso:~$ ls -d {Downloads,Music}
+    Downloads  Music
+
+    student@uso:~$ ls -d {Down,Mus}*
+    Downloads  Music
+
+Citim expresia ``{Downloads,Music}``: în locul acestei expresii poate să existe cuvântul **Downloads** sau cuvântul **Music**.
+Observăm că putem să combinăm orice elemente de globbing, așa cum am făcut în expresia ``{Down,Mus}*``.
+
+Folosirea ad-litteram a caracterelor speciale
+"""""""""""""""""""""""""""""""""""""""""""""
+
+Există cazuri când numele fișierelor conțin caractere speciale.
+Unele fișiere pot fi prefixate cu o categorie din care fac parte, ca în exemplul de mai jos:
+
+.. code-block:: bash
+
+    student@uso:~$ ls Documents/uni
+    '[PC] Course 01.pdf'  '[USO] Course 01.pdf'  '[USO] Course 02.pdf'
+
+În exemplul de mai sus, fișierele pdf de curs sunt prefixate cu numele materiei: [PC], [USO].
+Vrem să îi spunem sintaxei de globbing că în acest caz, șirul **[USO]** nu trebuie tratat ca o expresie, ci ca un șir de caracter normale.
+Pentru a face asta, încadrăm șirul între **"**:
+
+.. code-block:: bash
+
+    student@uso:~$ ls Documents/uni/"[USO]"*
+    'Documents/uni/[USO] Course 01.pdf'  'Documents/uni/[USO] Course 02.pdf'
+
+Citim expresia ``"[USO]"*``: orice fișier al cărui nume începe cu șirul de caractere **[USO]** și este urmat de orice caracter.
+Operația prin care eliminăm semnificația specială a unui caracter poartă numele de **escaping**; cu alte cuvinte, informal, spunem că am făcut escaping semnificației speciale a sintaxei ``[]``.
+Termenul vine de la cuvântul **escape** (a scăpa), și exprimă că scăpăm de semnificația specială a unui caracter / set de caractere.
 
 
 ``find`` și ``locate``
