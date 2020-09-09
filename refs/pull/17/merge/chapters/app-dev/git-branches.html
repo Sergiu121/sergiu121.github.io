@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-      <title>Crearea unui nou commit</title>
+      <title>3. Crearea unui nou commit</title>
     
       <link rel="stylesheet" href="../../_static/pygments.css">
       <link rel="stylesheet" href="../../_static/theme.css">
@@ -24,6 +24,8 @@
     
   <link rel="index" title="Index" href="../../genindex.html" />
   <link rel="search" title="Search" href="../../search.html" />
+  <link rel="next" title="4. Crearea unui Pull Request (PR) pe GitHub" href="git-first-pull-request.html" />
+  <link rel="prev" title="2. Primul commit" href="git-first-commit.html" />
     <link href="../../_static/my_theme.css" rel="stylesheet" type="text/css">
 
   </head>
@@ -50,7 +52,7 @@
   
     <div class="nav-item">
       <a href="../../index.html#uso-lab-book"
-         class="nav-link ">
+         class="nav-link  router-link-active">
          Dezvoltarea aplicațiilor
       </a>
     </div>
@@ -110,7 +112,7 @@
   
     <div class="nav-item">
       <a href="../../index.html#uso-lab-book"
-         class="nav-link ">
+         class="nav-link  router-link-active">
          Dezvoltarea aplicațiilor
       </a>
     </div>
@@ -211,7 +213,7 @@
       <p class="caption">
         <span class="caption-text"><a href="../../index.html#uso-lab-book">Dezvoltarea aplicațiilor</a></span>
       </p>
-      <ul class="">
+      <ul class="current">
         
           <li class="toctree-l1 "><a href="git-intro.html" class="reference internal ">Introducere în Git și GitHub</a>
 
@@ -221,6 +223,24 @@
         
           <li class="toctree-l1 "><a href="git-first-commit.html" class="reference internal ">Primul commit</a>
 
+            
+          </li>
+
+        
+          <li class="toctree-l1 current"><a href="#" class="reference internal current">Crearea unui nou commit</a>
+
+            
+              <ul>
+                
+                  <li class="toctree-l2"><a href="#repetarea-pasilor-anteriori" class="reference internal">Repetarea pașilor anteriori</a></li>
+                
+                  <li class="toctree-l2"><a href="#modificarea-mesajului-de-commit" class="reference internal">Modificarea mesajului de commit</a></li>
+                
+                  <li class="toctree-l2"><a href="#operatia-merge-dintre-un-branch-secundar-si-master" class="reference internal">Operația merge dintre un branch secundar și master</a></li>
+                
+                  <li class="toctree-l2"><a href="#stergerea-unui-branch" class="reference internal">Ștergerea unui branch</a></li>
+                
+              </ul>
             
           </li>
 
@@ -450,11 +470,19 @@
   <ul class="breadcrumbs">
     <li><a href="../../index.html">Docs</a> &raquo;</li>
     
-    <li>Crearea unui nou commit</li>
+    <li><span class="section-number">3. </span>Crearea unui nou commit</li>
   </ul>
   
 
   <ul class="page-nav">
+  <li class="prev">
+    <a href="git-first-commit.html"
+       title="previous chapter">← <span class="section-number">2. </span>Primul commit</a>
+  </li>
+  <li class="next">
+    <a href="git-first-pull-request.html"
+       title="next chapter"><span class="section-number">4. </span>Crearea unui Pull Request (PR) pe GitHub →</a>
+  </li>
 </ul>
   
 </div>
@@ -462,11 +490,11 @@
           <div class="content" role="main">
             
   <div class="section" id="crearea-unui-nou-commit">
-<h1>Crearea unui nou commit<a class="headerlink" href="#crearea-unui-nou-commit" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">3. </span>Crearea unui nou commit<a class="headerlink" href="#crearea-unui-nou-commit" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="repetarea-pasilor-anteriori">
-<h2>Repetarea pașilor anteriori<a class="headerlink" href="#repetarea-pasilor-anteriori" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.1. </span>Repetarea pașilor anteriori<a class="headerlink" href="#repetarea-pasilor-anteriori" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="crearea-unui-branch-separat">
-<h3>Crearea unui branch separat<a class="headerlink" href="#crearea-unui-branch-separat" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">3.1.1. </span>Crearea unui branch separat<a class="headerlink" href="#crearea-unui-branch-separat" title="Permalink to this headline">¶</a></h3>
 <p>Vrem ca următoarele modificări pe care le facem să fie făcute pe un branch diferit, nu pe branch-ul master.
 Pentru a crea un nou branch, folosim comanda <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">checkout</span></code>.
 Opțiunea <code class="docutils literal notranslate"><span class="pre">-b</span></code> urmată de un nume pentru branch specifică faptul că trebuie creat un nou branch cu acel nume.</p>
@@ -484,7 +512,7 @@ După ce dați comanda, verificați că sunteți într-adevăr sunteți pe branc
 <p><strong>Exercițiu:</strong> Reveniți pe branch-ul nou creat.</p>
 </div>
 <div class="section" id="modificarea-fisierului-readme">
-<h3>Modificarea fișierului README<a class="headerlink" href="#modificarea-fisierului-readme" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">3.1.2. </span>Modificarea fișierului README<a class="headerlink" href="#modificarea-fisierului-readme" title="Permalink to this headline">¶</a></h3>
 <p>Vom modifica fișierul README.
 Adăugăm o linie la sfârșitul fișierului <code class="docutils literal notranslate"><span class="pre">README.md</span></code>.
 Verificăm starea clonei folosind comanda <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">status</span></code>.</p>
@@ -510,7 +538,7 @@ no changes added to commit <span class="o">(</span>use <span class="s2">&quot;gi
 <p><strong>Exercițiu:</strong> Adăugați o nouă linie în fișierul README.md. Puteți folosi orice editor de text doriți.</p>
 </div>
 <div class="section" id="revenirea-la-alt-branch-fara-crearea-unui-nou-commit-cu-schimbarilor-curente">
-<h3>Revenirea la alt branch fără crearea unui nou commit cu schimbărilor curente<a class="headerlink" href="#revenirea-la-alt-branch-fara-crearea-unui-nou-commit-cu-schimbarilor-curente" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">3.1.3. </span>Revenirea la alt branch fără crearea unui nou commit cu schimbărilor curente<a class="headerlink" href="#revenirea-la-alt-branch-fara-crearea-unui-nou-commit-cu-schimbarilor-curente" title="Permalink to this headline">¶</a></h3>
 <p>Mai devreme am modificat un fișier din repository, iar acum vrem să ajungem din nou pe branch-ul <code class="docutils literal notranslate"><span class="pre">master</span></code> fără să propagăm noile schimbări.
 Dacă vom încerca să schimbăm direct branch-ul pe care lucrăm ca mai devreme folosind comanda <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">checkout</span></code> vedem că outputul ne semnalează ceva diferit.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/my-first-repository$ git checkout master
@@ -595,7 +623,7 @@ Dacă nu apare nicio modificare făcută, atunci puteți să treceți pe branch-
 Dacă apare vreun fișier ca fiind modificați, reluați pașii de mai sus până să schimbați branch-ul de lucru.</p>
 </div>
 <div class="section" id="crearea-unui-al-doilea-commit-pe-branch-ul-master">
-<h3>Crearea unui al doilea commit pe branch-ul master<a class="headerlink" href="#crearea-unui-al-doilea-commit-pe-branch-ul-master" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">3.1.4. </span>Crearea unui al doilea commit pe branch-ul master<a class="headerlink" href="#crearea-unui-al-doilea-commit-pe-branch-ul-master" title="Permalink to this headline">¶</a></h3>
 <p>Vrem să creăm un al doilea commit pe branch-ul master.</p>
 <p><strong>Exercițiu:</strong> Modificați titlul fișierului <code class="docutils literal notranslate"><span class="pre">README.md</span></code> în <code class="docutils literal notranslate"><span class="pre">#</span> <span class="pre">My</span> <span class="pre">first</span> <span class="pre">REAL</span> <span class="pre">project</span> <span class="pre">ever</span></code>.</p>
 <p>Verificăm starea clonei după ce facem modificarea titlului.</p>
@@ -617,7 +645,7 @@ no changes added to commit <span class="o">(</span>use <span class="s2">&quot;gi
 <p><strong>Exercițiu:</strong> Publicați commitul și pe repository-ul remote și verificați că acest lucru s-a reflectat și pe GitHub.</p>
 </div>
 <div class="section" id="revenirea-la-branch-ul-cu-modificari-si-crearea-unui-nou-commit">
-<h3>Revenirea la branch-ul cu modificări și crearea unui nou commit<a class="headerlink" href="#revenirea-la-branch-ul-cu-modificari-si-crearea-unui-nou-commit" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">3.1.5. </span>Revenirea la branch-ul cu modificări și crearea unui nou commit<a class="headerlink" href="#revenirea-la-branch-ul-cu-modificari-si-crearea-unui-nou-commit" title="Permalink to this headline">¶</a></h3>
 <p>Revenim pe branch-ul secundar creat la începutul acestei secțiuni.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/my-first-repository$ git checkout my-new-branch
 Switched to branch <span class="s1">&#39;my-new-branch&#39;</span>
@@ -786,10 +814,10 @@ Urmăriți indicațiile utilitarului Git la executarea comenzii <code class="doc
 </div>
 </div>
 <div class="section" id="modificarea-mesajului-de-commit">
-<h2>Modificarea mesajului de commit<a class="headerlink" href="#modificarea-mesajului-de-commit" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.2. </span>Modificarea mesajului de commit<a class="headerlink" href="#modificarea-mesajului-de-commit" title="Permalink to this headline">¶</a></h2>
 <p>Putem schimba mesajele de commit pentru orice commit făcut, fie că a fost sau nu publicat pe GitHub, fie care este ultimul creat sau nu.</p>
 <div class="section" id="ultimul-commit-nepublicat">
-<h3>Ultimul commit nepublicat<a class="headerlink" href="#ultimul-commit-nepublicat" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">3.2.1. </span>Ultimul commit nepublicat<a class="headerlink" href="#ultimul-commit-nepublicat" title="Permalink to this headline">¶</a></h3>
 <p><strong>Exercițiu:</strong> Creați un fișier nou denumit <code class="docutils literal notranslate"><span class="pre">error-file.txt</span></code>.
 Creați un nou commit cu mesajul <code class="docutils literal notranslate"><span class="pre">Add</span> <span class="pre">eror-file.txt</span></code>.
 <strong>NU</strong> publicați commitul pe GitHub.</p>
@@ -867,7 +895,7 @@ Date:   Wed Aug <span class="m">19</span> <span class="m">17</span>:24:01 <span 
 <p><strong>Exercițiu:</strong> Publicați commitul pentru a trece la următoarea subsecțiune.</p>
 </div>
 <div class="section" id="ultimul-commit-publicat">
-<h3>Ultimul commit publicat<a class="headerlink" href="#ultimul-commit-publicat" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">3.2.2. </span>Ultimul commit publicat<a class="headerlink" href="#ultimul-commit-publicat" title="Permalink to this headline">¶</a></h3>
 <p>În acest moment singura diferență față de exemplul anterior este faptul că avem un commit local care a fost și publicat și vrem să îi schimbăm mesajul de commit.
 Repetăm toți pașii de mai devreme.</p>
 <p><strong>Exercițiu:</strong> Modificați mesajul ultimului commit din <code class="docutils literal notranslate"><span class="pre">Add</span> <span class="pre">error-file.txt</span></code> în <code class="docutils literal notranslate"><span class="pre">Add</span> <span class="pre">error-file.txt</span> <span class="pre">2</span></code>.</p>
@@ -920,7 +948,7 @@ Implicit pe branch-ul <code class="docutils literal notranslate"><span class="pr
 </div>
 </div>
 <div class="section" id="orice-alt-commit">
-<h3>Orice alt commit<a class="headerlink" href="#orice-alt-commit" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">3.2.3. </span>Orice alt commit<a class="headerlink" href="#orice-alt-commit" title="Permalink to this headline">¶</a></h3>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Indiferent dacă ultimele N commit-uri sunt sau nu publicate, pașii de schimbare a mesajului de commit sunt comuni.</p>
@@ -1039,7 +1067,7 @@ To https://github.com/<span class="o">{</span>username<span class="o">}</span>/m
 </div>
 </div>
 <div class="section" id="operatia-merge-dintre-un-branch-secundar-si-master">
-<h2>Operația merge dintre un branch secundar și master<a class="headerlink" href="#operatia-merge-dintre-un-branch-secundar-si-master" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.3. </span>Operația merge dintre un branch secundar și master<a class="headerlink" href="#operatia-merge-dintre-un-branch-secundar-si-master" title="Permalink to this headline">¶</a></h2>
 <p>În acest moment avem 2 branch-uri active: <code class="docutils literal notranslate"><span class="pre">master</span></code> și <code class="docutils literal notranslate"><span class="pre">my-new-branch</span></code>.
 Inspectăm fișierul README.md pe ambele branch-uri.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/my-first-repository$ git branch
@@ -1156,7 +1184,7 @@ Date:   Wed Aug <span class="m">19</span> <span class="m">23</span>:17:35 <span 
 <p>În acest moment branch-ul master conține și modificările făcute pe branch-ul <code class="docutils literal notranslate"><span class="pre">my-new-branch</span></code>.</p>
 </div>
 <div class="section" id="stergerea-unui-branch">
-<h2>Ștergerea unui branch<a class="headerlink" href="#stergerea-unui-branch" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.4. </span>Ștergerea unui branch<a class="headerlink" href="#stergerea-unui-branch" title="Permalink to this headline">¶</a></h2>
 <p>Putem să ștergem branch-ul <code class="docutils literal notranslate"><span class="pre">my-new-branch</span></code> deoarece nu mai avem nevoie de el.
 Facem acest lucru atât pe repository-ul local, cât și cel de pe GitHub.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/my-first-repository$ git branch -d my-new-branch
@@ -1176,6 +1204,14 @@ student@uso:~/my-first-repository$ git branch
           </div>
           <div class="page-nav">
             <div class="inner"><ul class="page-nav">
+  <li class="prev">
+    <a href="git-first-commit.html"
+       title="previous chapter">← <span class="section-number">2. </span>Primul commit</a>
+  </li>
+  <li class="next">
+    <a href="git-first-pull-request.html"
+       title="next chapter"><span class="section-number">4. </span>Crearea unui Pull Request (PR) pe GitHub →</a>
+  </li>
 </ul><div class="footer" role="contentinfo">
       &#169; Copyright 2020, USO Team.
     <br>
