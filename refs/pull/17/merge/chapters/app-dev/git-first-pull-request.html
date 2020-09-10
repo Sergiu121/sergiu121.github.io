@@ -238,21 +238,17 @@
             
               <ul>
                 
-                  <li class="toctree-l2"><a href="#clonarea-repository-ului" class="reference internal">Clonarea repository-ului</a></li>
-                
                   <li class="toctree-l2"><a href="#crearea-unui-branch-nou" class="reference internal">Crearea unui branch nou</a></li>
-                
-                  <li class="toctree-l2"><a href="#crearea-unui-commit-de-pe-branch-ul-master" class="reference internal">Crearea unui commit de pe branch-ul master</a></li>
                 
                   <li class="toctree-l2"><a href="#crearea-unui-commit-pe-branch-ul-nou-creat" class="reference internal">Crearea unui commit pe branch-ul nou creat</a></li>
                 
                   <li class="toctree-l2"><a href="#crearea-pull-requestului" class="reference internal">Crearea Pull Requestului</a></li>
                 
-                  <li class="toctree-l2"><a href="#noi-commituri-pe-acelasi-pr" class="reference internal">Noi commituri pe același PR</a></li>
-                
-                  <li class="toctree-l2"><a href="#rezolvarea-conflictelor-si-integrarea-pr-ului" class="reference internal">Rezolvarea conflictelor și integrarea PR-ului</a></li>
+                  <li class="toctree-l2"><a href="#integrarea-pr-ului" class="reference internal">Integrarea PR-ului</a></li>
                 
                   <li class="toctree-l2"><a href="#stergerea-branch-ului-in-urma-integrarii-in-branch-ul-master" class="reference internal">Ștergerea branch-ului în urma integrării în branch-ul master</a></li>
+                
+                  <li class="toctree-l2"><a href="#exercitiu-crearea-unui-pr" class="reference internal">Exercițiu - Crearea unui PR</a></li>
                 
               </ul>
             
@@ -499,310 +495,347 @@
             
   <div class="section" id="crearea-unui-pull-request-pr-pe-github">
 <h1><span class="section-number">4. </span>Crearea unui Pull Request (PR) pe GitHub<a class="headerlink" href="#crearea-unui-pull-request-pr-pe-github" title="Permalink to this headline">¶</a></h1>
-<p>În momentul în care vrem să adăugăm o funcționalitate nouă unui proiect software pe GitHub este recomandăm printr-un <code class="docutils literal notranslate"><span class="pre">Pull</span> <span class="pre">Request</span></code>, uzual prescurtat <code class="docutils literal notranslate"><span class="pre">PR</span></code>.
-Un <code class="docutils literal notranslate"><span class="pre">Pull</span> <span class="pre">Request</span></code> este o cerere de modificare a repository-ului. Uzual, alți colaboratori ai proiectului vor recenza modificările și vor aproba, vor sugera schimbări sau vor respinge această cerere.
+<p>În momentul în care vrem să adăugăm o funcționalitate nouă unui proiect software pe GitHub este recomandat să o facem printr-un <strong>Pull Request</strong>, uzual prescurtat <strong>PR</strong>.
+Un <strong>Pull Request</strong> este o cerere de modificare a repository-ului.
+Uzual, alți colaboratori ai proiectului vor recenza modificările și vor aproba, vor sugera schimbări sau vor respinge această cerere.
 În momentul în care un Pull Request este aprobat, atunci schimbările propuse în Pull Request poate fi integrat în proiect, adică se va putea face merge între codul sursă curent și noile modificări.</p>
 <p>Spunem că deschidem un Pull Request care urmează să fie integrat într-un anumit branch.
-De obice acel branch este <code class="docutils literal notranslate"><span class="pre">master</span></code>, însă acest lucru nu este obligatoriu.
-În acest tutorial vom deschide un Pull Request care urmează să fie integrat în branch-ul <code class="docutils literal notranslate"><span class="pre">master</span></code>.</p>
-<div class="section" id="clonarea-repository-ului">
-<h2><span class="section-number">4.1. </span>Clonarea repository-ului<a class="headerlink" href="#clonarea-repository-ului" title="Permalink to this headline">¶</a></h2>
-<p>În această secțiune vom crea un nou repository pe GitHub.
-De data aceasta, vom clona local repository-ul de pe GitHub.</p>
+De obice acel branch este <strong>master</strong>, însă acest lucru nu este obligatoriu.
+În acest tutorial vom deschide un Pull Request care urmează să fie integrat în branch-ul <strong>master</strong>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Ne amintim faptul că în secțiunea introductivă am creat un repository pe GitHub și am inițializat unul local.
-Ulterior am conectat cele două repository-uri.
-De data aceasta vom clona repository-ul de pe GitHub, fără a fi nevoiți să facem pași în plus.</p>
+<p>Alternativa la a crea un <strong>Pull Request</strong> ar fi să lucrăm direct pe branch-ul <strong>master</strong>.</p>
+<p>Așa cum am menționat și în secțiunile anterioare, este <strong>BAD-PRACTICE</strong> să lucrăm direct pe branch-ul <strong>master</strong> din mai multe motive:</p>
+<ol class="arabic simple">
+<li><p>Pe branch-ul <strong>master</strong> se ține întotdeauna o versiune de cod funcțională. Astfel, lucrul pe acest branch ar însemna să facem commituri doar atunci când o funcționalitate este finalizată, altfel pe branch-ul <strong>master</strong> vom avea o bucată de cod neterminată care poate să afecteze întreg proiectul.</p></li>
+<li><p>Lucrul pe un singur branch nu se oferă posibilitatea de a da feedback pe schimbările făcute pe repository. Dacă nu avem posibilitatea să oferim feedback unui coleg prin intermediul GitHub, atunci vom avea nevoie să comunicăm pe un alt mediu observațiile noastre, iar ei vor trebui să creeze un nou commit pentru rezolvarea problemelor. Mult mai simplu este să se realizeze întreaga etapă de feedback, numită <strong>code review</strong> înainte ca schimbările să apară pe <strong>master</strong>.</p></li>
+<li><p>În unele situații nici nu vom avea drepturi să scriem pe branch-ul <strong>master</strong>, astfel devenind obligatoriu lucrul pe un alt branch și integrarea codului în branch-ul <strong>master</strong> printr-un <strong>Pull Request</strong>.</p></li>
+</ol>
 </div>
-<p><strong>Exercițiu:</strong> Creați un nou repository pe contul vostru de GitHub intitulat <code class="docutils literal notranslate"><span class="pre">my-second-repository</span></code>.
-De data aceasta, vrem ca repository-ul să fie înițializat cu un fișier README.
-Asigurați-vă că ați bifat checkbox-ul <code class="docutils literal notranslate"><span class="pre">Initialize</span> <span class="pre">this</span> <span class="pre">repository</span> <span class="pre">with</span> <span class="pre">a</span> <span class="pre">README</span></code> ca în imaginea de mai jos.</p>
-<div class="figure align-default">
-<a class="reference internal image-reference" href="../../_images/GitHub-initialize-README.png"><img alt="Alternative text" src="../../_images/GitHub-initialize-README.png" style="width: 793.8000000000001px; height: 665.1px;" /></a>
-</div>
+<p>În secțiunea anterioară (TODO adaugă ref) am adus modificările de pe branch-ul TODO pe branch-ul <strong>master</strong> prin operația <strong>merge</strong>.
+Acum vom integra schimbările prin intermediul unui <strong>Pull Request</strong> urmând pașii enumerați mai sus.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Așa cum este precizat și pe GitHub, inițializarea unui repository cu un fișier README permite ulterior clonarea repository-ului fără alți pași intermediari.</p>
-<p>De fapt, în momentul în care un repository este inițializat cu un fișier README, se face un prim commit pentru a adăuga acest fișier în repository.
-Primul commit duce la crearea banch-ului <code class="docutils literal notranslate"><span class="pre">master</span></code>, așadar nu mai avem un repository gol.
-Mesajul primul commit este <code class="docutils literal notranslate"><span class="pre">Initial</span> <span class="pre">commit</span></code>.</p>
+<p>Folosirea unui <strong>Pull Request</strong> în loc de a efectua o operație <strong>merge</strong> vine cu mai multe beneficii:</p>
+<ol class="arabic simple">
+<li><p>În general, schimbările nu pot fi integrate fără ca PR-ul să fie aprobat. Aprobarea vine în mod normal de la un alt coleg de echipă.</p></li>
+<li><p>Recenzia codului sursă se face ușor pe un Pull Request. Vom vedea în secțiunea TODO cum putem adăuga recenzenți.</p></li>
+</ol>
 </div>
-<p>Vom clona acum repository-ul pe care tocmai l-am creat.
-În acest tutorial vom clona repository-ul la calea <code class="docutils literal notranslate"><span class="pre">/home/student</span></code>.
-La terminarea clonării vom intra în directorul ce conține repository-ul.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ <span class="nb">pwd</span>
-/home/student
-student@uso:~$ git clone https://github.com/<span class="o">{</span>username<span class="o">}</span>/my-second-repository
-Cloning into <span class="s1">&#39;my-second-repository&#39;</span>...
-remote: Enumerating objects: <span class="m">3</span>, <span class="k">done</span>.
-remote: Counting objects: <span class="m">100</span>% <span class="o">(</span><span class="m">3</span>/3<span class="o">)</span>, <span class="k">done</span>.
-remote: Total <span class="m">3</span> <span class="o">(</span>delta <span class="m">0</span><span class="o">)</span>, reused <span class="m">0</span> <span class="o">(</span>delta <span class="m">0</span><span class="o">)</span>, pack-reused <span class="m">0</span>
-Unpacking objects: <span class="m">100</span>% <span class="o">(</span><span class="m">3</span>/3<span class="o">)</span>, <span class="k">done</span>.
-student@uso:~$ ls
-my-second-repository/   my-second-repository/
-student@uso:~$ <span class="nb">cd</span> my-second-repository/
-student@uso:~/my-second-repository$ ls
-README.md
-</pre></div>
+<div class="admonition-pasi-pull-request admonition">
+<p class="admonition-title">Pași Pull Request</p>
+<p>Ca să avem o contribuție prin Pull Request în mod uzual se urmează pașii:</p>
+<ol class="arabic simple">
+<li><p>Se realizează un fork sau o clonă a repository-ului. Noi vom folosi în continuare repository-ul TODO.</p></li>
+<li><p>Creăm un branch nou.</p></li>
+<li><p>Realizăm commit pe noul branch și îl publicăm pe GitHub.</p></li>
+<li><p>Creăm un PR în interfața GitHub.</p></li>
+<li><p>Ulterior, un maintainer al repository-ului va recenza PR-ul. Dacă e nevoie de modificări, vom face actualizări pe care le vom adăuga (prin operația <strong>push</strong>) din nou în branch-ul nou creat, PR-ul fiind actualizat.</p></li>
+<li><p>După un număr dat de iterații, PR-ul va fi definitivat. Atunci maintainerul va integra branch-ul în master (operația <strong>merge</strong>).</p></li>
+</ol>
 </div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p><code class="docutils literal notranslate"><span class="pre">{username}</span></code> este numele nostru de utilizator de pe GitHub.</p>
-</div>
-<p><strong>Exercițiu:</strong> Verificați istoricul de commituri din acest repository.</p>
-</div>
+<p>În următoarele subsecțiuni vom implementa algoritmul Bubble Sort și vom contribui la repository-ul TODO prin intermediul unui <strong>Pull Request</strong>.</p>
 <div class="section" id="crearea-unui-branch-nou">
-<h2><span class="section-number">4.2. </span>Crearea unui branch nou<a class="headerlink" href="#crearea-unui-branch-nou" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">4.1. </span>Crearea unui branch nou<a class="headerlink" href="#crearea-unui-branch-nou" title="Permalink to this headline">¶</a></h2>
 <p>Pentru a putea deschide un Pull Request, trebuie să lucrăm pe un branch diferit dață de cel în care vrem să integrăm schimbările.
-În acest caz, vom lucra pe un nou branch, diferit de branch-ul <code class="docutils literal notranslate"><span class="pre">master</span></code>.</p>
-<p><strong>Exercițiu:</strong> Creați un branch numit <code class="docutils literal notranslate"><span class="pre">awesome-feature-branch</span></code>.</p>
-<p><strong>Exercițiu:</strong> Verificați ce branch-uri există pe repository-ul curent.</p>
-<p><strong>Exercițiu:</strong> Asigurați-vă că sunteți pe branch-ul nou creat.</p>
-<p><strong>Exercițiu:</strong> Verificați istoricul de commituri din repository.</p>
-<p><strong>Exercițiu:</strong> Verificați statusul noului branch.</p>
-</div>
-<div class="section" id="crearea-unui-commit-de-pe-branch-ul-master">
-<h2><span class="section-number">4.3. </span>Crearea unui commit de pe branch-ul master<a class="headerlink" href="#crearea-unui-commit-de-pe-branch-ul-master" title="Permalink to this headline">¶</a></h2>
-<p>Înainte de a crea un Pull Request, vom face o modificare pe branch-ul <code class="docutils literal notranslate"><span class="pre">master</span></code>.
-Revenim pe branch-ul <code class="docutils literal notranslate"><span class="pre">master</span></code> folosind comanda de mai jos.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/my-second-repository$ git checkout master
-Switched to branch <span class="s1">&#39;master&#39;</span>
-Your branch is up to date with <span class="s1">&#39;origin/master&#39;</span>.
+În acest caz, vom lucra pe un nou branch, diferit de branch-ul <strong>master</strong>.</p>
+<p>Creăm un branch numit <strong>bubble-sort-implementation</strong>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/my-first-repository$ git branch
+*  master
+student@uso:~/my-first-repository$ git checkout -b bubble-sort-implementation
+Switched to a new branch <span class="s1">&#39;bubble-sort-implementation&#39;</span>
+student@uso:~/my-first-repository$ git branch
+* bubble-sort-implementation
+master
 </pre></div>
 </div>
-<p><strong>Exercițiu:</strong> Modificați titlul fișierului README în <code class="docutils literal notranslate"><span class="pre">#</span> <span class="pre">Very</span> <span class="pre">good</span> <span class="pre">title</span> <span class="pre">for</span> <span class="pre">a</span> <span class="pre">README</span></code>.</p>
-<p><strong>Exercițiu:</strong> Creați un commit cu modificarea făcută.</p>
-<p><strong>Exercițiu:</strong> Publicați commitul astfel încât acesta să fie vizibil și din interfața GitHub.</p>
-<p><strong>Exercițiu:</strong> Verificați din interfața grafică GitHub că s-au propagat modificările.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>La începutul aceste subsecțiui repository-ul avea un singur branch, cel <strong>master</strong>.
+Ne amintim că în secțiunea anterioară (TODO adaugă ref) am șters branch-ul <strong>add-gitignore</strong>.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Simbolul <code class="docutils literal notranslate"><span class="pre">*</span></code> din outputul comenzii <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">branch</span></code> ne indică pe ce branch de aflăm.
+În acest caz este vorba despre branch-ul <strong>bubble-sort-implementation</strong>.</p>
+</div>
+<p>Până la acest moment am făcut deja o serie de commituri pe repository-ul nostru.</p>
+<p>TODO: output git log</p>
+<p>Același istoric de commituri îl putem vedea și prin intermediul interfeței grafice GitHub.</p>
+<p>TODO: adaugă GIF cum navighezi pe GitHub spre toate commiturile</p>
 </div>
 <div class="section" id="crearea-unui-commit-pe-branch-ul-nou-creat">
-<h2><span class="section-number">4.4. </span>Crearea unui commit pe branch-ul nou creat<a class="headerlink" href="#crearea-unui-commit-pe-branch-ul-nou-creat" title="Permalink to this headline">¶</a></h2>
-<p>Revenim pe branch-ul <code class="docutils literal notranslate"><span class="pre">awesome-feature-branch</span></code> folosind comanda de mai jos.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/my-second-repository$ git checkout master
-Switched to branch <span class="s1">&#39;master&#39;</span>
-Your branch is up to date with <span class="s1">&#39;origin/master&#39;</span>.
+<h2><span class="section-number">4.2. </span>Crearea unui commit pe branch-ul nou creat<a class="headerlink" href="#crearea-unui-commit-pe-branch-ul-nou-creat" title="Permalink to this headline">¶</a></h2>
+<p>În această subsecțiune vom actualiza fișierul <code class="docutils literal notranslate"><span class="pre">bubble-sort.c</span></code> cu implementarea algoritmului ales.
+Modificăm fișierul <code class="docutils literal notranslate"><span class="pre">bubble-sort.c</span></code> astfel încât conținutul său să fie următorul:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+
+<span class="cp">#define MAX_LEN 100</span>
+
+<span class="kt">void</span> <span class="nf">swap</span><span class="p">(</span><span class="kt">int</span> <span class="o">*</span><span class="n">x</span><span class="p">,</span> <span class="kt">int</span> <span class="o">*</span><span class="n">y</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">tmp</span> <span class="o">=</span> <span class="o">*</span><span class="n">x</span><span class="p">;</span>
+    <span class="o">*</span><span class="n">x</span> <span class="o">=</span> <span class="o">*</span><span class="n">y</span><span class="p">;</span>
+    <span class="o">*</span><span class="n">y</span> <span class="o">=</span> <span class="n">tmp</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">bubble_sort</span><span class="p">(</span><span class="kt">int</span> <span class="o">*</span><span class="n">arr</span><span class="p">,</span> <span class="kt">int</span> <span class="n">len</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">;</span>
+
+  <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">len</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+      <span class="k">for</span> <span class="p">(</span><span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">len</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span>
+          <span class="k">if</span> <span class="p">(</span><span class="n">arr</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">arr</span><span class="p">[</span><span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">])</span>
+              <span class="n">swap</span><span class="p">(</span><span class="o">&amp;</span><span class="n">arr</span><span class="p">[</span><span class="n">j</span><span class="p">],</span> <span class="o">&amp;</span><span class="n">arr</span><span class="p">[</span><span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]);</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">print_array</span><span class="p">(</span><span class="kt">int</span> <span class="o">*</span><span class="n">arr</span><span class="p">,</span> <span class="kt">int</span> <span class="n">len</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
+
+  <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">len</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d &quot;</span><span class="p">,</span> <span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+  <span class="p">}</span>
+  <span class="n">printf</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">arr</span><span class="p">[</span><span class="n">MAX_LEN</span><span class="p">],</span> <span class="n">len</span><span class="p">,</span> <span class="n">i</span><span class="p">;</span>
+
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;What&#39;s the length of the array? Maximum lenght is %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">MAX_LEN</span><span class="p">);</span>
+    <span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">len</span><span class="p">);</span>
+
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Gimme the %d elements</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">len</span><span class="p">);</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">len</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+    <span class="p">}</span>
+
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Nonsorted array: &quot;</span><span class="p">);</span>
+    <span class="n">print_array</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">len</span><span class="p">);</span>
+
+    <span class="n">bubble_sort</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">len</span><span class="p">);</span>
+
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Sorted array: &quot;</span><span class="p">);</span>
+    <span class="n">print_array</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">len</span><span class="p">);</span>
+
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
 </pre></div>
 </div>
-<p>Acum putem face modificări asupra fișierului README din nou.
-Putem adăuga fișiere și directoare noi.</p>
-<p><strong>Exercițiu:</strong> Modificați de pe acest branch titlul fișierului README în <code class="docutils literal notranslate"><span class="pre">#</span> <span class="pre">Greatest</span> <span class="pre">titles</span> <span class="pre">of</span> <span class="pre">them</span> <span class="pre">all</span></code>.</p>
-<p><strong>Exercițiu:</strong> Creați o ierarhie de fișiere și directoare pornind din directorul curent.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Dacă veți crea un director nou, însă acesta nu va conține niciun fișier, atunci în momentul în care veți face un commit, acest director va fi omis.</p>
+<p>Algoritmul de mai sus sortează crescător un vector de numere întregi citit de la tastatură.
+Trebuie să precizăm acest lucru și în fișierul <code class="docutils literal notranslate"><span class="pre">README.md</span></code></p>
 </div>
-<p><strong>Exercițiu:</strong> Creați un commit pe acest branch cu noile schimbări.</p>
-<p><strong>Exercițiu:</strong> Publicați schimbările și pe GitHub.</p>
-<div class="admonition hint">
-<p class="admonition-title">Hint</p>
-<p>Atenție! Branch-ul <code class="docutils literal notranslate"><span class="pre">awesome-feature-branch</span></code> nu există și pe GitHub.
-Urmăriți indicațiile primite la executarea comenzii <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">push</span></code></p>
+<p>Modificăm fișierul <code class="docutils literal notranslate"><span class="pre">README.md</span></code> astfel încât el să aibă următorul conținut:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/my-first-repository$ cat README.md
+<span class="c1"># Bubble Sort Algorithm for Beginners</span>
+
+Sorts a integer array in ascending order.
+
+The algoritm is implemented in C.
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>În acest moment noi am implementat funcționalitatea principală a proiectului.</p>
+<p>Așa cum am precizat și în secțiunea TODO, fișierul README trebuie să conțină informații despre proiect.
+Așadar, am actualizat și fișierul README în acest caz.</p>
+</div>
+<p>Acum trebuie să creăm un <strong>commit</strong> cu schimbările făcute.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/my-first-repository$ git status
+On branch bubble-sort-implementation
+Changes not staged <span class="k">for</span> commit:
+  <span class="o">(</span>use <span class="s2">&quot;git add &lt;file&gt;...&quot;</span> to update what will be committed<span class="o">)</span>
+  <span class="o">(</span>use <span class="s2">&quot;git restore &lt;file&gt;...&quot;</span> to discard changes in working directory<span class="o">)</span>
+  modified:   README.md
+  modified:   bubble-sort.c
+
+no changes added to commit <span class="o">(</span>use <span class="s2">&quot;git add&quot;</span> and/or <span class="s2">&quot;git commit -a&quot;</span><span class="o">)</span>
+student@uso:~/my-first-repository$ git add -A
+student@uso:~/my-first-repository$ git status
+On branch bubble-sort-implementation
+Changes to be committed:
+  <span class="o">(</span>use <span class="s2">&quot;git restore --staged &lt;file&gt;...&quot;</span> to unstage<span class="o">)</span>
+  modified:   README.md
+  modified:   bubble-sort.c
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Am folosit opțiunea <code class="docutils literal notranslate"><span class="pre">-A</span></code> pentru <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">add</span></code>.
+Aceasta se ocupă de adăugarea tuturor fișierelor modificate în <strong>staging area</strong> pentru Git.</p>
+<p>Alternativa la comanda <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">add</span> <span class="pre">-A</span></code> este <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">add</span> <span class="pre">README.md</span> <span class="pre">bubble-sort.c</span></code>.</p>
+</div>
+<p>Urmează sunt creăm commitul.
+Folosim o descriere succintă care să descrie ce modificări aducem asupra repository-ului.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/my-first-repository$ git commit -m <span class="s2">&quot;Add Bubble Sort implementation, update README accordingly&quot;</span>
+<span class="o">[</span>bubble-sort-implementation 2a476f4<span class="o">]</span> Add Bubble Sort implementation, update README accordingly
+<span class="m">2</span> files changed, TODO insertions<span class="o">(</span>+<span class="o">)</span>, TODO deletions<span class="o">(</span>-<span class="o">)</span>
+
+student@uso:~/my-first-repository$ git log
+commit 2a476f44aaca87fd17cef2af134d64f9e1b674ff <span class="o">(</span>HEAD -&gt; bubble-sort-implementation<span class="o">)</span>
+Author: Liza Babu &lt;lizababu@example.com&gt;
+Date:   Thu Sep <span class="m">10</span> <span class="m">12</span>:17:51 <span class="m">2020</span> +0300
+
+    Add Bubble Sort implementation, update README accordingly
+TODO: adaugă mai mult output ?
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>TODO: discuție pe git log</p>
+</div>
+<p>Pentru a putea crea un <strong>PR</strong> trebuie să publicăm noul commit.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/my-first-repository$ git push
+fatal: The current branch bubble-sort-implementation has no upstream branch.
+To push the current branch and <span class="nb">set</span> the remote as upstream, use
+
+    git push --set-upstream origin bubble-sort-implementation
+
+student@uso:~/my-first-repository$ git push --set-upstream origin bubble-sort-implementation
+Enumerating objects: <span class="m">3</span>, <span class="k">done</span>.
+Counting objects: <span class="m">100</span>% <span class="o">(</span><span class="m">3</span>/3<span class="o">)</span>, <span class="k">done</span>.
+Delta compression using up to <span class="m">4</span> threads
+Compressing objects: <span class="m">100</span>% <span class="o">(</span><span class="m">2</span>/2<span class="o">)</span>, <span class="k">done</span>.
+Writing objects: <span class="m">100</span>% <span class="o">(</span><span class="m">2</span>/2<span class="o">)</span>, <span class="m">267</span> bytes <span class="p">|</span> <span class="m">267</span>.00 KiB/s, <span class="k">done</span>.
+Total <span class="m">2</span> <span class="o">(</span>delta <span class="m">0</span><span class="o">)</span>, reused <span class="m">0</span> <span class="o">(</span>delta <span class="m">0</span><span class="o">)</span>, pack-reused <span class="m">0</span>
+remote:
+remote: Create a pull request <span class="k">for</span> <span class="s1">&#39;bubble-sort-implementation&#39;</span> on GitHub by visiting:
+remote:      https://github.com/<span class="o">{</span>username<span class="o">}</span>/my-second-repository/pull/new/bubble-sort-implementation
+remote:
+To https://github.com/<span class="o">{</span>username<span class="o">}</span>/my-second-repository
+* <span class="o">[</span>new branch<span class="o">]</span>      bubble-sort-implementation -&gt; bubble-sort-implementation
+Branch <span class="s1">&#39;bubble-sort-implementation&#39;</span> <span class="nb">set</span> up to track remote branch <span class="s1">&#39;bubble-sort-implementation&#39;</span> from <span class="s1">&#39;origin&#39;</span>.
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>La executarea comenzii <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">push</span></code> am primit eroare.
+Această eroare se referă la faptul că pe GitHub nu există branch-ul <strong>bubble-sort-implementation</strong>.
+Aceasta există doar local.</p>
+<p>Problema a fost rezolvată prin comanda <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">push</span> <span class="pre">--set-upstream</span> <span class="pre">origin</span> <span class="pre">bubble-sort-implementation</span></code>.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Linkul <code class="docutils literal notranslate"><span class="pre">https://github.com/{username}/my-second-repository/pull/new/bubble-sort-implementation</span></code> ne este de folos în secțiunea următoare (TODO adaugă ref).</p>
+<p>În loc de <code class="docutils literal notranslate"><span class="pre">{username}</span></code> veți avea username-ul vostru de pe GitHub.
+Pentru autorul acestui capitol este <code class="docutils literal notranslate"><span class="pre">lizababu</span></code>.</p>
 </div>
 </div>
 <div class="section" id="crearea-pull-requestului">
-<h2><span class="section-number">4.5. </span>Crearea Pull Requestului<a class="headerlink" href="#crearea-pull-requestului" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">4.3. </span>Crearea Pull Requestului<a class="headerlink" href="#crearea-pull-requestului" title="Permalink to this headline">¶</a></h2>
+<p>TODO: adaugă screenshoturi noi pentr subsecțiunea asta</p>
 <p>După publicarea schimbărilor anterioare, intrăm pe GitHub.
-Vedem că ne apare că a fost creat un nou commit pe branch-ul <code class="docutils literal notranslate"><span class="pre">awesome-feature-branch</span></code>.</p>
+Vedem că ne apare că a fost creat un nou commit pe branch-ul <code class="docutils literal notranslate"><span class="pre">bubble-sort-implementation</span></code>.</p>
 <div class="figure align-default">
 <a class="reference internal image-reference" href="../../_images/GitHub-before-PR.png"><img alt="Alternative text" src="../../_images/GitHub-before-PR.png" style="width: 956.7px; height: 459.90000000000003px;" /></a>
 </div>
-<p>Pentru a crea un Pull Request nou apăsăm pe butonul <code class="docutils literal notranslate"><span class="pre">Compare</span> <span class="pre">&amp;</span> <span class="pre">pull</span> <span class="pre">request</span></code>.
-În acest moment s-a deschis o nouă pagină care arată că în imaginea de mai jos.</p>
+<p>Pentru a crea un Pull Request nou avem două variante:</p>
+<ol class="arabic simple">
+<li><p>Accesăm linkul <code class="docutils literal notranslate"><span class="pre">https://github.com/{username}/my-second-repository/pull/new/bubble-sort-implementation</span></code>, unde <code class="docutils literal notranslate"><span class="pre">{username}</span></code> este username-ul vostru de pe GitHub.</p></li>
+<li><p>Apăsăm pe butonul <code class="docutils literal notranslate"><span class="pre">Compare</span> <span class="pre">&amp;</span> <span class="pre">pull</span> <span class="pre">request</span></code></p></li>
+</ol>
+<p>În acest moment s-a deschis o nouă pagină care arată că în imaginea de mai jos.</p>
 <div class="figure align-default">
 <a class="reference internal image-reference" href="../../_images/GitHub-create-PR.png"><img alt="Alternative text" src="../../_images/GitHub-create-PR.png" style="width: 1294.2px; height: 603.0px;" /></a>
 </div>
-<p>Explicăm semnificația celor mai importante componente prezente în imagine.</p>
+<p>Mai jos explicăm semnificația celor mai importante componente prezente în imagine.</p>
 <div class="section" id="descrierea-pull-requestului">
-<h3><span class="section-number">4.5.1. </span>Descrierea Pull Requestului<a class="headerlink" href="#descrierea-pull-requestului" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">4.3.1. </span>Descrierea Pull Requestului<a class="headerlink" href="#descrierea-pull-requestului" title="Permalink to this headline">¶</a></h3>
 <p>În imaginea de mai jos vedem o parte a interfeței GitHub în care avem posibilitatea de a lăsa un comentariu în care să descriem (chiar și mai în detaliu decât într-un mesaj de commit) ce schimbări am făcut.</p>
 <div class="figure align-default">
 <a class="reference internal image-reference" href="../../_images/GitHub-description.png"><img alt="Alternative text" src="../../_images/GitHub-description.png" style="width: 945.0px; height: 416.7px;" /></a>
 </div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p><strong>NU</strong> apăsați pe butonul <code class="docutils literal notranslate"><span class="pre">Create</span> <span class="pre">pull</span> <span class="pre">request</span></code> după ce rezolvați următorul exercițiu.</p>
+<p><strong>NU</strong> apăsați incă butonul <code class="docutils literal notranslate"><span class="pre">Create</span> <span class="pre">pull</span> <span class="pre">request</span></code>.</p>
 </div>
-<p><strong>Exercițiu:</strong> Scrieți un comentariu în căsuța de text în care să descrieți ce modificări aduceți repository-ului prin acest PR.</p>
+<p>În cazul nostru, comentariul poate conține detalii despre implementarea algoritmului.
+O descriere potrivită poate fi:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">I</span> <span class="n">implemented</span> <span class="n">a</span> <span class="n">non</span><span class="o">-</span><span class="n">optimized</span> <span class="n">Bubble</span> <span class="n">Sort</span> <span class="n">algorithm</span> <span class="ow">in</span> <span class="n">C</span><span class="o">.</span>
+<span class="n">The</span> <span class="n">program</span> <span class="n">sorts</span> <span class="n">an</span> <span class="n">integer</span> <span class="n">array</span> <span class="ow">in</span> <span class="n">ascending</span> <span class="n">order</span><span class="o">.</span>
+
+<span class="n">TODO</span> <span class="nb">list</span><span class="p">:</span>
+<span class="o">-</span> <span class="p">[</span> <span class="p">]</span> <span class="n">Add</span> <span class="n">tests</span> <span class="k">for</span> <span class="n">algorithm</span><span class="o">.</span>
+</pre></div>
+</div>
+<p>TODO: adaugă GIF: fără și cu descrierea de mai sus</p>
 </div>
 <div class="section" id="configurarea-branch-ului-in-care-vom-integra-pr-ul">
-<h3><span class="section-number">4.5.2. </span>Configurarea branch-ului în care vom integra PR-ul<a class="headerlink" href="#configurarea-branch-ului-in-care-vom-integra-pr-ul" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">4.3.2. </span>Configurarea branch-ului în care vom integra PR-ul<a class="headerlink" href="#configurarea-branch-ului-in-care-vom-integra-pr-ul" title="Permalink to this headline">¶</a></h3>
 <p>Modificările pe care le-am făcut urmează a fi integrate într-un branch.
-Uzual, branch-ul <code class="docutils literal notranslate"><span class="pre">master</span></code> este cel care conține codul sursă actualizat la zi, deci este branch-ul în care se integrează PR-urile.
-Touși, este bine de știut că putem schimba acest branch prin apăsarea butonului <code class="docutils literal notranslate"><span class="pre">base:</span> <span class="pre">master</span></code> din imaginea de mai jos.
+Uzual, branch-ul <code class="docutils literal notranslate"><span class="pre">master</span></code> este cel care conține codul sursă actualizat la zi, deci este branch-ul în care se integrează PR-urile.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Totuși, este bine de știut că putem schimba acest branch prin apăsarea butonului <code class="docutils literal notranslate"><span class="pre">base:</span> <span class="pre">master</span></code> din imaginea de mai jos.
 Vor fi afișate toate branch-urile din acest repository și vom putea alege în ce branch să integrăm PR-ul.</p>
+</div>
 <p>În acest tutorial vom folosi branch-ul <code class="docutils literal notranslate"><span class="pre">master</span></code>.</p>
 <div class="figure align-default">
 <a class="reference internal image-reference" href="../../_images/GitHub-base-branch.png"><img alt="Alternative text" src="../../_images/GitHub-base-branch.png" style="width: 456.3px; height: 54.0px;" /></a>
 </div>
+<p>Acum creăm <strong>Pull Requestul</strong> apăsând pe butonul <code class="docutils literal notranslate"><span class="pre">Create</span> <span class="pre">pull</span> <span class="pre">request</span></code>.</p>
 </div>
-<div class="section" id="recenzii-si-recenzori">
-<h3><span class="section-number">4.5.3. </span>Recenzii și recenzori<a class="headerlink" href="#recenzii-si-recenzori" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="recenzii-si-recenzenti">
+<h3><span class="section-number">4.3.3. </span>Recenzii și recenzenți<a class="headerlink" href="#recenzii-si-recenzenti" title="Permalink to this headline">¶</a></h3>
 <p>Motivul principal pentru introducerea PR-urilor este pentru a putea avea posibilitatea de a primi feedback pe modificările aduse.
-Din interfața grafică GitHub putem adăuga recenzori care să dea feedback pe modificări.
-Recenzorii fac parte din colaboratorii proiectului.</p>
+Din interfața grafică GitHub putem adăuga recenzenți care să dea feedback pe modificări.
+Recenzenții fac parte din colaboratorii proiectului.</p>
 <div class="figure align-default">
 <a class="reference internal image-reference" href="../../_images/GitHub-review.png"><img alt="Alternative text" src="../../_images/GitHub-review.png" style="width: 338.40000000000003px; height: 420.3px;" /></a>
 </div>
-</div>
-<div class="section" id="conflicte">
-<h3><span class="section-number">4.5.4. </span>Conflicte<a class="headerlink" href="#conflicte" title="Permalink to this headline">¶</a></h3>
-<p>În imaginea de mai jos vedem că GitHub ne anuță că acest PR nu va putea fi integrat automat în branch-ul <code class="docutils literal notranslate"><span class="pre">master</span></code>.</p>
-<div class="figure align-default">
-<a class="reference internal image-reference" href="../../_images/GitHub-conflict-warning.png"><img alt="Alternative text" src="../../_images/GitHub-conflict-warning.png" style="width: 539.1px; height: 54.9px;" /></a>
-</div>
-<p>Ca să înțelegem de ce conflictul nu poate fi rezolvat automat, ne uităm la următoarea diagramă.</p>
-<p>TODO: diagramă cu cum arată acum branch-urile și commiturile</p>
-<p>Cronologic vorbind, branch-ul <code class="docutils literal notranslate"><span class="pre">master</span></code> este primul care a fost creat.
-La acel moment acesta conținea un README cu următorul conținut.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># my-second-repository</span>
-<span class="n">My</span> <span class="n">second</span> <span class="n">repository</span>
-</pre></div>
-</div>
-<p>Imediat după a fost creat branch-ul <code class="docutils literal notranslate"><span class="pre">awesome-feature-branch</span></code> care la început a fost identic cu branch-ul <code class="docutils literal notranslate"><span class="pre">master</span></code>.
-Pe acest branch am făcut modificări, iar aceste schimbări au fost salvate pe branch-ul <code class="docutils literal notranslate"><span class="pre">awesome-feature-branch</span></code>.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>student@uso:~/my-second-repository$ git checkout awesome-feature-branch
-student@uso:~/my-second-repository$ cat README.md
-# Greatest titles of them all
-My second repository
-</pre></div>
-</div>
-<p>Între timp, pe branch-ul <code class="docutils literal notranslate"><span class="pre">master</span></code> au fost făcute schimbări asupra aceluiași fișier <code class="docutils literal notranslate"><span class="pre">README.md</span></code>.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>student@uso:~/my-second-repository$ git checkout master
-student@uso:~/my-second-repository$ cat README.md
-# Greatest titles of them all
-# Very good title for a README
-My second repository
-</pre></div>
-</div>
-<p>La acest moment, fișierul README de pe branch-ul <code class="docutils literal notranslate"><span class="pre">master</span></code> este diferit de fișierul README pe care l-am modificat de pe branch-ul <code class="docutils literal notranslate"><span class="pre">awesome-feature-branch</span></code>.
-Cu alte cuvinte, cele două branch-uri nu mai sunt sincronizate și astfel apar conflicte.
-Dacă pe branch-ul <code class="docutils literal notranslate"><span class="pre">master</span></code> nu am fi făcut nicio schimbare, nu ar fi existat niciun conflict.</p>
-<p><strong>Exercițiu:</strong> cum că am înțeles componentele unui Pull Request, îl putem crea.
-Apăsați pe butonul <code class="docutils literal notranslate"><span class="pre">Create</span> <span class="pre">pull</span> <span class="pre">request</span></code></p>
+<p>În acest tutorial nu vom adăuga recenzenți la PR-ul creat.</p>
 </div>
 </div>
-<div class="section" id="noi-commituri-pe-acelasi-pr">
-<h2><span class="section-number">4.6. </span>Noi commituri pe același PR<a class="headerlink" href="#noi-commituri-pe-acelasi-pr" title="Permalink to this headline">¶</a></h2>
-<p>Este important de reținut că dacă vrem să facem și mai multe modificări asupra PR-ului, este suficient să creăm noi commituri pe același branch, iar acestea vor fi automat adăugate la PR-ul nostru.
-Putem crea commituri noi complet separate, iar acest lucru îl facem trecând prin pașii deja învățați, sau putem adăuga noi schimbări la <strong>același commit</strong>.
-Pentru a face acest lucru folosim comanda <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">commit</span> <span class="pre">--amend</span></code>.
-Când facem acest lucru se va deschide un fișier în Vim care conține pe prima linie mesajul de commit.
-Dacă vrem să rămână același mesaj de commit ca înainte, închideți fișierul.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/my-second-repository$ git checkout awesome-feature-branch
-student@uso:~/my-second-repository$ <span class="nb">echo</span> <span class="s2">&quot;Extra line&quot;</span> &gt;&gt; README.md
-student@uso:~/my-second-repository$ cat README.md
-<span class="c1"># Greatest titles of them all</span>
-My second repository
-Extra line
-student@uso:~/my-second-repository$
-On branch awesome-feature-branch
-Your branch is up to date with <span class="s1">&#39;origin/awesome-feature-branch&#39;</span>.
-
-Changes not staged <span class="k">for</span> commit:
-<span class="o">(</span>use <span class="s2">&quot;git add &lt;file&gt;...&quot;</span> to update what will be committed<span class="o">)</span>
-<span class="o">(</span>use <span class="s2">&quot;git checkout -- &lt;file&gt;...&quot;</span> to discard changes in working directory<span class="o">)</span>
-
-    modified:   README.md
-
-no changes added to commit <span class="o">(</span>use <span class="s2">&quot;git add&quot;</span> and/or <span class="s2">&quot;git commit -a&quot;</span><span class="o">)</span>
-student@uso:~/my-second-repository$ git add README.md
-student@uso:~/my-second-repository$ git commit --amend
-<span class="o">(</span>...<span class="o">)</span>
-student@uso:~/my-second-repository$ git status
-On branch awesome-feature-branch
-Your branch and <span class="s1">&#39;origin/awesome-feature-branch&#39;</span> have diverged,
-and have <span class="m">1</span> and <span class="m">1</span> different commits each, respectively.
-<span class="o">(</span>use <span class="s2">&quot;git pull&quot;</span> to merge the remote branch into yours<span class="o">)</span>
-
-nothing to commit, working tree clean
-student@uso:~/my-second-repository$ git push
-To https://github.com/<span class="o">{</span>username<span class="o">}</span>/my-second-repository
-! <span class="o">[</span>rejected<span class="o">]</span>        awesome-feature-branch -&gt; awesome-feature-branch <span class="o">(</span>non-fast-forward<span class="o">)</span>
-error: failed to push some refs to <span class="s1">&#39;https://github.com/{username}/my-second-repository&#39;</span>
-hint: Updates were rejected because the tip of your current branch is behind
-hint: its remote counterpart. Integrate the remote changes <span class="o">(</span>e.g.
-hint: <span class="s1">&#39;git pull ...&#39;</span><span class="o">)</span> before pushing again.
-hint: See the <span class="s1">&#39;Note about fast-forwards&#39;</span> in <span class="s1">&#39;git push --help&#39;</span> <span class="k">for</span> details.
-</pre></div>
-</div>
+<div class="section" id="integrarea-pr-ului">
+<h2><span class="section-number">4.4. </span>Integrarea PR-ului<a class="headerlink" href="#integrarea-pr-ului" title="Permalink to this headline">¶</a></h2>
+<p>Așa cum am precizat în secțiunea TODO, unul sau mai mulți recenzenți se vor ocupa de recenzarea schimbărilor propuse în PR-ul nostru.
+După mai multe runde de feedback și aplicarea acestuia, PR-ul va fi gata de integrat în branch-ul <strong>master</strong>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>{username} este numele nostru de utilizator de pe GitHub.</p>
+<p>După ce aplicați feedbackul de la recenzenți veți crea un nou commit local pe același branch, în acest caz pe branch-ul <strong>bubble-sort-implementation</strong>.</p>
+<p>Commitul trebuie să fie publicat folosind comanda <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">push</span></code>, la fel ca până acum.</p>
+<p>După ce faceți acești pași, recenzenții pot începe să dea feedback pe noile modificări.</p>
+<p>Acest scenariu <em>ping-pong</em> se va repeta până când voi, împreună cu recenzenții ajungeți la concluzia că schimbările pot fi integrate.</p>
 </div>
-<p>Observăm că nu putem publica commitul.
-Acest lucru se întămplă deoarece commitul de pe GitHub nu mai corespunde cu commitul local.
-Pentru a rezolva problema folosim opțiunea <code class="docutils literal notranslate"><span class="pre">--force</span></code> pentru comanda <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">push</span></code>.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/my-second-repository$ git push --force
-Enumerating objects: <span class="m">5</span>, <span class="k">done</span>.
-Counting objects: <span class="m">100</span>% <span class="o">(</span><span class="m">5</span>/5<span class="o">)</span>, <span class="k">done</span>.
-Delta compression using up to <span class="m">4</span> threads
-Compressing objects: <span class="m">100</span>% <span class="o">(</span><span class="m">2</span>/2<span class="o">)</span>, <span class="k">done</span>.
-Writing objects: <span class="m">100</span>% <span class="o">(</span><span class="m">3</span>/3<span class="o">)</span>, <span class="m">324</span> bytes <span class="p">|</span> <span class="m">324</span>.00 KiB/s, <span class="k">done</span>.
-Total <span class="m">3</span> <span class="o">(</span>delta <span class="m">0</span><span class="o">)</span>, reused <span class="m">0</span> <span class="o">(</span>delta <span class="m">0</span><span class="o">)</span>
-To https://github.com/<span class="o">{</span>username<span class="o">}</span>/my-second-repository
-+ 5915f2b...47a3069 awesome-feature-branch -&gt; awesome-feature-branch <span class="o">(</span>forced update<span class="o">)</span>
-</pre></div>
-</div>
-<p>Inspectăm istoricul de commituri și vede că nu a fost creat un commit nou pentru această schimbare.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/my-second-repository$ git log
-commit 47a30691437c77c00c54b65055083822472422c5 <span class="o">(</span>HEAD -&gt; awesome-feature-branch, origin/awesome-feature-branch<span class="o">)</span>
-Author: Liza Babu &lt;lizza.babu@gmail.com&gt;
-Date:   Fri Aug <span class="m">21</span> <span class="m">13</span>:38:15 <span class="m">2020</span> +0300
-
-    Change boring README title
-
-commit 55c3e08a49f34bdf53bfc9656e0870e3f27f6003
-Author: Liza Babu &lt;lizza.babu@gmail.com&gt;
-Date:   Fri Aug <span class="m">21</span> <span class="m">12</span>:18:07 <span class="m">2020</span> +0300
-
-    Initial commit
-</pre></div>
-</div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Dacă voiam să creăm un commit nou parte din același PR foloseam comanda <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">commit</span> <span class="pre">-m</span> <span class="pre">&quot;&lt;Mesajul</span> <span class="pre">intră</span> <span class="pre">aici&gt;&quot;</span></code> după care dădeam comanda <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">push</span></code>.</p>
-</div>
-</div>
-<div class="section" id="rezolvarea-conflictelor-si-integrarea-pr-ului">
-<h2><span class="section-number">4.7. </span>Rezolvarea conflictelor și integrarea PR-ului<a class="headerlink" href="#rezolvarea-conflictelor-si-integrarea-pr-ului" title="Permalink to this headline">¶</a></h2>
-<p>În mod obișnuit, un PR nu se va integra imediat în branch-ul <code class="docutils literal notranslate"><span class="pre">master</span></code>.
-Recenzia acestuia poate dura mai mult timp.
-Întrucât acum nu avem recenzori, putem integra acest PR imediat.</p>
-<p>Trebuie să rezolvăm conflictele apărute.
-Apăsăm pe butonul <code class="docutils literal notranslate"><span class="pre">Resolve</span> <span class="pre">conflicts</span></code>.</p>
-<div class="figure align-default">
-<a class="reference internal image-reference" href="../../_images/GitHub-mark-as-resolved.png"><img alt="Alternative text" src="../../_images/GitHub-mark-as-resolved.png" style="width: 1479.6000000000001px; height: 550.8000000000001px;" /></a>
-</div>
-<p>La fel ca în cazul rezolvării conflictelor din linia de comandă, păstrăm în fișier conținutul pe care îl dorim.
-Apăsăm pe butonul <code class="docutils literal notranslate"><span class="pre">Mark</span> <span class="pre">as</span> <span class="pre">resolved</span></code>, după care pe butonul <code class="docutils literal notranslate"><span class="pre">Commit</span> <span class="pre">merge</span></code>.</p>
-<div class="figure align-default">
-<a class="reference internal image-reference" href="../../_images/GitHub-resolve-conflicts.png"><img alt="Alternative text" src="../../_images/GitHub-resolve-conflicts.png" style="width: 955.8000000000001px; height: 245.70000000000002px;" /></a>
-</div>
-<div class="figure align-default">
-<a class="reference internal image-reference" href="../../_images/GitHub-commit-merge-button.png"><img alt="Alternative text" src="../../_images/GitHub-commit-merge-button.png" style="width: 511.2px; height: 49.5px;" /></a>
-</div>
-<p>Ultimul pas este să facem operația <code class="docutils literal notranslate"><span class="pre">merge</span></code> și să închidem PR-ul.
-Avem trei posibilități prin care să efectuăm un <code class="docutils literal notranslate"><span class="pre">merge</span></code> din interfața web Github.</p>
-<div class="figure align-default">
-<a class="reference internal image-reference" href="../../_images/GitHub-merge.png"><img alt="Alternative text" src="../../_images/GitHub-merge.png" style="width: 950.4px; height: 489.6px;" /></a>
-</div>
-<p>Varianta <strong>Create a merge commit</strong> va lua toate commiturile făcute în acest PR și le va adăuga pe branch-ul <code class="docutils literal notranslate"><span class="pre">master</span></code>.</p>
-<p>Varianta <strong>Squash and merge</strong> va comasa toate commiturile făcute în acest PR într-unul singur și îl va adăuga pe branch-ul <code class="docutils literal notranslate"><span class="pre">master</span></code>.</p>
-<p>Varianta <strong>Rebase and merge</strong> va lua toate commiturle făcute în acest PR și le va pune după restul commiturilor de pe branch-ul <code class="docutils literal notranslate"><span class="pre">master</span></code>.</p>
-<p>În acest tutorial vom folosi prima variantă.
-Selectăm <code class="docutils literal notranslate"><span class="pre">Create</span> <span class="pre">a</span> <span class="pre">merge</span> <span class="pre">commit</span></code> și apăsăm butonul <code class="docutils literal notranslate"><span class="pre">Merge</span> <span class="pre">pull</span> <span class="pre">request</span></code>, după care apăsăm pe butonul <code class="docutils literal notranslate"><span class="pre">Confirm</span> <span class="pre">merge</span></code>.</p>
+<p>Acum vom face operația <strong>merge</strong> a PR-ului.
+Apăsăm mai întâi butonul <code class="docutils literal notranslate"><span class="pre">Merge</span> <span class="pre">pull</span> <span class="pre">request</span></code> după care butonul <code class="docutils literal notranslate"><span class="pre">Confirm</span> <span class="pre">merge</span></code> ca în GIF-ul de mai jos.</p>
+<p>TODO: adaugă GIF</p>
 </div>
 <div class="section" id="stergerea-branch-ului-in-urma-integrarii-in-branch-ul-master">
-<h2><span class="section-number">4.8. </span>Ștergerea branch-ului în urma integrării în branch-ul master<a class="headerlink" href="#stergerea-branch-ului-in-urma-integrarii-in-branch-ul-master" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">4.5. </span>Ștergerea branch-ului în urma integrării în branch-ul master<a class="headerlink" href="#stergerea-branch-ului-in-urma-integrarii-in-branch-ul-master" title="Permalink to this headline">¶</a></h2>
 <p>Odată făcută operația <code class="docutils literal notranslate"><span class="pre">merge</span></code>, putem șterge branch-ul pe care am lucrat apăsând pe butonul <code class="docutils literal notranslate"><span class="pre">Delete</span> <span class="pre">branch</span></code>.</p>
 <div class="figure align-default">
 <a class="reference internal image-reference" href="../../_images/GitHub-delete-branch.png"><img alt="Alternative text" src="../../_images/GitHub-delete-branch.png" style="width: 948.6px; height: 95.4px;" /></a>
 </div>
 <p>Această operație va șterge branch-ul doar pe GitHub.
 Trebuie să ștergem și branch-ul din repository-ul local.</p>
-<p><strong>Exercițiu:</strong> Ștergeți branch-ul și din repository-ul local.</p>
-<p><strong>Exercițiu:</strong> Verificați că rămâne un singur branch atât pe GitHub cât și local: branch-ul <code class="docutils literal notranslate"><span class="pre">master</span></code>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/my-first-repository$ git checkout master
+Switched to branch <span class="s1">&#39;master&#39;</span>
+Your branch is up to date with <span class="s1">&#39;origin/master&#39;</span>.
+student@uso:~/my-first-repository$ git branch -d bubble-sort-implementation
+Deleted branch bubble-sort-implementation <span class="o">(</span>was TODO<span class="o">)</span>.
+student@uso:~/my-first-repository$ git branch
+* master
+student@uso:~/my-first-repository$ git log
+TODO
+</pre></div>
+</div>
+<p>În final am ajuns să integrăm modificările de pe branch-ul <strong>bubble-sort-implementation</strong> în branch-ul <strong>master</strong> prin intermediul unui <strong>Pull Request</strong>.
+Am șters branch-ul <strong>bubble-sort-implementation</strong>.</p>
+</div>
+<div class="section" id="exercitiu-crearea-unui-pr">
+<h2><span class="section-number">4.6. </span>Exercițiu - Crearea unui PR<a class="headerlink" href="#exercitiu-crearea-unui-pr" title="Permalink to this headline">¶</a></h2>
+<p>Creați un nou repository pe GitHub cu numele TODO și clonați-o la voi pe calculator.
+Veți folosi acest repository pentru rezolvarea acestui exercțiu.</p>
+<p>Creați un <strong>Pull Request</strong> urmând pașii descriși mai sus în care să adăugați un nou algoritm de sortare al unui vector: TODO.
+De această dată veți crea un nou fișier numit TODO cu următorul conținut:</p>
+<p>TODO conținut</p>
+<p>Pe parcursul creării acestui Pull Request țineți cont de următoarele:</p>
+<ol class="arabic simple">
+<li><p>Alegeți nume relevante pentru branch-uri și fișiere.</p></li>
+<li><p>Adăugați un fișier README în repository.</p></li>
+<li><p>Dați un mesaj de commit și o descriere potrivită PR-ului vostru.</p></li>
+<li><p>Nu uitați să verificați pe tot parcursul dezvoltării starea clonei (<code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">status</span></code>) și istoricul de commituri (<code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">log</span></code>).</p></li>
+</ol>
 </div>
 </div>
 
