@@ -195,6 +195,8 @@
                 
                   <li class="toctree-l2"><a href="#pornirea-unei-aplicatii-grafice-folosind-alt-f2" class="reference internal">Pornirea unei aplicații grafice folosind Alt+F2</a></li>
                 
+                  <li class="toctree-l2"><a href="#exercitii-de-aprofundare" class="reference internal">Exerciții de aprofundare</a></li>
+                
               </ul>
             
           </li>
@@ -542,18 +544,93 @@
             
   <div class="section" id="pornirea-si-oprirea-aplicatiilor">
 <h1><span class="section-number">1. </span>Pornirea și oprirea aplicațiilor<a class="headerlink" href="#pornirea-si-oprirea-aplicatiilor" title="Permalink to this headline">¶</a></h1>
-<p>Luat de la <a class="reference external" href="https://sergiu121.github.io/refs/pull/9/merge/chapters/app-install/start.html#pornirea-si-oprirea-aplicatiilor-grafice">https://sergiu121.github.io/refs/pull/9/merge/chapters/app-install/start.html#pornirea-si-oprirea-aplicatiilor-grafice</a> dar înlocuiesc exemplele de firefox cu altceva.
-Cred că putem să avem o secțiune separată pentru Firefox ca să explicăm mai multe acolo: pornire/oprire, taburi: deschidere/închidere/navigare, bookmarks, etc.</p>
-<p>Vorbim despre pornirea aplicațiilor din terminal la secțiunea TODO.
-Aici vorbim strict despre mediul grafic.</p>
+<p>Aplicațiile sunt pornite de utilizator sau de sistem.
+Utilizatorul pornește aplicațiile pentru că are o nevoie pe care aplicația o rezolvă.
+De exemplu, pornește un browser web pentru a accesa Wikipedia sau pornește aplicația Spotify pentru a asculta muzică.
+Sistemul pornește aplicații (fără intervenția utilizatorului) pentru a asigura buna funcționare a sistemului.
+De exemplu sistemul pornește un client DHCP pentru a obține automat parametrii de rețea care asigură conexiunea la Internet; sau pornește o aplicație care sincronizează data sistemului cu data indicată de un server din Internet.</p>
+<p>Utilizatorul poate porni aplicațiile folosind interfața grafică (<em>Graphical User Interface</em>, GUI) sau interfața în linia de comandă (<em>Command Line Interface</em>, CLI).
+În cazul interfeței grafice pornirea se face folosind elementele grafice (mouse, meniuri, iconuri de desktop).
+În cazul interfeței în linia de comandă pornirea se face introducând și rulând comenzi.
+Vorbim despre pornirea aplicațiilor din terminal la secțiunea TODO.</p>
 <div class="section" id="pornirea-unei-aplicatii-grafice-folosind-iconuri">
 <h2><span class="section-number">1.1. </span>Pornirea unei aplicații grafice folosind iconuri<a class="headerlink" href="#pornirea-unei-aplicatii-grafice-folosind-iconuri" title="Permalink to this headline">¶</a></h2>
+<p>Cel mai simplu mod de a porni o aplicație grafică este folosind iconuri.
+Folosim mouse-ul și facem click pe icon și pornim aplicația.
+De exemplu, în Ubuntu 18.04, pentru a porni aplicația TODO folosim iconul din bara de jos în stânga, la fel ca în imaginea de mai jos:</p>
+<p>TODO: SS cu iconuri aplicații din bară</p>
+<p>După un click pe icon aplicația va porni și o putem folosi, ca în imaginea de mai jos:</p>
+<p>TODO: SS aplicația TODO pornită</p>
+<p>Spunem că acum aplicația <strong>rulează</strong>.
+Rularea înseamnă că aplicația folosește resursele sistemului pentru a îndeplini nevoile utilizatorului sau sistemului.</p>
+<p>În mod similar pornim alte aplicații care au iconuri.
+Aceste iconuri pot fi prezente pe bare de iconuri sau în diferite meniuri, depinzând de mediul grafic și distribuția folosită.</p>
 </div>
 <div class="section" id="oprirea-unei-aplicatii-grafice">
 <h2><span class="section-number">1.2. </span>Oprirea unei aplicații grafice<a class="headerlink" href="#oprirea-unei-aplicatii-grafice" title="Permalink to this headline">¶</a></h2>
+<p>Odată pornită, o aplicație grafică rulează, de obicei, până la o oprire explicită din partea utilizatorului.
+Utilizatorul poate opri o aplicație grafică în mai multe moduri:</p>
+<ul>
+<li><p>Folosind butonul de închidere a ferestrei grafice, în general în forma unui simbol <strong>x</strong>, ca în imaginea de mai jos:</p>
+<img alt="Butoane ale ferestrei grafice" class="align-center" src="../../_images/exit-gui.png" />
+</li>
+<li><p>Folosind combinația de taste <code class="docutils literal notranslate"><span class="pre">Alt+F4</span></code> care închide fereastra grafică, o scurtătură pentru folosirea butonului de închidere.</p></li>
+<li><p>Folosind intrarea de tip <em>Quit</em> / <em>Close</em> / <em>Exit</em> din meniul grafic al aplicației, ca în imaginea de mai jos, specifică aplicației TODO:</p></li>
+</ul>
+<p>TODO: Oprirea TODO folosind intrarea din meniul grafic al aplicației</p>
+<ul class="simple">
+<li><p>Folosind o combinație de taste care este asociată intrării din meniul grafic al aplicației.
+În imaginea de mai sus, specifică TODO, combinația de taste este <code class="docutils literal notranslate"><span class="pre">Ctrl+q</span></code>.
+Această combinație de taste depinde de aplicație, spre deosebire combinației de taste <code class="docutils literal notranslate"><span class="pre">Alt+F4</span></code> care se aplică tuturor aplicațiilor grafice.</p></li>
+<li><p>Folosind utilitarul <code class="docutils literal notranslate"><span class="pre">xkill</span></code>.
+După ce pornim utilitarul <code class="docutils literal notranslate"><span class="pre">xkill</span></code>, cursorul mouse-ului capătă o formă de <code class="docutils literal notranslate"><span class="pre">x</span></code>.
+Un click pe o aplicație grafică duce la omorârea acelei aplicații.</p></li>
+</ul>
+<p><strong>Exercițiu:</strong> Porniți aplicația TODO și opriți-o în toate modurile de mai sus.</p>
 </div>
 <div class="section" id="pornirea-unei-aplicatii-grafice-folosind-alt-f2">
 <h2><span class="section-number">1.3. </span>Pornirea unei aplicații grafice folosind Alt+F2<a class="headerlink" href="#pornirea-unei-aplicatii-grafice-folosind-alt-f2" title="Permalink to this headline">¶</a></h2>
+<p>Pentru a porni o aplicație grafică folosind iconuri trebuie să existe acele iconuri.
+Dacă iconul nu este prezent, sau dacă este greu accesibil (trebuie să căutăm prin meniuri), preferăm o altă soluție.
+Soluția este folosirea unui mod generic de a lansa o aplicație în interfața grafică, adică folosirea unui prompt de tip <em>application launcher</em>.</p>
+<p>În mediile grafice Linux pornim un prompt de tip <em>application launcher</em> folosind combinația de taste <code class="docutils literal notranslate"><span class="pre">Alt+F2</span></code>.
+Când apăsăm <code class="docutils literal notranslate"><span class="pre">Alt+F2</span></code> mediul grafic prezintă un prompt în care introducem șirul care identifică aplicația.
+De exemplu, pentru a porni aplicația TODO introducem șirul <code class="docutils literal notranslate"><span class="pre">TODO</span></code> în prompt, ca în figura de mai jos:</p>
+<p>TODO: SS cu Pornirea TODO folosind Alt+F2</p>
+<p>În urma introducerii șirului <code class="docutils literal notranslate"><span class="pre">TODO</span></code> în prompt, urmat de apăsarea tastei <code class="docutils literal notranslate"><span class="pre">Enter</span></code>, aplicația TODO va porni.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Funcționalitatea de tip <em>application launcher</em>, pornită folosind <code class="docutils literal notranslate"><span class="pre">Alt+F2</span></code>, se găsește și în alte sisteme de operare, nu doar în Linux.
+În Windows pornim un prompt de tip <em>application launcher</em> folosind combinația de taste <code class="docutils literal notranslate"><span class="pre">Windows+r</span></code>.
+În macOS folosim <code class="docutils literal notranslate"><span class="pre">Command+Space</span></code>.</p>
+</div>
+<p>În mod similar, dacă dorim să pornim o aplicație de tip terminal (<strong>GNOME Terminal</strong>), folosim <code class="docutils literal notranslate"><span class="pre">Alt+F2</span></code> și introducem șirul <code class="docutils literal notranslate"><span class="pre">gnome-terminal</span></code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Aplicația GNOME Terminal, pornită folosind comanda <code class="docutils literal notranslate"><span class="pre">gnome-terminal</span></code>, este aplicația de tip terminal specifică mediului GNOME.
+Alte medii pot folosi alte aplicații de tip terminal.
+De exemplu, aplicația de tip terminal pe mediul KDE este Konsole.
+Sau utilizatorul poate decide instalarea unei alte aplicații de tip terminal, precum Terminator.</p>
+</div>
+<p>Șirurile <code class="docutils literal notranslate"><span class="pre">TODO</span></code> și <code class="docutils literal notranslate"><span class="pre">gnome-terminal</span></code> sunt șiruri identifică aplicațiile TODO, respectiv GNOME Terminal.
+Numim un astfel de șir o <strong>comandă</strong>; comenzile sunt șiruri introduse de utilizator pentru a porni o anumită aplicație.</p>
+<p><strong>Exercițiu:</strong> Porniți aplicația <strong>LibreOffice</strong>, identificată de șirul (comanda) <code class="docutils literal notranslate"><span class="pre">libreoffice</span></code>, folosind <code class="docutils literal notranslate"><span class="pre">Alt+F2</span></code>.</p>
+</div>
+<div class="section" id="exercitii-de-aprofundare">
+<h2><span class="section-number">1.4. </span>Exerciții de aprofundare<a class="headerlink" href="#exercitii-de-aprofundare" title="Permalink to this headline">¶</a></h2>
+<p>Porniți aplicațiile:</p>
+<ul class="simple">
+<li><p>Shutter (identificată de șirul <code class="docutils literal notranslate"><span class="pre">shutter</span></code>), aplicație de creare de screenshoturi</p></li>
+<li><p>Gedit (identificată de șirul <code class="docutils literal notranslate"><span class="pre">gedit</span></code>), editor</p></li>
+<li><p>Mines (identificată de șirul <code class="docutils literal notranslate"><span class="pre">gnome-mines</span></code>), joc de tip Minesweeper</p></li>
+<li><p>ToDo (identificată de șirul <code class="docutils literal notranslate"><span class="pre">gnome-todo</span></code>), aplicație de gestiune de taskuri / todo-uri</p></li>
+</ul>
+<p>Porniți fiecare aplicație în trei moduri:</p>
+<ol class="arabic simple">
+<li><p>Folosind iconuri în interfața grafică.
+Localizați iconul în meniurile interfeței grafice.</p></li>
+<li><p>Folosind <code class="docutils literal notranslate"><span class="pre">Alt+F2</span></code>.</p></li>
+</ol>
 </div>
 </div>
 
