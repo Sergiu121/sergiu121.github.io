@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html >
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+      <title>6. O înțelegere mai bună a shell-ului</title>
+    
+      <link rel="stylesheet" href="../../_static/pygments.css">
+      <link rel="stylesheet" href="../../_static/theme.css">
+      <link rel="stylesheet" href="../../_static/romnnn_sphinx_press_theme.css">
+      
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+
+      <!-- sphinx script_files -->
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+        <script src="../../_static/my_actions.js"></script>
+
+      
+      <script src="../../_static/theme-vendors.js"></script>
+      <script src="../../_static/theme.js" defer></script>
+    
+  <link rel="index" title="Index" href="../../genindex.html" />
+  <link rel="search" title="Search" href="../../search.html" />
+  <link rel="next" title="7. Multiplexarea terminalului" href="term-multiplexing.html" />
+  <link rel="prev" title="5. Prelucrarea fișierelor" href="process-files.html" />
+    <link href="../../_static/my_theme.css" rel="stylesheet" type="text/css">
+
+  </head>
+
+  <body>
+    <div id="app" class="theme-container" :class="pageClasses"><navbar @toggle-sidebar="toggleSidebar">
+  <div class="home-link-container">
+      <router-link to="../../index.html" class="home-link">
+      
+        <span class="site-name">USO Lab Book</span>
+    </router-link>
+  </div>
+
+  <div class="links">
+    <navlinks class="can-hide">
+
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Acomodarea în Linux
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Lucrul cu fișiere
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Dezvoltarea aplicațiilor
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Conectarea la Internet
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Instalarea și utilizarea aplicațiilor
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link  router-link-active">
+         Îmbunătățirea lucrului în linia de comandă
+      </a>
+    </div>
+  
+
+
+
+  
+    <div class="nav-item">
+      <a href="https://github.com/Sergiu121/uso-lab-book"
+        class="nav-link external">
+          Github <outboundlink/>
+      </a>
+    </div>
+  
+
+    </navlinks>
+  </div>
+</navbar>
+
+      
+      <div class="sidebar-mask" @click="toggleSidebar(false)">
+      </div>
+        <sidebar @toggle-sidebar="toggleSidebar">
+          
+          <navlinks>
+            
+
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Acomodarea în Linux
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Lucrul cu fișiere
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Dezvoltarea aplicațiilor
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Conectarea la Internet
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Instalarea și utilizarea aplicațiilor
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link  router-link-active">
+         Îmbunătățirea lucrului în linia de comandă
+      </a>
+    </div>
+  
+
+
+
+  
+    <div class="nav-item">
+      <a href="https://github.com/Sergiu121/uso-lab-book"
+        class="nav-link external">
+          Github <outboundlink/>
+      </a>
+    </div>
+  
+
+            
+          </navlinks><div id="searchbox" class="searchbox" role="search">
+  <div class="caption"><span class="caption-text">Search</span>
+    <div class="searchformwrapper">
+      <form autocomplete="off" class="search" action="../../search.html" method="get">
+        <input type="text" name="q" autocomplete="off" />
+        <input type="submit" value="Go" />
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div><div class="sidebar-links" role="navigation" aria-label="main navigation">
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#uso-lab-book">Acomodarea în Linux</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../basic/apps.html" class="reference internal ">Pornirea și oprirea aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../basic/browser.html" class="reference internal ">Folosirea eficientă a browserului</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../basic/terminal.html" class="reference internal ">Lucrul în terminal</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../basic/workspace.html" class="reference internal ">Lucrul cu workspace-uri</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../basic/cheatsheet.html" class="reference internal ">Cheatsheet</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#uso-lab-book">Lucrul cu fișiere</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../files/paths.html" class="reference internal ">Căi absolute și relative</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../files/files.html" class="reference internal ">Interacțiunea cu fișiere în linia de comandă</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../files/file_editor.html" class="reference internal ">Editor de text</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../files/io_redirection.html" class="reference internal ">Redirectări</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../files/archive.html" class="reference internal ">Arhive</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../files/file_system.html" class="reference internal ">Sistemul de fișiere</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#uso-lab-book">Dezvoltarea aplicațiilor</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../app-dev/git-intro.html" class="reference internal ">Introducere în Git și GitHub</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/git-first-commit.html" class="reference internal ">Primul commit</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/git-more-commits.html" class="reference internal ">Crearea unui nou commit</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/git-contribute.html" class="reference internal ">Contribuirea la un alt repository</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/make-setup.html" class="reference internal ">Pregătirea mediului de lucru</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/make-intro.html" class="reference internal ">Compilarea unui fișier cod sursă C</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/make-multiple.html" class="reference internal ">Compilarea unui program din fișiere multiple</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/make-lib.html" class="reference internal ">Legarea executabilelor folosind biblioteci externe</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/make-debug.html" class="reference internal ">Depanare condițională / configurabilă</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/make-simple-automation.html" class="reference internal ">Introducere în utilitarul Make și fișiere Makefile</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/make-advanced-automation.html" class="reference internal ">Aprofundarea folosirii fișierelor Makefile</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/make-contribute.html" class="reference internal ">Contribuirea la un proiect existent pe GitHub</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/extra.html" class="reference internal ">Exerciții suplimentare</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#uso-lab-book">Conectarea la Internet</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../net/browser.html" class="reference internal ">Folosirea eficientă a browser-ului</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../net/troubleshoot.html" class="reference internal ">Verificarea conectivităţii la reţea</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../net/services.html" class="reference internal ">Servicii şi clienţi de reţea</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../net/extra.html" class="reference internal ">Funcţionalităţi suplimentare de reţelistică</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#uso-lab-book">Instalarea și utilizarea aplicațiilor</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../app-install/start.html" class="reference internal ">Pornirea aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-install/run.html" class="reference internal ">Rularea aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-install/config.html" class="reference internal ">Configurarea aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-install/summary1.html" class="reference internal ">Sumar: Pornirea, rularea și configurarea aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-install/show-config.html" class="reference internal ">Vizualizarea configurației sistemului</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-install/install.html" class="reference internal ">Instalarea și dezinstalarea aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-install/install-non-standard.html" class="reference internal ">Instalarea și dezinstalarea aplicațiilor în mod nestandard</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-install/update.html" class="reference internal ">Actualizarea aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-install/show.html" class="reference internal ">Investigarea aplicațiilor instalate</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-install/summary2.html" class="reference internal ">Sumar: Instalarea, dezinstalarea, investigarea, actualizarea aplicațiilor</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#uso-lab-book">Îmbunătățirea lucrului în linia de comandă</a></span>
+      </p>
+      <ul class="current">
+        
+          <li class="toctree-l1 "><a href="improve-terminal.html" class="reference internal ">Îmbunătățirea lucrului în linia de comandă</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="inspect-fs.html" class="reference internal ">Inspectarea sistemului de fișiere</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="inspect-sys.html" class="reference internal ">Inspectarea sistemului</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="inspect-files.html" class="reference internal ">Inspectarea fișierelor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="process-files.html" class="reference internal ">Prelucrarea fișierelor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 current"><a href="#" class="reference internal current">O înțelegere mai bună a shell-ului</a>
+
+            
+              <ul>
+                
+                  <li class="toctree-l2"><a href="#custom-is-better" class="reference internal">1) Custom is better</a></li>
+                
+                  <li class="toctree-l2"><a href="#executia-comenzilor" class="reference internal">2) Execuția comenzilor</a></li>
+                
+                  <li class="toctree-l2"><a href="#shell-scripting" class="reference internal">3) Shell scripting</a></li>
+                
+              </ul>
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="term-multiplexing.html" class="reference internal ">Multiplexarea terminalului</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+</div>
+        </sidebar>
+
+      <page>
+          <div class="body-header" role="navigation" aria-label="navigation">
+  
+  <ul class="breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+    
+    <li><span class="section-number">6. </span>O înțelegere mai bună a shell-ului</li>
+  </ul>
+  
+
+  <ul class="page-nav">
+  <li class="prev">
+    <a href="process-files.html"
+       title="previous chapter">← <span class="section-number">5. </span>Prelucrarea fișierelor</a>
+  </li>
+  <li class="next">
+    <a href="term-multiplexing.html"
+       title="next chapter"><span class="section-number">7. </span>Multiplexarea terminalului →</a>
+  </li>
+</ul>
+  
+</div>
+<hr>
+          <div class="content" role="main">
+            
+  <div class="section" id="o-intelegere-mai-buna-a-shell-ului">
+<h1><span class="section-number">6. </span>O înțelegere mai bună a shell-ului<a class="headerlink" href="#o-intelegere-mai-buna-a-shell-ului" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="custom-is-better">
+<h2><span class="section-number">6.1. </span>1) Custom is better<a class="headerlink" href="#custom-is-better" title="Permalink to this headline">¶</a></h2>
+<p>Totul este mai bun cu un fișier de configurare</p>
+<ul class="simple">
+<li><p>Prezentare <code class="docutils literal notranslate"><span class="pre">alias</span></code> și noțiunea de fișier de configurare: cel mai important, deocamdată: <code class="docutils literal notranslate"><span class="pre">.bashrc</span></code>. Observare alias-uri existente: <code class="docutils literal notranslate"><span class="pre">ls</span></code>, <code class="docutils literal notranslate"><span class="pre">ll</span></code>, <code class="docutils literal notranslate"><span class="pre">grep</span></code>; și definirea de noi alias-uri</p></li>
+<li><p>Utilizarea comenzii <code class="docutils literal notranslate"><span class="pre">source</span></code> pentru încărcarea <code class="docutils literal notranslate"><span class="pre">.bashrc</span></code></p></li>
+</ul>
+<div class="section" id="a-exercitii">
+<h3><span class="section-number">6.1.1. </span>a. Exerciții<a class="headerlink" href="#a-exercitii" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple">
+<li><p>Alias pentru search &amp; replace recursiv cu <code class="docutils literal notranslate"><span class="pre">find</span> <span class="pre">--exec</span> <span class="pre">sed</span> <span class="pre">-i</span> <span class="pre">-e</span> <span class="pre">...</span></code></p></li>
+<li><p>Alias pentru eliminare leading/trailing/extra whitespaces</p></li>
+</ol>
+</div>
+</div>
+<div class="section" id="executia-comenzilor">
+<h2><span class="section-number">6.2. </span>2) Execuția comenzilor<a class="headerlink" href="#executia-comenzilor" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><dl>
+<dt>Terminarea (cu succes) a unei comenzi: <code class="docutils literal notranslate"><span class="pre">echo</span> <span class="pre">$?</span></code></dt><dd><ul class="simple">
+<li><p>Înlănțuirea comenzilor în funcție de succes/eșec. Ex.</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">apt</span> <span class="n">update</span> <span class="o">&amp;&amp;</span> <span class="n">apt</span> <span class="n">install</span> <span class="o">-</span><span class="n">y</span> <span class="n">cmd</span> <span class="o">&amp;&amp;</span> <span class="n">cmd</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Înlănțuirea comenzilor folosind pipe</dt><dd><ul class="simple">
+<li><p>Exemplu utilizare <code class="docutils literal notranslate"><span class="pre">xargs</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Redirectări (reminder)</dt><dd><ul class="simple">
+<li><p>În fișiere și în void (<code class="docutils literal notranslate"><span class="pre">/dev/null</span></code>)</p></li>
+<li><p>Din generatoare <code class="docutils literal notranslate"><span class="pre">/dev/zero</span></code>, <code class="docutils literal notranslate"><span class="pre">/dev/urandom</span></code></p></li>
+<li><p>Selecția stream-urilor de ieșire (<code class="docutils literal notranslate"><span class="pre">out</span></code> și <code class="docutils literal notranslate"><span class="pre">err</span></code>), și combinarea lor (<code class="docutils literal notranslate"><span class="pre">&amp;&gt;</span></code>)</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<div class="section" id="id1">
+<h3><span class="section-number">6.2.1. </span>a. Exerciții<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple">
+<li><p>Clonați repo folosind <code class="docutils literal notranslate"><span class="pre">git</span></code>. Rulează o anumită comandă, sau un șir de comenzi doar dacă s-a modificat ceva în repo git log pt a vedea dacă s-au făcut modificări în repo build și pus binare generate în <code class="docutils literal notranslate"><span class="pre">~/bin</span></code></p></li>
+<li><p>Căutat în repo/cod sursă după un simbol (<cite>grep -nr &lt;simbol&gt;</cite>). Deschis vim la locația unde a fost găsit simbolul.</p></li>
+<li><dl class="simple">
+<dt>Implementarea unui alias pt <cite>rm</cite> care muta fișierele în <cite>~/Trash</cite></dt><dd><ul class="simple">
+<li><p>Adăugare intrare în crontab care șterge periodic (1/zi) fișierele mai vechi de T (ex. 30 zile)</p></li>
+<li><p>Utilizare <code class="docutils literal notranslate"><span class="pre">find</span> <span class="pre">|</span> <span class="pre">xargs</span></code> sau <code class="docutils literal notranslate"><span class="pre">find</span> <span class="pre">--exec</span></code> pentru rezolvare</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>Lansarea în execuție a unui proces care supraviețuiește închiderii terminalului părinte. Inspectarea acestui proces (<code class="docutils literal notranslate"><span class="pre">lsof</span></code>, <code class="docutils literal notranslate"><span class="pre">ps</span></code>). Trimiterea unor semnale. Oprirea lui. Un mod de a notifica utilizatorul de terminarea cu succes a procesului (mail?)</p></li>
+</ol>
+</div>
+</div>
+<div class="section" id="shell-scripting">
+<h2><span class="section-number">6.3. </span>3) Shell scripting<a class="headerlink" href="#shell-scripting" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><dl class="simple">
+<dt>Variabile de mediu: ce sunt, la ce le folosim și care sunt variabilele uzuale (<code class="docutils literal notranslate"><span class="pre">$HOST</span></code>, <code class="docutils literal notranslate"><span class="pre">$USER</span></code>)</dt><dd><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">$PATH</span></code> - la ce este folosit; cum adăugăm ceva la <code class="docutils literal notranslate"><span class="pre">$PATH</span></code>, ce face export și de ce este util, cum facem ca modificarea <code class="docutils literal notranslate"><span class="pre">$PATH</span></code> să fie persistentă (edităm în <code class="docutils literal notranslate"><span class="pre">.bashrc</span></code>)</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>Definirea de variabile cu valori statice (x=42) sau dinamice (x=`ls -l`)</p></li>
+<li><p>Oneliners</p></li>
+<li><p>Control flow în bash: <code class="docutils literal notranslate"><span class="pre">if</span></code>, <code class="docutils literal notranslate"><span class="pre">for</span></code>, <code class="docutils literal notranslate"><span class="pre">while</span> <span class="pre">read</span></code>, <code class="docutils literal notranslate"><span class="pre">test</span></code></p></li>
+<li><p>Bouns: Definirea de funcții în <code class="docutils literal notranslate"><span class="pre">.bashrc</span></code></p></li>
+</ul>
+<div class="section" id="id2">
+<h3><span class="section-number">6.3.1. </span>a. Exerciții<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple">
+<li><p>Snippeturi pentru a crea fișiere: sursa main, fișiere header care au <code class="docutils literal notranslate"><span class="pre">#ifndef/define/endif</span> <span class="pre">__PLACEHOLDER__</span></code>, <code class="docutils literal notranslate"><span class="pre">Makefile</span></code> etc. Modificarea placeholder-elor cu nume date de utilizator.</p></li>
+<li><dl class="simple">
+<dt>Creat un director template pentru a fi folosit în inițializarea structurii unor noi proiecte (boilerplate).</dt><dd><ul class="simple">
+<li><p>Generează directoare pt <code class="docutils literal notranslate"><span class="pre">src/,</span> <span class="pre">build/,</span> <span class="pre">gen/,</span> <span class="pre">res/</span></code> și fișier <code class="docutils literal notranslate"><span class="pre">Readme</span></code> etc.</p></li>
+<li><p>Search and replace după anumite cuvinte placeholder: ex. Numele proiectului în fișierul <code class="docutils literal notranslate"><span class="pre">Readme</span></code>.</p></li>
+<li><p>Mutat totul într-un script.</p></li>
+<li><p>Script-ul trebuie să primească ca argumente: numele proiectului, repo către github, autor, etc.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Scrie un script care generează un fișier Makefile pentru fișierele sursă din directorul curent. Script-ul trebuie să primească tipul fișierelor sursă (<cite>c, cpp, d, java</cite>, etc.) și compilatorul pe care să-l folosească.</dt><dd><ul class="simple">
+<li><p>Pune script-ul în <code class="docutils literal notranslate"><span class="pre">~/bin</span></code> și actualizează variabila <code class="docutils literal notranslate"><span class="pre">$PATH</span></code>.</p></li>
+<li><p>Fă alias-uri pentru cazurile cele mai uzuale: <code class="docutils literal notranslate"><span class="pre">c_make_init</span></code> (pt C) și <code class="docutils literal notranslate"><span class="pre">cpp_make_init</span></code> pt (C++)</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Mount în modul read-only al unei partiții (util pt cei care au dualboot și vor să-și monteze discul de Windows, D:filme, etc).</dt><dd><ul class="simple">
+<li><p>Utilizare sshfs (mount la o partiție prin ssh) - util pt lucrat pe cluster pt cei care folosesc IDE-uri</p></li>
+<li><p>Nu are ce căuta aici, dar nu știam unde să-l pun și nu voiam să uit de el</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ol>
+</div>
+</div>
+</div>
+
+
+          </div>
+          <div class="page-nav">
+            <div class="inner"><ul class="page-nav">
+  <li class="prev">
+    <a href="process-files.html"
+       title="previous chapter">← <span class="section-number">5. </span>Prelucrarea fișierelor</a>
+  </li>
+  <li class="next">
+    <a href="term-multiplexing.html"
+       title="next chapter"><span class="section-number">7. </span>Multiplexarea terminalului →</a>
+  </li>
+</ul><div class="footer" role="contentinfo">
+      &#169; Copyright 2020, USO Team.
+    <br>
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.2.1 with <a href="https://github.com/romnnn/sphinx_press_theme">Press Theme</a>.
+</div>
+            </div>
+          </div>
+      </page>
+    </div>
+    
+    
+  </body>
+</html>
