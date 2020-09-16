@@ -25,7 +25,7 @@
   <link rel="index" title="Index" href="../../genindex.html" />
   <link rel="search" title="Search" href="../../search.html" />
   <link rel="next" title="1. Pornirea aplicațiilor" href="../app-install/start.html" />
-  <link rel="prev" title="3. Servicii şi clienţi de reţea" href="services.html" />
+  <link rel="prev" title="3. Servicii și clienți de rețea" href="services.html" />
     <link href="../../_static/my_theme.css" rel="stylesheet" type="text/css">
 
   </head>
@@ -314,7 +314,7 @@
           </li>
 
         
-          <li class="toctree-l1 "><a href="services.html" class="reference internal ">Servicii şi clienţi de reţea</a>
+          <li class="toctree-l1 "><a href="services.html" class="reference internal ">Servicii și clienți de rețea</a>
 
             
           </li>
@@ -477,7 +477,7 @@
   <ul class="page-nav">
   <li class="prev">
     <a href="services.html"
-       title="previous chapter">← <span class="section-number">3. </span>Servicii şi clienţi de reţea</a>
+       title="previous chapter">← <span class="section-number">3. </span>Servicii și clienți de rețea</a>
   </li>
   <li class="next">
     <a href="../app-install/start.html"
@@ -497,11 +497,15 @@ practici și cunoștințe extra despre conectarea calculatorului la internet și
 funcționarea serviciilor în internet.</p>
 <div class="section" id="folosirea-proxy-urilor-http">
 <h2><span class="section-number">4.1. </span>1) Folosirea proxy-urilor HTTP<a class="headerlink" href="#folosirea-proxy-urilor-http" title="Permalink to this headline">¶</a></h2>
+<p>Din unele motive, anumite site-uri nu permit accesul utilizatorilor din unele
+țări la ele. Asta se întâmplă din motive logistice, legislative (cu precădere
+la politicile de colectare a datelor interzise în anumite țări) sau securitate.
+Totuși noi ne dorim să accesăm aceste site-uri.</p>
+<p>Până acum am explorat cum putem să apărem în internet ca o stație care provine
+dintr-o altă adresă folosind un VPN.</p>
 <p>Proxy-ul HTTP este o alternativă a VPN care în loc să tuneleze tot traficul
 în Internet, o va face doar pentru traficul HTTP. Putem să folosim un serviciu
 online de proxy-ing.</p>
-<p>Funcționalitatea de proxy se activează direct din browser, astfel putem să
-evităm filtre bazate pe locație.</p>
 <p>TODO demo proxy</p>
 </div>
 <div class="section" id="evitarea-elementelor-de-tip-paywall">
@@ -529,16 +533,18 @@ folosind opțiunile &lt;TODO&gt; ar fi nevoie să rulăm comanda:</p>
 <p>Tastarea acestei comenzi pentru fiecare conexiune succesivă este ineficientă și
 există alternative pentru a reduce timpul de scriere al comenzii.</p>
 <p>Vom configura o scurtătura pentru utilitarul ssh folosit de utilizatorul
-student. Fișierul de configurare se regăsește la carea <cite>~/.ssh/config</cite>, iar
+student. Fișierul de configurare se regăsește la calea <code class="docutils literal notranslate"><span class="pre">~/.ssh/config</span></code>, iar
 acesta conține intrări de tipul următor:</p>
 <p>Folosindu-ne de intrarea de mai sus, putem să ne conectăm la stația menționată
 mai sus folosind comanda următoare:</p>
+<p>EXERCIȚIU</p>
 <p>Realizați configurările necesare astfel încât să va puteți conecta la stația
-&lt;TODO&gt; ca utilizatorul &lt;TODO&gt;, folosind opțiunea de X forwarding.</p>
+&lt;TODO&gt; ca utilizatorul &lt;TODO&gt;, folosind opțiunea de X forwarding cu scurtătura
+&lt;TODO&gt;.</p>
 </div>
 <div class="section" id="b-configurarea-accesului-prin-chei-ssh">
 <h3><span class="section-number">4.3.2. </span>b. Configurarea accesului prin chei SSH<a class="headerlink" href="#b-configurarea-accesului-prin-chei-ssh" title="Permalink to this headline">¶</a></h3>
-<p>După cum am observat în secțiunea &lt;TODO&gt;, ca sa ne copiem singuri cheia publică
+<p>După cum am observat în secțiunea &lt;TODO&gt;, ca să ne copiem singuri cheia publică
 pe o stație este necesar să cunoaștem parola utilizatorului drept care vrem să
 ne autentificăm.</p>
 <p>Însă există situații în care nu cunoaștem parola utilizatorului, dar avem acces
@@ -551,6 +557,7 @@ private care sunt salvate în fișierul <cite>~/.ssh/authorized_keys</cite>.</p>
 <p>Pentru adăugarea unei alte chei SSH pentru verificarea identității clienților,
 este suficient să scriem cheia SSH a utilizatorului pe o linie nouă a fișierului
 <cite>authorized_keys</cite>.</p>
+<p>EXERCIȚIU</p>
 <p>Realizați configurările necesare astfel încât utilizatorul &lt;TODO&gt; să se poată
 autentifica fără parola la stația &lt;TODO&gt;.</p>
 <p>TODO infra</p>
@@ -558,10 +565,11 @@ autentifica fără parola la stația &lt;TODO&gt;.</p>
 </div>
 <div class="section" id="gestiunea-avansata-a-conexiunilor-la-retea">
 <h2><span class="section-number">4.4. </span>4) Gestiunea avansată a conexiunilor la rețea<a class="headerlink" href="#gestiunea-avansata-a-conexiunilor-la-retea" title="Permalink to this headline">¶</a></h2>
-<p>Pentru a înlesni configurarea conexiunii la internet pentru utilizatorii Linux,
-a fost adoptat ca serviciu standard pentru configurarea conexiunilor la internet
+<p>Pentru a ușura configurarea conexiunii la Internet pentru utilizatorii Linux, a
+fost adoptat ca serviciu standard pentru gestionarea conexiunilor la Internet
 serviciul <cite>NetworkManager</cite>. Acesta permite utilizatorilor să configureze din
-mediul grafic parametrii de rulare ai rețelei, cum ar fi serverul DNS folosit.</p>
+mediul grafic parametrii de funcționare ai rețelei, cum ar fi serviciul DNS
+folosit.</p>
 <p><cite>NetworkManager</cite> oferă și funcționalități în linie de comandă, cu scopul de a
 face mai ușoară depanarea problemelor de rețea. Utilitarul pe care îl vom
 folosi se numește <cite>nmcli</cite>, iar acesta ne oferă funcționalități pentru
@@ -570,18 +578,19 @@ gestionarea configurărilor.</p>
 acesta le configurează și există conexiuni, care rețin configurările.</p>
 <div class="section" id="a-configurarea-conexiunilor-folosind-nmcli">
 <h3><span class="section-number">4.4.1. </span>a. Configurarea conexiunilor folosind <cite>nmcli</cite><a class="headerlink" href="#a-configurarea-conexiunilor-folosind-nmcli" title="Permalink to this headline">¶</a></h3>
-<p>Pentru interfețe conectat prin cablu exista doar o singură conexiune în mod
+<p>Pentru interfețe conectate prin cablu exista doar o singură conexiune în mod
 normal.</p>
-<p>Pentru a vizualiza parametrii de rulare ai unei conexiuni rulăm comanda:</p>
+<p>Pentru a vizualiza parametrii de funcționare ai unei conexiuni rulăm comanda:</p>
 <p>Observăm că sunt afișate lucruri cum ar fi ruta implicită, adresa IP configurată
 pe interfață, serverul de DNS folosit, și modul prin care a fost configurată
 interfața (prin DHCP sau în mod static).</p>
 <p>Pentru modificarea unui atribut al conexiunii folosim comanda <cite>nmcli</cite> în felul
 următor:</p>
-<p>Atributul <cite>ipv4.dns</cite> reține date despre DNS-ul care va folosit în cadrul
+<p>Atributul <cite>ipv4.dns</cite> reține date despre DNS-ul care va fi folosit în cadrul
 conexiunii.</p>
+<p>EXERCIȚIU:</p>
 <p>Faceți modificările necesare folosind comanda <cite>nmcli</cite> astfel încât conexiunea
-“Wired Connection” sa folosească adresa IP sursă &lt;TODO&gt;</p>
+“Wired Connection” să folosească adresa IP sursă &lt;TODO&gt;</p>
 </div>
 <div class="section" id="b-conectarea-la-retelele-wireless">
 <h3><span class="section-number">4.4.2. </span>b. Conectarea la reţelele wireless<a class="headerlink" href="#b-conectarea-la-retelele-wireless" title="Permalink to this headline">¶</a></h3>
@@ -596,7 +605,7 @@ conexiunii.</p>
             <div class="inner"><ul class="page-nav">
   <li class="prev">
     <a href="services.html"
-       title="previous chapter">← <span class="section-number">3. </span>Servicii şi clienţi de reţea</a>
+       title="previous chapter">← <span class="section-number">3. </span>Servicii și clienți de rețea</a>
   </li>
   <li class="next">
     <a href="../app-install/start.html"

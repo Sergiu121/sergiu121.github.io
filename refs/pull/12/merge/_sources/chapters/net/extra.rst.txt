@@ -9,12 +9,17 @@ funcționarea serviciilor în internet.
 1) Folosirea proxy-urilor HTTP
 ------------------------------
 
+Din unele motive, anumite site-uri nu permit accesul utilizatorilor din unele
+țări la ele. Asta se întâmplă din motive logistice, legislative (cu precădere
+la politicile de colectare a datelor interzise în anumite țări) sau securitate.
+Totuși noi ne dorim să accesăm aceste site-uri.
+
+Până acum am explorat cum putem să apărem în internet ca o stație care provine
+dintr-o altă adresă folosind un VPN.
+
 Proxy-ul HTTP este o alternativă a VPN care în loc să tuneleze tot traficul
 în Internet, o va face doar pentru traficul HTTP. Putem să folosim un serviciu
 online de proxy-ing.
-
-Funcționalitatea de proxy se activează direct din browser, astfel putem să
-evităm filtre bazate pe locație.
 
 TODO demo proxy
 
@@ -47,21 +52,21 @@ Pentru a ne conecta în mod normal la stația <TODO>, ca utilizatorul <TODO>
 folosind opțiunile <TODO> ar fi nevoie să rulăm comanda:
 
 .. code-block::
-    student@tom:~$ ssh -o ServerAliveInterval=100 user@statie
+    student@tom:~$ ssh -X user@statie
 
 Tastarea acestei comenzi pentru fiecare conexiune succesivă este ineficientă și
 există alternative pentru a reduce timpul de scriere al comenzii.
 
 Vom configura o scurtătura pentru utilitarul ssh folosit de utilizatorul
-student. Fișierul de configurare se regăsește la carea `~/.ssh/config`, iar
+student. Fișierul de configurare se regăsește la calea ``~/.ssh/config``, iar
 acesta conține intrări de tipul următor:
 
 .. code-block::
     student@tom:~$ cat ~/.ssh/config
     Host sw-fep
         HostName fep.grid.pub.ro
-        User sergiu.weisz
-        ServerAliveInterval 100
+        User student
+        ForwardX11 yes
 
 Folosindu-ne de intrarea de mai sus, putem să ne conectăm la stația menționată
 mai sus folosind comanda următoare:
@@ -70,13 +75,16 @@ mai sus folosind comanda următoare:
     student@tom:~$ ssh sw-fep
     TODO
 
+EXERCIȚIU
+
 Realizați configurările necesare astfel încât să va puteți conecta la stația
-<TODO> ca utilizatorul <TODO>, folosind opțiunea de X forwarding.
+<TODO> ca utilizatorul <TODO>, folosind opțiunea de X forwarding cu scurtătura
+<TODO>.
 
 b. Configurarea accesului prin chei SSH
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-După cum am observat în secțiunea <TODO>, ca sa ne copiem singuri cheia publică
+După cum am observat în secțiunea <TODO>, ca să ne copiem singuri cheia publică
 pe o stație este necesar să cunoaștem parola utilizatorului drept care vrem să
 ne autentificăm.
 
@@ -99,6 +107,8 @@ Pentru adăugarea unei alte chei SSH pentru verificarea identității cliențilo
 este suficient să scriem cheia SSH a utilizatorului pe o linie nouă a fișierului
 `authorized_keys`.
 
+EXERCIȚIU
+
 Realizați configurările necesare astfel încât utilizatorul <TODO> să se poată
 autentifica fără parola la stația <TODO>.
 
@@ -107,10 +117,11 @@ TODO infra
 4) Gestiunea avansată a conexiunilor la rețea
 ---------------------------------------------
 
-Pentru a înlesni configurarea conexiunii la internet pentru utilizatorii Linux,
-a fost adoptat ca serviciu standard pentru configurarea conexiunilor la internet
+Pentru a ușura configurarea conexiunii la Internet pentru utilizatorii Linux, a
+fost adoptat ca serviciu standard pentru gestionarea conexiunilor la Internet
 serviciul `NetworkManager`. Acesta permite utilizatorilor să configureze din
-mediul grafic parametrii de rulare ai rețelei, cum ar fi serverul DNS folosit.
+mediul grafic parametrii de funcționare ai rețelei, cum ar fi serviciul DNS
+folosit.
 
 `NetworkManager` oferă și funcționalități în linie de comandă, cu scopul de a
 face mai ușoară depanarea problemelor de rețea. Utilitarul pe care îl vom
@@ -123,10 +134,10 @@ acesta le configurează și există conexiuni, care rețin configurările.
 a. Configurarea conexiunilor folosind `nmcli`
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Pentru interfețe conectat prin cablu exista doar o singură conexiune în mod
+Pentru interfețe conectate prin cablu exista doar o singură conexiune în mod
 normal.
 
-Pentru a vizualiza parametrii de rulare ai unei conexiuni rulăm comanda:
+Pentru a vizualiza parametrii de funcționare ai unei conexiuni rulăm comanda:
 
 .. code-block::
     student@tom:~$ nmcli connection show Wired\ connection
@@ -143,11 +154,13 @@ următor:
     student@tom:~$ nmcli connection modify Wired\ connection ipv4.dns 1.1.1.1
     TODO
 
-Atributul `ipv4.dns` reține date despre DNS-ul care va folosit în cadrul
+Atributul `ipv4.dns` reține date despre DNS-ul care va fi folosit în cadrul
 conexiunii.
 
+EXERCIȚIU:
+
 Faceți modificările necesare folosind comanda `nmcli` astfel încât conexiunea
-"Wired Connection" sa folosească adresa IP sursă <TODO>
+"Wired Connection" să folosească adresa IP sursă <TODO>
 
 b. Conectarea la reţelele wireless
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

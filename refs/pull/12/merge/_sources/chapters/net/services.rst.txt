@@ -1,57 +1,87 @@
-Servicii şi clienţi de reţea
+Servicii și clienți de rețea
 ============================
 
-Ce înseamnă un serviciu?
+După cum putem observa dispozitivele pe care le folosim noi devin din ce în ce
+mai mici, mai eficiente și ieftine. Asta se întâmplă deoarece multe dintre
+aplicațiile care până nu de curând rulau pe calculatorul propriu s-au mutat în
+spațiu online. De exemplu, în loc să descărcăm filme și să le urmărim de pe
+calculator, folosim o aplicație cum ar fi Netflix pentru a transmite prin
+Internet filmul pe care vrem să îl urmărim. Un alt exemplu relevant este Google
+Drive, care ne permite să stocăm, să replicăm și să edităm documente într-o
+interfață web, în loc să le păstrăm local pe calculatorul pe care îl folosim.
+Toată puterea de procesare și tot spațiul de stocare s-a mutat de pe
+calculatorul propriu pe servere aflate în Internet.
+
+Noi vom numi aceste aplicații care rulează în Internet servicii,.
 
 Un serviciu este o aplicație care oferă o funcționalitate utilizatorilor care
-apelează la ele. Serviciile în computer science lucrează folosind paradigma
-server-client, deoarece ne dorim să reducem complexitatea aplicațiilor pe care
-le folosesc oamenii și pentru a reduce puterea de calcul necesară pentru rularea
-aplicațiilor de către utilizatori. Astfel, aplicația client execută o cerere
-către aplicația server, serverul primește cererea, execută procesarea necesară
-pentru cerere și servește răspunsul aplicației client care a făcut cererea.
+apelează la ele. Serviciile în domeniul calculatoarelor lucrează folosind
+paradigma server-client, deoarece ne dorim să reducem complexitatea
+aplicațiilor pe care le folosesc utilizatorii. Un avantaj major al acestei
+abordări este că reduce puterea de calcul necesară pentru rularea aplicațiilor
+de către utilizatori, aceștia au nevoie doare de o aplicație client care știe
+să comunice cu serverul. Astfel, aplicația client trimite o cerere către
+aplicația server, serverul primește cererea, procesează cererea și servește
+răspunsul aplicației client care a făcut cererea.
 
 Această paradigmă poate fi observată în schema <TODO>.
 
+CAPTION SCHEMĂ:
 
+Atunci când noi vrem să urmărim un film pe Netflix aplicația client Netflix de
+pe calculator sau telefon va trimite o cerere de descărcare a filmului de pe
+serverul Netflix aflat la distanță.
 
 1) Clienţi web în linia de comandă
 -----------------------------------
 
-În viață de zi cu zi aplicația pe care o folosim cel mai mult, browser-ul web.
-Browserul web este o aplicație care execută o cerere HTTP către un server web,
-identificată printr-o adresă, un link, prin care face o acțiune și primește un
-răspuns. De exemplu, pentru o acțiune de tip GET, browser-ul primește ca răspuns
-o pagină web, în formatul HTML, pe care o afișează.
+În viață de zi cu zi aplicația pe care o folosim cel mai mult este browserul
+web, deoarece majoritatea aplicațiilor pe care le folosim au fost transformate
+în pagini web cu care noi interacționăm. Browserul web este o aplicație care
+execută o cerere HTTP către un server web, identificată printr-o adresă, un
+link, prin care face o acțiune și primește un răspuns. De exemplu, pentru o
+acțiune de tip GET, browserul primește ca răspuns o pagină web, în formatul
+HTML, pe care o afișează.
 
 Pentru interacțiunea cu serverele web putem folosi și clienți web în linie de
 comandă. Clienții web folosiți în linie de comandă sunt folositori atunci când
 nu avem acces la o interfață GUI, sau încercăm să automatizăm un proces.
 
 Există mai multe implementări de clienți web în linie de comandă, dar noi vom
-folosi comanda `wget` pentru descărcarea unei pagini web.
+folosi comanda ``wget`` pentru descărcarea unei pagini web.
 
 .. code-block::
 
     student@uso:~$ wget <link>
 
-Rulați comanda de mai sus pentru a descărca pagina web de la adresa.
+EXERCIȚIU
 
-Deschideți pagina web descărcată în browser pentru a vedea conținutul.
+Deschideți în browser pagina web descărcată pentru a vedea conținutul său
 
-Deschideți pagina web descărcată într-un editor de text pentru a vedea
+EXERCIȚIU
+
+Deschideți într-un editor de text pagina web descărcată pentru a vedea
 conținutul HTML.
 
 OBSERVAȚIE:
 
-Nu sunt accesate doar pagini web folosind clienți web. Putem folosi clienți web
-pentru a descărca fișiere indiferent de tipul acestora.
+Clienți web nu sunt folosiți doar pentru accesarea paginilor web. Putem folosi
+clienți web pentru a descărca fișiere indiferent de tipul acestora.
 
-Descărcați fișierul <insert link>. Observați că descărcarea nu funcționează,
-deoarece aceasta necesită autentificarea utilizatorului. Hint: căutați în pagina
-de manual a utilitarului `wget` (`man wget`), pentru a identifica opțiunea
-necesară pentru autentificarea la un server HTTP. Pentru autentificare veți
-folosi utilizatorul *student* și parola *student*.
+EXERCIȚIU:
+
+Descărcați fișierul <insert link>.
+
+NOTĂ:
+
+Observați că descărcarea nu funcționează, deoarece aceasta necesită
+autentificarea utilizatorului.
+
+HINT:
+
+Căutați în pagina de manual a utilitarului ``wget`` (``man wget``), pentru a
+identifica opțiunea necesară pentru autentificarea la un server HTTP. Pentru
+autentificare veți folosi utilizatorul *student* și parola *student*.
 
 2) Accesul la distanţă în linie de comandă
 ------------------------------------------
@@ -80,8 +110,7 @@ hostname-ul stației la care vrem să ne conectăm.
 
 În mod implicit protocolul SSH va folosi autentificarea cu parolă.
 
-Baby's first SSH
-""""""""""""""""
+EXERCIȚIU:
 
 Autentificați-vă la stație <insert hostname> folosind utilizatorul <insert
 utilizator> și parola <insert parolă>
@@ -89,8 +118,8 @@ utilizator> și parola <insert parolă>
 OBSERVAȚIE:
 
 Atunci când ne conectăm la o stație folosind protocolul SSH este necesar să
-specificăm un nume de utilizator valid. Dacă utilizatorul nu există, server-ul
-nu va specifica faptul că utilizatorul nu există pe sistem, ci va cere parola
+precizăm un nume de utilizator valid. Dacă utilizatorul nu există, serverul
+nu va preciza faptul că utilizatorul nu există pe sistem, ci va cere parola
 utilizatorului, dar nu va permite autentificarea la stație. De ce serverul SSH
 nu specifică dacă utilizatorul exista sau nu.
 
@@ -125,7 +154,12 @@ cu chei. Autentificarea cu chei presupune existentă a două chei pereche:
   serverul SSH care este folosită pentru identificarea clienților SSH care se
   conectează la server.
 
-Pentru generarea unei perechi de chei folosim comanda `ssh-keygen` în felul
+Cele două chei sunt legate matematic, iar posesorul cheii private să se poate
+autentifice pe orice sistem unde este disponibilă cheia publică. Câtă vreme
+posesorul cheii private este singurul care are acces la cheie, nimeni nu se va
+mai putea autentifica în locul său.
+
+Pentru generarea unei perechi de chei folosim comanda ``ssh-keygen`` în felul
 următor:
 
 .. code-block::
@@ -133,9 +167,15 @@ următor:
     student@uso:~$ ssh-keygen
     TODO
 
-Generați o pereche de chei SSH.
+OBSERVAȚIE:
 
-Pentru copierea cheii publice pe o stație folosim comanda `ssh-copy-id` în felul
+În procesul de generare al cheilor ni se cere și un passphrase
+pentru a asigura securitaea cheii private în cazul în care este pierdută,
+furată sau altcineva are acces accidental la ea. Desigur, uitarea
+passphrase-ului face cheia nefolosibilă. Așa că passphrase-ul trebuie reținut
+(și protejat) ca orice altă parolă.
+
+Pentru copierea cheii publice pe o stație folosim comanda ``ssh-copy-id`` în felul
 următor:
 
 .. code-block::
@@ -148,11 +188,15 @@ Este necesar să cunoaștem parola utilizatorului pentru copierea cheii publice.
 OBSERVAȚIE:
 
 Atunci când copiem cheia publică aceasta va fi copiată pentru un singur
-utilizator. Dacă vrem sa ne autentificăm pe același calculator ca utilizatori
+utilizator. Dacă vrem să ne autentificăm pe același calculator ca utilizatori
 diferiți fără parola, este necesar să copiem cheia publică pentru fiecare
 utilizator.
 
-Generați o nouă cheie SSH de tip ECDSA.
+EXERCIȚIU:
+
+Generați o nouă cheie SSH de tip RSA cu passphrase-ul "mere".
+
+EXERCIȚIU:
 
 Efectuați modificările necesare astfel încât să vă puteți autentifica drept
 utilizatorul <TODO> de pe stația <host> fără parolă.
@@ -169,9 +213,9 @@ vor accesa o altă mașină virtuală remote. Le vom arăta cum se face tunelul.
 d. Transferul datelor la distanţă
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Pentru a transfera fișiere la distanță să folosească `scp`. Comanda `scp` se
-folosește de protocolul SSH pentru transferul de date între stații, astfel ne
-putem folosi de modelul de autentificare de la SSH
+Pentru a transfera fișiere la distanță să folosească ``scp``. Comanda ``scp``
+se folosește de protocolul SSH pentru transferul de date între stații, astfel
+ne putem folosi de modelul de autentificare de la SSH
 
 .. code-block::
 
@@ -180,8 +224,26 @@ putem folosi de modelul de autentificare de la SSH
 
 OBSERVAȚIE:
 
-Trimiterea fișierelor poate fi realizată în orice direcție, de la client la
-server, sau de la server la client în funcție de ordinea parametrilor.
+Trimiterea fișierelor poate fi realizată în orice direcție:
+
+* încărcarea fișierelor de la client la server
+
+* descărcarea fișierelor de la server la client
+
+Pentru descărcarea fișierelor de pe un server folosim comanda ``scp`` în felul
+următor:
+
+.. code-block::
+
+    student@uso:~$ scp <username>@<stație>:~/file1 .
+    TODO
+
+OBSERVAȚIE:
+
+Comanda rulată anterior a descărcat fișierul ``file1`` din directorul home al
+utilizatorului <user> de pe stația <stație> în directorul curent.
+
+EXERCIȚIU:
 
 Copiați directorul de pe stația TODO în directorul home al utilizatorului curent.
 
@@ -192,31 +254,13 @@ Există anumite tipuri de aplicații care funcționează în mod implicit și ac
 aplicații nu pot fi rulate în interfață în linie de comandă. De exemplu,
 installer-ul unui joc nu poate să fie rulat din linie de comandă.
 
-Controlul aplicațiilor se poate reduce la doua probleme:
+Controlul aplicațiilor se poate reduce la două probleme:
 
-* controlul ferestrei aplicației respective;
+* controlul întregului desktop;
 
-* controlul întregului desktop.
+* controlul unei singure aplicații.
 
-a. Controlul unei ferestre la distanţă
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Pentru controlul unei ferestre în Linux putem să folosim protocolul SSH pentru
-transferul datelor care ar fi afișate pe stația pe care rulează serverul pe
-stația clientului.
-
-Acest mod de transfer nu este rapid, deoarece transferul se face printr-un
-protocol care nu este menit pentru transfer de date sensibile la latență, cum
-sunt ferestrele interactive, dar pentru aplicații care nu sunt sensibile la
-latență, cum ar fi chituri de instalare ale programelor, această metodă este
-funcțională.
-
-TODO: Demo cu poze
-
-Deschideți aplicația firefox ca utilizatorul <username> pe stația <hostname>.
-
-
-b. Controlul desktopului la distanţă
+a. Controlul desktopului la distanţă
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Pentru control complet al sesiunii există o multitudine de soluții, fie gratis,
@@ -224,18 +268,39 @@ cum ar fi VNC, sau FreeRDP, dar noi ne vom concentra pe soluția numită
 TeamViewer, deoarece oferă suport pentru toate sistemele convenționale.
 
 TeamViewer poate fi descărcat de la această adresă <TODO> și permite
-autentificarea la o mașină folosind un cod.
+autentificarea la o mașină folosind un ID și o parolă generate de aplicația
+server.
 
 TODO: Demo cu poze
+
+EXERCIȚIU:
 
 Porniți TeamViewer pe stația TODO și conectați-vă la stație de pe mașina voastră
 fizică.
 
+b. Controlul unei ferestre la distanţă
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Pentru controlul unei ferestre în Linux putem să folosim protocolul SSH pentru
+transferul datelor care ar fi afișate pe stația pe care funcționează aplicația
+grafică pe stația pe care este lansat clientul SSH.
+
+Acest mod de transfer nu este rapid, deoarece transferul se face printr-un
+protocol care nu este menit pentru transfer de date sensibile la latență, cum
+sunt ferestrele interactive, dar pentru aplicații care nu sunt sensibile la
+latență, cum ar fi kituri de instalare ale programelor, această metodă este
+funcțională.
+
+TODO: Demo cu poze
+
+EXERCIȚIU:
+
+Deschideți aplicația firefox ca utilizatorul <username> pe stația <hostname>.
 
 4) Securizarea conexiunii la Internet folosind un VPN
 -----------------------------------------------------
 
-VPN-urile sunt aplicațiile care permit creare rețelelor de calculatoare în
+VPN-urile sunt aplicațiile care permit crearea rețelelor de calculatoare în
 internet fără ca acestea să fie neapărat în aceeași rețea fizică.
 
 Funcționalitatea unui VPN este încapsularea datelor trimise de către un
@@ -252,16 +317,24 @@ LAN, putem folosi un VPN, cum ar fi Hamachi, la care se conectează doi
 utilizatori. Serverul de VPN va primi datele de la clienți și va trimite
 mai departe datele dintr-o rețea privată în alta.
 
+EXERCIȚIU:
+
 Porniți infrastructura
+
+EXERCIȚIU:
 
 Identificați adresele IP ale celor stații la care aveți acces.
 
+EXERCIȚIU:
+
 Verificați conectivitatea între cele doua stații.
+
+OBSERVAȚIE:
 
 Nu există conectivitate între cele două stații, deoarece acestea se află în
 rețele private diferite.
 
-Pentru a porni VPN-ul, vom folosi openvpn. Rulați următoarea comandă pe ambele
+Pentru a porni VPN-ul, vom folosi ``openvpn``. Rulați următoarea comandă pe ambele
 stații pentru a porni clientul de VPN.
 
 .. code-block::
@@ -275,13 +348,13 @@ stații pentru a porni clientul de VPN.
 Observăm că a apărut o nouă interfață de rețea în sistem care nu are o componentă
 fizică. Adresa IP setată pe această interfață este adresa care identifică
 stațiile în rețeaua VPN-ului. Observați că ambele adrese de pe interfețele
-<TODO> sunt foarte similare. Asta înseamnă ca cele două stații sunt acum în
+<TODO> sunt foarte similare. Asta înseamnă că cele două stații sunt acum în
 aceeași rețea virtuală
 
 Testați conectivitatea de pe stația <TODO> cu stația de la adresa <TODO>.
 
 Pentru a verifica că drumul pachetului chiar trece prin VPN, rulăm comanda
-`traceroute 8.8.8.8` și observăm că mesajele spre internet nu mai trec prin
+``traceroute 8.8.8.8`` și observăm că mesajele spre internet nu mai trec prin
 interfața eth0 ci trec prin interfața virtuală, ajung la serverul VPN în pasul
 <TODO>, iar abia apoi sunt lansate mai departe spre Internet.
 
@@ -290,6 +363,5 @@ interfața eth0 ci trec prin interfața virtuală, ajung la serverul VPN în pas
     student@tom:~$ traceroute 8.8.8.8
 
 Astfel, un pachet care se va îndrepta spre o destinație, poate să depășească
-anumite filtre bazate pe locație, deoarece locația va fi locația serverului de
-VPN, deoarece pachetele au fost trimise în Internet începând de la serverul DE
-VPN.
+anumite filtre bazate pe locație, deoarece locația de unde provine pachetul va
+fi înlocuită de serverul VPN.
