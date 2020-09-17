@@ -230,6 +230,8 @@
                 
                   <li class="toctree-l2"><a href="#crearea-primului-commit" class="reference internal">Crearea primului commit</a></li>
                 
+                  <li class="toctree-l2"><a href="#bune-practici" class="reference internal">Bune practici</a></li>
+                
               </ul>
             
           </li>
@@ -487,42 +489,60 @@
             
   <div class="section" id="primul-commit">
 <h1><span class="section-number">2. </span>Primul commit<a class="headerlink" href="#primul-commit" title="Permalink to this headline">¶</a></h1>
-<p>Odată creat repository-ul, putem să începem să aducem modificări asupra lui.
-Atunci când vrem să salvăm (în Git, nu doar în editorul text) modificările făcute local spunem că facem un <strong>commit</strong>.
-Starea proiectului se modifică local, fără acțiuni ulterioare aceasta nu va fi făcută publică.
-Dacă starea proiectului nu se publică, atunci ceilalți colaboratori nu vor putea vedea modificările tale.
-Pentru a putea publica o schimbare trebuie să faceți operația <strong>push</strong>.
-Vom vedea în următoarele secțiuni care sunt pașii pentru a crea un commit și pentru a-l publica.</p>
+<p>Odată creat repository-ul, putem să începem să lucrăm la proiect.</p>
+<p>De fiecare dată când facem o modificare vrem să salvăm starea proiectului print-un <strong>commit</strong>.
+Același lucru îl fac și ceilalți colegi care lucrează la același proiect.
+Fiecare commit referă o versiune a proiectului.
+Git se ocupă de păstrarea istoricului repository-ului nostru prin păstrarea listei de commituri făcute.</p>
+<p>Vrem să avem posibilitatea de a reveni la o versiune anterioară a codului sursă sau să putem verifica cine a făcut o anumită modificare, de aceea avem nevoie să salvăm stările intermediare ale proiectului la care lucrăm.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Ne amintim însă că scopul nostru este să lucrăm împreună la același proiect.</p>
+</div>
+<p>Crearea unui commit presupune actualizarea repository-ului <strong>local</strong>, nu și aceluia <strong>remote</strong>.
+Fără a actualiza și repository-ul remote, ceilalți colegi nu vor putea vedea schimbările făcute de noi.
+Spunem că publicăm modificările făcute în repository-ul local prin operația <strong>push</strong>.</p>
+<p>Vom vedea în următoarele secțiuni care sunt pașii pentru a crea un commit și pentru a-l publica.</p>
 <p>În următoarele secțiuni vom contribui la repository-ul creat în secțiunea anterioară (TODO adaugă ref).
-Vom crea pas cu pas un proiect care conține un algoritm de sortare al unui vector de elemente întregi.</p>
+Vom crea pas cu pas un proiect care conține mai mulți algoritmi de sortare al unui vector de elemente întregi.</p>
+<p>Punctual, în această secțiune vom crea fișierul README al proiectului și scheletul de cod pentru algoritmii de sortare <strong>Bubble Sort</strong>, <strong>Merge Sort</strong> și <strong>Radix Sort</strong>.
+Vom crea commituri pentru fiecare schimbare, după care vom publica commiturile astfel încât schimbările să fie vizibile și pe GitHub.</p>
 <div class="section" id="adaugarea-unui-fisier-readme">
 <h2><span class="section-number">2.1. </span>Adăugarea unui fișier README<a class="headerlink" href="#adaugarea-unui-fisier-readme" title="Permalink to this headline">¶</a></h2>
-<p>Am stabilit mai devreme că într-un repository se află întreg codul sursă al unui proiect.
-Pe lângă codul sursă se recomandă adăugarea unui fișier (de obicei intitulat README) în care se află diverse informații despre un proiect.
+<div class="admonition-reamintire admonition">
+<p class="admonition-title">Reamintire</p>
+<p>Pe lângă codul sursă se recomandă adăugarea unui fișier (de obicei intitulat README) în care se află informații despre un proiect.
 Spre exemplu în README se află informații despre ce funcționalități are proiectul nostru, cum se compilează un proiect, cum se rulează, pe ce tip de platforme poate fi rulat etc.</p>
-<p>Adăugăm proiectului nostru un fișier <code class="docutils literal notranslate"><span class="pre">README.md</span></code>.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/my-first-repository$ <span class="nb">echo</span> <span class="s2">&quot;# Bubble Sort Algorithm for Beginners&quot;</span> &gt; README.md
+</div>
+<p>Adăugăm un fișier README folosind următoarele comenzi:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/my-first-repository$ <span class="nb">echo</span> <span class="s2">&quot;# Sorting Algorithms for Beginners&quot;</span> &gt; README.md
 student@uso:~/my-first-repository$ ls -a
 ./         ../        .git/      README.md
 </pre></div>
 </div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
 <p>Folosim extensia <code class="docutils literal notranslate"><span class="pre">.md</span></code> care semnalează un fișier de tip <a class="reference external" href="https://www.markdownguide.org">Markdown</a>.
 Facem acest lucru deoarece pe GitHub fișierele README sunt afișate în format Markdown.
 Acest format este simplu de înțeles, însă nu face obiectul acestei cărți, deci nu vom insista pe înțelegerea lui.</p>
 </div>
+</div>
 <div class="section" id="crearea-primului-commit">
 <h2><span class="section-number">2.2. </span>Crearea primului commit<a class="headerlink" href="#crearea-primului-commit" title="Permalink to this headline">¶</a></h2>
-<p>Prin <strong>commituri</strong> aducem modificări asupra unui repository.
-Aceasta este modalitatea prin care putem propaga schimbări făcute în repository.
-Astfel, Git poate păstra un istoric al modificărilor făcute.</p>
+<p>Prin <strong>commituri</strong> actualizăm istoricul unui repository.
+Aceasta este modalitatea prin care propagăm modificărule făcute de noi în proiect.
+Astfel, Git păstrează un istoric al modificărilor făcute.</p>
 <div class="section" id="verificarea-starii-clonei">
 <h3><span class="section-number">2.2.1. </span>Verificarea stării clonei<a class="headerlink" href="#verificarea-starii-clonei" title="Permalink to this headline">¶</a></h3>
-<div class="admonition-reamintire admonition">
-<p class="admonition-title">Reamintire</p>
-<p>O <strong>clonă</strong> a unui repository este o copie locală a unui repository deja existent pe GitHub.</p>
+<div class="admonition-clonare admonition">
+<p class="admonition-title"><strong>Clonare</strong></p>
+<p>O copie locală a unui repository deja existent pe GitHub se numește <strong>clonă</strong>.</p>
+<p>Operația <strong>clone</strong> realizează o copie locală a unui repository.
+Această copie poate fi acum actualizată după bunul plac.</p>
 </div>
 <p>Ne interesează întotdeauna starea clonei pe care lucrăm.
-Starea clonei ne va indica ce fișiere am creat, modificat sau șters de la ultima sincronizare cu repository-ul remote.</p>
+Prin <strong>starea clonei</strong> înțelegem forma la care am adus proiectul prin modificările noastre.
+Aceasta include ce fișiere am creat, modificat sau șters de la ultima sincronizare cu repository-ul remote.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/my-first-repository$ git status
 On branch master
 
@@ -537,17 +557,17 @@ Untracked files:
 <p>Pentru a verifica starea clonei folosim comanda <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">status</span></code>.</p>
 <p>Prima linie afișată <code class="docutils literal notranslate"><span class="pre">On</span> <span class="pre">branch</span> <span class="pre">master</span></code> se referă la branch-ul master local.
 Ne indică faptul că modificările făcute, adică crearea fișierelor <code class="docutils literal notranslate"><span class="pre">README.md</span></code> și <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code> au fost făcute pe branch-ul master.</p>
-<p>A doua linie afișată <code class="docutils literal notranslate"><span class="pre">No</span> <span class="pre">commits</span> <span class="pre">yet</span></code> se referă la faptul că nu am făcut până acum niciun comit, adică am pornit de la un repository gol.</p>
-<p>În ultima parte a outputului vedem că se află o listă de fișiere <code class="docutils literal notranslate"><span class="pre">untracked</span></code>, adică lista fișierelor pe care Git le vede ca nou adăugate în repository-ul curent, dar pe care nu le monitorizează încă.
+<p>A doua linie afișată <code class="docutils literal notranslate"><span class="pre">No</span> <span class="pre">commits</span> <span class="pre">yet</span></code> se referă la faptul că nu am făcut până acum niciun commit, adică am pornit de la un repository gol.</p>
+<p>În ultima parte a outputului se află o listă de fișiere <code class="docutils literal notranslate"><span class="pre">untracked</span></code>, adică lista fișierelor pe care Git le vede ca nou adăugate în repository-ul curent, dar pe care nu le monitorizează încă.
 Asta înseamnă că deocamdată orice modificare făcută asupra acestor fișiere nu va fi urmărită de Git.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Este datoria noastră de a adăuga fișierele în aria de vizibilitate pentru Git.</p>
+<p>Este datoria noastră de a adăuga fișierele în zona de lucru pentru Git.</p>
 </div>
 </div>
 <div class="section" id="adaugarea-unui-fisier-in-staging-area">
 <h3><span class="section-number">2.2.2. </span>Adăugarea unui fișier (în staging area)<a class="headerlink" href="#adaugarea-unui-fisier-in-staging-area" title="Permalink to this headline">¶</a></h3>
-<p>Adăugăm fișierul <strong>README.md</strong> în aria de vizibilitate pentru Git, adică în <strong>staging area</strong>.
+<p>Adăugăm fișierul <strong>README.md</strong> în zona de lucru pentru Git, adică în <strong>staging area</strong>.
 În <strong>staging area</strong> adăugăm fișierele pe care le pregătim pentru un commit.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/my-first-repository$ git add README.md
 student@uso:~/my-first-repository$ git status
@@ -561,7 +581,7 @@ Changes to be committed:
     new file:   README.md
 </pre></div>
 </div>
-<p>În urma stagingului, comanda <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">status</span></code> va produce un nou output. Haideți să-l interpretăm.</p>
+<p>În urma adăugării în staging, comanda <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">status</span></code> va produce un nou output. Haideți să-l interpretăm.</p>
 <p>Primele 2 mesaje afișate au rămas neschimbate.
 Partea interesantă apare la ultima parte a outputului.
 Vedem că mesajul a devenit <code class="docutils literal notranslate"><span class="pre">Changes</span> <span class="pre">to</span> <span class="pre">be</span> <span class="pre">commited</span></code>.
@@ -569,10 +589,8 @@ Asta înseamnă că acum Git știe de noile modificări și așteaptă ca modifi
 </div>
 <div class="section" id="crearea-commitului-local-cu-un-mesaj-corespunzator">
 <h3><span class="section-number">2.2.3. </span>Crearea commitului local cu un mesaj corespunzător<a class="headerlink" href="#crearea-commitului-local-cu-un-mesaj-corespunzator" title="Permalink to this headline">¶</a></h3>
-<p>Următorul pas în etapa de dezvoltare este chiar crearea unui nou commit cu modificările făcute.
-Când vom da comanda <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">commit</span></code> se va deschide editorul text default al sistemului cu un fișier în care vom scrie pe prima linie o descriere a commitului, adică vom explica pe scurt ce modificări am adus cu acest commit.
-Pe următoarele linii se recomandă să facem o descriere mai detaliată a schimbărilor: care a fost problema inițială, cum am rezolvat-o.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>student@uso:~/my-first-repository$ git commit
+<p>Următorul pas în etapa de dezvoltare este chiar crearea unui nou commit cu modificările făcute.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>student@uso:~/my-first-repository$ git commit -m &quot;Add README file&quot;
 [master (root-commit) 0dfb632] Add README.md
 1 file changed, 1 insertion(+)
 create mode 100644 README.md
@@ -581,35 +599,70 @@ On branch master
 nothing to commit, working tree clean
 </pre></div>
 </div>
-<p>Există câteva bune practici de care trebuie să țineți întotdeauna cont.</p>
-<p>E bine ca atunci când ne apucăm de lucru să avem în vedere să sincronizăm din când în când repository-ul local cu cel remote.
-Pot apărea diferențe în momentul în care altcineva a publicat schimbări remote după ce am făcut noi ultima sincronizare.
-În momentul în care cineva a publicat modificări asupra unei secvențe de cod pe care și noi o modificăm, apar conflicte.
-Conflictele trebuie rezolvate.</p>
-<p>Putem face acest lucru în două moduri.
-Operația <code class="docutils literal notranslate"><span class="pre">fetch</span></code> are rolul de a aduce local toate schimbările, însă nu va face și operația de <code class="docutils literal notranslate"><span class="pre">merge</span></code> care presupune rezolvarea conflictelor și ajungerea a un front comun.
-Operația <code class="docutils literal notranslate"><span class="pre">pull</span></code> face, de fapt, un <code class="docutils literal notranslate"><span class="pre">fetch</span></code> și un <code class="docutils literal notranslate"><span class="pre">merge</span></code>, adică va aduce local toate modificările și va încerca să rezolve conflicetele în mod automat.
-Dacă rezolvarea conflictelor nu se poate face automat, trebuie să ne ocupăm de acest pas.</p>
+<p>Am folosit descrierea <code class="docutils literal notranslate"><span class="pre">Add</span> <span class="pre">README</span> <span class="pre">file</span></code> drept <strong>mesaj de commit</strong>.
+Aceasta este o descriere succintă a modificările făcute prin acest commit.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Noi am pornit de la un repository gol, așadar operațiile <code class="docutils literal notranslate"><span class="pre">fetch</span></code>, <code class="docutils literal notranslate"><span class="pre">merge</span></code> și <code class="docutils literal notranslate"><span class="pre">pull</span></code> nu au fost necesare.</p>
+<p>Mesajele de commit trebuie să fie punctuale și ușor de înțeles.
+Trebuie să ne asigurăm că altcineva care va vedea acest mesaj înțelege exact ce schimbări am adus proiectului prin acest commit.</p>
 </div>
-<p>TODO: de integrat următoarele unde își vor avea locul.
-<code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">pull</span> <span class="pre">--ff-only</span></code> la bune practici
-<code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">pull</span></code> + explicații (de ce trebuie să dăm mai întâi pull și după aceea push)</p>
-<p><strong>Exercițiu:</strong> Adăugați propoziția “We use a very very cool and new sorting algorithm for arrays named Bubble Sort.” pe a doua linie din fișierul <code class="docutils literal notranslate"><span class="pre">README.md</span></code>.</p>
-<p><strong>Exercițiu:</strong> Comiteți schimbarea făcută. Folosiți următorul mesaj de commit: <code class="docutils literal notranslate"><span class="pre">Update</span> <span class="pre">README</span> <span class="pre">with</span> <span class="pre">project</span> <span class="pre">explanation</span></code>.</p>
-<p><strong>Exercițiu:</strong> Modificați titlul fișierului <code class="docutils literal notranslate"><span class="pre">README.md</span></code> în <code class="docutils literal notranslate"><span class="pre">#</span> <span class="pre">Bubble</span> <span class="pre">Sort</span> <span class="pre">Algorithm</span> <span class="pre">for</span> <span class="pre">Arrays</span></code>.</p>
-<p><strong>Exercițiu:</strong> Comiteți schimbarea făcută. Folosiți următorul mesaj de commit: <code class="docutils literal notranslate"><span class="pre">Update</span> <span class="pre">README</span> <span class="pre">title</span></code>.</p>
-<p><strong>Exercițiu:</strong> Creați un nou fișier numit <code class="docutils literal notranslate"><span class="pre">bubble-sort.c</span></code> cu următorul conținut:</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+<div class="section" id="exercitii-practice">
+<h4><span class="section-number">2.2.3.1. </span>Exerciții practice<a class="headerlink" href="#exercitii-practice" title="Permalink to this headline">¶</a></h4>
+<ol class="arabic">
+<li><p>Creați un nou fișier numit <code class="docutils literal notranslate"><span class="pre">bubble-sort.c</span></code> cu următorul conținut:</p>
+<blockquote>
+<div><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+
+<span class="kt">void</span> <span class="nf">sort</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// TODO: add bubble sort algorithm here</span>
+<span class="p">}</span>
 
 <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p><strong>Exercițiu:</strong> Comiteți schimbarea făcută. Folosiți următorul mesaj de commit: <code class="docutils literal notranslate"><span class="pre">Add</span> <span class="pre">project</span> <span class="pre">skeleton</span></code>.</p>
+</div></blockquote>
+</li>
+<li><p>Comiteți schimbarea făcută. Folosiți următorul mesaj de commit: <code class="docutils literal notranslate"><span class="pre">Add</span> <span class="pre">Bubble</span> <span class="pre">Sort</span> <span class="pre">algorithm</span> <span class="pre">skeleton</span></code>.</p></li>
+<li><p>Creați un nou fișier numit <code class="docutils literal notranslate"><span class="pre">bubble-sort.c</span></code> cu următorul conținut:</p>
+<blockquote>
+<div><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+
+<span class="kt">void</span> <span class="nf">sort</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// TODO: add radix sort algorithm here</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Comiteți schimbarea făcută. Folosiți următorul mesaj de commit: <code class="docutils literal notranslate"><span class="pre">Add</span> <span class="pre">Radix</span> <span class="pre">Sort</span> <span class="pre">algorithm</span> <span class="pre">skeleton</span></code>.</p></li>
+<li><p>Creați un nou fișier numit <code class="docutils literal notranslate"><span class="pre">merge-sort.c</span></code> cu următorul conținut:</p>
+<blockquote>
+<div><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+
+<span class="kt">void</span> <span class="nf">sort</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// TODO: add merge sort algorithm here</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Comiteți schimbarea făcută. Folosiți următorul mesaj de commit: <code class="docutils literal notranslate"><span class="pre">Add</span> <span class="pre">Merge</span> <span class="pre">Sort</span> <span class="pre">algorithm</span> <span class="pre">skeleton</span></code>.</p></li>
+<li><p>Adăugați propoziția “We implement 3 sorting algorithms for integer arrays.” pe a doua linie din fișierul <code class="docutils literal notranslate"><span class="pre">README.md</span></code>.</p></li>
+<li><p>Comiteți schimbarea făcută. Folosiți următorul mesaj de commit: <code class="docutils literal notranslate"><span class="pre">Update</span> <span class="pre">README</span> <span class="pre">with</span> <span class="pre">project</span> <span class="pre">explanation</span></code>.</p></li>
+<li><p>Modificați titlul fișierului <code class="docutils literal notranslate"><span class="pre">README.md</span></code> în <code class="docutils literal notranslate"><span class="pre">#</span> <span class="pre">Sorting</span> <span class="pre">Algorithm</span> <span class="pre">for</span> <span class="pre">Integer</span> <span class="pre">Arrays</span></code>.</p></li>
+<li><p>Comiteți schimbarea făcută. Folosiți următorul mesaj de commit: <code class="docutils literal notranslate"><span class="pre">Update</span> <span class="pre">README</span> <span class="pre">title</span></code>.</p></li>
+</ol>
+</div>
 </div>
 <div class="section" id="verificarea-istoricului-de-commituri">
 <h3><span class="section-number">2.2.4. </span>Verificarea istoricului de commituri<a class="headerlink" href="#verificarea-istoricului-de-commituri" title="Permalink to this headline">¶</a></h3>
@@ -623,7 +676,7 @@ commit 0dfb632b9de79f9a25011e8b98be48c7b1a0aad8 (HEAD -&gt; master)
 Author: Liza Babu &lt;lizababu@example.com&gt;
 Date:   Wed Aug 19 17:24:01 2020 +0300
 
-    Add project skeleton
+    Update README title
 TODO: adaugă restul de commituri
 (..)
 </pre></div>
@@ -636,19 +689,14 @@ Apăsați tasta <strong>q</strong> când ați terminat de inspectat.</p>
 <p>Pentru verificarea istoricului de commituri din repository am folosit comanda <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">log</span></code>.</p>
 <p>Fiecare commit are un hash asociat care identifică unic commitul.
 Discutăm în continuare despre ultimul commit din listă.
-Aici este vorba despre commitul <code class="docutils literal notranslate"><span class="pre">0dfb632b9de79f9a25011e8b98be48c7b1a0aad8</span></code> cu mesajul de commit <code class="docutils literal notranslate"><span class="pre">Add</span> <span class="pre">project</span> <span class="pre">skeleton</span></code>.</p>
+Acesta are hash-ul <code class="docutils literal notranslate"><span class="pre">0dfb632b9de79f9a25011e8b98be48c7b1a0aad8</span></code> și mesajul de commit <code class="docutils literal notranslate"><span class="pre">Update</span> <span class="pre">README</span> <span class="pre">title</span></code>.</p>
 <p>Acum vedem că repository-ul indică spre acest nou commit.
 Ne dăm seama de acest lucru pentru că <code class="docutils literal notranslate"><span class="pre">HEAD</span></code> se află în dreptul commitului tocmai făcut.</p>
 </div>
 <div class="section" id="publicarea-commitului-pe-repository-ul-remote">
 <h3><span class="section-number">2.2.5. </span>Publicarea commitului pe repository-ul remote<a class="headerlink" href="#publicarea-commitului-pe-repository-ul-remote" title="Permalink to this headline">¶</a></h3>
 <p>Vrem să publicăm toate schimbările făcute și pe repository-ul remote.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>student@uso:~/my-first-repository$ git push
-fatal: The current branch master has no upstream branch.
-To push the current branch and set the remote as upstream, use
-
-    git push --set-upstream origin master
-student@uso:~/my-first-repository$ git push --set-upstream origin master
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>student@uso:~/my-first-repository$ git push origin master
 Enumerating objects: 4, done.
 Counting objects: 100% (4/4), done.
 Delta compression using up to 4 threads
@@ -662,8 +710,8 @@ student@uso:~/my-first-repository$ git branch
 * master
 </pre></div>
 </div>
-<p>Am publicat commitul folosind comanda <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">push</span></code>.
-Prima oară când am încercat să dăm comanda <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">push</span></code> am primit o eroare care ne indică faptul că în repository-ul remote nu avem niciun branch numit <code class="docutils literal notranslate"><span class="pre">master</span></code>.
+<p>Am publicat commitul folosind comanda <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">push</span> <span class="pre">origin</span> <span class="pre">master</span></code>.
+Acum am publicat schimbări pe <strong>branch-ul master</strong>.
 Vorbim despre <strong>branch-uri</strong> în secțiunea următoare (TODO adaugă ref la secțiunea următoare).</p>
 <p>Întrăm pe GitHub să vedem că schimbările au fost propagate.</p>
 <p>TODO: fă și adaugă screenshot nou</p>
@@ -671,6 +719,24 @@ Vorbim despre <strong>branch-uri</strong> în secțiunea următoare (TODO adaug�
 <a class="reference internal image-reference" href="../../_images/GitHub-first-commit.png"><img alt="Alternative text" src="../../_images/GitHub-first-commit.png" style="width: 952.2px; height: 373.5px;" /></a>
 </div>
 </div>
+</div>
+<div class="section" id="bune-practici">
+<h2><span class="section-number">2.3. </span>Bune practici<a class="headerlink" href="#bune-practici" title="Permalink to this headline">¶</a></h2>
+<p>Există câteva bune practici de care trebuie să ținem întotdeauna cont.</p>
+<p>E bine ca atunci când ne apucăm de lucru să avem în vedere să sincronizăm din când în când repository-ul local cu cel remote.
+Pot apărea diferențe în momentul în care altcineva a publicat schimbări remote după ce am făcut noi ultima sincronizare.
+În momentul în care cineva a publicat modificări asupra unei secvențe de cod pe care și noi o modificăm, apar conflicte.
+Conflictele trebuie rezolvate.</p>
+<p>Putem face acest lucru în două moduri.
+Operația <code class="docutils literal notranslate"><span class="pre">fetch</span></code> are rolul de a aduce local toate schimbările, însă nu va face și operația de <code class="docutils literal notranslate"><span class="pre">merge</span></code> care presupune rezolvarea conflictelor și ajungerea a un front comun.
+Operația <code class="docutils literal notranslate"><span class="pre">pull</span></code> face, de fapt, un <code class="docutils literal notranslate"><span class="pre">fetch</span></code> și un <code class="docutils literal notranslate"><span class="pre">merge</span></code>, adică va aduce local toate modificările și va încerca să rezolve conflicetele în mod automat.
+Dacă rezolvarea conflictelor nu se poate face automat, trebuie să ne ocupăm de acest pas.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Noi am pornit de la un repository gol, așadar operațiile <code class="docutils literal notranslate"><span class="pre">fetch</span></code>, <code class="docutils literal notranslate"><span class="pre">merge</span></code> și <code class="docutils literal notranslate"><span class="pre">pull</span></code> nu au fost necesare.</p>
+</div>
+<p>TODO: de integrat următoarele unde își vor avea locul.
+<code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">pull</span></code> + explicații (de ce trebuie să dăm mai întâi pull și după aceea push)</p>
 </div>
 </div>
 
