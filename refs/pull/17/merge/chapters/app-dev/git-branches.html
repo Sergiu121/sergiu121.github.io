@@ -238,6 +238,8 @@
                 
                   <li class="toctree-l2"><a href="#stergerea-unui-branch" class="reference internal">Ștergerea unui branch</a></li>
                 
+                  <li class="toctree-l2"><a href="#exercitii-practice" class="reference internal">Exerciții practice</a></li>
+                
               </ul>
             
           </li>
@@ -489,9 +491,7 @@
             
   <div class="section" id="lucrul-pe-branch-uri">
 <h1><span class="section-number">3. </span>Lucrul pe branch-uri<a class="headerlink" href="#lucrul-pe-branch-uri" title="Permalink to this headline">¶</a></h1>
-<p>TODO git rm, git mv
-TODO git -A Q: de ce vrem să adăugăm selectiv și nu cu -A? A: vrem să facem commituri cât mai specifice, câte unul pt fiecare issue rezolvat. Nu vrem să avem mai multe modificări unrelated în aceelași commit pt că nu mai putem să facem revert ușor.
-TODO git commit -m</p>
+<p>TODO git rm, git mv</p>
 <div class="admonition-problema admonition">
 <p class="admonition-title">Problema</p>
 <p>Un colaborator al proiectului vrea să facă schimbări asupra codului sursă, acesta va trebui să facă aceste modificări față de o referință.
@@ -505,18 +505,18 @@ La fel ca primul colaborator, acesta va lua ultima versiune a codului sursă și
 </div>
 <div class="admonition-solutia admonition">
 <p class="admonition-title">Soluția</p>
-<p>Folosim branch-uri.
+<p>Folosim <strong>branch-uri</strong>, adică <strong>ramuri de dezvoltare</strong>.
 Fiecare colaborator va crea un nou branch pentru fiecare schimbare pe care vrea să o aducă repository-ului.
 Astfel, atunci când unul dintre colaboratori termină de lucrat va putea integra schimbările în branch-ul master și să țină cont și de schimbările celorlalți.
 Dacă apar situații conflictuale, acestea se rezolvă.
 Vom atinge acest subiect în secțiunea TODO.</p>
 </div>
 <p>TODO: diagramă cu commit-uri pe branch-ul master.</p>
-<p>Un <strong>branch</strong> este echivalentul unui fir de evoluție a codului sursă.
-Ultima versiune al codului sursă se află uzual pe branch-ul numit <strong>master</strong>.</p>
+<p>Branch-ul principal al proiectului, acolo unde, în general, găsim versiunea funcțională a proiectului este numit <strong>master</strong>.
+Alte branch-uri pot exista ca ramuri de dezvoltare sau pentru a reține versiuni speciale ale proiectului.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Atunci când contribuim la un proiect putem să lucrăm fie branch-ul <strong>master</strong>, fie să creăm un al branch.
+<p>Atunci când contribuim la un proiect putem să lucrăm fie branch-ul <strong>master</strong>, fie pe un alt branch.
 Este considerat <strong>BAD-PRACTICE</strong> să lucrăm pe branch-ul <strong>master</strong> din mai multe motive:</p>
 <p>1. Pe branch-ul <strong>master</strong> se ține întotdeauna o versiune de cod funcțională.
 Astfel, lucrul pe acest branch ar însemna să facem commituri doar atunci când o funcționalitate este finalizată, altfel pe branch-ul <strong>master</strong> vom avea o bucată de cod neterminată care poate să afecteze întreg proiectul.</p>
@@ -532,16 +532,15 @@ Mult mai simplu este să se realizeze întreaga etapă de feedback, numită <str
 <p>De acum încolo, vom face toate modificările de pe un nou branch, diferit de branch-ul <strong>master</strong>.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/my-first-repository$ git branch
 *  master
-student@uso:~/my-first-repository$ git checkout -b add-gitignore
+student@uso:~/my-first-repository$ git branch add-gitignore
 Switched to a new branch <span class="s1">&#39;add-gitignore&#39;</span>
-student@uso:~/my-first-repository$ git branch
+student@uso:~/my-first-repository$ git checkout add-gitignore
 * add-gitignore
 master
 </pre></div>
 </div>
-<p>Folosind comanda <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">branch</span></code> verificăm branch-ul pe care ne aflăm.
-Observăm caracterul <code class="docutils literal notranslate"><span class="pre">*</span></code> în dreptul branch-ului curent.</p>
-<p>Mai sus am creat un nou branch cu numele <strong>add-gitignore</strong>.
+<p>Caracterul <code class="docutils literal notranslate"><span class="pre">*</span></code> se află în dreptul branch-ului curent la folosirea comenzii <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">branch</span></code>.</p>
+<p>Am creat un nou branch cu numele <strong>add-gitignore</strong> folosind comanda <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">branch</span></code> și am trecut pe acesta prin comanda <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">checkout</span></code>.
 În acest moment branch-ul <strong>add-gitignore</strong> nu diferă de branch-ul <strong>master</strong>.
 Când vom face schimbări, cele două branch-uri vor diverge.</p>
 <div class="admonition note">
@@ -568,14 +567,23 @@ nothing added to commit but untracked files present <span class="o">(</span>use 
 </div>
 <p>Aici vom trece, câte una pe fiecare linie, fișierele pe care nu vrem să le publicăm.
 Momentan nu avem fișiere pe care vrem să le ignorăm, așa că am creat un fișier <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code> gol.</p>
-<p><strong>Exercițiu:</strong> Creați un nou commit prin care să adăugați fișierul <strong>.gitignore</strong> la repository. Folosiți următorul mesaj de commit <code class="docutils literal notranslate"><span class="pre">Add</span> <span class="pre">.gitignore</span> <span class="pre">file</span></code>.</p>
-<div class="admonition hint">
-<p class="admonition-title">Hint</p>
-<p>Puteți folosim opțiunea <code class="docutils literal notranslate"><span class="pre">-m</span></code> pentru <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">commit</span></code>.</p>
-<p>Spre exemplu comanda <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">commit</span> <span class="pre">-m</span> <span class="pre">&quot;Add</span> <span class="pre">.gitignore</span> <span class="pre">file&quot;</span></code> va crea un nou commit cu mesajul <code class="docutils literal notranslate"><span class="pre">Add</span> <span class="pre">.gitignore</span> <span class="pre">file</span></code>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/my-first-repository$ git add .gitignore
+student@uso:~/my-first-repository$ git status
+On branch add-gitignore
+
+Changes to be committed:
+<span class="o">(</span>use <span class="s2">&quot;git rm --cached &lt;file&gt;...&quot;</span> to unstage<span class="o">)</span>
+    new file:   .gitignore
+student@uso:~/my-first-repository$ git commit -m <span class="s2">&quot;Add .gitignore file&quot;</span>
+<span class="o">[</span>add-gitignore <span class="o">(</span>root-commit<span class="o">)</span> 1e4b5ca<span class="o">]</span> Add .gitignore file
+<span class="m">1</span> file changed, <span class="m">0</span> insertions<span class="o">(</span>+<span class="o">)</span>, <span class="m">0</span> deletions<span class="o">(</span>-<span class="o">)</span>
+create mode <span class="m">100644</span> .gitignore
+student@uso:~/my-first-repository$ git push origin add-gitignore
+TODO: output
+</pre></div>
 </div>
-<p><strong>Exercițiu:</strong> Publicați commitul și pe GitHub.</p>
-<p><strong>Exercițiu:</strong> Verificați propagarea schimbărilor pe GitHub.</p>
+<p>Am creat un commit cu această schimbare și l-am publicat.
+Acum acesta este vizibil și pe GitHub.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Orice operație trebuie să fie urmată de o operație de verficare.
@@ -591,28 +599,19 @@ Ne amintim că am făcut această operație de pe branch-ul <strong>add-gitignor
 <p>Ne amintim că este <strong>BAD-PRACTICE</strong> să facem modificări direct pe branch-ul <strong>master</strong>.</p>
 </div>
 <p>Vrem ca modificarea făcută de noi, în acest caz, crearea unui fișier <strong>gitignore</strong> să se regăsească și pe branch-ul master.
-Facem acest lucru prin intermediul operației <code class="docutils literal notranslate"><span class="pre">merge</span></code>.
+Facem acest lucru prin intermediul operației <code class="docutils literal notranslate"><span class="pre">merge</span></code>, operație care unește două branch-uri: adică aduce conținutul unui branch pe un alt branch, în cazul nostru de pe <strong>add-gitignore</strong> pe <strong>master</strong>.
 Pentru a face acest lucru trebuie să ne situăm pe branch-ul <strong>master</strong>, adică pe branch-ul în care vrem să integrăm schimbările.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Putem face o operație de <strong>merge</strong> și între 2 branch-uri secundare, nu trebuie să facem neapărat o operație de merge cu branch-ul <strong>master</strong>.
-Aceasta situație nu face obiectul acestei cărți, așadar nu vom insista pe acest lucru.</p>
-</div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/my-first-repository$ git checkout master
 Switched to branch <span class="s1">&#39;master&#39;</span>
 Your branch is up to date with <span class="s1">&#39;origin/master&#39;</span>.
-student@uso:~/my-first-repository$ git pull --ff-only
+student@uso:~/my-first-repository$ git pull
 Already up to date.
 </pre></div>
 </div>
-<p>Observăm că aici lipsește argumentul <code class="docutils literal notranslate"><span class="pre">-b</span></code> de la comanda <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">checkout</span></code> deoarece branch-ul <strong>master</strong> deja există, nu este nevoie să-l creăm noi.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Trebuie să ne asigurăm că branch-ul <strong>master</strong> local este sincronizat cu cel remote.
 Facem acum operația <strong>pull</strong> menționată în secțiunea TODO.</p>
-<p>Este considerat <strong>GOOD-PRACTICE</strong> să folosim opțiunea <code class="docutils literal notranslate"><span class="pre">--ff-only</span></code> de fiecare dată când facem operația <strong>pull</strong>.
-Astfel Git se asigură că istoricul local corespunde cu cel remote.
-Foloșiți <strong>Întotdeauna</strong> opțiunea <code class="docutils literal notranslate"><span class="pre">--ff-only</span></code>.</p>
 </div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/my-first-repository$ git merge add-gitignore
 Merge made by the <span class="s1">&#39;recursive&#39;</span> strategy.
@@ -646,6 +645,7 @@ Publicăm commiturile locale.</p>
 <div class="section" id="stergerea-unui-branch">
 <h2><span class="section-number">3.3. </span>Ștergerea unui branch<a class="headerlink" href="#stergerea-unui-branch" title="Permalink to this headline">¶</a></h2>
 <p>După ce terminăm lucrul pe un branch, este bine să îl ștergem.
+Pentru acest lucru trebuie să ne aflăm pe un branch diferit față de cel pe care vrem să-l ștergem.
 Orice nouă modificare pe care o vom face va fi diferită, numele branch-ului vechi nu va corespunde, așadar nu mai avem nevoie de el.
 Facem acest lucru atât pe repository-ul local, cât și cel de pe GitHub.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/my-first-repository$ git branch
@@ -665,7 +665,18 @@ student@uso:~/my-first-repository$ git branch
 <p>În locul <code class="docutils literal notranslate"><span class="pre">{username}</span></code> va apărea numele vostru de utilizator de pe GitHub.</p>
 <p>Spre exemplu, pentru autorul acestui capitol apare <code class="docutils literal notranslate"><span class="pre">https://github.com/lizababu/my-first-repository.git</span></code>.</p>
 </div>
-<p><strong>Exercițiu:</strong> Verificați că branch-ul nu mai există pe GitHub.</p>
+</div>
+<div class="section" id="exercitii-practice">
+<h2><span class="section-number">3.4. </span>Exerciții practice<a class="headerlink" href="#exercitii-practice" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li><p>Creați un branch cu numele <code class="docutils literal notranslate"><span class="pre">update-gitignore</span></code>.</p></li>
+<li><p>Treceți pe branch-ul <code class="docutils literal notranslate"><span class="pre">update-gitignore</span></code>.</p></li>
+<li><p>Scrieți textul <code class="docutils literal notranslate"><span class="pre">build/</span></code> pe prima linie a fișierului <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code>.</p></li>
+<li><p>Creați un nou commit cu această schimbare folosind mesajul de commit <code class="docutils literal notranslate"><span class="pre">Update</span> <span class="pre">.gitignore</span> <span class="pre">content</span></code>.</p></li>
+<li><p>Publicați commitul folosind comanda <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">push</span> <span class="pre">origin</span> <span class="pre">update-gitignore</span></code>.</p></li>
+<li><p>Efectuați operația <strong>merge</strong> între branch-ul <strong>master</strong> și <strong>update-gitignore</strong>.</p></li>
+<li><p>Ștergeți branch-ul <strong>update-gitignore</strong>.</p></li>
+</ol>
 </div>
 </div>
 
