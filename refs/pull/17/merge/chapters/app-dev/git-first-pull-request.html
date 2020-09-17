@@ -248,7 +248,7 @@
                 
                   <li class="toctree-l2"><a href="#stergerea-branch-ului-in-urma-integrarii-in-branch-ul-master" class="reference internal">Ștergerea branch-ului în urma integrării în branch-ul master</a></li>
                 
-                  <li class="toctree-l2"><a href="#exercitiu-crearea-unui-pr" class="reference internal">Exercițiu - Crearea unui PR</a></li>
+                  <li class="toctree-l2"><a href="#exercitiu-practic-crearea-unui-pr" class="reference internal">Exercițiu practic - Crearea unui PR</a></li>
                 
               </ul>
             
@@ -495,10 +495,10 @@
             
   <div class="section" id="crearea-unui-pull-request-pr-pe-github">
 <h1><span class="section-number">4. </span>Crearea unui Pull Request (PR) pe GitHub<a class="headerlink" href="#crearea-unui-pull-request-pr-pe-github" title="Permalink to this headline">¶</a></h1>
-<p>În momentul în care vrem să adăugăm o funcționalitate nouă unui proiect software pe GitHub este recomandat să o facem printr-un <strong>Pull Request</strong>, uzual prescurtat <strong>PR</strong>.
+<p>În momentul în care vrem să adăugăm o funcționalitate nouă unui proiect software pe GitHub este recomandat să o facem printr-un <strong>Pull Request</strong>, prescurtat <strong>PR</strong>.
 Un <strong>Pull Request</strong> este o cerere de modificare a repository-ului.
-Uzual, alți colaboratori ai proiectului vor recenza modificările și vor aproba, vor sugera schimbări sau vor respinge această cerere.
-În momentul în care un Pull Request este aprobat, atunci schimbările propuse în Pull Request poate fi integrat în proiect, adică se va putea face merge între codul sursă curent și noile modificări.</p>
+Alți colaboratori ai proiectului vor recenza modificările și vor aproba, vor sugera schimbări sau vor respinge această cerere.
+În momentul în care un Pull Request este aprobat, atunci schimbările propuse în Pull Request pot fi integrate în proiect, adică se va putea face merge între codul sursă curent și noile modificări.</p>
 <p>Spunem că deschidem un Pull Request care urmează să fie integrat într-un anumit branch.
 De obice acel branch este <strong>master</strong>, însă acest lucru nu este obligatoriu.
 În acest tutorial vom deschide un Pull Request care urmează să fie integrat în branch-ul <strong>master</strong>.</p>
@@ -542,7 +542,8 @@ Acum vom integra schimbările prin intermediul unui <strong>Pull Request</strong
 <p>Creăm un branch numit <strong>bubble-sort-implementation</strong>.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/my-first-repository$ git branch
 *  master
-student@uso:~/my-first-repository$ git checkout -b bubble-sort-implementation
+student@uso:~/my-first-repository$ git branch bubble-sort-implementation
+student@uso:~/my-first-repository$ git checkout bubble-sort-implementation
 Switched to a new branch <span class="s1">&#39;bubble-sort-implementation&#39;</span>
 student@uso:~/my-first-repository$ git branch
 * bubble-sort-implementation
@@ -566,7 +567,7 @@ Ne amintim că în secțiunea anterioară (TODO adaugă ref) am șters branch-ul
 </div>
 <div class="section" id="crearea-unui-commit-pe-branch-ul-nou-creat">
 <h2><span class="section-number">4.2. </span>Crearea unui commit pe branch-ul nou creat<a class="headerlink" href="#crearea-unui-commit-pe-branch-ul-nou-creat" title="Permalink to this headline">¶</a></h2>
-<p>În această subsecțiune vom actualiza fișierul <code class="docutils literal notranslate"><span class="pre">bubble-sort.c</span></code> cu implementarea algoritmului ales.
+<p>Vom actualiza fișierul <code class="docutils literal notranslate"><span class="pre">bubble-sort.c</span></code> cu implementarea algoritmului ales.
 Modificăm fișierul <code class="docutils literal notranslate"><span class="pre">bubble-sort.c</span></code> astfel încât conținutul său să fie următorul:</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
 
@@ -626,7 +627,7 @@ Trebuie să precizăm acest lucru și în fișierul <code class="docutils litera
 </div>
 <p>Modificăm fișierul <code class="docutils literal notranslate"><span class="pre">README.md</span></code> astfel încât el să aibă următorul conținut:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/my-first-repository$ cat README.md
-<span class="c1"># Bubble Sort Algorithm for Beginners</span>
+TODO: adaugă conținut potrivit
 
 Sorts a integer array in ascending order.
 
@@ -649,7 +650,8 @@ Changes not staged <span class="k">for</span> commit:
   modified:   bubble-sort.c
 
 no changes added to commit <span class="o">(</span>use <span class="s2">&quot;git add&quot;</span> and/or <span class="s2">&quot;git commit -a&quot;</span><span class="o">)</span>
-student@uso:~/my-first-repository$ git add -A
+student@uso:~/my-first-repository$ git add README.md
+student@uso:~/my-first-repository$ git add bubble-sort.c
 student@uso:~/my-first-repository$ git status
 On branch bubble-sort-implementation
 Changes to be committed:
@@ -658,13 +660,7 @@ Changes to be committed:
   modified:   bubble-sort.c
 </pre></div>
 </div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Am folosit opțiunea <code class="docutils literal notranslate"><span class="pre">-A</span></code> pentru <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">add</span></code>.
-Aceasta se ocupă de adăugarea tuturor fișierelor modificate în <strong>staging area</strong> pentru Git.</p>
-<p>Alternativa la comanda <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">add</span> <span class="pre">-A</span></code> este <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">add</span> <span class="pre">README.md</span> <span class="pre">bubble-sort.c</span></code>.</p>
-</div>
-<p>Urmează sunt creăm commitul.
+<p>Comitem modificările.
 Folosim o descriere succintă care să descrie ce modificări aducem asupra repository-ului.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/my-first-repository$ git commit -m <span class="s2">&quot;Add Bubble Sort implementation, update README accordingly&quot;</span>
 <span class="o">[</span>bubble-sort-implementation 2a476f4<span class="o">]</span> Add Bubble Sort implementation, update README accordingly
@@ -684,13 +680,7 @@ TODO: adaugă mai mult output ?
 <p>TODO: discuție pe git log</p>
 </div>
 <p>Pentru a putea crea un <strong>PR</strong> trebuie să publicăm noul commit.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/my-first-repository$ git push
-fatal: The current branch bubble-sort-implementation has no upstream branch.
-To push the current branch and <span class="nb">set</span> the remote as upstream, use
-
-    git push --set-upstream origin bubble-sort-implementation
-
-student@uso:~/my-first-repository$ git push --set-upstream origin bubble-sort-implementation
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/my-first-repository$ git push origin bubble-sort-implementation
 Enumerating objects: <span class="m">3</span>, <span class="k">done</span>.
 Counting objects: <span class="m">100</span>% <span class="o">(</span><span class="m">3</span>/3<span class="o">)</span>, <span class="k">done</span>.
 Delta compression using up to <span class="m">4</span> threads
@@ -705,13 +695,6 @@ To https://github.com/<span class="o">{</span>username<span class="o">}</span>/m
 * <span class="o">[</span>new branch<span class="o">]</span>      bubble-sort-implementation -&gt; bubble-sort-implementation
 Branch <span class="s1">&#39;bubble-sort-implementation&#39;</span> <span class="nb">set</span> up to track remote branch <span class="s1">&#39;bubble-sort-implementation&#39;</span> from <span class="s1">&#39;origin&#39;</span>.
 </pre></div>
-</div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>La executarea comenzii <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">push</span></code> am primit eroare.
-Această eroare se referă la faptul că pe GitHub nu există branch-ul <strong>bubble-sort-implementation</strong>.
-Aceasta există doar local.</p>
-<p>Problema a fost rezolvată prin comanda <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">push</span> <span class="pre">--set-upstream</span> <span class="pre">origin</span> <span class="pre">bubble-sort-implementation</span></code>.</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -752,9 +735,6 @@ Vedem că ne apare că a fost creat un nou commit pe branch-ul <code class="docu
 O descriere potrivită poate fi:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">I</span> <span class="n">implemented</span> <span class="n">a</span> <span class="n">non</span><span class="o">-</span><span class="n">optimized</span> <span class="n">Bubble</span> <span class="n">Sort</span> <span class="n">algorithm</span> <span class="ow">in</span> <span class="n">C</span><span class="o">.</span>
 <span class="n">The</span> <span class="n">program</span> <span class="n">sorts</span> <span class="n">an</span> <span class="n">integer</span> <span class="n">array</span> <span class="ow">in</span> <span class="n">ascending</span> <span class="n">order</span><span class="o">.</span>
-
-<span class="n">TODO</span> <span class="nb">list</span><span class="p">:</span>
-<span class="o">-</span> <span class="p">[</span> <span class="p">]</span> <span class="n">Add</span> <span class="n">tests</span> <span class="k">for</span> <span class="n">algorithm</span><span class="o">.</span>
 </pre></div>
 </div>
 <p>TODO: adaugă GIF: fără și cu descrierea de mai sus</p>
@@ -762,7 +742,7 @@ O descriere potrivită poate fi:</p>
 <div class="section" id="configurarea-branch-ului-in-care-vom-integra-pr-ul">
 <h3><span class="section-number">4.3.2. </span>Configurarea branch-ului în care vom integra PR-ul<a class="headerlink" href="#configurarea-branch-ului-in-care-vom-integra-pr-ul" title="Permalink to this headline">¶</a></h3>
 <p>Modificările pe care le-am făcut urmează a fi integrate într-un branch.
-Uzual, branch-ul <code class="docutils literal notranslate"><span class="pre">master</span></code> este cel care conține codul sursă actualizat la zi, deci este branch-ul în care se integrează PR-urile.</p>
+În general, branch-ul <code class="docutils literal notranslate"><span class="pre">master</span></code> este cel care conține codul sursă actualizat la zi, deci este branch-ul în care se integrează PR-urile.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Totuși, este bine de știut că putem schimba acest branch prin apăsarea butonului <code class="docutils literal notranslate"><span class="pre">base:</span> <span class="pre">master</span></code> din imaginea de mai jos.
@@ -822,8 +802,8 @@ TODO
 <p>În final am ajuns să integrăm modificările de pe branch-ul <strong>bubble-sort-implementation</strong> în branch-ul <strong>master</strong> prin intermediul unui <strong>Pull Request</strong>.
 Am șters branch-ul <strong>bubble-sort-implementation</strong>.</p>
 </div>
-<div class="section" id="exercitiu-crearea-unui-pr">
-<h2><span class="section-number">4.6. </span>Exercițiu - Crearea unui PR<a class="headerlink" href="#exercitiu-crearea-unui-pr" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="exercitiu-practic-crearea-unui-pr">
+<h2><span class="section-number">4.6. </span>Exercițiu practic - Crearea unui PR<a class="headerlink" href="#exercitiu-practic-crearea-unui-pr" title="Permalink to this headline">¶</a></h2>
 <p>Creați un nou repository pe GitHub cu numele TODO și clonați-o la voi pe calculator.
 Veți folosi acest repository pentru rezolvarea acestui exercțiu.</p>
 <p>Creați un <strong>Pull Request</strong> urmând pașii descriși mai sus în care să adăugați un nou algoritm de sortare al unui vector: TODO.
