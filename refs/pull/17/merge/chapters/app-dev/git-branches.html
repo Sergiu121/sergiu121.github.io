@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-      <title>2. Lucrul pe branch-uri</title>
+      <title>3. Lucrul pe branch-uri</title>
     
       <link rel="stylesheet" href="../../_static/pygments.css">
       <link rel="stylesheet" href="../../_static/theme.css">
@@ -24,8 +24,8 @@
     
   <link rel="index" title="Index" href="../../genindex.html" />
   <link rel="search" title="Search" href="../../search.html" />
-  <link rel="next" title="3. Crearea unui Pull Request (PR) pe GitHub" href="git-first-pull-request.html" />
-  <link rel="prev" title="1. Introducere în Git și GitHub" href="git-intro.html" />
+  <link rel="next" title="4. Crearea unui Pull Request (PR) pe GitHub" href="git-first-pull-request.html" />
+  <link rel="prev" title="2. Primele commituri" href="git-first-commits.html" />
     <link href="../../_static/my_theme.css" rel="stylesheet" type="text/css">
 
   </head>
@@ -216,6 +216,12 @@
       <ul class="current">
         
           <li class="toctree-l1 "><a href="git-intro.html" class="reference internal ">Introducere în Git și GitHub</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="git-first-commits.html" class="reference internal ">Primele commituri</a>
 
             
           </li>
@@ -464,18 +470,18 @@
   <ul class="breadcrumbs">
     <li><a href="../../index.html">Docs</a> &raquo;</li>
     
-    <li><span class="section-number">2. </span>Lucrul pe branch-uri</li>
+    <li><span class="section-number">3. </span>Lucrul pe branch-uri</li>
   </ul>
   
 
   <ul class="page-nav">
   <li class="prev">
-    <a href="git-intro.html"
-       title="previous chapter">← <span class="section-number">1. </span>Introducere în Git și GitHub</a>
+    <a href="git-first-commits.html"
+       title="previous chapter">← <span class="section-number">2. </span>Primele commituri</a>
   </li>
   <li class="next">
     <a href="git-first-pull-request.html"
-       title="next chapter"><span class="section-number">3. </span>Crearea unui Pull Request (PR) pe GitHub →</a>
+       title="next chapter"><span class="section-number">4. </span>Crearea unui Pull Request (PR) pe GitHub →</a>
   </li>
 </ul>
   
@@ -484,7 +490,7 @@
           <div class="content" role="main">
             
   <div class="section" id="lucrul-pe-branch-uri">
-<span id="app-dev-branches"></span><h1><span class="section-number">2. </span>Lucrul pe branch-uri<a class="headerlink" href="#lucrul-pe-branch-uri" title="Permalink to this headline">¶</a></h1>
+<span id="app-dev-branches"></span><h1><span class="section-number">3. </span>Lucrul pe branch-uri<a class="headerlink" href="#lucrul-pe-branch-uri" title="Permalink to this headline">¶</a></h1>
 <p>TODO git rm, git mv</p>
 <div class="admonition-problema admonition">
 <p class="admonition-title">Problema</p>
@@ -522,7 +528,7 @@ Mult mai simplu este să se realizeze întreaga etapă de feedback, numită <str
 În continuare vom lucra la proiectul nostru TODO(pune nume), dar vom face schimbări de pe alt branch-uri.</p>
 <p>În această secțiune vom adăuga un fișier <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code> proiectului, vom adăuga implementarea pentru agloritmul Bubble Sort și vom actualiza fișierul README corespunzător.</p>
 <div class="section" id="adaugarea-unui-fisier-gitignore-repository-ului">
-<h2><span class="section-number">2.1. </span>Adăugarea unui fișier .gitignore repository-ului<a class="headerlink" href="#adaugarea-unui-fisier-gitignore-repository-ului" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.1. </span>Adăugarea unui fișier .gitignore repository-ului<a class="headerlink" href="#adaugarea-unui-fisier-gitignore-repository-ului" title="Permalink to this headline">¶</a></h2>
 <p>De acum încolo, vom face toate modificările de pe un nou branch, diferit de branch-ul <strong>master</strong>.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/my-first-repository$ git branch
 *  master
@@ -586,7 +592,7 @@ Spre exemplu, după crearea unui commit, verificăm <strong>statusul clonei</str
 <p>TODO: clonei</p>
 </div>
 <div class="section" id="operatia-merge-dintre-un-branch-secundar-si-master">
-<h2><span class="section-number">2.2. </span>Operația <strong>merge</strong> dintre un branch secundar și master<a class="headerlink" href="#operatia-merge-dintre-un-branch-secundar-si-master" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.2. </span>Operația <strong>merge</strong> dintre un branch secundar și master<a class="headerlink" href="#operatia-merge-dintre-un-branch-secundar-si-master" title="Permalink to this headline">¶</a></h2>
 <p>În secțiunea anterioară (TODO adaugă ref) am adăugat un fișier <strong>.gitignore</strong> la repository.
 Ne amintim că am făcut această operație de pe branch-ul <strong>add-gitignore</strong> și nu de pe <strong>master</strong>.</p>
 <div class="admonition note">
@@ -638,7 +644,7 @@ Observăm mai sus că branch-ul <strong>master</strong> are două commituri în 
 Publicăm commiturile locale.</p>
 </div>
 <div class="section" id="stergerea-unui-branch">
-<h2><span class="section-number">2.3. </span>Ștergerea unui branch<a class="headerlink" href="#stergerea-unui-branch" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.3. </span>Ștergerea unui branch<a class="headerlink" href="#stergerea-unui-branch" title="Permalink to this headline">¶</a></h2>
 <p>După ce terminăm lucrul pe un branch, este bine să îl ștergem.
 Pentru acest lucru trebuie să ne aflăm pe un branch diferit față de cel pe care vrem să-l ștergem.
 Orice nouă modificare pe care o vom face va fi diferită, numele branch-ului vechi nu va corespunde, așadar nu mai avem nevoie de el.
@@ -662,7 +668,7 @@ student@uso:~/my-first-repository$ git branch
 </div>
 </div>
 <div class="section" id="exercitii-practice">
-<h2><span class="section-number">2.4. </span>Exerciții practice<a class="headerlink" href="#exercitii-practice" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.4. </span>Exerciții practice<a class="headerlink" href="#exercitii-practice" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic simple">
 <li><p>Creați un branch cu numele <code class="docutils literal notranslate"><span class="pre">update-gitignore</span></code>.</p></li>
 <li><p>Treceți pe branch-ul <code class="docutils literal notranslate"><span class="pre">update-gitignore</span></code>.</p></li>
@@ -680,12 +686,12 @@ student@uso:~/my-first-repository$ git branch
           <div class="page-nav">
             <div class="inner"><ul class="page-nav">
   <li class="prev">
-    <a href="git-intro.html"
-       title="previous chapter">← <span class="section-number">1. </span>Introducere în Git și GitHub</a>
+    <a href="git-first-commits.html"
+       title="previous chapter">← <span class="section-number">2. </span>Primele commituri</a>
   </li>
   <li class="next">
     <a href="git-first-pull-request.html"
-       title="next chapter"><span class="section-number">3. </span>Crearea unui Pull Request (PR) pe GitHub →</a>
+       title="next chapter"><span class="section-number">4. </span>Crearea unui Pull Request (PR) pe GitHub →</a>
   </li>
 </ul><div class="footer" role="contentinfo">
       &#169; Copyright 2020, USO Team.
