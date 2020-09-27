@@ -25,7 +25,7 @@
   <link rel="index" title="Index" href="../../genindex.html" />
   <link rel="search" title="Search" href="../../search.html" />
   <link rel="next" title="4. Funcţionalităţi suplimentare de reţelistică" href="extra.html" />
-  <link rel="prev" title="2. Verificarea conectivităţii la reţea" href="troubleshoot.html" />
+  <link rel="prev" title="2. Conectarea la rețea și la Internet" href="troubleshoot.html" />
     <link href="../../_static/my_theme.css" rel="stylesheet" type="text/css">
 
   </head>
@@ -308,7 +308,7 @@
           </li>
 
         
-          <li class="toctree-l1 "><a href="troubleshoot.html" class="reference internal ">Verificarea conectivităţii la reţea</a>
+          <li class="toctree-l1 "><a href="troubleshoot.html" class="reference internal ">Conectarea la rețea și la Internet</a>
 
             
           </li>
@@ -319,13 +319,13 @@
             
               <ul>
                 
-                  <li class="toctree-l2"><a href="#clienti-web-in-linia-de-comanda" class="reference internal">1) Clienţi web în linia de comandă</a></li>
+                  <li class="toctree-l2"><a href="#clienti-web-in-linia-de-comanda" class="reference internal">Clienţi web în linia de comandă</a></li>
                 
-                  <li class="toctree-l2"><a href="#accesul-la-distanta-in-linie-de-comanda" class="reference internal">2) Accesul la distanţă în linie de comandă</a></li>
+                  <li class="toctree-l2"><a href="#accesul-la-distanta-in-linie-de-comanda" class="reference internal">Accesul la distanţă în linie de comandă</a></li>
                 
-                  <li class="toctree-l2"><a href="#controlul-la-distanta-in-mediul-grafic" class="reference internal">3) Controlul la distanță în mediul grafic</a></li>
+                  <li class="toctree-l2"><a href="#controlul-la-distanta-in-mediul-grafic" class="reference internal">Controlul la distanță în mediul grafic</a></li>
                 
-                  <li class="toctree-l2"><a href="#securizarea-conexiunii-la-internet-folosind-un-vpn" class="reference internal">4) Securizarea conexiunii la Internet folosind un VPN</a></li>
+                  <li class="toctree-l2"><a href="#securizarea-conexiunii-la-internet-folosind-un-vpn" class="reference internal">Securizarea conexiunii la Internet folosind un VPN</a></li>
                 
               </ul>
             
@@ -477,7 +477,7 @@
   <ul class="page-nav">
   <li class="prev">
     <a href="troubleshoot.html"
-       title="previous chapter">← <span class="section-number">2. </span>Verificarea conectivităţii la reţea</a>
+       title="previous chapter">← <span class="section-number">2. </span>Conectarea la rețea și la Internet</a>
   </li>
   <li class="next">
     <a href="extra.html"
@@ -491,68 +491,71 @@
             
   <div class="section" id="servicii-si-clienti-de-retea">
 <h1><span class="section-number">3. </span>Servicii și clienți de rețea<a class="headerlink" href="#servicii-si-clienti-de-retea" title="Permalink to this headline">¶</a></h1>
-<p>După cum putem observa dispozitivele pe care le folosim noi devin din ce în ce
-mai mici, mai eficiente și ieftine. Asta se întâmplă deoarece multe dintre
-aplicațiile care până nu de curând rulau pe calculatorul propriu s-au mutat în
-spațiu online. De exemplu, în loc să descărcăm filme și să le urmărim de pe
-calculator, folosim o aplicație cum ar fi Netflix pentru a transmite prin
-Internet filmul pe care vrem să îl urmărim. Un alt exemplu relevant este Google
-Drive, care ne permite să stocăm, să replicăm și să edităm documente într-o
-interfață web, în loc să le păstrăm local pe calculatorul pe care îl folosim.
-Toată puterea de procesare și tot spațiul de stocare s-a mutat de pe
-calculatorul propriu pe servere aflate în Internet.</p>
-<p>Noi vom numi aceste aplicații care rulează în Internet servicii,.</p>
+<p>Dispozitivele pe care le folosim noi devin din ce în ce mai mici, mai eficiente
+și ieftine. Asta se întâmplă deoarece multe dintre aplicațiile care până nu de
+curând rulau pe calculatorul propriu s-au mutat în spațiu online. De exemplu, în
+loc să descărcăm filme și să le urmărim de pe calculator, folosim o aplicație
+cum ar fi Netflix pentru a transmite prin Internet filmul pe care vrem să îl
+urmărim. Un alt exemplu relevant este Google Drive, care ne permite să stocăm,
+să replicăm și să edităm documente într-o interfață web, în loc să le păstrăm
+local pe calculatorul pe care îl folosim. Toată puterea de procesare și tot
+spațiul de stocare s-a mutat de pe calculatorul propriu pe servere aflate în
+Internet.</p>
+<p>Vom numi aceste aplicații care rulează în Internet servicii.</p>
 <p>Un serviciu este o aplicație care oferă o funcționalitate utilizatorilor care
 apelează la ele. Serviciile în domeniul calculatoarelor lucrează folosind
-paradigma server-client, deoarece ne dorim să reducem complexitatea
-aplicațiilor pe care le folosesc utilizatorii. Un avantaj major al acestei
-abordări este că reduce puterea de calcul necesară pentru rularea aplicațiilor
-de către utilizatori, aceștia au nevoie doare de o aplicație client care știe
-să comunice cu serverul. Astfel, aplicația client trimite o cerere către
-aplicația server, serverul primește cererea, procesează cererea și servește
-răspunsul aplicației client care a făcut cererea.</p>
+paradigma server-client. Un avantaj major al acestei abordări este că reduce
+puterea de calcul necesară pentru rularea aplicațiilor de către utilizatori,
+aceștia au nevoie doar de o aplicație client care știe să comunice cu serverul.
+Astfel, aplicația client trimite o cerere către aplicația server, serverul
+primește cererea, procesează cererea și servește răspunsul aplicației client
+care a făcut cererea.</p>
 <p>Această paradigmă poate fi observată în schema &lt;TODO&gt;.</p>
 <p>CAPTION SCHEMĂ:</p>
 <p>Atunci când noi vrem să urmărim un film pe Netflix aplicația client Netflix de
 pe calculator sau telefon va trimite o cerere de descărcare a filmului de pe
 serverul Netflix aflat la distanță.</p>
 <div class="section" id="clienti-web-in-linia-de-comanda">
-<h2><span class="section-number">3.1. </span>1) Clienţi web în linia de comandă<a class="headerlink" href="#clienti-web-in-linia-de-comanda" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.1. </span>Clienţi web în linia de comandă<a class="headerlink" href="#clienti-web-in-linia-de-comanda" title="Permalink to this headline">¶</a></h2>
 <p>În viață de zi cu zi aplicația pe care o folosim cel mai mult este browserul
 web, deoarece majoritatea aplicațiilor pe care le folosim au fost transformate
 în pagini web cu care noi interacționăm. Browserul web este o aplicație care
-execută o cerere HTTP către un server web, identificată printr-o adresă, un
-link, prin care face o acțiune și primește un răspuns. De exemplu, pentru o
-acțiune de tip GET, browserul primește ca răspuns o pagină web, în formatul
-HTML, pe care o afișează.</p>
+execută o cerere HTTP către un server web, identificat printr-o adresă, un link,
+prin care face o acțiune și primește un răspuns. De exemplu, când accesăm pagina
+<code class="docutils literal notranslate"><span class="pre">www.facebook.com</span></code> se execută o acțiune de tip GET, browserul primește ca
+răspuns o pagină web, în formatul HTML, pe care o afișează.</p>
 <p>Pentru interacțiunea cu serverele web putem folosi și clienți web în linie de
 comandă. Clienții web folosiți în linie de comandă sunt folositori atunci când
-nu avem acces la o interfață GUI, sau încercăm să automatizăm un proces.</p>
-<p>Există mai multe implementări de clienți web în linie de comandă, dar noi vom
-folosi comanda <code class="docutils literal notranslate"><span class="pre">wget</span></code> pentru descărcarea unei pagini web.</p>
+nu avem acces la o interfață GUI, sau încercăm să automatizăm un proces. De
+exemplu, pentru a verifica automat starea unui site avem nevoie să descărcăm
+pagina site-ului.</p>
+<p>Există mai multe implementări de clienți web în linie de comandă. Vom folosi
+comanda <code class="docutils literal notranslate"><span class="pre">wget</span></code> pentru descărcarea unei pagini web.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>student@uso:~$ wget &lt;link&gt;
 </pre></div>
 </div>
 <p>EXERCIȚIU</p>
-<p>Deschideți în browser pagina web descărcată pentru a vedea conținutul său</p>
+<p>Deschideți în browser pagina web descărcată pentru a vedea conținutul său.</p>
 <p>EXERCIȚIU</p>
 <p>Deschideți într-un editor de text pagina web descărcată pentru a vedea
 conținutul HTML.</p>
 <p>OBSERVAȚIE:</p>
-<p>Clienți web nu sunt folosiți doar pentru accesarea paginilor web. Putem folosi
+<p>Clienții web nu sunt folosiți doar pentru accesarea paginilor web. Putem folosi
 clienți web pentru a descărca fișiere indiferent de tipul acestora.</p>
-<p>EXERCIȚIU:</p>
+<p>EXERCIȚIU 1:</p>
 <p>Descărcați fișierul &lt;insert link&gt;.</p>
+<p>Unele fișiere sunt pro
+Descărcați fișierul &lt;insert link&gt;.</p>
 <p>NOTĂ:</p>
 <p>Observați că descărcarea nu funcționează, deoarece aceasta necesită
 autentificarea utilizatorului.</p>
 <p>HINT:</p>
 <p>Căutați în pagina de manual a utilitarului <code class="docutils literal notranslate"><span class="pre">wget</span></code> (<code class="docutils literal notranslate"><span class="pre">man</span> <span class="pre">wget</span></code>), pentru a
 identifica opțiunea necesară pentru autentificarea la un server HTTP. Pentru
-autentificare veți folosi utilizatorul <em>student</em> și parola <em>student</em>.</p>
+autentificare veți folosi utilizatorul <code class="docutils literal notranslate"><span class="pre">student</span></code> și parola <code class="docutils literal notranslate"><span class="pre">student</span></code>.</p>
 </div>
 <div class="section" id="accesul-la-distanta-in-linie-de-comanda">
-<h2><span class="section-number">3.2. </span>2) Accesul la distanţă în linie de comandă<a class="headerlink" href="#accesul-la-distanta-in-linie-de-comanda" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.2. </span>Accesul la distanţă în linie de comandă<a class="headerlink" href="#accesul-la-distanta-in-linie-de-comanda" title="Permalink to this headline">¶</a></h2>
 <p>În multe situații atunci când lucrăm cu sisteme, este necesar să rulăm aplicații
 pe alte stații în afara calculatorului nostru fără să avem acces fizic la
 stații.</p>
@@ -560,8 +563,8 @@ stații.</p>
 SSH. SSH permite autentificarea la o stație pe care rulează un server SSH.
 Pentru a ne conecta la stație este necesar să introducem parola utilizatorului cu
 care vrem să ne autentificăm, sau să folosim o cheie de acces la stație.</p>
-<div class="section" id="a-conectarea-folosind-autentificare-cu-parola">
-<h3><span class="section-number">3.2.1. </span>a. Conectarea folosind autentificare cu parolă<a class="headerlink" href="#a-conectarea-folosind-autentificare-cu-parola" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="conectarea-folosind-autentificare-cu-parola">
+<h3><span class="section-number">3.2.1. </span>Conectarea folosind autentificare cu parolă<a class="headerlink" href="#conectarea-folosind-autentificare-cu-parola" title="Permalink to this headline">¶</a></h3>
 <p>Pentru a rula comenzi pe o altă stație putem folosi programul SSH (Secure Shell)
 pentru a ne conecta la acesta în felul următor:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>student@uso:~$ ssh &lt;username&gt;@&lt;statie&gt;
@@ -589,66 +592,8 @@ următor:</p>
 <p>Rulați comanda &lt;insert comanda&gt; pe stațiile &lt;insert stații&gt; fără să intrați în
 interfața în linia de comandă de pe stații.</p>
 </div>
-<div class="section" id="b-conectarea-folosind-autentificare-cu-chei">
-<h3><span class="section-number">3.2.2. </span>b. Conectarea folosind autentificare cu chei<a class="headerlink" href="#b-conectarea-folosind-autentificare-cu-chei" title="Permalink to this headline">¶</a></h3>
-<p>În anumite scenarii ne dorim să evităm introducerea parolei pentru
-autentificarea la o stație la distanță. De exemplu, ne dorim să rulăm aceeași
-comandă pe 10 stații. Dacă am folosi autentificare bazată pe parolă fie ar fi
-nevoie să scriem într-un fișier în clar parola, lucru care este o problema de
-securitate, deoarece dacă păstrăm o cheie în format text aceasta poate fi furată
-de cineva, sau să scriem parola de 10 ori de mână.</p>
-<p>Pentru a trece de această problemă putem să folosim mecanismul de autentificare
-cu chei. Autentificarea cu chei presupune existentă a două chei pereche:</p>
-<ul class="simple">
-<li><p><em>cheia privată</em>: este o cheie secretă care este folosită de un client SSH
-pentru a se autentifica</p></li>
-<li><p><em>cheia publică</em>, este o cheie care este copiată pe stația care rulează
-serverul SSH care este folosită pentru identificarea clienților SSH care se
-conectează la server.</p></li>
-</ul>
-<p>Cele două chei sunt legate matematic, iar posesorul cheii private să se poate
-autentifice pe orice sistem unde este disponibilă cheia publică. Câtă vreme
-posesorul cheii private este singurul care are acces la cheie, nimeni nu se va
-mai putea autentifica în locul său.</p>
-<p>Pentru generarea unei perechi de chei folosim comanda <code class="docutils literal notranslate"><span class="pre">ssh-keygen</span></code> în felul
-următor:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>student@uso:~$ ssh-keygen
-TODO
-</pre></div>
-</div>
-<p>OBSERVAȚIE:</p>
-<p>În procesul de generare al cheilor ni se cere și un passphrase
-pentru a asigura securitaea cheii private în cazul în care este pierdută,
-furată sau altcineva are acces accidental la ea. Desigur, uitarea
-passphrase-ului face cheia nefolosibilă. Așa că passphrase-ul trebuie reținut
-(și protejat) ca orice altă parolă.</p>
-<p>Pentru copierea cheii publice pe o stație folosim comanda <code class="docutils literal notranslate"><span class="pre">ssh-copy-id</span></code> în felul
-următor:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>student@uso:~$ ssh-copy-id &lt;username&gt;@&lt;statie&gt;
-TODO
-</pre></div>
-</div>
-<p>Este necesar să cunoaștem parola utilizatorului pentru copierea cheii publice.</p>
-<p>OBSERVAȚIE:</p>
-<p>Atunci când copiem cheia publică aceasta va fi copiată pentru un singur
-utilizator. Dacă vrem să ne autentificăm pe același calculator ca utilizatori
-diferiți fără parola, este necesar să copiem cheia publică pentru fiecare
-utilizator.</p>
-<p>EXERCIȚIU:</p>
-<p>Generați o nouă cheie SSH de tip RSA cu passphrase-ul “mere”.</p>
-<p>EXERCIȚIU:</p>
-<p>Efectuați modificările necesare astfel încât să vă puteți autentifica drept
-utilizatorul &lt;TODO&gt; de pe stația &lt;host&gt; fără parolă.</p>
-</div>
-<div class="section" id="c-conectarea-intre-doua-calculatoare-aflate-in-retele-private-diferite">
-<h3><span class="section-number">3.2.3. </span>c. Conectarea între două calculatoare aflate în rețele private diferite<a class="headerlink" href="#c-conectarea-intre-doua-calculatoare-aflate-in-retele-private-diferite" title="Permalink to this headline">¶</a></h3>
-<p>&lt;TODO: de adăugat diagramă&gt;</p>
-<p>Pentru a demonstra principiul tunelării, ne vom folosi iar de netcat pentru a
-realiza o conexiune între două stații. Ei se vor conecta la localhost:2222 și
-vor accesa o altă mașină virtuală remote. Le vom arăta cum se face tunelul.</p>
-</div>
-<div class="section" id="d-transferul-datelor-la-distanta">
-<h3><span class="section-number">3.2.4. </span>d. Transferul datelor la distanţă<a class="headerlink" href="#d-transferul-datelor-la-distanta" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="transferul-fisierelor-la-distanta">
+<h3><span class="section-number">3.2.2. </span>Transferul fișierelor la distanţă<a class="headerlink" href="#transferul-fisierelor-la-distanta" title="Permalink to this headline">¶</a></h3>
 <p>Pentru a transfera fișiere la distanță să folosească <code class="docutils literal notranslate"><span class="pre">scp</span></code>. Comanda <code class="docutils literal notranslate"><span class="pre">scp</span></code>
 se folosește de protocolul SSH pentru transferul de date între stații, astfel
 ne putem folosi de modelul de autentificare de la SSH</p>
@@ -662,33 +607,96 @@ TODO
 <li><p>încărcarea fișierelor de la client la server</p></li>
 <li><p>descărcarea fișierelor de la server la client</p></li>
 </ul>
-<p>Pentru descărcarea fișierelor de pe un server folosim comanda <code class="docutils literal notranslate"><span class="pre">scp</span></code> în felul
-următor:</p>
+<p>Pentru descărcarea fișierelor de pe un server folosim comanda <code class="docutils literal notranslate"><span class="pre">scp</span></code>:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>student@uso:~$ scp &lt;username&gt;@&lt;stație&gt;:~/file1 .
 TODO
 </pre></div>
 </div>
 <p>OBSERVAȚIE:</p>
 <p>Comanda rulată anterior a descărcat fișierul <code class="docutils literal notranslate"><span class="pre">file1</span></code> din directorul home al
-utilizatorului &lt;user&gt; de pe stația &lt;stație&gt; în directorul curent.</p>
+utilizatorului &lt;user&gt; de pe stația &lt;stație&gt; în directorul curent (<code class="docutils literal notranslate"><span class="pre">.</span></code>).</p>
+<p>EXERCIȚIU:</p>
+<p>Copiați fișierul <code class="docutils literal notranslate"><span class="pre">/etc/passwd</span></code> în directorul home al utilizatorului
+<code class="docutils literal notranslate"><span class="pre">student</span></code>.</p>
+<p>Pentru copierea unui director folosim opțiunea <code class="docutils literal notranslate"><span class="pre">-r</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>student@uso:~$ scp &lt;username&gt;@&lt;stație&gt;:~/file1 .
+TODO
+</pre></div>
+</div>
 <p>EXERCIȚIU:</p>
 <p>Copiați directorul de pe stația TODO în directorul home al utilizatorului curent.</p>
 </div>
+<div class="section" id="conectarea-folosind-autentificare-cu-chei">
+<h3><span class="section-number">3.2.3. </span>Conectarea folosind autentificare cu chei<a class="headerlink" href="#conectarea-folosind-autentificare-cu-chei" title="Permalink to this headline">¶</a></h3>
+<p>În anumite scenarii ne dorim să evităm introducerea parolei pentru
+autentificarea la o stație la distanță. De exemplu, ne dorim să rulăm aceeași
+comandă pe 10 stații. Dacă am folosi autentificare bazată pe parolă fie ar fi
+nevoie să scriem într-un fișier în clar parola, lucru care este o problema de
+securitate, deoarece dacă păstrăm o cheie în format text aceasta poate fi furată
+de cineva, sau să scriem parola de 10 ori de mână.</p>
+<p>Pentru a trece de această problemă putem să folosim mecanismul de autentificare
+cu chei. Autentificarea cu chei presupune existentă a două chei pereche:</p>
+<ul class="simple">
+<li><p><em>cheia privată</em>: este o cheie secretă care este folosită de un client SSH
+pentru a se autentifica</p></li>
+<li><p><em>cheia publică</em>, este o cheie care este copiată pe stația unde este rulat
+serverul SSH. Cheia este folosită pentru identificarea clienților SSH care se
+conectează la server.</p></li>
+</ul>
+<p>Cele două chei sunt legate matematic, iar posesorul cheii private să se poată
+autentifica pe orice sistem unde este disponibilă cheia publică. Câtă vreme
+posesorul cheii private este singurul care are acces la cheie, nimeni nu se va
+mai putea autentifica în locul său.</p>
+<p>Pentru generarea unei perechi de chei folosim comanda <code class="docutils literal notranslate"><span class="pre">ssh-keygen</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>student@uso:~$ ssh-keygen
+TODO
+</pre></div>
+</div>
+<p>OBSERVAȚIE:</p>
+<p>În procesul de generare a cheilor ni se cere și un passphrase
+pentru a asigura securitatea cheii private în cazul în care este pierdută,
+furată sau altcineva are acces accidental la ea. Desigur, uitarea
+passphrase-ului face cheia nefolosibilă. Așa că passphrase-ul trebuie reținut
+(și protejat) ca orice altă parolă.</p>
+<p>Pentru copierea cheii publice pe o stație folosim comanda <code class="docutils literal notranslate"><span class="pre">ssh-copy-id</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>student@uso:~$ ssh-copy-id &lt;username&gt;@&lt;statie&gt;
+TODO
+</pre></div>
+</div>
+<p>Este necesar să cunoaștem parola utilizatorului pentru copierea cheii publice.</p>
+<p>OBSERVAȚIE:</p>
+<p>Atunci când copiem cheia publică aceasta va fi copiată pentru un singur
+utilizator. Dacă vrem să ne autentificăm pe același calculator ca utilizatori
+diferiți fără parola, este necesar să copiem cheia publică pentru fiecare
+utilizator.</p>
+<p>EXERCIȚIU:</p>
+<p>Generați o nouă cheie SSH de tip RSA cu passphrase-ul <code class="docutils literal notranslate"><span class="pre">mere</span></code>.</p>
+<p>EXERCIȚIU:</p>
+<p>Efectuați modificările necesare astfel încât să vă puteți autentifica drept
+utilizatorul &lt;TODO&gt; de pe stația &lt;host&gt; fără parolă.</p>
+</div>
+<div class="section" id="conectarea-intre-doua-calculatoare-aflate-in-retele-private-diferite">
+<h3><span class="section-number">3.2.4. </span>Conectarea între două calculatoare aflate în rețele private diferite<a class="headerlink" href="#conectarea-intre-doua-calculatoare-aflate-in-retele-private-diferite" title="Permalink to this headline">¶</a></h3>
+<p>&lt;TODO: de adăugat diagramă&gt;</p>
+<p>Pentru a demonstra principiul tunelării, ne vom folosi iar de netcat pentru a
+realiza o conexiune între două stații. Ei se vor conecta la localhost:2222 și
+vor accesa o altă mașină virtuală remote. Le vom arăta cum se face tunelul.</p>
+</div>
 </div>
 <div class="section" id="controlul-la-distanta-in-mediul-grafic">
-<h2><span class="section-number">3.3. </span>3) Controlul la distanță în mediul grafic<a class="headerlink" href="#controlul-la-distanta-in-mediul-grafic" title="Permalink to this headline">¶</a></h2>
-<p>Există anumite tipuri de aplicații care funcționează în mod implicit și aceste
-aplicații nu pot fi rulate în interfață în linie de comandă. De exemplu,
-installer-ul unui joc nu poate să fie rulat din linie de comandă.</p>
+<h2><span class="section-number">3.3. </span>Controlul la distanță în mediul grafic<a class="headerlink" href="#controlul-la-distanta-in-mediul-grafic" title="Permalink to this headline">¶</a></h2>
+<p>Există anumite tipuri de aplicații care funcționează în mod implicit în mediul
+grafic și aceste aplicații nu pot fi rulate în interfața în linie de comandă. De
+exemplu, installer-ul unui joc nu poate să fie rulat din linie de comandă.</p>
 <p>Controlul aplicațiilor se poate reduce la două probleme:</p>
 <ul class="simple">
 <li><p>controlul întregului desktop;</p></li>
 <li><p>controlul unei singure aplicații.</p></li>
 </ul>
-<div class="section" id="a-controlul-desktopului-la-distanta">
-<h3><span class="section-number">3.3.1. </span>a. Controlul desktopului la distanţă<a class="headerlink" href="#a-controlul-desktopului-la-distanta" title="Permalink to this headline">¶</a></h3>
-<p>Pentru control complet al sesiunii există o multitudine de soluții, fie gratis,
-cum ar fi VNC, sau FreeRDP, dar noi ne vom concentra pe soluția numită
+<div class="section" id="controlul-desktopului-la-distanta">
+<h3><span class="section-number">3.3.1. </span>Controlul desktopului la distanţă<a class="headerlink" href="#controlul-desktopului-la-distanta" title="Permalink to this headline">¶</a></h3>
+<p>Pentru control complet al unei sesiuni desktop grafice există o multitudine de
+soluții, cum ar fi VNC, sau FreeRDP, dar noi ne vom concentra pe soluția numită
 TeamViewer, deoarece oferă suport pentru toate sistemele convenționale.</p>
 <p>TeamViewer poate fi descărcat de la această adresă &lt;TODO&gt; și permite
 autentificarea la o mașină folosind un ID și o parolă generate de aplicația
@@ -698,40 +706,41 @@ server.</p>
 <p>Porniți TeamViewer pe stația TODO și conectați-vă la stație de pe mașina voastră
 fizică.</p>
 </div>
-<div class="section" id="b-controlul-unei-ferestre-la-distanta">
-<h3><span class="section-number">3.3.2. </span>b. Controlul unei ferestre la distanţă<a class="headerlink" href="#b-controlul-unei-ferestre-la-distanta" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="controlul-unei-ferestre-la-distanta">
+<h3><span class="section-number">3.3.2. </span>Controlul unei ferestre la distanţă<a class="headerlink" href="#controlul-unei-ferestre-la-distanta" title="Permalink to this headline">¶</a></h3>
 <p>Pentru controlul unei ferestre în Linux putem să folosim protocolul SSH pentru
 transferul datelor care ar fi afișate pe stația pe care funcționează aplicația
 grafică pe stația pe care este lansat clientul SSH.</p>
 <p>Acest mod de transfer nu este rapid, deoarece transferul se face printr-un
-protocol care nu este menit pentru transfer de date sensibile la latență, cum
-sunt ferestrele interactive, dar pentru aplicații care nu sunt sensibile la
-latență, cum ar fi kituri de instalare ale programelor, această metodă este
-funcțională.</p>
+protocol care nu este menit pentru aplicații care au nevoie să fie responsive,
+cum sunt ferestrele interactive, dar pot fi folosite pentru aplicații cum ar fi
+kituri de instalare ale programelor.</p>
 <p>TODO: Demo cu poze</p>
 <p>EXERCIȚIU:</p>
 <p>Deschideți aplicația firefox ca utilizatorul &lt;username&gt; pe stația &lt;hostname&gt;.</p>
 </div>
 </div>
 <div class="section" id="securizarea-conexiunii-la-internet-folosind-un-vpn">
-<h2><span class="section-number">3.4. </span>4) Securizarea conexiunii la Internet folosind un VPN<a class="headerlink" href="#securizarea-conexiunii-la-internet-folosind-un-vpn" title="Permalink to this headline">¶</a></h2>
-<p>VPN-urile sunt aplicațiile care permit crearea rețelelor de calculatoare în
-internet fără ca acestea să fie neapărat în aceeași rețea fizică.</p>
+<h2><span class="section-number">3.4. </span>Securizarea conexiunii la Internet folosind un VPN<a class="headerlink" href="#securizarea-conexiunii-la-internet-folosind-un-vpn" title="Permalink to this headline">¶</a></h2>
+<p>O aplicație de tip VPN (Virtual Private Network) este o aplicație care permite
+crearea rețelelor de calculatoare în Internet fără ca acestea să fie neapărat în
+aceeași rețea fizică.</p>
 <p>Funcționalitatea unui VPN este încapsularea datelor trimise de către un
-calculator, criptarea datelor și trimiterea lor către un server care va trimite
-mai departe datele către destinație.</p>
+calculator, criptarea și trimiterea lor către un server care le va trimite
+mai departe către destinație.</p>
 <p>Primul avantaj al folosirii unui VPN sunt “ascunderea” traficului între client,
-adică stația de pe care se trimit datele. Astfel, datele nu mai pot fi văzute de
-alte entități până când ajung la server-ul VPN.</p>
+adică stația de pe care se trimit datele și serverul VPN-ului. Astfel, acestea nu
+mai pot fi văzute de alte entități până când ajung la server-ul VPN.</p>
 <p>Al doilea avantaj al VPN-urilor este interconectarea facilă între calculatoare
 care se află în rețele private diferite. De exemplu, pentru a juca un joc în
 LAN, putem folosi un VPN, cum ar fi Hamachi, la care se conectează doi
-utilizatori. Serverul de VPN va primi datele de la clienți și va trimite
-mai departe datele dintr-o rețea privată în alta.</p>
+utilizatori. Serverul de VPN va primi datele de la clienți și le va trimite
+mai departe dintr-o rețea privată în alta.</p>
+<p>&lt;insert diagramă&gt;</p>
 <p>EXERCIȚIU:</p>
 <p>Porniți infrastructura</p>
 <p>EXERCIȚIU:</p>
-<p>Identificați adresele IP ale celor stații la care aveți acces.</p>
+<p>Identificați adresele IP ale celor două stații la care aveți acces.</p>
 <p>EXERCIȚIU:</p>
 <p>Verificați conectivitatea între cele doua stații.</p>
 <p>OBSERVAȚIE:</p>
@@ -753,7 +762,7 @@ stațiile în rețeaua VPN-ului. Observați că ambele adrese de pe interfețele
 aceeași rețea virtuală</p>
 <p>Testați conectivitatea de pe stația &lt;TODO&gt; cu stația de la adresa &lt;TODO&gt;.</p>
 <p>Pentru a verifica că drumul pachetului chiar trece prin VPN, rulăm comanda
-<code class="docutils literal notranslate"><span class="pre">traceroute</span> <span class="pre">8.8.8.8</span></code> și observăm că mesajele spre internet nu mai trec prin
+<code class="docutils literal notranslate"><span class="pre">traceroute</span> <span class="pre">8.8.8.8</span></code> și observăm că mesajele spre Internet nu mai trec prin
 interfața eth0 ci trec prin interfața virtuală, ajung la serverul VPN în pasul
 &lt;TODO&gt;, iar abia apoi sunt lansate mai departe spre Internet.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>student@tom:~$ traceroute 8.8.8.8
@@ -771,7 +780,7 @@ fi înlocuită de serverul VPN.</p>
             <div class="inner"><ul class="page-nav">
   <li class="prev">
     <a href="troubleshoot.html"
-       title="previous chapter">← <span class="section-number">2. </span>Verificarea conectivităţii la reţea</a>
+       title="previous chapter">← <span class="section-number">2. </span>Conectarea la rețea și la Internet</a>
   </li>
   <li class="next">
     <a href="extra.html"

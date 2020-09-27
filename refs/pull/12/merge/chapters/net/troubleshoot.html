@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-      <title>2. Verificarea conectivităţii la reţea</title>
+      <title>2. Conectarea la rețea și la Internet</title>
     
       <link rel="stylesheet" href="../../_static/pygments.css">
       <link rel="stylesheet" href="../../_static/theme.css">
@@ -308,16 +308,18 @@
           </li>
 
         
-          <li class="toctree-l1 current"><a href="#" class="reference internal current">Verificarea conectivităţii la reţea</a>
+          <li class="toctree-l1 current"><a href="#" class="reference internal current">Conectarea la rețea și la Internet</a>
 
             
               <ul>
                 
-                  <li class="toctree-l2"><a href="#interactiunea-cu-nivelul-fizic" class="reference internal">1) Interacţiunea cu nivelul fizic</a></li>
+                  <li class="toctree-l2"><a href="#interactiunea-cu-nivelul-fizic" class="reference internal">Interacţiunea cu nivelul fizic</a></li>
                 
-                  <li class="toctree-l2"><a href="#configurarea-nivelului-internet" class="reference internal">2) Configurarea nivelului Internet</a></li>
+                  <li class="toctree-l2"><a href="#configurarea-retelei-in-mediul-grafic" class="reference internal">Configurarea reţelei în mediul grafic</a></li>
                 
-                  <li class="toctree-l2"><a href="#configurarea-nivelului-transport" class="reference internal">3) Configurarea nivelului Transport</a></li>
+                  <li class="toctree-l2"><a href="#configurarea-nivelului-internet" class="reference internal">Configurarea nivelului Internet</a></li>
+                
+                  <li class="toctree-l2"><a href="#configurarea-nivelului-transport" class="reference internal">Configurarea nivelului Transport</a></li>
                 
               </ul>
             
@@ -468,7 +470,7 @@
   <ul class="breadcrumbs">
     <li><a href="../../index.html">Docs</a> &raquo;</li>
     
-    <li><span class="section-number">2. </span>Verificarea conectivităţii la reţea</li>
+    <li><span class="section-number">2. </span>Conectarea la rețea și la Internet</li>
   </ul>
   
 
@@ -487,28 +489,33 @@
 <hr>
           <div class="content" role="main">
             
-  <div class="section" id="verificarea-conectivitatii-la-retea">
-<h1><span class="section-number">2. </span>Verificarea conectivităţii la reţea<a class="headerlink" href="#verificarea-conectivitatii-la-retea" title="Permalink to this headline">¶</a></h1>
-<p>Pentru identificarea și repararea problemelor de conectivitate la rețea este
-necesar să parcurgem toate nivelele de rețea prin care trec datele pentru a fi
-trimise pe rețea. La fiecare pas vom vedea cum verificăm funcționalitatea
-nivelului de rețea și cum putem să îl configurăm sumar.</p>
+  <div class="section" id="conectarea-la-retea-si-la-internet">
+<h1><span class="section-number">2. </span>Conectarea la rețea și la Internet<a class="headerlink" href="#conectarea-la-retea-si-la-internet" title="Permalink to this headline">¶</a></h1>
+<p>Pentru identificarea și repararea problemelor de conectivitate la rețea (sau,
+mai pe scurt, rezolvarea problemei “nu-mi merge Internetul”) este necesar să
+parcurgem toate nivelurile de rețea prin care trec datele pentru a fi trimise.
+În continuare vom prezenta pașii pe care îi urmăm ca să verificăm verificăm
+funcționalitatea nivelului de rețea și cum putem să îl configurăm sumar.</p>
 <div class="section" id="interactiunea-cu-nivelul-fizic">
-<h2><span class="section-number">2.1. </span>1) Interacţiunea cu nivelul fizic<a class="headerlink" href="#interactiunea-cu-nivelul-fizic" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">2.1. </span>Interacţiunea cu nivelul fizic<a class="headerlink" href="#interactiunea-cu-nivelul-fizic" title="Permalink to this headline">¶</a></h2>
 <p>Primul nivel cu care noi interacționăm este nivelul fizic. Nivelul fizic este
-reprezentat de cablul UTP &lt;insert poză&gt;, sau de undele radio ale unei rețele
-wireless. Acestea sunt mediul prin care informația este transferată.</p>
+reprezentat de cablul UTP pentru o rețea cu fir &lt;insert poză&gt;, sau de undele
+radio ale unei rețele wireless. Acestea sunt mediul prin care informația este
+transferată.</p>
 <p>O altă componentă a nivelului fizic este placa de rețea a sistemului. Aceasta
 va trimite mesaje prin mediu de transmisie, fie acesta cablu de cupru, fibră sau
 unde radio.</p>
+<p>Majoritatea timpului problemele de conexiune la Internet vin de la faptul că nu
+este cablul de Internet la placa de rețea, sau de la faptul că avem conexiune
+slabă la rețeaua wireless.</p>
 <p>La nivel fizic, putem verifica conexiunea și funcționalitatea unei plăci de
-rețea uitându-ne la becurile care reprezintă conexiunea la mediul fizic.
-Observăm în GIF-ul &lt;TODO&gt; cum arată becurile unei plăci de rețea funcționale.
+rețea uitându-ne la ledurile care reprezintă conexiunea la mediul fizic.
+Observăm în GIF-ul &lt;TODO&gt; cum arată ledurile unei plăci de rețea funcționale.
 Dacă acestea nu sunt aprinse, atunci nu vom avea conectivitate la rețea.</p>
-<div class="section" id="a-investigarea-nivelului-fizic-al-retelei">
-<h3><span class="section-number">2.1.1. </span>a. Investigarea nivelului fizic al rețelei<a class="headerlink" href="#a-investigarea-nivelului-fizic-al-retelei" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="investigarea-nivelului-fizic-al-retelei">
+<h3><span class="section-number">2.1.1. </span>Investigarea nivelului fizic al rețelei<a class="headerlink" href="#investigarea-nivelului-fizic-al-retelei" title="Permalink to this headline">¶</a></h3>
 <p>NOTĂ</p>
-<p>În cadrul Linux numim interfață de rețea o placă de rețea.</p>
+<p>În general, în Linux asociem fiecărei interfețe de rețea o placă de rețea.</p>
 <p>La nivelul sistemului de operare putem verifica dacă o placă de rețea este
 activă folosind comanda următoare:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>student@uso:~$ ip link show
@@ -521,18 +528,21 @@ activă folosind comanda următoare:</p>
 </pre></div>
 </div>
 <p>Starea fiecărei interfețe de rețea este reprezentată pe câte o linie împreună cu
-parametrii săi de rulate.</p>
-<p>Observăm că interfața de rețea cu numele wlo1 este pornită, deoarece linia care
-conține parametrii săi conține și starea UP. În același timp observăm că
-interfața de rețea eno2 nu este activă deoarece pe linia sa observăm parametrul
-DOWN.</p>
-<p>Pentru a porni interfața eno2 vom folosi următoarea comandă:</p>
+parametrii săi de rulate. Majoritatea informațiilor afișate de comanda de mai
+sus nu relevante pentru noi. Singurul șir de caractere care ne este <code class="docutils literal notranslate"><span class="pre">state</span></code>,
+urmat de starea interfeței de rețea, care poate să fie <code class="docutils literal notranslate"><span class="pre">UP</span></code>, <code class="docutils literal notranslate"><span class="pre">DOWN</span></code> sau
+<code class="docutils literal notranslate"><span class="pre">UNKNOWN</span></code>.</p>
+<p>Observăm că interfața de rețea cu numele <code class="docutils literal notranslate"><span class="pre">wlo1</span></code> este pornită, deoarece linia
+asociată interfeței conține șirul de caractere <code class="docutils literal notranslate"><span class="pre">state</span> <span class="pre">UP</span></code>. În
+același timp observăm că interfața de rețea <code class="docutils literal notranslate"><span class="pre">eno2</span></code> nu este activă deoarece pe
+linia sa observăm șirul de caractere <code class="docutils literal notranslate"><span class="pre">state</span> <span class="pre">DOWN</span></code>.</p>
+<p>Pentru a porni interfața <code class="docutils literal notranslate"><span class="pre">eno2</span></code> vom folosi următoarea comandă:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>student@uso:~$ ip link set up dev eno2
 </pre></div>
 </div>
 <p>Mereu după ce rulăm o comandă trebuie să verificăm că s-a efectuat comanda cu
 succes folosind o comandă de verificare. În cazul de față vom folosi tot
-comanda <cite>ip link show</cite>:</p>
+comanda <code class="docutils literal notranslate"><span class="pre">ip</span> <span class="pre">link</span> <span class="pre">show</span></code>:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>student@uso:~$ ip link show
 1: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu 65536 qdisc noqueue state UNKNOWN mode DEFAULT group default qlen 1000
     link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
@@ -543,20 +553,22 @@ comanda <cite>ip link show</cite>:</p>
 </pre></div>
 </div>
 </div>
-<div class="section" id="b-configurarea-retelei-in-mediul-grafic">
-<h3><span class="section-number">2.1.2. </span>b. Configurarea reţelei în mediul grafic<a class="headerlink" href="#b-configurarea-retelei-in-mediul-grafic" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="configurarea-retelei-in-mediul-grafic">
+<h2><span class="section-number">2.2. </span>Configurarea reţelei în mediul grafic<a class="headerlink" href="#configurarea-retelei-in-mediul-grafic" title="Permalink to this headline">¶</a></h2>
 <p>Le vom arăta cum să se conecteze la o rețea folosind interfaţa vizuală a unui
 Desktop Environment, probabil GNOME</p>
 </div>
-</div>
 <div class="section" id="configurarea-nivelului-internet">
-<h2><span class="section-number">2.2. </span>2) Configurarea nivelului Internet<a class="headerlink" href="#configurarea-nivelului-internet" title="Permalink to this headline">¶</a></h2>
-<p>Pentru conectarea la Internet între stații este nevoie să identificăm stațiile.
-Se pune problema identificării adresei unui sistem deoarece ne dorim să identificăm
-când trimitem un mesaj cui să trimitem mesajul și pe unde să trimitem mesajul.</p>
-<p>Pentru identificarea stațiilor folosim o adresă numită adresa IP. Fiecare
-interfață de rețea are nevoie de o adresă IP să fie configurată pentru a
-trimite mesaje în Internet prin ea.</p>
+<h2><span class="section-number">2.3. </span>Configurarea nivelului Internet<a class="headerlink" href="#configurarea-nivelului-internet" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="identificarea-adresei-de-internet">
+<h3><span class="section-number">2.3.1. </span>Identificarea adresei de Internet<a class="headerlink" href="#identificarea-adresei-de-internet" title="Permalink to this headline">¶</a></h3>
+<p>Pentru comunicare între două stații din Internet, trebuie ca cele două stații să
+fie conectate la Internet. Și apoi cele două stații să se poată adresa una
+alteia. Adică fiecare stație are nevoie de un identificator, o adresă.</p>
+<p>Pentru identificarea stațiilor folosim o adresă numită adresa IP (Internet
+Protocol). Fiecare interfață de rețea are nevoie de o adresă IP să fie
+configurată.</p>
 <p>Pentru a vedea adresele IP configurate pe interfețele de rețea folosim
 următoarea comandă:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>student@uso:~$ ip address show
@@ -576,51 +588,58 @@ următoarea comandă:</p>
        valid_lft forever preferred_lft forever
 </pre></div>
 </div>
-<p>Adresele IP ale interfețelor sunt scrise pe liniile care conțin <cite>inet</cite>.
-Observăm că există două tipuri de adrese IP, în funcție de parametrul <cite>inet</cite>:</p>
+<p>Adresele IP ale interfețelor sunt scrise pe liniile care conțin <code class="docutils literal notranslate"><span class="pre">inet</span></code>.
+Observăm că există două tipuri de adrese IP, în funcție de parametrul <code class="docutils literal notranslate"><span class="pre">inet</span></code>:</p>
 <ul class="simple">
-<li><p>Adrese IPv4 care sunt de forma “A.B.C.D”, unde A, B, C și D sunt numere cu
-valori între 1 si 255</p></li>
-<li><p>Adrese IPv6, care sunt de forma “A:B:C:D:E:F:G:H”, unde A-H sunt numere în
-format hexazecimal care pot lua valori de la “0x0000” la “0xFFFF”</p></li>
+<li><p>Adrese IPv4 care sunt de forma <code class="docutils literal notranslate"><span class="pre">A.B.C.D</span></code>, unde A, B, C și D sunt numere cu
+valori între 1 si 255;</p></li>
+<li><p>Adrese IPv6, care sunt de forma <code class="docutils literal notranslate"><span class="pre">A:B:C:D:E:F:G:H</span></code>, unde A-H sunt numere în
+format hexazecimal care pot lua valori de la <code class="docutils literal notranslate"><span class="pre">0x0000&quot;</span> <span class="pre">la</span> <span class="pre">``0xFFFF</span></code>.</p></li>
 </ul>
-<div class="section" id="a-configurarea-unei-adrese-ip">
-<h3><span class="section-number">2.2.1. </span>a. Configurarea unei adrese IP<a class="headerlink" href="#a-configurarea-unei-adrese-ip" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="configurarea-unei-adrese-ip">
+<h3><span class="section-number">2.3.2. </span>Configurarea unei adrese IP<a class="headerlink" href="#configurarea-unei-adrese-ip" title="Permalink to this headline">¶</a></h3>
 <p>RECAPITULARE:</p>
-<p>Porniți interfața eno2.</p>
+<p>Faceți modificările necesare astfel încât interfața <code class="docutils literal notranslate"><span class="pre">eno2</span></code> să fie în starea
+<code class="docutils literal notranslate"><span class="pre">UP</span></code>.</p>
 <p>Există două metode pentru configurarea unei adrese IP pe o interfață:</p>
 <ul class="simple">
-<li><p>configurare statică, implică să cunoaștem din ce rețea face parte interfața
-pe care vrem să o configurăm</p></li>
-<li><p>configurare dinamică, care nu presupune cunoașterea informațiilor despre
-rețea, deoarece acestea vor fi primite automat de pe rețea</p></li>
+<li><p>configurare statică, prin care noi configurăm manual adresa IP pe interfață de
+rețea, implică să cunoaștem din ce rețea face parte interfața
+pe care vrem să o configurăm și ce adrese IP sunt libere;</p></li>
+<li><p>configurare dinamică, obținută automat, care nu presupune cunoașterea
+informațiilor despre rețea, deoarece acestea vor fi primite automat de pe
+rețea.</p></li>
 </ul>
-<p>Vom insista pe configurarea dinamică, deoarece majoritatea timpului nu avem cum
-să aflam informațiile despre rețea înainte de a configura interfața de rețea.
-De exemplu, atunci când ne conectăm la o rețea wireless, nu știm care sunt
-adresele IP disponibile în acea rețea, așă că folosim protocolul DHCP pentru a
-cere o adresă IP de la un server care cunoaște configurarea rețelei.</p>
-<p>Pentru a obține a seta dinamic o adresă IP în mod dinamic pe o interfață
-folosim comanda <cite>dhclient</cite> în felul următor:</p>
+<p>Vom insista pe configurarea dinamică, deoarece este mai simplă. În plus,nu avem
+cum să aflam informațiile despre rețea înainte de a configura interfața de
+rețea.</p>
+<p>Pentru a obține dinamic o adresă IP în mod dinamic pe o interfață
+folosim comanda <code class="docutils literal notranslate"><span class="pre">dhclient</span></code>:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>student@uso:~$ dhclient eno2
 </pre></div>
 </div>
-<p>Mai sus am rulat comanda pentru a obține o adresă IP pentru interfața eno2.</p>
+<p>Mai sus am rulat comanda pentru a obține o adresă IP pentru interfața <code class="docutils literal notranslate"><span class="pre">eno2</span></code>.</p>
+<p>Comanda <code class="docutils literal notranslate"><span class="pre">dhclient</span></code> este bazată pe protocolul DHCP (Dynamic Host Configuration
+Protocol). Acesta presupune că există un server pe rețea care cunoaște ce IP-uri
+sunt folosite pe rețea și care poate să ofere adrese IP calculatoarelor care fac
+cereri pe rețea. <code class="docutils literal notranslate"><span class="pre">dhclient</span></code> face o cerere de rezervare a unui IP către
+serverul DHCP de pe rețea.</p>
 <p>TASK DE RECAPITULARE:</p>
 <p>Afișați adresele IP de pe toate interfețele.</p>
-<p>Observați că am obținut o adresă IP pe interfața eno2.</p>
-<p>Pentru șterge o adresă IP de pe o interfața folosim comanda <cite>ip address flush</cite> în felul următor:</p>
+<p>Observați că am obținut o adresă IP pe interfața <code class="docutils literal notranslate"><span class="pre">eno2</span></code>.</p>
+<p>Pentru șterge o adresă IP de pe o interfața folosim comanda <code class="docutils literal notranslate"><span class="pre">ip</span> <span class="pre">address</span> <span class="pre">flush</span></code> în felul următor:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>student@uso:~$ ip address flush eno2
 student@uso:~$ ip address show
 &lt;TODO&gt;
 </pre></div>
 </div>
 <p>TASK DE RECAPITULARE:</p>
-<p>Configurați adresa IP pe interfața eno3</p>
+<p>Configurați adresa IP pe interfața <code class="docutils literal notranslate"><span class="pre">eno3</span></code>.</p>
 </div>
-<div class="section" id="b-verificarea-conectivitatii-la-o-alta-statie">
-<h3><span class="section-number">2.2.2. </span>b. Verificarea conectivității la o altă stație<a class="headerlink" href="#b-verificarea-conectivitatii-la-o-alta-statie" title="Permalink to this headline">¶</a></h3>
-<p>Pentru a verifica conexiunea dintre două stații folosim comanda <cite>ping</cite>. Această
+<div class="section" id="verificarea-conectivitatii-la-o-alta-statie">
+<h3><span class="section-number">2.3.3. </span>Verificarea conectivității la o altă stație<a class="headerlink" href="#verificarea-conectivitatii-la-o-alta-statie" title="Permalink to this headline">¶</a></h3>
+<p>Pentru a verifica conexiunea dintre două stații folosim comanda <code class="docutils literal notranslate"><span class="pre">ping</span></code>. Această
 comandă trimite mesaje către o stație și așteaptă un răspuns de la ea.</p>
 <p>Atunci când testăm conexiunea la internet, vrem să verificăm câteva aspecte,
 odată ce am obținut o adresă IP de la serverul DHCP:</p>
@@ -628,12 +647,13 @@ odată ce am obținut o adresă IP de la serverul DHCP:</p>
 <li><p>verificăm dacă putem să ne conectăm la alte calculatoare din aceeași rețea</p></li>
 <li><p>verificăm dacă putem să comunicăm cu stații din afara rețelei</p></li>
 </ul>
-<p>Comanda <cite>ping</cite> se folosește în felul următor:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>student@uso:~$ ping 127.0.0.1
+<p>De exemplu, dacă vrem să verificăm conectivitatea la serverul <code class="docutils literal notranslate"><span class="pre">8.8.8.8</span></code> (un
+server public din Internet), folosim comanda:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>student@uso:~$ ping 8.8.8.8
 &lt;TODO&gt;
 </pre></div>
 </div>
-<p>Atunci când nu pot fi trimise mesaje către stația identificată prin adresa IP
+<p>Atunci când nu pot fi trimise mesaje către stația identificată prin adresa IP,
 mesajul de eroare va arăta în felul următor:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>student@uso:~$ ping &lt;TODO&gt;
 &lt;TODO&gt;
@@ -641,17 +661,17 @@ mesajul de eroare va arăta în felul următor:</p>
 </div>
 <p>Pentru verificarea conectivității în interiorul rețelei trebuie să verificăm că
 putem să trimitem mesaje folosind ping unui calculator din rețea.</p>
-<p>O țintă bună de testare pentru trimiterea mesajelor în rețea este default
-gateway-ul. Un default gateway este un dispozitiv de rețea care se ocupă de
+<p>O țintă bună de testare pentru trimiterea mesajelor în rețea este (default)
+gateway-ul. Un gateway este un dispozitiv de rețea care se ocupă de
 interconectarea rețelelor și care primește mesaje de la toate stațiile din
 rețea pentru a le trimite în Internet.</p>
-<p>Default gateway-ul este configurat static sau dinamic, cum este configurată și adresa IP a unei interfețe.</p>
-<p>Pentru a identifica gateway-ul default folosim comanda <cite>ip route show</cite> în felul următor:</p>
+<p>Gateway-ul este configurat static sau dinamic, cum este configurată și adresa IP a unei interfețe.</p>
+<p>Pentru a identifica gateway-ul folosim comanda <code class="docutils literal notranslate"><span class="pre">ip</span> <span class="pre">route</span> <span class="pre">show</span></code> în felul următor:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>student@uso:~$ ip route show default
 &lt;TODO&gt;
 </pre></div>
 </div>
-<p>Observăm că adresa IP a stației gateway este &lt;TODO&gt;.</p>
+<p>Observăm că adresa IP a gateway-ului este &lt;TODO&gt;.</p>
 <p>RECAPITULARE:</p>
 <p>Aflați adresa de rețea de pe interfața &lt;TODO&gt;.</p>
 <p>OBSERVAȚIE:</p>
@@ -659,18 +679,23 @@ rețea pentru a le trimite în Internet.</p>
 &lt;TODO&gt; sunt foarte similare. Asta se întâmplă deoarece stațiile se află în
 aceeași rețea.</p>
 <p>EXERCIȚIU:</p>
-<p>Verificați conexiunea cu gateway-ul default folosind comanda <cite>ping</cite>.</p>
+<p>Verificați conexiunea cu gateway-ul folosind comanda <code class="docutils literal notranslate"><span class="pre">ping</span></code>.</p>
 <p>Pentru verificarea conexiunii la Internet este bine să verificăm cu o adresă
 consacrată, care avem încredere că nu va avea probleme tehnice. Un astfel de
-exemplu este server-ul de DNS oferit de Google, care se află la adresa IP 8.8.8.8.</p>
+exemplu este server-ul oferit de Google de la adresa IP <code class="docutils literal notranslate"><span class="pre">4.4.4.4</span></code>.</p>
 <p>EXERCIȚIU:</p>
-<p>Verificați conexiunea la server-ul de DNS oferit de Google folosind comanda <cite>ping</cite>.</p>
+<p>Verificați conexiunea la server-ul <code class="docutils literal notranslate"><span class="pre">8.8.8.8</span></code> oferit de Google folosind comanda
+<code class="docutils literal notranslate"><span class="pre">ping</span></code>.</p>
 </div>
-<div class="section" id="c-investigarea-serviciului-dns">
-<h3><span class="section-number">2.2.3. </span>c. Investigarea serviciului DNS<a class="headerlink" href="#c-investigarea-serviciului-dns" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="investigarea-serviciului-dns">
+<h3><span class="section-number">2.3.4. </span>Investigarea serviciului DNS<a class="headerlink" href="#investigarea-serviciului-dns" title="Permalink to this headline">¶</a></h3>
 <p>După cum ați observat, până acum am lucrat numai cu adrese IP, dar noi lucrăm
 în viața de zi cu zi cu numele site-urilor, deoarece ne este mai ușor să
 reținem nume decât adrese IP.</p>
+<p>Pentru a rezolva această necesitate folosim serviciul DNS. Acesta este oferit de
+un server către care noi trimitem cereri de <code class="docutils literal notranslate"><span class="pre">lookup</span></code> pentru o adresa
+<code class="docutils literal notranslate"><span class="pre">hostname</span></code> cum ar fi <code class="docutils literal notranslate"><span class="pre">www.google.com</span></code>. Serverul DSN va răspunde cu adresa IP
+asociată cu adresa cerută.</p>
 <p>Ne dorim să avem un serviciu DNS funcțional în permanență pe sistemul pe care lucrăm.</p>
 <p>În mod implicit serviciul DNS este configurat prin DHCP.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>student@uso:~$ nmcli dev show | grep DNS
@@ -678,26 +703,29 @@ reținem nume decât adrese IP.</p>
 </pre></div>
 </div>
 <p>RECAPITULARE:</p>
-<p>Afișați adresa IP a default gateway-ului.</p>
+<p>Afișați adresa IP a gateway-ului.</p>
 <p>OBSERVAȚIE:</p>
 <p>Observați că adresa gateway-ului este aceeași cu adresa DNS-ului. De obicei
-server-ul gateway este configurat ca server DNS, iar acesta va trimite cererile
+gateway-ul este configurat ca server DNS, iar acesta va trimite cererile
 mai departe către un alt server DNS.</p>
-<p>Pentru a verifica funcționalitatea DNS-ului, putem să facem o cerere DNS folosind comanda <cite>dig</cite> în felul următor.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>student@uso:~$ dig google.com
+<p>Pentru a verifica funcționalitatea serviciului DNS, putem să facem o cerere DNS
+folosind comanda <code class="docutils literal notranslate"><span class="pre">host</span></code> în felul următor.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>student@uso:~$ host google.com
 &lt;TODO&gt;
 </pre></div>
 </div>
-<p>Cererile DNS nu trebuie să fie făcute direct de noi atunci când încercăm să accesăm o resursă din internet folosind un nume, deoarece aplicațiile fac cereri în mod implicit.</p>
+<p>Cererile DNS nu trebuie să fie făcute direct de noi atunci când încercăm să
+accesăm o resursă din Internet folosind un nume, deoarece aplicațiile fac cereri
+în mod implicit.</p>
 <p>EXEMPLU:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>student@uso:~$ ping google.com
 &lt;TODO&gt;
 </pre></div>
 </div>
 <p>Observați că aplicația ping a aflat de una singură care este adresa IP asociată
-numelui google.com și a făcut cererea în fundal.</p>
+numelui <code class="docutils literal notranslate"><span class="pre">google.com</span></code> și a făcut cererea în fundal.</p>
 <p>În caz că vrem să schimbăm temporar DNS-ul pe care îl folosim trebuie să
-modificăm fișierul /etc/resolv.conf. Acest fișier specifică DNS-ul care va fi
+modificăm fișierul <code class="docutils literal notranslate"><span class="pre">/etc/resolv.conf</span></code>. Acest fișier specifică DNS-ul care va fi
 folosit pentru cereri pe linia care conține cuvântul nameserver, după cum
 puteți vedea mai jos.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>student@uso:~$ cat /etc/resolv.conf
@@ -719,17 +747,20 @@ student@uso:~$ dig google.com
 serviciul DNS.</p>
 <p>EXERCIȚIU:</p>
 <p>Realizați modificările necesare astfel încât cererile de tip DNS să fie trimise
-către serverul de DNS oferit de CloudFlare de la adresa 1.1.1.1.</p>
+către serverul de DNS oferit de CloudFlare de la adresa <code class="docutils literal notranslate"><span class="pre">1.1.1.1</span></code>.</p>
 </div>
 </div>
 <div class="section" id="configurarea-nivelului-transport">
-<h2><span class="section-number">2.3. </span>3) Configurarea nivelului Transport<a class="headerlink" href="#configurarea-nivelului-transport" title="Permalink to this headline">¶</a></h2>
-<p>Atunci când folosim internetul ce facem de fapt este că ne conectăm la
+<h2><span class="section-number">2.4. </span>Configurarea nivelului Transport<a class="headerlink" href="#configurarea-nivelului-transport" title="Permalink to this headline">¶</a></h2>
+<p>Atunci când folosim Internetul ce facem de fapt este că ne conectăm la
 aplicații care rulează și noi pornim la rândul nostru aplicații care așteaptă
 conexiuni din exterior.</p>
 <p>Pentru a distinge aplicațiile și destinația mesajelor, folosim conceptul de
 porturi. Astfel, fiecare aplicație deschide un port pentru a comunica cu exteriorul.</p>
-<p>Există două tipuri de port-uri care pot fi deschis, în funcție de protocolul folosit:</p>
+<p>Portul este o adresă locală unei stații. Dacă adresa IP identifică stația,
+portul identifică aplicația de rețea de pe stație. Astfel putem avea mai multe
+aplicații rețea pe o stație.</p>
+<p>Există două tipuri de porturi care pot fi deschise, în funcție de protocolul folosit:</p>
 <ul class="simple">
 <li><p>porturi TCP, folosite de aplicații care depind de trimiterea corectă și în
 ordine a informației, cum ar fi servere web;</p></li>
@@ -737,8 +768,8 @@ ordine a informației, cum ar fi servere web;</p></li>
 și care sunt rezistente la greșeli de trimitere ale pachetelor, cum ar fi
 aplicații de video streaming</p></li>
 </ul>
-<div class="section" id="a-conectivitatea-intre-aplicatii-de-retea-folosind-porturi">
-<h3><span class="section-number">2.3.1. </span>a. Conectivitatea între aplicații de rețea folosind porturi<a class="headerlink" href="#a-conectivitatea-intre-aplicatii-de-retea-folosind-porturi" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="conectivitatea-intre-aplicatii-de-retea-folosind-porturi">
+<h3><span class="section-number">2.4.1. </span>Conectivitatea între aplicații de rețea folosind porturi<a class="headerlink" href="#conectivitatea-intre-aplicatii-de-retea-folosind-porturi" title="Permalink to this headline">¶</a></h3>
 <p>Pentru afișarea porturilor deschide, pe care comunica o aplicație, folosim comanda <cite>netstat</cite>:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>student@uso:~$ netstat -tlpn
 &lt;TODO&gt;
@@ -754,11 +785,11 @@ aplicații de video streaming</p></li>
 </ul>
 <p>EXERCIȚIU:</p>
 <p>Afișați porturile UDP deschise pe stația pe care lucrați.</p>
-<p>După cum observăm, există un server HTTP care rulează pe mașină și ascultă pe portul 80.</p>
+<p>După cum observăm, există un server HTTP care rulează pe mașină și ascultă pe portul TCP 80.</p>
 </div>
-<div class="section" id="b-conectarea-tcp-la-o-aplicatie">
-<h3><span class="section-number">2.3.2. </span>b. Conectarea TCP la o aplicație<a class="headerlink" href="#b-conectarea-tcp-la-o-aplicatie" title="Permalink to this headline">¶</a></h3>
-<p>Vrem să observăm cum răspunde această aplicație la mesaje. De regula un server HTTP răspunde printr-un mesaj în format HTML.</p>
+<div class="section" id="conectarea-tcp-la-o-aplicatie">
+<h3><span class="section-number">2.4.2. </span>Conectarea TCP la o aplicație<a class="headerlink" href="#conectarea-tcp-la-o-aplicatie" title="Permalink to this headline">¶</a></h3>
+<p>Vrem să observăm cum răspunde serverul HTTP la mesaje. De regula un server HTTP răspunde printr-un mesaj în format HTML.</p>
 <p>Pentru a trimite mesaje, indiferent de tipul aplicației care primește mesajul folosim comanda <cite>nc</cite> în felul următor</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>student@uso:~$ nc 127.0.0.1 80
 lala
