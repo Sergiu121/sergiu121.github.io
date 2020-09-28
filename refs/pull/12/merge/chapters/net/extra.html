@@ -530,13 +530,27 @@ site-uri cum ar fi cele de research, sau ştiri.</p>
 să ne conectăm prin SSH.</p>
 <p>Pentru a ne conecta în mod normal la stația &lt;TODO&gt;, ca utilizatorul &lt;TODO&gt;
 folosind opțiunile &lt;TODO&gt; ar fi nevoie să rulăm comanda:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>student@tom:~$ ssh -X user@statie
+</pre></div>
+</div>
 <p>Tastarea acestei comenzi pentru fiecare conexiune succesivă este ineficientă și
 există alternative pentru a reduce timpul de scriere al comenzii.</p>
 <p>Vom configura o scurtătura pentru utilitarul <code class="docutils literal notranslate"><span class="pre">ssh</span></code> folosit de utilizatorul
 <code class="docutils literal notranslate"><span class="pre">student</span></code>. Fișierul de configurare se regăsește la calea <code class="docutils literal notranslate"><span class="pre">~/.ssh/config</span></code>, iar
 acesta conține intrări de tipul următor:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>student@tom:~$ cat ~/.ssh/config
+Host sw-fep
+    HostName fep.grid.pub.ro
+    User student
+    ForwardX11 yes
+</pre></div>
+</div>
 <p>Folosindu-ne de intrarea de mai sus, putem să ne conectăm la stația menționată
 mai sus folosind comanda următoare:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>student@tom:~$ ssh sw-fep
+TODO
+</pre></div>
+</div>
 <p>EXERCIȚIU</p>
 <p>Realizați configurările necesare astfel încât să va puteți conecta la stația
 &lt;TODO&gt; ca utilizatorul &lt;TODO&gt;, folosind opțiunea de X forwarding cu scurtătura
@@ -554,6 +568,10 @@ de configurare ale serverului SSH.</p>
 <p>Atunci când verifică cheile publice ale utilizatorilor care încearcă să se
 autentifice, serverul SSH verifică identitatea clientului folosind cheile
 private care sunt salvate în fișierul <code class="docutils literal notranslate"><span class="pre">~/.ssh/authorized_keys</span></code>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>student@tom:~$ cat ~/.ssh/authorized_keys
+TODO
+</pre></div>
+</div>
 <p>Pentru adăugarea unei alte chei SSH pentru verificarea identității clienților,
 este suficient să scriem cheia SSH a utilizatorului pe o linie nouă a fișierului
 <code class="docutils literal notranslate"><span class="pre">authorized_keys</span></code>.</p>
@@ -581,11 +599,19 @@ acesta le configurează și există conexiuni, care rețin configurările.</p>
 <p>Pentru interfețe conectate prin cablu exista doar o singură conexiune în mod
 normal.</p>
 <p>Pentru a vizualiza parametrii de funcționare ai unei conexiuni rulăm comanda:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>student@tom:~$ nmcli connection show Wired\ connection
+TODO
+</pre></div>
+</div>
 <p>Observăm că sunt afișate lucruri cum ar fi ruta implicită, adresa IP configurată
 pe interfață, serverul de DNS folosit, și modul prin care a fost configurată
 interfața (prin DHCP sau în mod static).</p>
 <p>Pentru modificarea unui atribut al conexiunii folosim comanda <code class="docutils literal notranslate"><span class="pre">nmcli</span></code> în felul
 următor:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>student@tom:~$ nmcli connection modify Wired\ connection ipv4.dns 1.1.1.1
+TODO
+</pre></div>
+</div>
 <p>Atributul <code class="docutils literal notranslate"><span class="pre">ipv4.dns</span></code> reține date despre DNS-ul care va fi folosit în cadrul
 conexiunii.</p>
 <p>EXERCIȚIU:</p>

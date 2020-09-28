@@ -52,6 +52,7 @@ Pentru a ne conecta în mod normal la stația <TODO>, ca utilizatorul <TODO>
 folosind opțiunile <TODO> ar fi nevoie să rulăm comanda:
 
 .. code-block::
+
     student@tom:~$ ssh -X user@statie
 
 Tastarea acestei comenzi pentru fiecare conexiune succesivă este ineficientă și
@@ -62,6 +63,7 @@ Vom configura o scurtătura pentru utilitarul ``ssh`` folosit de utilizatorul
 acesta conține intrări de tipul următor:
 
 .. code-block::
+
     student@tom:~$ cat ~/.ssh/config
     Host sw-fep
         HostName fep.grid.pub.ro
@@ -72,6 +74,7 @@ Folosindu-ne de intrarea de mai sus, putem să ne conectăm la stația menționa
 mai sus folosind comanda următoare:
 
 .. code-block::
+
     student@tom:~$ ssh sw-fep
     TODO
 
@@ -100,6 +103,7 @@ private care sunt salvate în fișierul ``~/.ssh/authorized_keys``.
 
 
 .. code-block::
+
     student@tom:~$ cat ~/.ssh/authorized_keys
     TODO
 
@@ -140,6 +144,7 @@ normal.
 Pentru a vizualiza parametrii de funcționare ai unei conexiuni rulăm comanda:
 
 .. code-block::
+
     student@tom:~$ nmcli connection show Wired\ connection
     TODO
 
@@ -151,6 +156,7 @@ Pentru modificarea unui atribut al conexiunii folosim comanda ``nmcli`` în felu
 următor:
 
 .. code-block::
+
     student@tom:~$ nmcli connection modify Wired\ connection ipv4.dns 1.1.1.1
     TODO
 
