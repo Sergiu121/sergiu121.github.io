@@ -493,7 +493,7 @@
 În particular, când vorbim despre un proiect software vrem să avem dezvoltatori, oameni care să lucreze împreună cu noi la proiect.
 Dezvoltatorii au nevoie de acces la codul sursă al proiectului software la care lucrăm.
 După ce le dăm acces, vrem ca fiecare dezvoltator să știe la ce a lucrat și la ce lucrează ceilalți; ca să nu se suprapună, ca să ajute și ca să ofere feedback.</p>
-<p>Pentru a putea rezolva problemele de sincronizare între 2 sau mai mulți colegi de echipă care lucrează la același proiect, ne ajută să avem un <strong>sistem de versionare a codului</strong>, adică să avem un istoric de modificări, adică o listă de versiuni.
+<p>Pentru a putea rezolva problemele de sincronizare între doi sau mai mulți colegi de echipă care lucrează la același proiect, ne ajută să avem un <strong>sistem de versionare a codului</strong>, adică să avem un istoric de modificări, adică o listă de versiuni.
 Versionarea codului aduce și alte avantaje cum ar fi revenirea la o versiune mai veche a proiectului, găsirea rapidă a autorului unei secvențe de cod sau pur și simplu organizarea unui proiect.</p>
 <p><strong>Git</strong> este un sistem de management și versionare a codului sursă care permite această partajare dorită.</p>
 <p><a class="reference external" href="http://www.github.com/">GitHub</a> este o platformă online, bazată pe Git, pe care dezvoltatorii o pot folosi pentru a stoca și versiona codul lor sursă.
@@ -501,28 +501,27 @@ Git este utilitarul folosit, iar GitHub este serverul și aplicația web pe care
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Similar cu GitHub există și alte platforme precum <a class="reference external" href="https://bitbucket.org">Bitbucket</a> sau <a class="reference external" href="https://about.gitlab.com">GitLab</a>.
-Comenzile pe care le vom studia se aplică pentru toate platformele care folosesc <code class="docutils literal notranslate"><span class="pre">Git</span></code>, doar interfața grafică diferă.</p>
+Comenzile pe care le vom studia se aplică pentru toate platformele care folosesc <strong>Git</strong>, doar interfața grafică diferă.</p>
 <p>În această carte vom folosi GitHub ca suport.
 În mare parte acesta nu diferă foarte mult de alte platforme.</p>
 </div>
 <div class="section" id="crearea-unui-cont-pe-github-daca-nu-aveti-deja">
 <span id="app-dev-create-github-account"></span><h2><span class="section-number">1.1. </span>Crearea unui cont pe GitHub (dacă nu aveți deja)<a class="headerlink" href="#crearea-unui-cont-pe-github-daca-nu-aveti-deja" title="Permalink to this headline">¶</a></h2>
 <p>Înainte de toate, ne asigurăm că avem cont pe GitHub.
-Dacă aveți deja un cont pe GitHub puteți trece la subsecțiunea următoare.</p>
+Dacă aveți deja un cont pe GitHub puteți trece la subsecțiunea următoare <a class="reference internal" href="#app-dev-git-setup"><span class="std std-ref">Pregătirea inițială a mediului Git</span></a>.</p>
 <p>Intrați pe <a class="reference external" href="http://www.github.com/">GitHub</a>.
 Pagina de pornire va arăta similar cu cea din imaginea de mai jos.</p>
 <div class="figure align-default">
-<a class="reference internal image-reference" href="../../_images/GitHub-init-page.png"><img alt="Alternative text" src="../../_images/GitHub-init-page.png" style="width: 1008.0px; height: 550.8px;" /></a>
+<a class="reference internal image-reference" href="../../_images/GitHub-init-page.png"><img alt="Pagina principală GitHub" src="../../_images/GitHub-init-page.png" style="width: 1008.0px; height: 550.8px;" /></a>
 </div>
 <p>Introduceți un username, adresa voastră de e-mail și o parolă sigură pentru cont.
 Pentru validarea contului accesați-vă căsuța de e-mail.
 Acolo veți găsi un e-mail în care vi se explică cum se poate valida noul cont creat.
 Verificați și căsuța <strong>spam</strong> în caz că nu ați primit nimic în inbox.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p><strong>GitHub Student Pack</strong></p>
+<div class="admonition-github-student-pack admonition">
+<p class="admonition-title"><strong>GitHub Student Pack</strong></p>
 <p>GitHub oferă studenților numeroase beneficii care în mod normal sunt contra cost (plătite).
-Găsiți mai multe detalii pe site-ul <a class="reference external" href="https://education.github.com/pack">oficial</a>.</p>
+Găsiți mai multe detalii pe <a class="reference external" href="https://education.github.com/pack">site-ul oficial</a>.</p>
 </div>
 </div>
 <div class="section" id="pregatirea-initiala-a-mediului-git">
@@ -547,7 +546,7 @@ Vom crea unul pe GitHub, unul local, după care le vom interconecta.</p>
 <p>Proiectul este stocat într-un <strong>repository software</strong>.
 Repository-ul conține fișierele proiectului: codul sursă, fișiere de configurare.
 De obicei acesta vine însoțit și de un fișier <strong>README.md</strong> în care se găsesc informații despre proiect: care este scopul proiectului, cum se compilează, pe ce platforme rulează.</p>
-<p>Repository-urile sunt de 2 tipuri: <strong>locale</strong> și <strong>remote</strong>.
+<p>Repository-urile sunt de două tipuri: <strong>locale</strong> și <strong>remote</strong>.
 Acestea pot fi interconectate și să refere de fapt același proiect.
 Repository-ul local este cel pe care îl avem la noi pe calculator, pe când cel remote este unul stocat pe un server (în cazul nostru <strong>GitHub</strong>).
 Este doar o diferență de perspectivă între cele două, ele nu diferă din punct de vedere tehnic.
@@ -558,9 +557,9 @@ Vom detalia aceste operații când le vom folosi în acest capitol.</p>
 <div class="section" id="crearea-unui-repository-gol-pe-github">
 <span id="app-dev-create-github-repo"></span><h3><span class="section-number">1.3.1. </span>Crearea unui repository gol pe GitHub<a class="headerlink" href="#crearea-unui-repository-gol-pe-github" title="Permalink to this headline">¶</a></h3>
 <p>Ne autentificăm pe GitHub.
-Vedem pașii prezentați în GIF-ul de mai jos și explicați imediat după.</p>
+Vedem pașii prezentați în imaginea de mai jos și explicați imediat după.</p>
 <div class="figure align-default">
-<img alt="../../_images/GitHub-create-repo.mp4" src="../../_images/GitHub-create-repo.mp4" />
+<img alt="Crearea unui repository nou pe GitHub" src="../../_images/GitHub-create-repo.gif" />
 </div>
 <ol class="arabic simple">
 <li><p>Apăsăm pe săgeată din meniul din dreapta sus și vedem ceva similar cu imaginea de mai jos.</p></li>
@@ -569,10 +568,10 @@ Aici este locul în care vom putea vedea contribuțiile noastre pe GitHub.
 În partea de sus a ecranului vom vedea un meniu orizonatal care conține 4 opțiuni: <code class="docutils literal notranslate"><span class="pre">Overview</span></code>, <code class="docutils literal notranslate"><span class="pre">Repositories</span></code>, <code class="docutils literal notranslate"><span class="pre">Projects</span></code> și <code class="docutils literal notranslate"><span class="pre">Packages</span></code>.</p></li>
 <li><p>Apăsăm pe <code class="docutils literal notranslate"><span class="pre">Repositories</span></code>.
 Acum vom vedea întreaga listă de repository-uri pe care le avem. Pentru a crea unul nou, apăsăm pe butonul verde din dreapta sus pe care scrie <code class="docutils literal notranslate"><span class="pre">New</span></code>.</p></li>
-<li><p>Acum este momentul în care vom da un nume proiectului nostru, o descriere succintă a acestuia și vom putea decide dacă să fie public (vizibil tuturor utilizatorilor) sau privat (vizibil doar pentru noi și eventualii colaboratori ai proiectului).
-Ne va apărea un formular similar cu cel din imaginea de mai jos.
-Pentru acest tutorial vom crea un repository public.
-De asemenea, este indicat ca numele repository-ului să descrie bine proiectul, în cazul nostru <code class="docutils literal notranslate"><span class="pre">array-sorting-algorithms</span></code>.
+<li><p>Acum este momentul în care vom da un nume proiectului nostru, o descriere succintă a acestuia și vom putea decide dacă să fie <strong>public</strong> (vizibil tuturor utilizatorilor) sau <strong>privat</strong> (vizibil doar pentru noi și eventualii colaboratori ai proiectului).
+Ne va apărea un formular similar cu cel din imaginea de mai sus.
+Pentru acest tutorial vom crea un repository <strong>public</strong>.
+Este indicat ca numele repository-ului să descrie bine proiectul, în cazul nostru <code class="docutils literal notranslate"><span class="pre">array-sorting-algorithms</span></code>.
 Descrierea proiectului este opțională, dar e recomandat să o adăugăm pentru a fi ușor de înțeles pentru cei care vor ajunge la proiectul vostru.</p></li>
 <li><p>Apăsăm pe <code class="docutils literal notranslate"><span class="pre">Create</span> <span class="pre">repository</span></code>.
 Vor apărea câteva instrucțiuni pentru crearea unui repository local nou și conectarea celui noi cu cel remote.
@@ -602,8 +601,8 @@ Inițializarea repository-ului local înseamnă crearea, în directorul ales, a 
 Această operare duce la crearea unui director numit <code class="docutils literal notranslate"><span class="pre">.git</span></code> în care se vor ține ulterior date suplimentare despre repository, numite <strong>metadatele</strong> repository-ului.</p>
 </div>
 </div>
-<div class="section" id="conectarea-celor-2-repository-uri">
-<span id="app-dev-connect-repos"></span><h3><span class="section-number">1.3.3. </span>Conectarea celor 2 repository-uri<a class="headerlink" href="#conectarea-celor-2-repository-uri" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="conectarea-celor-doua-repository-uri">
+<span id="app-dev-connect-repos"></span><h3><span class="section-number">1.3.3. </span>Conectarea celor două repository-uri<a class="headerlink" href="#conectarea-celor-doua-repository-uri" title="Permalink to this headline">¶</a></h3>
 <p>Am creat până în acest moment un repository local și unul remote.
 Trebuie să le interconectăm pentru a lucra cu ele.</p>
 <p>În cazul în care sunteți mai mulți membri în echipă, fiecare membru va conecta repository-ul său local, la repository-ul remote.
@@ -611,16 +610,16 @@ Pentru conectarea celor două repository-uri folosim comanda:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/array-sorting-algorithms$ git remote add origin https://github.com/<span class="o">{</span>username<span class="o">}</span>/array-sorting-algorithms.git
 </pre></div>
 </div>
-<p>Conectarea celor două repository-uril înseamnă setarea repository-ului <code class="docutils literal notranslate"><span class="pre">origin</span></code>, adică repository-ului remote la care se conectează cel local.
-În comanda de mai sus <code class="docutils literal notranslate"><span class="pre">{username}</span></code> este numele utilizatorului nostru de pe GitHub.
+<p>Conectarea celor două repository-uril înseamnă setarea repository-ului <code class="docutils literal notranslate"><span class="pre">origin</span></code>, adică repository-ului remote la care se conectează cel local.</p>
+<p>În comanda de mai sus <code class="docutils literal notranslate"><span class="pre">{username}</span></code> este numele utilizatorului nostru de pe GitHub.
 De exemplu, pentru autorul acestui capitol <code class="docutils literal notranslate"><span class="pre">{username}</span></code> se înlocuiește cu <code class="docutils literal notranslate"><span class="pre">lizababu</span></code>.</p>
 <div class="figure align-default">
-<img alt="../../_images/GitHub-remote-local-repos.mp4" src="../../_images/GitHub-remote-local-repos.mp4" />
+<a class="reference internal image-reference" href="../../_images/GitHub-remote-local-repos.gif"><img alt="Conectarea repository-ului local cu cel remote" src="../../_images/GitHub-remote-local-repos.gif" style="width: 501.0px; height: 337.0px;" /></a>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>GIF-ul de mai sus arată cum arată cum se contectează repository-urile <strong>remote</strong> și <strong>local</strong>.
-Sincronizarea lor se face prin intermediul operațiilor <strong>push</strong> și <strong>pull</strong> care sunt prezentate pe parcursul secțiunii <span class="xref std std-ref">app_dev_first_commit</span>.</p>
+<p>Imaginea de mai sus arată cum arată cum se contectează repository-urile <strong>remote</strong> și <strong>local</strong>.
+Sincronizarea lor se face prin intermediul operațiilor <strong>push</strong> și <strong>pull</strong> care sunt prezentate pe parcursul secțiunii <a class="reference internal" href="git-first-commits.html#app-dev-first-commits"><span class="std std-ref">Primele commituri</span></a>.</p>
 </div>
 </div>
 </div>

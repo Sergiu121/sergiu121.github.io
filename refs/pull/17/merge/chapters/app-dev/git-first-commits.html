@@ -514,7 +514,7 @@ Realizăm publicarea prin operația <strong>push</strong>.</p>
 </div>
 <p>În următoarele secțiuni vom lucra în repository-ul <code class="docutils literal notranslate"><span class="pre">array-sorting-algorithms</span></code> creat în secțiunea <a class="reference internal" href="git-intro.html#app-dev-git-intro"><span class="std std-ref">Introducere în Git și GitHub</span></a>.
 Vom crea pas cu pas un proiect software scris în limbajul de programare C care conține mai mulți algoritmi de sortare al unui vector de elemente întregi.</p>
-<p>Punctual, în această secțiune vom crea fișierul README al proiectului și scheletul de cod pentru algoritmii de sortare <strong>Bubble Sort</strong>, <strong>Merge Sort</strong> și <strong>Radix Sort</strong>.
+<p>Punctual, în această secțiune vom crea fișierul <code class="docutils literal notranslate"><span class="pre">README</span></code> al proiectului și scheletul de cod pentru algoritmii de sortare <strong>Bubble Sort</strong>, <strong>Merge Sort</strong> și <strong>Radix Sort</strong>.
 Vom crea commituri pentru fiecare schimbare, după care vom publica commiturile astfel încât schimbările să fie vizibile și pe GitHub.</p>
 <div class="section" id="adaugarea-unui-fisier-readme">
 <span id="app-dev-add-readme"></span><h2><span class="section-number">2.1. </span>Adăugarea unui fișier README<a class="headerlink" href="#adaugarea-unui-fisier-readme" title="Permalink to this headline">¶</a></h2>
@@ -602,7 +602,7 @@ Asta înseamnă că acum Git știe de noile modificări și așteaptă ca modifi
 <span id="app-dev-local-commit"></span><h3><span class="section-number">2.2.3. </span>Crearea commitului local<a class="headerlink" href="#crearea-commitului-local" title="Permalink to this headline">¶</a></h3>
 <p>Creăm un commit cu modificările făcute folosind comanda <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">commit</span></code>:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>student@uso:~/array-sorting-algorithms$ git commit -m &quot;Add README file&quot;
-[master (root-commit) 0dfb632] Add README.md
+[master (root-commit) b2a590a] Add README.md
 1 file changed, 1 insertion(+)
 create mode 100644 README.md
 student@uso:~/array-sorting-algorithms$ git status
@@ -624,7 +624,7 @@ Alte persoane care lucrează la același proiect software vor vrea să înțelea
 Vom crea un nou fișier cod sursă C <code class="docutils literal notranslate"><span class="pre">bubble-sort.c</span></code> și vom scrie în el scheletul de cod pentru algoritm.
 Vom crea un nou commit care va conține fișierul <code class="docutils literal notranslate"><span class="pre">bubble-sort.c</span></code>.</p>
 <div class="figure align-default">
-<img alt="Crearea unui nou commit" src="../../_images/commit.gif" />
+<img alt="Crearea unui nou commit" src="../../_images/GitHub-create-new-commit.gif" />
 </div>
 <p>Conținutul fișierului <code class="docutils literal notranslate"><span class="pre">bubble-sort.c</span></code> este:</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
@@ -686,7 +686,7 @@ Folosiți următorul mesaj de commit: <code class="docutils literal notranslate"
 </div>
 <div class="section" id="crearea-unui-commit-cu-modificari-in-fisiere-existente">
 <span id="app-dev-modify-commit"></span><h3><span class="section-number">2.2.5. </span>Crearea unui commit cu modificări în fișiere existente<a class="headerlink" href="#crearea-unui-commit-cu-modificari-in-fisiere-existente" title="Permalink to this headline">¶</a></h3>
-<p>Până acum am creat commituri care conțineau un fișier nou create.
+<p>Până acum am creat commituri care conțineau un fișier nou creat.
 În această secțiune vom modifica conțintului fișierului <code class="docutils literal notranslate"><span class="pre">README.md</span></code> și vom crea un nou commit.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>student@uso:~/array-sorting-algorithms$ echo &quot;We implement 3 sorting algorithms for integer arrays.&quot; &gt;&gt; README.md
 student@uso:~/array-sorting-algorithms$ git status
@@ -712,7 +712,7 @@ t explanation&quot;
 1 file changed, 1 insertion(+)
 </pre></div>
 </div>
-<p>Când am adăugat fișierul <code class="docutils literal notranslate"><span class="pre">bubble-sort.c</span></code> în staging area în GIF-ul <a class="reference internal" href="#app-dev-create-new-commit"><span class="std std-ref">Crearea unui nou commit</span></a>, comanda status ne arăta că fișierul <code class="docutils literal notranslate"><span class="pre">bubble-sort.c</span></code> este nou (<em>new file</em>).</p>
+<p>Când am adăugat fișierul <code class="docutils literal notranslate"><span class="pre">bubble-sort.c</span></code> în staging area în imaginea din secțiunea <a class="reference internal" href="#app-dev-create-new-commit"><span class="std std-ref">Crearea unui nou commit</span></a>, comanda status ne arăta că fișierul <code class="docutils literal notranslate"><span class="pre">bubble-sort.c</span></code> este nou (<em>new file</em>).</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">(</span>...<span class="o">)</span>
 student@uso:~/array-sorting-algorithms$ git add bubble-sort.c
 student@uso:~/array-sorting-algorithms$ git status
@@ -815,20 +815,18 @@ Commiturile locale se aflau pe branch-ul <strong>master</strong> din repository-
 Vorbim despre <strong>branch-uri</strong> în secțiunea <a class="reference internal" href="git-branches.html#app-dev-branches"><span class="std std-ref">Lucrul pe branch-uri</span></a>.</p>
 <p>Ca să verificăm publicarea commiturilor, folosim interfața GitHub:</p>
 <div class="figure align-default">
-<a class="reference internal image-reference" href="../../_images/GitHub-publish-commits.png"><img alt="Vizualizarea commiturilor din interfața GitHub" src="../../_images/GitHub-publish-commits.png" style="width: 1512.0px; height: 801.0px;" /></a>
+<img alt="Vizualizarea commiturilor din interfața GitHub" src="../../_images/GitHub-publish-commits.png" />
 </div>
 </div>
 </div>
 <div class="section" id="obtinerea-commiturilor-din-repository-ul-remote">
 <span id="app-dev-pull"></span><h2><span class="section-number">2.3. </span>Obținerea commiturilor din repository-ul remote<a class="headerlink" href="#obtinerea-commiturilor-din-repository-ul-remote" title="Permalink to this headline">¶</a></h2>
 <p>În lucrul cu Git / GitHub, există bune practici pe care recomandăm să le urmăm.</p>
-<p>E bine ca atunci când ne apucăm de lucru să avem în vedere să sincronizăm din când în când repository-ul local cu cel remote.
+<p>Atunci când ne apucăm de lucru vrem să sincronizăm repository-ul local cu cel remote.
 Pot apărea diferențe în momentul în care altcineva a publicat schimbări remote după ce am făcut noi ultima sincronizare.
 În momentul în care cineva a publicat modificări asupra unei secvențe de cod pe care și noi o modificăm, apar conflicte.
 Conflictele trebuie rezolvate.</p>
-<p>Putem face acest lucru în două moduri.
-Operația <code class="docutils literal notranslate"><span class="pre">fetch</span></code> are rolul de a aduce local toate schimbările, însă nu va face și operația de <code class="docutils literal notranslate"><span class="pre">merge</span></code> care presupune rezolvarea conflictelor și ajungerea a un front comun.
-Operația <code class="docutils literal notranslate"><span class="pre">pull</span></code> aduce local toate modificările și încearcă să rezolve conflicetele în mod automat.
+<p>Facem acest lucru prin operația <code class="docutils literal notranslate"><span class="pre">pull</span></code> care aduce local toate modificările și încearcă să rezolve conflicetele în mod automat.
 Dacă rezolvarea conflictelor nu se poate face automat, trebuie să ne ocupăm de acest pas.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
