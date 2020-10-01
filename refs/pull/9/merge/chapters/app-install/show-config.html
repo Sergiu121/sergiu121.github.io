@@ -347,7 +347,7 @@
           </li>
 
         
-          <li class="toctree-l1 "><a href="config.html" class="reference internal ">Configurarea aplicațiilor</a>
+          <li class="toctree-l1 "><a href="config.html" class="reference internal ">Configurarea rulării aplicațiilor</a>
 
             
           </li>
@@ -488,7 +488,7 @@
 <p>Un sistem de operare are preinstalate și preconfigurate aplicații.
 Utilizatorul va dori să adauge noi aplicații pentru nevoile sale, extinzând funcționalitățile de bază ale sistemului de operare.
 Înainte de a adăuga noi aplicații, utilizatorul va trebui să știe ce sistem de operare are, ce distribuție, ce versiune de distribuție, ce versiune de sistem de operare.
-Fără aceste informații nu va ști ce utilitare să folosească pentru gesiunea aplicațiilor, nu va ști ce aplicații sunt disponibile, nu va ști unde sunt plasate fișierele de configurare.</p>
+Fără aceste informații, nu va ști ce utilitare să folosească pentru gestiunea aplicațiilor, nu va ști ce aplicații sunt disponibile, nu va ști unde sunt plasate fișierele de configurare.</p>
 <p>În general utilizatorul va fi preocupat să afle:</p>
 <ul class="simple">
 <li><p>Ce sistem de operare rulează pe sistemul de calcul? (Windows, Linux, macOS, FreeBSD, Android, iOS etc.)</p></li>
@@ -506,7 +506,7 @@ Promptul de login afișează, în general, sistemul de operare și versiunea sa.
 Ubuntu <span class="m">18</span>.04.1 LTS <span class="se">\n</span> <span class="se">\l</span>
 </pre></div>
 </div>
-<p>Dacă promptul nu este prezent sau dacă nu este afișată informația, se folosesc comenzi sau fișiere specifice pentru aflarea sistemului de operare.</p>
+<p>Dacă promptul nu este prezent, sau dacă nu este afișată informația, se folosesc comenzi sau fișiere specifice pentru aflarea sistemului de operare.</p>
 <p>Altfel, aflarea sistemului de operare / distribuției și versiunii se poate face prin accesarea site-ului <a class="reference external" href="https://whatsmyos.com/">https://whatsmyos.com/</a>.</p>
 </div>
 <div class="section" id="determinarea-distributiei">
@@ -550,14 +550,14 @@ Codename:   bionic
 </div>
 <div class="section" id="aflarea-versiunii-nucleului">
 <h2><span class="section-number">5.3. </span>Aflarea versiunii nucleului<a class="headerlink" href="#aflarea-versiunii-nucleului" title="Permalink to this headline">¶</a></h2>
-<p>În Linux, anumite aplicații au nevoie de o versiune dată a nucleului sistemului de operare (<em>kernel</em>).
-În general, atunci când parcurgem cerințele unei aplicații vom întâlni o precizare de forma <code class="docutils literal notranslate"><span class="pre">required:</span> <span class="pre">Linux</span> <span class="pre">kernel</span> <span class="pre">&gt;=</span> <span class="pre">3.2</span></code>, adică este nevoie de o versiune de nucleu mai mare decât versiunea <code class="docutils literal notranslate"><span class="pre">3.2</span></code>.
+<p>În Linux, anumite aplicații au nevoie de o anumită versiune a nucleului sistemului de operare (<em>kernel</em>).
+În general, atunci când parcurgem cerințele unei aplicații, vom întâlni o precizare de forma <code class="docutils literal notranslate"><span class="pre">required:</span> <span class="pre">Linux</span> <span class="pre">kernel</span> <span class="pre">&gt;=</span> <span class="pre">3.2</span></code>, adică este nevoie de o versiune de nucleu mai mare decât versiunea <code class="docutils literal notranslate"><span class="pre">3.2</span></code>.
 Pentru a afla această versiune și, astfel, pentru a valida că aplicația poate fi instalată, putem investiga fișierul <code class="docutils literal notranslate"><span class="pre">/proc/version</span></code>:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ cat /proc/version
 Linux version <span class="m">4</span>.15.0-115-generic <span class="o">(</span>buildd@lgw01-amd64-037<span class="o">)</span> <span class="o">(</span>gcc version <span class="m">7</span>.5.0 <span class="o">(</span>Ubuntu <span class="m">7</span>.5.0-3ubuntu1~18.04<span class="o">))</span> <span class="c1">#116-Ubuntu SMP Wed Aug 26 14:04:49 UTC 2020</span>
 </pre></div>
 </div>
-<p>sau folosi comanda <code class="docutils literal notranslate"><span class="pre">uname</span></code> cu opțiunea <code class="docutils literal notranslate"><span class="pre">-a</span></code>:</p>
+<p>sau putem folosi comanda <code class="docutils literal notranslate"><span class="pre">uname</span></code> cu opțiunea <code class="docutils literal notranslate"><span class="pre">-a</span></code>:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ uname -a
 Linux uso <span class="m">4</span>.15.0-115-generic <span class="c1">#116-Ubuntu SMP Wed Aug 26 14:04:49 UTC 2020 x86_64 x86_64 x86_64 GNU/Linux</span>
 </pre></div>
@@ -569,14 +569,14 @@ Dacă cerința ar fi fost să avem o versiune de nucleu mai mare decât versiune
 <h2><span class="section-number">5.4. </span>Aflarea arhitecturii procesorului<a class="headerlink" href="#aflarea-arhitecturii-procesorului" title="Permalink to this headline">¶</a></h2>
 <p>Sistemele desktop / laptop folosesc, în zilele noastre, procesoare cu arhitectură x86 / x86_64.
 Sistemele de tip smartphone sau alte dispozitive folosesc arhitectură ARM.
-Pot exista și alte arhitecturi de proces precum MIPS sau PowerPC.
+Pot exista și alte arhitecturi de procesor precum MIPS sau PowerPC.
 Utilizatorul este, în general, nepreocupat de arhitectură, rareori având nevoie să știe acest lucru pentru o nevoie anume.
-Dacă, însă, dorim să aflăm arhitectura procesorului sistemului, putem folosi comanda <code class="docutils literal notranslate"><span class="pre">arch</span></code>:</p>
+Dacă, totuși, dorim să aflăm arhitectura procesorului sistemului, putem folosi comanda <code class="docutils literal notranslate"><span class="pre">arch</span></code>:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ arch
 x86_64
 </pre></div>
 </div>
-<p>Vedem în outputul comenzii că arhitectura procesorului/procesoarelor sistemului este <code class="docutils literal notranslate"><span class="pre">x86_64</span></code>, arhitectura clasică pe sisteme desktop / laptop.</p>
+<p>Vedem în rezultatul comenzii că arhitectura procesorului/procesoarelor sistemului este <code class="docutils literal notranslate"><span class="pre">x86_64</span></code>, arhitectura clasică pe sisteme desktop / laptop.</p>
 <p>O altă comandă pentru aflarea arhitecturii procesorului sistemului, folosită și pentru a afla informații detaliate despre procesor, este <code class="docutils literal notranslate"><span class="pre">lscpu</span></code>:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ lscpu
 Architecture:        x86_64

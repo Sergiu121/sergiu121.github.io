@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-      <title>3. Configurarea aplicațiilor</title>
+      <title>3. Configurarea rulării aplicațiilor</title>
     
       <link rel="stylesheet" href="../../_static/pygments.css">
       <link rel="stylesheet" href="../../_static/theme.css">
@@ -347,7 +347,7 @@
           </li>
 
         
-          <li class="toctree-l1 current"><a href="#" class="reference internal current">Configurarea aplicațiilor</a>
+          <li class="toctree-l1 current"><a href="#" class="reference internal current">Configurarea rulării aplicațiilor</a>
 
             
               <ul>
@@ -464,7 +464,7 @@
   <ul class="breadcrumbs">
     <li><a href="../../index.html">Docs</a> &raquo;</li>
     
-    <li><span class="section-number">3. </span>Configurarea aplicațiilor</li>
+    <li><span class="section-number">3. </span>Configurarea rulării aplicațiilor</li>
   </ul>
   
 
@@ -483,8 +483,8 @@
 <hr>
           <div class="content" role="main">
             
-  <div class="section" id="configurarea-aplicatiilor">
-<span id="app-install-config"></span><h1><span class="section-number">3. </span>Configurarea aplicațiilor<a class="headerlink" href="#configurarea-aplicatiilor" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="configurarea-rularii-aplicatiilor">
+<span id="app-install-config"></span><h1><span class="section-number">3. </span>Configurarea rulării aplicațiilor<a class="headerlink" href="#configurarea-rularii-aplicatiilor" title="Permalink to this headline">¶</a></h1>
 <p>Modul în care o aplicație rulează este configurabil.
 Adică informațiile afișate, interfața expusă utilizatorului și opțiunile permise utilizatorului pot varia de la o rulare la altă rulare.
 Mai mult, o aplicație care rulează (un proces) poate să își modifice comportamentul în timpul rulării.</p>
@@ -518,20 +518,16 @@ drwxr-xr-x  <span class="m">2</span> student student <span class="m">4096</span>
 <p>La o rulare simplă a comenzii <code class="docutils literal notranslate"><span class="pre">ls</span></code>, se afișează conținutul directorului curent.
 Opțiunea <code class="docutils literal notranslate"><span class="pre">-F</span></code> adaugă un sufix specific intrărilor pentru a indica tipul lor; de exemplu <code class="docutils literal notranslate"><span class="pre">/</span></code> (<em>slash</em>) în cazul directoarelor.
 Opțiunea <code class="docutils literal notranslate"><span class="pre">-l</span></code> afișează detalii despre intrări.</p>
-<p>La fel, dacă folosim comanda <code class="docutils literal notranslate"><span class="pre">emacs</span></code> pornim aplicația Emacs (în mediul grafic).
-Pe când, dacă folosim comanda <code class="docutils literal notranslate"><span class="pre">emacs</span> <span class="pre">-nw</span></code> aplicația va porni în consolă, cu interfața în linia de comandă.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Pentru a închide editorul Emacs (pornit fie în mediul grafic, fie în consolă) folosim combinația de taste specifică pentru oprirea aplicației: <code class="docutils literal notranslate"><span class="pre">Ctrl+x</span></code> urmat de <code class="docutils literal notranslate"><span class="pre">Ctrl+c</span></code>.</p>
-</div>
+<p>La fel, dacă folosim comanda <code class="docutils literal notranslate"><span class="pre">emacs</span></code>, pornim aplicația Emacs (în mediul grafic).
+Pe când dacă folosim comanda <code class="docutils literal notranslate"><span class="pre">emacs</span> <span class="pre">-nw</span></code>, aplicația va porni în consolă, cu interfața în linia de comandă <a class="footnote-reference brackets" href="#emacs-close" id="id1">1</a>.</p>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
 <p>Pentru a afla argumentele posibile ale unei comenzi cel mai adesea vom folosi pagina de manual a acelui utilitar.
 De exemplu, pentru a afla argumentele posibile ale comenzii <code class="docutils literal notranslate"><span class="pre">ls</span></code> vom folosi comanda <code class="docutils literal notranslate"><span class="pre">man</span> <span class="pre">ls</span></code> pentru a deschide pagina de manual a utilitarului <code class="docutils literal notranslate"><span class="pre">ls</span></code>.
 Mai multe informații despre folosirea paginilor de manual se găsesc în TODO (referință la capitolul de linia de comandă).</p>
 </div>
-<div class="section" id="exercitiu">
-<h3><span class="section-number">3.1.1. </span>Exercițiu<a class="headerlink" href="#exercitiu" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="exercitii">
+<h3><span class="section-number">3.1.1. </span>Exerciții<a class="headerlink" href="#exercitii" title="Permalink to this headline">¶</a></h3>
 <p>O aplicație poate fi pornită cu argumente în interfața grafică folosind combinația de taste <code class="docutils literal notranslate"><span class="pre">Alt+F2</span></code>.</p>
 <p>Folosiți <code class="docutils literal notranslate"><span class="pre">Alt+F2</span></code> și porniți aplicația <code class="docutils literal notranslate"><span class="pre">gedit</span></code> ca să deschidă fișierul <code class="docutils literal notranslate"><span class="pre">.bashrc</span></code>.</p>
 <p>Folosiți <code class="docutils literal notranslate"><span class="pre">Alt+F2</span></code> și porniți aplicația <code class="docutils literal notranslate"><span class="pre">gedit</span></code> ca să deschidă fișierul <code class="docutils literal notranslate"><span class="pre">.bashrc</span></code> la linia <code class="docutils literal notranslate"><span class="pre">90</span></code>.</p>
@@ -545,15 +541,11 @@ Editorul Vim este configurat în <code class="docutils literal notranslate"><spa
 Browserul web Firefox are fișiere de configurare în directorul <code class="docutils literal notranslate"><span class="pre">~/.mozilla/</span></code>.
 În Linux, multe aplicații au fișiere de configurare în subdirectoare din directorul <code class="docutils literal notranslate"><span class="pre">~/.config/</span></code>.</p>
 <p>Fișierele de configurare sunt adesea text și pot fi modificate cu ajutorul unui editor.
-Altfel, sunt modificate de obicei din cadrul aplicației sau cu o aplicație auxiliară de configurare.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>În Windows, echivalentul fișierelor de configurare este Windows Registry.</p>
-</div>
+Altfel, sunt modificate de obicei din cadrul aplicației sau cu o aplicație auxiliară de configurare <a class="footnote-reference brackets" href="#winconfig" id="id2">2</a>.</p>
 <div class="section" id="inspectarea-fisierelor-de-configurare">
 <h3><span class="section-number">3.2.1. </span>Inspectarea fișierelor de configurare<a class="headerlink" href="#inspectarea-fisierelor-de-configurare" title="Permalink to this headline">¶</a></h3>
 <p>Urmăriți conținutul fișierelor de configurare <code class="docutils literal notranslate"><span class="pre">.gitconfig</span></code>, <code class="docutils literal notranslate"><span class="pre">.vimrc</span></code>, <code class="docutils literal notranslate"><span class="pre">.tmux.conf</span></code>.
-Aceste fișiere sunt folosite, respectiv pentru a configura Git, Vim sau tmux.
+Aceste fișiere sunt folosite, respectiv, pentru a configura Git, Vim sau tmux.
 Nu ne interesează aici să înțelegem conținutul acestor fișiere de configurare; doar le avem în vedere ca exemple reale de fișiere de configurare.</p>
 <p>Fișierele de configurare pot fi editate cu un editor.
 Alternativ, pot fi editate cu ajutorul unui utilitar dedicat, precum e cazul Git, ca mai jos:</p>
@@ -572,7 +564,7 @@ student@uso:~$ cat .gitconfig
     <span class="nv">email</span> <span class="o">=</span> student@example.com
 </pre></div>
 </div>
-<p>Mai sus am folosit comanda <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">config</span></code> cu opțiunea <code class="docutils literal notranslate"><span class="pre">-global</span></code> pentru a modifica fișierul global de configurare <code class="docutils literal notranslate"><span class="pre">~/.gitconfig</span></code>.</p>
+<p>Mai sus am folosit comanda <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">config</span></code> cu opțiunea <code class="docutils literal notranslate"><span class="pre">--global</span></code> pentru a modifica fișierul global de configurare <code class="docutils literal notranslate"><span class="pre">~/.gitconfig</span></code>.</p>
 </div>
 <div class="section" id="exercitiu-modificarea-unui-fisiere-de-configurare">
 <h3><span class="section-number">3.2.2. </span>Exercițiu: Modificarea unui fișiere de configurare<a class="headerlink" href="#exercitiu-modificarea-unui-fisiere-de-configurare" title="Permalink to this headline">¶</a></h3>
@@ -581,7 +573,7 @@ O aplicație simplă este editorul Nano, care funcționează în linia de comand
 Configurarea editorului Nano se face în fișierul <code class="docutils literal notranslate"><span class="pre">~/.nanorc</span></code>.</p>
 <p>Editați (și creați dacă este cazul) fișierul <code class="docutils literal notranslate"><span class="pre">~/.nanorc</span></code>.
 Puteți folosi chiar Nano ca editor.
-Configurați Nano să afișeze numărul liniilor prin adăugarea următoarei linii în fișierul <code class="docutils literal notranslate"><span class="pre">~/.nanorc</span></code>:</p>
+Configurați Nano să afișeze numărul liniilor, prin adăugarea următoarei linii în fișierul <code class="docutils literal notranslate"><span class="pre">~/.nanorc</span></code>:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">set</span> <span class="n">linenumbers</span>
 </pre></div>
 </div>
@@ -593,8 +585,8 @@ Creați în Nano un fișier cod sursă C în care verificați adăugarea opțiun
 </div>
 <div class="section" id="exercitiu-configurarea-clientului-ssh">
 <h3><span class="section-number">3.2.3. </span>Exercițiu: Configurarea clientului SSH<a class="headerlink" href="#exercitiu-configurarea-clientului-ssh" title="Permalink to this headline">¶</a></h3>
-<p>Configurați utilitarul <code class="docutils literal notranslate"><span class="pre">ssh</span></code> (client SSH) astfel încât folosirea comenzii <code class="docutils literal notranslate"><span class="pre">ssh</span> <span class="pre">fav</span></code> să însemne conectarea la un cont la distanță SSH la care aveți acces <a class="footnote-reference brackets" href="#ssh-config" id="id1">2</a>.
-De exemplu poate fi vorba de contul de pe sistemul <code class="docutils literal notranslate"><span class="pre">fep.grid.pub.ro</span></code>.</p>
+<p>Configurați utilitarul <code class="docutils literal notranslate"><span class="pre">ssh</span></code> (client SSH), astfel încât folosirea comenzii <code class="docutils literal notranslate"><span class="pre">ssh</span> <span class="pre">fav</span></code> să însemne conectarea la un cont la distanță SSH la care aveți acces <a class="footnote-reference brackets" href="#ssh-config" id="id3">4</a>.
+De exemplu, poate fi vorba de contul de pe sistemul <code class="docutils literal notranslate"><span class="pre">fep.grid.pub.ro</span></code>.</p>
 <p>Configurarea clientului SSH se realizează în fișierul <code class="docutils literal notranslate"><span class="pre">~/.ssh/config</span></code>.
 Vedeți și <a class="reference external" href="https://linuxize.com/post/using-the-ssh-config-file/#shared-ssh-config-file-example">exemplul de aici</a>.</p>
 </div>
@@ -602,21 +594,21 @@ Vedeți și <a class="reference external" href="https://linuxize.com/post/using-
 <div class="section" id="configurarea-din-aplicatie">
 <h2><span class="section-number">3.3. </span>Configurarea din aplicație<a class="headerlink" href="#configurarea-din-aplicatie" title="Permalink to this headline">¶</a></h2>
 <p>Modul în care rulează o aplicație poate fi configurat direct din aplicație.</p>
-<p>De exemplu, în cadrul interfeței browserului web Firefox putem modifica pagina de start sau putem activa anumite pluginuri sau putem personaliza dispunerea meniurilor sau fonturile folosite.
+<p>De exemplu, în cadrul interfeței browserului web Firefox, putem modifica pagina de start, sau putem activa anumite pluginuri, sau putem personaliza dispunerea meniurilor sau fonturile folosite.
 Aceste opțiuni sunt frecvente în majoritatea aplicațiilor grafice.</p>
-<div class="section" id="id2">
-<h3><span class="section-number">3.3.1. </span>Exercițiu<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id4">
+<h3><span class="section-number">3.3.1. </span>Exerciții<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
 <p>Porniți editorul Gedit și configurați-l, din aplicație (mediu grafic), să afișeze numărul liniilor editate.</p>
 <p>Configurați editorul Gedit să folosească fundal închis (<em>dark background</em>).</p>
 <p>Porniți browserul de sistem de fișiere Nautilus.
-Configurați-l, din aplicație (mediu grafic), să afișeze conținutul în formă de listă, nu în formă de icon / <em>tile</em>.</p>
+Configurați-l din aplicație (mediu grafic) pentru a afișa conținutul în formă de listă, nu în formă de icon / <em>tile</em>.</p>
 <p>Configurați browserul Nautilus să deschidă un fișier / director la un singur click, nu la două clickuri.</p>
 </div>
 </div>
 <div class="section" id="configurarea-cu-variabile-de-mediu">
 <h2><span class="section-number">3.4. </span>Configurarea cu variabile de mediu<a class="headerlink" href="#configurarea-cu-variabile-de-mediu" title="Permalink to this headline">¶</a></h2>
 <p>O variabilă de mediu (<em>environment variable</em>) este o valoare care poate fi configurată la pornirea unui proces sau în timpul rulării sale pentru a afecta comportamentul procesului.</p>
-<p>De exemplu utilitarele <code class="docutils literal notranslate"><span class="pre">wget</span></code> și <code class="docutils literal notranslate"><span class="pre">curl</span></code>, clienți web, folosesc variabilele de mediu <code class="docutils literal notranslate"><span class="pre">http_proxy</span></code> și <code class="docutils literal notranslate"><span class="pre">https_proxy</span></code> pentru a folosi un proxy web <a class="footnote-reference brackets" href="#proxy" id="id3">1</a>.
+<p>De exemplu, utilitarele <code class="docutils literal notranslate"><span class="pre">wget</span></code> și <code class="docutils literal notranslate"><span class="pre">curl</span></code>, clienți web, folosesc variabilele de mediu <code class="docutils literal notranslate"><span class="pre">http_proxy</span></code> și <code class="docutils literal notranslate"><span class="pre">https_proxy</span></code> pentru a folosi un proxy web <a class="footnote-reference brackets" href="#proxy" id="id5">3</a>.
 Shellul folosește o serie de variabile de mediu pentru a configura funcționarea sa și modul în care pornește alte aplicații.
 De exemplu, variabila de mediu <code class="docutils literal notranslate"><span class="pre">PATH</span></code> reține căile unde shellul caută fișierul executabil corespunzător unei comenzi.</p>
 <div class="section" id="folosirea-de-varabile-de-mediu">
@@ -629,8 +621,8 @@ student@uso:~$ <span class="nv">LC_ALL</span><span class="o">=</span>POSIX ls
 Desktop  Documents  Downloads  Music  Pictures  Public  Templates  Videos  examples.desktop  snap  test.c  uso.git  vm-actions-log.txt
 </pre></div>
 </div>
-<p>Atunci când variabila de mediul <code class="docutils literal notranslate"><span class="pre">LC_ALL</span></code> folosește valoarea <code class="docutils literal notranslate"><span class="pre">en_US.UTF-8</span></code> se afișează intrările în ordine alfabetică, indiferent dacă numele acestora începe cu literă mare sau literă mică.
-Atunci când folosește valoarea <code class="docutils literal notranslate"><span class="pre">POSIX</span></code> se afișează întâi intrările al căror nume începe cu literă mare.</p>
+<p>Atunci când variabila de mediul <code class="docutils literal notranslate"><span class="pre">LC_ALL</span></code> folosește valoarea <code class="docutils literal notranslate"><span class="pre">en_US.UTF-8</span></code>, se afișează intrările în ordine alfabetică, indiferent dacă numele acestora începe cu literă mare sau literă mică.
+Atunci când folosește valoarea <code class="docutils literal notranslate"><span class="pre">POSIX</span></code>, se afișează întâi intrările al căror nume începe cu literă mare.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>În exemplele de comenzi de mai sus variabila de mediu <code class="docutils literal notranslate"><span class="pre">LC_ALL</span></code> este modificată doar la nivelul comenzii <code class="docutils literal notranslate"><span class="pre">ls</span></code>.
@@ -640,12 +632,18 @@ La nevoie această variabilă se poate definit la nivelul întregului shell.
 </div>
 <p class="rubric">Note de subsol</p>
 <dl class="footnote brackets">
-<dt class="label" id="proxy"><span class="brackets"><a class="fn-backref" href="#id3">1</a></span></dt>
+<dt class="label" id="emacs-close"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd><p>Pentru a închide editorul Emacs (pornit fie în mediul grafic, fie în consolă) folosim combinația de taste specifică pentru oprirea aplicației: <code class="docutils literal notranslate"><span class="pre">Ctrl+x</span></code> urmat de <code class="docutils literal notranslate"><span class="pre">Ctrl+c</span></code>.</p>
+</dd>
+<dt class="label" id="winconfig"><span class="brackets"><a class="fn-backref" href="#id2">2</a></span></dt>
+<dd><p>În Windows, echivalentul fișierelor de configurare este Windows Registry.</p>
+</dd>
+<dt class="label" id="proxy"><span class="brackets"><a class="fn-backref" href="#id5">3</a></span></dt>
 <dd><p>Un proxy web este o stație internemediară în comunicația web din Internet.
 Un proxy web este folosit pentru monitorizarea traficului, pentru a stoca informații local și a reduce încărcara traficului sau pentru anonimizare.
 Ceva mai detaliat este prezentată folosirea unui proxy web în TODO (referință la secțiunea de proxy web din capitolul “Conectarea la Internet”).</p>
 </dd>
-<dt class="label" id="ssh-config"><span class="brackets"><a class="fn-backref" href="#id1">2</a></span></dt>
+<dt class="label" id="ssh-config"><span class="brackets"><a class="fn-backref" href="#id3">4</a></span></dt>
 <dd><p>Secțiunea TODO (referință la secțiunea “Configurarea scurtăturilor SSH”) prezintă un scenariu similar pentru folosirea unei scurtături SSH.</p>
 </dd>
 </dl>

@@ -347,7 +347,7 @@
           </li>
 
         
-          <li class="toctree-l1 "><a href="config.html" class="reference internal ">Configurarea aplicațiilor</a>
+          <li class="toctree-l1 "><a href="config.html" class="reference internal ">Configurarea rulării aplicațiilor</a>
 
             
           </li>
@@ -500,21 +500,20 @@ După instalarea aplicației / pachetului, aceasta poate fi pornită și rulată
 <p>De partea cealaltă, dezinstalarea unei aplicații / unui pachet înseamnă ștergerea din sistem a fișierelor specifice.
 După dezinstalarea aplicației, aceasta nu mai poate fi pornită, nemaiexistând fișierul executabil corespunzător sau celelalte fișiere specifice.</p>
 <p>Acțiunile de instalare, dezinstalare și configurare a pachetelor într-un sistem sunt numite colectiv <strong>gestiunea pachetelor (software)</strong> (<em>(software) package management</em>).</p>
-<p>În Linux, aplicațiile sunt în general instalate prin intermediul unei aplicații dedicate numite <strong>manager de pachete (software)</strong> (<em>(software) package manager</em> sau <em>(software) package management system</em>).
-În distribuțiile Linux bazate pe Debian / Ubuntu, managerul de pachete oferă utilitare <code class="docutils literal notranslate"><span class="pre">apt</span></code> și <code class="docutils literal notranslate"><span class="pre">dpkg</span></code> (și altele) și aplicații precum Synaptic.
-În distribuțiile Linux bazate pe RedHat / Fedora, managerul de pachete oferă utilitare <code class="docutils literal notranslate"><span class="pre">yum</span></code> sau <code class="docutils literal notranslate"><span class="pre">dnf</span></code> sau <code class="docutils literal notranslate"><span class="pre">rpm</span></code> (și altele) precum PackageKit.</p>
+<p>În Linux, aplicațiile sunt, în general, instalate prin intermediul unei aplicații dedicate numite <strong>manager de pachete (software)</strong> (<em>(software) package manager</em> sau <em>(software) package management system</em>).
+În distribuțiile Linux bazate pe Debian / Ubuntu, managerul de pachete oferă utilitarele <code class="docutils literal notranslate"><span class="pre">apt</span></code> și <code class="docutils literal notranslate"><span class="pre">dpkg</span></code> (și altele) și aplicații precum Synaptic.
+În distribuțiile Linux bazate pe RedHat / Fedora, managerul de pachete oferă utilitarele <code class="docutils literal notranslate"><span class="pre">yum</span></code> sau <code class="docutils literal notranslate"><span class="pre">dnf</span></code> sau <code class="docutils literal notranslate"><span class="pre">rpm</span></code> (și altele) precum PackageKit.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Mașina virtuală de suport folosește o distribuție Ubuntu.
-Astfel că vom concentra doar pe distribuțiile bazate pe Debian / Ubuntu și deci, pe utilitarele <code class="docutils literal notranslate"><span class="pre">apt</span></code> și <code class="docutils literal notranslate"><span class="pre">dpkg</span></code>.</p>
+De aceea ne vom concentra doar pe distribuțiile bazate pe Debian / Ubuntu și deci, pe utilitarele <code class="docutils literal notranslate"><span class="pre">apt</span></code> și <code class="docutils literal notranslate"><span class="pre">dpkg</span></code>.</p>
 </div>
 <div class="section" id="gestiunea-pachetelor-din-interfata-grafica">
 <span id="app-install-install-uninstall-gui"></span><h2><span class="section-number">6.1. </span>Gestiunea pachetelor din interfața grafică<a class="headerlink" href="#gestiunea-pachetelor-din-interfata-grafica" title="Permalink to this headline">¶</a></h2>
 <p>Pe lângă utilitarele implicite în linia de comandă, un manager de pachete oferă adesea o interfață grafică.
 Pe o instalare implicită de Ubuntu, aplicația Ubuntu Software (GNOME Software) permite interacțiunea cu managerul de pachete.</p>
-<p>Aceasta poate fi pornită din meniurile grafice sau cu ajutorul comenzii <code class="docutils literal notranslate"><span class="pre">ubuntu-software</span></code> sau <code class="docutils literal notranslate"><span class="pre">gnome-software</span></code> (folosind, de exemplu, combinația de taste <code class="docutils literal notranslate"><span class="pre">Alt+F2</span></code>).</p>
-<p>Porniți aplicați Ubuntu Software.
-Veți obține o fereastră precum cea din imaginea de mai jos:</p>
+<p>Această aplicație poate fi pornită din meniurile grafice sau cu ajutorul comenzii <code class="docutils literal notranslate"><span class="pre">ubuntu-software</span></code> sau <code class="docutils literal notranslate"><span class="pre">gnome-software</span></code> (folosind, de exemplu, combinația de taste <code class="docutils literal notranslate"><span class="pre">Alt+F2</span></code>).</p>
+<p>Dacă pornim aplicația Ubuntu Software, vom obține o fereastră precum cea din imaginea de mai jos:</p>
 <a class="reference internal image-reference" href="../../_images/ubuntu-software.png"><img alt="Ubuntu Software" class="align-center" src="../../_images/ubuntu-software.png" style="width: 600px;" /></a>
 <p>Această fereastră are butoane care permit gestiunea pachetelor software:</p>
 <ul class="simple">
@@ -523,23 +522,23 @@ Veți obține o fereastră precum cea din imaginea de mai jos:</p>
 <li><p><code class="docutils literal notranslate"><span class="pre">Updates</span></code>: lista de pachete care pot fi actualizate</p></li>
 <li><p>un buton de căutare (în dreapta): căutarea pachetelor dorite</p></li>
 </ul>
-<p>În continuare vom prezenta acțiunile de instalare și dezinstalare a unui pachet atât folosind interfața grafică a managerului de pachete cât și interfața în linia de comandă.</p>
+<p>În continuare vom prezenta acțiunile de instalare și dezinstalare a unui pachet, atât folosind interfața grafică a managerului de pachete, cât și interfața în linia de comandă.</p>
 </div>
 <div class="section" id="instalarea-unei-aplicatii-cunoscute">
 <h2><span class="section-number">6.2. </span>Instalarea unei aplicații cunoscute<a class="headerlink" href="#instalarea-unei-aplicatii-cunoscute" title="Permalink to this headline">¶</a></h2>
-<p>Cel mai adesea dorim rapid să avem o aplicație care să ne rezolve o nevoie.
+<p>Cel mai adesea, dorim rapid să avem o aplicație care să ne rezolve o nevoie.
 Să presupunem că avem nevoia să lucrăm cu fișiere în format SVG (<em>Scalable Vector Graphics</em>).
 Pentru aceasta vom instala aplicația Inkscape.</p>
 <div class="section" id="instalarea-din-interfata-grafica">
 <h3><span class="section-number">6.2.1. </span>Instalarea din interfața grafică<a class="headerlink" href="#instalarea-din-interfata-grafica" title="Permalink to this headline">¶</a></h3>
-<p>În interfața în linia de comandă folosim butonul de căutare și introducem șirul <code class="docutils literal notranslate"><span class="pre">inkscape</span></code> și obținem o imagine precum cea de mai jos:</p>
+<p>În interfața grafică, folosim butonul de căutare și introducem șirul <code class="docutils literal notranslate"><span class="pre">inkscape</span></code> și obținem o imagine precum cea de mai jos:</p>
 <a class="reference internal image-reference" href="../../_images/install-inkscape.png"><img alt="Instalarea Inkscape" class="align-center" src="../../_images/install-inkscape.png" style="width: 600px;" /></a>
 <p>În imaginea de mai sus observăm că pachetul este deja instalat.
 Dacă nu ar fi fost instalat, am fi accesat intrarea din imagine și apoi am fi folosit butonul <code class="docutils literal notranslate"><span class="pre">Install</span></code>.</p>
 </div>
 <div class="section" id="instalarea-din-linia-de-comanda">
 <h3><span class="section-number">6.2.2. </span>Instalarea din linia de comandă<a class="headerlink" href="#instalarea-din-linia-de-comanda" title="Permalink to this headline">¶</a></h3>
-<p>Folosind utilitarul <code class="docutils literal notranslate"><span class="pre">apt</span></code> pentru a instala pachetul <code class="docutils literal notranslate"><span class="pre">inkscape</span></code>:</p>
+<p>În linia de comandă, folosim utilitarul <code class="docutils literal notranslate"><span class="pre">apt</span></code> pentru a instala pachetul <code class="docutils literal notranslate"><span class="pre">inkscape</span></code>:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ sudo apt update
 <span class="o">[</span>sudo<span class="o">]</span> password <span class="k">for</span> student:
 Hit:1 http://ro.archive.ubuntu.com/ubuntu bionic InRelease
@@ -550,11 +549,11 @@ student@uso:~$ sudo apt install inkscape
 </pre></div>
 </div>
 <p>Comanda <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">apt</span> <span class="pre">update</span></code> actualizează informațiile despre pachete; vom clarifica mai jos rolul său, inclusiv de ce este recomandată rularea sa (fără a fi obligatorie).
-Comanda <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">apt</span> <span class="pre">install</span> <span class="pre">inkscape</span></code> instalează efectiv pachetul numit <code class="docutils literal notranslate"><span class="pre">inkscape</span></code> care va instala aplicația Inkscape.
+Comanda <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">apt</span> <span class="pre">install</span> <span class="pre">inkscape</span></code> instalează efectiv pachetul numit <code class="docutils literal notranslate"><span class="pre">inkscape</span></code>, care va instala aplicația Inkscape.
 Instalarea pachetelor în sistem este o acțiune privilegiată, care necesită permisiuni administrative.
 Din acest motiv cele două comenzi de mai sus sunt prefixate de comanda <code class="docutils literal notranslate"><span class="pre">sudo</span></code>.</p>
 <p>În acest moment, aplicația Inkscape este instalată și poate fi pornită.</p>
-<p><strong>Exercițiu</strong>: Porniți aplicația Inkscape în toate modurile descrise în <a class="reference internal" href="start.html#app-install-start-stop-gui"><span class="std std-ref">Pornirea și oprirea aplicațiilor grafice</span></a>.</p>
+<p><strong>Exercițiu</strong>: Porniți aplicația Inkscape în toate modurile descrise în secțiunea <a class="reference internal" href="start.html#app-install-start-stop-gui"><span class="std std-ref">Pornirea și oprirea aplicațiilor grafice</span></a>.</p>
 </div>
 <div class="section" id="anatomia-instalarii-unei-aplicatii">
 <h3><span class="section-number">6.2.3. </span>Anatomia instalării unei aplicații<a class="headerlink" href="#anatomia-instalarii-unei-aplicatii" title="Permalink to this headline">¶</a></h3>
@@ -706,10 +705,10 @@ Ieșirea din utilitar se face, la fel ca în cazul <code class="docutils literal
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">wikit</span></code>: pachet care instalează utilitarului <code class="docutils literal notranslate"><span class="pre">wikit</span></code> (în linia de comandă) care obține informații din Wikipedia</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">gimp</span></code>: pachet care instalează aplicația Gimp (cu interfață grafică), un editor de imagini</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">neofetch</span></code>: pachet care instalează utilitarul <code class="docutils literal notranslate"><span class="pre">neofetch</span></code> (în linia de comandă) care afișează un sumar informativ despre sistem</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">neofetch</span></code>: pachet care instalează utilitarul <code class="docutils literal notranslate"><span class="pre">neofetch</span></code> (în linia de comandă), care afișează un sumar informativ despre sistem</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">audacity</span></code>: pachet care instalează aplicația Audacity (cu interfață grafică), un editor audio</p></li>
 </ul>
-<p>Puteți realiza instalarea din interfața grafică a managerului sau da pachete sau din interfața în linia de comandă.</p>
+<p>Puteți realiza instalarea din interfața grafică a managerului de pachete sau din interfața în linia de comandă.</p>
 </div>
 </div>
 <div class="section" id="app-install-uninstall-identify">
@@ -754,14 +753,10 @@ Astfel, pentru nevoile de mai sus, exemple de șiruri de căutare sunt:</p>
 </ul>
 <p>Aici utilizatorul poate decide dacă un site rezolvă nevoia sau vrea să instaleze o aplicație și care să fie acea aplicație.</p>
 <p>De exemplu, pentru nevoia de a afla viteza conexiunii la Internet, se poate folosi direct aplicația web <a class="reference external" href="https://www.speedtest.net/">Speedtest</a>, descoperită de motorul de căutare cu șirul <em>Internet speed test</em>.
-Dacă dorim o aplicație sau un utilitar actualizăm șirul de căutare la <em>internet speed test application linux</em>.
+Dacă dorim o aplicație sau un utilitar, actualizăm șirul de căutare la <em>internet speed test application linux</em> <a class="footnote-reference brackets" href="#linux-search" id="id1">1</a>.
 Și găsim că putem instala utilitarul <code class="docutils literal notranslate"><span class="pre">speedtest-cli</span></code>.</p>
-<p>În mod similar ajută să actualizăm șirul de căutare la <em>download youtube video linux</em> pentru a găsi o aplicație Linux cu ajutorul căreia să descărcăm un video de pe YouTube.
+<p>În mod similar, ajută să actualizăm șirul de căutare la <em>download youtube video linux</em>, pentru a găsi o aplicație Linux cu ajutorul căreia să descărcăm un video de pe YouTube.
 Descoperim astfel utilitarul <code class="docutils literal notranslate"><span class="pre">youtube-dl</span></code>.</p>
-<div class="admonition important">
-<p class="admonition-title">Important</p>
-<p>În general, dacă dorim aplicații Linux, este de ajutor ca <em>linux</em> să fie parte din șirul de căutare folosit.</p>
-</div>
 <p>În urma folosirii motoarelor de căutare, identificăm, așadar, următoarele aplicații:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">speedtest-cli</span></code></p></li>
@@ -775,7 +770,7 @@ Pentru siguranță, e recomandat să căutăm pachetul și folosind managerul de
 </div>
 <div class="section" id="cautarea-unei-aplicatii-cu-managerul-de-pachete">
 <h3><span class="section-number">6.3.2. </span>Căutarea unei aplicații cu managerul de pachete<a class="headerlink" href="#cautarea-unei-aplicatii-cu-managerul-de-pachete" title="Permalink to this headline">¶</a></h3>
-<p>Căutarea unei aplicații cu managerul de pachete este utilă atât pentru a căuta un pachet potrivit unei nevoi cât și pentru a identifica ce pachet corespunde unei aplicații de care știm.
+<p>Căutarea unei aplicații cu managerul de pachete este utilă atât pentru a căuta un pachet potrivit unei nevoi, cât și pentru a identifica ce pachet corespunde unei aplicații de care știm.
 De exemplu o aplicație descoperită prin Internet.</p>
 <p>Față de căutarea în Internet, căutarea în managerul de pachete este avantajoasă pentru că va căuta doar în pachetele disponibile și instalabile în sistem cu ajutorul managerului de pachete.
 Este dezavantajoasă pentru că șirul de căutare nu este la fel de flexibil: în general se căută fix acel șir sau acea expresie (<em>keyword</em>).
@@ -800,11 +795,7 @@ fbreader/bionic <span class="m">0</span>.12.10dfsg2-2 amd64
 <span class="o">[</span>...<span class="o">]</span>
 </pre></div>
 </div>
-<p>În rezultatul comenzii de mai sus apar aplicațiile care au legătură cu șirul <code class="docutils literal notranslate"><span class="pre">e-book</span></code>, printre care și Calibre, aplicație pe care am descoperit-o și folosind căutarea în Internet și interfața grafică.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Comanda <code class="docutils literal notranslate"><span class="pre">apt</span> <span class="pre">search</span></code> nu este privilegiată (nu modifică informații critice în sistem) și nu trebuie prefixată de comanda <code class="docutils literal notranslate"><span class="pre">sudo</span></code>.</p>
-</div>
+<p>În rezultatul comenzii de mai sus <a class="footnote-reference brackets" href="#aptsearch" id="id2">2</a> apar aplicațiile care au legătură cu șirul <code class="docutils literal notranslate"><span class="pre">e-book</span></code>, printre care și Calibre, aplicație pe care am descoperit-o și folosind căutarea în Internet și interfața grafică.</p>
 <p>Putem folosi șirul de căutare <code class="docutils literal notranslate"><span class="pre">e-book</span> <span class="pre">manager</span></code> pentru a simplifica rezultatele obținute:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ apt search e-book manager
 Sorting... Done
@@ -818,47 +809,25 @@ calibre-bin/bionic <span class="m">3</span>.21.0+dfsg-1build1 amd64
 </div>
 </div>
 </div>
-<div class="section" id="exercitiu">
-<h3><span class="section-number">6.3.3. </span>Exercițiu<a class="headerlink" href="#exercitiu" title="Permalink to this headline">¶</a></h3>
-<p>Folosiți, în managerul de pachete, șiruri de căutare potrivite pentru a căuta aplicații corespunzătoare nevoilor precizate mai sus.
-Folosiți managerul de pachete și în interfața grafică și în linia de comandă (<code class="docutils literal notranslate"><span class="pre">apt</span> <span class="pre">search</span></code>).</p>
-<p>Ar trebui să obțineți aplicații / utilitare precum:</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">speedtest-cli</span></code></p></li>
-<li><p>Calibre</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">youtube-dl</span></code></p></li>
-<li><p>Kazam sau OBS sau SimpleScreenRecorder sau recordMyDesktop</p></li>
-<li><p>Gimp sau Inkscape sau Libreoffice Draw sau Xournal</p></li>
-</ul>
-<div class="admonition important">
-<p class="admonition-title">Important</p>
-<p>Este posibil să fie nevoie să găsiți și alte aplicații potrivite.
-Sau la anumite șiruri să nu găsiți aceste aplicații.
-Nu există o rețetă sigură și nu există o aplicație unică.
-În funcție de nevoi, inspirație și preferințe veți găsi și veți instala o aplicație sau alta.</p>
-</div>
-<p>Instalați aplicațiile descoperite folosind fie interfața grafică, fie interfața în linia de comandă a managerului de pachete.</p>
-<p>Porniți și folosiți aplicațiile / utilitarele instalate.</p>
-</div>
 <div class="section" id="exercitii-de-cautare-si-instalare">
-<h3><span class="section-number">6.3.4. </span>Exerciții de căutare și instalare<a class="headerlink" href="#exercitii-de-cautare-si-instalare" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.3.3. </span>Exerciții de căutare și instalare<a class="headerlink" href="#exercitii-de-cautare-si-instalare" title="Permalink to this headline">¶</a></h3>
 <p>Căutați aplicațiile potrivite pentru următoarele nevoi:</p>
 <ul class="simple">
 <li><p>Vreau să editez un fișier video.</p></li>
 <li><p>Vreau să-mi organizez sarcinile / taskurile.</p></li>
 <li><p>Vreau să-mi organizez rețetele de mâncare.</p></li>
 </ul>
-<p>Folosiți atât căutarea în Internet cât și căutarea folosind managerul de pachete (interfața grafică și/sau în linia de comandă).</p>
+<p>Folosiți atât căutarea în Internet, cât și căutarea folosind managerul de pachete (interfața grafică și/sau în linia de comandă).</p>
 <p>Instalați, porniți și folosiți aplicațiile găsite.</p>
 <div class="section" id="exercitiu-cautarea-si-instalarea-unei-aplicatii-pentru-o-nevoie-proprie">
-<h4><span class="section-number">6.3.4.1. </span>Exercițiu: Căutarea și instalarea unei aplicații pentru o nevoie proprie<a class="headerlink" href="#exercitiu-cautarea-si-instalarea-unei-aplicatii-pentru-o-nevoie-proprie" title="Permalink to this headline">¶</a></h4>
+<h4><span class="section-number">6.3.3.1. </span>Exercițiu: Căutarea și instalarea unei aplicații pentru o nevoie proprie<a class="headerlink" href="#exercitiu-cautarea-si-instalarea-unei-aplicatii-pentru-o-nevoie-proprie" title="Permalink to this headline">¶</a></h4>
 <p>Gândiți-vă la nevoi pe care le aveți și căutați aplicații corespunzătoare pentru acele nevoi.
 Instalați, porniți și folosiți aplicațiile găsite.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Găsiți pe Internet liste de aplicații recomandate să fie instalate și folosite.
-De exemplu aici <a class="footnote-reference brackets" href="#linuxapps" id="id1">1</a> este o listă de aplicații considerate esențiale în Linux.
-Iar aici <a class="footnote-reference brackets" href="#cliapps" id="id2">2</a> este o listă extinsă de aplicații utile în linia de comandă.</p>
+De exemplu <a class="reference external" href="https://itsfoss.com/essential-linux-applications/">https://itsfoss.com/essential-linux-applications/</a> conține o listă de aplicații considerate esențiale în Linux.
+Iar <a class="reference external" href="https://github.com/agarrharr/awesome-cli-apps">https://github.com/agarrharr/awesome-cli-apps</a> conține o listă extinsă de aplicații utile în linia de comandă.</p>
 </div>
 </div>
 </div>
@@ -922,7 +891,7 @@ Purging configuration files for neofetch (3.4.0-1) ...
 </pre></div>
 </div>
 <p>Comanda de mai sus a șters fișierele de configurare pentru pachetul <code class="docutils literal notranslate"><span class="pre">neofetch</span></code>.
-Comanda <code class="docutils literal notranslate"><span class="pre">apt</span> <span class="pre">purge</span></code> poate fi folosită pentru a dezinstala pachete instalate sau pentru a “curăța” (<em>purge</em>) pachete care au fost dezinstalate dar care mai au fișiere de configurare.</p>
+Comanda <code class="docutils literal notranslate"><span class="pre">apt</span> <span class="pre">purge</span></code> poate fi folosită pentru a dezinstala pachete instalate, sau pentru a “curăța” (<em>purge</em>) pachete care au fost dezinstalate dar care mai au fișiere de configurare.</p>
 </div>
 <div class="section" id="exercitii-de-dezinstalare">
 <h3><span class="section-number">6.4.3. </span>Exerciții de dezinstalare<a class="headerlink" href="#exercitii-de-dezinstalare" title="Permalink to this headline">¶</a></h3>
@@ -934,28 +903,12 @@ Dezinstalați al doilea pachet folosind interfața în linia de comandă a manag
 <div class="section" id="actualizarea-aplicatiilor">
 <h2><span class="section-number">6.5. </span>Actualizarea aplicațiilor<a class="headerlink" href="#actualizarea-aplicatiilor" title="Permalink to this headline">¶</a></h2>
 <p>O aplicație este, în general, dezvoltată în continuu.
-Dezvoltatorii aplicației adaugă noi funcționalități, sau rezolvă probleme de funcționare sau de securitate, sau fac aplicația mai robustă sau mai eficientă.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Aducerea unei aplicații la o versiune mai nouă (<em>update</em> sau <em>upgrade</em>) are plusuri și minusuri.
-Avantajul este că noua versiune va avea cele mai noi funcționalități și va avea rezolvate probleme vechi de configurare.
-Dezavantajul este că noua versiune va fi mai puțin folosită și deci mai puțin stabilă, cu posible probleme noi de funcționare.
-În general este recomandat ca aplicațiile sistemului să fie actualizate (<em>up-to-date</em>) cu versiuni care au îmbunătățiri de funcționare sau securitate (<em>security updates</em>).
-Dacă se optează pentru cea mai recentă versiune a aplicației (posibil mai puțin stabilă), trebuie cântărit beneficiul adus de noile funcționalități față de posibilele probleme de funcționare.</p>
-<p>De obicei un utilizator obișnuit va opta pentru cea mai nouă versiune, fiind interesat în primul rând de cele mai noi funcționalități.
-Un administrator de sistem va opta pentru versiunile mai stabile care asigură o robustețe ridicată a sistemului.</p>
-</div>
+Dezvoltatorii aplicației adaugă noi funcționalități, sau rezolvă probleme de funcționare sau de securitate, sau fac aplicația mai robustă sau mai eficientă <a class="footnote-reference brackets" href="#update" id="id3">3</a>.</p>
 <p>La fel ca în cazul instalării și dezinstalării, actualizarea aplicațiilor duce la modificarea fișierelor din sistem, deci este o acțiune privilegiată.</p>
 <div class="section" id="actualizarea-individuala-a-unei-aplicatii">
 <h3><span class="section-number">6.5.1. </span>Actualizarea individuală a unei aplicații<a class="headerlink" href="#actualizarea-individuala-a-unei-aplicatii" title="Permalink to this headline">¶</a></h3>
 <p>Dacă dorim actualizarea individuală a unui pachet, vom folosi o comandă precum:</p>
-<div class="highlight-bash notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4
-5
-6
-7</pre></div></td><td class="code"><div class="highlight"><pre><span></span>student@uso:~$ sudo apt install inkscape
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ sudo apt install inkscape
 <span class="o">[</span>sudo<span class="o">]</span> password <span class="k">for</span> student:
 Reading package lists... Done
 Building dependency tree
@@ -963,13 +916,13 @@ Reading state information... Done
 inkscape is already the newest version <span class="o">(</span><span class="m">0</span>.92.3-1<span class="o">)</span>.
 <span class="m">0</span> upgraded, <span class="m">0</span> newly installed, <span class="m">0</span> to remove and <span class="m">311</span> not upgraded.
 </pre></div>
-</td></tr></table></div>
+</div>
 <p>Când comanda <code class="docutils literal notranslate"><span class="pre">apt</span> <span class="pre">install</span></code> primește ca argument un pachet deja instalat, va verifica dacă există o versiune actualizată a acestuia.
-În cazul de mai sus, versiunea instalată a pachetului <code class="docutils literal notranslate"><span class="pre">inkscape</span></code> (<code class="docutils literal notranslate"><span class="pre">0.92.3-1</span></code>) este cea mai nouă (linia <code class="docutils literal notranslate"><span class="pre">6</span></code>) și nu este nevoie de actualizare.</p>
+În cazul de mai sus, versiunea instalată a pachetului <code class="docutils literal notranslate"><span class="pre">inkscape</span></code> (<code class="docutils literal notranslate"><span class="pre">0.92.3-1</span></code>) este cea mai nouă și nu este nevoie de actualizare.</p>
 </div>
 <div class="section" id="actualizarea-tuturor-aplicatiilor">
 <h3><span class="section-number">6.5.2. </span>Actualizarea tuturor aplicațiilor<a class="headerlink" href="#actualizarea-tuturor-aplicatiilor" title="Permalink to this headline">¶</a></h3>
-<p>Cel mai adesea un utilizator va opta pentru actualizarea tuturor aplicațiilor sistemului, sau pe scurt, pentru actualizarea sistemului.
+<p>Cel mai adesea, un utilizator va opta pentru actualizarea tuturor aplicațiilor sistemului, sau pe scurt, pentru actualizarea sistemului.
 Acest lucru se întâmplă și pentru că sistemul notifică periodic utilizatorul de prezența unor versiuni noi de aplicații.</p>
 <p>Când este cazul, utilizatorul poate folosi interfața grafică sau sau cea în linia de comandă a managerului de pachete pentru actualizarea sistemului.
 De obicei, utilizatorul va folosi interfața grafică în momentul primirii unei notificări.</p>
@@ -985,17 +938,8 @@ Do you want to <span class="k">continue</span>? <span class="o">[</span>Y/n<span
 <span class="o">[</span>...<span class="o">]</span>
 </pre></div>
 </div>
-<p>Folosind comanda <code class="docutils literal notranslate"><span class="pre">apt</span> <span class="pre">upgrade</span></code> actualizăm toate aplicațiile în sistem.
+<p>Folosind comanda <code class="docutils literal notranslate"><span class="pre">apt</span> <span class="pre">upgrade</span></code> actualizăm toate aplicațiile în sistem <a class="footnote-reference brackets" href="#apt-upgrade" id="id4">4</a>.
 Este recomandat să actualizăm informațiile interne despre pachetele sistemului folosind comanda <code class="docutils literal notranslate"><span class="pre">apt</span> <span class="pre">update</span></code>.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Comanda <code class="docutils literal notranslate"><span class="pre">apt</span> <span class="pre">upgrade</span></code> face actualizare conservatoare a sistemului.
-Dacă un anumit pachet ar fi dezinstalat de acțiunea de actualizare a sistemului, pachetul nu va fi atins de managerul de pachete.
-Dacă dorim o actualizare completă a sistemului, incluzând dezinstalarea anumitor pachete (pentru că sunt incompatibile cu alte apchete), vom folosi comanda:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ sudo apt full-upgrade
-</pre></div>
-</div>
-</div>
 </div>
 </div>
 <div class="section" id="bune-practici-si-greseli-comune">
@@ -1003,7 +947,7 @@ Dacă dorim o actualizare completă a sistemului, incluzând dezinstalarea anumi
 <div class="section" id="actiuni-neinteractive">
 <h3><span class="section-number">6.6.1. </span>Acțiuni neinteractive<a class="headerlink" href="#actiuni-neinteractive" title="Permalink to this headline">¶</a></h3>
 <p>Atunci când instalăm, dezinstalăm sau actualizăm pachete în linia de comandă, utilitarul <code class="docutils literal notranslate"><span class="pre">apt</span></code> solicită confirmare pentru executarea acțiunii.
-Trebuie să introducem la tastatură <code class="docutils literal notranslate"><span class="pre">Y</span></code> (pentru <em>Yes</em>) sau doar să apăsăm <code class="docutils literal notranslate"><span class="pre">Enter</span></code> la un prompt precum cel de mai jos <a class="footnote-reference brackets" href="#enter" id="id3">3</a>:</p>
+Trebuie să introducem la tastatură <code class="docutils literal notranslate"><span class="pre">Y</span></code> (pentru <em>Yes</em>) sau doar să apăsăm <code class="docutils literal notranslate"><span class="pre">Enter</span></code> la un prompt precum cel de mai jos <a class="footnote-reference brackets" href="#enter" id="id5">5</a>:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Do you want to <span class="k">continue</span>? <span class="o">[</span>Y/n<span class="o">]</span> Y
 </pre></div>
 </div>
@@ -1025,13 +969,30 @@ De aceea, opțiunea <code class="docutils literal notranslate"><span class="pre"
 </div>
 <p class="rubric">Note de subsol</p>
 <dl class="footnote brackets">
-<dt class="label" id="linuxapps"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
-<dd><p><a class="reference external" href="https://itsfoss.com/essential-linux-applications/">https://itsfoss.com/essential-linux-applications/</a></p>
+<dt class="label" id="linux-search"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd><p>În general, dacă dorim aplicații Linux, este de ajutor ca <em>linux</em> să fie parte din șirul de căutare folosit.</p>
 </dd>
-<dt class="label" id="cliapps"><span class="brackets"><a class="fn-backref" href="#id2">2</a></span></dt>
-<dd><p><a class="reference external" href="https://github.com/agarrharr/awesome-cli-apps">https://github.com/agarrharr/awesome-cli-apps</a></p>
+<dt class="label" id="aptsearch"><span class="brackets"><a class="fn-backref" href="#id2">2</a></span></dt>
+<dd><p>Comanda <code class="docutils literal notranslate"><span class="pre">apt</span> <span class="pre">search</span></code> nu este privilegiată (nu modifică informații critice în sistem) și nu trebuie prefixată de comanda <code class="docutils literal notranslate"><span class="pre">sudo</span></code>.</p>
 </dd>
-<dt class="label" id="enter"><span class="brackets"><a class="fn-backref" href="#id3">3</a></span></dt>
+<dt class="label" id="update"><span class="brackets"><a class="fn-backref" href="#id3">3</a></span></dt>
+<dd><p>Aducerea unei aplicații la o versiune mai nouă (<em>update</em> sau <em>upgrade</em>) are plusuri și minusuri.
+Avantajul este că noua versiune va avea cele mai noi funcționalități și va avea rezolvate probleme vechi de configurare.
+Dezavantajul este că noua versiune va fi mai puțin folosită și deci mai puțin stabilă, cu posible probleme noi de funcționare.
+În general este recomandat ca aplicațiile sistemului să fie actualizate (<em>up-to-date</em>) cu versiuni care au îmbunătățiri de funcționare sau securitate (<em>security updates</em>).
+Dacă se optează pentru cea mai recentă versiune a aplicației (posibil mai puțin stabilă), trebuie cântărit beneficiul adus de noile funcționalități față de posibilele probleme de funcționare.</p>
+<p>De obicei un utilizator obișnuit va opta pentru cea mai nouă versiune, fiind interesat în primul rând de cele mai noi funcționalități.
+Un administrator de sistem va opta pentru versiunile mai stabile care asigură o robustețe ridicată a sistemului.</p>
+</dd>
+<dt class="label" id="apt-upgrade"><span class="brackets"><a class="fn-backref" href="#id4">4</a></span></dt>
+<dd><p>Comanda <code class="docutils literal notranslate"><span class="pre">apt</span> <span class="pre">upgrade</span></code> face actualizare conservatoare a sistemului.
+Dacă un anumit pachet ar fi dezinstalat de acțiunea de actualizare a sistemului, pachetul nu va fi atins de managerul de pachete.
+Dacă dorim o actualizare completă a sistemului, incluzând dezinstalarea anumitor pachete (pentru că sunt incompatibile cu alte apchete), vom folosi comanda:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ sudo apt full-upgrade
+</pre></div>
+</div>
+</dd>
+<dt class="label" id="enter"><span class="brackets"><a class="fn-backref" href="#id5">5</a></span></dt>
 <dd><p>De fapt, atunci când ni se prezintă un prompt de forma <code class="docutils literal notranslate"><span class="pre">[Y/n]</span></code> apăsarea tastei <code class="docutils literal notranslate"><span class="pre">Enter</span></code> este echivalentă cu introducerea tastei marcate cu literă mare (aici <code class="docutils literal notranslate"><span class="pre">Y</span></code>). Dacă, de exemplu, ar fi fost un prompt de forma <code class="docutils literal notranslate"><span class="pre">[y/N]</span></code>, apăsarea tastei <code class="docutils literal notranslate"><span class="pre">Enter</span></code> era echivalentă cu introducerea tastei <code class="docutils literal notranslate"><span class="pre">N</span></code>.</p>
 </dd>
 </dl>

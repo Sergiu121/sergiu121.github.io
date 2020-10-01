@@ -347,7 +347,7 @@
           </li>
 
         
-          <li class="toctree-l1 "><a href="config.html" class="reference internal ">Configurarea aplicațiilor</a>
+          <li class="toctree-l1 "><a href="config.html" class="reference internal ">Configurarea rulării aplicațiilor</a>
 
             
           </li>
@@ -481,11 +481,11 @@
             
   <div class="section" id="investigarea-aplicatiilor-instalate">
 <span id="app-install-app-list"></span><h1><span class="section-number">8. </span>Investigarea aplicațiilor instalate<a class="headerlink" href="#investigarea-aplicatiilor-instalate" title="Permalink to this headline">¶</a></h1>
-<p>Având acces la un sistem de calcul, suntem intersați de ce aplicații rulează pe acesta și ce versiuni ale acestora.
-Acest lucru ne va ajuta să ne dăm seama ce aplicații să (mai) instalăm sau dacă e nevoie de o actualizare a versiunilor.</p>
+<p>Având acces la un sistem de calcul, suntem interesați de ce aplicații rulează pe acesta și ce versiuni ale acestora.
+Acest lucru ne va ajuta să ne dăm seama ce aplicații să (mai) instalăm, sau dacă e nevoie de o actualizare a versiunilor.</p>
 <div class="section" id="listarea-aplicatiilor-instalate">
 <h2><span class="section-number">8.1. </span>Listarea aplicațiilor instalate<a class="headerlink" href="#listarea-aplicatiilor-instalate" title="Permalink to this headline">¶</a></h2>
-<p>Atunci când afișăm aplicațiilor instalate, vedem dacă o aplicație este absentă din sistem; sau vedem care aplicații sunt instalate pentru a replica instalarea pe un al sistem.</p>
+<p>Atunci când afișăm aplicațiile instalate, vedem dacă o aplicație este absentă din sistem; sau vedem care aplicații sunt instalate, pentru a replica instalarea pe un al sistem.</p>
 <p>Dacă folosim <code class="docutils literal notranslate"><span class="pre">apt</span></code> pentru gestiunea pachetelor, folosim comanda de mai jos pentru afișarea pachetelor instalate:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ dpkg -l <span class="s1">&#39;*&#39;</span> <span class="p">|</span> grep ^ii
 ii  accountsservice                            <span class="m">0</span>.6.45-1ubuntu1                                  amd64        query and manipulate user account information
@@ -633,13 +633,13 @@ student@uso:~$ tree /snap/pdftk/
 <span class="o">[</span>...<span class="o">]</span>
 </pre></div>
 </div>
-<p>Mai sus, am afișat conținutul pachetului <code class="docutils literal notranslate"><span class="pre">nmap</span></code> instalat folosind <code class="docutils literal notranslate"><span class="pre">apt</span></code>, respectiv conținutul pachetului <code class="docutils literal notranslate"><span class="pre">pdftk</span></code> instalat folosind Snap.
+<p>Mai sus, am afișat conținutul pachetului <code class="docutils literal notranslate"><span class="pre">nmap</span></code>, instalat folosind <code class="docutils literal notranslate"><span class="pre">apt</span></code>, respectiv conținutul pachetului <code class="docutils literal notranslate"><span class="pre">pdftk</span></code>, instalat folosind Snap.
 Pentru pachetul <code class="docutils literal notranslate"><span class="pre">pdftk</span></code> (Snap) nu există comandă de instalare; urmărim conținutul directorului unde este instalat pachetul folosind Snap, adică <code class="docutils literal notranslate"><span class="pre">/snap/pdftk/</span></code>.</p>
 </li>
 <li><p>Pentru a replica instalarea pe un alt sistem, ne interesează să știm ce pachet conține un anumit fișier.
-Adică știm fișierul dorit, dar ne interesează ce pachet în conține.</p>
-<p>În Snap acest lucru se obține ușor: conținutului unui pachet este în directorul <code class="docutils literal notranslate"><span class="pre">/snap/&lt;nume_pachet&gt;/</span></code>; având calea completă către un fișier identificăm pachetul din numele subdirectorul din cale.</p>
-<p>În <code class="docutils literal notranslate"><span class="pre">apt</span></code> folosim comanda <code class="docutils literal notranslate"><span class="pre">dpkg</span> <span class="pre">-S</span></code> urmată de numele fișierului:</p>
+Adică știm fișierul dorit, dar ne interesează ce pachet îl conține.</p>
+<p>În Snap, această informație se obține ușor: conținutul unui pachet este în directorul <code class="docutils literal notranslate"><span class="pre">/snap/&lt;nume_pachet&gt;/</span></code>; având calea completă către un fișier, identificăm pachetul din numele subdirectorului din cale.</p>
+<p>În <code class="docutils literal notranslate"><span class="pre">apt</span></code>, folosim comanda <code class="docutils literal notranslate"><span class="pre">dpkg</span> <span class="pre">-S</span></code> urmată de numele fișierului:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ dpkg -S /bin/ls
 coreutils: /bin/ls
 student@uso:~$ dpkg -S /usr/include/stdio.h
