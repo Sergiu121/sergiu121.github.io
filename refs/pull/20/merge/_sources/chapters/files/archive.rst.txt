@@ -5,170 +5,206 @@ Sunt situații în care vrem să trimitem/stocăm o ierarhie de fișiere.
 Pentru a ușura acest lucru, putem folosi arhive.
 Arhivele sunt o agregare a unei ierarhii de fișiere și directoare într-un singur fișier.
 
+Există două motive pentru care am vrea să folosim arhive:
+
+#. **Arhivare** - să avem o ierarhie de fișiere și directoare într-un singur fișier.
+   De exemplu, vrem să trimitem pe mail o ierarhie de directoare cu laboratoarele și resursele materiei USO.
+#. **Compresie** - ne dorim ca fișierele să ocupe mai puțin spațiu.
+
 .. note::
     **Comprimarea** este asemănătoare cu arhivarea, dar, în plus micșorează dimensiunea fișierului rezultat.
     Rezultatul este similar: agregarea într-un singur fișier.
 
 În acest capitol vom folos arhive de tipul **zip** și **tar**.
+Vom folosi **tar** pentru arhivare și **zip** pentru comprimare.
 
 .. note::
-    În mod normal acestea fac parte din suita nativă a sistemului de operare (pe Linux).
+    Pe mașina virtuală pusă la dispoziție, aveți instalat utilitarele necesare.
     În cazul în care nu le aveți, le puteți instala folosind comanda: ``sudo apt install tar`` respectiv ``sudo apt install zip`` (pentru mai multe detalii, vezi secțiunea de instalare de aplicații).
 
-Arhive **tar**
---------------
+Arhivare - **tar**
+------------------
 
 Crearea arhivelor
 ^^^^^^^^^^^^^^^^^
+
+Arhivele sunt utile atunci când vrem să trimitem pe mail sau să încărcăm pe un site o ierarhie de fișiere și directoare.
+Pe scurt, atunci când vrem să agregăm totul într-un singur fișier. Acesta poate fi transmis foarte ușor și ulterior dezarhivat.
 
 Creăm o arhivă **tar**, astfel:
 
 .. code-block:: bash
 
-    student@uso-demo:~$ ls -lh
+    student@uso:~$ ls -lh
     total 9.0M
-    -rw-r--r-- 1 student student 5.0M Aug 19 11:55 fisier1
-    -rw-r--r-- 1 student student 3.0M Aug 19 11:55 fisier2
-    -rw-r--r-- 1 student student 1.0M Aug 19 11:55 fisier3
-    student@uso-demo:~$ tar cvf fisiere.tar fisier1 fisier2 fisier3
-    fisier1
-    fisier2
-    fisier3
-    student@uso-demo:~$ ls -lh
+    -rw-r--r-- 1 student student 5.0M Aug 19 11:55 înregistrare_lab01.mov
+    -rw-r--r-- 1 student student 3.0M Aug 19 11:55 înregistrare_lab02.mov
+    -rw-r--r-- 1 student student 1.0M Aug 19 11:55 înregistrare_lab03.mov
+    student@uso:~$ tar cvf înregistrări.tar înregistrare_lab01.mov înregistrare_lab02.mov înregistrare_lab03.mov
+    înregistrare_lab01.mov
+    înregistrare_lab02.mov
+    înregistrare_lab03.mov
+    student@uso:~$ ls -lh
     total 19M
-    -rw-r--r-- 1 student student 5.0M Aug 19 11:55 fisier1
-    -rw-r--r-- 1 student student 3.0M Aug 19 11:55 fisier2
-    -rw-r--r-- 1 student student 1.0M Aug 19 11:55 fisier3
-    -rw-r--r-- 1 student student 9.1M Aug 19 11:56 fisiere.tar
+    -rw-r--r-- 1 student student 5.0M Aug 19 11:55 înregistrare_lab01.mov
+    -rw-r--r-- 1 student student 3.0M Aug 19 11:55 înregistrare_lab02.mov
+    -rw-r--r-- 1 student student 1.0M Aug 19 11:55 înregistrare_lab03.mov
+    -rw-r--r-- 1 student student 9.1M Aug 19 11:56 înregistrări.tar
 
 .. note::
-    Observăm cum după comanda de creare a arhivei **tar** am verficat corectitudinea operației.
+    Observăm cum după comanda de creare a arhivei **tar** am verificat corectitudinea operației.
 
-Având trei fișiere pe care vrem să le arhivăm, folosim utilitarul **tar** împreună cu parametrii potriviți:
+Având trei fișiere pe care vrem să le arhivăm, folosim utilitarul **tar** împreună cu parametrii următori:
 
 * c: creează arhiva;
-* v: *verbose* - afișează detalii despre operație;
+* v: afișează detalii despre operație (verbose);
 * f: folosește arhiva dată ca parametru (în cazul de față, numele ei).
 
-
 Putem observa că fișierul de tipul **tar** nou creat **nu** ocupă mai puțin spațiu; din contră, ocupă mai mult spațiu din cauza metadatelor fișierului.
+Metadatele sunt modalitatea sistemului de fișiere de a reține informații despre acesta: data creării, dimensiunea, utilizatorul ce deține fișierul, etc.
 
 .. note::
     Pentru o mai bună înțelegere a comenzii de creare a arhivelor inspectați manualul: ``man tar``.
 
+.. note::
+    Putem verifica tipul fișierului folosind utilitarul **file**.
+
+.. code-block:: bash
+
+    student@uso:~$ file înregistrări.tar
+    înregistrări.tar: POSIX tar archive (GNU)
+
+
+
 Exercițiu - creare arhive
 """""""""""""""""""""""""
-#. Creați 3 fișiere noi care să conțină pe rând numele, prenumele și anul vostru de naștere.
-   Creați o arhivă de tipul **tar** care să conțină cele trei fișiere și care să aibă  numele **personal_data.tar**.
-   Verificați corectitudinea operațiilor.
-   Verificați dimensiunea arhivei.
 
-#. Creați o arhivă a fișierelor din interiorul directorului **/usr/include/net/** cu numele **net.tar**.
-   Verificați corectitudinea operației.
-   Verificați dimensiunea arhivei.
+* Creați 3 fișiere noi care să conțină pe rând numele, prenumele și anul vostru de naștere.
+* Creați o arhivă de tipul **tar** care să conțină cele trei fișiere și care să aibă  numele **personal_data.tar**.
+* Verificați corectitudinea operațiilor.
+* Verificați dimensiunea arhivei.
+* Verificați că fișierul nou cred este o arhivă **tar**.
+
+
+Exercițiu - creare arhive
+"""""""""""""""""""""""""
+
+* Creați o arhivă a fișierelor din interiorul directorului **/usr/include/net/** cu numele **net.tar**.
+* Verificați corectitudinea operației.
+* Verificați dimensiunea arhivei.
+* Verificați că fișierul nou cred este o arhivă **tar**.
+
 
 Afișarea conținutului arhivelor
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Putem vizualiza conținutului unei arhive **tar** fără a efectura operația de dezarhivare.
-Putem face acest lucru folosind parametrii **-t** și **-f** ale utilitarului **tar** ca în exemplul de mai jos:
+Există cazuri în care vrem să vedem conținutul unei arhive.
+Putem să vedem ce fișiere conține, fără a o deschide.
+
+Putem face acest lucru folosind parametrii **t** și **f** ale utilitarului **tar** ca în exemplul de mai jos:
 
 .. code-block:: bash
 
-    student@uso-demo:~$ tar tf fisiere.tar
-    fisier1
-    fisier2
-    fisier3
+    student@uso:~$ tar tf înregistrări.tar
+    înregistrare_lab01.mov
+    înregistrare_lab02.mov
+    înregistrare_lab03.mov
 
 
-Pentru a vizualiza arhiva **fără** dezarhivare folosim opțiunea **-t**.
-Opțiunea **-f** este pentru a specifica ce arhivă vrem să afișăm.
+Pentru a vizualiza arhiva **fără** dezarhivare folosim opțiunea **t**.
+Opțiunea **f** este pentru a specifica ce arhivă vrem să afișăm.
 
 Exercițiu - afișarea conținutului unei arhive
 """""""""""""""""""""""""""""""""""""""""""""
-Acest exercițiu folosește arhiva creată la exercițiu anterior.
-Afișați conținutul arhivelor **personal_data.tar** și **net.tar** **fără** dezarhivare.
+
+* Afișați conținutul arhivelor create la exercițiul anterior **personal_data.tar** și **net.tar** **fără** dezarhivare.
 
 
 Dezarhivarea arhivelor
 ^^^^^^^^^^^^^^^^^^^^^^
 
+Dezarhivarea este procesul opus al arhivării.
+Având un fișier de tip **tar** vrem să obtinem ierarhia de fișiere din interiorul acesteia.
+
 În momentul în care dezarhivăm un fișier de tip **tar**, fișierele din cadrul arhivei vor fi create în directorul curent (dacă nu se specifică altfel).
 Cu alte cuvinte, ierarhia de fișiere pe care am arhivat-o se păstrează, iar în momentul dezarhivării aceasta va arăta la fel ca înainte de arhivare.
-Pentru a vedea mai clar efectul operației de dezarhivare, ștergem fișierele fisier1, fisier2, fisier3, adică fișierele care se află în arhiva **fisiere.tar**.
+Pentru a vedea mai clar efectul operației de dezarhivare, ștergem fișierele înregistrare_lab01.mov, înregistrare_lab02.mov, înregistrare_lab03.mov, adică fișierele care se află în arhiva **înregistrări.tar**.
 
 .. code-block:: bash
 
-    student@uso-demo:~$ rm fisier1 fisier2 fisier3
-    student@uso-demo:~$ ls
-    fisiere.tar
-    student@uso-demo:~$ tar xvf fisiere.tar
-    fisier1
-    fisier2
-    fisier3
-    student@uso-demo:~$ ls -lh
+    student@uso:~$ rm înregistrare_lab01.mov înregistrare_lab02.mov înregistrare_lab03.mov
+    student@uso:~$ ls
+    înregistrări.tar
+    student@uso:~$ tar xvf înregistrări.tar
+    înregistrare_lab01.mov
+    înregistrare_lab02.mov
+    înregistrare_lab03.mov
+    student@uso:~$ ls -lh
     total 19M
-    -rw-r--r-- 1 student student 5.0M Aug 19 11:55 fisier1
-    -rw-r--r-- 1 student student 3.0M Aug 19 11:55 fisier2
-    -rw-r--r-- 1 student student 1.0M Aug 19 11:55 fisier3
-    -rw-r--r-- 1 student student 9.1M Aug 19 12:04 fisiere.tar
+    -rw-r--r-- 1 student student 5.0M Aug 19 11:55 înregistrare_lab01.mov
+    -rw-r--r-- 1 student student 3.0M Aug 19 11:55 înregistrare_lab02.mov
+    -rw-r--r-- 1 student student 1.0M Aug 19 11:55 înregistrare_lab03.mov
+    -rw-r--r-- 1 student student 9.1M Aug 19 12:04 înregistrări.tar
 
 .. note::
     Observăm cum după operațiile de ștergere și dezarhivare, am verificat corectitudinea operațiilor.
 
 Pentru dezarhivare am folosit din manualul comenzii **tar** următorii parametrii:
 
-* x: creează arhiva;
-* v: *verbose* - afișează detalii despre operație;
+* x: extrage arhiva (extract);
+* v: afișează detalii despre operație (verbose);
 * f: folosește arhiva dată ca parametru (în cazul de față, numele ei).
 
 
 
 
-Putem extrage conținutul arhivei la o anumită destinație.
+Avem situații când vrem să extragem conținutul arhivei la o anumită destinație.
+Spre exemplu, am descărcat scheletul de temă de la facultate, acesta se află în directorul `~/Downloads`, iar noi vrem să o dezarhivăm în directorul `~/facultate/uso/teme/`.
+
+Sau am descărcat în `~/Downloads/` de la un prieten o arhivă cu înregistrările video ale laboratoarelor.
+Vrem să le dezarhivăm în directorul `~/facultate/uso/laboratoare/video/`.
 
 .. code-block:: bash
 
-    student@uso-demo:~$ ls -l
+    student@uso:~$ ls -l
     total 18436
-    -rw-r--r-- 1 student student 5242880 Aug 19 11:55 fisier1
-    -rw-r--r-- 1 student student 3145728 Aug 19 11:55 fisier2
-    -rw-r--r-- 1 student student 1048576 Aug 19 11:55 fisier3
-    -rw-r--r-- 1 student student 9439088 Aug 19 12:04 fisiere.tar
-    student@uso-demo:~$ mkdir -p dezarhivare/tar
-    student@uso-demo:~$ tree
+    -rw-r--r-- 1 student student 5242880 Aug 19 11:55 înregistrare_lab01.mov
+    -rw-r--r-- 1 student student 3145728 Aug 19 11:55 înregistrare_lab02.mov
+    -rw-r--r-- 1 student student 1048576 Aug 19 11:55 înregistrare_lab03.mov
+    -rw-r--r-- 1 student student 9439088 Aug 19 12:04 înregistrări.tar
+    student@uso:~$ mkdir -p dezarhivare/tar
+    student@uso:~$ tree
     .
     |-- dezarhivare
     |   `-- tar
-    |-- fisier1
-    |-- fisier2
-    |-- fisier3
-    `-- fisiere.tar
+    |-- înregistrare_lab01.mov
+    |-- înregistrare_lab02.mov
+    |-- înregistrare_lab03.mov
+    `-- înregistrări.tar
 
     2 directories, 4 files
-    student@uso-demo:~$ tar xvf fisiere.tar --directory dezarhivare/tar/
-    fisier1
-    fisier2
-    fisier3
-    student@uso-demo:~$ tree
+    student@uso:~$ tar xvf înregistrări.tar --directory dezarhivare/tar/
+    înregistrare_lab01.mov
+    înregistrare_lab02.mov
+    înregistrare_lab03.mov
+    student@uso:~$ tree
     .
     |-- dezarhivare
     |   `-- tar
-    |       |-- fisier1
-    |       |-- fisier2
-    |       `-- fisier3
-    |-- fisier1
-    |-- fisier2
-    |-- fisier3
-    `-- fisiere.tar
+    |       |-- înregistrare_lab01.mov
+    |       |-- înregistrare_lab02.mov
+    |       `-- înregistrare_lab03.mov
+    |-- înregistrare_lab01.mov
+    |-- înregistrare_lab02.mov
+    |-- înregistrare_lab03.mov
+    `-- înregistrări.tar
 
     2 directories, 7 files
 
 .. note::
     Observăm că după crearea directoarelor și după extragerea arhivelor am verificat corectitudinea operațiilor.
 
-După cum ați observat în exemplu de mai sus, pentru a extrage fișierele către o anumită cale, folosim opțiunea **--directory**:
-
+După cum observăm în exemplu de mai sus, pentru a extrage fișierele către o anumită cale, folosim opțiunea **--directory** (- - d i r e c t o r y):
 
 
 Putem extrage un singur fișier fără să fim obligați să dezarhivăm tot.
@@ -176,63 +212,71 @@ Folosim comanda de mai jos pentru a face acest lucru.
 
 .. code-block:: bash
 
-    student@uso-demo:~$ rm fisier1 fisier2 fisier3
-    student@uso-demo:~$ ls
-    dezarhivare  fisiere.tar
-    student@uso-demo:~$ tar xvf fisiere.tar fisier1
-    fisier1
-    student@uso-demo:~$ ls -l
+    student@uso:~$ rm înregistrare_lab01.mov înregistrare_lab02.mov înregistrare_lab03.mov
+    student@uso:~$ ls
+    dezarhivare  înregistrări.tar
+    student@uso:~$ tar xvf înregistrări.tar înregistrare_lab01.mov
+    înregistrare_lab01.mov
+    student@uso:~$ ls -l
     total 14344
     drwxr-xr-x 3 student student    4096 Aug 19 12:15 dezarhivare
-    -rw-r--r-- 1 student student 5242880 Aug 19 11:55 fisier1
-    -rw-r--r-- 1 student student 9439088 Aug 19 12:04 fisiere.tar
+    -rw-r--r-- 1 student student 5242880 Aug 19 11:55 înregistrare_lab01.mov
+    -rw-r--r-- 1 student student 9439088 Aug 19 12:04 înregistrări.tar
 
 
 .. note::
-    Obervăm cum după comenzile de ștergere și dezarhivare s-a verificat corectitudinea operațiilor.
+    Obervăm cum după comenzile de ștergere și dezarhivare am verificat corectitudinea operațiilor.
+    Este extrem de util acest lucru.
 
-După cum observați mai sus, am pus ca ultim parametru numele fișierului (**fisier1**).
+După cum observați mai sus, am pus ca ultim parametru numele fișierului (**înregistrare_lab01.mov**).
 
 Exercițiu - dezarhivarea unei arhive
 """"""""""""""""""""""""""""""""""""
-#. Creați un director cu numele **dezarhivare** și în acest director încă unul cu numele **tar** ca în ierarhia de mai sus.
-    Dezarhivați arhiva **personal_data.tar** în directorul **dezarhivare/tar/**.
-    Dezarhivați **doar** fișierul **nume** în directorul curent.
-    Verificați corectitudinea operațiilor.
 
-#. Dezarhivați arhiva **net.tar** în directorul **/tmp/**.
-   Verificați corectitudinea operațiilor
+* Creați un director cu numele **personal** și în acest director încă unul cu numele **documente** ca în ierarhia de mai sus.
+* Dezarhivați arhiva **personal_data.tar** în directorul **personal/documente/**.
+*  Dezarhivați **doar** fișierul **nume** în directorul curent.
+* Verificați corectitudinea operațiilor.
+
+Exercițiu - dezarhivarea unei arhive
+""""""""""""""""""""""""""""""""""""
+
+* Dezarhivați arhiva **net.tar** în directorul **/tmp/**.
+* Verificați corectitudinea operațiilor
 
 Adăugarea de noi fișiere la arhive
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Putem adăuga un nou fișier la arhiva existentă astfel:
+Există cazuri în care vrem să adăugăm un nou fișier la o arhivă există.
+Spre exemplu, am mai făcut un laborator și vrem să-l adăugăm la arhiva de înregistrări.
+O variantă ar fi să ștergem arhiva și să o creăm din nou, dar nu este eficient.
+
+Adăugăm un nou fișier la arhivă folosind opțiunea **r**:
 
 .. code-block:: bash
 
-    student@uso-demo:~$ ls -l
+    student@uso:~$ ls -l
     total 25608
     drwxr-xr-x 3 student student    4096 Aug 19 12:15 dezarhivare
-    -rw-r--r-- 1 student student 5242880 Aug 19 11:55 fisier1
-    -rw-r--r-- 1 student student 3145728 Aug 19 11:55 fisier2
-    -rw-r--r-- 1 student student 1048576 Aug 19 11:55 fisier3
-    -rw-r--r-- 1 student student 7340032 Aug 19 12:35 fisier4
-    -rw-r--r-- 1 student student 9441280 Aug 19 12:36 fisiere.tar
-    student@uso-demo:~$ tar -tf fisiere.tar
-    fisier1
-    fisier2
-    fisier3
-    student@uso-demo:~$ tar -rvf fisiere.tar fisier4
-    fisier4
-    student@uso-demo:~$ tar -tf fisiere.tar
-    fisier1
-    fisier2
-    fisier3
-    fisier4
+    -rw-r--r-- 1 student student 5242880 Aug 19 11:55 înregistrare_lab01.mov
+    -rw-r--r-- 1 student student 3145728 Aug 19 11:55 înregistrare_lab02.mov
+    -rw-r--r-- 1 student student 1048576 Aug 19 11:55 înregistrare_lab03.mov
+    -rw-r--r-- 1 student student 7340032 Aug 19 12:35 înregistrare_lab04.mov
+    -rw-r--r-- 1 student student 9441280 Aug 19 12:36 înregistrări.tar
+    student@uso:~$ tar -tf înregistrări.tar
+    înregistrare_lab01.mov
+    înregistrare_lab02.mov
+    înregistrare_lab03.mov
+    student@uso:~$ tar rvf înregistrări.tar înregistrare_lab04.mov
+    înregistrare_lab04.mov
+    student@uso:~$ tar tf înregistrări.tar
+    înregistrare_lab01.mov
+    înregistrare_lab02.mov
+    înregistrare_lab03.mov
+    înregistrare_lab04.mov
 
-Adăugăm un nou fișier la arhivă folosind opțiunea **-r**:
-În primă fază am verificat că **fisier4** nu există în arhivă.
-În continuare am adăugat **fisier4** la arhivă.
+În primă fază am verificat că **înregistrare_lab04.mov** nu există în arhivă.
+În continuare am adăugat **înregistrare_lab04.mov** la arhivă.
 
 .. note::
     Observăm cum după comanda de adăugare de fișier la arhivă, am verificat corectitudinea operației.
@@ -240,12 +284,21 @@ Adăugăm un nou fișier la arhivă folosind opțiunea **-r**:
 
 Exercițiu - adăugare de noi fișiere
 """""""""""""""""""""""""""""""""""
-Creați un fișier **UPB** și adăugați-l la arhiva **personal_data.tar**, ca în exemplul de mai sus.
-Verificați corectitudinea operației.
+
+* Creați un fișier **UPB**;
+* Adăugați textul *Make UPB Great Again!* în interiorul fișierului;
+* Adăugați-l la arhiva **personal_data.tar**, ca în exemplul de mai sus;
+* Verificați corectitudinea operațiilor: crearea fișier, conținut fișier, corectitudine arhivă.
 
 
-Arhive **zip**
---------------
+Comprimare - **zip**
+--------------------
+
+Acțiunea de comprimare este compusă din doi pași: arhivare și reducerea dimensiunii (comprimare).
+Diferența între comprimare și arhivare este **reducerea dimensiunii**.
+
+.. note::
+    În continuare în acest capitol vom folosi noțiunea de arhivare, chiar dacă folosim utilitarul **zip**.
 
 Crearea arhivelor
 ^^^^^^^^^^^^^^^^^
@@ -255,46 +308,81 @@ Putem crea o arhivă de tipul **zip**, astfel:
 
 .. code-block:: bash
 
-    student@uso-demo:~$ ls -l
+    student@uso:~$ ls -l
     total 16388
     drwxr-xr-x 3 student student    4096 Aug 19 12:15 dezarhivare
-    -rw-r--r-- 1 student student 5242880 Aug 19 11:55 fisier1
-    -rw-r--r-- 1 student student 3145728 Aug 19 11:55 fisier2
-    -rw-r--r-- 1 student student 1048576 Aug 19 11:55 fisier3
-    -rw-r--r-- 1 student student 7340032 Aug 19 12:35 fisier4
-    -rw-r--r-- 1 student student 9.1M Aug 19 17:56 fisiere.tar
-    student@uso-demo:~$ zip fisiere.zip fisier1 fisier2 fisier3
-      adding: fisier1 (deflated 0%)
-      adding: fisier2 (deflated 0%)
-      adding: fisier3 (deflated 0%)
-    student@uso-demo:~$ ls -lh
+    -rw-r--r-- 1 student student 5242880 Aug 19 11:55 înregistrare_lab01.mov
+    -rw-r--r-- 1 student student 3145728 Aug 19 11:55 înregistrare_lab02.mov
+    -rw-r--r-- 1 student student 1048576 Aug 19 11:55 înregistrare_lab03.mov
+    -rw-r--r-- 1 student student 7340032 Aug 19 12:35 înregistrare_lab04.mov
+    -rw-r--r-- 1 student student 9.1M Aug 19 17:56 înregistrări.tar
+    student@uso:~$ zip înregistrări.zip înregistrare_lab01.mov înregistrare_lab02.mov înregistrare_lab03.mov
+      adding: înregistrare_lab01.mov (deflated 0%)
+      adding: înregistrare_lab02.mov (deflated 0%)
+      adding: înregistrare_lab03.mov (deflated 0%)
+    student@uso:~$ ls -lh
     total 26M
     drwxr-xr-x 3 student student 4.0K Aug 19 12:15 dezarhivare
-    -rw-r--r-- 1 student student 5.0M Aug 19 11:55 fisier1
-    -rw-r--r-- 1 student student 3.0M Aug 19 11:55 fisier2
-    -rw-r--r-- 1 student student 1.0M Aug 19 11:55 fisier3
-    -rw-r--r-- 1 student student 7.0M Aug 19 12:35 fisier4
-    -rw-r--r-- 1 student student 9.1M Aug 19 17:56 fisiere.tar
-    -rw-r--r-- 1 student student 9.1M Aug 19 17:54 fisiere.zip
+    -rw-r--r-- 1 student student 5.0M Aug 19 11:55 înregistrare_lab01.mov
+    -rw-r--r-- 1 student student 3.0M Aug 19 11:55 înregistrare_lab02.mov
+    -rw-r--r-- 1 student student 1.0M Aug 19 11:55 înregistrare_lab03.mov
+    -rw-r--r-- 1 student student 7.0M Aug 19 12:35 înregistrare_lab04.mov
+    -rw-r--r-- 1 student student 9.1M Aug 19 17:56 înregistrări.tar
+    -rw-r--r-- 1 student student 9.1M Aug 19 17:54 înregistrări.zip
 
 .. note::
-    Observăm cum după comanda de creare a arhivei **zip** am verficat corectitudinea operației.
+    Observăm cum după comanda de creare a arhivei **zip** am verificat corectitudinea operației.
 
 Sintaxa este în felul următor: ``zip numele_arhivă.zip ierarhia_de_fișiere``
-Putem observa că fișierul de tipul **zip** nou creat **nu** ocupă mai puțin spațiu decât suma dimensiunilor celor trei fișiere; din contră, ocupă mai mult.
+
+Putem observa că fișierul de tipul **zip** nou creat **nu** ocupă mai puțin spațiu decât suma dimensiunilor celor trei fișiere.
 Motivul este că în sistemul de fișiere a apărut un nou fișier ce conține arhiva nou creată și sistemul de fișiere stochează informații despre acest fișier.
 Exemplu de informații stocate: dimensiune, data creare, permisiuni, utilizatorul deținător.
+
+Observăm că dimensiunea arhivei (**înregistrări.tar**) este aceeași cu aceea a comprimării (**înregistrări.zip**).
+De fapt, dacă ne uităm în detaliu, vom vedea că nu este așa.
+Mai sus vedeam afișarea dimensiuni în format *human-readable* adică în MegaBytes (MegaOcteți).
+Afișăm dimesniunea în octeți:
+
+.. code-block:: bash
+
+    student@uso:~$ ls -l inregistrari.*
+    -rw-r--r-- 1 student student 9441280 Sep 29 04:51 înregistrări.tar
+    -rw-r--r-- 1 student student 9439072 Sep 29 04:51 înregistrări.zip
+
+
+Observăm o mică diferență între cele două.
+Mergem mai departe cu un experiment.
+Facem arhivare și comprimare a ierarhiei de directoare `/usr/bin` si comparăm dimensiunea:
+
+.. code-block:: bash
+
+    student@uso:~$ ls -l usr_bin.*
+    -rw-r--r-- 1 student student 100679680 Sep 29 04:46 usr_bin.tar
+    -rw-r--r-- 1 student student  87282498 Sep 29 04:46 usr_bin.zip
+    student@uso:~$ ls -lh usr_bin.*
+    -rw-r--r-- 1 student student 97M Sep 29 04:46 usr_bin.tar
+    -rw-r--r-- 1 student student 84M Sep 29 04:46 usr_bin.zip
+
+Observăm deja o diferență mai mare de dimensiune între cele două.
 
 .. note::
     Pentru o mai bună înțelegere a comenzii de creare a arhivelor inspectați manualul: ``man zip``.
 
+
 Exercițiu - creare arhive
 """""""""""""""""""""""""
-#. Creați 3 fișiere noi care să conțină pe rând orașul natal, țara natală și liceul absolvit.
-   Creați o arhivă de tipul **zip** care să conțină cele trei fișiere și care să aibă  numele **personal_data.zip**.
-   Verificați corectitudinea operațiilor.
-   Verificați dimensiunea arhivei.
-#. Creați o arhivă de tipul **zip** a fișierelor din interiorul directorului **/usr/include/net/** cu numele **net.zip**.
+
+* Creați 3 fișiere noi care să conțină pe rând orașul natal, țara natală și liceul absolvit.
+* Creați o arhivă de tipul **zip** care să conțină cele trei fișiere și care să aibă  numele **personal_data.zip**.
+* Verificați corectitudinea operațiilor.
+* Verificați dimensiunea arhivei.
+
+Exercițiu - creare arhive
+"""""""""""""""""""""""""
+
+* Creați o arhivă de tipul **zip** a fișierelor din interiorul directorului **/usr/include/net/** cu numele **net.zip**.
+* Comparați dimensiunea arhivei **zip** cu cea **tar** de la exercițiu precendent.
 
 Afișarea conținutului arhivelor
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -303,18 +391,19 @@ Putem vizualiza conținutul arhivei astfel:
 
 .. code-block:: bash
 
-    student@uso-demo:~$ zip -sf fisiere.zip
+    student@uso:~$ zip -sf înregistrări.zip
     Archive contains:
-      fisier1
-      fisier2
-      fisier3
+      înregistrare_lab01.mov
+      înregistrare_lab02.mov
+      înregistrare_lab03.mov
 
 Pentru a vizualiza arhiva **fără** dezarhivare folosim opțiunea **-sf** (prescurtare de la **show-files**).
 
 Exercițiu - afișarea conținutului unei arhivei
 """"""""""""""""""""""""""""""""""""""""""""""
-Acest exercițiu folosește arhiva creată la exercițiu anterior.
-Afișați conținutul arhivelor **personal_data.zip** și **net.zip** **fără** dezarhivare.
+
+* Acest exercițiu folosește arhiva creată la exercițiu anterior.
+* Afișați conținutul arhivelor **personal_data.zip** și **net.zip** **fără** dezarhivare.
 
 
 Dezarhivarea arhivelor
@@ -322,84 +411,82 @@ Dezarhivarea arhivelor
 
 În momentul în care dezarhivăm un fișier de tip **zip**, fișierele din cadrul arhivei vor fi create în directorul curent (dacă nu se specifică altfel).
 Cu alte cuvinte, ierarhia de fișiere pe care am arhivat-o se păstrează, iar în momentul dezarhivării aceasta va arăta la fel ca înainte de arhivare.
-Pentru a vedea mai clar efectul operației de dezarhivare, ștergem fișierele fisier1, fisier2, fisier3, adică fișierele care se află în arhiva **fisiere.zip**.
+Pentru a vedea mai clar efectul operației de dezarhivare, ștergem fișierele înregistrare_lab01.mov, înregistrare_lab02.mov, înregistrare_lab03.mov, adică fișierele care se află în arhiva **înregistrări.zip**.
 
 
 
 .. code-block:: bash
 
-    student@uso-demo:~$ ls -l
+    student@uso:~$ ls -l
     total 29708
     drwxr-xr-x 3 student student    4096 Aug 19 12:15 dezarhivare
-    -rw-r--r-- 1 student student 5242880 Aug 19 11:55 fisier1
-    -rw-r--r-- 1 student student 3145728 Aug 19 11:55 fisier2
-    -rw-r--r-- 1 student student 1048576 Aug 19 11:55 fisier3
-    -rw-r--r-- 1 student student 7340032 Aug 19 12:35 fisier4
-    -rw-r--r-- 1 student student 9441280 Aug 19 17:56 fisiere.tar
-    -rw-r--r-- 1 student student 4195250 Aug 19 18:00 fisiere.zip
-    student@uso-demo:~$ rm fisiere.zip
-    student@uso-demo:~$ zip fisiere.zip fisier1 fisier2  fisier3
-      adding: fisier1 (deflated 0%)
-      adding: fisier2 (deflated 0%)
-      adding: fisier3 (deflated 0%)
-    student@uso-demo:~$ ls -l
+    -rw-r--r-- 1 student student 5242880 Aug 19 11:55 înregistrare_lab01.mov
+    -rw-r--r-- 1 student student 3145728 Aug 19 11:55 înregistrare_lab02.mov
+    -rw-r--r-- 1 student student 1048576 Aug 19 11:55 înregistrare_lab03.mov
+    -rw-r--r-- 1 student student 7340032 Aug 19 12:35 înregistrare_lab04.mov
+    -rw-r--r-- 1 student student 9441280 Aug 19 17:56 înregistrări.tar
+    -rw-r--r-- 1 student student 4195250 Aug 19 18:00 înregistrări.zip
+    student@uso:~$ rm înregistrări.zip
+    student@uso:~$ zip înregistrări.zip înregistrare_lab01.mov înregistrare_lab02.mov  înregistrare_lab03.mov
+      adding: înregistrare_lab01.mov (deflated 0%)
+      adding: înregistrare_lab02.mov (deflated 0%)
+      adding: înregistrare_lab03.mov (deflated 0%)
+    student@uso:~$ ls -l
     total 34828
     drwxr-xr-x 3 student student    4096 Aug 19 12:15 dezarhivare
-    -rw-r--r-- 1 student student 5242880 Aug 19 11:55 fisier1
-    -rw-r--r-- 1 student student 3145728 Aug 19 11:55 fisier2
-    -rw-r--r-- 1 student student 1048576 Aug 19 11:55 fisier3
-    -rw-r--r-- 1 student student 7340032 Aug 19 12:35 fisier4
-    -rw-r--r-- 1 student student 9441280 Aug 19 17:56 fisiere.tar
-    -rw-r--r-- 1 student student 9439072 Aug 19 18:02 fisiere.zip
-    student@uso-demo:~$ rm fisier1 fisier2  fisier3
-    student@uso-demo:~$ unzip fisiere.zip
-    Archive:  fisiere.zip
-      inflating: fisier1
-      inflating: fisier2
-      inflating: fisier3
-    student@uso-demo:~$ ls -lh
+    -rw-r--r-- 1 student student 5242880 Aug 19 11:55 înregistrare_lab01.mov
+    -rw-r--r-- 1 student student 3145728 Aug 19 11:55 înregistrare_lab02.mov
+    -rw-r--r-- 1 student student 1048576 Aug 19 11:55 înregistrare_lab03.mov
+    -rw-r--r-- 1 student student 7340032 Aug 19 12:35 înregistrare_lab04.mov
+    -rw-r--r-- 1 student student 9441280 Aug 19 17:56 înregistrări.tar
+    -rw-r--r-- 1 student student 9439072 Aug 19 18:02 înregistrări.zip
+    student@uso:~$ rm înregistrare_lab01.mov înregistrare_lab02.mov  înregistrare_lab03.mov
+    student@uso:~$ unzip înregistrări.zip
+    Archive:  înregistrări.zip
+      inflating: înregistrare_lab01.mov
+      inflating: înregistrare_lab02.mov
+      inflating: înregistrare_lab03.mov
+    student@uso:~$ ls -lh
     total 35M
     drwxr-xr-x 3 student student 4.0K Aug 19 12:15 dezarhivare
-    -rw-r--r-- 1 student student 5.0M Aug 19 11:55 fisier1
-    -rw-r--r-- 1 student student 3.0M Aug 19 11:55 fisier2
-    -rw-r--r-- 1 student student 1.0M Aug 19 11:55 fisier3
-    -rw-r--r-- 1 student student 7.0M Aug 19 12:35 fisier4
-    -rw-r--r-- 1 student student 9.1M Aug 19 17:56 fisiere.tar
-    -rw-r--r-- 1 student student 9.1M Aug 19 18:02 fisiere.zip
+    -rw-r--r-- 1 student student 5.0M Aug 19 11:55 înregistrare_lab01.mov
+    -rw-r--r-- 1 student student 3.0M Aug 19 11:55 înregistrare_lab02.mov
+    -rw-r--r-- 1 student student 1.0M Aug 19 11:55 înregistrare_lab03.mov
+    -rw-r--r-- 1 student student 7.0M Aug 19 12:35 înregistrare_lab04.mov
+    -rw-r--r-- 1 student student 9.1M Aug 19 17:56 înregistrări.tar
+    -rw-r--r-- 1 student student 9.1M Aug 19 18:02 înregistrări.zip
 
 .. note::
-    Observăm cum după operațiile de ștergere și dezarhivare, am verificat corectitudinea operațiilor.
+    Observăm cum după operațiile de ștergere și dezarhivare, verificăm corectitudinea operațiilor.
 
 
 Pentru a dezarhiva o arhivă folosim utilitarul **unzip**.
 Observați că am șters fișierele existente înainte de extragere.
 
-
-
 Putem extrage fișierele către o anumită cale:
 
 .. code-block:: bash
 
-    student@uso-demo:~$ mkdir dezarhivare/zip
-    student@uso-demo:~$ unzip fisiere.zip -d dezarhivare/zip/
-    Archive:  fisiere.zip
-      inflating: dezarhivare/zip/fisier1
-      inflating: dezarhivare/zip/fisier2
-      inflating: dezarhivare/zip/fisier3
-    student@uso-demo:~$ tree
+    student@uso:~$ mkdir dezarhivare/zip
+    student@uso:~$ unzip înregistrări.zip -d dezarhivare/zip/
+    Archive:  înregistrări.zip
+      inflating: dezarhivare/zip/înregistrare_lab01.mov
+      inflating: dezarhivare/zip/înregistrare_lab02.mov
+      inflating: dezarhivare/zip/înregistrare_lab03.mov
+    student@uso:~$ tree
     .
     |-- dezarhivare
     |   |-- tar
     |   `-- zip
-    |       |-- fisier1
-    |       |-- fisier2
-    |       `-- fisier3
-    |-- fisier1
-    |-- fisier2
-    |-- fisier3
-    |-- fisier4
-    |-- fisiere.tar
-    `-- fisiere.zip
+    |       |-- înregistrare_lab01.mov
+    |       |-- înregistrare_lab02.mov
+    |       `-- înregistrare_lab03.mov
+    |-- înregistrare_lab01.mov
+    |-- înregistrare_lab02.mov
+    |-- înregistrare_lab03.mov
+    |-- înregistrare_lab04.mov
+    |-- înregistrări.tar
+    `-- înregistrări.zip
 
     3 directories, 9 files
 
@@ -408,33 +495,31 @@ Putem extrage fișierele către o anumită cale:
 
 Am folosit opțiunea **-d** pentru a specifica calea destinație.
 
-
-
 Putem dezarhiva **un singur** fișier/director din toată arhiva:
 
 .. code-block:: bash
 
-    student@uso-demo:~$ rm fisier3
-    student@uso-demo:~$ ls -lh
+    student@uso:~$ rm înregistrare_lab03.mov
+    student@uso:~$ ls -lh
     total 34M
     drwxr-xr-x 4 student student 4.0K Aug 19 18:05 dezarhivare
-    -rw-r--r-- 1 student student 5.0M Aug 19 11:55 fisier1
-    -rw-r--r-- 1 student student 3.0M Aug 19 11:55 fisier2
-    -rw-r--r-- 1 student student 7.0M Aug 19 12:35 fisier4
-    -rw-r--r-- 1 student student 9.1M Aug 19 17:56 fisiere.tar
-    -rw-r--r-- 1 student student 9.1M Aug 19 18:02 fisiere.zip
-    student@uso-demo:~$ unzip fisiere.zip fisier3
-    Archive:  fisiere.zip
-    inflating: fisier3
-    student@uso-demo:~$ ls -lh
+    -rw-r--r-- 1 student student 5.0M Aug 19 11:55 înregistrare_lab01.mov
+    -rw-r--r-- 1 student student 3.0M Aug 19 11:55 înregistrare_lab02.mov
+    -rw-r--r-- 1 student student 7.0M Aug 19 12:35 înregistrare_lab04.mov
+    -rw-r--r-- 1 student student 9.1M Aug 19 17:56 înregistrări.tar
+    -rw-r--r-- 1 student student 9.1M Aug 19 18:02 înregistrări.zip
+    student@uso:~$ unzip înregistrări.zip înregistrare_lab03.mov
+    Archive:  înregistrări.zip
+    inflating: înregistrare_lab03.mov
+    student@uso:~$ ls -lh
     total 35M
     drwxr-xr-x 4 student student 4.0K Aug 19 18:05 dezarhivare
-    -rw-r--r-- 1 student student 5.0M Aug 19 11:55 fisier1
-    -rw-r--r-- 1 student student 3.0M Aug 19 11:55 fisier2
-    -rw-r--r-- 1 student student 1.0M Aug 19 11:55 fisier3
-    -rw-r--r-- 1 student student 7.0M Aug 19 12:35 fisier4
-    -rw-r--r-- 1 student student 9.1M Aug 19 17:56 fisiere.tar
-    -rw-r--r-- 1 student student 9.1M Aug 19 18:02 fisiere.zip
+    -rw-r--r-- 1 student student 5.0M Aug 19 11:55 înregistrare_lab01.mov
+    -rw-r--r-- 1 student student 3.0M Aug 19 11:55 înregistrare_lab02.mov
+    -rw-r--r-- 1 student student 1.0M Aug 19 11:55 înregistrare_lab03.mov
+    -rw-r--r-- 1 student student 7.0M Aug 19 12:35 înregistrare_lab04.mov
+    -rw-r--r-- 1 student student 9.1M Aug 19 17:56 înregistrări.tar
+    -rw-r--r-- 1 student student 9.1M Aug 19 18:02 înregistrări.zip
 
 .. note::
     Obervăm cum după comenzile de ștergere și dezarhivare s-a verificat corectitudinea operațiilor.
@@ -444,13 +529,18 @@ Puteți observa că am extras un singur fișier punând ca ultim parametru numel
 
 Exercițiu - dezarhivarea unei arhive
 """"""""""""""""""""""""""""""""""""
-#. Creați un director cu numele **zip** în directorului **dezarhivare** ca în ierarhia de mai sus.
-Dezarhivați arhiva **personal_data.zip** în directorul **dezarhivare/zip/**.
-Dezarhivați **doar** fișierul oraș natal în directorul curent.
-Verificați corectitudinea operațiilor.
 
-#. Dezarhivați arhiva **net.zip** în directorul **/tmp**.
-   Verificați corectitudinea operațiilor.
+* Creați un director cu numele **zip** în directorului **dezarhivare** ca în ierarhia de mai sus;
+* Dezarhivați arhiva **personal_data.zip** în directorul **dezarhivare/zip/**;
+* Dezarhivați **doar** fișierul oraș natal în directorul curent;
+* Verificați corectitudinea operațiilor: crearea directorului, dezarhivarea corectă.
+
+Exercițiu - dezarhivarea unei arhive
+""""""""""""""""""""""""""""""""""""
+
+* Creați directorul **my_net** în directorul **dezarhivare** ca în ierarhia de mai sus;
+* Dezarhivați arhiva **net.zip** în directorul creat anterior **my_net**.
+* Verificați corectitudinea operațiilor: crearea directorului, dezarhivarea corectă.
 
 Adăugarea de noi fișiere la arhive
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -459,25 +549,29 @@ Putem adăuga un nou fișier la arhivă astfel:
 
 .. code-block:: bash
 
-    student@uso-demo:~$ zip -u fisiere.zip fisier4
-      adding: fisier4 (deflated 0%)
-    student@uso-demo:~$ zip -sf fisiere.zip
+    student@uso:~$ zip -u înregistrări.zip înregistrare_lab04.mov
+      adding: înregistrare_lab04.mov (deflated 0%)
+    student@uso:~$ zip -sf înregistrări.zip
     Archive contains:
-      fisier1
-      fisier2
-      fisier3
-      fisier4
+      înregistrare_lab01.mov
+      înregistrare_lab02.mov
+      înregistrare_lab03.mov
+      înregistrare_lab04.mov
     Total 4 entries (16777216 bytes)
 
 .. note::
     Observăm cum după comanda de adăugare de fișier la arhivă, am verificat corectitudinea operației.
 
-În exemplul de mai sus am adăugat **fisier4** la arhivă.
+În exemplul de mai sus am adăugat **înregistrare_lab04.mov** la arhivă.
 Pentru a adăuga un nou fișier la arhivă am folosit opțiunea **-u**:
 
 
 
 Exercițiu - adăugarea unui fișier în arhivă
 """""""""""""""""""""""""""""""""""""""""""
-Creați un fișier **UPB** și adăugați-l la arhiva **personal_data.zip**, ca în exemplul de mai sus.
-Verificați corectitudinea operației.
+
+* Creați un fișier **UPB** cu conținutul "Make UPB Great Again!";
+* Verificați conținutul arhivei **personal_data.zip**;
+* Adăugați fișierul **UPB** în arhivă;
+* Verificați adăugarea fișierului la arhivă fără dezarhivare;
+* Dezarhivați arhiva în directorul **personal_data_zip**.

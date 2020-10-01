@@ -1,53 +1,203 @@
 Căi absolute și relative
 ========================
 
-1) Calea curentă
-----------------
+Atunci când folosim un terminal este foarte important să știm unde în sistemul de fișiere ne aflăm.
+Dacă vrem să jucăm un joc, știm că vrem să ajungem în directorul **Games** unde avem jocul preferat, **Warcraft3**.
+Pentru a ajunge în directorul **Games** trebuie să știm unde suntem și apoi să navigăm în sistemul de fișiere până acolo.
 
-Calea curentă se afișează folosind utilitarul ``pwd``. Etimologia comenzii
-provine din engleză - *Print Working Directory*. Acesta afișează calea
-completă de la rădăcină; aceasta este o cale **absolută**. Putem învăța
-mai multe detalii despre comandă uitându-ne în manual ``man pwd``.
+În exemplul de mai jos navigăm printr-o ierarhie de fișiere pentru a ajunge la laboratorul 3 al materiei USO.
 
+.. figure:: gifs/relative_paths.gif
 
-**Exercițiu:** Afișați calea curentă.
+Vedem în exemplul de mai sus cum, în interfața grafică, avansăm în ierarhia de fișiere.
 
-2) Cale relativă și cale absolută
----------------------------------
+Echivalentul în terminal (linie de comandă) ar fi:
 
-În sistemul de fișiere, ne putem referi la un fișier prin 2 modalități:
-folosind **calea relativă** sau folosind **calea absolută**. Pentru o mai bună
-înțelegere, o să folosind un exemplu din viața noastră. Considerând un
-serial pe Netflix, putem să ne referim la un episod în 2 moduri:
+* `cd cursuri`
+* `cd uso.git`
+* `cd lab03`
 
-#. Față de început - primul episod (în mod absolut): *În episodul 213 s-a întâmplat X.*
-#. Față de episodul la care ne aflăm (în mod relativ): *În urmă cu 3 episoade s-a întâmplat Y.*
+sau:
+* `cd cursuri/uso.git/lab03`.
+
+.. note::
+    Observăm că de fiecare dată parametrul lui `cd` este o cale relativă la cea curentă.
+
+.. important::
+    Atunci când vrem să schimbăm calea curentă avem două opțiuni: putem să-i dăm o cale relativă la calea noastră curentă sau putem să dăm o cale care pornește de la începutul sistemului de fișiere (**/**).
+    Astfel, prima cale se numește **cale relativă**, iar cea de-a doua se numeste **cale absolută**.
+    Fiecare situație necesită un tip de cale; nu putem afirma că una e mai bună ca alta.
+
+Să luăm câte o situație ideală pentru fiecare caz:
+
+.. code-block::
+
+    student@uso:~$ ls dezarhivare/
+    tar  zip
+    student@uso:~$ ls /home/student/dezarhivare/
+    tar  zip
+
+În acest caz, ideal este să folosim calea relativă.
+Calea noastră curentă este `/home/student` și citirea fișierului `dezarhivare` este la un nivel distanță.
+
+.. code-block::
+
+    student@uso:~$ ls -l /etc/passwd
+    -rw-r--r-- 1 root root 1768 Sep  9 14:07 /etc/passwd
+    student@uso:~$ ls -l ../../etc/passwd
+    -rw-r--r-- 1 root root 1768 Sep  9 14:07 ../../etc/passwd
+
+În acest caz, este ideal să folosim calea absolută.
+Nu are sens să ne întoarcem la nodul rădăcină **/** (root) și apoi să urcăm la `/etc/passwd`.
+
+În continuare detaliem conceptele de cale curentă, relativă și absolută.
+
+Calea curentă
+-------------
+
+Calea curentă se afișează folosind utilitarul ``pwd``.
+Etimologia comenzii provine din engleză - *Print Working Directory*.
+Acesta afișează calea completă de la rădăcină; aceasta este o cale **absolută**.
+
+.. note::
+    Putem învăța mai multe detalii despre comandă în capitolul #### TODO EDI #### sau inspectând manualul ``man pwd``.
+
+.. code-block:: bash
+
+    student@uso:~$ pwd
+    /home/student
+    student@uso:~$ cd /usr/bin/
+    student@uso:/usr/bin$ pwd
+    /usr/bin
+
+Observăm cum calea curentă se schimbă atunci când schimbăm directorul în care ne aflăm.
+
+Cale relativă și cale absolută
+------------------------------
+
+Atunci când vrem să citim, scriem, ștergem un fișier sau director trebuie să ne referim la acel fișier sau director.
+În sistemul de fișiere, ne putem referi la un fișier prin 2 modalități: folosind **calea relativă** sau folosind **calea absolută**.
+Pentru o mai bună înțelegere, o să folosind un exemplu din viața noastră.
+Considerând un serial pe Netflix, putem să ne referim la un episod în 2 moduri:
+
+* Față de început - primul episod (în mod absolut): *În episodul 213 s-a întâmplat ceva.*
+* Față de episodul la care ne aflăm (în mod relativ): *În urmă cu 3 episoade s-a întâmplat ceva.*
 
 Similar, ne referim la un fișier:
 
-1. Pornind de la **/** (root), directorul de început - **cale absolută**.
-2. Pornind de la directorul curent - **cale relativă**.
+#. Pornind de la **/** (root), directorul de început - **cale absolută**.
+
+.. code-block:: bash
+
+    student@uso:~$ ls -l /usr/bin/touch
+    lrwxrwxrwx 1 root root 10 Mar 14  2015 /usr/bin/touch -> /bin/touch
+    student@uso:~$ ls -l /etc/passwd
+    -rw-r--r-- 1 root root 1768 Sep  9 14:07 /etc/passwd
+
+.. note::
+    Observăm că la începutul căilor este întotdeauna caracterul **/**
+
+#. Pornind de la directorul curent - **cale relativă**.
+
+.. important::
+    Este foarte important să știm unde ne aflăm.
+
+.. code-block:: bash
+
+    student@uso:~$ pwd
+    /home/student
+    student@uso:~$ ls -l ../../etc/passwd
+    -rw-r--r-- 1 root root 1768 Sep  9 14:07 ../../etc/passwd
+
+Observăm că ne aflăm la calea `/home/student` și ne referm la fișierul `passwd` relativ la calea curentă.
+
+.. code-block:: bash
+
+    student@uso:/etc$ pwd
+    /etc
+    student@uso:/etc$ ls passwd
+    passwd
+
+Acum suntem în directorul `/etc`, deci folosind o cale relativă, ne referim la fișierul `passwd` direct.
 
 3) Schimbarea căii curente
 --------------------------
 
-Calea curentă de schimbă folosind utilitarul **cd**. Etimologia comenzii
-provine din engleză - *Change Directory*. Putem învăța mai multe detalii
-despre comandă folosind manualul ``man cd``. Acesta primește ca prim
-parametru o cale, iar efectul comenzii constă în schimbarea căii curente.
+Pentru a ne deplasa în ierarhia de fișiere din sistem, trebuie să schimbăm calea curentă.
+Calea curentă de schimbă folosind utilitarul ``cd``.
+Etimologia comenzii provine din engleză - *Change Directory*.
+
+.. note::
+    Putem învăța mai multe detalii despre comandă din secțiunea ##### TODO EDI#### sau folosind manualul ``man cd``.
+
+Acesta primește ca prim parametru o cale, iar efectul comenzii constă în schimbarea căii curente.
 Putem folosi atât cale absolută, cât și cale relativă.
 
-**Exercițiu:** Schimbați directorul curent în **/tmp** folosind cale relativă.
+.. code-block:: bash
+
+    student@uso:/etc$ pwd
+    /etc
+    student@uso:/etc$ ls passwd
+    passwd
+    student@uso:/etc$ ^C
+    student@uso:/etc$ pwd
+    /etc
+    student@uso:/etc$ cd /usr
+    student@uso:/usr$ pwd
+    /usr
+    student@uso:/usr$ cd /home/student
+    student@uso:~$ pwd
+    /home/student
+    student@uso:~$ cd /home
+    student@uso:/home$ pwd
+    /home
+    student@uso:/home$ cd student/
+    student@uso:~$ pwd
+    /home/student
 
 4) Scurtături de căi
 --------------------
 
-Pentru o eficiență mai bună, putem folosi simboluri pentru interacțiunea cu
-utilitarul ``cd``:
+Pentru o eficiență mai bună, putem folosi simboluri pentru interacțiunea cu utilitarul ``cd``:
 
 * Folosim **-** pentru a referi la **calea anterioară**.
+
+
+.. code-block:: bash
+
+    student@uso:~$ pwd
+    /home/student
+    student@uso:~$ cd /usr/bin/
+    student@uso:/usr/bin$ pwd
+    /usr/bin
+    student@uso:/usr/bin$ cd -
+    /home/student
+    student@uso:~$ cd -
+    /usr/bin
+    student@uso:/usr/bin$ cd -
+    /home/student
+    student@uso:~$ cd -
+    /usr/bin
+
+
 * Folosim **~** pentru a referi **calea home** a utilizatorului.
 
-**Exercițiu:** Mergeți la calea anterioară.
-**Exercițiu:** Schimbați directorul curent în **/tmp** folosind cale absolută.
-**Exercițiu:** Schimbați directorul curent în calea home a utilizatorului curent.
+.. code-block:: bash
+
+    student@uso:/usr/bin$ cd /tmp/
+    student@uso:/tmp$ pwd
+    /tmp
+    student@uso:/tmp$ cd ~
+    student@uso:~$ pwd
+    /home/student
+    student@uso:~$ cd /usr/bin/X11/
+    student@uso:/usr/bin/X11$ pwd
+    /usr/bin/X11
+    student@uso:/usr/bin/X11$ cd ~
+    student@uso:~$ pwd
+    /home/student
+
+
+.. important::
+    Nu este necesar să executăm ``pwd`` de fiecare dată.
+    În promptul terminalului după **student@uso:** este calea curentă; promptul se termină în caracterul **$**.

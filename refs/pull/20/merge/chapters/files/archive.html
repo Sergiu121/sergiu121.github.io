@@ -199,9 +199,9 @@
             
               <ul>
                 
-                  <li class="toctree-l2"><a href="#arhive-tar" class="reference internal">Arhive tar</a></li>
+                  <li class="toctree-l2"><a href="#arhivare-tar" class="reference internal">Arhivare - tar</a></li>
                 
-                  <li class="toctree-l2"><a href="#arhive-zip" class="reference internal">Arhive zip</a></li>
+                  <li class="toctree-l2"><a href="#comprimare-zip" class="reference internal">Comprimare - zip</a></li>
                 
               </ul>
             
@@ -490,103 +490,132 @@
 <p>Sunt situații în care vrem să trimitem/stocăm o ierarhie de fișiere.
 Pentru a ușura acest lucru, putem folosi arhive.
 Arhivele sunt o agregare a unei ierarhii de fișiere și directoare într-un singur fișier.</p>
+<p>Există două motive pentru care am vrea să folosim arhive:</p>
+<ol class="arabic simple">
+<li><p><strong>Arhivare</strong> - să avem o ierarhie de fișiere și directoare într-un singur fișier.
+De exemplu, vrem să trimitem pe mail o ierarhie de directoare cu laboratoarele și resursele materiei USO.</p></li>
+<li><p><strong>Compresie</strong> - ne dorim ca fișierele să ocupe mai puțin spațiu.</p></li>
+</ol>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p><strong>Comprimarea</strong> este asemănătoare cu arhivarea, dar, în plus micșorează dimensiunea fișierului rezultat.
 Rezultatul este similar: agregarea într-un singur fișier.</p>
 </div>
-<p>În acest capitol vom folos arhive de tipul <strong>zip</strong> și <strong>tar</strong>.</p>
+<p>În acest capitol vom folos arhive de tipul <strong>zip</strong> și <strong>tar</strong>.
+Vom folosi <strong>tar</strong> pentru arhivare și <strong>zip</strong> pentru comprimare.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>În mod normal acestea fac parte din suita nativă a sistemului de operare (pe Linux).
+<p>Pe mașina virtuală pusă la dispoziție, aveți instalat utilitarele necesare.
 În cazul în care nu le aveți, le puteți instala folosind comanda: <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">apt</span> <span class="pre">install</span> <span class="pre">tar</span></code> respectiv <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">apt</span> <span class="pre">install</span> <span class="pre">zip</span></code> (pentru mai multe detalii, vezi secțiunea de instalare de aplicații).</p>
 </div>
-<div class="section" id="arhive-tar">
-<h2><span class="section-number">5.1. </span>Arhive <strong>tar</strong><a class="headerlink" href="#arhive-tar" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="arhivare-tar">
+<h2><span class="section-number">5.1. </span>Arhivare - <strong>tar</strong><a class="headerlink" href="#arhivare-tar" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="crearea-arhivelor">
 <h3><span class="section-number">5.1.1. </span>Crearea arhivelor<a class="headerlink" href="#crearea-arhivelor" title="Permalink to this headline">¶</a></h3>
+<p>Arhivele sunt utile atunci când vrem să trimitem pe mail sau să încărcăm pe un site o ierarhie de fișiere și directoare.
+Pe scurt, atunci când vrem să agregăm totul într-un singur fișier. Acesta poate fi transmis foarte ușor și ulterior dezarhivat.</p>
 <p>Creăm o arhivă <strong>tar</strong>, astfel:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso-demo:~$ ls -lh
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ ls -lh
 total <span class="m">9</span>.0M
--rw-r--r-- <span class="m">1</span> student student <span class="m">5</span>.0M Aug <span class="m">19</span> <span class="m">11</span>:55 fisier1
--rw-r--r-- <span class="m">1</span> student student <span class="m">3</span>.0M Aug <span class="m">19</span> <span class="m">11</span>:55 fisier2
--rw-r--r-- <span class="m">1</span> student student <span class="m">1</span>.0M Aug <span class="m">19</span> <span class="m">11</span>:55 fisier3
-student@uso-demo:~$ tar cvf fisiere.tar fisier1 fisier2 fisier3
-fisier1
-fisier2
-fisier3
-student@uso-demo:~$ ls -lh
+-rw-r--r-- <span class="m">1</span> student student <span class="m">5</span>.0M Aug <span class="m">19</span> <span class="m">11</span>:55 înregistrare_lab01.mov
+-rw-r--r-- <span class="m">1</span> student student <span class="m">3</span>.0M Aug <span class="m">19</span> <span class="m">11</span>:55 înregistrare_lab02.mov
+-rw-r--r-- <span class="m">1</span> student student <span class="m">1</span>.0M Aug <span class="m">19</span> <span class="m">11</span>:55 înregistrare_lab03.mov
+student@uso:~$ tar cvf înregistrări.tar înregistrare_lab01.mov înregistrare_lab02.mov înregistrare_lab03.mov
+înregistrare_lab01.mov
+înregistrare_lab02.mov
+înregistrare_lab03.mov
+student@uso:~$ ls -lh
 total 19M
--rw-r--r-- <span class="m">1</span> student student <span class="m">5</span>.0M Aug <span class="m">19</span> <span class="m">11</span>:55 fisier1
--rw-r--r-- <span class="m">1</span> student student <span class="m">3</span>.0M Aug <span class="m">19</span> <span class="m">11</span>:55 fisier2
--rw-r--r-- <span class="m">1</span> student student <span class="m">1</span>.0M Aug <span class="m">19</span> <span class="m">11</span>:55 fisier3
--rw-r--r-- <span class="m">1</span> student student <span class="m">9</span>.1M Aug <span class="m">19</span> <span class="m">11</span>:56 fisiere.tar
+-rw-r--r-- <span class="m">1</span> student student <span class="m">5</span>.0M Aug <span class="m">19</span> <span class="m">11</span>:55 înregistrare_lab01.mov
+-rw-r--r-- <span class="m">1</span> student student <span class="m">3</span>.0M Aug <span class="m">19</span> <span class="m">11</span>:55 înregistrare_lab02.mov
+-rw-r--r-- <span class="m">1</span> student student <span class="m">1</span>.0M Aug <span class="m">19</span> <span class="m">11</span>:55 înregistrare_lab03.mov
+-rw-r--r-- <span class="m">1</span> student student <span class="m">9</span>.1M Aug <span class="m">19</span> <span class="m">11</span>:56 înregistrări.tar
 </pre></div>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Observăm cum după comanda de creare a arhivei <strong>tar</strong> am verficat corectitudinea operației.</p>
+<p>Observăm cum după comanda de creare a arhivei <strong>tar</strong> am verificat corectitudinea operației.</p>
 </div>
-<p>Având trei fișiere pe care vrem să le arhivăm, folosim utilitarul <strong>tar</strong> împreună cu parametrii potriviți:</p>
+<p>Având trei fișiere pe care vrem să le arhivăm, folosim utilitarul <strong>tar</strong> împreună cu parametrii următori:</p>
 <ul class="simple">
 <li><p>c: creează arhiva;</p></li>
-<li><p>v: <em>verbose</em> - afișează detalii despre operație;</p></li>
+<li><p>v: afișează detalii despre operație (verbose);</p></li>
 <li><p>f: folosește arhiva dată ca parametru (în cazul de față, numele ei).</p></li>
 </ul>
-<p>Putem observa că fișierul de tipul <strong>tar</strong> nou creat <strong>nu</strong> ocupă mai puțin spațiu; din contră, ocupă mai mult spațiu din cauza metadatelor fișierului.</p>
+<p>Putem observa că fișierul de tipul <strong>tar</strong> nou creat <strong>nu</strong> ocupă mai puțin spațiu; din contră, ocupă mai mult spațiu din cauza metadatelor fișierului.
+Metadatele sunt modalitatea sistemului de fișiere de a reține informații despre acesta: data creării, dimensiunea, utilizatorul ce deține fișierul, etc.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Pentru o mai bună înțelegere a comenzii de creare a arhivelor inspectați manualul: <code class="docutils literal notranslate"><span class="pre">man</span> <span class="pre">tar</span></code>.</p>
 </div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Putem verifica tipul fișierului folosind utilitarul <strong>file</strong>.</p>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ file înregistrări.tar
+înregistrări.tar: POSIX tar archive <span class="o">(</span>GNU<span class="o">)</span>
+</pre></div>
+</div>
 <div class="section" id="exercitiu-creare-arhive">
 <h4><span class="section-number">5.1.1.1. </span>Exercițiu - creare arhive<a class="headerlink" href="#exercitiu-creare-arhive" title="Permalink to this headline">¶</a></h4>
-<ol class="arabic simple">
-<li><p>Creați 3 fișiere noi care să conțină pe rând numele, prenumele și anul vostru de naștere.
-Creați o arhivă de tipul <strong>tar</strong> care să conțină cele trei fișiere și care să aibă  numele <strong>personal_data.tar</strong>.
-Verificați corectitudinea operațiilor.
-Verificați dimensiunea arhivei.</p></li>
-<li><p>Creați o arhivă a fișierelor din interiorul directorului <strong>/usr/include/net/</strong> cu numele <strong>net.tar</strong>.
-Verificați corectitudinea operației.
-Verificați dimensiunea arhivei.</p></li>
-</ol>
+<ul class="simple">
+<li><p>Creați 3 fișiere noi care să conțină pe rând numele, prenumele și anul vostru de naștere.</p></li>
+<li><p>Creați o arhivă de tipul <strong>tar</strong> care să conțină cele trei fișiere și care să aibă  numele <strong>personal_data.tar</strong>.</p></li>
+<li><p>Verificați corectitudinea operațiilor.</p></li>
+<li><p>Verificați dimensiunea arhivei.</p></li>
+<li><p>Verificați că fișierul nou cred este o arhivă <strong>tar</strong>.</p></li>
+</ul>
+</div>
+<div class="section" id="id1">
+<h4><span class="section-number">5.1.1.2. </span>Exercițiu - creare arhive<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>Creați o arhivă a fișierelor din interiorul directorului <strong>/usr/include/net/</strong> cu numele <strong>net.tar</strong>.</p></li>
+<li><p>Verificați corectitudinea operației.</p></li>
+<li><p>Verificați dimensiunea arhivei.</p></li>
+<li><p>Verificați că fișierul nou cred este o arhivă <strong>tar</strong>.</p></li>
+</ul>
 </div>
 </div>
 <div class="section" id="afisarea-continutului-arhivelor">
 <h3><span class="section-number">5.1.2. </span>Afișarea conținutului arhivelor<a class="headerlink" href="#afisarea-continutului-arhivelor" title="Permalink to this headline">¶</a></h3>
-<p>Putem vizualiza conținutului unei arhive <strong>tar</strong> fără a efectura operația de dezarhivare.
-Putem face acest lucru folosind parametrii <strong>-t</strong> și <strong>-f</strong> ale utilitarului <strong>tar</strong> ca în exemplul de mai jos:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso-demo:~$ tar tf fisiere.tar
-fisier1
-fisier2
-fisier3
+<p>Există cazuri în care vrem să vedem conținutul unei arhive.
+Putem să vedem ce fișiere conține, fără a o deschide.</p>
+<p>Putem face acest lucru folosind parametrii <strong>t</strong> și <strong>f</strong> ale utilitarului <strong>tar</strong> ca în exemplul de mai jos:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ tar tf înregistrări.tar
+înregistrare_lab01.mov
+înregistrare_lab02.mov
+înregistrare_lab03.mov
 </pre></div>
 </div>
-<p>Pentru a vizualiza arhiva <strong>fără</strong> dezarhivare folosim opțiunea <strong>-t</strong>.
-Opțiunea <strong>-f</strong> este pentru a specifica ce arhivă vrem să afișăm.</p>
+<p>Pentru a vizualiza arhiva <strong>fără</strong> dezarhivare folosim opțiunea <strong>t</strong>.
+Opțiunea <strong>f</strong> este pentru a specifica ce arhivă vrem să afișăm.</p>
 <div class="section" id="exercitiu-afisarea-continutului-unei-arhive">
 <h4><span class="section-number">5.1.2.1. </span>Exercițiu - afișarea conținutului unei arhive<a class="headerlink" href="#exercitiu-afisarea-continutului-unei-arhive" title="Permalink to this headline">¶</a></h4>
-<p>Acest exercițiu folosește arhiva creată la exercițiu anterior.
-Afișați conținutul arhivelor <strong>personal_data.tar</strong> și <strong>net.tar</strong> <strong>fără</strong> dezarhivare.</p>
+<ul class="simple">
+<li><p>Afișați conținutul arhivelor create la exercițiul anterior <strong>personal_data.tar</strong> și <strong>net.tar</strong> <strong>fără</strong> dezarhivare.</p></li>
+</ul>
 </div>
 </div>
 <div class="section" id="dezarhivarea-arhivelor">
 <h3><span class="section-number">5.1.3. </span>Dezarhivarea arhivelor<a class="headerlink" href="#dezarhivarea-arhivelor" title="Permalink to this headline">¶</a></h3>
+<p>Dezarhivarea este procesul opus al arhivării.
+Având un fișier de tip <strong>tar</strong> vrem să obtinem ierarhia de fișiere din interiorul acesteia.</p>
 <p>În momentul în care dezarhivăm un fișier de tip <strong>tar</strong>, fișierele din cadrul arhivei vor fi create în directorul curent (dacă nu se specifică altfel).
 Cu alte cuvinte, ierarhia de fișiere pe care am arhivat-o se păstrează, iar în momentul dezarhivării aceasta va arăta la fel ca înainte de arhivare.
-Pentru a vedea mai clar efectul operației de dezarhivare, ștergem fișierele fisier1, fisier2, fisier3, adică fișierele care se află în arhiva <strong>fisiere.tar</strong>.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso-demo:~$ rm fisier1 fisier2 fisier3
-student@uso-demo:~$ ls
-fisiere.tar
-student@uso-demo:~$ tar xvf fisiere.tar
-fisier1
-fisier2
-fisier3
-student@uso-demo:~$ ls -lh
+Pentru a vedea mai clar efectul operației de dezarhivare, ștergem fișierele înregistrare_lab01.mov, înregistrare_lab02.mov, înregistrare_lab03.mov, adică fișierele care se află în arhiva <strong>înregistrări.tar</strong>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ rm înregistrare_lab01.mov înregistrare_lab02.mov înregistrare_lab03.mov
+student@uso:~$ ls
+înregistrări.tar
+student@uso:~$ tar xvf înregistrări.tar
+înregistrare_lab01.mov
+înregistrare_lab02.mov
+înregistrare_lab03.mov
+student@uso:~$ ls -lh
 total 19M
--rw-r--r-- <span class="m">1</span> student student <span class="m">5</span>.0M Aug <span class="m">19</span> <span class="m">11</span>:55 fisier1
--rw-r--r-- <span class="m">1</span> student student <span class="m">3</span>.0M Aug <span class="m">19</span> <span class="m">11</span>:55 fisier2
--rw-r--r-- <span class="m">1</span> student student <span class="m">1</span>.0M Aug <span class="m">19</span> <span class="m">11</span>:55 fisier3
--rw-r--r-- <span class="m">1</span> student student <span class="m">9</span>.1M Aug <span class="m">19</span> <span class="m">12</span>:04 fisiere.tar
+-rw-r--r-- <span class="m">1</span> student student <span class="m">5</span>.0M Aug <span class="m">19</span> <span class="m">11</span>:55 înregistrare_lab01.mov
+-rw-r--r-- <span class="m">1</span> student student <span class="m">3</span>.0M Aug <span class="m">19</span> <span class="m">11</span>:55 înregistrare_lab02.mov
+-rw-r--r-- <span class="m">1</span> student student <span class="m">1</span>.0M Aug <span class="m">19</span> <span class="m">11</span>:55 înregistrare_lab03.mov
+-rw-r--r-- <span class="m">1</span> student student <span class="m">9</span>.1M Aug <span class="m">19</span> <span class="m">12</span>:04 înregistrări.tar
 </pre></div>
 </div>
 <div class="admonition note">
@@ -595,43 +624,46 @@ total 19M
 </div>
 <p>Pentru dezarhivare am folosit din manualul comenzii <strong>tar</strong> următorii parametrii:</p>
 <ul class="simple">
-<li><p>x: creează arhiva;</p></li>
-<li><p>v: <em>verbose</em> - afișează detalii despre operație;</p></li>
+<li><p>x: extrage arhiva (extract);</p></li>
+<li><p>v: afișează detalii despre operație (verbose);</p></li>
 <li><p>f: folosește arhiva dată ca parametru (în cazul de față, numele ei).</p></li>
 </ul>
-<p>Putem extrage conținutul arhivei la o anumită destinație.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso-demo:~$ ls -l
+<p>Avem situații când vrem să extragem conținutul arhivei la o anumită destinație.
+Spre exemplu, am descărcat scheletul de temă de la facultate, acesta se află în directorul <cite>~/Downloads</cite>, iar noi vrem să o dezarhivăm în directorul <cite>~/facultate/uso/teme/</cite>.</p>
+<p>Sau am descărcat în <cite>~/Downloads/</cite> de la un prieten o arhivă cu înregistrările video ale laboratoarelor.
+Vrem să le dezarhivăm în directorul <cite>~/facultate/uso/laboratoare/video/</cite>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ ls -l
 total <span class="m">18436</span>
--rw-r--r-- <span class="m">1</span> student student <span class="m">5242880</span> Aug <span class="m">19</span> <span class="m">11</span>:55 fisier1
--rw-r--r-- <span class="m">1</span> student student <span class="m">3145728</span> Aug <span class="m">19</span> <span class="m">11</span>:55 fisier2
--rw-r--r-- <span class="m">1</span> student student <span class="m">1048576</span> Aug <span class="m">19</span> <span class="m">11</span>:55 fisier3
--rw-r--r-- <span class="m">1</span> student student <span class="m">9439088</span> Aug <span class="m">19</span> <span class="m">12</span>:04 fisiere.tar
-student@uso-demo:~$ mkdir -p dezarhivare/tar
-student@uso-demo:~$ tree
+-rw-r--r-- <span class="m">1</span> student student <span class="m">5242880</span> Aug <span class="m">19</span> <span class="m">11</span>:55 înregistrare_lab01.mov
+-rw-r--r-- <span class="m">1</span> student student <span class="m">3145728</span> Aug <span class="m">19</span> <span class="m">11</span>:55 înregistrare_lab02.mov
+-rw-r--r-- <span class="m">1</span> student student <span class="m">1048576</span> Aug <span class="m">19</span> <span class="m">11</span>:55 înregistrare_lab03.mov
+-rw-r--r-- <span class="m">1</span> student student <span class="m">9439088</span> Aug <span class="m">19</span> <span class="m">12</span>:04 înregistrări.tar
+student@uso:~$ mkdir -p dezarhivare/tar
+student@uso:~$ tree
 .
 <span class="p">|</span>-- dezarhivare
 <span class="p">|</span>   <span class="sb">`</span>-- tar
-<span class="p">|</span>-- fisier1
-<span class="p">|</span>-- fisier2
-<span class="p">|</span>-- fisier3
-<span class="sb">`</span>-- fisiere.tar
+<span class="p">|</span>-- înregistrare_lab01.mov
+<span class="p">|</span>-- înregistrare_lab02.mov
+<span class="p">|</span>-- înregistrare_lab03.mov
+<span class="sb">`</span>-- înregistrări.tar
 
 <span class="m">2</span> directories, <span class="m">4</span> files
-student@uso-demo:~$ tar xvf fisiere.tar --directory dezarhivare/tar/
-fisier1
-fisier2
-fisier3
-student@uso-demo:~$ tree
+student@uso:~$ tar xvf înregistrări.tar --directory dezarhivare/tar/
+înregistrare_lab01.mov
+înregistrare_lab02.mov
+înregistrare_lab03.mov
+student@uso:~$ tree
 .
 <span class="p">|</span>-- dezarhivare
 <span class="p">|</span>   <span class="sb">`</span>-- tar
-<span class="p">|</span>       <span class="p">|</span>-- fisier1
-<span class="p">|</span>       <span class="p">|</span>-- fisier2
-<span class="p">|</span>       <span class="sb">`</span>-- fisier3
-<span class="p">|</span>-- fisier1
-<span class="p">|</span>-- fisier2
-<span class="p">|</span>-- fisier3
-<span class="sb">`</span>-- fisiere.tar
+<span class="p">|</span>       <span class="p">|</span>-- înregistrare_lab01.mov
+<span class="p">|</span>       <span class="p">|</span>-- înregistrare_lab02.mov
+<span class="p">|</span>       <span class="sb">`</span>-- înregistrare_lab03.mov
+<span class="p">|</span>-- înregistrare_lab01.mov
+<span class="p">|</span>-- înregistrare_lab02.mov
+<span class="p">|</span>-- înregistrare_lab03.mov
+<span class="sb">`</span>-- înregistrări.tar
 
 <span class="m">2</span> directories, <span class="m">7</span> files
 </pre></div>
@@ -640,220 +672,264 @@ student@uso-demo:~$ tree
 <p class="admonition-title">Note</p>
 <p>Observăm că după crearea directoarelor și după extragerea arhivelor am verificat corectitudinea operațiilor.</p>
 </div>
-<p>După cum ați observat în exemplu de mai sus, pentru a extrage fișierele către o anumită cale, folosim opțiunea <strong>–directory</strong>:</p>
+<p>După cum observăm în exemplu de mai sus, pentru a extrage fișierele către o anumită cale, folosim opțiunea <strong>–directory</strong> (- - d i r e c t o r y):</p>
 <p>Putem extrage un singur fișier fără să fim obligați să dezarhivăm tot.
 Folosim comanda de mai jos pentru a face acest lucru.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso-demo:~$ rm fisier1 fisier2 fisier3
-student@uso-demo:~$ ls
-dezarhivare  fisiere.tar
-student@uso-demo:~$ tar xvf fisiere.tar fisier1
-fisier1
-student@uso-demo:~$ ls -l
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ rm înregistrare_lab01.mov înregistrare_lab02.mov înregistrare_lab03.mov
+student@uso:~$ ls
+dezarhivare  înregistrări.tar
+student@uso:~$ tar xvf înregistrări.tar înregistrare_lab01.mov
+înregistrare_lab01.mov
+student@uso:~$ ls -l
 total <span class="m">14344</span>
 drwxr-xr-x <span class="m">3</span> student student    <span class="m">4096</span> Aug <span class="m">19</span> <span class="m">12</span>:15 dezarhivare
--rw-r--r-- <span class="m">1</span> student student <span class="m">5242880</span> Aug <span class="m">19</span> <span class="m">11</span>:55 fisier1
--rw-r--r-- <span class="m">1</span> student student <span class="m">9439088</span> Aug <span class="m">19</span> <span class="m">12</span>:04 fisiere.tar
+-rw-r--r-- <span class="m">1</span> student student <span class="m">5242880</span> Aug <span class="m">19</span> <span class="m">11</span>:55 înregistrare_lab01.mov
+-rw-r--r-- <span class="m">1</span> student student <span class="m">9439088</span> Aug <span class="m">19</span> <span class="m">12</span>:04 înregistrări.tar
 </pre></div>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Obervăm cum după comenzile de ștergere și dezarhivare s-a verificat corectitudinea operațiilor.</p>
+<p>Obervăm cum după comenzile de ștergere și dezarhivare am verificat corectitudinea operațiilor.
+Este extrem de util acest lucru.</p>
 </div>
-<p>După cum observați mai sus, am pus ca ultim parametru numele fișierului (<strong>fisier1</strong>).</p>
+<p>După cum observați mai sus, am pus ca ultim parametru numele fișierului (<strong>înregistrare_lab01.mov</strong>).</p>
 <div class="section" id="exercitiu-dezarhivarea-unei-arhive">
 <h4><span class="section-number">5.1.3.1. </span>Exercițiu - dezarhivarea unei arhive<a class="headerlink" href="#exercitiu-dezarhivarea-unei-arhive" title="Permalink to this headline">¶</a></h4>
-<ol class="arabic simple">
-<li><dl class="simple">
-<dt>Creați un director cu numele <strong>dezarhivare</strong> și în acest director încă unul cu numele <strong>tar</strong> ca în ierarhia de mai sus.</dt><dd><p>Dezarhivați arhiva <strong>personal_data.tar</strong> în directorul <strong>dezarhivare/tar/</strong>.
-Dezarhivați <strong>doar</strong> fișierul <strong>nume</strong> în directorul curent.
-Verificați corectitudinea operațiilor.</p>
-</dd>
-</dl>
-</li>
-<li><p>Dezarhivați arhiva <strong>net.tar</strong> în directorul <strong>/tmp/</strong>.
-Verificați corectitudinea operațiilor</p></li>
-</ol>
+<ul class="simple">
+<li><p>Creați un director cu numele <strong>personal</strong> și în acest director încă unul cu numele <strong>documente</strong> ca în ierarhia de mai sus.</p></li>
+<li><p>Dezarhivați arhiva <strong>personal_data.tar</strong> în directorul <strong>personal/documente/</strong>.</p></li>
+<li><p>Dezarhivați <strong>doar</strong> fișierul <strong>nume</strong> în directorul curent.</p></li>
+<li><p>Verificați corectitudinea operațiilor.</p></li>
+</ul>
+</div>
+<div class="section" id="id2">
+<h4><span class="section-number">5.1.3.2. </span>Exercițiu - dezarhivarea unei arhive<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>Dezarhivați arhiva <strong>net.tar</strong> în directorul <strong>/tmp/</strong>.</p></li>
+<li><p>Verificați corectitudinea operațiilor</p></li>
+</ul>
 </div>
 </div>
 <div class="section" id="adaugarea-de-noi-fisiere-la-arhive">
 <h3><span class="section-number">5.1.4. </span>Adăugarea de noi fișiere la arhive<a class="headerlink" href="#adaugarea-de-noi-fisiere-la-arhive" title="Permalink to this headline">¶</a></h3>
-<p>Putem adăuga un nou fișier la arhiva existentă astfel:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso-demo:~$ ls -l
+<p>Există cazuri în care vrem să adăugăm un nou fișier la o arhivă există.
+Spre exemplu, am mai făcut un laborator și vrem să-l adăugăm la arhiva de înregistrări.
+O variantă ar fi să ștergem arhiva și să o creăm din nou, dar nu este eficient.</p>
+<p>Adăugăm un nou fișier la arhivă folosind opțiunea <strong>r</strong>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ ls -l
 total <span class="m">25608</span>
 drwxr-xr-x <span class="m">3</span> student student    <span class="m">4096</span> Aug <span class="m">19</span> <span class="m">12</span>:15 dezarhivare
--rw-r--r-- <span class="m">1</span> student student <span class="m">5242880</span> Aug <span class="m">19</span> <span class="m">11</span>:55 fisier1
--rw-r--r-- <span class="m">1</span> student student <span class="m">3145728</span> Aug <span class="m">19</span> <span class="m">11</span>:55 fisier2
--rw-r--r-- <span class="m">1</span> student student <span class="m">1048576</span> Aug <span class="m">19</span> <span class="m">11</span>:55 fisier3
--rw-r--r-- <span class="m">1</span> student student <span class="m">7340032</span> Aug <span class="m">19</span> <span class="m">12</span>:35 fisier4
--rw-r--r-- <span class="m">1</span> student student <span class="m">9441280</span> Aug <span class="m">19</span> <span class="m">12</span>:36 fisiere.tar
-student@uso-demo:~$ tar -tf fisiere.tar
-fisier1
-fisier2
-fisier3
-student@uso-demo:~$ tar -rvf fisiere.tar fisier4
-fisier4
-student@uso-demo:~$ tar -tf fisiere.tar
-fisier1
-fisier2
-fisier3
-fisier4
+-rw-r--r-- <span class="m">1</span> student student <span class="m">5242880</span> Aug <span class="m">19</span> <span class="m">11</span>:55 înregistrare_lab01.mov
+-rw-r--r-- <span class="m">1</span> student student <span class="m">3145728</span> Aug <span class="m">19</span> <span class="m">11</span>:55 înregistrare_lab02.mov
+-rw-r--r-- <span class="m">1</span> student student <span class="m">1048576</span> Aug <span class="m">19</span> <span class="m">11</span>:55 înregistrare_lab03.mov
+-rw-r--r-- <span class="m">1</span> student student <span class="m">7340032</span> Aug <span class="m">19</span> <span class="m">12</span>:35 înregistrare_lab04.mov
+-rw-r--r-- <span class="m">1</span> student student <span class="m">9441280</span> Aug <span class="m">19</span> <span class="m">12</span>:36 înregistrări.tar
+student@uso:~$ tar -tf înregistrări.tar
+înregistrare_lab01.mov
+înregistrare_lab02.mov
+înregistrare_lab03.mov
+student@uso:~$ tar rvf înregistrări.tar înregistrare_lab04.mov
+înregistrare_lab04.mov
+student@uso:~$ tar tf înregistrări.tar
+înregistrare_lab01.mov
+înregistrare_lab02.mov
+înregistrare_lab03.mov
+înregistrare_lab04.mov
 </pre></div>
 </div>
-<p>Adăugăm un nou fișier la arhivă folosind opțiunea <strong>-r</strong>:
-În primă fază am verificat că <strong>fisier4</strong> nu există în arhivă.
-În continuare am adăugat <strong>fisier4</strong> la arhivă.</p>
+<p>În primă fază am verificat că <strong>înregistrare_lab04.mov</strong> nu există în arhivă.
+În continuare am adăugat <strong>înregistrare_lab04.mov</strong> la arhivă.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Observăm cum după comanda de adăugare de fișier la arhivă, am verificat corectitudinea operației.</p>
 </div>
 <div class="section" id="exercitiu-adaugare-de-noi-fisiere">
 <h4><span class="section-number">5.1.4.1. </span>Exercițiu - adăugare de noi fișiere<a class="headerlink" href="#exercitiu-adaugare-de-noi-fisiere" title="Permalink to this headline">¶</a></h4>
-<p>Creați un fișier <strong>UPB</strong> și adăugați-l la arhiva <strong>personal_data.tar</strong>, ca în exemplul de mai sus.
-Verificați corectitudinea operației.</p>
+<ul class="simple">
+<li><p>Creați un fișier <strong>UPB</strong>;</p></li>
+<li><p>Adăugați textul <em>Make UPB Great Again!</em> în interiorul fișierului;</p></li>
+<li><p>Adăugați-l la arhiva <strong>personal_data.tar</strong>, ca în exemplul de mai sus;</p></li>
+<li><p>Verificați corectitudinea operațiilor: crearea fișier, conținut fișier, corectitudine arhivă.</p></li>
+</ul>
 </div>
 </div>
 </div>
-<div class="section" id="arhive-zip">
-<h2><span class="section-number">5.2. </span>Arhive <strong>zip</strong><a class="headerlink" href="#arhive-zip" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id1">
-<h3><span class="section-number">5.2.1. </span>Crearea arhivelor<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="comprimare-zip">
+<h2><span class="section-number">5.2. </span>Comprimare - <strong>zip</strong><a class="headerlink" href="#comprimare-zip" title="Permalink to this headline">¶</a></h2>
+<p>Acțiunea de comprimare este compusă din doi pași: arhivare și reducerea dimensiunii (comprimare).
+Diferența între comprimare și arhivare este <strong>reducerea dimensiunii</strong>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>În continuare în acest capitol vom folosi noțiunea de arhivare, chiar dacă folosim utilitarul <strong>zip</strong>.</p>
+</div>
+<div class="section" id="id3">
+<h3><span class="section-number">5.2.1. </span>Crearea arhivelor<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
 <p>Folosim utilitarul <strong>zip</strong> împreună cu parametrii potriviți:
 Putem crea o arhivă de tipul <strong>zip</strong>, astfel:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso-demo:~$ ls -l
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ ls -l
 total <span class="m">16388</span>
 drwxr-xr-x <span class="m">3</span> student student    <span class="m">4096</span> Aug <span class="m">19</span> <span class="m">12</span>:15 dezarhivare
--rw-r--r-- <span class="m">1</span> student student <span class="m">5242880</span> Aug <span class="m">19</span> <span class="m">11</span>:55 fisier1
--rw-r--r-- <span class="m">1</span> student student <span class="m">3145728</span> Aug <span class="m">19</span> <span class="m">11</span>:55 fisier2
--rw-r--r-- <span class="m">1</span> student student <span class="m">1048576</span> Aug <span class="m">19</span> <span class="m">11</span>:55 fisier3
--rw-r--r-- <span class="m">1</span> student student <span class="m">7340032</span> Aug <span class="m">19</span> <span class="m">12</span>:35 fisier4
--rw-r--r-- <span class="m">1</span> student student <span class="m">9</span>.1M Aug <span class="m">19</span> <span class="m">17</span>:56 fisiere.tar
-student@uso-demo:~$ zip fisiere.zip fisier1 fisier2 fisier3
-  adding: fisier1 <span class="o">(</span>deflated <span class="m">0</span>%<span class="o">)</span>
-  adding: fisier2 <span class="o">(</span>deflated <span class="m">0</span>%<span class="o">)</span>
-  adding: fisier3 <span class="o">(</span>deflated <span class="m">0</span>%<span class="o">)</span>
-student@uso-demo:~$ ls -lh
+-rw-r--r-- <span class="m">1</span> student student <span class="m">5242880</span> Aug <span class="m">19</span> <span class="m">11</span>:55 înregistrare_lab01.mov
+-rw-r--r-- <span class="m">1</span> student student <span class="m">3145728</span> Aug <span class="m">19</span> <span class="m">11</span>:55 înregistrare_lab02.mov
+-rw-r--r-- <span class="m">1</span> student student <span class="m">1048576</span> Aug <span class="m">19</span> <span class="m">11</span>:55 înregistrare_lab03.mov
+-rw-r--r-- <span class="m">1</span> student student <span class="m">7340032</span> Aug <span class="m">19</span> <span class="m">12</span>:35 înregistrare_lab04.mov
+-rw-r--r-- <span class="m">1</span> student student <span class="m">9</span>.1M Aug <span class="m">19</span> <span class="m">17</span>:56 înregistrări.tar
+student@uso:~$ zip înregistrări.zip înregistrare_lab01.mov înregistrare_lab02.mov înregistrare_lab03.mov
+  adding: înregistrare_lab01.mov <span class="o">(</span>deflated <span class="m">0</span>%<span class="o">)</span>
+  adding: înregistrare_lab02.mov <span class="o">(</span>deflated <span class="m">0</span>%<span class="o">)</span>
+  adding: înregistrare_lab03.mov <span class="o">(</span>deflated <span class="m">0</span>%<span class="o">)</span>
+student@uso:~$ ls -lh
 total 26M
 drwxr-xr-x <span class="m">3</span> student student <span class="m">4</span>.0K Aug <span class="m">19</span> <span class="m">12</span>:15 dezarhivare
--rw-r--r-- <span class="m">1</span> student student <span class="m">5</span>.0M Aug <span class="m">19</span> <span class="m">11</span>:55 fisier1
--rw-r--r-- <span class="m">1</span> student student <span class="m">3</span>.0M Aug <span class="m">19</span> <span class="m">11</span>:55 fisier2
--rw-r--r-- <span class="m">1</span> student student <span class="m">1</span>.0M Aug <span class="m">19</span> <span class="m">11</span>:55 fisier3
--rw-r--r-- <span class="m">1</span> student student <span class="m">7</span>.0M Aug <span class="m">19</span> <span class="m">12</span>:35 fisier4
--rw-r--r-- <span class="m">1</span> student student <span class="m">9</span>.1M Aug <span class="m">19</span> <span class="m">17</span>:56 fisiere.tar
--rw-r--r-- <span class="m">1</span> student student <span class="m">9</span>.1M Aug <span class="m">19</span> <span class="m">17</span>:54 fisiere.zip
+-rw-r--r-- <span class="m">1</span> student student <span class="m">5</span>.0M Aug <span class="m">19</span> <span class="m">11</span>:55 înregistrare_lab01.mov
+-rw-r--r-- <span class="m">1</span> student student <span class="m">3</span>.0M Aug <span class="m">19</span> <span class="m">11</span>:55 înregistrare_lab02.mov
+-rw-r--r-- <span class="m">1</span> student student <span class="m">1</span>.0M Aug <span class="m">19</span> <span class="m">11</span>:55 înregistrare_lab03.mov
+-rw-r--r-- <span class="m">1</span> student student <span class="m">7</span>.0M Aug <span class="m">19</span> <span class="m">12</span>:35 înregistrare_lab04.mov
+-rw-r--r-- <span class="m">1</span> student student <span class="m">9</span>.1M Aug <span class="m">19</span> <span class="m">17</span>:56 înregistrări.tar
+-rw-r--r-- <span class="m">1</span> student student <span class="m">9</span>.1M Aug <span class="m">19</span> <span class="m">17</span>:54 înregistrări.zip
 </pre></div>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Observăm cum după comanda de creare a arhivei <strong>zip</strong> am verficat corectitudinea operației.</p>
+<p>Observăm cum după comanda de creare a arhivei <strong>zip</strong> am verificat corectitudinea operației.</p>
 </div>
-<p>Sintaxa este în felul următor: <code class="docutils literal notranslate"><span class="pre">zip</span> <span class="pre">numele_arhivă.zip</span> <span class="pre">ierarhia_de_fișiere</span></code>
-Putem observa că fișierul de tipul <strong>zip</strong> nou creat <strong>nu</strong> ocupă mai puțin spațiu decât suma dimensiunilor celor trei fișiere; din contră, ocupă mai mult.
+<p>Sintaxa este în felul următor: <code class="docutils literal notranslate"><span class="pre">zip</span> <span class="pre">numele_arhivă.zip</span> <span class="pre">ierarhia_de_fișiere</span></code></p>
+<p>Putem observa că fișierul de tipul <strong>zip</strong> nou creat <strong>nu</strong> ocupă mai puțin spațiu decât suma dimensiunilor celor trei fișiere.
 Motivul este că în sistemul de fișiere a apărut un nou fișier ce conține arhiva nou creată și sistemul de fișiere stochează informații despre acest fișier.
 Exemplu de informații stocate: dimensiune, data creare, permisiuni, utilizatorul deținător.</p>
+<p>Observăm că dimensiunea arhivei (<strong>înregistrări.tar</strong>) este aceeași cu aceea a comprimării (<strong>înregistrări.zip</strong>).
+De fapt, dacă ne uităm în detaliu, vom vedea că nu este așa.
+Mai sus vedeam afișarea dimensiuni în format <em>human-readable</em> adică în MegaBytes (MegaOcteți).
+Afișăm dimesniunea în octeți:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ ls -l inregistrari.*
+-rw-r--r-- <span class="m">1</span> student student <span class="m">9441280</span> Sep <span class="m">29</span> <span class="m">04</span>:51 înregistrări.tar
+-rw-r--r-- <span class="m">1</span> student student <span class="m">9439072</span> Sep <span class="m">29</span> <span class="m">04</span>:51 înregistrări.zip
+</pre></div>
+</div>
+<p>Observăm o mică diferență între cele două.
+Mergem mai departe cu un experiment.
+Facem arhivare și comprimare a ierarhiei de directoare <cite>/usr/bin</cite> si comparăm dimensiunea:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ ls -l usr_bin.*
+-rw-r--r-- <span class="m">1</span> student student <span class="m">100679680</span> Sep <span class="m">29</span> <span class="m">04</span>:46 usr_bin.tar
+-rw-r--r-- <span class="m">1</span> student student  <span class="m">87282498</span> Sep <span class="m">29</span> <span class="m">04</span>:46 usr_bin.zip
+student@uso:~$ ls -lh usr_bin.*
+-rw-r--r-- <span class="m">1</span> student student 97M Sep <span class="m">29</span> <span class="m">04</span>:46 usr_bin.tar
+-rw-r--r-- <span class="m">1</span> student student 84M Sep <span class="m">29</span> <span class="m">04</span>:46 usr_bin.zip
+</pre></div>
+</div>
+<p>Observăm deja o diferență mai mare de dimensiune între cele două.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Pentru o mai bună înțelegere a comenzii de creare a arhivelor inspectați manualul: <code class="docutils literal notranslate"><span class="pre">man</span> <span class="pre">zip</span></code>.</p>
 </div>
-<div class="section" id="id2">
-<h4><span class="section-number">5.2.1.1. </span>Exercițiu - creare arhive<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h4>
-<ol class="arabic simple">
-<li><p>Creați 3 fișiere noi care să conțină pe rând orașul natal, țara natală și liceul absolvit.
-Creați o arhivă de tipul <strong>zip</strong> care să conțină cele trei fișiere și care să aibă  numele <strong>personal_data.zip</strong>.
-Verificați corectitudinea operațiilor.
-Verificați dimensiunea arhivei.</p></li>
+<div class="section" id="id4">
+<h4><span class="section-number">5.2.1.1. </span>Exercițiu - creare arhive<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>Creați 3 fișiere noi care să conțină pe rând orașul natal, țara natală și liceul absolvit.</p></li>
+<li><p>Creați o arhivă de tipul <strong>zip</strong> care să conțină cele trei fișiere și care să aibă  numele <strong>personal_data.zip</strong>.</p></li>
+<li><p>Verificați corectitudinea operațiilor.</p></li>
+<li><p>Verificați dimensiunea arhivei.</p></li>
+</ul>
+</div>
+<div class="section" id="id5">
+<h4><span class="section-number">5.2.1.2. </span>Exercițiu - creare arhive<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
 <li><p>Creați o arhivă de tipul <strong>zip</strong> a fișierelor din interiorul directorului <strong>/usr/include/net/</strong> cu numele <strong>net.zip</strong>.</p></li>
-</ol>
+<li><p>Comparați dimensiunea arhivei <strong>zip</strong> cu cea <strong>tar</strong> de la exercițiu precendent.</p></li>
+</ul>
 </div>
 </div>
-<div class="section" id="id3">
-<h3><span class="section-number">5.2.2. </span>Afișarea conținutului arhivelor<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id6">
+<h3><span class="section-number">5.2.2. </span>Afișarea conținutului arhivelor<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
 <p>Putem vizualiza conținutul arhivei astfel:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso-demo:~$ zip -sf fisiere.zip
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ zip -sf înregistrări.zip
 Archive contains:
-  fisier1
-  fisier2
-  fisier3
+  înregistrare_lab01.mov
+  înregistrare_lab02.mov
+  înregistrare_lab03.mov
 </pre></div>
 </div>
 <p>Pentru a vizualiza arhiva <strong>fără</strong> dezarhivare folosim opțiunea <strong>-sf</strong> (prescurtare de la <strong>show-files</strong>).</p>
 <div class="section" id="exercitiu-afisarea-continutului-unei-arhivei">
 <h4><span class="section-number">5.2.2.1. </span>Exercițiu - afișarea conținutului unei arhivei<a class="headerlink" href="#exercitiu-afisarea-continutului-unei-arhivei" title="Permalink to this headline">¶</a></h4>
-<p>Acest exercițiu folosește arhiva creată la exercițiu anterior.
-Afișați conținutul arhivelor <strong>personal_data.zip</strong> și <strong>net.zip</strong> <strong>fără</strong> dezarhivare.</p>
+<ul class="simple">
+<li><p>Acest exercițiu folosește arhiva creată la exercițiu anterior.</p></li>
+<li><p>Afișați conținutul arhivelor <strong>personal_data.zip</strong> și <strong>net.zip</strong> <strong>fără</strong> dezarhivare.</p></li>
+</ul>
 </div>
 </div>
-<div class="section" id="id4">
-<h3><span class="section-number">5.2.3. </span>Dezarhivarea arhivelor<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id7">
+<h3><span class="section-number">5.2.3. </span>Dezarhivarea arhivelor<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
 <p>În momentul în care dezarhivăm un fișier de tip <strong>zip</strong>, fișierele din cadrul arhivei vor fi create în directorul curent (dacă nu se specifică altfel).
 Cu alte cuvinte, ierarhia de fișiere pe care am arhivat-o se păstrează, iar în momentul dezarhivării aceasta va arăta la fel ca înainte de arhivare.
-Pentru a vedea mai clar efectul operației de dezarhivare, ștergem fișierele fisier1, fisier2, fisier3, adică fișierele care se află în arhiva <strong>fisiere.zip</strong>.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso-demo:~$ ls -l
+Pentru a vedea mai clar efectul operației de dezarhivare, ștergem fișierele înregistrare_lab01.mov, înregistrare_lab02.mov, înregistrare_lab03.mov, adică fișierele care se află în arhiva <strong>înregistrări.zip</strong>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ ls -l
 total <span class="m">29708</span>
 drwxr-xr-x <span class="m">3</span> student student    <span class="m">4096</span> Aug <span class="m">19</span> <span class="m">12</span>:15 dezarhivare
--rw-r--r-- <span class="m">1</span> student student <span class="m">5242880</span> Aug <span class="m">19</span> <span class="m">11</span>:55 fisier1
--rw-r--r-- <span class="m">1</span> student student <span class="m">3145728</span> Aug <span class="m">19</span> <span class="m">11</span>:55 fisier2
--rw-r--r-- <span class="m">1</span> student student <span class="m">1048576</span> Aug <span class="m">19</span> <span class="m">11</span>:55 fisier3
--rw-r--r-- <span class="m">1</span> student student <span class="m">7340032</span> Aug <span class="m">19</span> <span class="m">12</span>:35 fisier4
--rw-r--r-- <span class="m">1</span> student student <span class="m">9441280</span> Aug <span class="m">19</span> <span class="m">17</span>:56 fisiere.tar
--rw-r--r-- <span class="m">1</span> student student <span class="m">4195250</span> Aug <span class="m">19</span> <span class="m">18</span>:00 fisiere.zip
-student@uso-demo:~$ rm fisiere.zip
-student@uso-demo:~$ zip fisiere.zip fisier1 fisier2  fisier3
-  adding: fisier1 <span class="o">(</span>deflated <span class="m">0</span>%<span class="o">)</span>
-  adding: fisier2 <span class="o">(</span>deflated <span class="m">0</span>%<span class="o">)</span>
-  adding: fisier3 <span class="o">(</span>deflated <span class="m">0</span>%<span class="o">)</span>
-student@uso-demo:~$ ls -l
+-rw-r--r-- <span class="m">1</span> student student <span class="m">5242880</span> Aug <span class="m">19</span> <span class="m">11</span>:55 înregistrare_lab01.mov
+-rw-r--r-- <span class="m">1</span> student student <span class="m">3145728</span> Aug <span class="m">19</span> <span class="m">11</span>:55 înregistrare_lab02.mov
+-rw-r--r-- <span class="m">1</span> student student <span class="m">1048576</span> Aug <span class="m">19</span> <span class="m">11</span>:55 înregistrare_lab03.mov
+-rw-r--r-- <span class="m">1</span> student student <span class="m">7340032</span> Aug <span class="m">19</span> <span class="m">12</span>:35 înregistrare_lab04.mov
+-rw-r--r-- <span class="m">1</span> student student <span class="m">9441280</span> Aug <span class="m">19</span> <span class="m">17</span>:56 înregistrări.tar
+-rw-r--r-- <span class="m">1</span> student student <span class="m">4195250</span> Aug <span class="m">19</span> <span class="m">18</span>:00 înregistrări.zip
+student@uso:~$ rm înregistrări.zip
+student@uso:~$ zip înregistrări.zip înregistrare_lab01.mov înregistrare_lab02.mov  înregistrare_lab03.mov
+  adding: înregistrare_lab01.mov <span class="o">(</span>deflated <span class="m">0</span>%<span class="o">)</span>
+  adding: înregistrare_lab02.mov <span class="o">(</span>deflated <span class="m">0</span>%<span class="o">)</span>
+  adding: înregistrare_lab03.mov <span class="o">(</span>deflated <span class="m">0</span>%<span class="o">)</span>
+student@uso:~$ ls -l
 total <span class="m">34828</span>
 drwxr-xr-x <span class="m">3</span> student student    <span class="m">4096</span> Aug <span class="m">19</span> <span class="m">12</span>:15 dezarhivare
--rw-r--r-- <span class="m">1</span> student student <span class="m">5242880</span> Aug <span class="m">19</span> <span class="m">11</span>:55 fisier1
--rw-r--r-- <span class="m">1</span> student student <span class="m">3145728</span> Aug <span class="m">19</span> <span class="m">11</span>:55 fisier2
--rw-r--r-- <span class="m">1</span> student student <span class="m">1048576</span> Aug <span class="m">19</span> <span class="m">11</span>:55 fisier3
--rw-r--r-- <span class="m">1</span> student student <span class="m">7340032</span> Aug <span class="m">19</span> <span class="m">12</span>:35 fisier4
--rw-r--r-- <span class="m">1</span> student student <span class="m">9441280</span> Aug <span class="m">19</span> <span class="m">17</span>:56 fisiere.tar
--rw-r--r-- <span class="m">1</span> student student <span class="m">9439072</span> Aug <span class="m">19</span> <span class="m">18</span>:02 fisiere.zip
-student@uso-demo:~$ rm fisier1 fisier2  fisier3
-student@uso-demo:~$ unzip fisiere.zip
-Archive:  fisiere.zip
-  inflating: fisier1
-  inflating: fisier2
-  inflating: fisier3
-student@uso-demo:~$ ls -lh
+-rw-r--r-- <span class="m">1</span> student student <span class="m">5242880</span> Aug <span class="m">19</span> <span class="m">11</span>:55 înregistrare_lab01.mov
+-rw-r--r-- <span class="m">1</span> student student <span class="m">3145728</span> Aug <span class="m">19</span> <span class="m">11</span>:55 înregistrare_lab02.mov
+-rw-r--r-- <span class="m">1</span> student student <span class="m">1048576</span> Aug <span class="m">19</span> <span class="m">11</span>:55 înregistrare_lab03.mov
+-rw-r--r-- <span class="m">1</span> student student <span class="m">7340032</span> Aug <span class="m">19</span> <span class="m">12</span>:35 înregistrare_lab04.mov
+-rw-r--r-- <span class="m">1</span> student student <span class="m">9441280</span> Aug <span class="m">19</span> <span class="m">17</span>:56 înregistrări.tar
+-rw-r--r-- <span class="m">1</span> student student <span class="m">9439072</span> Aug <span class="m">19</span> <span class="m">18</span>:02 înregistrări.zip
+student@uso:~$ rm înregistrare_lab01.mov înregistrare_lab02.mov  înregistrare_lab03.mov
+student@uso:~$ unzip înregistrări.zip
+Archive:  înregistrări.zip
+  inflating: înregistrare_lab01.mov
+  inflating: înregistrare_lab02.mov
+  inflating: înregistrare_lab03.mov
+student@uso:~$ ls -lh
 total 35M
 drwxr-xr-x <span class="m">3</span> student student <span class="m">4</span>.0K Aug <span class="m">19</span> <span class="m">12</span>:15 dezarhivare
--rw-r--r-- <span class="m">1</span> student student <span class="m">5</span>.0M Aug <span class="m">19</span> <span class="m">11</span>:55 fisier1
--rw-r--r-- <span class="m">1</span> student student <span class="m">3</span>.0M Aug <span class="m">19</span> <span class="m">11</span>:55 fisier2
--rw-r--r-- <span class="m">1</span> student student <span class="m">1</span>.0M Aug <span class="m">19</span> <span class="m">11</span>:55 fisier3
--rw-r--r-- <span class="m">1</span> student student <span class="m">7</span>.0M Aug <span class="m">19</span> <span class="m">12</span>:35 fisier4
--rw-r--r-- <span class="m">1</span> student student <span class="m">9</span>.1M Aug <span class="m">19</span> <span class="m">17</span>:56 fisiere.tar
--rw-r--r-- <span class="m">1</span> student student <span class="m">9</span>.1M Aug <span class="m">19</span> <span class="m">18</span>:02 fisiere.zip
+-rw-r--r-- <span class="m">1</span> student student <span class="m">5</span>.0M Aug <span class="m">19</span> <span class="m">11</span>:55 înregistrare_lab01.mov
+-rw-r--r-- <span class="m">1</span> student student <span class="m">3</span>.0M Aug <span class="m">19</span> <span class="m">11</span>:55 înregistrare_lab02.mov
+-rw-r--r-- <span class="m">1</span> student student <span class="m">1</span>.0M Aug <span class="m">19</span> <span class="m">11</span>:55 înregistrare_lab03.mov
+-rw-r--r-- <span class="m">1</span> student student <span class="m">7</span>.0M Aug <span class="m">19</span> <span class="m">12</span>:35 înregistrare_lab04.mov
+-rw-r--r-- <span class="m">1</span> student student <span class="m">9</span>.1M Aug <span class="m">19</span> <span class="m">17</span>:56 înregistrări.tar
+-rw-r--r-- <span class="m">1</span> student student <span class="m">9</span>.1M Aug <span class="m">19</span> <span class="m">18</span>:02 înregistrări.zip
 </pre></div>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Observăm cum după operațiile de ștergere și dezarhivare, am verificat corectitudinea operațiilor.</p>
+<p>Observăm cum după operațiile de ștergere și dezarhivare, verificăm corectitudinea operațiilor.</p>
 </div>
 <p>Pentru a dezarhiva o arhivă folosim utilitarul <strong>unzip</strong>.
 Observați că am șters fișierele existente înainte de extragere.</p>
 <p>Putem extrage fișierele către o anumită cale:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso-demo:~$ mkdir dezarhivare/zip
-student@uso-demo:~$ unzip fisiere.zip -d dezarhivare/zip/
-Archive:  fisiere.zip
-  inflating: dezarhivare/zip/fisier1
-  inflating: dezarhivare/zip/fisier2
-  inflating: dezarhivare/zip/fisier3
-student@uso-demo:~$ tree
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ mkdir dezarhivare/zip
+student@uso:~$ unzip înregistrări.zip -d dezarhivare/zip/
+Archive:  înregistrări.zip
+  inflating: dezarhivare/zip/înregistrare_lab01.mov
+  inflating: dezarhivare/zip/înregistrare_lab02.mov
+  inflating: dezarhivare/zip/înregistrare_lab03.mov
+student@uso:~$ tree
 .
 <span class="p">|</span>-- dezarhivare
 <span class="p">|</span>   <span class="p">|</span>-- tar
 <span class="p">|</span>   <span class="sb">`</span>-- zip
-<span class="p">|</span>       <span class="p">|</span>-- fisier1
-<span class="p">|</span>       <span class="p">|</span>-- fisier2
-<span class="p">|</span>       <span class="sb">`</span>-- fisier3
-<span class="p">|</span>-- fisier1
-<span class="p">|</span>-- fisier2
-<span class="p">|</span>-- fisier3
-<span class="p">|</span>-- fisier4
-<span class="p">|</span>-- fisiere.tar
-<span class="sb">`</span>-- fisiere.zip
+<span class="p">|</span>       <span class="p">|</span>-- înregistrare_lab01.mov
+<span class="p">|</span>       <span class="p">|</span>-- înregistrare_lab02.mov
+<span class="p">|</span>       <span class="sb">`</span>-- înregistrare_lab03.mov
+<span class="p">|</span>-- înregistrare_lab01.mov
+<span class="p">|</span>-- înregistrare_lab02.mov
+<span class="p">|</span>-- înregistrare_lab03.mov
+<span class="p">|</span>-- înregistrare_lab04.mov
+<span class="p">|</span>-- înregistrări.tar
+<span class="sb">`</span>-- înregistrări.zip
 
 <span class="m">3</span> directories, <span class="m">9</span> files
 </pre></div>
@@ -864,27 +940,27 @@ student@uso-demo:~$ tree
 </div>
 <p>Am folosit opțiunea <strong>-d</strong> pentru a specifica calea destinație.</p>
 <p>Putem dezarhiva <strong>un singur</strong> fișier/director din toată arhiva:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso-demo:~$ rm fisier3
-student@uso-demo:~$ ls -lh
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ rm înregistrare_lab03.mov
+student@uso:~$ ls -lh
 total 34M
 drwxr-xr-x <span class="m">4</span> student student <span class="m">4</span>.0K Aug <span class="m">19</span> <span class="m">18</span>:05 dezarhivare
--rw-r--r-- <span class="m">1</span> student student <span class="m">5</span>.0M Aug <span class="m">19</span> <span class="m">11</span>:55 fisier1
--rw-r--r-- <span class="m">1</span> student student <span class="m">3</span>.0M Aug <span class="m">19</span> <span class="m">11</span>:55 fisier2
--rw-r--r-- <span class="m">1</span> student student <span class="m">7</span>.0M Aug <span class="m">19</span> <span class="m">12</span>:35 fisier4
--rw-r--r-- <span class="m">1</span> student student <span class="m">9</span>.1M Aug <span class="m">19</span> <span class="m">17</span>:56 fisiere.tar
--rw-r--r-- <span class="m">1</span> student student <span class="m">9</span>.1M Aug <span class="m">19</span> <span class="m">18</span>:02 fisiere.zip
-student@uso-demo:~$ unzip fisiere.zip fisier3
-Archive:  fisiere.zip
-inflating: fisier3
-student@uso-demo:~$ ls -lh
+-rw-r--r-- <span class="m">1</span> student student <span class="m">5</span>.0M Aug <span class="m">19</span> <span class="m">11</span>:55 înregistrare_lab01.mov
+-rw-r--r-- <span class="m">1</span> student student <span class="m">3</span>.0M Aug <span class="m">19</span> <span class="m">11</span>:55 înregistrare_lab02.mov
+-rw-r--r-- <span class="m">1</span> student student <span class="m">7</span>.0M Aug <span class="m">19</span> <span class="m">12</span>:35 înregistrare_lab04.mov
+-rw-r--r-- <span class="m">1</span> student student <span class="m">9</span>.1M Aug <span class="m">19</span> <span class="m">17</span>:56 înregistrări.tar
+-rw-r--r-- <span class="m">1</span> student student <span class="m">9</span>.1M Aug <span class="m">19</span> <span class="m">18</span>:02 înregistrări.zip
+student@uso:~$ unzip înregistrări.zip înregistrare_lab03.mov
+Archive:  înregistrări.zip
+inflating: înregistrare_lab03.mov
+student@uso:~$ ls -lh
 total 35M
 drwxr-xr-x <span class="m">4</span> student student <span class="m">4</span>.0K Aug <span class="m">19</span> <span class="m">18</span>:05 dezarhivare
--rw-r--r-- <span class="m">1</span> student student <span class="m">5</span>.0M Aug <span class="m">19</span> <span class="m">11</span>:55 fisier1
--rw-r--r-- <span class="m">1</span> student student <span class="m">3</span>.0M Aug <span class="m">19</span> <span class="m">11</span>:55 fisier2
--rw-r--r-- <span class="m">1</span> student student <span class="m">1</span>.0M Aug <span class="m">19</span> <span class="m">11</span>:55 fisier3
--rw-r--r-- <span class="m">1</span> student student <span class="m">7</span>.0M Aug <span class="m">19</span> <span class="m">12</span>:35 fisier4
--rw-r--r-- <span class="m">1</span> student student <span class="m">9</span>.1M Aug <span class="m">19</span> <span class="m">17</span>:56 fisiere.tar
--rw-r--r-- <span class="m">1</span> student student <span class="m">9</span>.1M Aug <span class="m">19</span> <span class="m">18</span>:02 fisiere.zip
+-rw-r--r-- <span class="m">1</span> student student <span class="m">5</span>.0M Aug <span class="m">19</span> <span class="m">11</span>:55 înregistrare_lab01.mov
+-rw-r--r-- <span class="m">1</span> student student <span class="m">3</span>.0M Aug <span class="m">19</span> <span class="m">11</span>:55 înregistrare_lab02.mov
+-rw-r--r-- <span class="m">1</span> student student <span class="m">1</span>.0M Aug <span class="m">19</span> <span class="m">11</span>:55 înregistrare_lab03.mov
+-rw-r--r-- <span class="m">1</span> student student <span class="m">7</span>.0M Aug <span class="m">19</span> <span class="m">12</span>:35 înregistrare_lab04.mov
+-rw-r--r-- <span class="m">1</span> student student <span class="m">9</span>.1M Aug <span class="m">19</span> <span class="m">17</span>:56 înregistrări.tar
+-rw-r--r-- <span class="m">1</span> student student <span class="m">9</span>.1M Aug <span class="m">19</span> <span class="m">18</span>:02 înregistrări.zip
 </pre></div>
 </div>
 <div class="admonition note">
@@ -892,29 +968,35 @@ drwxr-xr-x <span class="m">4</span> student student <span class="m">4</span>.0K 
 <p>Obervăm cum după comenzile de ștergere și dezarhivare s-a verificat corectitudinea operațiilor.</p>
 </div>
 <p>Puteți observa că am extras un singur fișier punând ca ultim parametru numele fișierului.</p>
-<div class="section" id="id5">
-<h4><span class="section-number">5.2.3.1. </span>Exercițiu - dezarhivarea unei arhive<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h4>
-<p>#. Creați un director cu numele <strong>zip</strong> în directorului <strong>dezarhivare</strong> ca în ierarhia de mai sus.
-Dezarhivați arhiva <strong>personal_data.zip</strong> în directorul <strong>dezarhivare/zip/</strong>.
-Dezarhivați <strong>doar</strong> fișierul oraș natal în directorul curent.
-Verificați corectitudinea operațiilor.</p>
-<ol class="arabic simple">
-<li><p>Dezarhivați arhiva <strong>net.zip</strong> în directorul <strong>/tmp</strong>.
-Verificați corectitudinea operațiilor.</p></li>
-</ol>
+<div class="section" id="id8">
+<h4><span class="section-number">5.2.3.1. </span>Exercițiu - dezarhivarea unei arhive<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>Creați un director cu numele <strong>zip</strong> în directorului <strong>dezarhivare</strong> ca în ierarhia de mai sus;</p></li>
+<li><p>Dezarhivați arhiva <strong>personal_data.zip</strong> în directorul <strong>dezarhivare/zip/</strong>;</p></li>
+<li><p>Dezarhivați <strong>doar</strong> fișierul oraș natal în directorul curent;</p></li>
+<li><p>Verificați corectitudinea operațiilor: crearea directorului, dezarhivarea corectă.</p></li>
+</ul>
+</div>
+<div class="section" id="id9">
+<h4><span class="section-number">5.2.3.2. </span>Exercițiu - dezarhivarea unei arhive<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>Creați directorul <strong>my_net</strong> în directorul <strong>dezarhivare</strong> ca în ierarhia de mai sus;</p></li>
+<li><p>Dezarhivați arhiva <strong>net.zip</strong> în directorul creat anterior <strong>my_net</strong>.</p></li>
+<li><p>Verificați corectitudinea operațiilor: crearea directorului, dezarhivarea corectă.</p></li>
+</ul>
 </div>
 </div>
-<div class="section" id="id6">
-<h3><span class="section-number">5.2.4. </span>Adăugarea de noi fișiere la arhive<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id10">
+<h3><span class="section-number">5.2.4. </span>Adăugarea de noi fișiere la arhive<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
 <p>Putem adăuga un nou fișier la arhivă astfel:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso-demo:~$ zip -u fisiere.zip fisier4
-  adding: fisier4 <span class="o">(</span>deflated <span class="m">0</span>%<span class="o">)</span>
-student@uso-demo:~$ zip -sf fisiere.zip
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ zip -u înregistrări.zip înregistrare_lab04.mov
+  adding: înregistrare_lab04.mov <span class="o">(</span>deflated <span class="m">0</span>%<span class="o">)</span>
+student@uso:~$ zip -sf înregistrări.zip
 Archive contains:
-  fisier1
-  fisier2
-  fisier3
-  fisier4
+  înregistrare_lab01.mov
+  înregistrare_lab02.mov
+  înregistrare_lab03.mov
+  înregistrare_lab04.mov
 Total <span class="m">4</span> entries <span class="o">(</span><span class="m">16777216</span> bytes<span class="o">)</span>
 </pre></div>
 </div>
@@ -922,12 +1004,17 @@ Total <span class="m">4</span> entries <span class="o">(</span><span class="m">1
 <p class="admonition-title">Note</p>
 <p>Observăm cum după comanda de adăugare de fișier la arhivă, am verificat corectitudinea operației.</p>
 </div>
-<p>În exemplul de mai sus am adăugat <strong>fisier4</strong> la arhivă.
+<p>În exemplul de mai sus am adăugat <strong>înregistrare_lab04.mov</strong> la arhivă.
 Pentru a adăuga un nou fișier la arhivă am folosit opțiunea <strong>-u</strong>:</p>
 <div class="section" id="exercitiu-adaugarea-unui-fisier-in-arhiva">
 <h4><span class="section-number">5.2.4.1. </span>Exercițiu - adăugarea unui fișier în arhivă<a class="headerlink" href="#exercitiu-adaugarea-unui-fisier-in-arhiva" title="Permalink to this headline">¶</a></h4>
-<p>Creați un fișier <strong>UPB</strong> și adăugați-l la arhiva <strong>personal_data.zip</strong>, ca în exemplul de mai sus.
-Verificați corectitudinea operației.</p>
+<ul class="simple">
+<li><p>Creați un fișier <strong>UPB</strong> cu conținutul “Make UPB Great Again!”;</p></li>
+<li><p>Verificați conținutul arhivei <strong>personal_data.zip</strong>;</p></li>
+<li><p>Adăugați fișierul <strong>UPB</strong> în arhivă;</p></li>
+<li><p>Verificați adăugarea fișierului la arhivă fără dezarhivare;</p></li>
+<li><p>Dezarhivați arhiva în directorul <strong>personal_data_zip</strong>.</p></li>
+</ul>
 </div>
 </div>
 </div>
