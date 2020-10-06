@@ -7,16 +7,16 @@ Arhivele sunt o agregare a unei ierarhii de fișiere și directoare într-un sin
 
 Există două motive pentru care am vrea să folosim arhive:
 
-#. **Arhivare** - să avem o ierarhie de fișiere și directoare într-un singur fișier.
+#. *Arhivare* - să avem o ierarhie de fișiere și directoare într-un singur fișier.
    De exemplu, vrem să trimitem pe mail o ierarhie de directoare cu laboratoarele și resursele materiei USO.
-#. **Compresie** - ne dorim ca fișierele să ocupe mai puțin spațiu.
+#. *Compresie* - ne dorim ca fișierele să ocupe mai puțin spațiu.
 
 .. note::
-    **Comprimarea** este asemănătoare cu arhivarea, dar, în plus micșorează dimensiunea fișierului rezultat.
+    *Comprimarea* este asemănătoare cu arhivarea, dar, în plus micșorează dimensiunea fișierului rezultat.
     Rezultatul este similar: agregarea într-un singur fișier.
 
-În acest capitol vom folos arhive de tipul **zip** și **tar**.
-Vom folosi **tar** pentru arhivare și **zip** pentru comprimare.
+În acest capitol vom folos arhive de tipul *zip* și *tar*.
+Vom folosi *tar* pentru arhivare și *zip* pentru comprimare.
 
 .. note::
     Pe mașina virtuală pusă la dispoziție, aveți instalat utilitarele necesare.
@@ -31,7 +31,7 @@ Crearea arhivelor
 Arhivele sunt utile atunci când vrem să trimitem pe mail sau să încărcăm pe un site o ierarhie de fișiere și directoare.
 Pe scurt, atunci când vrem să agregăm totul într-un singur fișier. Acesta poate fi transmis foarte ușor și ulterior dezarhivat.
 
-Creăm o arhivă **tar**, astfel:
+Creăm o arhivă folosit utilitarul ``tar``:
 
 .. code-block:: bash
 
@@ -51,23 +51,24 @@ Creăm o arhivă **tar**, astfel:
     -rw-r--r-- 1 student student 1.0M Aug 19 11:55 înregistrare_lab03.mov
     -rw-r--r-- 1 student student 9.1M Aug 19 11:56 înregistrări.tar
 
-.. note::
-    Observăm cum după comanda de creare a arhivei **tar** am verificat corectitudinea operației.
+Observăm cum după comanda de creare a arhivei *tar* am verificat corectitudinea operației.
 
-Având trei fișiere pe care vrem să le arhivăm, folosim utilitarul **tar** împreună cu parametrii următori:
+
+Având trei fișiere pe care vrem să le arhivăm, folosim utilitarul `tar` împreună cu parametrii următori:
 
 * c: creează arhiva;
 * v: afișează detalii despre operație (verbose);
 * f: folosește arhiva dată ca parametru (în cazul de față, numele ei).
 
-Putem observa că fișierul de tipul **tar** nou creat **nu** ocupă mai puțin spațiu; din contră, ocupă mai mult spațiu din cauza metadatelor fișierului.
+
+Putem observa că fișierul de tipul *tar* nou creat nu ocupă mai puțin spațiu; din contră, ocupă mai mult spațiu din cauza metadatelor fișierului.
 Metadatele sunt modalitatea sistemului de fișiere de a reține informații despre acesta: data creării, dimensiunea, utilizatorul ce deține fișierul, etc.
 
 .. note::
     Pentru o mai bună înțelegere a comenzii de creare a arhivelor inspectați manualul: ``man tar``.
 
 .. note::
-    Putem verifica tipul fișierului folosind utilitarul **file**.
+    Putem verifica tipul fișierului folosind utilitarul ``file``.
 
 .. code-block:: bash
 
@@ -75,24 +76,23 @@ Metadatele sunt modalitatea sistemului de fișiere de a reține informații desp
     înregistrări.tar: POSIX tar archive (GNU)
 
 
-
-Exercițiu - creare arhive
+Exerciții - creare arhive
 """""""""""""""""""""""""
 
 * Creați 3 fișiere noi care să conțină pe rând numele, prenumele și anul vostru de naștere.
-* Creați o arhivă de tipul **tar** care să conțină cele trei fișiere și care să aibă  numele **personal_data.tar**.
+* Creați o arhivă de tipul *tar* care să conțină cele trei fișiere și care să aibă  numele `personal_data.tar`.
 * Verificați corectitudinea operațiilor.
 * Verificați dimensiunea arhivei.
-* Verificați că fișierul nou cred este o arhivă **tar**.
+* Verificați că fișierul nou cred este o arhivă *tar*.
 
 
-Exercițiu - creare arhive
+Exerciții - creare arhive
 """""""""""""""""""""""""
 
-* Creați o arhivă a fișierelor din interiorul directorului **/usr/include/net/** cu numele **net.tar**.
+* Creați o arhivă a fișierelor din interiorul directorului `/usr/include/net/` cu numele `net.tar`.
 * Verificați corectitudinea operației.
 * Verificați dimensiunea arhivei.
-* Verificați că fișierul nou cred este o arhivă **tar**.
+* Verificați că fișierul nou cred este o arhivă `tar`.
 
 
 Afișarea conținutului arhivelor
@@ -101,7 +101,7 @@ Afișarea conținutului arhivelor
 Există cazuri în care vrem să vedem conținutul unei arhive.
 Putem să vedem ce fișiere conține, fără a o deschide.
 
-Putem face acest lucru folosind parametrii **t** și **f** ale utilitarului **tar** ca în exemplul de mai jos:
+Putem face acest lucru folosind parametrii *t* și *f* ale utilitarului ``tar`` ca în exemplul de mai jos:
 
 .. code-block:: bash
 
@@ -111,10 +111,10 @@ Putem face acest lucru folosind parametrii **t** și **f** ale utilitarului **ta
     înregistrare_lab03.mov
 
 
-Pentru a vizualiza arhiva **fără** dezarhivare folosim opțiunea **t**.
-Opțiunea **f** este pentru a specifica ce arhivă vrem să afișăm.
+Pentru a vizualiza arhiva **fără** dezarhivare am folosit opțiunea **t**.
+Folosim opțiunea **f** pentru a specifica ce arhivă vrem să afișăm.
 
-Exercițiu - afișarea conținutului unei arhive
+Exerciții - afișarea conținutului unei arhive
 """""""""""""""""""""""""""""""""""""""""""""
 
 * Afișați conținutul arhivelor create la exercițiul anterior **personal_data.tar** și **net.tar** **fără** dezarhivare.
@@ -124,11 +124,11 @@ Dezarhivarea arhivelor
 ^^^^^^^^^^^^^^^^^^^^^^
 
 Dezarhivarea este procesul opus al arhivării.
-Având un fișier de tip **tar** vrem să obtinem ierarhia de fișiere din interiorul acesteia.
+Având un fișier de tip *tar* vrem să obtinem ierarhia de fișiere din interiorul acesteia.
 
-În momentul în care dezarhivăm un fișier de tip **tar**, fișierele din cadrul arhivei vor fi create în directorul curent (dacă nu se specifică altfel).
+În momentul în care dezarhivăm un fișier de tip *tar*, fișierele din cadrul arhivei vor fi create în directorul curent (dacă nu se specifică altfel).
 Cu alte cuvinte, ierarhia de fișiere pe care am arhivat-o se păstrează, iar în momentul dezarhivării aceasta va arăta la fel ca înainte de arhivare.
-Pentru a vedea mai clar efectul operației de dezarhivare, ștergem fișierele înregistrare_lab01.mov, înregistrare_lab02.mov, înregistrare_lab03.mov, adică fișierele care se află în arhiva **înregistrări.tar**.
+Pentru a vedea mai clar efectul operației de dezarhivare, ștergem `fișierele înregistrare_lab01.mov`, `înregistrare_lab02.mov`, `înregistrare_lab03.mov`, adică fișierele care se află în arhiva `înregistrări.tar`.
 
 .. code-block:: bash
 
@@ -146,16 +146,13 @@ Pentru a vedea mai clar efectul operației de dezarhivare, ștergem fișierele �
     -rw-r--r-- 1 student student 1.0M Aug 19 11:55 înregistrare_lab03.mov
     -rw-r--r-- 1 student student 9.1M Aug 19 12:04 înregistrări.tar
 
-.. note::
-    Observăm cum după operațiile de ștergere și dezarhivare, am verificat corectitudinea operațiilor.
+Observăm cum după operațiile de ștergere și dezarhivare, am verificat corectitudinea operațiilor.
 
-Pentru dezarhivare am folosit din manualul comenzii **tar** următorii parametrii:
+Pentru dezarhivare am folosit următorii parametrii ai utiliitarului ``tar``:
 
 * x: extrage arhiva (extract);
 * v: afișează detalii despre operație (verbose);
 * f: folosește arhiva dată ca parametru (în cazul de față, numele ei).
-
-
 
 
 Avem situații când vrem să extragem conținutul arhivei la o anumită destinație.
@@ -163,6 +160,8 @@ Spre exemplu, am descărcat scheletul de temă de la facultate, acesta se află 
 
 Sau am descărcat în `~/Downloads/` de la un prieten o arhivă cu înregistrările video ale laboratoarelor.
 Vrem să le dezarhivăm în directorul `~/facultate/uso/laboratoare/video/`.
+
+Creăm un director `dezarhivare/tar` și extragem arhiva acolo folosind ``tar``:
 
 .. code-block:: bash
 
@@ -204,11 +203,9 @@ Vrem să le dezarhivăm în directorul `~/facultate/uso/laboratoare/video/`.
 .. note::
     Observăm că după crearea directoarelor și după extragerea arhivelor am verificat corectitudinea operațiilor.
 
-După cum observăm în exemplu de mai sus, pentru a extrage fișierele către o anumită cale, folosim opțiunea **--directory** (- - d i r e c t o r y):
+După cum observăm în exemplu de mai sus, pentru a extrage fișierele către o anumită cale, folosim opțiunea *--directory* (- - d i r e c t o r y):
 
-
-Putem extrage un singur fișier fără să fim obligați să dezarhivăm tot.
-Folosim comanda de mai jos pentru a face acest lucru.
+Putem extrage un singur fișier fără să fim obligați să dezarhivăm tot, folosind comanda ``tar xvf`` astfel:
 
 .. code-block:: bash
 
@@ -223,22 +220,23 @@ Folosim comanda de mai jos pentru a face acest lucru.
     -rw-r--r-- 1 student student 5242880 Aug 19 11:55 înregistrare_lab01.mov
     -rw-r--r-- 1 student student 9439088 Aug 19 12:04 înregistrări.tar
 
+Am extras doar fișierul `înregistrare_lab01.mov` din arhiva `înregistrări.tar`.
 
 .. note::
     Obervăm cum după comenzile de ștergere și dezarhivare am verificat corectitudinea operațiilor.
     Este extrem de util acest lucru.
 
-După cum observați mai sus, am pus ca ultim parametru numele fișierului (**înregistrare_lab01.mov**).
+După cum observați mai sus, am pus ca ultim parametru numele fișierului (*înregistrare_lab01.mov*).
 
-Exercițiu - dezarhivarea unei arhive
+Exerciții - dezarhivarea unei arhive
 """"""""""""""""""""""""""""""""""""
 
 * Creați un director cu numele **personal** și în acest director încă unul cu numele **documente** ca în ierarhia de mai sus.
 * Dezarhivați arhiva **personal_data.tar** în directorul **personal/documente/**.
-*  Dezarhivați **doar** fișierul **nume** în directorul curent.
+* Dezarhivați **doar** fișierul **nume** în directorul curent.
 * Verificați corectitudinea operațiilor.
 
-Exercițiu - dezarhivarea unei arhive
+Exerciții - dezarhivarea unei arhive
 """"""""""""""""""""""""""""""""""""
 
 * Dezarhivați arhiva **net.tar** în directorul **/tmp/**.
@@ -251,18 +249,10 @@ Există cazuri în care vrem să adăugăm un nou fișier la o arhivă există.
 Spre exemplu, am mai făcut un laborator și vrem să-l adăugăm la arhiva de înregistrări.
 O variantă ar fi să ștergem arhiva și să o creăm din nou, dar nu este eficient.
 
-Adăugăm un nou fișier la arhivă folosind opțiunea **r**:
+Adăugăm un nou fișier la arhivă folosind comanda ``tar``, astfel:
 
 .. code-block:: bash
 
-    student@uso:~$ ls -l
-    total 25608
-    drwxr-xr-x 3 student student    4096 Aug 19 12:15 dezarhivare
-    -rw-r--r-- 1 student student 5242880 Aug 19 11:55 înregistrare_lab01.mov
-    -rw-r--r-- 1 student student 3145728 Aug 19 11:55 înregistrare_lab02.mov
-    -rw-r--r-- 1 student student 1048576 Aug 19 11:55 înregistrare_lab03.mov
-    -rw-r--r-- 1 student student 7340032 Aug 19 12:35 înregistrare_lab04.mov
-    -rw-r--r-- 1 student student 9441280 Aug 19 12:36 înregistrări.tar
     student@uso:~$ tar -tf înregistrări.tar
     înregistrare_lab01.mov
     înregistrare_lab02.mov
@@ -275,47 +265,39 @@ Adăugăm un nou fișier la arhivă folosind opțiunea **r**:
     înregistrare_lab03.mov
     înregistrare_lab04.mov
 
-În primă fază am verificat că **înregistrare_lab04.mov** nu există în arhivă.
-În continuare am adăugat **înregistrare_lab04.mov** la arhivă.
+În primă fază am verificat că `înregistrare_lab04.mov` nu există în arhivă.
+În continuare am adăugat `înregistrare_lab04.mov` la arhivă.
 
 .. note::
     Observăm cum după comanda de adăugare de fișier la arhivă, am verificat corectitudinea operației.
 
 
-Exercițiu - adăugare de noi fișiere
+Exerciții - adăugare de noi fișiere
 """""""""""""""""""""""""""""""""""
 
-* Creați un fișier **UPB**;
+* Creați un fișier *UPB*;
 * Adăugați textul *Make UPB Great Again!* în interiorul fișierului;
-* Adăugați-l la arhiva **personal_data.tar**, ca în exemplul de mai sus;
+* Adăugați-l la arhiva ``personal_data.tar``, ca în exemplul de mai sus;
 * Verificați corectitudinea operațiilor: crearea fișier, conținut fișier, corectitudine arhivă.
 
 
-Comprimare - **zip**
+Comprimare - ``zip``
 --------------------
 
 Acțiunea de comprimare este compusă din doi pași: arhivare și reducerea dimensiunii (comprimare).
-Diferența între comprimare și arhivare este **reducerea dimensiunii**.
+Diferența între comprimare și arhivare este *reducerea dimensiunii*.
 
 .. note::
-    În continuare în acest capitol vom folosi noțiunea de arhivare, chiar dacă folosim utilitarul **zip**.
+    În continuare în acest capitol vom folosi noțiunea de arhivare, chiar dacă folosim utilitarul ``zip``.
 
 Crearea arhivelor
 ^^^^^^^^^^^^^^^^^
 
-Folosim utilitarul **zip** împreună cu parametrii potriviți:
-Putem crea o arhivă de tipul **zip**, astfel:
+Folosim utilitarul ``zip`` împreună cu parametrii potriviți:
+Putem crea o arhivă folosind utilitarul ``zip``, astfel:
 
 .. code-block:: bash
 
-    student@uso:~$ ls -l
-    total 16388
-    drwxr-xr-x 3 student student    4096 Aug 19 12:15 dezarhivare
-    -rw-r--r-- 1 student student 5242880 Aug 19 11:55 înregistrare_lab01.mov
-    -rw-r--r-- 1 student student 3145728 Aug 19 11:55 înregistrare_lab02.mov
-    -rw-r--r-- 1 student student 1048576 Aug 19 11:55 înregistrare_lab03.mov
-    -rw-r--r-- 1 student student 7340032 Aug 19 12:35 înregistrare_lab04.mov
-    -rw-r--r-- 1 student student 9.1M Aug 19 17:56 înregistrări.tar
     student@uso:~$ zip înregistrări.zip înregistrare_lab01.mov înregistrare_lab02.mov înregistrare_lab03.mov
       adding: înregistrare_lab01.mov (deflated 0%)
       adding: înregistrare_lab02.mov (deflated 0%)
@@ -331,16 +313,17 @@ Putem crea o arhivă de tipul **zip**, astfel:
     -rw-r--r-- 1 student student 9.1M Aug 19 17:54 înregistrări.zip
 
 .. note::
-    Observăm cum după comanda de creare a arhivei **zip** am verificat corectitudinea operației.
+    Observăm cum după comanda de creare a arhivei *zip* am verificat corectitudinea operației.
 
 Sintaxa este în felul următor: ``zip numele_arhivă.zip ierarhia_de_fișiere``
 
-Putem observa că fișierul de tipul **zip** nou creat **nu** ocupă mai puțin spațiu decât suma dimensiunilor celor trei fișiere.
+Putem observa că fișierul de tipul *zip* nou creat **nu** ocupă mai puțin spațiu decât suma dimensiunilor celor trei fișiere.
 Motivul este că în sistemul de fișiere a apărut un nou fișier ce conține arhiva nou creată și sistemul de fișiere stochează informații despre acest fișier.
 Exemplu de informații stocate: dimensiune, data creare, permisiuni, utilizatorul deținător.
 
-Observăm că dimensiunea arhivei (**înregistrări.tar**) este aceeași cu aceea a comprimării (**înregistrări.zip**).
+Observăm că dimensiunea arhivei (*înregistrări.tar*) este aceeași cu aceea a comprimării (*înregistrări.zip*).
 De fapt, dacă ne uităm în detaliu, vom vedea că nu este așa.
+
 Mai sus vedeam afișarea dimensiuni în format *human-readable* adică în MegaBytes (MegaOcteți).
 Afișăm dimesniunea în octeți:
 
@@ -351,7 +334,8 @@ Afișăm dimesniunea în octeți:
     -rw-r--r-- 1 student student 9439072 Sep 29 04:51 înregistrări.zip
 
 
-Observăm o mică diferență între cele două.
+Observăm o mică diferență între cele două, varianta *zip* fiind mai mică.
+
 Mergem mai departe cu un experiment.
 Facem arhivare și comprimare a ierarhiei de directoare `/usr/bin` si comparăm dimensiunea:
 
@@ -370,7 +354,7 @@ Observăm deja o diferență mai mare de dimensiune între cele două.
     Pentru o mai bună înțelegere a comenzii de creare a arhivelor inspectați manualul: ``man zip``.
 
 
-Exercițiu - creare arhive
+Exerciții - creare arhive
 """""""""""""""""""""""""
 
 * Creați 3 fișiere noi care să conțină pe rând orașul natal, țara natală și liceul absolvit.
@@ -378,7 +362,7 @@ Exercițiu - creare arhive
 * Verificați corectitudinea operațiilor.
 * Verificați dimensiunea arhivei.
 
-Exercițiu - creare arhive
+Exerciții - creare arhive
 """""""""""""""""""""""""
 
 * Creați o arhivă de tipul **zip** a fișierelor din interiorul directorului **/usr/include/net/** cu numele **net.zip**.
@@ -399,7 +383,7 @@ Putem vizualiza conținutul arhivei astfel:
 
 Pentru a vizualiza arhiva **fără** dezarhivare folosim opțiunea **-sf** (prescurtare de la **show-files**).
 
-Exercițiu - afișarea conținutului unei arhivei
+Exerciții - afișarea conținutului unei arhivei
 """"""""""""""""""""""""""""""""""""""""""""""
 
 * Acest exercițiu folosește arhiva creată la exercițiu anterior.
@@ -409,10 +393,9 @@ Exercițiu - afișarea conținutului unei arhivei
 Dezarhivarea arhivelor
 ^^^^^^^^^^^^^^^^^^^^^^
 
-În momentul în care dezarhivăm un fișier de tip **zip**, fișierele din cadrul arhivei vor fi create în directorul curent (dacă nu se specifică altfel).
+În momentul în care dezarhivăm un fișier de tip *zip*, fișierele din cadrul arhivei vor fi create în directorul curent (dacă nu se specifică altfel).
 Cu alte cuvinte, ierarhia de fișiere pe care am arhivat-o se păstrează, iar în momentul dezarhivării aceasta va arăta la fel ca înainte de arhivare.
-Pentru a vedea mai clar efectul operației de dezarhivare, ștergem fișierele înregistrare_lab01.mov, înregistrare_lab02.mov, înregistrare_lab03.mov, adică fișierele care se află în arhiva **înregistrări.zip**.
-
+Pentru a vedea mai clar efectul operației de dezarhivare, ștergem fișierele `înregistrare_lab01.mov`, `înregistrare_lab02.mov`, `înregistrare_lab03.mov`, adică fișierele care se află în arhiva *înregistrări.zip*.
 
 
 .. code-block:: bash
@@ -460,7 +443,7 @@ Pentru a vedea mai clar efectul operației de dezarhivare, ștergem fișierele �
     Observăm cum după operațiile de ștergere și dezarhivare, verificăm corectitudinea operațiilor.
 
 
-Pentru a dezarhiva o arhivă folosim utilitarul **unzip**.
+Pentru a dezarhiva o arhivă folosim utilitarul ``unzip``.
 Observați că am șters fișierele existente înainte de extragere.
 
 Putem extrage fișierele către o anumită cale:
@@ -493,9 +476,9 @@ Putem extrage fișierele către o anumită cale:
 .. note::
     Observăm că după crearea directoarelor și după extragerea arhivelor am verificat corectitudinea operațiilor.
 
-Am folosit opțiunea **-d** pentru a specifica calea destinație.
+Am folosit comanda ``unzip -d destinație`` pentru a extrage o arhivă *zip* la calea *destinație*.
 
-Putem dezarhiva **un singur** fișier/director din toată arhiva:
+Putem dezarhiva *un singur* fișier/director din toată arhiva:
 
 .. code-block:: bash
 
@@ -527,7 +510,7 @@ Putem dezarhiva **un singur** fișier/director din toată arhiva:
 Puteți observa că am extras un singur fișier punând ca ultim parametru numele fișierului.
 
 
-Exercițiu - dezarhivarea unei arhive
+Exerciții - dezarhivarea unei arhive
 """"""""""""""""""""""""""""""""""""
 
 * Creați un director cu numele **zip** în directorului **dezarhivare** ca în ierarhia de mai sus;
@@ -535,7 +518,7 @@ Exercițiu - dezarhivarea unei arhive
 * Dezarhivați **doar** fișierul oraș natal în directorul curent;
 * Verificați corectitudinea operațiilor: crearea directorului, dezarhivarea corectă.
 
-Exercițiu - dezarhivarea unei arhive
+Exerciții - dezarhivarea unei arhive
 """"""""""""""""""""""""""""""""""""
 
 * Creați directorul **my_net** în directorul **dezarhivare** ca în ierarhia de mai sus;
@@ -545,7 +528,7 @@ Exercițiu - dezarhivarea unei arhive
 Adăugarea de noi fișiere la arhive
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Putem adăuga un nou fișier la arhivă astfel:
+Putem adăuga un nou fișier la arhivă folosind comanda ``zip -u``:
 
 .. code-block:: bash
 
@@ -560,14 +543,11 @@ Putem adăuga un nou fișier la arhivă astfel:
     Total 4 entries (16777216 bytes)
 
 .. note::
-    Observăm cum după comanda de adăugare de fișier la arhivă, am verificat corectitudinea operației.
+    Observăm cum după comanda de adăugare de fișier la arhivă, am verificat corectitudinea operației folosind comanda ``zip -sf``.
 
-În exemplul de mai sus am adăugat **înregistrare_lab04.mov** la arhivă.
-Pentru a adăuga un nou fișier la arhivă am folosit opțiunea **-u**:
+În exemplul de mai sus am adăugat ``înregistrare_lab04.mov`` la arhivă.
 
-
-
-Exercițiu - adăugarea unui fișier în arhivă
+Exerciții - adăugarea unui fișier în arhivă
 """""""""""""""""""""""""""""""""""""""""""
 
 * Creați un fișier **UPB** cu conținutul "Make UPB Great Again!";
