@@ -45,6 +45,13 @@
   
     <div class="nav-item">
       <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Acomodarea în Linux
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
          class="nav-link  router-link-active">
          Lucrul cu fișiere
       </a>
@@ -102,6 +109,13 @@
           <navlinks>
             
 
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Acomodarea în Linux
+      </a>
+    </div>
   
     <div class="nav-item">
       <a href="../../index.html#uso-lab-book"
@@ -166,11 +180,50 @@
   
     <div class="sidebar-group">
       <p class="caption">
+        <span class="caption-text"><a href="../../index.html#uso-lab-book">Acomodarea în Linux</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../basic/apps.html" class="reference internal ">Pornirea și oprirea aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../basic/browser.html" class="reference internal ">Folosirea eficientă a browserului web</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../basic/terminal.html" class="reference internal ">Lucrul în terminal</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../basic/workspace.html" class="reference internal ">Lucrul cu workspace-uri</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../basic/cheatsheet.html" class="reference internal ">Cheatsheet</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
         <span class="caption-text"><a href="../../index.html#uso-lab-book">Lucrul cu fișiere</a></span>
       </p>
       <ul class="current">
         
-          <li class="toctree-l1 "><a href="paths.html" class="reference internal ">Căi absolute și relative</a>
+          <li class="toctree-l1 "><a href="paths.html" class="reference internal ">Căi în ierarhia de fișiere</a>
 
             
           </li>
@@ -489,42 +542,66 @@
             
   <div class="section" id="redirectari">
 <h1><span class="section-number">4. </span>Redirectări<a class="headerlink" href="#redirectari" title="Permalink to this headline">¶</a></h1>
-<p>Interacțiunea cu terminalul a fost până acum în felul următor: am executat o comandă și am urmărit la terminal afișarea rezultatului.
-Însă, sunt cazuri în care vrem să păstrăm rezultatul unei comenzi într-un fișier.</p>
-<p>Interpretorul de comenzi are opțiunea de a direcționa afișarea rezultatului direct într-un fișier.
-Astfel, evităm câțiva pași: copierea conținutului (rezultatul comenzii), crearea unui fișier, deschiderea acestuia, lipirea conținutului.</p>
-<p>Rezultatul unei comenzi este format din două fluxuri de informații: informații de ieșire și de eroare.
-Avem opțiunea de a redirecta doar ieșirea, doar eroarea sau aumbele fluxuri într-un fișier.</p>
-<p>În acest capitol vom învăța cum să facem aceste direcționări (redirectări).</p>
+<p>Până acum am dat comenzi în terminal și am urmărit outputul (rezultatul) lor. Outputul este afișat în terminal.
+Dacă voiam să salvăm outputul undeva (<em>de obicei într-un fișier</em>) trebuia să copiem outputul, să creăm un fișier nou sau să folosim unul deja existent, să îl deschidem, să lipim textul în el și să salvăm modificările.
+Trecerea prin toți acești pași durează și devenim ineficienți în lucrul în terminal.</p>
+<p>Interpretorul de comenzi (<em>shellul</em>) are opțiunea de a direcționa afișarea rezultatului direct într-un fișier.</p>
+<p>Rezultatul unei comenzi este format din două fluxuri de informații: informații de ieșire (<em>standard output, stdout</em>) și de eroare (<em>standard error, stderr</em>).
+Avem opțiunea de a direcționa (<em>redirecta</em>) doar ieșirea, doar eroarea sau ambele fluxuri într-un fișier.</p>
+<p>În acest capitol vom vorbi despre cum să facem aceste direcționări (<em>redirectări</em>).</p>
 <div class="section" id="redirectari-simple">
 <h2><span class="section-number">4.1. </span>Redirectări simple<a class="headerlink" href="#redirectari-simple" title="Permalink to this headline">¶</a></h2>
-<p>Pentru a direcționa rezultatul unei comenzi, folosim caracterul <code class="docutils literal notranslate"><span class="pre">&gt;</span></code>, astfel:</p>
+<p>În directorul <cite>/home/student</cite> (<em>~</em>) avem mai multe fișiere, câte unul pentru fiecare materie.
+Afișăm fișierele folosind comanda <code class="docutils literal notranslate"><span class="pre">ls</span></code>:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ ls -lh
 total <span class="m">9</span>.0M
 -rw-r--r-- <span class="m">1</span> student student <span class="m">5</span>.0M Aug <span class="m">19</span> <span class="m">11</span>:55 USO
 -rw-r--r-- <span class="m">1</span> student student <span class="m">3</span>.0M Aug <span class="m">19</span> <span class="m">11</span>:55 RL
 -rw-r--r-- <span class="m">1</span> student student <span class="m">1</span>.0M Aug <span class="m">19</span> <span class="m">11</span>:55 EGC
-student@uso:~$ ls -lh &gt; lista_materii
+</pre></div>
+</div>
+<p>Salvăm outputul comenzii <cite>ls -lh</cite> de mai sus folosind caracterul <code class="docutils literal notranslate"><span class="pre">&gt;</span></code>, astfel:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ ls -lh &gt; lista_materii
 student@uso:~$ ls
 USO RL EGC lista_materii
-student@uso:~$ cat lista_materii
+</pre></div>
+</div>
+<p>Observăm că acțiunea de mai sus a făcut două lucruri: a creat fișierul <cite>lista_materii</cite> și a introdus în conținutul fișierului rezultatul comenzii <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-lh</span></code>.</p>
+<p>Caracterul <code class="docutils literal notranslate"><span class="pre">&gt;</span></code> așteaptă un șir de caractere după el care este numele fișierului în care vrem să scriem outputul.
+Șirul este de fapt calea către un fișier.
+Șirul <cite>lista_materii</cite> este calea relativă până la fișierul <cite>lista_materii</cite> care se află în directorul curent <cite>/home/student</cite>.</p>
+<p>Fișierul <cite>lista_materii</cite> nu exista. Prin direcționarea outputului am creat fișierul <cite>lista_materii</cite>.</p>
+<p>Vizualizăm conținutul fișierului lista_materii folosind comanda cat:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ cat lista_materii
 -rw-r--r-- <span class="m">1</span> student student <span class="m">5</span>.0M Aug <span class="m">19</span> <span class="m">11</span>:55 USO
 -rw-r--r-- <span class="m">1</span> student student <span class="m">3</span>.0M Aug <span class="m">19</span> <span class="m">11</span>:55 RL
 -rw-r--r-- <span class="m">1</span> student student <span class="m">1</span>.0M Aug <span class="m">19</span> <span class="m">11</span>:55 EGC
 </pre></div>
 </div>
-<p>Observăm că acțiunea de mai sus a făcut două lucruri: a creat fișierul <strong>lista_materii</strong> și a introdus în conținutul fișierului rezultatul comenzii <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-lh</span></code>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Odată direcționat într-un fișier, fluxul de informații nu mai apare la ecran.</p>
 </div>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>Folosirea caracterului <strong>&gt;</strong> suprascrie conținutul fișierului. Dacă <strong>lista_materii</strong> avea conținut, acesta era înlocuit cu rezultatul comenzii <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-lh</span></code>.</p>
+<p>Folosirea caracterului <code class="docutils literal notranslate"><span class="pre">&gt;</span></code> suprascrie conținutul fișierului:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ ls -l /usr/ &gt; lista_materii
+student@uso:~$ cat lista_materii
+total <span class="m">72</span>
+drwxr-xr-x   <span class="m">2</span> root root  <span class="m">32768</span> Sep  <span class="m">9</span> <span class="m">14</span>:07 bin
+drwxr-xr-x   <span class="m">2</span> root root   <span class="m">4096</span> Aug <span class="m">31</span>  <span class="m">2015</span> games
+drwxr-xr-x  <span class="m">34</span> root root   <span class="m">4096</span> Sep  <span class="m">9</span> <span class="m">14</span>:06 include
+drwxr-xr-x  <span class="m">74</span> root root   <span class="m">4096</span> Sep  <span class="m">9</span> <span class="m">14</span>:07 lib
+drwxr-xr-x   <span class="m">3</span> root root   <span class="m">4096</span> Nov <span class="m">21</span>  <span class="m">2015</span> lib64
+drwxr-xr-x   <span class="m">3</span> root root   <span class="m">4096</span> Nov <span class="m">21</span>  <span class="m">2015</span> libx32
+drwxrwsr-x  <span class="m">10</span> root staff  <span class="m">4096</span> Nov <span class="m">21</span>  <span class="m">2015</span> <span class="nb">local</span>
+drwxr-xr-x   <span class="m">2</span> root root   <span class="m">4096</span> Sep  <span class="m">9</span> <span class="m">14</span>:07 sbin
+drwxr-xr-x <span class="m">137</span> root root   <span class="m">4096</span> Sep  <span class="m">9</span> <span class="m">14</span>:07 share
+drwxr-xr-x   <span class="m">2</span> root root   <span class="m">4096</span> Aug <span class="m">31</span>  <span class="m">2015</span> src
+</pre></div>
 </div>
-<div class="section" id="sumarizare">
-<h3><span class="section-number">4.1.1. </span>Sumarizare<a class="headerlink" href="#sumarizare" title="Permalink to this headline">¶</a></h3>
-<p>Dacă la folosirea unei redirectări simple (<code class="docutils literal notranslate"><span class="pre">&gt;</span></code>) și fișierul:</p>
+<p>Continutul inițial al fișierului <cite>lista_materii</cite> a fost înlocuit.</p>
+<div class="section" id="sumarizare-cheatsheet">
+<h3><span class="section-number">4.1.1. </span>Sumarizare (CheatSheet)<a class="headerlink" href="#sumarizare-cheatsheet" title="Permalink to this headline">¶</a></h3>
+<p>Dacă la folosirea unei direcționări simple (<code class="docutils literal notranslate"><span class="pre">&gt;</span></code>) și fișierul:</p>
 <ol class="arabic simple">
 <li><p>Există și e gol, atunci scrie în el;</p></li>
 </ol>
@@ -557,18 +634,19 @@ ELTH rullz
 </pre></div>
 </div>
 </div>
-<div class="section" id="exercitiu-redirectari-simple">
-<h3><span class="section-number">4.1.2. </span>Exercițiu - redirectări simple<a class="headerlink" href="#exercitiu-redirectari-simple" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="exercitii-redirectari-simple">
+<h3><span class="section-number">4.1.2. </span>Exerciții - redirectări simple<a class="headerlink" href="#exercitii-redirectari-simple" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Folosiți <code class="docutils literal notranslate"><span class="pre">tree</span></code> pentru a afișa ierarhia de fișiere pornind de la <strong>/home/student</strong>;</p></li>
-<li><p>Folosiți <code class="docutils literal notranslate"><span class="pre">tree</span></code> pentru afișarea aceleiași ierarhii, dar de data asta recționați-o în fișierul <strong>ierarhie_student</strong>;</p></li>
+<li><p>Folosiți <code class="docutils literal notranslate"><span class="pre">tree</span></code> pentru afișarea aceleiași ierarhii, dar de data asta direcționați-o în fișierul <cite>ierarhie_student</cite>;</p></li>
 <li><p>Inspectați fișierul pentru a demonstra corectitudinea operației.</p></li>
 </ul>
 </div>
 </div>
 <div class="section" id="redirectari-prin-anexare">
 <h2><span class="section-number">4.2. </span>Redirectări prin anexare<a class="headerlink" href="#redirectari-prin-anexare" title="Permalink to this headline">¶</a></h2>
-<p>Pentru a direcționa rezultatul comenzii, <strong>fără</strong> a suprascrie fișierul, folosim caracterele <code class="docutils literal notranslate"><span class="pre">&gt;&gt;</span></code>, astfel:</p>
+<p>Putem direcționa rezultatul comenzii, <em>fără</em> a suprascrie fișierul.
+Face acest lucru folosim caracterele <code class="docutils literal notranslate"><span class="pre">&gt;&gt;</span></code>:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ ls &gt;&gt; lista_materii
 student@uso:~$ ls
 USO RL EGC lista_materii
@@ -579,9 +657,9 @@ student@uso:~$ cat lista_materii
 USO RL EGC lista_materii
 </pre></div>
 </div>
-<p>Observăm că la sfârșitul fișierului creat anterior, s-a adăugat o linie cu noul rezultat al comenzii <code class="docutils literal notranslate"><span class="pre">ls</span></code>.</p>
+<p>Acum avem în fișierul <cite>lista_materii</cite>, pe lângă conținutul vechi, și outputul comenzii <code class="docutils literal notranslate"><span class="pre">ls</span></code>.</p>
 <div class="section" id="id1">
-<h3><span class="section-number">4.2.1. </span>Sumarizare<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">4.2.1. </span>Sumarizare (CheatSheet)<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
 <p>Dacă la folosirea unei redirectări prin anexare (<code class="docutils literal notranslate"><span class="pre">&gt;&gt;</span></code>) și fișierul:</p>
 <ol class="arabic simple">
 <li><p>Există și este gol, atunci scrie în el;</p></li>
@@ -617,43 +695,46 @@ USO RL EGC
 </pre></div>
 </div>
 </div>
-<div class="section" id="exercitiu-redirectari-prin-anexare">
-<h3><span class="section-number">4.2.2. </span>Exercițiu - redirectări prin anexare<a class="headerlink" href="#exercitiu-redirectari-prin-anexare" title="Permalink to this headline">¶</a></h3>
-<ul class="simple">
-<li><p>Folosiți <code class="docutils literal notranslate"><span class="pre">tree</span></code> pentru a afișa ierarhia de fișiere pornind de la <strong>/tmp</strong>;</p></li>
-<li><p>Folosiți <code class="docutils literal notranslate"><span class="pre">tree</span></code> pentru a afișa aceeași ierarhie, dar de data asta direcționați-o prin anexare la fișierul <strong>ierarhie_student</strong> creat anterior;</p></li>
-<li><p>Inspectați fișierul pentru a demonstra corectitudinea operației.</p></li>
+<div class="section" id="exercitii-directionari-prin-anexare">
+<h3><span class="section-number">4.2.2. </span>Exerciții - direcționări prin anexare<a class="headerlink" href="#exercitii-directionari-prin-anexare" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple">
+<li><ul class="simple">
+<li><p>Folosiți <code class="docutils literal notranslate"><span class="pre">tree</span></code> pentru a afișa ierarhia de fișiere pornind de la <cite>/tmp</cite>;</p></li>
+<li><p>Folosiți <code class="docutils literal notranslate"><span class="pre">tree</span></code> pentru a afișa aceeași ierarhie, dar de data asta direcționați-o prin anexare la fișierul <cite>ierarhie_student</cite> creat anterior;</p></li>
+<li><p>Afisați conținutul fișierului <cite>ierarhie_student</cite> folosind comanda <code class="docutils literal notranslate"><span class="pre">cat</span></code>.</p></li>
 </ul>
-</div>
-<div class="section" id="id2">
-<h3><span class="section-number">4.2.3. </span>Exercițiu - redirectări prin anexare<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
-<ul class="simple">
-<li><p>Folosiți <code class="docutils literal notranslate"><span class="pre">tree</span></code> pentru a afișa ierarhia de fișiere pornind de la <strong>/usr</strong>;</p></li>
-<li><p>Repetați comanda anterioara, dar de data asta direcționați-o <strong>fără</strong> anexare la fișierul <strong>ierarhie_student</strong> folosit anterior;</p></li>
-<li><p>Inspectați fișierul pentru a demonstra corectitudinea operației. Mai exista conținutul inițial al fișierului?</p></li>
+</li>
+<li><ul class="simple">
+<li><p>Folosiți <code class="docutils literal notranslate"><span class="pre">tree</span></code> pentru a afișa ierarhia de fișiere pornind de la <cite>/usr</cite>;</p></li>
+<li><p>Repetați comanda anterioara, dar de data asta direcționați-o <em>fără</em> anexare la fișierul <cite>ierarhie_student</cite> folosit anterior;</p></li>
+<li><p>Afisați conținutul fișierului <cite>ierarhie_student</cite> folosind comanda <code class="docutils literal notranslate"><span class="pre">cat</span></code>.
+Mai exista conținutul inițial al fișierului?</p></li>
 </ul>
+</li>
+</ol>
 </div>
 </div>
 <div class="section" id="redirectari-de-eroare">
 <h2><span class="section-number">4.3. </span>Redirectări de eroare<a class="headerlink" href="#redirectari-de-eroare" title="Permalink to this headline">¶</a></h2>
-<p>Atunci când direcționăm ieșirea unei comenzi folosind <code class="docutils literal notranslate"><span class="pre">&gt;</span></code> sau <code class="docutils literal notranslate"><span class="pre">&gt;&gt;</span></code>, ne referim <strong>doar</strong> la ieșirea standard (nu și la erori).</p>
-<p>Putem folosi caracterele <code class="docutils literal notranslate"><span class="pre">2&gt;</span></code> pentru a direcționa ieșirea de eroare către un fișier.</p>
+<p>Atunci când direcționăm ieșirea unei comenzi folosind <code class="docutils literal notranslate"><span class="pre">&gt;</span></code> sau <code class="docutils literal notranslate"><span class="pre">&gt;&gt;</span></code>, ne referim <em>doar</em> la ieșirea standard, nu și la erori.</p>
+<p>Folosim caracterele <code class="docutils literal notranslate"><span class="pre">2&gt;</span></code> pentru a direcționa ieșirea de eroare către un fișier:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ ls
 USO RL EGC lista_materii
 student@uso:~$ cat lista_materie
-cat: dsa: No such file or directory
+cat: lista_materie: No such file or directory
 </pre></div>
 </div>
-<p>Observăm că la exemplul anterior, am vrut să afișăm conținutul fișierului <strong>lista_materie</strong>, fișier ce nu există.
-Am primit informația <em>No such file or directory</em>, dar aceasta este afișată <strong>sub formă de eroare</strong>.</p>
+<p>Am vrut să afișăm conținutul fișierului <em>lista_materie</em>, însă acest fișier nu există.
+Am primit informația <em>No such file or directory</em>, și aceasta este afișată <em>sub formă de eroare</em>.</p>
+<p>Direcționăm conținutul fișierului <cite>SO2</cite> în fișierul <em>materii</em>:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ cat SO2 &gt; materii
 cat: SO2: No such file or directory
 </pre></div>
 </div>
-<p>Observăm că dacă folosim redirectarea simplă <code class="docutils literal notranslate"><span class="pre">&gt;</span></code>, eroarea tot este afișată.</p>
+<p>Vedem că dacă folosim direcționarea simplă <code class="docutils literal notranslate"><span class="pre">&gt;</span></code>, eroarea tot este afișată.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Chiar dacă comanda de interes eșuează, redirectarea este făcută. În cazul de mai sus, fișierul <strong>materii</strong> este creat.</p>
+<p>Chiar dacă comanda de interes eșuează, direcționarea este făcută. În cazul de mai sus, fișierul <cite>materii</cite> este creat.</p>
 </div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ cat SO2 <span class="m">2</span>&gt; materii
 student@uso:~$ cat materii
@@ -661,22 +742,21 @@ cat: SO2: No such file or directory
 </pre></div>
 </div>
 <p>Observăm că nu am primit eroare la prima comandă unde am încercat să afișăm conținutul unui fișier inexistent.
-Informațiile de eroare au fost redirectate în fișier.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
+Informațiile de eroare au fost direcționate în fișier.</p>
 <p>Redirectările de eroare și ieșire pot fi folosite simultan folosind caracterele specifice <code class="docutils literal notranslate"><span class="pre">&gt;</span></code> pentru ieșire și <code class="docutils literal notranslate"><span class="pre">2&gt;</span></code> pentru eroare.
 Putem folosi sintaxa <code class="docutils literal notranslate"><span class="pre">comanda</span> <span class="pre">&gt;</span> <span class="pre">fișier_ieșire</span> <span class="pre">2&gt;</span> <span class="pre">fișier_erori</span></code> pentru a face acest lucru..</p>
-</div>
+<p>Ca să redirectăm și outputul și erorile de la o comandă folosim și <code class="docutils literal notranslate"><span class="pre">&gt;</span></code> și <code class="docutils literal notranslate"><span class="pre">2&gt;</span></code> ca mai jos:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ cat ELTH USO SO2
-USO is the b3st
+ELTH is the b3st
 USO RULLZ
 cat: SO2: No such file or directory
 </pre></div>
 </div>
-<p>În exemplul de mai sus încercăm să afișăm conținutul fișierelor ELTH, USO și SO2, dar cu fișierul SO2 neexistent.
-Primele două linii fac parte din fluxul de ieșire: conținutul fișierelor ELTH și USO.
-Ultimul rând face parte din fluxul de eroare și ne informează că fișierul SO2 nu există.
-În continuare vom face o separare a fluxurilor: direcționăm ieșirea într-un fișier și erorile în alt fișier.</p>
+<p>În exemplul de mai sus încercăm să afișăm conținutul fișierelor <cite>ELTH</cite>, <cite>USO</cite> și <cite>SO2</cite>, dar cu fișierul <cite>SO2</cite> neexistent.
+Liniile <cite>ELTH is the b3st</cite> și <cite>USO RULLZ</cite> sunt conținutul fișierelor <cite>ELTH</cite> și <cite>USO</cite>.
+Comanda <code class="docutils literal notranslate"><span class="pre">cat</span></code> ne-a arătat conținutul celor 2 fișiere.
+Tot comanda <code class="docutils literal notranslate"><span class="pre">cat</span></code> a încercat să afișeze conținutul fișierului <cite>SO2</cite>, însă el nu există și a afișat eroarea <cite>Not such file or directory</cite>.</p>
+<p>În continuare vom face o separare a fluxurilor: direcționăm ieșirea în fișierul <cite>continut_materii</cite> și erorile în fișierul <cite>erori_comenzi</cite>:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ cat ELTH USO SO2 &gt; continut_materii <span class="m">2</span>&gt; erori_comenzi
 student@uso:~$ cat continut_materii
 USO is the b3st

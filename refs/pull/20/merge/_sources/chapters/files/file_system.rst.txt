@@ -4,9 +4,7 @@ Sistemul de fișiere
 Afișarea căii curente
 ---------------------
 
-Atunci când folosim un terminal este foarte important să știm unde în sistemul de fișiere ne aflăm.
-Dacă vrem să jucăm un joc, știm că vrem să ajungem în directorul **Games** unde avem jocul preferat, **Warcraft3**.
-Pentru a ajunge în directorul **Games** trebuie să știm unde suntem și apoi să navigăm în sistemul de fișiere până acolo.
+Ne reamintim de la capitolul anterior.
 
 Folosirea utilitarului ``pwd`` (print working directory)
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -25,8 +23,6 @@ Pentru a afla calea la care ne aflăm folosim comanda ``pwd``:
     Rezultatul comenzii ``pwd`` se schimbă atunci când schimbăm calea la care ne aflăm.
     În exemplul anterior am schimbat calea la care ne aflăm cu ``cd`` și demonstrat schimbarea căii curente cu ``pwd``.
 
-.. note::
-    Mai multe informații și exemple se regăsesc în capitolul ##### TODO Capitol Edi ######
 
 Schimbarea căii curente
 -----------------------
@@ -53,75 +49,69 @@ Schimbăm calea curentă folosind utilitarul ``cd`` împreună cu calea la care 
     Promptul terminalului ne arată la fiecare pas în ce cale ne aflăm.
 
 
-Căutarea fișierelor în sistemul de fișiere(1)
----------------------------------------------
+Căutarea fișierelor în sistemul de fișiere
+------------------------------------------
 
-De multe ori avem nevoie să căutăm dacă un fișier există pe sistem și unde.
-Pentru a căuta un fișier într-o ierarhie de directoare, putem folosi utilitarul **find**.
+Se poate întâmpla să vrem să aflăm dacă într-o ierarhie de fișiere găsim un anumit fișier și dacă există, vrem să aflăm unde se află.
+Spre exemplu, serviciul ``ssh`` folosește un fișier de configurare numit ``/etc/ssh/ssh_config``, dar nu mai ținem minte calea exactă până la acel fișier.
+
+Linux ne oferă 2 utilitare, ``locate`` și ``find``, care pot fi de ajutor în situația descrisă mai sus.
+Vorbim mai în detaliu despre fiecare utilitar în subsecțiunile de mai jos.
+
+
 
 Folosirea utilitarului ``find``
 """""""""""""""""""""""""""""""
 
-Căutăm în sistem un fișier folosind utilitarului ``find``, aftfel:
+În mod obișnuit, numele fișierelor de configurare pentru servicii se termină în extensia ".conf".
+Găsim toate fișierele de configurare ale serviciului ``ssh`` de pe sistem folosind comanda ``find``:
 
 .. code-block:: bash
 
-    student@uso:~$ find . -iname "*.tar"
-    ./usr_bin.tar
-    ./inregistrari.tar
+    student@uso:~/comenzi$ find / -iname "*ssh*conf"
+    /usr/share/upstart/sessions/ssh-agent.conf
+    /usr/lib/tmpfiles.d/sshd.conf
+    /etc/init/ssh.conf
 
-Am căutat în calea curentă (`/home/student`) orice fișier se termină cu **tar**.
+Am căutat în calea `/` (*root*) orice fișier ce conține `ssh` și se termină cu `conf`.
 
 Pentru a învăța mai multe despre acest utilitar, putem inspecta manualul ``man find``.
 
 .. note::
-    Mai multe informații și exemple se regăsesc în capitolul ##### TODO Capitol Edi ######
+    Mai multe informații și exemple în capitolul ref_capitol_edi 
 
-
-Căutarea fișierelor în sistemul de fișiere(2)
----------------------------------------------
-
-Utilitarul ``find`` nu scalează pentru situațiile când avem multe fișiere și dorim un răspuns rapid.
-Utilitarul ``locate`` rezolvă această problemă.
-Acesta funcționează în 2 pași:
-
-* Crearea și actualizarea unei baze de date folosind comanda **updatedb**;
-* Căutarea folosind **locate**.
-
-
-Performanța utilitarului este foarte bună, superioară lui **find**.
-Partea negativă este că la fiecare căutare trebuie folosit utilitarul **updatedb**.
 
 Folosirea utilitarului ``locate``
 """""""""""""""""""""""""""""""""
+
+Utilitarul ``find`` nu scalează pentru situațiile când avem multe fișiere și dorim un răspuns rapid.
+Utilitarul ``locate`` ne poate ajuta în astfel de situații.
+
+Acesta funcționează în 2 pași:
+
+* Crearea și actualizarea unei baze de date folosind comanda ``updatedb``.
+  Aceasta conține intrări cu toate fișierele din sistem și locatia acestora.
+* Căutarea folosind ``locate``.
+  Această căutare se reduce la interogarea bazei de date create anterior cu ``updatedb``.
+
+
+Performanța utilitarului este foarte bună, superioară lui ``find``.
+Partea negativă este că la fiecare căutare trebuie folosit utilitarul ``updatedb``.
 
 Încercăm să căutăm fișierul **pwd** în sistemul de fișiere folosind ``locate``:
 
 .. code-block:: bash
 
-    student@uso:~$ sudo updatedb
-    student@uso:~$ locate pwd
-    /bin/pwd
-    /etc/.pwd.lock
-    /lib/modules/3.16.0-4-586/kernel/drivers/watchdog/hpwdt.ko
-    /sbin/unix_chkpwd
-    /usr/bin/pwdx
-    /usr/include/pwd.h
-    /usr/share/bash-completion/completions/pwd
-    /usr/share/bash-completion/completions/pwdx
-    /usr/share/man/man1/pwd.1.gz
-    /usr/share/man/man1/pwd.1posix.gz
-    /usr/share/man/man1/pwdx.1.gz
-    /usr/share/man/man3/lckpwdf.3.gz
-    /usr/share/man/man3/ulckpwdf.3.gz
-    /usr/share/man/man7/pwd.h.7posix.gz
-    /usr/share/man/man8/unix_chkpwd.8.gz
-    /usr/share/nmap/nselib/unpwdb.lua
-    /usr/share/nmap/nselib/data/psexec/pwdump.lua
-    /usr/share/perl5/pwd.pl
+    student@uso:~/comenzi$ sudo updatedb
+    student@uso:~/comenzi$ locate "*ssh*conf"
+    /etc/init/ssh.conf
+    /usr/lib/tmpfiles.d/sshd.conf
+    /usr/share/upstart/sessions/ssh-agent.conf
 
-Actualizăm baza de date folosind ``updatedb`` și apoi căutăm fișiere ce conțin *pwd* cu utilitarul ``locate``.
+Actualizăm baza de date folosind ``updatedb`` și apoi căutăm fișierul de configurare cu utilitarul ``locate``.
 Răspunsul comenzii este instant.
+
+
 
 .. code-block:: bash
 
@@ -129,23 +119,23 @@ Răspunsul comenzii este instant.
     /home/student/inregistrari.tar
     /home/student/usr_bin.tar
 
-Am folosit utilitarul ``locate`` să căutăm în tot sistemul orice fișier se termină cu **.tar**.
+Am folosit utilitarul ``locate`` să căutăm în tot sistemul orice fișier se termină cu `.tar`.
 
-.. note::
-    Mai multe informații și exemple se regăsesc în capitolul ##### TODO Capitol Edi ######
-
+Găsim mai multe informații și exemple în capitolul todo_ref_edi 
 
 Variabila de mediu PATH
 -----------------------
 
-Până acum am învățat câteva comenzi utile.
-Dar unde se află fizic aceste comenzi pe sistem?
-De unde știe sistemul care dintre fișiere **pwd** trebuie executat la comanda ``pwd``?
+Până acum am învățat câteva comenzi utile: ``ls``, ``cd``, ``find``, ``locate``.
 
-Acesta folosește variabila **PATH** pentru asta.
+Utilitarele sunt de fapt programe (executabile) care se află undeva în sistemul de fișiere.
 
-După cum am menționat într-un capitol anterior, PATH este o variabilă de mediu ce se află în contextul executării în linia de comandă.
-De fiecare dată când apelăm un program, prima oară se verifică dacă acesta se află în căile din **PATH**.
+Shell-ul știe să ruleze utilitarele din orice loc în care ne aflăm (din ierarhia de fișiere).
+Se întâmplă acest lucru pentru că shell-ul are o listă de câteva directoare în care se uită după utilitarele pe care le folosim.
+Spre exemplu, atunci când rulăm utilitarul ``ls``, el caută programul ``ls`` în lista pe care o are, îl găsește și îl rulează.
+
+Această listă se găsește în *variabila de mediu* [#]_ `PATH`.
+
 
 Afișarea variabilei PATH din sistem
 """""""""""""""""""""""""""""""""""
@@ -157,7 +147,7 @@ Afișăm valoarea **PATH** a sistemului folosind utilitarul ``echo``.
     $ echo $PATH
     /usr/local/bin:/usr/bin:/bin:/usr/games
 
-Observăm că variabila **PATH** are patru căi din sistem, despărțite de caracterul **:**.
+Variabila `PATH` are patru căi din sistem, despărțite de caracterul ``:``.
 Astfel, sistemul verifică dacă utilitarul este prezent în calea `/usr/local/bin`; dacă nu-l găsește, merge la următoarea calea `/usr/bin`; dacă nu-l găsește, merge la următoarea cale `/bin`; dacă nu-l găsește, merge la ultima cale `/usr/games`.
 
 .. note::
@@ -167,12 +157,13 @@ Căutarea utilitarelor în sistemul de fișiere
 --------------------------------------------
 
 Există cazuri când vrem să găsim locația exactă a unui utilitar.
-De exemplu, putem să-l înlocuim cu utiltiarul nostru: dacă înlocuim utilitarul `ls` cu `pwd`, la fiecare execuție de `ls`, va fi afișată calea curentă.
 
 Folosirea utilitarului ``which``
 """"""""""""""""""""""""""""""""
 
 Acest utilitar identifică calea programelor din sistem.
+
+Căutăm calea la care se află utilitarul ``ls`` folosind comanda ``which``:
 
 .. code-block::
 
@@ -184,8 +175,20 @@ Acest utilitar identifică calea programelor din sistem.
     /usr/bin/man 
 
 
-.. note::
-    Acesta folosește variabila de mediu **PATH** pentru a găsi utilitarul cerut și va afișa rezultatele în ordinea directoarelor din **PATH**.
+``Which`` folosește variabila de mediu **PATH** pentru a găsi utilitarul cerut și va afișa rezultatele în ordinea directoarelor din **PATH**.
 
-.. note::
-    Pentru mai multe detalii verificați ##### TODO Capitol Edi ###### sau manualul ``man which``.
+Aflăm mai multe detalii despre utilitarul ``which`` în capitolul todo_edi_which.
+
+
+Exerciții
+"""""""""
+
+* Înlocuiți utilitarul ``ls`` cu utilitarul ``pwd``.
+  Astfel, la fiecare execuție a utilitarului ``ls``, se va afișa calea curentă.
+
+
+.. [#] Variabilele de mediu sunt variabile care descriu mediul în care sunt executate programele. 
+    Ele sunt folosite de aplicații pentru a răspunde la întrebări cum ar fi: Care este numele calculatorului pe care sunt instalată?
+    Care este numele contului de utilizator care mă execută?
+    Care este folderul meu de lucru?
+    Unde se află fișierele temporare pe calculator?

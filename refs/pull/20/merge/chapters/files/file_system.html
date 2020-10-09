@@ -45,6 +45,13 @@
   
     <div class="nav-item">
       <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Acomodarea în Linux
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
          class="nav-link  router-link-active">
          Lucrul cu fișiere
       </a>
@@ -102,6 +109,13 @@
           <navlinks>
             
 
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Acomodarea în Linux
+      </a>
+    </div>
   
     <div class="nav-item">
       <a href="../../index.html#uso-lab-book"
@@ -166,11 +180,50 @@
   
     <div class="sidebar-group">
       <p class="caption">
+        <span class="caption-text"><a href="../../index.html#uso-lab-book">Acomodarea în Linux</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../basic/apps.html" class="reference internal ">Pornirea și oprirea aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../basic/browser.html" class="reference internal ">Folosirea eficientă a browserului web</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../basic/terminal.html" class="reference internal ">Lucrul în terminal</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../basic/workspace.html" class="reference internal ">Lucrul cu workspace-uri</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../basic/cheatsheet.html" class="reference internal ">Cheatsheet</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
         <span class="caption-text"><a href="../../index.html#uso-lab-book">Lucrul cu fișiere</a></span>
       </p>
       <ul class="current">
         
-          <li class="toctree-l1 "><a href="paths.html" class="reference internal ">Căi absolute și relative</a>
+          <li class="toctree-l1 "><a href="paths.html" class="reference internal ">Căi în ierarhia de fișiere</a>
 
             
           </li>
@@ -209,9 +262,7 @@
                 
                   <li class="toctree-l2"><a href="#schimbarea-caii-curente" class="reference internal">Schimbarea căii curente</a></li>
                 
-                  <li class="toctree-l2"><a href="#cautarea-fisierelor-in-sistemul-de-fisiere-1" class="reference internal">Căutarea fișierelor în sistemul de fișiere(1)</a></li>
-                
-                  <li class="toctree-l2"><a href="#cautarea-fisierelor-in-sistemul-de-fisiere-2" class="reference internal">Căutarea fișierelor în sistemul de fișiere(2)</a></li>
+                  <li class="toctree-l2"><a href="#cautarea-fisierelor-in-sistemul-de-fisiere" class="reference internal">Căutarea fișierelor în sistemul de fișiere</a></li>
                 
                   <li class="toctree-l2"><a href="#variabila-de-mediu-path" class="reference internal">Variabila de mediu PATH</a></li>
                 
@@ -497,9 +548,7 @@
 <h1><span class="section-number">6. </span>Sistemul de fișiere<a class="headerlink" href="#sistemul-de-fisiere" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="afisarea-caii-curente">
 <h2><span class="section-number">6.1. </span>Afișarea căii curente<a class="headerlink" href="#afisarea-caii-curente" title="Permalink to this headline">¶</a></h2>
-<p>Atunci când folosim un terminal este foarte important să știm unde în sistemul de fișiere ne aflăm.
-Dacă vrem să jucăm un joc, știm că vrem să ajungem în directorul <strong>Games</strong> unde avem jocul preferat, <strong>Warcraft3</strong>.
-Pentru a ajunge în directorul <strong>Games</strong> trebuie să știm unde suntem și apoi să navigăm în sistemul de fișiere până acolo.</p>
+<p>Ne reamintim de la capitolul anterior.</p>
 <div class="section" id="folosirea-utilitarului-pwd-print-working-directory">
 <h3><span class="section-number">6.1.1. </span>Folosirea utilitarului <code class="docutils literal notranslate"><span class="pre">pwd</span></code> (print working directory)<a class="headerlink" href="#folosirea-utilitarului-pwd-print-working-directory" title="Permalink to this headline">¶</a></h3>
 <p>Pentru a afla calea la care ne aflăm folosim comanda <code class="docutils literal notranslate"><span class="pre">pwd</span></code>:</p>
@@ -514,10 +563,6 @@ student@uso:/usr/bin$ <span class="nb">pwd</span>
 <p class="admonition-title">Note</p>
 <p>Rezultatul comenzii <code class="docutils literal notranslate"><span class="pre">pwd</span></code> se schimbă atunci când schimbăm calea la care ne aflăm.
 În exemplul anterior am schimbat calea la care ne aflăm cu <code class="docutils literal notranslate"><span class="pre">cd</span></code> și demonstrat schimbarea căii curente cu <code class="docutils literal notranslate"><span class="pre">pwd</span></code>.</p>
-</div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Mai multe informații și exemple se regăsesc în capitolul ##### TODO Capitol Edi ######</p>
 </div>
 </div>
 </div>
@@ -544,92 +589,77 @@ Pentru observa în promptul (partea de la începutul rândului) terminalului <em
 </div>
 </div>
 </div>
-<div class="section" id="cautarea-fisierelor-in-sistemul-de-fisiere-1">
-<h2><span class="section-number">6.3. </span>Căutarea fișierelor în sistemul de fișiere(1)<a class="headerlink" href="#cautarea-fisierelor-in-sistemul-de-fisiere-1" title="Permalink to this headline">¶</a></h2>
-<p>De multe ori avem nevoie să căutăm dacă un fișier există pe sistem și unde.
-Pentru a căuta un fișier într-o ierarhie de directoare, putem folosi utilitarul <strong>find</strong>.</p>
+<div class="section" id="cautarea-fisierelor-in-sistemul-de-fisiere">
+<h2><span class="section-number">6.3. </span>Căutarea fișierelor în sistemul de fișiere<a class="headerlink" href="#cautarea-fisierelor-in-sistemul-de-fisiere" title="Permalink to this headline">¶</a></h2>
+<p>Se poate întâmpla să vrem să aflăm dacă într-o ierarhie de fișiere găsim un anumit fișier și dacă există, vrem să aflăm unde se află.
+Spre exemplu, serviciul <code class="docutils literal notranslate"><span class="pre">ssh</span></code> folosește un fișier de configurare numit <code class="docutils literal notranslate"><span class="pre">/etc/ssh/ssh_config</span></code>, dar nu mai ținem minte calea exactă până la acel fișier.</p>
+<p>Linux ne oferă 2 utilitare, <code class="docutils literal notranslate"><span class="pre">locate</span></code> și <code class="docutils literal notranslate"><span class="pre">find</span></code>, care pot fi de ajutor în situația descrisă mai sus.
+Vorbim mai în detaliu despre fiecare utilitar în subsecțiunile de mai jos.</p>
 <div class="section" id="folosirea-utilitarului-find">
 <h3><span class="section-number">6.3.1. </span>Folosirea utilitarului <code class="docutils literal notranslate"><span class="pre">find</span></code><a class="headerlink" href="#folosirea-utilitarului-find" title="Permalink to this headline">¶</a></h3>
-<p>Căutăm în sistem un fișier folosind utilitarului <code class="docutils literal notranslate"><span class="pre">find</span></code>, aftfel:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ find . -iname <span class="s2">&quot;*.tar&quot;</span>
-./usr_bin.tar
-./inregistrari.tar
+<p>În mod obișnuit, numele fișierelor de configurare pentru servicii se termină în extensia “.conf”.
+Găsim toate fișierele de configurare ale serviciului <code class="docutils literal notranslate"><span class="pre">ssh</span></code> de pe sistem folosind comanda <code class="docutils literal notranslate"><span class="pre">find</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/comenzi$ find / -iname <span class="s2">&quot;*ssh*conf&quot;</span>
+/usr/share/upstart/sessions/ssh-agent.conf
+/usr/lib/tmpfiles.d/sshd.conf
+/etc/init/ssh.conf
 </pre></div>
 </div>
-<p>Am căutat în calea curentă (<cite>/home/student</cite>) orice fișier se termină cu <strong>tar</strong>.</p>
+<p>Am căutat în calea <cite>/</cite> (<em>root</em>) orice fișier ce conține <cite>ssh</cite> și se termină cu <cite>conf</cite>.</p>
 <p>Pentru a învăța mai multe despre acest utilitar, putem inspecta manualul <code class="docutils literal notranslate"><span class="pre">man</span> <span class="pre">find</span></code>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Mai multe informații și exemple se regăsesc în capitolul ##### TODO Capitol Edi ######</p>
+<p>Mai multe informații și exemple în capitolul ref_capitol_edi</p>
 </div>
 </div>
-</div>
-<div class="section" id="cautarea-fisierelor-in-sistemul-de-fisiere-2">
-<h2><span class="section-number">6.4. </span>Căutarea fișierelor în sistemul de fișiere(2)<a class="headerlink" href="#cautarea-fisierelor-in-sistemul-de-fisiere-2" title="Permalink to this headline">¶</a></h2>
-<p>Utilitarul <code class="docutils literal notranslate"><span class="pre">find</span></code> nu scalează pentru situațiile când avem multe fișiere și dorim un răspuns rapid.
-Utilitarul <code class="docutils literal notranslate"><span class="pre">locate</span></code> rezolvă această problemă.
-Acesta funcționează în 2 pași:</p>
-<ul class="simple">
-<li><p>Crearea și actualizarea unei baze de date folosind comanda <strong>updatedb</strong>;</p></li>
-<li><p>Căutarea folosind <strong>locate</strong>.</p></li>
-</ul>
-<p>Performanța utilitarului este foarte bună, superioară lui <strong>find</strong>.
-Partea negativă este că la fiecare căutare trebuie folosit utilitarul <strong>updatedb</strong>.</p>
 <div class="section" id="folosirea-utilitarului-locate">
-<h3><span class="section-number">6.4.1. </span>Folosirea utilitarului <code class="docutils literal notranslate"><span class="pre">locate</span></code><a class="headerlink" href="#folosirea-utilitarului-locate" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.3.2. </span>Folosirea utilitarului <code class="docutils literal notranslate"><span class="pre">locate</span></code><a class="headerlink" href="#folosirea-utilitarului-locate" title="Permalink to this headline">¶</a></h3>
+<p>Utilitarul <code class="docutils literal notranslate"><span class="pre">find</span></code> nu scalează pentru situațiile când avem multe fișiere și dorim un răspuns rapid.
+Utilitarul <code class="docutils literal notranslate"><span class="pre">locate</span></code> ne poate ajuta în astfel de situații.</p>
+<p>Acesta funcționează în 2 pași:</p>
+<ul class="simple">
+<li><p>Crearea și actualizarea unei baze de date folosind comanda <code class="docutils literal notranslate"><span class="pre">updatedb</span></code>.
+Aceasta conține intrări cu toate fișierele din sistem și locatia acestora.</p></li>
+<li><p>Căutarea folosind <code class="docutils literal notranslate"><span class="pre">locate</span></code>.
+Această căutare se reduce la interogarea bazei de date create anterior cu <code class="docutils literal notranslate"><span class="pre">updatedb</span></code>.</p></li>
+</ul>
+<p>Performanța utilitarului este foarte bună, superioară lui <code class="docutils literal notranslate"><span class="pre">find</span></code>.
+Partea negativă este că la fiecare căutare trebuie folosit utilitarul <code class="docutils literal notranslate"><span class="pre">updatedb</span></code>.</p>
 <p>Încercăm să căutăm fișierul <strong>pwd</strong> în sistemul de fișiere folosind <code class="docutils literal notranslate"><span class="pre">locate</span></code>:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ sudo updatedb
-student@uso:~$ locate <span class="nb">pwd</span>
-/bin/pwd
-/etc/.pwd.lock
-/lib/modules/3.16.0-4-586/kernel/drivers/watchdog/hpwdt.ko
-/sbin/unix_chkpwd
-/usr/bin/pwdx
-/usr/include/pwd.h
-/usr/share/bash-completion/completions/pwd
-/usr/share/bash-completion/completions/pwdx
-/usr/share/man/man1/pwd.1.gz
-/usr/share/man/man1/pwd.1posix.gz
-/usr/share/man/man1/pwdx.1.gz
-/usr/share/man/man3/lckpwdf.3.gz
-/usr/share/man/man3/ulckpwdf.3.gz
-/usr/share/man/man7/pwd.h.7posix.gz
-/usr/share/man/man8/unix_chkpwd.8.gz
-/usr/share/nmap/nselib/unpwdb.lua
-/usr/share/nmap/nselib/data/psexec/pwdump.lua
-/usr/share/perl5/pwd.pl
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/comenzi$ sudo updatedb
+student@uso:~/comenzi$ locate <span class="s2">&quot;*ssh*conf&quot;</span>
+/etc/init/ssh.conf
+/usr/lib/tmpfiles.d/sshd.conf
+/usr/share/upstart/sessions/ssh-agent.conf
 </pre></div>
 </div>
-<p>Actualizăm baza de date folosind <code class="docutils literal notranslate"><span class="pre">updatedb</span></code> și apoi căutăm fișiere ce conțin <em>pwd</em> cu utilitarul <code class="docutils literal notranslate"><span class="pre">locate</span></code>.
+<p>Actualizăm baza de date folosind <code class="docutils literal notranslate"><span class="pre">updatedb</span></code> și apoi căutăm fișierul de configurare cu utilitarul <code class="docutils literal notranslate"><span class="pre">locate</span></code>.
 Răspunsul comenzii este instant.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ locate *.tar
 /home/student/inregistrari.tar
 /home/student/usr_bin.tar
 </pre></div>
 </div>
-<p>Am folosit utilitarul <code class="docutils literal notranslate"><span class="pre">locate</span></code> să căutăm în tot sistemul orice fișier se termină cu <strong>.tar</strong>.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Mai multe informații și exemple se regăsesc în capitolul ##### TODO Capitol Edi ######</p>
-</div>
+<p>Am folosit utilitarul <code class="docutils literal notranslate"><span class="pre">locate</span></code> să căutăm în tot sistemul orice fișier se termină cu <cite>.tar</cite>.</p>
+<p>Găsim mai multe informații și exemple în capitolul todo_ref_edi</p>
 </div>
 </div>
 <div class="section" id="variabila-de-mediu-path">
-<h2><span class="section-number">6.5. </span>Variabila de mediu PATH<a class="headerlink" href="#variabila-de-mediu-path" title="Permalink to this headline">¶</a></h2>
-<p>Până acum am învățat câteva comenzi utile.
-Dar unde se află fizic aceste comenzi pe sistem?
-De unde știe sistemul care dintre fișiere <strong>pwd</strong> trebuie executat la comanda <code class="docutils literal notranslate"><span class="pre">pwd</span></code>?</p>
-<p>Acesta folosește variabila <strong>PATH</strong> pentru asta.</p>
-<p>După cum am menționat într-un capitol anterior, PATH este o variabilă de mediu ce se află în contextul executării în linia de comandă.
-De fiecare dată când apelăm un program, prima oară se verifică dacă acesta se află în căile din <strong>PATH</strong>.</p>
+<h2><span class="section-number">6.4. </span>Variabila de mediu PATH<a class="headerlink" href="#variabila-de-mediu-path" title="Permalink to this headline">¶</a></h2>
+<p>Până acum am învățat câteva comenzi utile: <code class="docutils literal notranslate"><span class="pre">ls</span></code>, <code class="docutils literal notranslate"><span class="pre">cd</span></code>, <code class="docutils literal notranslate"><span class="pre">find</span></code>, <code class="docutils literal notranslate"><span class="pre">locate</span></code>.</p>
+<p>Utilitarele sunt de fapt programe (executabile) care se află undeva în sistemul de fișiere.</p>
+<p>Shell-ul știe să ruleze utilitarele din orice loc în care ne aflăm (din ierarhia de fișiere).
+Se întâmplă acest lucru pentru că shell-ul are o listă de câteva directoare în care se uită după utilitarele pe care le folosim.
+Spre exemplu, atunci când rulăm utilitarul <code class="docutils literal notranslate"><span class="pre">ls</span></code>, el caută programul <code class="docutils literal notranslate"><span class="pre">ls</span></code> în lista pe care o are, îl găsește și îl rulează.</p>
+<p>Această listă se găsește în <em>variabila de mediu</em> <a class="footnote-reference brackets" href="#id2" id="id1">1</a> <cite>PATH</cite>.</p>
 <div class="section" id="afisarea-variabilei-path-din-sistem">
-<h3><span class="section-number">6.5.1. </span>Afișarea variabilei PATH din sistem<a class="headerlink" href="#afisarea-variabilei-path-din-sistem" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.4.1. </span>Afișarea variabilei PATH din sistem<a class="headerlink" href="#afisarea-variabilei-path-din-sistem" title="Permalink to this headline">¶</a></h3>
 <p>Afișăm valoarea <strong>PATH</strong> a sistemului folosind utilitarul <code class="docutils literal notranslate"><span class="pre">echo</span></code>.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ echo $PATH
 /usr/local/bin:/usr/bin:/bin:/usr/games
 </pre></div>
 </div>
-<p>Observăm că variabila <strong>PATH</strong> are patru căi din sistem, despărțite de caracterul <strong>:</strong>.
+<p>Variabila <cite>PATH</cite> are patru căi din sistem, despărțite de caracterul <code class="docutils literal notranslate"><span class="pre">:</span></code>.
 Astfel, sistemul verifică dacă utilitarul este prezent în calea <cite>/usr/local/bin</cite>; dacă nu-l găsește, merge la următoarea calea <cite>/usr/bin</cite>; dacă nu-l găsește, merge la următoarea cale <cite>/bin</cite>; dacă nu-l găsește, merge la ultima cale <cite>/usr/games</cite>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -638,12 +668,12 @@ Astfel, sistemul verifică dacă utilitarul este prezent în calea <cite>/usr/lo
 </div>
 </div>
 <div class="section" id="cautarea-utilitarelor-in-sistemul-de-fisiere">
-<h2><span class="section-number">6.6. </span>Căutarea utilitarelor în sistemul de fișiere<a class="headerlink" href="#cautarea-utilitarelor-in-sistemul-de-fisiere" title="Permalink to this headline">¶</a></h2>
-<p>Există cazuri când vrem să găsim locația exactă a unui utilitar.
-De exemplu, putem să-l înlocuim cu utiltiarul nostru: dacă înlocuim utilitarul <cite>ls</cite> cu <cite>pwd</cite>, la fiecare execuție de <cite>ls</cite>, va fi afișată calea curentă.</p>
+<h2><span class="section-number">6.5. </span>Căutarea utilitarelor în sistemul de fișiere<a class="headerlink" href="#cautarea-utilitarelor-in-sistemul-de-fisiere" title="Permalink to this headline">¶</a></h2>
+<p>Există cazuri când vrem să găsim locația exactă a unui utilitar.</p>
 <div class="section" id="folosirea-utilitarului-which">
-<h3><span class="section-number">6.6.1. </span>Folosirea utilitarului <code class="docutils literal notranslate"><span class="pre">which</span></code><a class="headerlink" href="#folosirea-utilitarului-which" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.5.1. </span>Folosirea utilitarului <code class="docutils literal notranslate"><span class="pre">which</span></code><a class="headerlink" href="#folosirea-utilitarului-which" title="Permalink to this headline">¶</a></h3>
 <p>Acest utilitar identifică calea programelor din sistem.</p>
+<p>Căutăm calea la care se află utilitarul <code class="docutils literal notranslate"><span class="pre">ls</span></code> folosind comanda <code class="docutils literal notranslate"><span class="pre">which</span></code>:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>student@uso:~$ which ls
 /bin/ls
 student@uso:~$ which pwd
@@ -652,14 +682,24 @@ student@uso:~$ which man
 /usr/bin/man
 </pre></div>
 </div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Acesta folosește variabila de mediu <strong>PATH</strong> pentru a găsi utilitarul cerut și va afișa rezultatele în ordinea directoarelor din <strong>PATH</strong>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">Which</span></code> folosește variabila de mediu <strong>PATH</strong> pentru a găsi utilitarul cerut și va afișa rezultatele în ordinea directoarelor din <strong>PATH</strong>.</p>
+<p>Aflăm mai multe detalii despre utilitarul <code class="docutils literal notranslate"><span class="pre">which</span></code> în capitolul todo_edi_which.</p>
 </div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Pentru mai multe detalii verificați ##### TODO Capitol Edi ###### sau manualul <code class="docutils literal notranslate"><span class="pre">man</span> <span class="pre">which</span></code>.</p>
-</div>
+<div class="section" id="exercitii">
+<h3><span class="section-number">6.5.2. </span>Exerciții<a class="headerlink" href="#exercitii" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Înlocuiți utilitarul <code class="docutils literal notranslate"><span class="pre">ls</span></code> cu utilitarul <code class="docutils literal notranslate"><span class="pre">pwd</span></code>.
+Astfel, la fiecare execuție a utilitarului <code class="docutils literal notranslate"><span class="pre">ls</span></code>, se va afișa calea curentă.</p></li>
+</ul>
+<dl class="footnote brackets">
+<dt class="label" id="id2"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd><p>Variabilele de mediu sunt variabile care descriu mediul în care sunt executate programele.
+Ele sunt folosite de aplicații pentru a răspunde la întrebări cum ar fi: Care este numele calculatorului pe care sunt instalată?
+Care este numele contului de utilizator care mă execută?
+Care este folderul meu de lucru?
+Unde se află fișierele temporare pe calculator?</p>
+</dd>
+</dl>
 </div>
 </div>
 </div>
