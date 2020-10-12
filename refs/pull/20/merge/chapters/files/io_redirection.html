@@ -548,10 +548,9 @@ Trecerea prin toți acești pași durează și devenim ineficienți în lucrul �
 <p>Interpretorul de comenzi (<em>shellul</em>) are opțiunea de a direcționa afișarea rezultatului direct într-un fișier.</p>
 <p>Rezultatul unei comenzi este format din două fluxuri de informații: informații de ieșire (<em>standard output, stdout</em>) și de eroare (<em>standard error, stderr</em>).
 Avem opțiunea de a direcționa (<em>redirecta</em>) doar ieșirea, doar eroarea sau ambele fluxuri într-un fișier.</p>
-<p>În acest capitol vom vorbi despre cum să facem aceste direcționări (<em>redirectări</em>).</p>
 <div class="section" id="redirectari-simple">
 <h2><span class="section-number">4.1. </span>Redirectări simple<a class="headerlink" href="#redirectari-simple" title="Permalink to this headline">¶</a></h2>
-<p>În directorul <cite>/home/student</cite> (<em>~</em>) avem mai multe fișiere, câte unul pentru fiecare materie.
+<p>În directorul <code class="docutils literal notranslate"><span class="pre">/home/student</span></code> (<code class="docutils literal notranslate"><span class="pre">~</span></code>) avem mai multe fișiere, câte unul pentru fiecare materie.
 Afișăm fișierele folosind comanda <code class="docutils literal notranslate"><span class="pre">ls</span></code>:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ ls -lh
 total <span class="m">9</span>.0M
@@ -560,17 +559,17 @@ total <span class="m">9</span>.0M
 -rw-r--r-- <span class="m">1</span> student student <span class="m">1</span>.0M Aug <span class="m">19</span> <span class="m">11</span>:55 EGC
 </pre></div>
 </div>
-<p>Salvăm outputul comenzii <cite>ls -lh</cite> de mai sus folosind caracterul <code class="docutils literal notranslate"><span class="pre">&gt;</span></code>, astfel:</p>
+<p>Salvăm outputul comenzii <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-lh</span></code> de mai sus folosind caracterul <code class="docutils literal notranslate"><span class="pre">&gt;</span></code>, astfel:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ ls -lh &gt; lista_materii
 student@uso:~$ ls
 USO RL EGC lista_materii
 </pre></div>
 </div>
-<p>Observăm că acțiunea de mai sus a făcut două lucruri: a creat fișierul <cite>lista_materii</cite> și a introdus în conținutul fișierului rezultatul comenzii <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-lh</span></code>.</p>
+<p>Observăm că acțiunea de mai sus a făcut două lucruri: a creat fișierul <code class="docutils literal notranslate"><span class="pre">lista_materii</span></code> și a introdus în conținutul fișierului rezultatul comenzii <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-lh</span></code>.</p>
 <p>Caracterul <code class="docutils literal notranslate"><span class="pre">&gt;</span></code> așteaptă un șir de caractere după el care este numele fișierului în care vrem să scriem outputul.
 Șirul este de fapt calea către un fișier.
-Șirul <cite>lista_materii</cite> este calea relativă până la fișierul <cite>lista_materii</cite> care se află în directorul curent <cite>/home/student</cite>.</p>
-<p>Fișierul <cite>lista_materii</cite> nu exista. Prin direcționarea outputului am creat fișierul <cite>lista_materii</cite>.</p>
+Șirul <code class="docutils literal notranslate"><span class="pre">lista_materii</span></code> este calea relativă până la fișierul <code class="docutils literal notranslate"><span class="pre">lista_materii</span></code> care se află în directorul curent <code class="docutils literal notranslate"><span class="pre">/home/student</span></code>.</p>
+<p>Fișierul <code class="docutils literal notranslate"><span class="pre">lista_materii</span></code> nu exista. Prin direcționarea outputului am creat fișierul <code class="docutils literal notranslate"><span class="pre">lista_materii</span></code>.</p>
 <p>Vizualizăm conținutul fișierului lista_materii folosind comanda cat:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ cat lista_materii
 -rw-r--r-- <span class="m">1</span> student student <span class="m">5</span>.0M Aug <span class="m">19</span> <span class="m">11</span>:55 USO
@@ -583,7 +582,9 @@ USO RL EGC lista_materii
 <p>Odată direcționat într-un fișier, fluxul de informații nu mai apare la ecran.</p>
 </div>
 <p>Folosirea caracterului <code class="docutils literal notranslate"><span class="pre">&gt;</span></code> suprascrie conținutul fișierului:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ ls -l /usr/ &gt; lista_materii
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/comenzi/mkdir$ cat lista_materii
+cat: lista_materii: No such file or directory
+student@uso:~$ ls -l /usr/ &gt; lista_materii
 student@uso:~$ cat lista_materii
 total <span class="m">72</span>
 drwxr-xr-x   <span class="m">2</span> root root  <span class="m">32768</span> Sep  <span class="m">9</span> <span class="m">14</span>:07 bin
@@ -598,7 +599,8 @@ drwxr-xr-x <span class="m">137</span> root root   <span class="m">4096</span> Se
 drwxr-xr-x   <span class="m">2</span> root root   <span class="m">4096</span> Aug <span class="m">31</span>  <span class="m">2015</span> src
 </pre></div>
 </div>
-<p>Continutul inițial al fișierului <cite>lista_materii</cite> a fost înlocuit.</p>
+<p>Fișierul <code class="docutils literal notranslate"><span class="pre">lista_materii</span></code> nu era crea inițial.
+În urma comenzii <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-l</span> <span class="pre">/usr/</span> <span class="pre">&gt;</span> <span class="pre">lista_materii</span></code>, fișierul <code class="docutils literal notranslate"><span class="pre">lista_materii</span></code> a fost creat și populat cu ieșirea comenzii <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-l</span> <span class="pre">/usr/</span></code>.</p>
 <div class="section" id="sumarizare-cheatsheet">
 <h3><span class="section-number">4.1.1. </span>Sumarizare (CheatSheet)<a class="headerlink" href="#sumarizare-cheatsheet" title="Permalink to this headline">¶</a></h3>
 <p>Dacă la folosirea unei direcționări simple (<code class="docutils literal notranslate"><span class="pre">&gt;</span></code>) și fișierul:</p>
@@ -638,7 +640,7 @@ ELTH rullz
 <h3><span class="section-number">4.1.2. </span>Exerciții - redirectări simple<a class="headerlink" href="#exercitii-redirectari-simple" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Folosiți <code class="docutils literal notranslate"><span class="pre">tree</span></code> pentru a afișa ierarhia de fișiere pornind de la <strong>/home/student</strong>;</p></li>
-<li><p>Folosiți <code class="docutils literal notranslate"><span class="pre">tree</span></code> pentru afișarea aceleiași ierarhii, dar de data asta direcționați-o în fișierul <cite>ierarhie_student</cite>;</p></li>
+<li><p>Folosiți <code class="docutils literal notranslate"><span class="pre">tree</span></code> pentru afișarea aceleiași ierarhii, dar de data asta direcționați-o în fișierul <code class="docutils literal notranslate"><span class="pre">ierarhie_student</span></code>;</p></li>
 <li><p>Inspectați fișierul pentru a demonstra corectitudinea operației.</p></li>
 </ul>
 </div>
@@ -657,7 +659,7 @@ student@uso:~$ cat lista_materii
 USO RL EGC lista_materii
 </pre></div>
 </div>
-<p>Acum avem în fișierul <cite>lista_materii</cite>, pe lângă conținutul vechi, și outputul comenzii <code class="docutils literal notranslate"><span class="pre">ls</span></code>.</p>
+<p>Acum avem în fișierul <code class="docutils literal notranslate"><span class="pre">lista_materii</span></code>, pe lângă conținutul vechi, și outputul comenzii <code class="docutils literal notranslate"><span class="pre">ls</span></code>.</p>
 <div class="section" id="id1">
 <h3><span class="section-number">4.2.1. </span>Sumarizare (CheatSheet)<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
 <p>Dacă la folosirea unei redirectări prin anexare (<code class="docutils literal notranslate"><span class="pre">&gt;&gt;</span></code>) și fișierul:</p>
@@ -699,15 +701,15 @@ USO RL EGC
 <h3><span class="section-number">4.2.2. </span>Exerciții - direcționări prin anexare<a class="headerlink" href="#exercitii-directionari-prin-anexare" title="Permalink to this headline">¶</a></h3>
 <ol class="arabic simple">
 <li><ul class="simple">
-<li><p>Folosiți <code class="docutils literal notranslate"><span class="pre">tree</span></code> pentru a afișa ierarhia de fișiere pornind de la <cite>/tmp</cite>;</p></li>
-<li><p>Folosiți <code class="docutils literal notranslate"><span class="pre">tree</span></code> pentru a afișa aceeași ierarhie, dar de data asta direcționați-o prin anexare la fișierul <cite>ierarhie_student</cite> creat anterior;</p></li>
-<li><p>Afisați conținutul fișierului <cite>ierarhie_student</cite> folosind comanda <code class="docutils literal notranslate"><span class="pre">cat</span></code>.</p></li>
+<li><p>Folosiți <code class="docutils literal notranslate"><span class="pre">tree</span></code> pentru a afișa ierarhia de fișiere pornind de la <code class="docutils literal notranslate"><span class="pre">/tmp</span></code>;</p></li>
+<li><p>Folosiți <code class="docutils literal notranslate"><span class="pre">tree</span></code> pentru a afișa aceeași ierarhie, dar de data asta direcționați-o prin anexare la fișierul <code class="docutils literal notranslate"><span class="pre">ierarhie_student</span></code> creat anterior;</p></li>
+<li><p>Afisați conținutul fișierului <code class="docutils literal notranslate"><span class="pre">ierarhie_student</span></code> folosind comanda <code class="docutils literal notranslate"><span class="pre">cat</span></code>.</p></li>
 </ul>
 </li>
 <li><ul class="simple">
-<li><p>Folosiți <code class="docutils literal notranslate"><span class="pre">tree</span></code> pentru a afișa ierarhia de fișiere pornind de la <cite>/usr</cite>;</p></li>
-<li><p>Repetați comanda anterioara, dar de data asta direcționați-o <em>fără</em> anexare la fișierul <cite>ierarhie_student</cite> folosit anterior;</p></li>
-<li><p>Afisați conținutul fișierului <cite>ierarhie_student</cite> folosind comanda <code class="docutils literal notranslate"><span class="pre">cat</span></code>.
+<li><p>Folosiți <code class="docutils literal notranslate"><span class="pre">tree</span></code> pentru a afișa ierarhia de fișiere pornind de la <code class="docutils literal notranslate"><span class="pre">/usr</span></code>;</p></li>
+<li><p>Repetați comanda anterioara, dar de data asta direcționați-o <em>fără</em> anexare la fișierul <code class="docutils literal notranslate"><span class="pre">ierarhie_student</span></code> folosit anterior;</p></li>
+<li><p>Afisați conținutul fișierului <code class="docutils literal notranslate"><span class="pre">ierarhie_student</span></code> folosind comanda <code class="docutils literal notranslate"><span class="pre">cat</span></code>.
 Mai exista conținutul inițial al fișierului?</p></li>
 </ul>
 </li>
@@ -726,7 +728,7 @@ cat: lista_materie: No such file or directory
 </div>
 <p>Am vrut să afișăm conținutul fișierului <em>lista_materie</em>, însă acest fișier nu există.
 Am primit informația <em>No such file or directory</em>, și aceasta este afișată <em>sub formă de eroare</em>.</p>
-<p>Direcționăm conținutul fișierului <cite>SO2</cite> în fișierul <em>materii</em>:</p>
+<p>Direcționăm conținutul fișierului <code class="docutils literal notranslate"><span class="pre">SO2</span></code> în fișierul <em>materii</em>:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ cat SO2 &gt; materii
 cat: SO2: No such file or directory
 </pre></div>
@@ -734,7 +736,7 @@ cat: SO2: No such file or directory
 <p>Vedem că dacă folosim direcționarea simplă <code class="docutils literal notranslate"><span class="pre">&gt;</span></code>, eroarea tot este afișată.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Chiar dacă comanda de interes eșuează, direcționarea este făcută. În cazul de mai sus, fișierul <cite>materii</cite> este creat.</p>
+<p>Chiar dacă comanda de interes eșuează, direcționarea este făcută. În cazul de mai sus, fișierul <code class="docutils literal notranslate"><span class="pre">materii</span></code> este creat.</p>
 </div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ cat SO2 <span class="m">2</span>&gt; materii
 student@uso:~$ cat materii
@@ -752,11 +754,11 @@ USO RULLZ
 cat: SO2: No such file or directory
 </pre></div>
 </div>
-<p>În exemplul de mai sus încercăm să afișăm conținutul fișierelor <cite>ELTH</cite>, <cite>USO</cite> și <cite>SO2</cite>, dar cu fișierul <cite>SO2</cite> neexistent.
-Liniile <cite>ELTH is the b3st</cite> și <cite>USO RULLZ</cite> sunt conținutul fișierelor <cite>ELTH</cite> și <cite>USO</cite>.
+<p>În exemplul de mai sus încercăm să afișăm conținutul fișierelor <code class="docutils literal notranslate"><span class="pre">ELTH</span></code>, <code class="docutils literal notranslate"><span class="pre">USO</span></code> și <code class="docutils literal notranslate"><span class="pre">SO2</span></code>, dar cu fișierul <code class="docutils literal notranslate"><span class="pre">SO2</span></code> neexistent.
+Liniile <code class="docutils literal notranslate"><span class="pre">ELTH</span> <span class="pre">is</span> <span class="pre">the</span> <span class="pre">b3st</span></code> și <code class="docutils literal notranslate"><span class="pre">USO</span> <span class="pre">RULLZ</span></code> sunt conținutul fișierelor <code class="docutils literal notranslate"><span class="pre">ELTH</span></code> și <code class="docutils literal notranslate"><span class="pre">USO</span></code>.
 Comanda <code class="docutils literal notranslate"><span class="pre">cat</span></code> ne-a arătat conținutul celor 2 fișiere.
-Tot comanda <code class="docutils literal notranslate"><span class="pre">cat</span></code> a încercat să afișeze conținutul fișierului <cite>SO2</cite>, însă el nu există și a afișat eroarea <cite>Not such file or directory</cite>.</p>
-<p>În continuare vom face o separare a fluxurilor: direcționăm ieșirea în fișierul <cite>continut_materii</cite> și erorile în fișierul <cite>erori_comenzi</cite>:</p>
+Tot comanda <code class="docutils literal notranslate"><span class="pre">cat</span></code> a încercat să afișeze conținutul fișierului <code class="docutils literal notranslate"><span class="pre">SO2</span></code>, însă el nu există și a afișat eroarea <code class="docutils literal notranslate"><span class="pre">Not</span> <span class="pre">such</span> <span class="pre">file</span> <span class="pre">or</span> <span class="pre">directory</span></code>.</p>
+<p>În continuare vom face o separare a fluxurilor: direcționăm ieșirea în fișierul <code class="docutils literal notranslate"><span class="pre">continut_materii</span></code> și erorile în fișierul <code class="docutils literal notranslate"><span class="pre">erori_comenzi</span></code>:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ cat ELTH USO SO2 &gt; continut_materii <span class="m">2</span>&gt; erori_comenzi
 student@uso:~$ cat continut_materii
 USO is the b3st

@@ -593,11 +593,10 @@ Pentru observa în promptul (partea de la începutul rândului) terminalului <em
 <h2><span class="section-number">6.3. </span>Căutarea fișierelor în sistemul de fișiere<a class="headerlink" href="#cautarea-fisierelor-in-sistemul-de-fisiere" title="Permalink to this headline">¶</a></h2>
 <p>Se poate întâmpla să vrem să aflăm dacă într-o ierarhie de fișiere găsim un anumit fișier și dacă există, vrem să aflăm unde se află.
 Spre exemplu, serviciul <code class="docutils literal notranslate"><span class="pre">ssh</span></code> folosește un fișier de configurare numit <code class="docutils literal notranslate"><span class="pre">/etc/ssh/ssh_config</span></code>, dar nu mai ținem minte calea exactă până la acel fișier.</p>
-<p>Linux ne oferă 2 utilitare, <code class="docutils literal notranslate"><span class="pre">locate</span></code> și <code class="docutils literal notranslate"><span class="pre">find</span></code>, care pot fi de ajutor în situația descrisă mai sus.
-Vorbim mai în detaliu despre fiecare utilitar în subsecțiunile de mai jos.</p>
+<p>Linux ne oferă 2 utilitare, <code class="docutils literal notranslate"><span class="pre">locate</span></code> și <code class="docutils literal notranslate"><span class="pre">find</span></code>, care pot fi de ajutor în situația descrisă mai sus.</p>
 <div class="section" id="folosirea-utilitarului-find">
 <h3><span class="section-number">6.3.1. </span>Folosirea utilitarului <code class="docutils literal notranslate"><span class="pre">find</span></code><a class="headerlink" href="#folosirea-utilitarului-find" title="Permalink to this headline">¶</a></h3>
-<p>În mod obișnuit, numele fișierelor de configurare pentru servicii se termină în extensia “.conf”.
+<p>În mod obișnuit, numele fișierelor de configurare pentru servicii se termină în extensia <code class="docutils literal notranslate"><span class="pre">conf</span></code>.
 Găsim toate fișierele de configurare ale serviciului <code class="docutils literal notranslate"><span class="pre">ssh</span></code> de pe sistem folosind comanda <code class="docutils literal notranslate"><span class="pre">find</span></code>:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/comenzi$ find / -iname <span class="s2">&quot;*ssh*conf&quot;</span>
 /usr/share/upstart/sessions/ssh-agent.conf
@@ -605,8 +604,8 @@ Găsim toate fișierele de configurare ale serviciului <code class="docutils lit
 /etc/init/ssh.conf
 </pre></div>
 </div>
-<p>Am căutat în calea <cite>/</cite> (<em>root</em>) orice fișier ce conține <cite>ssh</cite> și se termină cu <cite>conf</cite>.</p>
-<p>Pentru a învăța mai multe despre acest utilitar, putem inspecta manualul <code class="docutils literal notranslate"><span class="pre">man</span> <span class="pre">find</span></code>.</p>
+<p>Am căutat în calea <code class="docutils literal notranslate"><span class="pre">/</span></code> (<em>root</em>) orice fișier ce conține <code class="docutils literal notranslate"><span class="pre">ssh</span></code> și se termină cu <code class="docutils literal notranslate"><span class="pre">conf</span></code>.</p>
+<p>Utilitarul <code class="docutils literal notranslate"><span class="pre">find</span></code> caută în ierarhia de fișiere care începe de la calea dată ca parametru în jos. În cazul nostru, de la <code class="docutils literal notranslate"><span class="pre">/</span></code> (root) în jos, adică în tot sistemul de fișiere.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Mai multe informații și exemple în capitolul ref_capitol_edi</p>
@@ -614,8 +613,8 @@ Găsim toate fișierele de configurare ale serviciului <code class="docutils lit
 </div>
 <div class="section" id="folosirea-utilitarului-locate">
 <h3><span class="section-number">6.3.2. </span>Folosirea utilitarului <code class="docutils literal notranslate"><span class="pre">locate</span></code><a class="headerlink" href="#folosirea-utilitarului-locate" title="Permalink to this headline">¶</a></h3>
-<p>Utilitarul <code class="docutils literal notranslate"><span class="pre">find</span></code> nu scalează pentru situațiile când avem multe fișiere și dorim un răspuns rapid.
-Utilitarul <code class="docutils literal notranslate"><span class="pre">locate</span></code> ne poate ajuta în astfel de situații.</p>
+<p>Atunci când vrem să căutăm într-o ierarhie mare de fișiere, utilitarul <code class="docutils literal notranslate"><span class="pre">find</span></code> nu este cea mai bună soluție deoarece este încet.</p>
+<p>Utilitarul <code class="docutils literal notranslate"><span class="pre">locate</span></code> ne poate ajuta în astfel de situații.</p>
 <p>Acesta funcționează în 2 pași:</p>
 <ul class="simple">
 <li><p>Crearea și actualizarea unei baze de date folosind comanda <code class="docutils literal notranslate"><span class="pre">updatedb</span></code>.
@@ -640,7 +639,7 @@ Răspunsul comenzii este instant.</p>
 /home/student/usr_bin.tar
 </pre></div>
 </div>
-<p>Am folosit utilitarul <code class="docutils literal notranslate"><span class="pre">locate</span></code> să căutăm în tot sistemul orice fișier se termină cu <cite>.tar</cite>.</p>
+<p>Am folosit utilitarul <code class="docutils literal notranslate"><span class="pre">locate</span></code> să căutăm în tot sistemul orice fișier se termină cu <code class="docutils literal notranslate"><span class="pre">.tar</span></code>.</p>
 <p>Găsim mai multe informații și exemple în capitolul todo_ref_edi</p>
 </div>
 </div>
@@ -651,7 +650,7 @@ Răspunsul comenzii este instant.</p>
 <p>Shell-ul știe să ruleze utilitarele din orice loc în care ne aflăm (din ierarhia de fișiere).
 Se întâmplă acest lucru pentru că shell-ul are o listă de câteva directoare în care se uită după utilitarele pe care le folosim.
 Spre exemplu, atunci când rulăm utilitarul <code class="docutils literal notranslate"><span class="pre">ls</span></code>, el caută programul <code class="docutils literal notranslate"><span class="pre">ls</span></code> în lista pe care o are, îl găsește și îl rulează.</p>
-<p>Această listă se găsește în <em>variabila de mediu</em> <a class="footnote-reference brackets" href="#id2" id="id1">1</a> <cite>PATH</cite>.</p>
+<p>Această listă se găsește în <em>variabila de mediu</em> <a class="footnote-reference brackets" href="#id2" id="id1">1</a> <code class="docutils literal notranslate"><span class="pre">PATH</span></code>.</p>
 <div class="section" id="afisarea-variabilei-path-din-sistem">
 <h3><span class="section-number">6.4.1. </span>Afișarea variabilei PATH din sistem<a class="headerlink" href="#afisarea-variabilei-path-din-sistem" title="Permalink to this headline">¶</a></h3>
 <p>Afișăm valoarea <strong>PATH</strong> a sistemului folosind utilitarul <code class="docutils literal notranslate"><span class="pre">echo</span></code>.</p>
@@ -659,8 +658,8 @@ Spre exemplu, atunci când rulăm utilitarul <code class="docutils literal notra
 /usr/local/bin:/usr/bin:/bin:/usr/games
 </pre></div>
 </div>
-<p>Variabila <cite>PATH</cite> are patru căi din sistem, despărțite de caracterul <code class="docutils literal notranslate"><span class="pre">:</span></code>.
-Astfel, sistemul verifică dacă utilitarul este prezent în calea <cite>/usr/local/bin</cite>; dacă nu-l găsește, merge la următoarea calea <cite>/usr/bin</cite>; dacă nu-l găsește, merge la următoarea cale <cite>/bin</cite>; dacă nu-l găsește, merge la ultima cale <cite>/usr/games</cite>.</p>
+<p>Variabila <code class="docutils literal notranslate"><span class="pre">PATH</span></code> are patru căi din sistem, despărțite de caracterul <code class="docutils literal notranslate"><span class="pre">:</span></code>.
+Astfel, sistemul verifică dacă utilitarul este prezent în calea <code class="docutils literal notranslate"><span class="pre">/usr/local/bin</span></code>; dacă nu-l găsește, merge la următoarea calea <code class="docutils literal notranslate"><span class="pre">/usr/bin</span></code>; dacă nu-l găsește, merge la următoarea cale <code class="docutils literal notranslate"><span class="pre">/bin</span></code>; dacă nu-l găsește, merge la ultima cale <code class="docutils literal notranslate"><span class="pre">/usr/games</span></code>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Un utilitar poate fi la mai multe căi din PATH, dar va fi executat utilitarul din cea mai din stânga cale (prima, dacă nu a2a, etc.).</p>
@@ -669,7 +668,7 @@ Astfel, sistemul verifică dacă utilitarul este prezent în calea <cite>/usr/lo
 </div>
 <div class="section" id="cautarea-utilitarelor-in-sistemul-de-fisiere">
 <h2><span class="section-number">6.5. </span>Căutarea utilitarelor în sistemul de fișiere<a class="headerlink" href="#cautarea-utilitarelor-in-sistemul-de-fisiere" title="Permalink to this headline">¶</a></h2>
-<p>Există cazuri când vrem să găsim locația exactă a unui utilitar.</p>
+<p>Există cazuri când vrem să găsim locația exactă a unui utilitari: vrem să aflăm ce permisiuni are, cine îl deține sau ce dimensiune are.</p>
 <div class="section" id="folosirea-utilitarului-which">
 <h3><span class="section-number">6.5.1. </span>Folosirea utilitarului <code class="docutils literal notranslate"><span class="pre">which</span></code><a class="headerlink" href="#folosirea-utilitarului-which" title="Permalink to this headline">¶</a></h3>
 <p>Acest utilitar identifică calea programelor din sistem.</p>

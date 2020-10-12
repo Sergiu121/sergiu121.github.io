@@ -547,12 +547,12 @@
   <div class="section" id="cai-in-ierarhia-de-fisiere">
 <h1><span class="section-number">1. </span>Căi în ierarhia de fișiere<a class="headerlink" href="#cai-in-ierarhia-de-fisiere" title="Permalink to this headline">¶</a></h1>
 <p>Atunci când folosim un terminal este foarte important să știm unde în sistemul de fișiere ne aflăm.
-Dacă vrem să jucăm un joc, știm că vrem să ajungem în directorul <cite>Games</cite> unde avem jocul preferat, <cite>Warcraft3</cite>.
-Pentru a ajunge în directorul <cite>Games</cite> trebuie să știm unde suntem și apoi să navigăm în sistemul de fișiere până acolo.</p>
+Dacă vrem să jucăm un joc, știm că vrem să ajungem în directorul <code class="docutils literal notranslate"><span class="pre">Games</span></code> unde avem jocul preferat, <code class="docutils literal notranslate"><span class="pre">Warcraft3</span></code>.
+Pentru a ajunge în directorul <code class="docutils literal notranslate"><span class="pre">Games</span></code> trebuie să știm unde suntem și apoi să navigăm în sistemul de fișiere până acolo.</p>
 <p>O ierarhie de fișiere și directoare este o structură de organizare a acestora.
 Structura ierarhică permite gruparea acestora în directoare ce conțin la rândul lor alte directoare sau fișiere.
 În modul acesta, putem vedea doar un subset de fișiere și directoare din totalitatea acestora de pe sistem.
-În Linux, începutul acestei ierarhii este <cite>/</cite> <em>(root)</em>.</p>
+În Linux, începutul acestei ierarhii este <code class="docutils literal notranslate"><span class="pre">/</span></code> <em>(root)</em>.</p>
 <p>Putem vedea mai jos începeutul ierarhiei din Linux:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:/$ tree -L <span class="m">1</span> /
 /
@@ -578,49 +578,57 @@ Structura ierarhică permite gruparea acestora în directoare ce conțin la rân
 <span class="p">|</span>-- tmp
 <span class="p">|</span>-- usr
 <span class="p">|</span>-- var
-<span class="sb">`</span>-- vmlinuz -&gt; boot/vmlinuz-3.16.0-4-586
+<span class="sb">``</span>-- vmlinuz -&gt; boot/vmlinuz-3.16.0-4-586
 </pre></div>
 </div>
-<p>Observăm <cite>/</cite> (root) la începutul ierarhiei.
-Urmează directoarele <cite>bin</cite>, <cite>boot</cite>, <cite>dev</cite>, etc.
-Dacă intrăm în directorul <cite>home</cite>, vedem:</p>
+<p>Observăm <code class="docutils literal notranslate"><span class="pre">/</span></code> (root) la începutul ierarhiei.
+Urmează directoarele <code class="docutils literal notranslate"><span class="pre">bin</span></code>, <code class="docutils literal notranslate"><span class="pre">boot</span></code>, <code class="docutils literal notranslate"><span class="pre">dev</span></code>, etc.
+Dacă intrăm în directorul <code class="docutils literal notranslate"><span class="pre">home</span></code>, vedem:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:/home$ tree -L <span class="m">1</span>
 .
 <span class="p">|</span>-- student
-<span class="sb">`</span>-- <span class="nb">test</span>
+<span class="sb">``</span>-- <span class="nb">test</span>
 </pre></div>
 </div>
-<p>Există două directoare <cite>student</cite> și <cite>test</cite>.
-Avansăm în ierarhia de directoare către <cite>student</cite>:</p>
+<p>Există două directoare <code class="docutils literal notranslate"><span class="pre">student</span></code> și <code class="docutils literal notranslate"><span class="pre">test</span></code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Observăm cum se schimbă promptul de terminal:</p>
+<ul class="simple">
+<li><p>în primul exemplu <code class="docutils literal notranslate"><span class="pre">student&#64;uso:/$</span> <span class="pre">tree</span> <span class="pre">-L</span> <span class="pre">1</span> <span class="pre">/</span></code> eram în directorul <code class="docutils literal notranslate"><span class="pre">/</span></code>.</p></li>
+<li><p>în al doilea exemplu <code class="docutils literal notranslate"><span class="pre">student&#64;uso:/home$</span> <span class="pre">tree</span> <span class="pre">-L</span> <span class="pre">1</span></code> eram în directorul <code class="docutils literal notranslate"><span class="pre">/home</span></code>.</p></li>
+</ul>
+</div>
+<p>Avansăm în ierarhia de directoare către <code class="docutils literal notranslate"><span class="pre">student</span></code>:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ tree
 .
 <span class="p">|</span>-- comenzi
 <span class="p">|</span>   <span class="p">|</span>-- executie
 <span class="p">|</span>   <span class="p">|</span>-- ls
-<span class="p">|</span>   <span class="p">|</span>   <span class="sb">`</span>-- mkdir -&gt; /home/student/comenzi/mkdir/
+<span class="p">|</span>   <span class="p">|</span>   <span class="sb">``</span>-- mkdir -&gt; /home/student/comenzi/mkdir/
 <span class="p">|</span>   <span class="p">|</span>-- mkdir
 <span class="p">|</span>   <span class="p">|</span>   <span class="p">|</span>-- Avengers
 <span class="p">|</span>   <span class="p">|</span>   <span class="p">|</span>   <span class="p">|</span>-- Captain<span class="se">\ </span>America
 <span class="p">|</span>   <span class="p">|</span>   <span class="p">|</span>   <span class="p">|</span>-- Iron<span class="se">\ </span>Man
-<span class="p">|</span>   <span class="p">|</span>   <span class="p">|</span>   <span class="sb">`</span>-- Thor
-<span class="p">|</span>   <span class="p">|</span>   <span class="sb">`</span>-- GameOfThrones
+<span class="p">|</span>   <span class="p">|</span>   <span class="p">|</span>   <span class="sb">``</span>-- Thor
+<span class="p">|</span>   <span class="p">|</span>   <span class="sb">``</span>-- GameOfThrones
 <span class="p">|</span>   <span class="p">|</span>       <span class="p">|</span>-- Arya<span class="se">\ </span>Stark
 <span class="p">|</span>   <span class="p">|</span>       <span class="p">|</span>-- Daenerys<span class="se">\ </span>Targaryen
 <span class="p">|</span>   <span class="p">|</span>       <span class="p">|</span>-- Jon<span class="se">\ </span>Snow
-<span class="p">|</span>   <span class="p">|</span>       <span class="sb">`</span>-- Tyrion<span class="se">\ </span>Lannister
+<span class="p">|</span>   <span class="p">|</span>       <span class="sb">``</span>-- Tyrion<span class="se">\ </span>Lannister
 <span class="p">|</span>   <span class="p">|</span>-- my_ls
-<span class="p">|</span>   <span class="sb">`</span>-- touch
+<span class="p">|</span>   <span class="sb">``</span>-- touch
 <span class="p">|</span>       <span class="p">|</span>-- orase
 <span class="p">|</span>       <span class="p">|</span>-- orase<span class="se">\ </span>romania
-<span class="p">|</span>       <span class="sb">`</span>-- romania
+<span class="p">|</span>       <span class="sb">``</span>-- romania
 <span class="p">|</span>-- comenzi_redirectare
 <span class="p">|</span>-- continut_materii
 <span class="p">|</span>-- dezarhivare
 <span class="p">|</span>   <span class="p">|</span>-- tar
-<span class="p">|</span>   <span class="sb">`</span>-- zip
+<span class="p">|</span>   <span class="sb">``</span>-- zip
 <span class="p">|</span>       <span class="p">|</span>-- fisier1
 <span class="p">|</span>       <span class="p">|</span>-- fisier2
-<span class="p">|</span>       <span class="sb">`</span>-- fisier3
+<span class="p">|</span>       <span class="sb">``</span>-- fisier3
 <span class="p">|</span>-- ELTH
 <span class="p">|</span>-- erori_comenzi
 <span class="p">|</span>-- fisier
@@ -637,28 +645,28 @@ Avansăm în ierarhia de directoare către <cite>student</cite>:</p>
 <span class="p">|</span>-- test.zip
 <span class="p">|</span>-- USO
 <span class="p">|</span>-- usr_bin.tar
-<span class="sb">`</span>-- usr_bin.zip
+<span class="sb">``</span>-- usr_bin.zip
 </pre></div>
 </div>
 <p>Directorul acesta este directorul <em>home</em> al utilizatorului <em>student</em>.
-Vedem întreaga ierarhie a directorului <cite>/home/student</cite>.</p>
+Vedem întreaga ierarhie a directorului <code class="docutils literal notranslate"><span class="pre">/home/student</span></code>.</p>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
-<p>Pentru a referi un fișier avem două opțiuni: putem să-i dăm o cale relativă la calea noastră curentă sau putem să dăm o cale care pornește de la începutul sistemului de fișiere(root, <cite>/</cite>).
+<p>Pentru a referi un fișier avem două opțiuni: putem să-i dăm o cale relativă la calea noastră curentă sau putem să dăm o cale care pornește de la începutul sistemului de fișiere(root, <code class="docutils literal notranslate"><span class="pre">/</span></code>).
 Astfel, prima cale se numește <em>cale relativă</em>, iar cea de-a doua se numeste <em>cale absolută</em>.
 Fiecare situație necesită un tip de cale; nu putem afirma că una e mai bună ca alta.</p>
 </div>
 <p>În continuare detaliem conceptele de cale curentă, relativă și absolută.</p>
 <div class="section" id="calea-curenta">
 <h2><span class="section-number">1.1. </span>Calea curentă<a class="headerlink" href="#calea-curenta" title="Permalink to this headline">¶</a></h2>
-<p>Lista de directoare intermediare de la rădăcina ierarhiei de fișiere (<cite>/</cite>) până la un anumit fișier sau director se numeste <em>cale</em>.
+<p>Lista de directoare intermediare de la rădăcina ierarhiei de fișiere (<code class="docutils literal notranslate"><span class="pre">/</span></code>) până la un anumit fișier sau director se numeste <em>cale</em>.
 În lina de comandă afișăm calea până la directorul în care ne aflăm folosind comanda <code class="docutils literal notranslate"><span class="pre">pwd</span></code> <a class="footnote-reference brackets" href="#id3" id="id1">1</a> :</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ <span class="nb">pwd</span>
 /home/student
 </pre></div>
 </div>
 <p>Aceasta afișează calea <em>absolută</em> până la directorul curent.</p>
-<p>Ne mutăm la calea <cite>/usr/bin</cite> folosind comanda <code class="docutils literal notranslate"><span class="pre">cd</span></code>:</p>
+<p>Ne mutăm la calea <code class="docutils literal notranslate"><span class="pre">/usr/bin</span></code> folosind comanda <code class="docutils literal notranslate"><span class="pre">cd</span></code>:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ <span class="nb">pwd</span>
 /home/student
 student@uso:~$ <span class="nb">cd</span> /usr/bin/
@@ -666,14 +674,14 @@ student@uso:/usr/bin$ <span class="nb">pwd</span>
 /usr/bin
 </pre></div>
 </div>
-<p>Acum ne aflăm la calea <cite>/usr/bin</cite>.
+<p>Acum ne aflăm la calea <code class="docutils literal notranslate"><span class="pre">/usr/bin</span></code>.
 Observăm cum calea curentă se schimbă atunci când schimbăm directorul în care ne aflăm.
 Vom vorbi despre comanda <code class="docutils literal notranslate"><span class="pre">cd</span></code> la secțiunea TODO_SECțiune_cd.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Observăm că există un delimitator între directoare: <cite>/</cite> (slash).
+<p>Observăm că există un delimitator între directoare: <code class="docutils literal notranslate"><span class="pre">/</span></code> (slash).
 Acesta trebuie folosit obligatoriu atunci când compunem o cale.
-În Windows este \ (backslash) iar în MacOS este similar Linux: <cite>/</cite> (slash).</p>
+În Windows este \ (backslash) iar în MacOS este similar Linux: <code class="docutils literal notranslate"><span class="pre">/</span></code> (slash).</p>
 </div>
 </div>
 <div class="section" id="cale-relativa-si-cale-absoluta">
@@ -687,12 +695,12 @@ Acesta trebuie folosit obligatoriu atunci când compunem o cale.
 </ul>
 <p>Similar, ne referim la un fișier:</p>
 <ul class="simple">
-<li><p>Pornind din rădăcina ierarhiei de fișiere (<em>root</em>), reprezentat prin simbolul <cite>/</cite>, numită  <em>cale absolută</em>.</p></li>
+<li><p>Pornind din rădăcina ierarhiei de fișiere (<em>root</em>), reprezentat prin simbolul <code class="docutils literal notranslate"><span class="pre">/</span></code>, numită  <em>cale absolută</em>.</p></li>
 <li><p>Pornind de la directorul în care ne află (<em>director curent</em>), numită <em>cale relativă</em>.</p></li>
 </ul>
 <div class="section" id="cale-absoluta">
 <h3><span class="section-number">1.2.1. </span>Cale absolută<a class="headerlink" href="#cale-absoluta" title="Permalink to this headline">¶</a></h3>
-<p>După cum am specificat mai sus, calea absolută începe întotdeauna cu caracterul <cite>/</cite> (slash), denumit și <em>root</em>.
+<p>După cum am specificat mai sus, calea absolută începe întotdeauna cu caracterul <code class="docutils literal notranslate"><span class="pre">/</span></code> (slash), denumit și <em>root</em>.
 Acesta specifică începutul ierarhiei de fișiere.</p>
 <p>Afișam fișierele <code class="docutils literal notranslate"><span class="pre">/usr/bin/touch</span></code> și <code class="docutils literal notranslate"><span class="pre">/etc/passwd</span></code> prin cale absolută, folosind <code class="docutils literal notranslate"><span class="pre">ls</span></code>:</p>
 <blockquote>
@@ -717,8 +725,8 @@ student@uso:~$ ls -l ../../etc/passwd
 -rw-r--r-- <span class="m">1</span> root root <span class="m">1768</span> Sep  <span class="m">9</span> <span class="m">14</span>:07 ../../etc/passwd
 </pre></div>
 </div>
-<p>Observăm că ne aflăm la calea <cite>/home/student</cite> și urcăm spre vârful ierarhiei de fișiere folosind caracterele <cite>..</cite>.
-Odată ajunși la <em>root</em> <cite>/</cite>, coborâm spre fișierul <cite>touch</cite>, trecând prin directoarele <cite>usr</cite> și <cite>bin</cite>.</p>
+<p>Observăm că ne aflăm la calea <code class="docutils literal notranslate"><span class="pre">/home/student</span></code> și urcăm spre vârful ierarhiei de fișiere folosind caracterele <code class="docutils literal notranslate"><span class="pre">..</span></code>.
+Odată ajunși la <em>root</em> <code class="docutils literal notranslate"><span class="pre">/</span></code>, coborâm spre fișierul <code class="docutils literal notranslate"><span class="pre">touch</span></code>, trecând prin directoarele <code class="docutils literal notranslate"><span class="pre">usr</span></code> și <code class="docutils literal notranslate"><span class="pre">bin</span></code>.</p>
 </div>
 </div>
 <div class="section" id="schimbarea-caii-curente">
@@ -732,19 +740,27 @@ student@uso:/usr$ <span class="nb">pwd</span>
 /usr
 </pre></div>
 </div>
-<p>Am schimbat calea curentă de la <cite>/etc</cite> la <cite>/usr</cite>.
+<p>Am schimbat calea curentă de la <code class="docutils literal notranslate"><span class="pre">/etc</span></code> la <code class="docutils literal notranslate"><span class="pre">/usr</span></code>.
 Această comandă poate fi folosită oriunde ne-am afla deoarece este o <em>cale absolută</em>.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Comanda <code class="docutils literal notranslate"><span class="pre">cd</span></code> schimbă promptul terminalului; aceasta este o indicație a directorului curent în care ne aflăm:</p>
+<ul class="simple">
+<li><p>în cazul <code class="docutils literal notranslate"><span class="pre">student&#64;uso:/etc$</span> <span class="pre">pwd</span></code> ne aflăm în <code class="docutils literal notranslate"><span class="pre">etc</span></code></p></li>
+<li><p>în cazul <code class="docutils literal notranslate"><span class="pre">student&#64;uso:/usr$</span> <span class="pre">pwd</span></code> ne aflăm în <code class="docutils literal notranslate"><span class="pre">pwd</span></code></p></li>
+</ul>
+</div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Comanda <code class="docutils literal notranslate"><span class="pre">cd</span></code> primeste ca parametru o cale care poate fi atât <em>relativă</em> cât și <em>absolută</em>.</p>
 </div>
-<p>Schimbăm calea curentăîn <cite>/home/student</cite>, folosind <code class="docutils literal notranslate"><span class="pre">cd</span></code>:</p>
+<p>Schimbăm calea curentăîn <code class="docutils literal notranslate"><span class="pre">/home/student</span></code>, folosind <code class="docutils literal notranslate"><span class="pre">cd</span></code>:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:/usr$ <span class="nb">cd</span> /home/student
 student@uso:~$ <span class="nb">pwd</span>
 /home/student
 </pre></div>
 </div>
-<p>Ne aflăm la calea <cite>/home/student</cite>.
+<p>Ne aflăm la calea <code class="docutils literal notranslate"><span class="pre">/home/student</span></code>.
 O alternativă mai puțin eficientă este să facem schimbarea căii curente în doi pași, astfel:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ <span class="nb">cd</span> /home
 student@uso:/home$ <span class="nb">pwd</span>
@@ -754,7 +770,7 @@ student@uso:~$ <span class="nb">pwd</span>
 /home/student
 </pre></div>
 </div>
-<p>Schimbăm calea curentă la <cite>/usr/bin</cite> folosind cale relativă:</p>
+<p>Schimbăm calea curentă la <code class="docutils literal notranslate"><span class="pre">/usr/bin</span></code> folosind cale relativă:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ <span class="nb">pwd</span>
 /home/student
 student@uso:~$ <span class="nb">cd</span> ../../usr/bin
@@ -762,7 +778,7 @@ student@uso:/usr/bin$ <span class="nb">pwd</span>
 /usr/bin
 </pre></div>
 </div>
-<p>Observăm cum am urcat în ierarhie folosind <cite>..</cite> până la <cite>/</cite> (<em>root</em>) iar apoi am coborât spre <cite>usr</cite> și apoi <cite>bin</cite>.</p>
+<p>Observăm cum am urcat în ierarhie folosind <code class="docutils literal notranslate"><span class="pre">..</span></code> până la <code class="docutils literal notranslate"><span class="pre">/</span></code> (<em>root</em>) iar apoi am coborât spre <code class="docutils literal notranslate"><span class="pre">usr</span></code> și apoi <code class="docutils literal notranslate"><span class="pre">bin</span></code>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Această cale nu poate fi executată de oriunde, deoarece este relativă la calea curentă.</p>
@@ -774,7 +790,7 @@ student@uso:~/comenzi$ <span class="nb">cd</span> ../../usr/bin
 -bash: cd: ../../usr/bin: No such file or directory
 </pre></div>
 </div>
-<p>Observăm că suntem la calea <cite>/home/student/comenzi</cite>.
+<p>Observăm că suntem la calea <code class="docutils literal notranslate"><span class="pre">/home/student/comenzi</span></code>.
 Executând comanda <code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">../../usr/bin</span></code> de mai sus, am ajunge la calea <code class="docutils literal notranslate"><span class="pre">/home/usr/bin</span></code> care nu există.</p>
 </div>
 <div class="section" id="tab-completion">
@@ -792,7 +808,7 @@ Atunci vrem să ne auto-completeze numele, apăsăm o singură dată pe tasta <c
 <h2><span class="section-number">1.5. </span>Scurtături de căi<a class="headerlink" href="#scurtaturi-de-cai" title="Permalink to this headline">¶</a></h2>
 <p>Pentru o eficiență mai bună, putem folosi simboluri pentru interacțiunea cu utilitarul <code class="docutils literal notranslate"><span class="pre">cd</span></code>:</p>
 <ul>
-<li><p>Folosim caracterul <em>-</em> pentru a referi la <em>calea anterioară</em>.</p>
+<li><p>Folosim caracterul (<code class="docutils literal notranslate"><span class="pre">-</span></code>) pentru a referi la <em>calea anterioară</em>.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ <span class="nb">pwd</span>
 /home/student
 student@uso:~$ <span class="nb">cd</span> /usr/bin/
@@ -812,7 +828,7 @@ student@uso:~$ <span class="nb">cd</span> -
 </ul>
 <p>Observăm că dacă folosim repetat comanda <code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">-</span></code> vom face un joc <em>dute-vino</em> (<em>ping-pong</em>) între 2 directoare.</p>
 <ul>
-<li><p>Folosim caracterul <em>~</em> pentru a referi <em>calea home</em> a utilizatorului.</p>
+<li><p>Folosim caracterul (<code class="docutils literal notranslate"><span class="pre">~</span></code>) pentru a referi <em>calea home</em> a utilizatorului.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:/usr/bin$ <span class="nb">cd</span> /tmp/
 student@uso:/tmp$ <span class="nb">pwd</span>
 /tmp

@@ -2,13 +2,13 @@ Căi în ierarhia de fișiere
 ==========================
 
 Atunci când folosim un terminal este foarte important să știm unde în sistemul de fișiere ne aflăm.
-Dacă vrem să jucăm un joc, știm că vrem să ajungem în directorul `Games` unde avem jocul preferat, `Warcraft3`.
-Pentru a ajunge în directorul `Games` trebuie să știm unde suntem și apoi să navigăm în sistemul de fișiere până acolo.
+Dacă vrem să jucăm un joc, știm că vrem să ajungem în directorul ``Games`` unde avem jocul preferat, ``Warcraft3``.
+Pentru a ajunge în directorul ``Games`` trebuie să știm unde suntem și apoi să navigăm în sistemul de fișiere până acolo.
 
 O ierarhie de fișiere și directoare este o structură de organizare a acestora.
 Structura ierarhică permite gruparea acestora în directoare ce conțin la rândul lor alte directoare sau fișiere.
 În modul acesta, putem vedea doar un subset de fișiere și directoare din totalitatea acestora de pe sistem.
-În Linux, începutul acestei ierarhii este `/` *(root)*. 
+În Linux, începutul acestei ierarhii este ``/`` *(root)*. 
 
 Putem vedea mai jos începeutul ierarhiei din Linux:
 
@@ -38,21 +38,28 @@ Putem vedea mai jos începeutul ierarhiei din Linux:
     |-- tmp
     |-- usr
     |-- var
-    `-- vmlinuz -> boot/vmlinuz-3.16.0-4-586
+    ``-- vmlinuz -> boot/vmlinuz-3.16.0-4-586
 
-Observăm `/` (root) la începutul ierarhiei.
-Urmează directoarele `bin`, `boot`, `dev`, etc.
-Dacă intrăm în directorul `home`, vedem:
+Observăm ``/`` (root) la începutul ierarhiei.
+Urmează directoarele ``bin``, ``boot``, ``dev``, etc.
+Dacă intrăm în directorul ``home``, vedem:
 
 .. code-block:: bash
 
     student@uso:/home$ tree -L 1
     .
     |-- student
-    `-- test
+    ``-- test
 
-Există două directoare `student` și `test`.
-Avansăm în ierarhia de directoare către `student`:
+Există două directoare ``student`` și ``test``.
+
+.. note::
+    Observăm cum se schimbă promptul de terminal:
+
+    * în primul exemplu ``student@uso:/$ tree -L 1 /`` eram în directorul ``/``.
+    * în al doilea exemplu ``student@uso:/home$ tree -L 1`` eram în directorul ``/home``.
+
+Avansăm în ierarhia de directoare către ``student``:
 
 .. code-block:: bash
 
@@ -61,30 +68,30 @@ Avansăm în ierarhia de directoare către `student`:
     |-- comenzi
     |   |-- executie
     |   |-- ls
-    |   |   `-- mkdir -> /home/student/comenzi/mkdir/
+    |   |   ``-- mkdir -> /home/student/comenzi/mkdir/
     |   |-- mkdir
     |   |   |-- Avengers
     |   |   |   |-- Captain\ America
     |   |   |   |-- Iron\ Man
-    |   |   |   `-- Thor
-    |   |   `-- GameOfThrones
+    |   |   |   ``-- Thor
+    |   |   ``-- GameOfThrones
     |   |       |-- Arya\ Stark
     |   |       |-- Daenerys\ Targaryen
     |   |       |-- Jon\ Snow
-    |   |       `-- Tyrion\ Lannister
+    |   |       ``-- Tyrion\ Lannister
     |   |-- my_ls
-    |   `-- touch
+    |   ``-- touch
     |       |-- orase
     |       |-- orase\ romania
-    |       `-- romania
+    |       ``-- romania
     |-- comenzi_redirectare
     |-- continut_materii
     |-- dezarhivare
     |   |-- tar
-    |   `-- zip
+    |   ``-- zip
     |       |-- fisier1
     |       |-- fisier2
-    |       `-- fisier3
+    |       ``-- fisier3
     |-- ELTH
     |-- erori_comenzi
     |-- fisier
@@ -101,15 +108,15 @@ Avansăm în ierarhia de directoare către `student`:
     |-- test.zip
     |-- USO
     |-- usr_bin.tar
-    `-- usr_bin.zip
+    ``-- usr_bin.zip
 
 
 Directorul acesta este directorul *home* al utilizatorului *student*.
-Vedem întreaga ierarhie a directorului `/home/student`.
+Vedem întreaga ierarhie a directorului ``/home/student``.
 
 
 .. important::
-    Pentru a referi un fișier avem două opțiuni: putem să-i dăm o cale relativă la calea noastră curentă sau putem să dăm o cale care pornește de la începutul sistemului de fișiere(root, `/`).
+    Pentru a referi un fișier avem două opțiuni: putem să-i dăm o cale relativă la calea noastră curentă sau putem să dăm o cale care pornește de la începutul sistemului de fișiere(root, ``/``).
     Astfel, prima cale se numește *cale relativă*, iar cea de-a doua se numeste *cale absolută*.
     Fiecare situație necesită un tip de cale; nu putem afirma că una e mai bună ca alta.
 
@@ -118,7 +125,7 @@ Vedem întreaga ierarhie a directorului `/home/student`.
 Calea curentă
 -------------
 
-Lista de directoare intermediare de la rădăcina ierarhiei de fișiere (`/`) până la un anumit fișier sau director se numeste *cale*.
+Lista de directoare intermediare de la rădăcina ierarhiei de fișiere (``/``) până la un anumit fișier sau director se numeste *cale*.
 În lina de comandă afișăm calea până la directorul în care ne aflăm folosind comanda ``pwd`` [#]_ :
 
 .. code-block:: bash
@@ -128,7 +135,7 @@ Lista de directoare intermediare de la rădăcina ierarhiei de fișiere (`/`) p�
 
 Aceasta afișează calea *absolută* până la directorul curent.
 
-Ne mutăm la calea `/usr/bin` folosind comanda ``cd``:
+Ne mutăm la calea ``/usr/bin`` folosind comanda ``cd``:
 
 .. code-block:: bash
 
@@ -138,14 +145,14 @@ Ne mutăm la calea `/usr/bin` folosind comanda ``cd``:
     student@uso:/usr/bin$ pwd
     /usr/bin
 
-Acum ne aflăm la calea `/usr/bin`.
+Acum ne aflăm la calea ``/usr/bin``.
 Observăm cum calea curentă se schimbă atunci când schimbăm directorul în care ne aflăm.
 Vom vorbi despre comanda ``cd`` la secțiunea TODO_SECțiune_cd.
 
 .. note::
-    Observăm că există un delimitator între directoare: `/` (slash).
+    Observăm că există un delimitator între directoare: ``/`` (slash).
     Acesta trebuie folosit obligatoriu atunci când compunem o cale.
-    În Windows este \\ (backslash) iar în MacOS este similar Linux: `/` (slash).
+    În Windows este \\ (backslash) iar în MacOS este similar Linux: ``/`` (slash).
 
 Cale relativă și cale absolută
 ------------------------------
@@ -160,14 +167,14 @@ Spre exemplu, luăm un serial pe Netflix. Ne referim la un episod în două modu
 
 Similar, ne referim la un fișier:
 
-* Pornind din rădăcina ierarhiei de fișiere (*root*), reprezentat prin simbolul `/`, numită  *cale absolută*.
+* Pornind din rădăcina ierarhiei de fișiere (*root*), reprezentat prin simbolul ``/``, numită  *cale absolută*.
 * Pornind de la directorul în care ne află (*director curent*), numită *cale relativă*.
 
 
 Cale absolută
 """""""""""""
 
-După cum am specificat mai sus, calea absolută începe întotdeauna cu caracterul `/` (slash), denumit și *root*.
+După cum am specificat mai sus, calea absolută începe întotdeauna cu caracterul ``/`` (slash), denumit și *root*.
 Acesta specifică începutul ierarhiei de fișiere.
 
 Afișam fișierele ``/usr/bin/touch`` și ``/etc/passwd`` prin cale absolută, folosind ``ls``:
@@ -197,8 +204,8 @@ Referim aceleași fișiere (``/usr/bin/touch`` și ``/etc/passwd``) prin cale re
     student@uso:~$ ls -l ../../etc/passwd
     -rw-r--r-- 1 root root 1768 Sep  9 14:07 ../../etc/passwd
 
-Observăm că ne aflăm la calea `/home/student` și urcăm spre vârful ierarhiei de fișiere folosind caracterele `..`.
-Odată ajunși la *root* `/`, coborâm spre fișierul `touch`, trecând prin directoarele `usr` și `bin`.
+Observăm că ne aflăm la calea ``/home/student`` și urcăm spre vârful ierarhiei de fișiere folosind caracterele ``..``.
+Odată ajunși la *root* ``/``, coborâm spre fișierul ``touch``, trecând prin directoarele ``usr`` și ``bin``.
 
 
 Schimbarea căii curente
@@ -215,13 +222,19 @@ Facem acest lucru folosind comanda ``cd`` [#]_:
     student@uso:/usr$ pwd
     /usr
 
-Am schimbat calea curentă de la `/etc` la `/usr`.
+Am schimbat calea curentă de la ``/etc`` la ``/usr``.
 Această comandă poate fi folosită oriunde ne-am afla deoarece este o *cale absolută*.
+
+.. important::
+    Comanda ``cd`` schimbă promptul terminalului; aceasta este o indicație a directorului curent în care ne aflăm:
+
+    * în cazul ``student@uso:/etc$ pwd`` ne aflăm în ``etc``
+    * în cazul ``student@uso:/usr$ pwd`` ne aflăm în ``pwd``
 
 .. note::
     Comanda ``cd`` primeste ca parametru o cale care poate fi atât *relativă* cât și *absolută*.
 
-Schimbăm calea curentăîn `/home/student`, folosind ``cd``:
+Schimbăm calea curentăîn ``/home/student``, folosind ``cd``:
 
 .. code-block:: bash
 
@@ -229,7 +242,7 @@ Schimbăm calea curentăîn `/home/student`, folosind ``cd``:
     student@uso:~$ pwd
     /home/student
 
-Ne aflăm la calea `/home/student`.
+Ne aflăm la calea ``/home/student``.
 O alternativă mai puțin eficientă este să facem schimbarea căii curente în doi pași, astfel:
 
 .. code-block:: bash
@@ -241,7 +254,7 @@ O alternativă mai puțin eficientă este să facem schimbarea căii curente în
     student@uso:~$ pwd
     /home/student
 
-Schimbăm calea curentă la `/usr/bin` folosind cale relativă:
+Schimbăm calea curentă la ``/usr/bin`` folosind cale relativă:
 
 .. code-block:: bash
 
@@ -251,7 +264,7 @@ Schimbăm calea curentă la `/usr/bin` folosind cale relativă:
     student@uso:/usr/bin$ pwd
     /usr/bin
 
-Observăm cum am urcat în ierarhie folosind `..` până la `/` (*root*) iar apoi am coborât spre `usr` și apoi `bin`.
+Observăm cum am urcat în ierarhie folosind ``..`` până la ``/`` (*root*) iar apoi am coborât spre ``usr`` și apoi ``bin``.
 
 .. note::
     Această cale nu poate fi executată de oriunde, deoarece este relativă la calea curentă.
@@ -265,7 +278,7 @@ Observăm cum am urcat în ierarhie folosind `..` până la `/` (*root*) iar apo
     student@uso:~/comenzi$ cd ../../usr/bin
     -bash: cd: ../../usr/bin: No such file or directory
 
-Observăm că suntem la calea `/home/student/comenzi`.
+Observăm că suntem la calea ``/home/student/comenzi``.
 Executând comanda ``cd ../../usr/bin`` de mai sus, am ajunge la calea ``/home/usr/bin`` care nu există.
 
 TAB completion
@@ -287,7 +300,7 @@ Scurtături de căi
 
 Pentru o eficiență mai bună, putem folosi simboluri pentru interacțiunea cu utilitarul ``cd``:
 
-* Folosim caracterul *-* pentru a referi la *calea anterioară*.
+* Folosim caracterul (``-``) pentru a referi la *calea anterioară*.
 
 
   .. code-block:: bash
@@ -310,7 +323,7 @@ Observăm că dacă folosim repetat comanda ``cd -`` vom face un joc *dute-vino*
 
 
 
-* Folosim caracterul *~* pentru a referi *calea home* a utilizatorului.
+* Folosim caracterul (``~``) pentru a referi *calea home* a utilizatorului.
 
   .. code-block:: bash
 

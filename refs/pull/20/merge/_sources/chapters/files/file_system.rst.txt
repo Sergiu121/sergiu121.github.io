@@ -56,14 +56,12 @@ Se poate întâmpla să vrem să aflăm dacă într-o ierarhie de fișiere găsi
 Spre exemplu, serviciul ``ssh`` folosește un fișier de configurare numit ``/etc/ssh/ssh_config``, dar nu mai ținem minte calea exactă până la acel fișier.
 
 Linux ne oferă 2 utilitare, ``locate`` și ``find``, care pot fi de ajutor în situația descrisă mai sus.
-Vorbim mai în detaliu despre fiecare utilitar în subsecțiunile de mai jos.
-
 
 
 Folosirea utilitarului ``find``
 """""""""""""""""""""""""""""""
 
-În mod obișnuit, numele fișierelor de configurare pentru servicii se termină în extensia ".conf".
+În mod obișnuit, numele fișierelor de configurare pentru servicii se termină în extensia ``conf``.
 Găsim toate fișierele de configurare ale serviciului ``ssh`` de pe sistem folosind comanda ``find``:
 
 .. code-block:: bash
@@ -73,9 +71,9 @@ Găsim toate fișierele de configurare ale serviciului ``ssh`` de pe sistem folo
     /usr/lib/tmpfiles.d/sshd.conf
     /etc/init/ssh.conf
 
-Am căutat în calea `/` (*root*) orice fișier ce conține `ssh` și se termină cu `conf`.
+Am căutat în calea ``/`` (*root*) orice fișier ce conține ``ssh`` și se termină cu ``conf``.
 
-Pentru a învăța mai multe despre acest utilitar, putem inspecta manualul ``man find``.
+Utilitarul ``find`` caută în ierarhia de fișiere care începe de la calea dată ca parametru în jos. În cazul nostru, de la ``/`` (root) în jos, adică în tot sistemul de fișiere.
 
 .. note::
     Mai multe informații și exemple în capitolul ref_capitol_edi 
@@ -84,7 +82,8 @@ Pentru a învăța mai multe despre acest utilitar, putem inspecta manualul ``ma
 Folosirea utilitarului ``locate``
 """""""""""""""""""""""""""""""""
 
-Utilitarul ``find`` nu scalează pentru situațiile când avem multe fișiere și dorim un răspuns rapid.
+Atunci când vrem să căutăm într-o ierarhie mare de fișiere, utilitarul ``find`` nu este cea mai bună soluție deoarece este încet.
+
 Utilitarul ``locate`` ne poate ajuta în astfel de situații.
 
 Acesta funcționează în 2 pași:
@@ -119,7 +118,7 @@ Răspunsul comenzii este instant.
     /home/student/inregistrari.tar
     /home/student/usr_bin.tar
 
-Am folosit utilitarul ``locate`` să căutăm în tot sistemul orice fișier se termină cu `.tar`.
+Am folosit utilitarul ``locate`` să căutăm în tot sistemul orice fișier se termină cu ``.tar``.
 
 Găsim mai multe informații și exemple în capitolul todo_ref_edi 
 
@@ -134,7 +133,7 @@ Shell-ul știe să ruleze utilitarele din orice loc în care ne aflăm (din iera
 Se întâmplă acest lucru pentru că shell-ul are o listă de câteva directoare în care se uită după utilitarele pe care le folosim.
 Spre exemplu, atunci când rulăm utilitarul ``ls``, el caută programul ``ls`` în lista pe care o are, îl găsește și îl rulează.
 
-Această listă se găsește în *variabila de mediu* [#]_ `PATH`.
+Această listă se găsește în *variabila de mediu* [#]_ ``PATH``.
 
 
 Afișarea variabilei PATH din sistem
@@ -147,8 +146,8 @@ Afișăm valoarea **PATH** a sistemului folosind utilitarul ``echo``.
     $ echo $PATH
     /usr/local/bin:/usr/bin:/bin:/usr/games
 
-Variabila `PATH` are patru căi din sistem, despărțite de caracterul ``:``.
-Astfel, sistemul verifică dacă utilitarul este prezent în calea `/usr/local/bin`; dacă nu-l găsește, merge la următoarea calea `/usr/bin`; dacă nu-l găsește, merge la următoarea cale `/bin`; dacă nu-l găsește, merge la ultima cale `/usr/games`.
+Variabila ``PATH`` are patru căi din sistem, despărțite de caracterul ``:``.
+Astfel, sistemul verifică dacă utilitarul este prezent în calea ``/usr/local/bin``; dacă nu-l găsește, merge la următoarea calea ``/usr/bin``; dacă nu-l găsește, merge la următoarea cale ``/bin``; dacă nu-l găsește, merge la ultima cale ``/usr/games``.
 
 .. note::
     Un utilitar poate fi la mai multe căi din PATH, dar va fi executat utilitarul din cea mai din stânga cale (prima, dacă nu a2a, etc.).
@@ -156,7 +155,7 @@ Astfel, sistemul verifică dacă utilitarul este prezent în calea `/usr/local/b
 Căutarea utilitarelor în sistemul de fișiere
 --------------------------------------------
 
-Există cazuri când vrem să găsim locația exactă a unui utilitar.
+Există cazuri când vrem să găsim locația exactă a unui utilitari: vrem să aflăm ce permisiuni are, cine îl deține sau ce dimensiune are.
 
 Folosirea utilitarului ``which``
 """"""""""""""""""""""""""""""""
