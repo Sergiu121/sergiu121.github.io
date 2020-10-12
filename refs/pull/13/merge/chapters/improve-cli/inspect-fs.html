@@ -46,6 +46,13 @@
     <div class="nav-item">
       <a href="../../index.html#uso-lab-book"
          class="nav-link ">
+         Acomodarea în Linux
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
          Lucrul cu fișiere
       </a>
     </div>
@@ -102,6 +109,13 @@
           <navlinks>
             
 
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Acomodarea în Linux
+      </a>
+    </div>
   
     <div class="nav-item">
       <a href="../../index.html#uso-lab-book"
@@ -163,6 +177,45 @@
     </div>
   </div>
 </div><div class="sidebar-links" role="navigation" aria-label="main navigation">
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#uso-lab-book">Acomodarea în Linux</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../basic/apps.html" class="reference internal ">Pornirea și oprirea aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../basic/browser.html" class="reference internal ">Folosirea eficientă a browserului web</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../basic/terminal.html" class="reference internal ">Lucrul în terminal</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../basic/workspace.html" class="reference internal ">Lucrul cu workspace-uri</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../basic/cheatsheet.html" class="reference internal ">Cheatsheet</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
   
     <div class="sidebar-group">
       <p class="caption">
@@ -421,7 +474,7 @@
                 
                   <li class="toctree-l2"><a href="#explorarea-sistemului-de-fisiere-comanda-ls" class="reference internal">Explorarea sistemului de fișiere: comanda ls</a></li>
                 
-                  <li class="toctree-l2"><a href="#find-si-locate" class="reference internal">find și locate</a></li>
+                  <li class="toctree-l2"><a href="#cautarea-unui-fisier-in-sistem" class="reference internal">Căutarea unui fișier în sistem</a></li>
                 
                   <li class="toctree-l2"><a href="#file-si-touch" class="reference internal">file și touch</a></li>
                 
@@ -1144,28 +1197,191 @@ Termenul vine de la cuvântul <strong>escape</strong> (a scăpa), și exprimă c
 </div>
 </div>
 </div>
-<div class="section" id="find-si-locate">
-<h2><span class="section-number">2.4. </span><code class="docutils literal notranslate"><span class="pre">find</span></code> și <code class="docutils literal notranslate"><span class="pre">locate</span></code><a class="headerlink" href="#find-si-locate" title="Permalink to this headline">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">find</span></code></p>
-<ul class="simple">
-<li><p>La ce este util și cum îl folosim</p></li>
-<li><p>Exerciții folosind <code class="docutils literal notranslate"><span class="pre">find</span></code>: toate fișierele de tip <strong>regular file</strong> (trebuie să folosească <code class="docutils literal notranslate"><span class="pre">man</span> <span class="pre">find</span></code>)</p></li>
-<li><dl class="simple">
-<dt>Follow-up la exercițiul anterior: rulat comenzi pe fișierele respective</dt><dd><ul>
-<li><p>În cazul ăsta vom da un <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-l</span></code></p></li>
-<li><p>Exercițiul ăsta pune o bază. O să folosesc asta pentru a da search&amp;replace recursiv folosind <code class="docutils literal notranslate"><span class="pre">find</span></code> și <code class="docutils literal notranslate"><span class="pre">sed</span></code></p></li>
-</ul>
+<div class="section" id="cautarea-unui-fisier-in-sistem">
+<h2><span class="section-number">2.4. </span>Căutarea unui fișier în sistem<a class="headerlink" href="#cautarea-unui-fisier-in-sistem" title="Permalink to this headline">¶</a></h2>
+<p>De multe ori ne aflăm în situația în care căutăm un fișier pe disk: ex. doar ce am clonat un proiect de pe GitHub și vrem să inspectăm fișierul <strong>Makefile</strong> pentru a vedea cum compilăm și rulăm proiectul.
+Un alt exemplu poate fi că vrem să vedem cum arată fișierele de test existente în proiect; de multe ori, ințelegem mai bine proiectul doar prin simpla inspectare a testelor.</p>
+<p>Există două utilitare care ne permit să căutăm în cadrul sistemului de fișiere: <code class="docutils literal notranslate"><span class="pre">locate</span></code> și <code class="docutils literal notranslate"><span class="pre">find</span></code>.</p>
+<div class="section" id="utilitarul-locate">
+<h3><span class="section-number">2.4.1. </span>Utilitarul <code class="docutils literal notranslate"><span class="pre">locate</span></code><a class="headerlink" href="#utilitarul-locate" title="Permalink to this headline">¶</a></h3>
+<p>Utilitarul <code class="docutils literal notranslate"><span class="pre">locate</span></code> folosește o bază de date pentru a căuta în fișierele de pe sistem.
+Inspectăm pagina de manual a utilitarului pentru a vedea cum îl putem folosi.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ man locate
+
+SYNOPSIS
+       locate <span class="o">[</span>OPTION<span class="o">]</span>... PATTERN...
+</pre></div>
+</div>
+<p>Observăm că <code class="docutils literal notranslate"><span class="pre">locate</span></code> primește ca argument un șir de caractere, <strong>PATTERN</strong>, care fac parte din numele fișierului pe care în căutăm, dar nu trebuie să-i dăm numele exact</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ locate todos.txt
+/home/student/Desktop/todos.txt
+student@uso:~$ locate todos
+/home/student/Desktop/todos.txt
+</pre></div>
+</div>
+<p>Putem să folosim și sintaxa globbing pentru a descrie numele fișierului căutat:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ locate <span class="s2">&quot;*.txt&quot;</span>
+/home/student/vm-actions-log.txt
+/home/student/.local/lib/python2.7/site-packages/Keras_Applications-1.0.8.dist-info/top_level.txt
+/home/student/.local/lib/python2.7/site-packages/Keras_Preprocessing-1.1.2.dist-info/top_level.txt
+/home/student/.local/lib/python2.7/site-packages/Markdown-3.1.1.dist-info/entry_points.txt
+/home/student/.local/lib/python2.7/site-packages/Markdown-3.1.1.dist-info/top_level.txt
+/home/student/.local/lib/python2.7/site-packages/Werkzeug-1.0.1.dist-info/top_level.txt
+</pre></div>
+</div>
+<p>Căutările cu <code class="docutils literal notranslate"><span class="pre">locate</span></code> sunt foarte rapide.
+Acest lucru se datorează utilizării bazei de date pentru a indexa fișierele din sistem.
+Baza de date se reconstruiește periodic, o dată la 24h.
+Asta înseamnă că locate nu va găsi fișiere care au fost create după reconstrucția bazei de date.
+Dacă vrem să reconstruim baza de date, folosim comanda <code class="docutils literal notranslate"><span class="pre">updatedb</span></code>.</p>
+<p>Hai să clonăm repository-ul <strong>TheAlgorithms/C</strong>.
+Acesta conține implementările diferitor algoritmi folosind limbajul de programare C.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ <span class="nb">cd</span> workspace
+student@uso:~/workspace$ git clone https://github.com/TheAlgorithms/C.git
+student@uso:~/workspace$ <span class="nb">cd</span> C
+</pre></div>
+</div>
+<p>Fiind vorba despre un repository care implementează algoritmi clasici, ne așteptăm să găsim și algoritmi de căutare, cum ar fi binary-search.
+Hai să căutăm după cuvântul cheie <strong>search</strong>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/workspace/$ locate search <span class="p">|</span> grep workspace/C
+student@uso:~/workspace/$
+</pre></div>
+</div>
+<p>Observăm că nu am găsit nici un rezultat.
+Cum spuneam mai devreme, trebuie să reconstruim baza de date pentru a căuta în fișierele nou create.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/workspace/C$ sudo updatedb
+<span class="o">[</span>sudo<span class="o">]</span> password <span class="k">for</span> student:
+</pre></div>
+</div>
+<p>Comanda <code class="docutils literal notranslate"><span class="pre">updatedb</span></code> trebuie executată în mod privilegiat, așa că folosim <code class="docutils literal notranslate"><span class="pre">sudo</span></code>.
+Parola utilizatorului <strong>student</strong>, pe mașina noastră virtuală, este <strong>student</strong>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/workspace/C$ locate search <span class="p">|</span> grep workspace/C
+/home/student/workspace/C/searching
+/home/student/workspace/C/data_structures/binary_trees/binary_search_tree.c
+/home/student/workspace/C/searching/CMakeLists.txt
+/home/student/workspace/C/searching/binary_search.c
+/home/student/workspace/C/searching/fibonacci_search.c
+/home/student/workspace/C/searching/interpolation_search.c
+/home/student/workspace/C/searching/jump_search.c
+/home/student/workspace/C/searching/linear_search.c
+/home/student/workspace/C/searching/modified_binary_search.c
+/home/student/workspace/C/searching/other_binary_search.c
+/home/student/workspace/C/searching/pattern_search
+/home/student/workspace/C/searching/ternary_search.c
+/home/student/workspace/C/searching/pattern_search/CMakeLists.txt
+/home/student/workspace/C/searching/pattern_search/boyer_moore_search.c
+/home/student/workspace/C/searching/pattern_search/naive_search.c
+/home/student/workspace/C/searching/pattern_search/rabin_karp_search.c
+</pre></div>
+</div>
+<div class="section" id="sumar-locate">
+<h4><span class="section-number">2.4.1.1. </span>Sumar: <code class="docutils literal notranslate"><span class="pre">locate</span></code><a class="headerlink" href="#sumar-locate" title="Permalink to this headline">¶</a></h4>
+<p>Folosim utilitarul <code class="docutils literal notranslate"><span class="pre">locate</span></code> pentru a căuta un fișier în întreg sistemul de fișiere.</p>
+<p>Are avantajul că este foarte rapid, deoarece folosește o bază de date pentru a indexa fișierele.</p>
+<dl class="simple">
+<dt>Are două dezavantaje:</dt><dd><ol class="arabic simple">
+<li><p>Baza de date trebuie reconstruită periodic.
+Dacă vrem să reconstruim manual baza de date, avem nevoie de drepturi privilegiate pentru a rula comanda <code class="docutils literal notranslate"><span class="pre">updatedb</span></code>.</p></li>
+<li><p>Utilitarul caută în tot sistemul de fișiere: nu putem să specificăm un punct de start pentru căutare.
+Este necesar să filtrăm rezultatul căutării cu punctul de start dorit, așa cum am făcut în exemplul de mai sus: <code class="docutils literal notranslate"><span class="pre">|</span> <span class="pre">grep</span> <span class="pre">workspace/C</span></code>.</p></li>
+</ol>
 </dd>
 </dl>
-</li>
-</ul>
-<p><code class="docutils literal notranslate"><span class="pre">locate</span></code></p>
-<ul class="simple">
-<li><p>Ce este?</p></li>
-<li><p>Q: De ce îl folosim? A: Mai semnificativ mai rapid decât find</p></li>
-<li><p>Q: Ce dezavantaj are? A: Trebuie reconstruită baza de date periodic</p></li>
-<li><p>Takeaway: <code class="docutils literal notranslate"><span class="pre">locate</span></code> este probabil sufient pentru majoritatea cazurilor; folosim <code class="docutils literal notranslate"><span class="pre">find</span></code> atunci când vrem să căutăm după criterii mai complexe (ex. tipul fișierelor, data creării/ultimei modificări, etc.) sau dacă vrem să rulăm o comandă pe fișierele găsite</p></li>
-</ul>
+</div>
+</div>
+<div class="section" id="utilitarul-find">
+<h3><span class="section-number">2.4.2. </span>Utilitarul <code class="docutils literal notranslate"><span class="pre">find</span></code><a class="headerlink" href="#utilitarul-find" title="Permalink to this headline">¶</a></h3>
+<p>Utilitarul <code class="docutils literal notranslate"><span class="pre">find</span></code> îndeplinește același scop: căuta în fișierele de pe sistem.
+<code class="docutils literal notranslate"><span class="pre">find</span></code> este un utilitar mai complex decât <code class="docutils literal notranslate"><span class="pre">locate</span></code>.
+Acesta ne permite să căutăm fișiere după nume, permisiuni, tipul fișierelor, data ultimei modificări și multe altele.
+Inspectăm pagina de manual a utilitarului pentru a vedea cum îl putem folosi.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ man find
+
+SYNOPSIS
+       find  <span class="o">[</span>-H<span class="o">]</span>  <span class="o">[</span>-L<span class="o">]</span>  <span class="o">[</span>-P<span class="o">]</span>  <span class="o">[</span>-D  debugopts<span class="o">]</span>  <span class="o">[</span>-Olevel<span class="o">]</span>  <span class="o">[</span>starting-point...<span class="o">]</span>
+       <span class="o">[</span>expression<span class="o">]</span>
+</pre></div>
+</div>
+<p>La o primă vedere, <code class="docutils literal notranslate"><span class="pre">find</span></code> poate părea complex și intimidant, dar lucrurile stau foarte simplu.
+Folosim <code class="docutils literal notranslate"><span class="pre">find</span></code> cu sintaxa <code class="docutils literal notranslate"><span class="pre">find</span> <span class="pre">[starting-point]</span> <span class="pre">[expression]</span></code>, ca în exemplul de mai jos:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ find . -name <span class="s2">&quot;*search*&quot;</span>
+./C/searching
+./C/searching/linear_search.c
+./C/searching/other_binary_search.c
+./C/searching/binary_search.c
+./C/searching/modified_binary_search.c
+./C/searching/jump_search.c
+./C/searching/interpolation_search.c
+./C/searching/fibonacci_search.c
+./C/searching/ternary_search.c
+./C/searching/pattern_searc h
+./C/searching/pattern_search/naive_search.c
+./C/searching/pattern_search/boyer_moore_search.c
+./C/searching/pattern_search/rabin_karp_search.c
+./C/data_structures/binary_trees/binary_search_tree.c
+</pre></div>
+</div>
+<p>În exemplul de mai sus observă că am folosit ca <strong>starting-point</strong> <code class="docutils literal notranslate"><span class="pre">.</span></code> (directorul curent), iar ca <strong>expression</strong> <code class="docutils literal notranslate"><span class="pre">-name</span> <span class="pre">&quot;*search*&quot;</span></code>.</p>
+<p>Utilitarul <code class="docutils literal notranslate"><span class="pre">find</span></code> folosește o expresie compusă pentru căutare.
+În exemplul anterior am folosit opțiunea <code class="docutils literal notranslate"><span class="pre">-name</span> <span class="pre">PATTERN</span></code>.
+Exact ca în cazul utilitarului <code class="docutils literal notranslate"><span class="pre">locate</span></code>, <strong>PATTERN</strong> poate folosi sintaxa globbing, așa cum am făcut în exemplul de mai sus <code class="docutils literal notranslate"><span class="pre">&quot;*search*&quot;</span></code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Atunci când folosim sintaxa globbing, trebuie să fim atenți să încadrăm <strong>PATTERN</strong> între <code class="docutils literal notranslate"><span class="pre">&quot;</span></code> (ghilimele), așa cum am făcut în exemplul de mai sus.
+Trebuie să facem asta pentru ca sintaxa globbing să fie interpretată de către utilitarul <code class="docutils literal notranslate"><span class="pre">find</span></code> și nu de către terminalul (<code class="docutils literal notranslate"><span class="pre">bash</span></code>) din care lansăm utilitarul.</p>
+</div>
+<div class="section" id="scenarii-complexe-de-cautare">
+<h4><span class="section-number">2.4.2.1. </span>Scenarii complexe de căutare<a class="headerlink" href="#scenarii-complexe-de-cautare" title="Permalink to this headline">¶</a></h4>
+<p>Utilitarul <code class="docutils literal notranslate"><span class="pre">find</span></code> are o lungă listă de opțiuni pe care le putem folosi în expresii de căutare.
+Una din opțiunile mai populare este <code class="docutils literal notranslate"><span class="pre">-type</span></code> care ne oferă posibilitatea de a căuta după tipul unui fișier:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ find workspace/C -type f
+workspace/C/leetcode/src/226.c
+workspace/C/leetcode/src/700.c
+workspace/C/leetcode/src/278.c
+<span class="o">[</span>...<span class="o">]</span>
+</pre></div>
+</div>
+<p>În exemplul de mai sus i-am spus utilitarului <code class="docutils literal notranslate"><span class="pre">find</span></code> că vrem să căutăm în directorul <code class="docutils literal notranslate"><span class="pre">~/workspace/C</span></code> toate fișierele text (regular file) <code class="docutils literal notranslate"><span class="pre">-type</span> <span class="pre">f</span></code>.</p>
+<p><strong>Exercițiu:</strong> Accesați pagina de manual a utilitarului find (<code class="docutils literal notranslate"><span class="pre">man</span> <span class="pre">find</span></code>) și căutați opțiunea <code class="docutils literal notranslate"><span class="pre">-type</span></code>.
+Căutați în directorul <code class="docutils literal notranslate"><span class="pre">workspace/C</span></code> după fiecare tip de fișier suportat de opțiunea <code class="docutils literal notranslate"><span class="pre">-type</span></code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Reminder: pentru a căuta în man folosim <code class="docutils literal notranslate"><span class="pre">/</span></code> pentru a intra în search mode și apoi introducem textul pe care îl căutam <code class="docutils literal notranslate"><span class="pre">-type</span></code> urmat de tasta <code class="docutils literal notranslate"><span class="pre">Enter</span></code>; pentru a ne duce la următorul rezultat al căutării folosim tasta <code class="docutils literal notranslate"><span class="pre">n</span></code> (next).</p>
+</div>
+<p>În cadrul unei căutări putem să combinăm opțiunile de căutare:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ find workspace/C -type f -name <span class="s2">&quot;*search*&quot;</span>
+workspace/C/searching/modified_binary_search.c
+workspace/C/searching/ternary_search.c
+workspace/C/searching/jump_search.c
+workspace/C/searching/binary_search.c
+</pre></div>
+</div>
+<p>În exemplul de mai sus căutăm toate fișierele text care conțin șirul <strong>search</strong> în nume.</p>
+<p>Utilitarul <code class="docutils literal notranslate"><span class="pre">find</span></code> ne permite să executăm comenzi asupra rezultatelor căutării.
+Facem acest cu opțiunea <code class="docutils literal notranslate"><span class="pre">-exec</span> <span class="pre">command</span> <span class="pre">{}</span> <span class="pre">;</span></code>.
+Atunci când folosim <code class="docutils literal notranslate"><span class="pre">-exec</span></code>, rezultatul căutării va înlocui șirul <strong>‘{}’</strong> în textul comenzii; comanda de executat trebuie să se termine în caracterul <code class="docutils literal notranslate"><span class="pre">;</span></code>.</p>
+<p>Observăm exemplul de mai jos:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ find workspace/C -type f -name <span class="s2">&quot;*search*&quot;</span> -exec ls -l <span class="o">{}</span> <span class="se">\;</span>
+-rw-r--r-- <span class="m">1</span> student student <span class="m">3312</span> sep <span class="m">17</span> <span class="m">19</span>:20 workspace/C/searching/modified_binary_search.c
+-rw-r--r-- <span class="m">1</span> student student <span class="m">1782</span> sep <span class="m">17</span> <span class="m">19</span>:20 workspace/C/searching/ternary_search.c
+-rw-r--r-- <span class="m">1</span> student student <span class="m">1624</span> sep <span class="m">17</span> <span class="m">19</span>:20 workspace/C/searching/jump_search.c
+-rw-r--r-- <span class="m">1</span> student student <span class="m">2799</span> sep <span class="m">17</span> <span class="m">19</span>:20 workspace/C/searching/binary_search.c
+-rw-r--r-- <span class="m">1</span> student student <span class="m">867</span> sep <span class="m">17</span> <span class="m">19</span>:20 workspace/C/searching/other_binary_search.c
+</pre></div>
+</div>
+<p>În exemplul de mai sus, argumetul opțiunii <code class="docutils literal notranslate"><span class="pre">exec</span></code> este <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-l</span> <span class="pre">{}</span> <span class="pre">\;</span></code>.
+În cuvinte, pentru fiecare fișier text care conține șirul <strong>search</strong> vom afișa informații în format lung (<code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-l</span> <span class="pre">{}</span></code>).
+Observăm că <code class="docutils literal notranslate"><span class="pre">-exec</span></code> se încheie cu <code class="docutils literal notranslate"><span class="pre">\;</span></code>: este nevoie să escapăm caracterul <code class="docutils literal notranslate"><span class="pre">;</span></code> pentru ca acesta să fie interpretat de către utilitarul <code class="docutils literal notranslate"><span class="pre">find</span></code> și nu de către terminalul în care rulăm, exact ca în cazul <code class="docutils literal notranslate"><span class="pre">-name</span> <span class="pre">PATTERN</span></code>.</p>
+<p>În secțiunile ce urmează vom vedea cum ne folosim de opțiunea <code class="docutils literal notranslate"><span class="pre">exec</span></code> pentru a face recursiv search &amp; replace în fișiere.</p>
+</div>
+<div class="section" id="sumar-find">
+<h4><span class="section-number">2.4.2.2. </span>Sumar: <code class="docutils literal notranslate"><span class="pre">find</span></code><a class="headerlink" href="#sumar-find" title="Permalink to this headline">¶</a></h4>
+<p>Folosim <code class="docutils literal notranslate"><span class="pre">find</span></code> pentru a căuta după criterii mai complexe decât numele fișierului, cum ar fi tipul fișierului, data ultimei modificări, etc.</p>
+<p>De cele mai multe ori vom folosi <code class="docutils literal notranslate"><span class="pre">find</span></code> în conjuncție cu opțiunea <code class="docutils literal notranslate"><span class="pre">-exec</span></code> pentru a rula o comandă asupra fișierelor găsite.</p>
+<p>Utilitarul <code class="docutils literal notranslate"><span class="pre">find</span></code> este mai lent decât <code class="docutils literal notranslate"><span class="pre">locate</span></code>, dar nu necesită o bază de date care trebuie actualizată periodic.
+<code class="docutils literal notranslate"><span class="pre">locate</span></code> este probabil suficient pentru majoritatea cazurilor când suntem interesați de căutarea unui fișier.</p>
+</div>
+</div>
 </div>
 <div class="section" id="file-si-touch">
 <h2><span class="section-number">2.5. </span><code class="docutils literal notranslate"><span class="pre">file</span></code> și <code class="docutils literal notranslate"><span class="pre">touch</span></code><a class="headerlink" href="#file-si-touch" title="Permalink to this headline">¶</a></h2>
