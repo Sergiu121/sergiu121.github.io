@@ -8,6 +8,13 @@ Pentru a ajunge în directorul ``Games`` trebuie să știm unde suntem și apoi 
 O ierarhie de fișiere și directoare este o structură de organizare a acestora.
 Structura ierarhică permite gruparea acestora în directoare ce conțin la rândul lor alte directoare sau fișiere.
 În modul acesta, putem vedea doar un subset de fișiere și directoare din totalitatea acestora de pe sistem.
+
+
+Un astfel de exemplu este următorul:
+
+.. figure:: res/ierarhie.png
+
+
 În Linux, începutul acestei ierarhii este ``/`` *(root)*. 
 
 Putem vedea mai jos începeutul ierarhiei din Linux:
@@ -126,7 +133,7 @@ Calea curentă
 -------------
 
 Lista de directoare intermediare de la rădăcina ierarhiei de fișiere (``/``) până la un anumit fișier sau director se numeste *cale*.
-În lina de comandă afișăm calea până la directorul în care ne aflăm folosind comanda ``pwd`` [#]_ :
+În lina de comandă afișăm calea până la directorul în care ne aflăm folosind comanda ``pwd`` (Print Working Directory) :
 
 .. code-block:: bash
 
@@ -205,14 +212,23 @@ Referim aceleași fișiere (``/usr/bin/touch`` și ``/etc/passwd``) prin cale re
     -rw-r--r-- 1 root root 1768 Sep  9 14:07 ../../etc/passwd
 
 Observăm că ne aflăm la calea ``/home/student`` și urcăm spre vârful ierarhiei de fișiere folosind caracterele ``..``.
+
 Odată ajunși la *root* ``/``, coborâm spre fișierul ``touch``, trecând prin directoarele ``usr`` și ``bin``.
+
+
+Exerciții
+"""""""""
+
+* Referiți fișirele ``/usr/bin/sudo``, ``/bin/cat``, ``/etc/passwd``, ``/dev/urandom`` atât prin cale relativă cât și prin cale absolută.
+* Referiți directorul părinte (un nivel mai sus față de cel curent) atât prin cale relativă cât și prin cale absolută.
+* Referiți directorul părite al directorului părinte (două niveluri mai sus față de cel curent) atât prin cale relativă cât și prin cale absolută.
 
 
 Schimbarea căii curente
 -----------------------
 
 Plasarea noastră într-un alt director decât cel curent înseamnă schimbarea căii curente.
-Facem acest lucru folosind comanda ``cd`` [#]_:
+Facem acest lucru folosind comanda ``cd`` (Change Directory):
 
 .. code-block:: bash
 
@@ -281,6 +297,14 @@ Observăm cum am urcat în ierarhie folosind ``..`` până la ``/`` (*root*) iar
 Observăm că suntem la calea ``/home/student/comenzi``.
 Executând comanda ``cd ../../usr/bin`` de mai sus, am ajunge la calea ``/home/usr/bin`` care nu există.
 
+
+Exerciții - schimbarea directorului curent
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+* Schimbați directorul curent cu directorul de la calea ``/usr/bin``. Folosiți cale absolută.
+* Schimbați directorul curent cu directorul de la calea ``/etc/``. Folosiți cale relativă.
+* Schimbați directorul curent cu directorul de la calea ``/etc/network/``. Folosiți cale relativă.
+
 TAB completion
 --------------
 
@@ -344,7 +368,3 @@ Observăm că dacă folosim repetat comanda ``cd -`` vom face un joc *dute-vino*
 .. note::
     Observăm în promptul terminalului după **student@uso:** este calea curentă; promptul se termină în caracterul **$**.
 
-
-
-.. [#] Etimologia comenzii provine din engleză - *Print Working Directory*.
-.. [#] Etimologia comenzii provine din engleză - *Change Directory*.

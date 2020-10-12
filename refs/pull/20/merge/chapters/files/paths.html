@@ -267,7 +267,13 @@
           </li>
 
         
-          <li class="toctree-l1 "><a href="file_system.html" class="reference internal ">Sistemul de fișiere</a>
+          <li class="toctree-l1 "><a href="file_system.html" class="reference internal ">Extra - Sistemul de fișiere</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="cheatsheet.html" class="reference internal ">Sumar - Cheatsheet</a>
 
             
           </li>
@@ -551,8 +557,12 @@ Dacă vrem să jucăm un joc, știm că vrem să ajungem în directorul <code cl
 Pentru a ajunge în directorul <code class="docutils literal notranslate"><span class="pre">Games</span></code> trebuie să știm unde suntem și apoi să navigăm în sistemul de fișiere până acolo.</p>
 <p>O ierarhie de fișiere și directoare este o structură de organizare a acestora.
 Structura ierarhică permite gruparea acestora în directoare ce conțin la rândul lor alte directoare sau fișiere.
-În modul acesta, putem vedea doar un subset de fișiere și directoare din totalitatea acestora de pe sistem.
-În Linux, începutul acestei ierarhii este <code class="docutils literal notranslate"><span class="pre">/</span></code> <em>(root)</em>.</p>
+În modul acesta, putem vedea doar un subset de fișiere și directoare din totalitatea acestora de pe sistem.</p>
+<p>Un astfel de exemplu este următorul:</p>
+<div class="figure align-default">
+<img alt="../../_images/ierarhie.png" src="../../_images/ierarhie.png" />
+</div>
+<p>În Linux, începutul acestei ierarhii este <code class="docutils literal notranslate"><span class="pre">/</span></code> <em>(root)</em>.</p>
 <p>Putem vedea mai jos începeutul ierarhiei din Linux:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:/$ tree -L <span class="m">1</span> /
 /
@@ -660,7 +670,7 @@ Fiecare situație necesită un tip de cale; nu putem afirma că una e mai bună 
 <div class="section" id="calea-curenta">
 <h2><span class="section-number">1.1. </span>Calea curentă<a class="headerlink" href="#calea-curenta" title="Permalink to this headline">¶</a></h2>
 <p>Lista de directoare intermediare de la rădăcina ierarhiei de fișiere (<code class="docutils literal notranslate"><span class="pre">/</span></code>) până la un anumit fișier sau director se numeste <em>cale</em>.
-În lina de comandă afișăm calea până la directorul în care ne aflăm folosind comanda <code class="docutils literal notranslate"><span class="pre">pwd</span></code> <a class="footnote-reference brackets" href="#id3" id="id1">1</a> :</p>
+În lina de comandă afișăm calea până la directorul în care ne aflăm folosind comanda <code class="docutils literal notranslate"><span class="pre">pwd</span></code> (Print Working Directory) :</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ <span class="nb">pwd</span>
 /home/student
 </pre></div>
@@ -725,14 +735,22 @@ student@uso:~$ ls -l ../../etc/passwd
 -rw-r--r-- <span class="m">1</span> root root <span class="m">1768</span> Sep  <span class="m">9</span> <span class="m">14</span>:07 ../../etc/passwd
 </pre></div>
 </div>
-<p>Observăm că ne aflăm la calea <code class="docutils literal notranslate"><span class="pre">/home/student</span></code> și urcăm spre vârful ierarhiei de fișiere folosind caracterele <code class="docutils literal notranslate"><span class="pre">..</span></code>.
-Odată ajunși la <em>root</em> <code class="docutils literal notranslate"><span class="pre">/</span></code>, coborâm spre fișierul <code class="docutils literal notranslate"><span class="pre">touch</span></code>, trecând prin directoarele <code class="docutils literal notranslate"><span class="pre">usr</span></code> și <code class="docutils literal notranslate"><span class="pre">bin</span></code>.</p>
+<p>Observăm că ne aflăm la calea <code class="docutils literal notranslate"><span class="pre">/home/student</span></code> și urcăm spre vârful ierarhiei de fișiere folosind caracterele <code class="docutils literal notranslate"><span class="pre">..</span></code>.</p>
+<p>Odată ajunși la <em>root</em> <code class="docutils literal notranslate"><span class="pre">/</span></code>, coborâm spre fișierul <code class="docutils literal notranslate"><span class="pre">touch</span></code>, trecând prin directoarele <code class="docutils literal notranslate"><span class="pre">usr</span></code> și <code class="docutils literal notranslate"><span class="pre">bin</span></code>.</p>
+</div>
+<div class="section" id="exercitii">
+<h3><span class="section-number">1.2.3. </span>Exerciții<a class="headerlink" href="#exercitii" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Referiți fișirele <code class="docutils literal notranslate"><span class="pre">/usr/bin/sudo</span></code>, <code class="docutils literal notranslate"><span class="pre">/bin/cat</span></code>, <code class="docutils literal notranslate"><span class="pre">/etc/passwd</span></code>, <code class="docutils literal notranslate"><span class="pre">/dev/urandom</span></code> atât prin cale relativă cât și prin cale absolută.</p></li>
+<li><p>Referiți directorul părinte (un nivel mai sus față de cel curent) atât prin cale relativă cât și prin cale absolută.</p></li>
+<li><p>Referiți directorul părite al directorului părinte (două niveluri mai sus față de cel curent) atât prin cale relativă cât și prin cale absolută.</p></li>
+</ul>
 </div>
 </div>
 <div class="section" id="schimbarea-caii-curente">
 <h2><span class="section-number">1.3. </span>Schimbarea căii curente<a class="headerlink" href="#schimbarea-caii-curente" title="Permalink to this headline">¶</a></h2>
 <p>Plasarea noastră într-un alt director decât cel curent înseamnă schimbarea căii curente.
-Facem acest lucru folosind comanda <code class="docutils literal notranslate"><span class="pre">cd</span></code> <a class="footnote-reference brackets" href="#id4" id="id2">2</a>:</p>
+Facem acest lucru folosind comanda <code class="docutils literal notranslate"><span class="pre">cd</span></code> (Change Directory):</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:/etc$ <span class="nb">pwd</span>
 /etc
 student@uso:/etc$ <span class="nb">cd</span> /usr
@@ -792,6 +810,11 @@ student@uso:~/comenzi$ <span class="nb">cd</span> ../../usr/bin
 </div>
 <p>Observăm că suntem la calea <code class="docutils literal notranslate"><span class="pre">/home/student/comenzi</span></code>.
 Executând comanda <code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">../../usr/bin</span></code> de mai sus, am ajunge la calea <code class="docutils literal notranslate"><span class="pre">/home/usr/bin</span></code> care nu există.</p>
+<ul class="simple">
+<li><p>Schimbați directorul curent cu directorul de la calea <code class="docutils literal notranslate"><span class="pre">/usr/bin</span></code>. Folosiți cale absolută.</p></li>
+<li><p>Schimbați directorul curent cu directorul de la calea <code class="docutils literal notranslate"><span class="pre">/etc/</span></code>. Folosiți cale relativă.</p></li>
+<li><p>Schimbați directorul curent cu directorul de la calea <code class="docutils literal notranslate"><span class="pre">/etc/network/</span></code>. Folosiți cale relativă.</p></li>
+</ul>
 </div>
 <div class="section" id="tab-completion">
 <h2><span class="section-number">1.4. </span>TAB completion<a class="headerlink" href="#tab-completion" title="Permalink to this headline">¶</a></h2>
@@ -849,14 +872,6 @@ student@uso:~$ <span class="nb">pwd</span>
 <p class="admonition-title">Note</p>
 <p>Observăm în promptul terminalului după <strong>student&#64;uso:</strong> este calea curentă; promptul se termină în caracterul <strong>$</strong>.</p>
 </div>
-<dl class="footnote brackets">
-<dt class="label" id="id3"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
-<dd><p>Etimologia comenzii provine din engleză - <em>Print Working Directory</em>.</p>
-</dd>
-<dt class="label" id="id4"><span class="brackets"><a class="fn-backref" href="#id2">2</a></span></dt>
-<dd><p>Etimologia comenzii provine din engleză - <em>Change Directory</em>.</p>
-</dd>
-</dl>
 </div>
 </div>
 

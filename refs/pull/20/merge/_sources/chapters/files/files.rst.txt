@@ -16,23 +16,69 @@ Acestea au în comun o interfață grafică.
 O altă opțiune este să interacționăm cu fișierele în linia de comandă.
 Acesta este subiectul capitolului nostru.
 
-TODO: poza CLI
 .. figure:: res/terminal.png
+   :scale: 40 %
+
 
 Folosim linia de comandă pentru interacțiunea cu fișierele în mai multe cazuri:
 
-* Atunci când sistemul pe care ne aflăm are **doar** linie de comandă;
-* Atunci când putem să facem anumite operații **mai repede** decât în interfața grafică; putem folosi automatizarea unor sarcini (taskuri): scriem un script (un fișier de automatizare) o dată și îl executăm de fiecare dată când este nevoie;
+* Atunci când sistemul pe care ne aflăm are *doar* linie de comandă;
+* Atunci când putem să facem anumite operații *mai repede* decât în interfața grafică; putem folosi automatizarea unor sarcini (taskuri): scriem un script (un fișier de automatizare) o dată și îl executăm de fiecare dată când este nevoie;
 
 Un motiv în plus pentru a folosi linia de comandă este că folosește mult mai puține resurse decât interfața grafică.
 Astfel, putem să facem mai multe cu mai puține resurse.
 
-Componenta ce se ocupă de interpretarea comenzilor este **shell**.
+Componenta ce se ocupă de interpretarea comenzilor este *shell*.
 Acesta citește comenzile date de utilizator, le interpretează și comunică sisteemului de operare ce are de făcut.
 
-În Windows se numește **Windows shell**, iar în Linux și MacOS **bash**.
+În Windows se numește *Windows shell*, iar în Linux și MacOS *bash*.
 
 în acest capitol discutăm despre cum interacționăm cu fișierele în linia de comandă.
+
+Ierarhie de fișiere
+-------------------
+
+Fișierele sunt dispuse într-o formă arborescentă, ierarhică.
+
+Un astfel de exemplu este următorul:
+
+.. figure:: res/ierarhie.png
+
+Directorul rădăcină este ``/`` (root).
+Acesta are mai multe sub-directoare, printre care și ``home``, ``bine``, ``usr``, etc.
+În home, găsim directoarele utilizatorilor din sistem: ``ubuntu``, ``debian``.
+
+Pentru a vedea fișierele sub formă arborescentă, folosim comanda ``tree``.
+
+
+.. code-block:: bash
+
+    student@uso:~/comenzi/mkdir$ tree -L 1 /
+    /
+    |-- bin
+    |-- boot
+    |-- dev
+    |-- etc
+    |-- home
+    |-- initrd.img -> /boot/initrd.img-3.16.0-4-586
+    |-- lib
+    |-- lib64
+    |-- libx32
+    |-- lost+found
+    |-- media
+    |-- mnt
+    |-- opt
+    |-- proc
+    |-- root
+    |-- run
+    |-- sbin
+    |-- srv
+    |-- sys
+    |-- tmp
+    |-- usr
+    |-- var
+    ``-- vmlinuz -> boot/vmlinuz-3.16.0-4-586
+
 
 
 Manipularea fișierelor și directoarelor
@@ -620,57 +666,12 @@ Vom prezenta mai multe detalii în capitolul :ref:todo_referinta_capitol_edi.
     Putem referi fișierele și directoarele atât cu căi relative, cât și cu absolute indiferent de utilitarul folosit.
 
 
-Ierarhie de fișiere
--------------------
-
-Fișierele sunt dispuse într-o formă arborescentă, ierarhică.
-
-Un astfel de exemplu este următorul:
-
-.. figure:: res/ierarhie.png
-
-Directorul rădăcină este ``/`` (root).
-Acesta are mai multe sub-directoare, printre care și ``home``, ``bine``, ``usr``, etc.
-În home, găsim directoarele utilizatorilor din sistem: ``ubuntu``, ``debian``.
-
-Pentru a vedea fișierele sub formă arborescentă, folosim comanda ``tree``.
-
-
-.. code-block:: bash
-
-    student@uso:~/comenzi/mkdir$ tree -L 1 /
-    /
-    |-- bin
-    |-- boot
-    |-- dev
-    |-- etc
-    |-- home
-    |-- initrd.img -> /boot/initrd.img-3.16.0-4-586
-    |-- lib
-    |-- lib64
-    |-- libx32
-    |-- lost+found
-    |-- media
-    |-- mnt
-    |-- opt
-    |-- proc
-    |-- root
-    |-- run
-    |-- sbin
-    |-- srv
-    |-- sys
-    |-- tmp
-    |-- usr
-    |-- var
-    ``-- vmlinuz -> boot/vmlinuz-3.16.0-4-586
-
-
 
 Exerciții - ierarhii de fișiere și directoare
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-#. * Afișați ierarhia de fișiere pornind de la directorul vostru home (~).
-   * Creați următoarea ierarhie pornind de la directorul **/home/student/**:
+#. * Afișați ierarhia de fișiere pornind de la directorul vostru home (``~``).
+   * Creați următoarea ierarhie pornind de la directorul ``/home/student/``:
 
    .. code-block:: bash
 
@@ -678,34 +679,34 @@ Exerciții - ierarhii de fișiere și directoare
        .
        ├── prime_video
        ├── Hulu
-       │   └── Favorite
+       │   └── Favorite
        ├── Netflix
-       │   ├── Filme
-       │   │   ├── filme_2020.txt
-       │   │   ├── filme_2019.txt
-       │   │   ├── filme_vechi
-       │   └── Seriale
-       │       ├── seriale_2020
-       │       ├── seriale_2019.txt
-       │       └── seriale_vechi
+       │   ├── Filme
+       │   │   ├── filme_2020.txt
+       │   │   ├── filme_2019.txt
+       │   │   ├── filme_vechi
+       │   └── Seriale
+       │       ├── seriale_2020
+       │       ├── seriale_2019.txt
+       │       └── seriale_vechi
        ├── HBO_GO
-       │   ├── Modern_Family.txt
-       │   └── Harry_Potter
+       │   ├── Modern_Family.txt
+       │   └── Harry_Potter
        └── YouTubeTV
 
-   * Copiați întreaga ierarhie în calea **/tmp**. Folosiți comanda ``cp``.
+   * Copiați întreaga ierarhie în calea ``/tmp``. Folosiți comanda ``cp``.
    * Confirmați copierea prin afișarea directorului părinte.
-   * Ștergeți fișierul **Favorite** din Directorul Hulu. Confirmați ștergerea prin afișarea directorului părinte.
-   * Ștergeți directorul *prime video*.
+   * Ștergeți fișierul ``Favorite`` din Directorul Hulu. Confirmați ștergerea prin afișarea directorului părinte.
+   * Ștergeți directorul ``prime video``.
    * Confirmați ștergerea prin afișarea directorului părinte.
-   * Ștergeți directorul *HBO GO*.
+   * Ștergeți directorul ``HBO GO``.
    * Găsiți parametrii corespunzători ștergerii unui director care nu este gol.
    * Confirmați ștergerea prin afișarea directorului părinte.
-   * Ștergeri ierarhia de directoare începând cu directorul **Netflix**.
+   * Ștergeri ierarhia de directoare începând cu directorul ``Netflix``.
    * Confirmați ștergerea prin afișarea directorului părinte.
 
 #. * Creați ierarhia de directoare de mai jos.
-   * Căutați parametrul necesar pentru ``mkdir`` pentru a crea toată ierarhia **dintr-o singură executare a comenzii**:
+   * Căutați parametrul necesar pentru ``mkdir`` pentru a crea toată ierarhia *dintr-o singură executare a comenzii*:
 
    .. code-block:: bash
 
@@ -713,29 +714,21 @@ Exerciții - ierarhii de fișiere și directoare
        .
        └─── Cale
            └─── Lungă
-                └─── De
-                     └─── Directoare
+                └─── De
+                     └─── Directoare
 
-   * Mutați ierarhia copiată anterior în **/tmp** în directorul **Directoare**.
+
+   * Mutați ierarhia copiată anterior în ``/tmp`` în directorul ``Directoare``.
 
 Legături (Links)
 ----------------
 
 O legătură este o scurtătură către un fișier sau un director.
 Acestea sunt necesare atunci când nu vrem să parcurgem toată ierarhia de fișiere.
-De exemplu, punem executabilul jocului **Warcraft3** pe Desktop pentru a-l accesa rapid.
+De exemplu, punem executabilul jocului *Warcraft3* pe Desktop pentru a-l accesa rapid.
 Mai multe legături pot referi același director/fișier.
 
-Există 2 tipuri de legături:
-
-* Legături simbolice (soft links)
-* Legături strânse (hard links)
-
-
-Legături simbolice (Soft Links)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-**Caracteristici:**
+Caracteristici:
 
 * Similar *Shortcut* din Windows;
 * Orice modificare în fisierul țintă, se vede și în fișierul legătură;
@@ -743,7 +736,7 @@ Legături simbolice (Soft Links)
 * Dacă fișierul este mutat sau redenumit, legătura se pierde;
 * Putem crea legături simbolice către directoare.
 
-Creăm o legătură simbolică către directorul /home/student/comenzi/mkdir/ folosind comanda ``ln -s``:
+Creăm o legătură simbolică către directorul ``/home/student/comenzi/mkdir/`` folosind comanda ``ln -s``:
 
 .. code-block:: bash
 
@@ -756,7 +749,7 @@ Creăm o legătură simbolică către directorul /home/student/comenzi/mkdir/ fo
 Observăm că fișierul creat este *link* (are primul caracter ``l``).
 Mai mult, observăm că acest link este o scurtătură către calea ``/home/student/comenzi/mkdir/``.
 
-.. code-block::bash
+.. code-block:: bash
 
     student@uso:~/comenzi/ls$ ls -l mkdir/
     total 8
@@ -791,63 +784,13 @@ Vedem în continuare ce se întâmplă dacă ștergem un fișier.
 
 Observăm că dacă am șters un fișier accesându-l prin legătura simbolică, s-a șters și la destinație.
 
-Exerciții - legătură simbolică
+Exerciții - legături (linkuri)
 """"""""""""""""""""""""""""""
 
-* Creați o legătură simbolică în directorul vostru ``home`` către directorul **Netflix**.
+* Creați o legătură simbolică în directorul vostru ``home`` către directorul ``Netflix``.
 * Verificați crearea legăturii prin afișarea conținutului directorului părinte.
 * Afișați conținutul legăturii.
-* Ștergeți directorul **Netflix**.
-* Afișați conținutul legăturii.
-
-
-Legături strânse (Hard Links)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-**Caracteristici:**
-
-* Rămân legate indiferent dacă fișierul țintă este mutat sau redenumit;
-* Chiar dacă fișierul inițial este șters, legătura conține datele fișierului țintă;
-* Orice modificare în fișierul țintă, se vede și în fișierul legătură.
-* Au conținutul(dimensiunea) fișierului țintă;
-* **Nu putem crea legături strânse către directoare**.
-
-Creăm legături strânse *(hard)*, astfel:
-
-.. code-block:: bash
-
-    student@uso:/tmp$ ln "/home/student/comenzi/mkdir/GameOfThrones/Arya Stark" Arya
-    student@uso:/tmp$ ls -l
-    total 8
-    -rw-r--r-- 2 student student   19 Sep 29 18:00 Arya
-    lrwxrwxrwx 1 student student   28 Sep 29 19:12 mkdir -> /home/student/comenzi/mkdir/
-    drwx------ 2 student student 4096 Sep 29 13:45 ssh-ApUMKI3HSJ
-
-Am creat legătura ``Aria`` care indică spre directorul ``"/home/student/comenzi/mkdir/GameOfThrones/Arya Star"``.
-
-În continuare vedem ce se întâmplă atunci când ștergem o legătură strânsă *(hard)*:
-
-.. code-block:: bash
-
-    student@uso:/tmp$ rm "/home/student/comenzi/mkdir/GameOfThrones/Arya Stark"
-    student@uso:/tmp$ ls
-    Arya  mkdir  ssh-ApUMKI3HSJ
-    student@uso:/tmp$ ls -l
-    total 8
-    -rw-r--r-- 1 student student   19 Sep 29 18:00 Arya
-    lrwxrwxrwx 1 student student   28 Sep 29 19:12 mkdir -> /home/student/comenzi/mkdir/
-    drwx------ 2 student student 4096 Sep 29 13:45 ssh-ApUMKI3HSJ
-    student@uso:/tmp$ cat Arya
-    A girl has no name
-
-Observăm că fișierul ``Arya`` încă există și are același conținut ca originalul chiar dacă acesta a fost șters.
-
-Exerciții - legături strânse
-""""""""""""""""""""""""""""
-* Creați o legătură strânsă către un fișierul *Modern Family.txt* din ierarhia creată;
-* Verificați crearea legăturii prin afișarea conținutului directorului părinte;
-* Afișați conținutul legăturii;
-* Ștergeți fișierul **Modern Family.txt**;
+* Ștergeți directorul ``Netflix``.
 * Afișați conținutul legăturii.
 
 Execuția programelor
