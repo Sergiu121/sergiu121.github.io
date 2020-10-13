@@ -236,7 +236,7 @@
                 
                   <li class="toctree-l2"><a href="#ierarhie-de-fisiere" class="reference internal">Ierarhie de fișiere</a></li>
                 
-                  <li class="toctree-l2"><a href="#manipularea-fisierelor-si-directoarelor" class="reference internal">Manipularea fișierelor și directoarelor</a></li>
+                  <li class="toctree-l2"><a href="#lucrul-cu-fisiere-si-directoare" class="reference internal">Lucrul cu fișiere și directoare</a></li>
                 
                   <li class="toctree-l2"><a href="#legaturi-links" class="reference internal">Legături (Links)</a></li>
                 
@@ -551,42 +551,30 @@
   <div class="section" id="interactiunea-cu-fisiere-in-linia-de-comanda">
 <h1><span class="section-number">2. </span>Interacțiunea cu fișiere în linia de comandă<a class="headerlink" href="#interactiunea-cu-fisiere-in-linia-de-comanda" title="Permalink to this headline">¶</a></h1>
 <p>Fișierul este unitatea de bază folosită pentru a stoca informații.
-Fie că este vorba despre un document (tema la mate) sau un joc, fie că este vorba de o configurare în sistemul de operare, sau chiar sistemul de operare, folosim fișiere pentru stocare.
-Directoarele sunt un tip specific de fișier.</p>
+Fie că este vorba despre un document (tema la mate) sau un joc, fie că este vorba de o configurare în sistemul de operare, sau chiar sistemul de operare, folosim fișiere pentru stocare.</p>
 <p>Putem interacțioa cu fișiere folosind programe specifice:</p>
 <ul class="simple">
 <li><p>Microsoft Word pentru documente;</p></li>
-<li><p>browser pentru pagină web;</p></li>
-<li><p>Winamp pentu melodii;</p></li>
-<li><p>Vlc pentru filme;</p></li>
+<li><p>browser (de exemplu, Firefox) pentru o pagină web;</p></li>
+<li><p>player audio (de exemplu, Winamp) pentu melodii;</p></li>
+<li><p>player video (de exemplu, Vlc) pentru filme.</p></li>
 </ul>
 <p>Acestea au în comun o interfață grafică.
 O altă opțiune este să interacționăm cu fișierele în linia de comandă.
-Acesta este subiectul capitolului nostru.</p>
-<div class="figure align-default">
-<a class="reference internal image-reference" href="../../_images/terminal.png"><img alt="../../_images/terminal.png" src="../../_images/terminal.png" style="width: 513.6px; height: 438.40000000000003px;" /></a>
-</div>
+Acesta este subiectul acestei sectiuni.</p>
 <p>Folosim linia de comandă pentru interacțiunea cu fișierele în mai multe cazuri:</p>
 <ul class="simple">
-<li><p>Atunci când sistemul pe care ne aflăm are <em>doar</em> linie de comandă;</p></li>
-<li><p>Atunci când putem să facem anumite operații <em>mai repede</em> decât în interfața grafică; putem folosi automatizarea unor sarcini (taskuri): scriem un script (un fișier de automatizare) o dată și îl executăm de fiecare dată când este nevoie;</p></li>
+<li><p>Atunci când sistemul pe care ne aflăm are <strong>doar</strong> linie de comandă;</p></li>
+<li><p>Atunci când putem să facem anumite operații <strong>mai repede</strong> decât în interfața grafică; putem folosi automatizarea unor sarcini (taskuri): scriem un script (un fișier de automatizare) o dată și îl executăm de fiecare dată când este nevoie. Există un capitol întreg <em>Îmbunătățirea lucrului în linia de comandă</em> unde vom afla mai multe detalii.</p></li>
 </ul>
 <p>Un motiv în plus pentru a folosi linia de comandă este că folosește mult mai puține resurse decât interfața grafică.
 Astfel, putem să facem mai multe cu mai puține resurse.</p>
-<p>Componenta ce se ocupă de interpretarea comenzilor este <em>shell</em>.
-Acesta citește comenzile date de utilizator, le interpretează și comunică sisteemului de operare ce are de făcut.</p>
-<p>În Windows se numește <em>Windows shell</em>, iar în Linux și MacOS <em>bash</em>.</p>
-<p>în acest capitol discutăm despre cum interacționăm cu fișierele în linia de comandă.</p>
+<p>Componenta ce se ocupă de interpretarea comenzilor se numește <em>shell</em>.
+Shellul citește comenzile date de utilizator, le interpretează și comunică sisteemului de operare ce are de făcut.</p>
+<p>În acest capitol discutăm despre cum interacționăm cu fișierele în linia de comandă.</p>
 <div class="section" id="ierarhie-de-fisiere">
 <h2><span class="section-number">2.1. </span>Ierarhie de fișiere<a class="headerlink" href="#ierarhie-de-fisiere" title="Permalink to this headline">¶</a></h2>
-<p>Fișierele sunt dispuse într-o formă arborescentă, ierarhică.</p>
-<p>Un astfel de exemplu este următorul:</p>
-<div class="figure align-default">
-<img alt="../../_images/ierarhie.png" src="../../_images/ierarhie.png" />
-</div>
-<p>Directorul rădăcină este <code class="docutils literal notranslate"><span class="pre">/</span></code> (root).
-Acesta are mai multe sub-directoare, printre care și <code class="docutils literal notranslate"><span class="pre">home</span></code>, <code class="docutils literal notranslate"><span class="pre">bine</span></code>, <code class="docutils literal notranslate"><span class="pre">usr</span></code>, etc.
-În home, găsim directoarele utilizatorilor din sistem: <code class="docutils literal notranslate"><span class="pre">ubuntu</span></code>, <code class="docutils literal notranslate"><span class="pre">debian</span></code>.</p>
+<p>Un exemplu de ierarhie de fișier este în secțiunea <em>Căi în ierarhia de fișiere</em>.</p>
 <p>Pentru a vedea fișierele sub formă arborescentă, folosim comanda <code class="docutils literal notranslate"><span class="pre">tree</span></code>.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/comenzi/mkdir$ tree -L <span class="m">1</span> /
 /
@@ -616,23 +604,21 @@ Acesta are mai multe sub-directoare, printre care și <code class="docutils lite
 </pre></div>
 </div>
 </div>
-<div class="section" id="manipularea-fisierelor-si-directoarelor">
-<h2><span class="section-number">2.2. </span>Manipularea fișierelor și directoarelor<a class="headerlink" href="#manipularea-fisierelor-si-directoarelor" title="Permalink to this headline">¶</a></h2>
-<p>În această secțiune vom vorbi despre cum facem următoarele din linia de comandă:</p>
+<div class="section" id="lucrul-cu-fisiere-si-directoare">
+<h2><span class="section-number">2.2. </span>Lucrul cu fișiere și directoare<a class="headerlink" href="#lucrul-cu-fisiere-si-directoare" title="Permalink to this headline">¶</a></h2>
+<p>În această secțiune vom învăța să lucrăm cu fișierele și directoarele în linia de comandă:</p>
 <ul class="simple">
 <li><p>afișarea conținutului fișierelor și directoarelor;</p></li>
 <li><p>crearea de fișiere și directoare;</p></li>
-<li><p>ștergerea de fișieree și directoare;</p></li>
+<li><p>ștergerea de fișiere și directoare;</p></li>
 <li><p>redenumirea fișierelor și directoarelor;</p></li>
 <li><p>fișiere și directoare ascunse;</p></li>
-<li><p>metadate fișiere și directoare;</p></li>
-<li><p>ierarhii;</p></li>
 <li><p>legături (linkuri);</p></li>
 <li><p>execuția programelor.</p></li>
 </ul>
 <div class="section" id="afisarea-continutului-unui-director">
 <h3><span class="section-number">2.2.1. </span>Afișarea conținutului unui director<a class="headerlink" href="#afisarea-continutului-unui-director" title="Permalink to this headline">¶</a></h3>
-<p>Așa cum un dosar are mai multe foi în el, așa directoarele au mai multe fișiere și directoare în ele.</p>
+<p>Așa cum un dosar are mai multe foi în el, la fel și directoarele au mai multe fișiere și directoare în ele.</p>
 <p>Pentru a afișa conținutul unui director folosim comanda <code class="docutils literal notranslate"><span class="pre">ls</span></code>:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/comenzi/mkdir/Avengers$ ls
 Captain America  Iron Man  Thor
@@ -641,8 +627,8 @@ Captain America  Iron Man  Thor
 <p>Pentru a vedea mai multe informații despre fișiere și directoare putem folosi opțiunea <code class="docutils literal notranslate"><span class="pre">-l</span></code> în felul următor: <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-l</span></code>.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/comenzi/touch$ ls -l
 total <span class="m">0</span>
--rw-r--r-- <span class="m">1</span> student student <span class="m">0</span> Sep <span class="m">29</span> <span class="m">17</span>:32 orase
--rw-r--r-- <span class="m">1</span> student student <span class="m">0</span> Sep <span class="m">29</span> <span class="m">17</span>:25 judete romania
+-rw-r--r-- <span class="m">1</span> student student <span class="m">0</span> Sep <span class="m">29</span> <span class="m">17</span>:32 cities
+-rw-r--r-- <span class="m">1</span> student student <span class="m">0</span> Sep <span class="m">29</span> <span class="m">17</span>:25 cities in romania
 -rw-r--r-- <span class="m">1</span> student student <span class="m">0</span> Sep <span class="m">29</span> <span class="m">17</span>:33 romania
 </pre></div>
 </div>
@@ -656,165 +642,127 @@ drwxr-xr-x <span class="m">2</span> student student <span class="m">4096</span> 
 <ol class="arabic simple">
 <li><p>Primul caracter <code class="docutils literal notranslate"><span class="pre">-</span></code> ne arată că <code class="docutils literal notranslate"><span class="pre">romania</span></code> este un fișier obișnuit. Primul caracter <code class="docutils literal notranslate"><span class="pre">d</span></code> ne arată că <code class="docutils literal notranslate"><span class="pre">Avengers</span></code> este director.</p></li>
 <li><p>Șirurile <code class="docutils literal notranslate"><span class="pre">rw-r--r--</span></code> (pentru <code class="docutils literal notranslate"><span class="pre">romania</span></code>) și <code class="docutils literal notranslate"><span class="pre">rw-r-xr-x</span></code> (pentru <code class="docutils literal notranslate"><span class="pre">Avengers</span></code>) se referă la permisiuni de acces.
-Vorbim despre permisiuni de acces în capitolul :ref:todo_Referinta_permisiuni.</p></li>
-<li><p>Următorul număr (<code class="docutils literal notranslate"><span class="pre">1</span></code> pentru <code class="docutils literal notranslate"><span class="pre">romania</span></code> și <code class="docutils literal notranslate"><span class="pre">2</span></code> pentru <code class="docutils literal notranslate"><span class="pre">Avengers</span></code>) se referă la numărul de legături către el (putem să facem o paralelă cu Shortcut-urile din Windows).
-Vom detalia legăturile în capitolul :ref:_todo_referinta_permisiuni.</p></li>
-<li><p>Următoarul cuvânt, <code class="docutils literal notranslate"><span class="pre">student</span></code>, se referă la utilizatorul care deține fișierul/directorul <code class="docutils literal notranslate"><span class="pre">romania</span></code>/<code class="docutils literal notranslate"><span class="pre">Avengers</span></code>;</p></li>
-<li><p>Al doilea <code class="docutils literal notranslate"><span class="pre">student</span></code> se referă la grupul ce deține fișierul/directorul <code class="docutils literal notranslate"><span class="pre">romania</span></code> și <code class="docutils literal notranslate"><span class="pre">Avengers</span></code>;</p></li>
-<li><p>Numărul <code class="docutils literal notranslate"><span class="pre">0</span></code> specifică dimensiunea fișierului <code class="docutils literal notranslate"><span class="pre">romania</span></code>.
-Observăm că directorul <code class="docutils literal notranslate"><span class="pre">Avengers</span></code> are dimensiunea de 4096 Octeți (Bytes);</p></li>
-<li><p>Urmează 3 coloane ce specifică luna, ziua și data ultime accesări.
+Vorbim despre permisiuni de acces în capitolul <em>Îmbunătățirea lucrului în linia de comandă</em>.</p></li>
+<li><p>Următorul număr îl îgnorăm pentru moment.</p></li>
+<li><p>Următoarele două cuvinte, <code class="docutils literal notranslate"><span class="pre">student</span></code>, se referă tot la permisiuni și ownership; le vom discuta într-un capitol ulteror.</p></li>
+<li><p>Numărul <code class="docutils literal notranslate"><span class="pre">0</span></code> arată dimensiunea fișierului <code class="docutils literal notranslate"><span class="pre">romania</span></code>.
+Observăm că directorul <code class="docutils literal notranslate"><span class="pre">Avengers</span></code> are dimensiunea de 4096 octeți (<em>bytes</em>);</p></li>
+<li><p>Urmează 3 coloane ce arată momentul ultimei modificări
 O accesare poate înseamna creare sau modificare.
 Citirea nu schimbă această dată.</p></li>
-<li><p>La final este specificat numele fișierului sau a directorului.</p></li>
+<li><p>La final este afișat numele fișierului sau a directorului.</p></li>
 </ol>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Vom discuta despre legături în capitolul ##### TODO EDI ######.</p>
-</div>
-<p>Pentru a vedea dimensiunea fișierelor într-un format ușor citibil, folosim comanda <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-lh</span></code>:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ ls -lh
-total 230M
--rw-r--r-- <span class="m">1</span> student student   <span class="m">16</span> Sep <span class="m">28</span> <span class="m">16</span>:36 ELTH
--rw-r--r-- <span class="m">1</span> student student   <span class="m">10</span> Sep <span class="m">28</span> <span class="m">16</span>:35 USO
-drwxr-xr-x <span class="m">6</span> student student <span class="m">4</span>.0K Oct  <span class="m">6</span> <span class="m">17</span>:57 comenzi
--rw-r--r-- <span class="m">1</span> student student  <span class="m">752</span> Sep <span class="m">28</span> <span class="m">16</span>:25 comenzi_redirectare
--rw-r--r-- <span class="m">1</span> student student   <span class="m">26</span> Sep <span class="m">28</span> <span class="m">18</span>:35 continut_materii
-drwxr-xr-x <span class="m">4</span> student student <span class="m">4</span>.0K Aug <span class="m">19</span> <span class="m">18</span>:05 dezarhivare
--rw-r--r-- <span class="m">1</span> student student   <span class="m">36</span> Sep <span class="m">28</span> <span class="m">18</span>:35 erori_comenzi
--rw-r--r-- <span class="m">1</span> student student    <span class="m">5</span> Sep  <span class="m">9</span> <span class="m">16</span>:34 fisier
--rw-r--r-- <span class="m">1</span> student student  17M Aug <span class="m">19</span> <span class="m">18</span>:09 fisiere.zip
--rw-r--r-- <span class="m">1</span> student student <span class="m">5</span>.0M Aug <span class="m">19</span> <span class="m">11</span>:55 inregistrare_lab01.mov
--rw-r--r-- <span class="m">1</span> student student <span class="m">3</span>.0M Aug <span class="m">19</span> <span class="m">11</span>:55 inregistrare_lab02.mov
--rw-r--r-- <span class="m">1</span> student student <span class="m">1</span>.0M Aug <span class="m">19</span> <span class="m">11</span>:55 inregistrare_lab03.mov
--rw-r--r-- <span class="m">1</span> student student <span class="m">7</span>.0M Aug <span class="m">19</span> <span class="m">12</span>:35 inregistrare_lab04.mov
--rw-r--r-- <span class="m">1</span> student student <span class="m">9</span>.1M Sep <span class="m">29</span> <span class="m">04</span>:51 inregistrari.tar
--rw-r--r-- <span class="m">1</span> student student <span class="m">9</span>.1M Sep <span class="m">29</span> <span class="m">04</span>:51 inregistrari.zip
--rw-r--r-- <span class="m">1</span> student student  <span class="m">515</span> Oct  <span class="m">9</span> <span class="m">16</span>:57 lista_materii
--rw-r--r-- <span class="m">1</span> student student   <span class="m">11</span> Sep <span class="m">28</span> <span class="m">17</span>:05 materii
--rw-r--r-- <span class="m">1</span> student student    <span class="m">0</span> Sep <span class="m">29</span> <span class="m">17</span>:20 orase
--rw------- <span class="m">1</span> student student  <span class="m">294</span> Sep <span class="m">18</span> <span class="m">03</span>:19 scurtaturi.save
--rw-r--r-- <span class="m">1</span> student student  16K Aug <span class="m">25</span> <span class="m">20</span>:28 test.zip
--rw-r--r-- <span class="m">1</span> student student  97M Sep <span class="m">29</span> <span class="m">04</span>:46 usr_bin.tar
--rw-r--r-- <span class="m">1</span> student student  84M Sep <span class="m">29</span> <span class="m">04</span>:46 usr_bin.zip
-</pre></div>
-</div>
-<p>Observăm că acum dimensiunea fișierelor și directoarelor este afișată în K (KiloBytes), M (MegaBytes).</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Optiunea <code class="docutils literal notranslate"><span class="pre">-h</span></code> de la utilitarul <code class="docutils literal notranslate"><span class="pre">ls</span></code> provine de la <em>human-readable</em>.</p>
-</div>
 <div class="section" id="exercitii-afisarea-continutului-directoarelor">
 <h4><span class="section-number">2.2.1.1. </span>Exerciții - afișarea conținutului directoarelor<a class="headerlink" href="#exercitii-afisarea-continutului-directoarelor" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
-<li><p>Afișați conținutul directoarelor <strong>Avengers</strong> și <strong>Game of Thrones</strong>;</p></li>
-<li><p>Afișați conținutul directoarelor <strong>Avengers</strong> și <strong>Game of Thrones</strong> folosind opțiunea <strong>-l</strong>.</p></li>
+<li><p>Afișați conținutul directoarelor <strong>/usr</strong>, <strong>/tmp</strong>, <strong>/etc</strong>, <strong>/home</strong>, <strong>/home/student</strong>.</p></li>
 </ul>
 </div>
 </div>
 <div class="section" id="crearea-fisierelor">
 <h3><span class="section-number">2.2.2. </span>Crearea fișierelor<a class="headerlink" href="#crearea-fisierelor" title="Permalink to this headline">¶</a></h3>
-<p>Există cazuri când vrem să creăm fișiere.
-Fișierele se creează folosind utilitarul <code class="docutils literal notranslate"><span class="pre">touch</span></code>.</p>
-<p>Creăm un fișier, astfel:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ ls orase
-ls: cannot access orase: No such file or directory
-student@uso:~$ touch orase
-student@uso:~$ ls orase
-orase
+<p>Există situații când vrem să creăm fișiere.
+De exemplu vrem să scriem cod sau să luăm notițe la un curs.</p>
+<p>Fișierele se creează folosind utilitarul <code class="docutils literal notranslate"><span class="pre">touch</span></code>.</p>
+<p>Creăm un fișier astfel:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ ls cities
+ls: cannot access cities: No such file or directory
+student@uso:~$ touch cities
+student@uso:~$ ls cities
+cities
 </pre></div>
 </div>
 <p>Dacă vrem să creăm un fișier cu numele <code class="docutils literal notranslate"><span class="pre">orașe</span> <span class="pre">romania</span></code>, adică vrem ca numele fișierului să conțină caracterul <em>spațiu (space)</em>, folosim tot comanda <code class="docutils literal notranslate"><span class="pre">touch</span></code> ca în exemplul de mai jos:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/touch$ touch orase romania
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/touch$ touch cities romania
 student@uso:~/touch$ ls -l
--rw-r--r-- <span class="m">1</span> student student <span class="m">0</span> Sep <span class="m">29</span> <span class="m">17</span>:22 orase
+-rw-r--r-- <span class="m">1</span> student student <span class="m">0</span> Sep <span class="m">29</span> <span class="m">17</span>:22 cities
 -rw-r--r-- <span class="m">1</span> student student <span class="m">0</span> Sep <span class="m">29</span> <span class="m">17</span>:22 romania
 </pre></div>
 </div>
-<p>Observăm că în comanda de mai sus am încercat să creăm un fișier numit <code class="docutils literal notranslate"><span class="pre">orase</span> <span class="pre">romania</span></code>, însă au fost create două fișiere.
-Pentru a crea un fișier cu <em>spațiui (space)</em> înclus în nume este nevoie să folosim ghilimelele la începutul și sfârșitul numelui astfel: <code class="docutils literal notranslate"><span class="pre">touch</span> <span class="pre">&quot;orase</span> <span class="pre">romania&quot;</span></code>.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/touch$ touch <span class="s2">&quot;judete romania&quot;</span>
+<p>Observăm că în comanda de mai sus am încercat să creăm un fișier numit <code class="docutils literal notranslate"><span class="pre">cities</span> <span class="pre">romania</span></code>, însă au fost create două fișiere.
+Pentru a crea un fișier cu <em>spații (space)</em> inclus în nume este nevoie să folosim ghilimelele la începutul și sfârșitul numelui astfel: <code class="docutils literal notranslate"><span class="pre">touch</span> <span class="pre">&quot;cities</span> <span class="pre">romania&quot;</span></code>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/touch$ touch <span class="s2">&quot;cities in romania&quot;</span>
 student@uso:~/touch$ ls -l
 total <span class="m">0</span>
--rw-r--r-- <span class="m">1</span> student student <span class="m">0</span> Sep <span class="m">29</span> <span class="m">17</span>:22 orase
--rw-r--r-- <span class="m">1</span> student student <span class="m">0</span> Sep <span class="m">29</span> <span class="m">17</span>:25 judete romania
+-rw-r--r-- <span class="m">1</span> student student <span class="m">0</span> Sep <span class="m">29</span> <span class="m">17</span>:22 cities
+-rw-r--r-- <span class="m">1</span> student student <span class="m">0</span> Sep <span class="m">29</span> <span class="m">17</span>:25 cities in romania
 -rw-r--r-- <span class="m">1</span> student student <span class="m">0</span> Sep <span class="m">29</span> <span class="m">17</span>:22 romania
 </pre></div>
 </div>
-<p>Acum avem în directorul <code class="docutils literal notranslate"><span class="pre">~</span></code> 3 fișiere: orase, judete romania, romania.
-Zero-ul <em>(0)</em> din linia <code class="docutils literal notranslate"><span class="pre">-rw-r--r--</span> <span class="pre">1</span> <span class="pre">student</span> <span class="pre">student</span> <span class="pre">0</span> <span class="pre">Sep</span> <span class="pre">29</span> <span class="pre">17:22</span></code> orase ne arată că fișierul orase are 0 bytes, adică este gol.
+<p>Acum avem în directorul <code class="docutils literal notranslate"><span class="pre">~</span></code> 3 fișiere: <code class="docutils literal notranslate"><span class="pre">cities</span></code>, <code class="docutils literal notranslate"><span class="pre">cities</span> <span class="pre">in</span> <span class="pre">romania</span></code>, <code class="docutils literal notranslate"><span class="pre">romania</span></code>.
+Zero-ul <em>(0)</em> din linia <code class="docutils literal notranslate"><span class="pre">-rw-r--r--</span> <span class="pre">1</span> <span class="pre">student</span> <span class="pre">student</span> <span class="pre">0</span> <span class="pre">Sep</span> <span class="pre">29</span> <span class="pre">17:22</span></code> cities ne arată că fișierul cities are 0 bytes, adică este gol.
 Toate cele 3 fișiere sunt goale.</p>
 <p>Ce se va întâmpla dacă executăm <code class="docutils literal notranslate"><span class="pre">touch</span></code> pe un fișier existent?</p>
-<p>Creăm un nou fișier cu numele romania folosind comanda touch:</p>
+<p>Creăm un nou fișier cu numele <code class="docutils literal notranslate"><span class="pre">romania</span></code> folosind comanda <code class="docutils literal notranslate"><span class="pre">touch</span></code>:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/touch$ ls -l
 total <span class="m">0</span>
--rw-r--r-- <span class="m">1</span> student student <span class="m">0</span> Sep <span class="m">29</span> <span class="m">17</span>:32 orase
--rw-r--r-- <span class="m">1</span> student student <span class="m">0</span> Sep <span class="m">29</span> <span class="m">17</span>:25 judete romania
+-rw-r--r-- <span class="m">1</span> student student <span class="m">0</span> Sep <span class="m">29</span> <span class="m">17</span>:32 cities
+-rw-r--r-- <span class="m">1</span> student student <span class="m">0</span> Sep <span class="m">29</span> <span class="m">17</span>:25 cities in romania
 -rw-r--r-- <span class="m">1</span> student student <span class="m">0</span> Sep <span class="m">29</span> <span class="m">17</span>:22 romania
 student@uso:~/touch$ date
 Tue Sep <span class="m">29</span> <span class="m">17</span>:32:55 EEST <span class="m">2020</span>
 student@uso:~/touch$ touch romania
 student@uso:~/touch$ ls -l
 total <span class="m">0</span>
--rw-r--r-- <span class="m">1</span> student student <span class="m">0</span> Sep <span class="m">29</span> <span class="m">17</span>:32 orase
--rw-r--r-- <span class="m">1</span> student student <span class="m">0</span> Sep <span class="m">29</span> <span class="m">17</span>:25 judete romania
+-rw-r--r-- <span class="m">1</span> student student <span class="m">0</span> Sep <span class="m">29</span> <span class="m">17</span>:32 cities
+-rw-r--r-- <span class="m">1</span> student student <span class="m">0</span> Sep <span class="m">29</span> <span class="m">17</span>:25 cities in romania
 -rw-r--r-- <span class="m">1</span> student student <span class="m">0</span> Sep <span class="m">29</span> <span class="m">17</span>:33 romania
 </pre></div>
 </div>
 <p>În continuare avem tot 3 fișiere în directorul <code class="docutils literal notranslate"><span class="pre">~</span></code>.
-Ne uităm la liniile <code class="docutils literal notranslate"><span class="pre">-rw-r--r--</span> <span class="pre">1</span> <span class="pre">student</span> <span class="pre">student</span> <span class="pre">0</span> <span class="pre">Sep</span> <span class="pre">29</span> <span class="pre">17:22</span> <span class="pre">romania</span></code> <em>(de dinainte)</em> și <code class="docutils literal notranslate"><span class="pre">-rw-r--r--</span> <span class="pre">1</span> <span class="pre">student</span> <span class="pre">student</span> <span class="pre">0</span> <span class="pre">Sep</span> <span class="pre">29</span> <span class="pre">17:33</span> <span class="pre">romania</span></code> <em>(de după)</em> și vedem că diferă ora.
-Este vorba despre ora la care a fost ultima dată accesat fișierul <code class="docutils literal notranslate"><span class="pre">romania</span></code>.</p>
-<p>Mai multe detalii sunt expuse la capitolul de metadate din subsecțiunea :ref:todo_referinta_seciunea_respectiva.</p>
+Ne uităm la liniile <code class="docutils literal notranslate"><span class="pre">-rw-r--r--</span> <span class="pre">1</span> <span class="pre">student</span> <span class="pre">student</span> <span class="pre">0</span> <span class="pre">Sep</span> <span class="pre">29</span> <span class="pre">17:22</span> <span class="pre">romania</span></code> <em>(de dinainte)</em> și <code class="docutils literal notranslate"><span class="pre">-rw-r--r--</span> <span class="pre">1</span> <span class="pre">student</span> <span class="pre">student</span> <span class="pre">0</span> <span class="pre">Sep</span> <span class="pre">29</span> <span class="pre">17:33</span> <span class="pre">romania</span></code> (<strong>de după</strong>) și vedem că diferă timpul.
+Este vorba despre timpul la care a fost ultima dată accesat fișierul <code class="docutils literal notranslate"><span class="pre">romania</span></code>.</p>
 </div>
 <div class="section" id="crearea-directoarelor">
 <h3><span class="section-number">2.2.3. </span>Crearea directoarelor<a class="headerlink" href="#crearea-directoarelor" title="Permalink to this headline">¶</a></h3>
 <p>Este util să creăm directoarele atunci când vrem să păstrăm fișierele din sistem într-un mod organizat.
-Creăm directoarele folosind utilitarul <code class="docutils literal notranslate"><span class="pre">mkdir</span></code>.
-Etimologia comenzii provine din limba engleză - <em>Make Directory</em>.</p>
+De exemplu, putem crea câte un director pentru fiecare an de licență.
+Pentru fiecare an/director, cream câte un director pentru fiecare materie si pentru fiecare materie putem să facem directoare pentru teme, laboratoare, cursuri etc.</p>
+<p>Creăm directoarele folosind utilitarul <code class="docutils literal notranslate"><span class="pre">mkdir</span></code>.
+Etimologia comenzii provine din limba engleză - <em>make directory</em>.</p>
 <p>Creăm un director nou în directorul <code class="docutils literal notranslate"><span class="pre">~/comenzi/mkdir</span></code> ca în exemplul de mai jos:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/comenzi/mkdir$ mkdir <span class="s2">&quot;Game of Thrones&quot;</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/comenzi/mkdir$ mkdir <span class="s2">&quot;GameOfThrones&quot;</span>
 student@uso:~/comenzi/mkdir$ mkdir Avengers
 student@uso:~/comenzi/mkdir$ ls -l
 total <span class="m">8</span>
 drwxr-xr-x <span class="m">2</span> student student <span class="m">4096</span> Sep <span class="m">29</span> <span class="m">17</span>:43 Avengers
-drwxr-xr-x <span class="m">2</span> student student <span class="m">4096</span> Sep <span class="m">29</span> <span class="m">17</span>:43 Game of Thrones
+drwxr-xr-x <span class="m">2</span> student student <span class="m">4096</span> Sep <span class="m">29</span> <span class="m">17</span>:43 GameOfThrones
 </pre></div>
 </div>
-<p>Am creat 2 directoare noi: <code class="docutils literal notranslate"><span class="pre">Avengers</span></code> și <code class="docutils literal notranslate"><span class="pre">Game</span> <span class="pre">of</span> <span class="pre">Thrones</span></code>.
-Pentru crearea directorului <code class="docutils literal notranslate"><span class="pre">Game</span> <span class="pre">of</span> <span class="pre">Thrones</span></code> am folosit ghilimele pentru a înconjura numele ales, la fel ca în cazul creării fișierelor din subsecțiunea :ref:todo_ref_``Crearea fișierelor``.</p>
+<p>Am creat 2 directoare noi: <code class="docutils literal notranslate"><span class="pre">Avengers</span></code> și <code class="docutils literal notranslate"><span class="pre">GameOfThrones</span></code>.
+Pentru crearea directorului <code class="docutils literal notranslate"><span class="pre">GameOfThrones</span></code> am folosit ghilimele pentru a înconjura numele ales, la fel ca în cazul creării fișierelor din subsecțiunea :ref:todo_ref_``Crearea fișierelor``.</p>
 <div class="section" id="exercitii-creare-fisiere-si-directoare">
 <h4><span class="section-number">2.2.3.1. </span>Exerciții - creare fișiere și directoare<a class="headerlink" href="#exercitii-creare-fisiere-si-directoare" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
-<li><p>Creați două directoare: “Avengers”, “Game of Thrones”;</p></li>
-<li><p>Creați fișierele “Iron Man”, “Hulk”, “Thor”, “Captain America” în directorul “Avengers”</p></li>
-<li><p>Creați fișierele “Arya Stark”, “Daenerys Targaryen”, “Jon Snow”, “Tyrion Lannister” în directorul “Game of Thrones”;</p></li>
+<li><p>Creați două directoare: “Avengers”, “GameOfThrones”; afișați directoarele;</p></li>
+<li><p>Creați fișierele “Iron Man”, “Hulk”, “Thor”, “Captain America” în directorul “Avengers”; afișați fișierele din director;</p></li>
+<li><p>Creați fișierele “Arya”, “Daenerys Targaryen”, “Jon Snow”, “Tyrion Lannister” în directorul “GameOfThrones”; afișați fișierele din director.</p></li>
 </ul>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
-<p>Este important de reținut: orice comandă executați aceasta trebuie succedată de o verificare.
+<p>Este important de reținut: orice comandă executați, aceasta trebuie succedată de o verificare.
 De exemplu, la crearea unui fișier (<code class="docutils literal notranslate"><span class="pre">touch</span></code>) sau director (<code class="docutils literal notranslate"><span class="pre">mkdir</span></code>), executăm comanda de verificare <code class="docutils literal notranslate"><span class="pre">ls</span></code>.</p>
 </div>
 </div>
 </div>
 <div class="section" id="afisarea-continutului-unui-fisier">
 <h3><span class="section-number">2.2.4. </span>Afișarea conținutului unui fișier<a class="headerlink" href="#afisarea-continutului-unui-fisier" title="Permalink to this headline">¶</a></h3>
-<p>Afișăm rapid conținutul fișierului <code class="docutils literal notranslate"><span class="pre">Arya</span> <span class="pre">Stark</span></code> din directorul <code class="docutils literal notranslate"><span class="pre">Game</span> <span class="pre">of</span> <span class="pre">Thrones</span></code> folosind comanda <code class="docutils literal notranslate"><span class="pre">cat</span></code>:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/comenzi/mkdir$ cat <span class="s2">&quot;Game of Thrones/Arya Stark&quot;</span>
+<p>Afișăm rapid conținutul fișierului <code class="docutils literal notranslate"><span class="pre">Arya</span></code> din directorul <code class="docutils literal notranslate"><span class="pre">GameOfThrones</span></code> folosind comanda <code class="docutils literal notranslate"><span class="pre">cat</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/comenzi/mkdir$ cat <span class="s2">&quot;GameOfThrones/Arya&quot;</span>
 A girl has no name
 </pre></div>
 </div>
 <div class="admonition hint">
 <p class="admonition-title">Hint</p>
 <p>Pentru a adăuga rapid text într-un fișier folosim utilitarul <code class="docutils literal notranslate"><span class="pre">echo</span></code> astfel:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ <span class="nb">echo</span> <span class="s2">&quot;A girl has no name&quot;</span> &gt; <span class="s2">&quot;comenzi/mkdir/GameOfThrones/Arya Stark&quot;</span>
-student@uso:~$ cat <span class="s2">&quot;comenzi/mkdir/GameOfThrones/Arya Stark&quot;</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ <span class="nb">echo</span> <span class="s2">&quot;A girl has no name&quot;</span> &gt; <span class="s2">&quot;comenzi/mkdir/GameOfThrones/Arya&quot;</span>
+student@uso:~$ cat <span class="s2">&quot;comenzi/mkdir/GameOfThrones/Arya&quot;</span>
 A girl has no name
 </pre></div>
 </div>
 </div>
-<p>Am folosit ghilimele <em>(“)</em> pentru că exista spațiu atât în textul pe care vrem csă-l scriem, cât și în numele fișierului.</p>
 <p>O altă metodă este de a folosi un editor de text: <strong>vim</strong>, <strong>gedit</strong>, <strong>emacs</strong>, <strong>nano</strong>, <strong>sublime</strong>, etc.
-Vom detalia utilizarea unui editor de text în subsectiunea :ref:todo_ref_editor_Text.</p>
+Vom detalia utilizarea unui editor de text în subsectiunea <em>Editor de text</em>.</p>
 </div>
 <div class="section" id="stergerea-fisierelor">
 <h3><span class="section-number">2.2.5. </span>Ștergerea fișierelor<a class="headerlink" href="#stergerea-fisierelor" title="Permalink to this headline">¶</a></h3>
@@ -826,24 +774,30 @@ student@uso:~/comenzi/mkdir$ ls Avengers/
 Captain America  Iron Man  Thor
 </pre></div>
 </div>
+<p>La prima comandă am afișat ce fișiere sunt în directorul <code class="docutils literal notranslate"><span class="pre">Avengers</span></code>.
+Am folosit utiltarul <code class="docutils literal notranslate"><span class="pre">rm</span></code> pentru a șterge fișierul <code class="docutils literal notranslate"><span class="pre">Hulk</span></code> din directorul <code class="docutils literal notranslate"><span class="pre">Avengers</span></code>.
+În final am verificat că fișierul <code class="docutils literal notranslate"><span class="pre">Hulk</span></code> nu mai există în directorul <code class="docutils literal notranslate"><span class="pre">Avengers</span></code>.</p>
 </div>
 <div class="section" id="stergerea-directoarelor">
 <h3><span class="section-number">2.2.6. </span>Ștergerea directoarelor<a class="headerlink" href="#stergerea-directoarelor" title="Permalink to this headline">¶</a></h3>
 <p>Directoarele se șterg folosind comanda <code class="docutils literal notranslate"><span class="pre">rmdir</span></code>.
-Etimologia comenzii provine din engleză - <em>Remove Directory</em>.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/comenzi/mkdir$ mkdir <span class="s2">&quot;Lord of the Rings&quot;</span>
+Etimologia comenzii provine din engleză - <em>remove directory</em>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/comenzi/mkdir$ mkdir LordOfTheRings
 student@uso:~/comenzi/mkdir$ ls -l
 total <span class="m">12</span>
 drwxr-xr-x <span class="m">2</span> student student <span class="m">4096</span> Sep <span class="m">29</span> <span class="m">18</span>:02 Avengers
-drwxr-xr-x <span class="m">2</span> student student <span class="m">4096</span> Sep <span class="m">29</span> <span class="m">17</span>:44 Game of Thrones
-drwxr-xr-x <span class="m">2</span> student student <span class="m">4096</span> Sep <span class="m">29</span> <span class="m">18</span>:09 Lord of the Rings
-student@uso:~/comenzi/mkdir$ rmdir <span class="s2">&quot;Lord of the Rings&quot;</span>
+drwxr-xr-x <span class="m">2</span> student student <span class="m">4096</span> Sep <span class="m">29</span> <span class="m">17</span>:44 GameOfThrones
+drwxr-xr-x <span class="m">2</span> student student <span class="m">4096</span> Sep <span class="m">29</span> <span class="m">18</span>:09 LordOfTheRings
+student@uso:~/comenzi/mkdir$ rmdir <span class="s2">&quot;LordOfTheRings&quot;</span>
 student@uso:~/comenzi/mkdir$ ls -l
 total <span class="m">8</span>
 drwxr-xr-x <span class="m">2</span> student student <span class="m">4096</span> Sep <span class="m">29</span> <span class="m">18</span>:02 Avengers
-drwxr-xr-x <span class="m">2</span> student student <span class="m">4096</span> Sep <span class="m">29</span> <span class="m">17</span>:44 Game of Thrones
+drwxr-xr-x <span class="m">2</span> student student <span class="m">4096</span> Sep <span class="m">29</span> <span class="m">17</span>:44 GameOfThrones
 </pre></div>
 </div>
+<p>Am creat un director <code class="docutils literal notranslate"><span class="pre">LordOfTheRings</span></code> folosind utilitarul <code class="docutils literal notranslate"><span class="pre">mkdir</span></code>.
+Am verificat crearea acestuia.
+În final l-am șters folosind utilitarul <code class="docutils literal notranslate"><span class="pre">rmdir</span></code> și am verificat ștergerea acestuia.</p>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
 <p>Comanda <code class="docutils literal notranslate"><span class="pre">rmdir</span></code> pe un director care nu este gol (care conține cel puțin un alt fișier sau director) nu funcționează.</p>
@@ -852,20 +806,23 @@ drwxr-xr-x <span class="m">2</span> student student <span class="m">4096</span> 
 rmdir: failed to remove <span class="s1">&#39;Avengers/&#39;</span>: Directory not empty
 </pre></div>
 </div>
-<p>Pentru a șterge un director gol, folosim utilitarul <code class="docutils literal notranslate"><span class="pre">rm</span></code> cu opțiunile de recursivitate <code class="docutils literal notranslate"><span class="pre">-r</span></code>: <code class="docutils literal notranslate"><span class="pre">rm</span> <span class="pre">-r</span></code>.</p>
+<p>Pentru a șterge un director care <strong>nu</strong> este gol, folosim utilitarul <code class="docutils literal notranslate"><span class="pre">rm</span></code> cu opțiunea de recursivitate <code class="docutils literal notranslate"><span class="pre">-r</span></code>: <code class="docutils literal notranslate"><span class="pre">rm</span> <span class="pre">-r</span></code>.
+Aceasta permite parcurgerea în adâncime a întregii ierarhii de fișiere.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/comenzi/mkdir$ ls -l
 total <span class="m">8</span>
 drwxr-xr-x <span class="m">2</span> student student <span class="m">4096</span> Sep <span class="m">29</span> <span class="m">18</span>:02 Avengers
-drwxr-xr-x <span class="m">2</span> student student <span class="m">4096</span> Sep <span class="m">29</span> <span class="m">17</span>:44 Game of Thrones
+drwxr-xr-x <span class="m">2</span> student student <span class="m">4096</span> Sep <span class="m">29</span> <span class="m">17</span>:44 GameOfThrones
 student@uso:~/comenzi/mkdir$ rm -r Avengers/
 student@uso:~/comenzi/mkdir$ ls -l
 total <span class="m">4</span>
-drwxr-xr-x <span class="m">2</span> student student <span class="m">4096</span> Sep <span class="m">29</span> <span class="m">17</span>:44 Game of Thrones
+drwxr-xr-x <span class="m">2</span> student student <span class="m">4096</span> Sep <span class="m">29</span> <span class="m">17</span>:44 GameOfThrones
 </pre></div>
 </div>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
-<p>După executarea comenzii, verificăm corectitudinea operației.</p>
+<p>După executarea comenzii, verificăm corectitudinea operației.
+Trebuie să verificăm și să nu presupunem că o comandă s-a executat.
+Lipsa unei verifică poate duce la erori și mult timp pierdut din partea noastră.</p>
 </div>
 </div>
 <div class="section" id="redenumirea-si-mutarea-fisierelor-si-directoarelor">
@@ -873,13 +830,13 @@ drwxr-xr-x <span class="m">2</span> student student <span class="m">4096</span> 
 <p>Fișierele și directoarele se redenumesc în mod similar, folosind comanda <code class="docutils literal notranslate"><span class="pre">mv</span></code> astfel: <code class="docutils literal notranslate"><span class="pre">mv</span> <span class="pre">nume_actual</span> <span class="pre">nume_nou</span></code>.</p>
 <p>Redenumim fișierele si directoarele folosind comanda <code class="docutils literal notranslate"><span class="pre">mv</span></code>:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/comenzi/mkdir$ ls
-Game of Thrones
-student@uso:~/comenzi/mkdir$ mv <span class="s2">&quot;Game of Thrones&quot;</span> GameOfThrones
+GameOfThrones
+student@uso:~/comenzi/mkdir$ mv <span class="s2">&quot;GameOfThrones&quot;</span> GameOfThrones
 student@uso:~/comenzi/mkdir$ ls
 GameOfThrones
 </pre></div>
 </div>
-<p>Am redenumit fișierul <code class="docutils literal notranslate"><span class="pre">Game</span> <span class="pre">of</span> <span class="pre">Thrones</span></code> în <code class="docutils literal notranslate"><span class="pre">GameOfThrones</span></code>.</p>
+<p>Am redenumit fișierul <code class="docutils literal notranslate"><span class="pre">GameOfThrones</span></code> în <code class="docutils literal notranslate"><span class="pre">GameOfThrones</span></code>.</p>
 <p>Un alt rol al comenzii <code class="docutils literal notranslate"><span class="pre">mv</span></code> este de a muta fișierele și directoarele, în ierarhia de fișiere, dintr-un loc în altul.</p>
 <p>Mutăm directorul <code class="docutils literal notranslate"><span class="pre">GameOfThrones</span></code> (cu tot conținutul acestuia) la calea <code class="docutils literal notranslate"><span class="pre">/tmp/</span></code> folosind comanda <code class="docutils literal notranslate"><span class="pre">mv</span></code>:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/comenzi/mkdir$ ls
@@ -895,51 +852,62 @@ Avengers
 </div>
 <p>Acum directorul <code class="docutils literal notranslate"><span class="pre">GameOfThrones</span></code> se află în calea <code class="docutils literal notranslate"><span class="pre">/tmp/GameOfThrones</span></code>.
 Am verificat folosind <code class="docutils literal notranslate"><span class="pre">ls</span></code> că nu se mai află în directorul curent și că există în directorul <code class="docutils literal notranslate"><span class="pre">/tmp/</span></code>.</p>
-<p>Mutăm înapoi directorul <code class="docutils literal notranslate"><span class="pre">GameOfThrones</span></code> (cu tot conținutul acestuia) folosind cale relativă pentru a specifica directorul și cale absoluta pentru a specifica locația unde vrem să ajungă directorul folosind <code class="docutils literal notranslate"><span class="pre">mv</span></code>:</p>
+<p>Mutăm înapoi directorul <code class="docutils literal notranslate"><span class="pre">GameOfThrones</span></code> (cu tot conținutul acestuia) folosind cale relativă, pentru a indica directorul, și cale absolută, pentru a indica locul unde vrem să ajungă directorul folosind <code class="docutils literal notranslate"><span class="pre">mv</span></code>:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/comenzi/mkdir$ mv ../../../../tmp/GameOfThrones/ /home/student/comenzi/mkdir/
 student@uso:~/comenzi/mkdir$ ls
 Avengers  GameOfThrones
 </pre></div>
 </div>
-<p>Am verificat că directorul <code class="docutils literal notranslate"><span class="pre">GameOfThrones</span></code> se află la calea specificată (calea curentă).</p>
+<p>Am verificat că directorul <code class="docutils literal notranslate"><span class="pre">GameOfThrones</span></code> se află la calea indicată (calea curentă).</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Observăm că putem folosi atât căi relative cât și căi absolute.</p>
+<p>Observăm că putem folosi atât căi relative cât și căi absolute ca argumente pentru comanda <code class="docutils literal notranslate"><span class="pre">mv</span></code> de mutare / redenumire de fișiere și directoare.</p>
 </div>
 <div class="section" id="exercitii-redenumire-si-mutare">
 <h4><span class="section-number">2.2.7.1. </span>Exerciții - redenumire și mutare<a class="headerlink" href="#exercitii-redenumire-si-mutare" title="Permalink to this headline">¶</a></h4>
-<ul class="simple">
-<li><p>Redenumiți directorul <code class="docutils literal notranslate"><span class="pre">Game</span> <span class="pre">of</span> <span class="pre">Thrones</span></code> în <code class="docutils literal notranslate"><span class="pre">GameOfThrones</span></code>;</p></li>
-<li><p>Mutați fișierele din interiorul directorului <code class="docutils literal notranslate"><span class="pre">GameOfThrones</span></code> în <code class="docutils literal notranslate"><span class="pre">/tmp</span></code>;</p></li>
+<ol class="arabic simple">
+<li><ul class="simple">
+<li><p>Creați un director <code class="docutils literal notranslate"><span class="pre">Vikings</span></code> în directorul home al vostru;</p></li>
+<li><p>Creați fișierele <code class="docutils literal notranslate"><span class="pre">Ragnar</span></code>, <code class="docutils literal notranslate"><span class="pre">Rollo</span></code>, <code class="docutils literal notranslate"><span class="pre">Lagertha</span></code> în directorul <code class="docutils literal notranslate"><span class="pre">Vikings</span></code>;</p></li>
+<li><p>Verificați că directorul și fișierele au fost mutate;</p></li>
+<li><p>Mutati directorul (împreună cu întreaga ierarhie de fișiere) la locația <code class="docutils literal notranslate"><span class="pre">/tmp/</span></code>;</p></li>
+<li><p>Verificați că directorul și ierarhia de fișiere au fost mutate;</p></li>
+</ul>
+</li>
+<li><ul class="simple">
+<li><p>Creați un director <code class="docutils literal notranslate"><span class="pre">NBA</span></code> în directorul home al vostru;</p></li>
+<li><p>Creați fișierele <code class="docutils literal notranslate"><span class="pre">MichaelJordan</span></code>, <code class="docutils literal notranslate"><span class="pre">LeBronJames</span></code>, <code class="docutils literal notranslate"><span class="pre">DwayneWade</span></code> și <code class="docutils literal notranslate"><span class="pre">KobeBryant</span></code> în directorul <code class="docutils literal notranslate"><span class="pre">NBA</span></code>;</p></li>
+<li><p>Verificați că directorul și fișierele au fost mutate;</p></li>
+<li><p>Mutați directorul <code class="docutils literal notranslate"><span class="pre">NBA</span></code> (împreună cu întreaga ierarhie de fișiere) în directorul <code class="docutils literal notranslate"><span class="pre">Vikings</span></code>;</p></li>
+<li><p>Verificați că directorul și ierarhia de fișiere au fost mutate.</p></li>
+</ul>
+</li>
+<li><ul class="simple">
+<li><p>Redenumiți directorul <code class="docutils literal notranslate"><span class="pre">GameOfThrones</span></code> în <code class="docutils literal notranslate"><span class="pre">ThronesInTheGame</span></code>;</p></li>
+<li><p>Mutați fișierele din interiorul directorului <code class="docutils literal notranslate"><span class="pre">ThronesInTheGame</span></code> în <code class="docutils literal notranslate"><span class="pre">/tmp</span></code>;</p></li>
 <li><p>Verificați operațiile;</p></li>
 <li><p>Mutați directorul înapoi la locatia inițială folosind atât căi relative cât și căi absolute.</p></li>
 </ul>
+</li>
+</ol>
 </div>
 </div>
 <div class="section" id="copierea-fisierelor-si-directoarelor">
 <h3><span class="section-number">2.2.8. </span>Copierea fișierelor și directoarelor<a class="headerlink" href="#copierea-fisierelor-si-directoarelor" title="Permalink to this headline">¶</a></h3>
-<p>Copiem fișierul <code class="docutils literal notranslate"><span class="pre">Thor</span></code> din directorul <code class="docutils literal notranslate"><span class="pre">Avengers</span></code> în calea curentă <em>(.)</em> folosind <code class="docutils literal notranslate"><span class="pre">cp</span></code>:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/comenzi/mkdir$ cp Avengers/Thor .
-student@uso:~/comenzi/mkdir$ ls -l
-total <span class="m">8</span>
-drwxr-xr-x <span class="m">2</span> student student <span class="m">4096</span> Sep <span class="m">29</span> <span class="m">18</span>:20 Avengers
-drwxr-xr-x <span class="m">2</span> student student <span class="m">4096</span> Sep <span class="m">29</span> <span class="m">17</span>:44 GameOfThrones
--rw-r--r-- <span class="m">1</span> student student    <span class="m">0</span> Sep <span class="m">29</span> <span class="m">19</span>:04 Thor
-</pre></div>
-</div>
-<p>Copeim fișierul <code class="docutils literal notranslate"><span class="pre">Thor</span></code> din calea curentă în directorul <code class="docutils literal notranslate"><span class="pre">/tmp/</span></code> folosind <code class="docutils literal notranslate"><span class="pre">cp</span></code>:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/comenzi/mkdir$ cp Thor /tmp/
+<p>Copiem fișierul <code class="docutils literal notranslate"><span class="pre">Thor</span></code> în directorul <code class="docutils literal notranslate"><span class="pre">/tmp/</span></code> folosind <code class="docutils literal notranslate"><span class="pre">cp</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/comenzi/mkdir$ cp Avengers/Thor /tmp/
 student@uso:~/comenzi/mkdir$ ls /tmp/
 Thor  ssh-ApUMKI3HSJ
 </pre></div>
 </div>
-<p>Acum fișierul <code class="docutils literal notranslate"><span class="pre">Thor</span></code> precum și conținutul lui se află atât în calea curentă cât și în <code class="docutils literal notranslate"><span class="pre">/tmp/Thor</span></code>.</p>
+<p>Sintaxa este similară comenzii <code class="docutils literal notranslate"><span class="pre">mv</span></code>.
+Acum fișierul <code class="docutils literal notranslate"><span class="pre">Thor</span></code> este atât în <code class="docutils literal notranslate"><span class="pre">/home/student/Avengers/Thor</span></code>, cât și în <code class="docutils literal notranslate"><span class="pre">/tmp/Thor</span></code>.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/comenzi/mkdir$ cp Avengers/ /tmp/
 cp: omitting directory <span class="s1">&#39;Avengers/&#39;</span>
 </pre></div>
 </div>
 <p>Observăm că nu se poate copia un director ce conține alte fișiere sau directoare.</p>
-<p>Pentru a copia în altă parte un director care nu este gol trebuie să folosim comanda <code class="docutils literal notranslate"><span class="pre">cp</span> <span class="pre">-r</span></code>:</p>
+<p>Pentru a copia în altă parte un director care nu este gol, trebuie să folosim comanda <code class="docutils literal notranslate"><span class="pre">cp</span> <span class="pre">-r</span></code>:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/comenzi/mkdir$ cp -r Avengers/ /tmp/
 student@uso:~/comenzi/mkdir$ ls -l /tmp/
 total <span class="m">8</span>
@@ -955,7 +923,7 @@ total <span class="m">0</span>
 </div>
 <p>Am copiat directorul <code class="docutils literal notranslate"><span class="pre">Avengers</span></code> și conținutul acestuia din calea curentă în directorul <code class="docutils literal notranslate"><span class="pre">/tmp</span></code>.
 Observăm că s-a copiat întreaga ierarhie de fișiere/directoare de sub directorul <code class="docutils literal notranslate"><span class="pre">Avengers</span></code>.
-Acesta se află acum în ambele locații.</p>
+Acesta se află acum în ambele locuri.</p>
 </div>
 <div class="section" id="fisiere-si-directoare-ascunse">
 <h3><span class="section-number">2.2.9. </span>Fișiere și directoare ascunse<a class="headerlink" href="#fisiere-si-directoare-ascunse" title="Permalink to this headline">¶</a></h3>
@@ -979,8 +947,8 @@ drwxr-xr-x <span class="m">2</span> student student <span class="m">4096</span> 
 </div>
 <p>Opțiunea <code class="docutils literal notranslate"><span class="pre">-a</span></code> vine de la <em>all</em>, adică vrem să vedem toate fișierele: și cele vizibile și cele ascunse.</p>
 <p>Observăm două directoare noi <code class="docutils literal notranslate"><span class="pre">.</span></code> și <code class="docutils literal notranslate"><span class="pre">..</span></code>.
-Directoul <code class="docutils literal notranslate"><span class="pre">.</span></code> face referire la directorul curent, iar <code class="docutils literal notranslate"><span class="pre">..</span></code> este o referință la directorul părinte.</p>
-<p>Astfel, dacă vrem să vedem ce este în directorul părinte, verificăm cu <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-l</span></code>:</p>
+Directorul <code class="docutils literal notranslate"><span class="pre">.</span></code> este o referință la directorul curent, iar <code class="docutils literal notranslate"><span class="pre">..</span></code> este o referință la directorul părinte.</p>
+<p>Afișăm conținutul directorului părinte folosind <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-l</span></code>:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/comenzi/mkdir$ ls -l ..
 total <span class="m">136</span>
 drwxr-xr-x <span class="m">2</span> student student   <span class="m">4096</span> Sep <span class="m">29</span> <span class="m">19</span>:25 executie
@@ -1014,7 +982,7 @@ drwxr-xr-x <span class="m">5</span> student student <span class="m">4096</span> 
 </pre></div>
 </div>
 <p>Am creat fișierul ascuns <code class="docutils literal notranslate"><span class="pre">.Hulk</span></code>.
-Observăm că acesta nu se vede la execuția <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-l</span></code>.</p>
+Observăm că acesta nu apare la execuția <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-l</span></code>, dar apare la execuția comenzii <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-al</span></code>.</p>
 <p>Similar, creăm directoare ascunse punând un <em>(.)</em> în fața numelui:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/comenzi/mkdir$ mkdir .LordOfTheRings
 student@uso:~/comenzi/mkdir$ ls
@@ -1033,57 +1001,37 @@ drwxr-xr-x <span class="m">2</span> student student <span class="m">4096</span> 
 <p>Am creat directorul ascuns <code class="docutils literal notranslate"><span class="pre">.LordOfTheRings</span></code>.</p>
 <div class="section" id="exercitii-creare-fisiere-directoare-ascunse">
 <h4><span class="section-number">2.2.9.1. </span>Exerciții - creare fișiere/directoare ascunse<a class="headerlink" href="#exercitii-creare-fisiere-directoare-ascunse" title="Permalink to this headline">¶</a></h4>
-<ul class="simple">
-<li><p>Creați un director cu numele <strong>.LordOfTheRings</strong>;</p></li>
+<ol class="arabic simple">
+<li><ul class="simple">
+<li><p>Creați un director cu numele <code class="docutils literal notranslate"><span class="pre">.LordOfTheRings</span></code> în directorul vostru home;</p></li>
 <li><p>Intrați în directorul creat;</p></li>
-<li><p>Creați 3 fișiere ascunse cu numele <strong>Aragorn</strong>, <strong>Legolas</strong>, <strong>Frodo Baggins</strong>;</p></li>
+<li><p>Creați 3 fișiere ascunse cu numele <code class="docutils literal notranslate"><span class="pre">Aragorn</span></code>, <code class="docutils literal notranslate"><span class="pre">Legolas</span></code>, <code class="docutils literal notranslate"><span class="pre">Frodo</span> <span class="pre">Baggins</span></code>;</p></li>
 <li><p>Verificați operațiile de creare (director și fișiere).</p></li>
 </ul>
-</div>
-</div>
-<div class="section" id="afisarea-informatiilor-de-tip-metadata-pentru-un-fisier">
-<h3><span class="section-number">2.2.10. </span>Afișarea informațiilor de tip metadata pentru un fișier<a class="headerlink" href="#afisarea-informatiilor-de-tip-metadata-pentru-un-fisier" title="Permalink to this headline">¶</a></h3>
-<p>Atunci când vrem să aflăm informații suplimentare despre existența unui fișier/director, putem să-i citim informațiile de tip <em>metadata</em>.</p>
-<p>Informațiile de tip metadata pentru un fișier/director includ informații legate de dimensiune, data de creare/accesare, permisiuni, tipul de fișier.</p>
-<p>Pentru a afla informații suplimentare despre fișiere/directoare, putem folosi comanda <code class="docutils literal notranslate"><span class="pre">stat</span></code>:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/comenzi/mkdir/GameOfThrones$ stat Arya<span class="se">\ </span>Stark
-  File: <span class="s1">&#39;Arya Stark&#39;</span>
-  Size: <span class="m">19</span>          Blocks: <span class="m">8</span>          IO Block: <span class="m">4096</span>   regular file
-Device: 801h/2049d  Inode: <span class="m">152526</span>      Links: <span class="m">1</span>
-Access: <span class="o">(</span><span class="m">0644</span>/-rw-r--r--<span class="o">)</span>  Uid: <span class="o">(</span> <span class="m">1000</span>/ student<span class="o">)</span>   Gid: <span class="o">(</span> <span class="m">1000</span>/ student<span class="o">)</span>
-Access: <span class="m">2020</span>-10-06 <span class="m">16</span>:50:01.692000000 +0300
-Modify: <span class="m">2020</span>-10-06 <span class="m">16</span>:50:01.692000000 +0300
-Change: <span class="m">2020</span>-10-06 <span class="m">16</span>:50:01.692000000 +0300
- Birth: -
-</pre></div>
-</div>
-<p>Observăm că fișierul <strong>Arya Stark</strong> are 19 octeți.
-Acesta a fost modificat pe <em>6 Octombrie 2020</em> la ora <em>16.50</em>.</p>
-<p>Citim fișierul <code class="docutils literal notranslate"><span class="pre">Arya</span> <span class="pre">Stark</span></code> să vedem ce schimbări se produc:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/comenzi/mkdir/GameOfThrones$ cat Arya<span class="se">\ </span>Stark
-A girl has no name
-student@uso:~/comenzi/mkdir/GameOfThrones$ stat Arya<span class="se">\ </span>Stark
-  File: <span class="s1">&#39;Arya Stark&#39;</span>
-  Size: <span class="m">19</span>          Blocks: <span class="m">8</span>          IO Block: <span class="m">4096</span>   regular file
-Device: 801h/2049d  Inode: <span class="m">152526</span>      Links: <span class="m">1</span>
-Access: <span class="o">(</span><span class="m">0644</span>/-rw-r--r--<span class="o">)</span>  Uid: <span class="o">(</span> <span class="m">1000</span>/ student<span class="o">)</span>   Gid: <span class="o">(</span> <span class="m">1000</span>/ student<span class="o">)</span>
-Access: <span class="m">2020</span>-10-06 <span class="m">16</span>:50:15.696000000 +0300
-Modify: <span class="m">2020</span>-10-06 <span class="m">16</span>:50:01.692000000 +0300
-Change: <span class="m">2020</span>-10-06 <span class="m">16</span>:50:01.692000000 +0300
- Birth: -
-</pre></div>
-</div>
-<p>Observăm o actualizare la nivelul câmpului <em>Access</em>.</p>
-<div class="section" id="exercitii-afisare-metadate">
-<h4><span class="section-number">2.2.10.1. </span>Exerciții - afișare metadate<a class="headerlink" href="#exercitii-afisare-metadate" title="Permalink to this headline">¶</a></h4>
-<ul class="simple">
-<li><p>Afișați metadatele directoarelor <strong>GameOfThrons</strong> și <strong>LordOfTheRings</strong>.</p></li>
-<li><p>Afișați metadatele fișierelor <strong>Arya Stark</strong> și <strong>Hulk</strong>.</p></li>
+</li>
+<li><ul class="simple">
+<li><p>Creați un director cu numele <code class="docutils literal notranslate"><span class="pre">stiri</span></code> în directorul vostru home;</p></li>
+<li><p>Creați fișierele <code class="docutils literal notranslate"><span class="pre">hotnews</span></code>, <code class="docutils literal notranslate"><span class="pre">biziday</span></code>, <code class="docutils literal notranslate"><span class="pre">digi24</span></code>;</p></li>
+<li><p>Creați fișierul ascuns <code class="docutils literal notranslate"><span class="pre">.cancan</span></code>;</p></li>
+<li><p>Afișați <strong>toate</strong> fișierele din director;</p></li>
+<li><p>Afișați fișierele din director care <strong>nu</strong> sunt ascunse.</p></li>
 </ul>
+</li>
+<li><ul class="simple">
+<li><p>Creați un director <code class="docutils literal notranslate"><span class="pre">tv</span></code> în directorul vostru home;</p></li>
+<li><p>Creați fișierele <code class="docutils literal notranslate"><span class="pre">ProTV</span></code>, <code class="docutils literal notranslate"><span class="pre">Digi24</span></code>, <code class="docutils literal notranslate"><span class="pre">Eurosport</span></code>;</p></li>
+<li><p>Creați fișierele ascunse <code class="docutils literal notranslate"><span class="pre">Antena3</span></code>, <code class="docutils literal notranslate"><span class="pre">Romania24</span></code>;</p></li>
+<li><p>Afișați <strong>toate</strong> fișierele din director;</p></li>
+<li><p>Afișați fișierele din director care <strong>nu</strong> sunt ascunse.</p></li>
+<li><p>Copiați directorul <code class="docutils literal notranslate"><span class="pre">stiri</span></code> împreună cu fișierele de sub acesta în directorul <code class="docutils literal notranslate"><span class="pre">tv</span></code>;</p></li>
+<li><p>Mutați fișierele <code class="docutils literal notranslate"><span class="pre">.Antena3</span></code> și <code class="docutils literal notranslate"><span class="pre">.Romania24</span></code> în directorul <code class="docutils literal notranslate"><span class="pre">/tmp</span></code>.</p></li>
+</ul>
+</li>
+</ol>
 </div>
 </div>
 <div class="section" id="afisarea-tipului-de-fisier">
-<h3><span class="section-number">2.2.11. </span>Afișarea tipului de fișier<a class="headerlink" href="#afisarea-tipului-de-fisier" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">2.2.10. </span>Afișarea tipului de fișier<a class="headerlink" href="#afisarea-tipului-de-fisier" title="Permalink to this headline">¶</a></h3>
 <p>O ierarhie de fișiere este formată din directoare și fișiere.
 Fișierele pot fi de mai multe tipuri: text, binare, imagini, arhive, etc.</p>
 <p>Pentru a afla tipul fișierului folosim comanda <code class="docutils literal notranslate"><span class="pre">file</span></code>:</p>
@@ -1096,19 +1044,10 @@ archive.tar: POSIX tar archive <span class="o">(</span>GNU<span class="o">)</spa
 </pre></div>
 </div>
 <p>Observăm că fișierul <code class="docutils literal notranslate"><span class="pre">Picture.abc</span></code> este un fișier de tipul <em>PNG</em> în ciuda extensiei, iar <code class="docutils literal notranslate"><span class="pre">archive.tar</span></code> este oa rhivă de tipul <em>tar</em>.</p>
-<p>Vom prezenta mai multe detalii în capitolul :ref:todo_referinta_capitol_edi.</p>
-<div class="admonition important">
-<p class="admonition-title">Important</p>
-<p>Putem învăța mai multe detalii despre comenzile prezentate uitându-ne în manual <code class="docutils literal notranslate"><span class="pre">man</span> <span class="pre">comandă</span></code>.
-Exemplu: <code class="docutils literal notranslate"><span class="pre">man</span> <span class="pre">rm</span></code></p>
-</div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Putem referi fișierele și directoarele atât cu căi relative, cât și cu absolute indiferent de utilitarul folosit.</p>
-</div>
+<p>Vom prezenta mai multe detalii în capitolul <em>Îmbunătățirea lucrului în linia de comandă</em>.</p>
 </div>
 <div class="section" id="exercitii-ierarhii-de-fisiere-si-directoare">
-<h3><span class="section-number">2.2.12. </span>Exerciții - ierarhii de fișiere și directoare<a class="headerlink" href="#exercitii-ierarhii-de-fisiere-si-directoare" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">2.2.11. </span>Exerciții - ierarhii de fișiere și directoare<a class="headerlink" href="#exercitii-ierarhii-de-fisiere-si-directoare" title="Permalink to this headline">¶</a></h3>
 <ol class="arabic">
 <li><ul class="simple">
 <li><p>Afișați ierarhia de fișiere pornind de la directorul vostru home (<code class="docutils literal notranslate"><span class="pre">~</span></code>).</p></li>
@@ -1135,9 +1074,9 @@ Exemplu: <code class="docutils literal notranslate"><span class="pre">man</span>
 </pre></div>
 </div>
 <ul class="simple">
-<li><p>Copiați întreaga ierarhie în calea <code class="docutils literal notranslate"><span class="pre">/tmp</span></code>. Folosiți comanda <code class="docutils literal notranslate"><span class="pre">cp</span></code>.</p></li>
+<li><p>Copiați întreaga ierarhie în calea <code class="docutils literal notranslate"><span class="pre">/tmp</span></code>. Folosiți comanda <code class="docutils literal notranslate"><span class="pre">cp</span></code>. (Hint: recursivitate).</p></li>
 <li><p>Confirmați copierea prin afișarea directorului părinte.</p></li>
-<li><p>Ștergeți fișierul <code class="docutils literal notranslate"><span class="pre">Favorite</span></code> din Directorul Hulu. Confirmați ștergerea prin afișarea directorului părinte.</p></li>
+<li><p>Ștergeți fișierul <code class="docutils literal notranslate"><span class="pre">Favorite</span></code> din directorul <code class="docutils literal notranslate"><span class="pre">Hulu</span></code>. Confirmați ștergerea prin afișarea directorului părinte.</p></li>
 <li><p>Ștergeți directorul <code class="docutils literal notranslate"><span class="pre">prime</span> <span class="pre">video</span></code>.</p></li>
 <li><p>Confirmați ștergerea prin afișarea directorului părinte.</p></li>
 <li><p>Ștergeți directorul <code class="docutils literal notranslate"><span class="pre">HBO</span> <span class="pre">GO</span></code>.</p></li>
@@ -1178,7 +1117,7 @@ Mai multe legături pot referi același director/fișier.</p>
 <li><p>Orice modificare în fisierul țintă, se vede și în fișierul legătură;</p></li>
 <li><p>Este o legătură către numele fișierului și nu către conținut;</p></li>
 <li><p>Dacă fișierul este mutat sau redenumit, legătura se pierde;</p></li>
-<li><p>Putem crea legături simbolice către directoare.</p></li>
+<li><p>Putem crea legături către directoare.</p></li>
 </ul>
 <p>Creăm o legătură simbolică către directorul <code class="docutils literal notranslate"><span class="pre">/home/student/comenzi/mkdir/</span></code> folosind comanda <code class="docutils literal notranslate"><span class="pre">ln</span> <span class="pre">-s</span></code>:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/comenzi/ls$ ln -s ~/comenzi/mkdir/ .
@@ -1218,7 +1157,9 @@ drwxr-xr-x <span class="m">2</span> student student <span class="m">4096</span> 
 drwxr-xr-x <span class="m">2</span> student student <span class="m">4096</span> Sep <span class="m">29</span> <span class="m">17</span>:44 GameOfThrones
 </pre></div>
 </div>
-<p>Observăm că dacă am șters un fișier accesându-l prin legătura simbolică, s-a șters și la destinație.</p>
+<p>Observăm că dacă am șters un fișier accesându-l prin legătura, s-a șters și la destinație.</p>
+<div class="section" id="exercitii-legaturi-linkuri">
+<h3><span class="section-number">2.3.1. </span>Exerciții - legături (linkuri)<a class="headerlink" href="#exercitii-legaturi-linkuri" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Creați o legătură simbolică în directorul vostru <code class="docutils literal notranslate"><span class="pre">home</span></code> către directorul <code class="docutils literal notranslate"><span class="pre">Netflix</span></code>.</p></li>
 <li><p>Verificați crearea legăturii prin afișarea conținutului directorului părinte.</p></li>
@@ -1226,6 +1167,7 @@ drwxr-xr-x <span class="m">2</span> student student <span class="m">4096</span> 
 <li><p>Ștergeți directorul <code class="docutils literal notranslate"><span class="pre">Netflix</span></code>.</p></li>
 <li><p>Afișați conținutul legăturii.</p></li>
 </ul>
+</div>
 </div>
 <div class="section" id="executia-programelor">
 <h2><span class="section-number">2.4. </span>Execuția programelor<a class="headerlink" href="#executia-programelor" title="Permalink to this headline">¶</a></h2>

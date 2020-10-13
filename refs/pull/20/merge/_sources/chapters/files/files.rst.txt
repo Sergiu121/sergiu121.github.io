@@ -3,53 +3,37 @@ Interacțiunea cu fișiere în linia de comandă
 
 Fișierul este unitatea de bază folosită pentru a stoca informații.
 Fie că este vorba despre un document (tema la mate) sau un joc, fie că este vorba de o configurare în sistemul de operare, sau chiar sistemul de operare, folosim fișiere pentru stocare.
-Directoarele sunt un tip specific de fișier.
 
 Putem interacțioa cu fișiere folosind programe specifice:
 
 * Microsoft Word pentru documente;
-* browser pentru pagină web;
-* Winamp pentu melodii;
-* Vlc pentru filme;
+* browser (de exemplu, Firefox) pentru o pagină web;
+* player audio (de exemplu, Winamp) pentu melodii;
+* player video (de exemplu, Vlc) pentru filme.
 
 Acestea au în comun o interfață grafică.
 O altă opțiune este să interacționăm cu fișierele în linia de comandă.
-Acesta este subiectul capitolului nostru.
-
-.. figure:: res/terminal.png
-   :scale: 40 %
-
+Acesta este subiectul acestei sectiuni.
 
 Folosim linia de comandă pentru interacțiunea cu fișierele în mai multe cazuri:
 
-* Atunci când sistemul pe care ne aflăm are *doar* linie de comandă;
-* Atunci când putem să facem anumite operații *mai repede* decât în interfața grafică; putem folosi automatizarea unor sarcini (taskuri): scriem un script (un fișier de automatizare) o dată și îl executăm de fiecare dată când este nevoie;
+* Atunci când sistemul pe care ne aflăm are **doar** linie de comandă;
+* Atunci când putem să facem anumite operații **mai repede** decât în interfața grafică; putem folosi automatizarea unor sarcini (taskuri): scriem un script (un fișier de automatizare) o dată și îl executăm de fiecare dată când este nevoie. Există un capitol întreg *Îmbunătățirea lucrului în linia de comandă* unde vom afla mai multe detalii.
 
 Un motiv în plus pentru a folosi linia de comandă este că folosește mult mai puține resurse decât interfața grafică.
 Astfel, putem să facem mai multe cu mai puține resurse.
 
-Componenta ce se ocupă de interpretarea comenzilor este *shell*.
-Acesta citește comenzile date de utilizator, le interpretează și comunică sisteemului de operare ce are de făcut.
+Componenta ce se ocupă de interpretarea comenzilor se numește *shell*.
+Shellul citește comenzile date de utilizator, le interpretează și comunică sisteemului de operare ce are de făcut.
 
-În Windows se numește *Windows shell*, iar în Linux și MacOS *bash*.
-
-în acest capitol discutăm despre cum interacționăm cu fișierele în linia de comandă.
+În acest capitol discutăm despre cum interacționăm cu fișierele în linia de comandă.
 
 Ierarhie de fișiere
 -------------------
 
-Fișierele sunt dispuse într-o formă arborescentă, ierarhică.
-
-Un astfel de exemplu este următorul:
-
-.. figure:: res/ierarhie.png
-
-Directorul rădăcină este ``/`` (root).
-Acesta are mai multe sub-directoare, printre care și ``home``, ``bine``, ``usr``, etc.
-În home, găsim directoarele utilizatorilor din sistem: ``ubuntu``, ``debian``.
+Un exemplu de ierarhie de fișier este în secțiunea *Căi în ierarhia de fișiere*.
 
 Pentru a vedea fișierele sub formă arborescentă, folosim comanda ``tree``.
-
 
 .. code-block:: bash
 
@@ -81,25 +65,23 @@ Pentru a vedea fișierele sub formă arborescentă, folosim comanda ``tree``.
 
 
 
-Manipularea fișierelor și directoarelor
-------------------------------------------
+Lucrul cu fișiere și directoare
+-------------------------------
 
-În această secțiune vom vorbi despre cum facem următoarele din linia de comandă:
+În această secțiune vom învăța să lucrăm cu fișierele și directoarele în linia de comandă:
 
 * afișarea conținutului fișierelor și directoarelor;
 * crearea de fișiere și directoare;
-* ștergerea de fișieree și directoare;
+* ștergerea de fișiere și directoare;
 * redenumirea fișierelor și directoarelor;
 * fișiere și directoare ascunse;
-* metadate fișiere și directoare;
-* ierarhii;
 * legături (linkuri);
 * execuția programelor.
 
 Afișarea conținutului unui director
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Așa cum un dosar are mai multe foi în el, așa directoarele au mai multe fișiere și directoare în ele.
+Așa cum un dosar are mai multe foi în el, la fel și directoarele au mai multe fișiere și directoare în ele.
 
 Pentru a afișa conținutul unui director folosim comanda ``ls``:
 
@@ -114,8 +96,8 @@ Pentru a vedea mai multe informații despre fișiere și directoare putem folosi
 
     student@uso:~/comenzi/touch$ ls -l
     total 0
-    -rw-r--r-- 1 student student 0 Sep 29 17:32 orase
-    -rw-r--r-- 1 student student 0 Sep 29 17:25 judete romania
+    -rw-r--r-- 1 student student 0 Sep 29 17:32 cities
+    -rw-r--r-- 1 student student 0 Sep 29 17:25 cities in romania
     -rw-r--r-- 1 student student 0 Sep 29 17:33 romania
 
 .. code-block:: bash
@@ -129,177 +111,140 @@ Interpretăm rezultatele de mai sus:
 
 #. Primul caracter ``-`` ne arată că ``romania`` este un fișier obișnuit. Primul caracter ``d`` ne arată că ``Avengers`` este director.
 #. Șirurile ``rw-r--r--`` (pentru ``romania``) și ``rw-r-xr-x`` (pentru ``Avengers``) se referă la permisiuni de acces.
-   Vorbim despre permisiuni de acces în capitolul :ref:todo_Referinta_permisiuni.
-#. Următorul număr (``1`` pentru ``romania`` și ``2`` pentru ``Avengers``) se referă la numărul de legături către el (putem să facem o paralelă cu Shortcut-urile din Windows).
-   Vom detalia legăturile în capitolul :ref:_todo_referinta_permisiuni.
-#. Următoarul cuvânt, ``student``, se referă la utilizatorul care deține fișierul/directorul ``romania``/``Avengers``;
-#. Al doilea ``student`` se referă la grupul ce deține fișierul/directorul ``romania`` și ``Avengers``;
-#. Numărul ``0`` specifică dimensiunea fișierului ``romania``.
-   Observăm că directorul ``Avengers`` are dimensiunea de 4096 Octeți (Bytes);
-#. Urmează 3 coloane ce specifică luna, ziua și data ultime accesări.
+   Vorbim despre permisiuni de acces în capitolul *Îmbunătățirea lucrului în linia de comandă*.
+#. Următorul număr îl îgnorăm pentru moment.
+#. Următoarele două cuvinte, ``student``, se referă tot la permisiuni și ownership; le vom discuta într-un capitol ulteror.
+#. Numărul ``0`` arată dimensiunea fișierului ``romania``.
+   Observăm că directorul ``Avengers`` are dimensiunea de 4096 octeți (*bytes*);
+#. Urmează 3 coloane ce arată momentul ultimei modificări
    O accesare poate înseamna creare sau modificare.
    Citirea nu schimbă această dată.
-#. La final este specificat numele fișierului sau a directorului.
+#. La final este afișat numele fișierului sau a directorului.
 
-
-.. note::
-    Vom discuta despre legături în capitolul ##### TODO EDI ######.
-
-Pentru a vedea dimensiunea fișierelor într-un format ușor citibil, folosim comanda ``ls -lh``:
-
-.. code-block:: bash
-
-    student@uso:~$ ls -lh
-    total 230M
-    -rw-r--r-- 1 student student   16 Sep 28 16:36 ELTH
-    -rw-r--r-- 1 student student   10 Sep 28 16:35 USO
-    drwxr-xr-x 6 student student 4.0K Oct  6 17:57 comenzi
-    -rw-r--r-- 1 student student  752 Sep 28 16:25 comenzi_redirectare
-    -rw-r--r-- 1 student student   26 Sep 28 18:35 continut_materii
-    drwxr-xr-x 4 student student 4.0K Aug 19 18:05 dezarhivare
-    -rw-r--r-- 1 student student   36 Sep 28 18:35 erori_comenzi
-    -rw-r--r-- 1 student student    5 Sep  9 16:34 fisier
-    -rw-r--r-- 1 student student  17M Aug 19 18:09 fisiere.zip
-    -rw-r--r-- 1 student student 5.0M Aug 19 11:55 inregistrare_lab01.mov
-    -rw-r--r-- 1 student student 3.0M Aug 19 11:55 inregistrare_lab02.mov
-    -rw-r--r-- 1 student student 1.0M Aug 19 11:55 inregistrare_lab03.mov
-    -rw-r--r-- 1 student student 7.0M Aug 19 12:35 inregistrare_lab04.mov
-    -rw-r--r-- 1 student student 9.1M Sep 29 04:51 inregistrari.tar
-    -rw-r--r-- 1 student student 9.1M Sep 29 04:51 inregistrari.zip
-    -rw-r--r-- 1 student student  515 Oct  9 16:57 lista_materii
-    -rw-r--r-- 1 student student   11 Sep 28 17:05 materii
-    -rw-r--r-- 1 student student    0 Sep 29 17:20 orase
-    -rw------- 1 student student  294 Sep 18 03:19 scurtaturi.save
-    -rw-r--r-- 1 student student  16K Aug 25 20:28 test.zip
-    -rw-r--r-- 1 student student  97M Sep 29 04:46 usr_bin.tar
-    -rw-r--r-- 1 student student  84M Sep 29 04:46 usr_bin.zip
-
-Observăm că acum dimensiunea fișierelor și directoarelor este afișată în K (KiloBytes), M (MegaBytes).
-
-.. note::
-    Optiunea ``-h`` de la utilitarul ``ls`` provine de la *human-readable*.
 
 Exerciții - afișarea conținutului directoarelor
 """""""""""""""""""""""""""""""""""""""""""""""
 
-* Afișați conținutul directoarelor **Avengers** și **Game of Thrones**;
-* Afișați conținutul directoarelor **Avengers** și **Game of Thrones** folosind opțiunea **-l**.
+* Afișați conținutul directoarelor **/usr**, **/tmp**, **/etc**, **/home**, **/home/student**.
 
 Crearea fișierelor
 ^^^^^^^^^^^^^^^^^^
 
-Există cazuri când vrem să creăm fișiere.
+Există situații când vrem să creăm fișiere.
+De exemplu vrem să scriem cod sau să luăm notițe la un curs.
+
 Fișierele se creează folosind utilitarul ``touch``.
 
-Creăm un fișier, astfel:
+Creăm un fișier astfel:
 
 .. code-block:: bash
 
-    student@uso:~$ ls orase
-    ls: cannot access orase: No such file or directory
-    student@uso:~$ touch orase
-    student@uso:~$ ls orase
-    orase
+    student@uso:~$ ls cities
+    ls: cannot access cities: No such file or directory
+    student@uso:~$ touch cities
+    student@uso:~$ ls cities
+    cities
 
 
 Dacă vrem să creăm un fișier cu numele ``orașe romania``, adică vrem ca numele fișierului să conțină caracterul *spațiu (space)*, folosim tot comanda ``touch`` ca în exemplul de mai jos:
 
 .. code-block:: bash
 
-    student@uso:~/touch$ touch orase romania
+    student@uso:~/touch$ touch cities romania
     student@uso:~/touch$ ls -l
-    -rw-r--r-- 1 student student 0 Sep 29 17:22 orase
+    -rw-r--r-- 1 student student 0 Sep 29 17:22 cities
     -rw-r--r-- 1 student student 0 Sep 29 17:22 romania
 
-Observăm că în comanda de mai sus am încercat să creăm un fișier numit ``orase romania``, însă au fost create două fișiere.
-Pentru a crea un fișier cu *spațiui (space)* înclus în nume este nevoie să folosim ghilimelele la începutul și sfârșitul numelui astfel: ``touch "orase romania"``.
+Observăm că în comanda de mai sus am încercat să creăm un fișier numit ``cities romania``, însă au fost create două fișiere.
+Pentru a crea un fișier cu *spații (space)* inclus în nume este nevoie să folosim ghilimelele la începutul și sfârșitul numelui astfel: ``touch "cities romania"``.
 
 .. code-block:: bash
 
-    student@uso:~/touch$ touch "judete romania"
+    student@uso:~/touch$ touch "cities in romania"
     student@uso:~/touch$ ls -l
     total 0
-    -rw-r--r-- 1 student student 0 Sep 29 17:22 orase
-    -rw-r--r-- 1 student student 0 Sep 29 17:25 judete romania
+    -rw-r--r-- 1 student student 0 Sep 29 17:22 cities
+    -rw-r--r-- 1 student student 0 Sep 29 17:25 cities in romania
     -rw-r--r-- 1 student student 0 Sep 29 17:22 romania
 
 
-Acum avem în directorul ``~`` 3 fișiere: orase, judete romania, romania.
-Zero-ul *(0)* din linia ``-rw-r--r-- 1 student student 0 Sep 29 17:22`` orase ne arată că fișierul orase are 0 bytes, adică este gol.
+Acum avem în directorul ``~`` 3 fișiere: ``cities``, ``cities in romania``, ``romania``.
+Zero-ul *(0)* din linia ``-rw-r--r-- 1 student student 0 Sep 29 17:22`` cities ne arată că fișierul cities are 0 bytes, adică este gol.
 Toate cele 3 fișiere sunt goale.
 
 
 Ce se va întâmpla dacă executăm ``touch`` pe un fișier existent?
 
-Creăm un nou fișier cu numele romania folosind comanda touch:
+Creăm un nou fișier cu numele ``romania`` folosind comanda ``touch``:
 
 .. code-block:: bash
 
     student@uso:~/touch$ ls -l
     total 0
-    -rw-r--r-- 1 student student 0 Sep 29 17:32 orase
-    -rw-r--r-- 1 student student 0 Sep 29 17:25 judete romania
+    -rw-r--r-- 1 student student 0 Sep 29 17:32 cities
+    -rw-r--r-- 1 student student 0 Sep 29 17:25 cities in romania
     -rw-r--r-- 1 student student 0 Sep 29 17:22 romania
     student@uso:~/touch$ date
     Tue Sep 29 17:32:55 EEST 2020
     student@uso:~/touch$ touch romania
     student@uso:~/touch$ ls -l
     total 0
-    -rw-r--r-- 1 student student 0 Sep 29 17:32 orase
-    -rw-r--r-- 1 student student 0 Sep 29 17:25 judete romania
+    -rw-r--r-- 1 student student 0 Sep 29 17:32 cities
+    -rw-r--r-- 1 student student 0 Sep 29 17:25 cities in romania
     -rw-r--r-- 1 student student 0 Sep 29 17:33 romania
 
 
 În continuare avem tot 3 fișiere în directorul ``~``.
-Ne uităm la liniile ``-rw-r--r-- 1 student student 0 Sep 29 17:22 romania`` *(de dinainte)* și ``-rw-r--r-- 1 student student 0 Sep 29 17:33 romania`` *(de după)* și vedem că diferă ora.
-Este vorba despre ora la care a fost ultima dată accesat fișierul ``romania``.
-
-Mai multe detalii sunt expuse la capitolul de metadate din subsecțiunea :ref:todo_referinta_seciunea_respectiva.
+Ne uităm la liniile ``-rw-r--r-- 1 student student 0 Sep 29 17:22 romania`` *(de dinainte)* și ``-rw-r--r-- 1 student student 0 Sep 29 17:33 romania`` (**de după**) și vedem că diferă timpul.
+Este vorba despre timpul la care a fost ultima dată accesat fișierul ``romania``.
 
 Crearea directoarelor
 ^^^^^^^^^^^^^^^^^^^^^
 
 Este util să creăm directoarele atunci când vrem să păstrăm fișierele din sistem într-un mod organizat.
+De exemplu, putem crea câte un director pentru fiecare an de licență.
+Pentru fiecare an/director, cream câte un director pentru fiecare materie si pentru fiecare materie putem să facem directoare pentru teme, laboratoare, cursuri etc.
+
 Creăm directoarele folosind utilitarul ``mkdir``.
-Etimologia comenzii provine din limba engleză - *Make Directory*.
+Etimologia comenzii provine din limba engleză - *make directory*.
 
 Creăm un director nou în directorul ``~/comenzi/mkdir`` ca în exemplul de mai jos:
 
 .. code-block:: bash
 
-    student@uso:~/comenzi/mkdir$ mkdir "Game of Thrones"
+    student@uso:~/comenzi/mkdir$ mkdir "GameOfThrones"
     student@uso:~/comenzi/mkdir$ mkdir Avengers
     student@uso:~/comenzi/mkdir$ ls -l
     total 8
     drwxr-xr-x 2 student student 4096 Sep 29 17:43 Avengers
-    drwxr-xr-x 2 student student 4096 Sep 29 17:43 Game of Thrones
+    drwxr-xr-x 2 student student 4096 Sep 29 17:43 GameOfThrones
 
-Am creat 2 directoare noi: ``Avengers`` și ``Game of Thrones``.
-Pentru crearea directorului ``Game of Thrones`` am folosit ghilimele pentru a înconjura numele ales, la fel ca în cazul creării fișierelor din subsecțiunea :ref:todo_ref_``Crearea fișierelor``.
+Am creat 2 directoare noi: ``Avengers`` și ``GameOfThrones``.
+Pentru crearea directorului ``GameOfThrones`` am folosit ghilimele pentru a înconjura numele ales, la fel ca în cazul creării fișierelor din subsecțiunea :ref:todo_ref_``Crearea fișierelor``.
 
 
 
 Exerciții - creare fișiere și directoare
 """"""""""""""""""""""""""""""""""""""""
 
-* Creați două directoare: "Avengers", "Game of Thrones";
-* Creați fișierele "Iron Man", "Hulk", "Thor", "Captain America" în directorul "Avengers"
-* Creați fișierele "Arya Stark", "Daenerys Targaryen", "Jon Snow", "Tyrion Lannister" în directorul "Game of Thrones";
+* Creați două directoare: "Avengers", "GameOfThrones"; afișați directoarele;
+* Creați fișierele "Iron Man", "Hulk", "Thor", "Captain America" în directorul "Avengers"; afișați fișierele din director;
+* Creați fișierele "Arya", "Daenerys Targaryen", "Jon Snow", "Tyrion Lannister" în directorul "GameOfThrones"; afișați fișierele din director.
 
 
 .. important::
-    Este important de reținut: orice comandă executați aceasta trebuie succedată de o verificare.
+    Este important de reținut: orice comandă executați, aceasta trebuie succedată de o verificare.
     De exemplu, la crearea unui fișier (``touch``) sau director (``mkdir``), executăm comanda de verificare ``ls``.
 
 
 Afișarea conținutului unui fișier
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Afișăm rapid conținutul fișierului ``Arya Stark`` din directorul ``Game of Thrones`` folosind comanda ``cat``:
+Afișăm rapid conținutul fișierului ``Arya`` din directorul ``GameOfThrones`` folosind comanda ``cat``:
 
 .. code-block:: bash
 
-    student@uso:~/comenzi/mkdir$ cat "Game of Thrones/Arya Stark"
+    student@uso:~/comenzi/mkdir$ cat "GameOfThrones/Arya"
     A girl has no name
 
 
@@ -308,15 +253,14 @@ Afișăm rapid conținutul fișierului ``Arya Stark`` din directorul ``Game of T
 
     .. code-block:: bash
 
-        student@uso:~$ echo "A girl has no name" > "comenzi/mkdir/GameOfThrones/Arya Stark"
-        student@uso:~$ cat "comenzi/mkdir/GameOfThrones/Arya Stark"
+        student@uso:~$ echo "A girl has no name" > "comenzi/mkdir/GameOfThrones/Arya"
+        student@uso:~$ cat "comenzi/mkdir/GameOfThrones/Arya"
         A girl has no name
 
-Am folosit ghilimele *(")* pentru că exista spațiu atât în textul pe care vrem csă-l scriem, cât și în numele fișierului.
 
 
 O altă metodă este de a folosi un editor de text: **vim**, **gedit**, **emacs**, **nano**, **sublime**, etc.
-Vom detalia utilizarea unui editor de text în subsectiunea :ref:todo_ref_editor_Text.
+Vom detalia utilizarea unui editor de text în subsectiunea *Editor de text*.
 
 
 Ștergerea fișierelor
@@ -332,26 +276,33 @@ Fișierele se șterg folosind utilitarul ``rm``.
     student@uso:~/comenzi/mkdir$ ls Avengers/
     Captain America  Iron Man  Thor
 
+La prima comandă am afișat ce fișiere sunt în directorul ``Avengers``.
+Am folosit utiltarul ``rm`` pentru a șterge fișierul ``Hulk`` din directorul ``Avengers``.
+În final am verificat că fișierul ``Hulk`` nu mai există în directorul ``Avengers``.
 
 Ștergerea directoarelor
 ^^^^^^^^^^^^^^^^^^^^^^^
 
 Directoarele se șterg folosind comanda ``rmdir``.
-Etimologia comenzii provine din engleză - *Remove Directory*.
+Etimologia comenzii provine din engleză - *remove directory*.
 
 .. code-block:: bash
 
-    student@uso:~/comenzi/mkdir$ mkdir "Lord of the Rings"
+    student@uso:~/comenzi/mkdir$ mkdir LordOfTheRings
     student@uso:~/comenzi/mkdir$ ls -l
     total 12
     drwxr-xr-x 2 student student 4096 Sep 29 18:02 Avengers
-    drwxr-xr-x 2 student student 4096 Sep 29 17:44 Game of Thrones
-    drwxr-xr-x 2 student student 4096 Sep 29 18:09 Lord of the Rings
-    student@uso:~/comenzi/mkdir$ rmdir "Lord of the Rings"
+    drwxr-xr-x 2 student student 4096 Sep 29 17:44 GameOfThrones
+    drwxr-xr-x 2 student student 4096 Sep 29 18:09 LordOfTheRings
+    student@uso:~/comenzi/mkdir$ rmdir "LordOfTheRings"
     student@uso:~/comenzi/mkdir$ ls -l
     total 8
     drwxr-xr-x 2 student student 4096 Sep 29 18:02 Avengers
-    drwxr-xr-x 2 student student 4096 Sep 29 17:44 Game of Thrones
+    drwxr-xr-x 2 student student 4096 Sep 29 17:44 GameOfThrones
+
+Am creat un director ``LordOfTheRings`` folosind utilitarul ``mkdir``.
+Am verificat crearea acestuia.
+În final l-am șters folosind utilitarul ``rmdir`` și am verificat ștergerea acestuia.
 
 .. important::
     Comanda ``rmdir`` pe un director care nu este gol (care conține cel puțin un alt fișier sau director) nu funcționează.
@@ -363,22 +314,27 @@ Etimologia comenzii provine din engleză - *Remove Directory*.
     rmdir: failed to remove 'Avengers/': Directory not empty
 
 
-Pentru a șterge un director gol, folosim utilitarul ``rm`` cu opțiunile de recursivitate ``-r``: ``rm -r``.
+Pentru a șterge un director care **nu** este gol, folosim utilitarul ``rm`` cu opțiunea de recursivitate ``-r``: ``rm -r``.
+Aceasta permite parcurgerea în adâncime a întregii ierarhii de fișiere.
+
 
 .. code-block:: bash
 
     student@uso:~/comenzi/mkdir$ ls -l
     total 8
     drwxr-xr-x 2 student student 4096 Sep 29 18:02 Avengers
-    drwxr-xr-x 2 student student 4096 Sep 29 17:44 Game of Thrones
+    drwxr-xr-x 2 student student 4096 Sep 29 17:44 GameOfThrones
     student@uso:~/comenzi/mkdir$ rm -r Avengers/
     student@uso:~/comenzi/mkdir$ ls -l
     total 4
-    drwxr-xr-x 2 student student 4096 Sep 29 17:44 Game of Thrones
+    drwxr-xr-x 2 student student 4096 Sep 29 17:44 GameOfThrones
 
 
 .. important::
     După executarea comenzii, verificăm corectitudinea operației.
+    Trebuie să verificăm și să nu presupunem că o comandă s-a executat.
+    Lipsa unei verifică poate duce la erori și mult timp pierdut din partea noastră.
+
 
 Redenumirea și mutarea fișierelor și directoarelor
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -390,12 +346,12 @@ Redenumim fișierele si directoarele folosind comanda ``mv``:
 .. code-block:: bash
 
     student@uso:~/comenzi/mkdir$ ls
-    Game of Thrones
-    student@uso:~/comenzi/mkdir$ mv "Game of Thrones" GameOfThrones
+    GameOfThrones
+    student@uso:~/comenzi/mkdir$ mv "GameOfThrones" GameOfThrones
     student@uso:~/comenzi/mkdir$ ls
     GameOfThrones
 
-Am redenumit fișierul ``Game of Thrones`` în ``GameOfThrones``.
+Am redenumit fișierul ``GameOfThrones`` în ``GameOfThrones``.
 
 Un alt rol al comenzii ``mv`` este de a muta fișierele și directoarele, în ierarhia de fișiere, dintr-un loc în altul.
 
@@ -416,7 +372,7 @@ Mutăm directorul ``GameOfThrones`` (cu tot conținutul acestuia) la calea ``/tm
 Acum directorul ``GameOfThrones`` se află în calea ``/tmp/GameOfThrones``.
 Am verificat folosind ``ls`` că nu se mai află în directorul curent și că există în directorul ``/tmp/``.
 
-Mutăm înapoi directorul ``GameOfThrones`` (cu tot conținutul acestuia) folosind cale relativă pentru a specifica directorul și cale absoluta pentru a specifica locația unde vrem să ajungă directorul folosind ``mv``:
+Mutăm înapoi directorul ``GameOfThrones`` (cu tot conținutul acestuia) folosind cale relativă, pentru a indica directorul, și cale absolută, pentru a indica locul unde vrem să ajungă directorul folosind ``mv``:
 
 .. code-block:: bash
 
@@ -424,42 +380,46 @@ Mutăm înapoi directorul ``GameOfThrones`` (cu tot conținutul acestuia) folosi
     student@uso:~/comenzi/mkdir$ ls
     Avengers  GameOfThrones
 
-Am verificat că directorul ``GameOfThrones`` se află la calea specificată (calea curentă).
+Am verificat că directorul ``GameOfThrones`` se află la calea indicată (calea curentă).
 
 .. note::
-    Observăm că putem folosi atât căi relative cât și căi absolute.
+
+    Observăm că putem folosi atât căi relative cât și căi absolute ca argumente pentru comanda ``mv`` de mutare / redenumire de fișiere și directoare.
 
 Exerciții - redenumire și mutare
 """"""""""""""""""""""""""""""""
 
-* Redenumiți directorul ``Game of Thrones`` în ``GameOfThrones``;
-* Mutați fișierele din interiorul directorului ``GameOfThrones`` în ``/tmp``;
-* Verificați operațiile;
-* Mutați directorul înapoi la locatia inițială folosind atât căi relative cât și căi absolute.
+#. * Creați un director ``Vikings`` în directorul home al vostru;
+   * Creați fișierele ``Ragnar``, ``Rollo``, ``Lagertha`` în directorul ``Vikings``;
+   * Verificați că directorul și fișierele au fost mutate;
+   * Mutati directorul (împreună cu întreaga ierarhie de fișiere) la locația ``/tmp/``;
+   * Verificați că directorul și ierarhia de fișiere au fost mutate; 
+
+#. * Creați un director ``NBA`` în directorul home al vostru;
+   * Creați fișierele ``MichaelJordan``, ``LeBronJames``, ``DwayneWade`` și ``KobeBryant`` în directorul ``NBA``;
+   * Verificați că directorul și fișierele au fost mutate;
+   * Mutați directorul ``NBA`` (împreună cu întreaga ierarhie de fișiere) în directorul ``Vikings``;
+   * Verificați că directorul și ierarhia de fișiere au fost mutate. 
+
+#. * Redenumiți directorul ``GameOfThrones`` în ``ThronesInTheGame``;
+   * Mutați fișierele din interiorul directorului ``ThronesInTheGame`` în ``/tmp``;
+   * Verificați operațiile;
+   * Mutați directorul înapoi la locatia inițială folosind atât căi relative cât și căi absolute.
 
 Copierea fișierelor și directoarelor
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Copiem fișierul ``Thor`` din directorul ``Avengers`` în calea curentă *(.)* folosind ``cp``:
+Copiem fișierul ``Thor`` în directorul ``/tmp/`` folosind ``cp``:
 
 .. code-block:: bash
 
-    student@uso:~/comenzi/mkdir$ cp Avengers/Thor .
-    student@uso:~/comenzi/mkdir$ ls -l
-    total 8
-    drwxr-xr-x 2 student student 4096 Sep 29 18:20 Avengers
-    drwxr-xr-x 2 student student 4096 Sep 29 17:44 GameOfThrones
-    -rw-r--r-- 1 student student    0 Sep 29 19:04 Thor
 
-Copeim fișierul ``Thor`` din calea curentă în directorul ``/tmp/`` folosind ``cp``:
-
-.. code-block:: bash
-
-    student@uso:~/comenzi/mkdir$ cp Thor /tmp/
+    student@uso:~/comenzi/mkdir$ cp Avengers/Thor /tmp/
     student@uso:~/comenzi/mkdir$ ls /tmp/
     Thor  ssh-ApUMKI3HSJ
 
-Acum fișierul ``Thor`` precum și conținutul lui se află atât în calea curentă cât și în ``/tmp/Thor``.
+Sintaxa este similară comenzii ``mv``.
+Acum fișierul ``Thor`` este atât în ``/home/student/Avengers/Thor``, cât și în ``/tmp/Thor``.
 
 .. code-block:: bash
 
@@ -468,7 +428,7 @@ Acum fișierul ``Thor`` precum și conținutul lui se află atât în calea cure
 
 Observăm că nu se poate copia un director ce conține alte fișiere sau directoare.
 
-Pentru a copia în altă parte un director care nu este gol trebuie să folosim comanda ``cp -r``:
+Pentru a copia în altă parte un director care nu este gol, trebuie să folosim comanda ``cp -r``:
 
 .. code-block:: bash
 
@@ -486,7 +446,7 @@ Pentru a copia în altă parte un director care nu este gol trebuie să folosim 
 
 Am copiat directorul ``Avengers`` și conținutul acestuia din calea curentă în directorul ``/tmp``.
 Observăm că s-a copiat întreaga ierarhie de fișiere/directoare de sub directorul ``Avengers``.
-Acesta se află acum în ambele locații.
+Acesta se află acum în ambele locuri.
 
 Fișiere și directoare ascunse
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -515,9 +475,9 @@ Vedem fișiere și directoare ascunse folosind comanda ``ls -a``:
 Opțiunea ``-a`` vine de la *all*, adică vrem să vedem toate fișierele: și cele vizibile și cele ascunse.
 
 Observăm două directoare noi ``.`` și ``..``.
-Directoul ``.`` face referire la directorul curent, iar ``..`` este o referință la directorul părinte.
+Directorul ``.`` este o referință la directorul curent, iar ``..`` este o referință la directorul părinte.
 
-Astfel, dacă vrem să vedem ce este în directorul părinte, verificăm cu ``ls -l``:
+Afișăm conținutul directorului părinte folosind ``ls -l``:
 
 .. code-block:: bash
 
@@ -557,7 +517,7 @@ Creăm fișiere ascunse punând un punct *(.)* în fața numelui:
     -rw-r--r-- 1 student student    0 Sep 29 18:20 Thor
 
 Am creat fișierul ascuns ``.Hulk``.
-Observăm că acesta nu se vede la execuția ``ls -l``.
+Observăm că acesta nu apare la execuția ``ls -l``, dar apare la execuția comenzii ``ls -al``.
 
 Similar, creăm directoare ascunse punând un *(.)* în fața numelui:
 
@@ -581,59 +541,24 @@ Am creat directorul ascuns ``.LordOfTheRings``.
 Exerciții - creare fișiere/directoare ascunse
 """""""""""""""""""""""""""""""""""""""""""""
 
-* Creați un director cu numele **.LordOfTheRings**;
-* Intrați în directorul creat;
-* Creați 3 fișiere ascunse cu numele **Aragorn**, **Legolas**, **Frodo Baggins**;
-* Verificați operațiile de creare (director și fișiere).
+#. * Creați un director cu numele ``.LordOfTheRings`` în directorul vostru home;
+   * Intrați în directorul creat;
+   * Creați 3 fișiere ascunse cu numele ``Aragorn``, ``Legolas``, ``Frodo Baggins``;
+   * Verificați operațiile de creare (director și fișiere).
 
+#. * Creați un director cu numele ``stiri`` în directorul vostru home;
+   * Creați fișierele ``hotnews``, ``biziday``, ``digi24``;
+   * Creați fișierul ascuns ``.cancan``;
+   * Afișați **toate** fișierele din director;
+   * Afișați fișierele din director care **nu** sunt ascunse.
 
-Afișarea informațiilor de tip metadata pentru un fișier
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Atunci când vrem să aflăm informații suplimentare despre existența unui fișier/director, putem să-i citim informațiile de tip *metadata*.
-
-Informațiile de tip metadata pentru un fișier/director includ informații legate de dimensiune, data de creare/accesare, permisiuni, tipul de fișier.
-
-Pentru a afla informații suplimentare despre fișiere/directoare, putem folosi comanda ``stat``:
-
-.. code-block:: bash
-
-    student@uso:~/comenzi/mkdir/GameOfThrones$ stat Arya\ Stark
-      File: 'Arya Stark'
-      Size: 19        	Blocks: 8          IO Block: 4096   regular file
-    Device: 801h/2049d	Inode: 152526      Links: 1
-    Access: (0644/-rw-r--r--)  Uid: ( 1000/ student)   Gid: ( 1000/ student)
-    Access: 2020-10-06 16:50:01.692000000 +0300
-    Modify: 2020-10-06 16:50:01.692000000 +0300
-    Change: 2020-10-06 16:50:01.692000000 +0300
-     Birth: -
-
-Observăm că fișierul **Arya Stark** are 19 octeți.
-Acesta a fost modificat pe *6 Octombrie 2020* la ora *16.50*.
-
-Citim fișierul ``Arya Stark`` să vedem ce schimbări se produc:
-
-.. code-block:: bash
-
-    student@uso:~/comenzi/mkdir/GameOfThrones$ cat Arya\ Stark
-    A girl has no name
-    student@uso:~/comenzi/mkdir/GameOfThrones$ stat Arya\ Stark
-      File: 'Arya Stark'
-      Size: 19        	Blocks: 8          IO Block: 4096   regular file
-    Device: 801h/2049d	Inode: 152526      Links: 1
-    Access: (0644/-rw-r--r--)  Uid: ( 1000/ student)   Gid: ( 1000/ student)
-    Access: 2020-10-06 16:50:15.696000000 +0300
-    Modify: 2020-10-06 16:50:01.692000000 +0300
-    Change: 2020-10-06 16:50:01.692000000 +0300
-     Birth: -
-
-Observăm o actualizare la nivelul câmpului *Access*.
-
-Exerciții - afișare metadate
-""""""""""""""""""""""""""""
-
-* Afișați metadatele directoarelor **GameOfThrons** și **LordOfTheRings**.
-* Afișați metadatele fișierelor **Arya Stark** și **Hulk**.
+#. * Creați un director ``tv`` în directorul vostru home;
+   * Creați fișierele ``ProTV``, ``Digi24``, ``Eurosport``;
+   * Creați fișierele ascunse ``Antena3``, ``Romania24``;
+   * Afișați **toate** fișierele din director;
+   * Afișați fișierele din director care **nu** sunt ascunse.
+   * Copiați directorul ``stiri`` împreună cu fișierele de sub acesta în directorul ``tv``;
+   * Mutați fișierele ``.Antena3`` și ``.Romania24`` în directorul ``/tmp``.
 
 
 Afișarea tipului de fișier
@@ -655,15 +580,7 @@ Pentru a afla tipul fișierului folosim comanda ``file``:
 
 Observăm că fișierul ``Picture.abc`` este un fișier de tipul *PNG* în ciuda extensiei, iar ``archive.tar`` este oa rhivă de tipul *tar*.
 
-Vom prezenta mai multe detalii în capitolul :ref:todo_referinta_capitol_edi.
-
-
-.. important::
-    Putem învăța mai multe detalii despre comenzile prezentate uitându-ne în manual ``man comandă``.
-    Exemplu: ``man rm``
-
-.. note::
-    Putem referi fișierele și directoarele atât cu căi relative, cât și cu absolute indiferent de utilitarul folosit.
+Vom prezenta mai multe detalii în capitolul *Îmbunătățirea lucrului în linia de comandă*.
 
 
 
@@ -694,9 +611,9 @@ Exerciții - ierarhii de fișiere și directoare
        │   └── Harry_Potter
        └── YouTubeTV
 
-   * Copiați întreaga ierarhie în calea ``/tmp``. Folosiți comanda ``cp``.
+   * Copiați întreaga ierarhie în calea ``/tmp``. Folosiți comanda ``cp``. (Hint: recursivitate).
    * Confirmați copierea prin afișarea directorului părinte.
-   * Ștergeți fișierul ``Favorite`` din Directorul Hulu. Confirmați ștergerea prin afișarea directorului părinte.
+   * Ștergeți fișierul ``Favorite`` din directorul ``Hulu``. Confirmați ștergerea prin afișarea directorului părinte.
    * Ștergeți directorul ``prime video``.
    * Confirmați ștergerea prin afișarea directorului părinte.
    * Ștergeți directorul ``HBO GO``.
@@ -734,7 +651,7 @@ Caracteristici:
 * Orice modificare în fisierul țintă, se vede și în fișierul legătură;
 * Este o legătură către numele fișierului și nu către conținut;
 * Dacă fișierul este mutat sau redenumit, legătura se pierde;
-* Putem crea legături simbolice către directoare.
+* Putem crea legături către directoare.
 
 Creăm o legătură simbolică către directorul ``/home/student/comenzi/mkdir/`` folosind comanda ``ln -s``:
 
@@ -782,10 +699,10 @@ Vedem în continuare ce se întâmplă dacă ștergem un fișier.
     drwxr-xr-x 2 student student 4096 Sep 29 18:20 Avengers
     drwxr-xr-x 2 student student 4096 Sep 29 17:44 GameOfThrones
 
-Observăm că dacă am șters un fișier accesându-l prin legătura simbolică, s-a șters și la destinație.
+Observăm că dacă am șters un fișier accesându-l prin legătura, s-a șters și la destinație.
 
 Exerciții - legături (linkuri)
-""""""""""""""""""""""""""""""
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 * Creați o legătură simbolică în directorul vostru ``home`` către directorul ``Netflix``.
 * Verificați crearea legăturii prin afișarea conținutului directorului părinte.
