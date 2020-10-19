@@ -46,6 +46,13 @@
     <div class="nav-item">
       <a href="../../index.html#uso-lab-book"
          class="nav-link ">
+         Acomodarea în Linux
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
          Lucrul cu fișiere
       </a>
     </div>
@@ -102,6 +109,13 @@
           <navlinks>
             
 
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Acomodarea în Linux
+      </a>
+    </div>
   
     <div class="nav-item">
       <a href="../../index.html#uso-lab-book"
@@ -163,6 +177,45 @@
     </div>
   </div>
 </div><div class="sidebar-links" role="navigation" aria-label="main navigation">
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#uso-lab-book">Acomodarea în Linux</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../basic/apps.html" class="reference internal ">Pornirea și oprirea aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../basic/browser.html" class="reference internal ">Folosirea eficientă a browserului web</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../basic/terminal.html" class="reference internal ">Lucrul în terminal</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../basic/workspace.html" class="reference internal ">Lucrul cu workspace-uri</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../basic/cheatsheet.html" class="reference internal ">Cheatsheet</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
   
     <div class="sidebar-group">
       <p class="caption">
@@ -352,9 +405,7 @@
                 
                   <li class="toctree-l2"><a href="#monitorizarea-proceselor" class="reference internal">Monitorizarea proceselor</a></li>
                 
-                  <li class="toctree-l2"><a href="#app-install-run-id" class="reference internal">Identificarea proceselor</a></li>
-                
-                  <li class="toctree-l2"><a href="#oprirea-si-suspendarea-proceselor-semnale" class="reference internal">Oprirea și suspendarea proceselor. Semnale</a></li>
+                  <li class="toctree-l2"><a href="#oprirea-proceselor-semnale" class="reference internal">Oprirea proceselor. Semnale</a></li>
                 
               </ul>
             
@@ -496,7 +547,7 @@ Fișierul executabil este un <strong>program</strong>.
 Spunem că procesul este un program aflat în execuție <a class="footnote-reference brackets" href="#load-time-run-time" id="id1">1</a>.</p>
 <div class="section" id="app-instal-run-exec">
 <span id="identificarea-fisierului-executabil-al-unei-aplicatii"></span><h2><span class="section-number">2.1. </span>Identificarea fișierului executabil al unei aplicații<a class="headerlink" href="#app-instal-run-exec" title="Permalink to this headline">¶</a></h2>
-<p>Fișier executabil al unei aplicații este încărcat în memoria sistemului și codul este executat; din acest moment spunem că aplicația <strong>rulează</strong>.</p>
+<p>Fișierul executabil al unei aplicații este încărcat în memoria sistemului și codul este executat; din acest moment spunem că aplicația <strong>rulează</strong>.</p>
 <p>De exemplu aplicația Firefox (browser web) are asociat fișierul executabil <code class="docutils literal notranslate"><span class="pre">/usr/bin/firefox</span></code>; aplicația Vim (editor) are asociat fișierul executabil <code class="docutils literal notranslate"><span class="pre">/usr/bin/vim</span></code>; aplicația LibreOffice (suită office) are asociat fișierul executabil <code class="docutils literal notranslate"><span class="pre">/usr/bin/libreoffice</span></code>.
 Putem identifica fișierul executabil al unei aplicații folosind comanda <code class="docutils literal notranslate"><span class="pre">which</span></code>, urmată de comanda pentru pornirea aplicației ca mai jos:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ which firefox
@@ -591,7 +642,7 @@ La o rulare simplă, așa cum am văzut mai sus sunt afișate patru coloane:</p>
 <p><code class="docutils literal notranslate"><span class="pre">PID</span></code> (<em>Process Id</em>) este atributul esențial al procesului, un index care identifică procesul la nivelul sistemului.
 Un proces este identificat după PID, nu după numele executabilului (<code class="docutils literal notranslate"><span class="pre">CMD</span></code>).
 Putem avea mai multe procese create din același executabil, fiecare proces având PID-ul său <a class="footnote-reference brackets" href="#process" id="id4">4</a>.</p>
-<p>Pentru a verifica existența mai multor procese, o să creăm mai multe procesele shell.
+<p>Pentru a verifica existența mai multor procese, o să creăm mai multe procese shell.
 Pentru început, deschidem mai multe sesiuni de terminal, folosind, de exemplu, <code class="docutils literal notranslate"><span class="pre">Alt+F2</span></code> în mediul grafic și introducând comanda <code class="docutils literal notranslate"><span class="pre">gnome-terminal</span></code> în promptul creat.
 Apoi vizualizăm doar procesele create din executabilul <code class="docutils literal notranslate"><span class="pre">bash</span></code> rulând comanda:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ ps -e <span class="p">|</span> grep bash
@@ -646,52 +697,6 @@ root        <span class="m">11</span>     <span class="m">2</span>  <span class=
 <p>Astfel de atribute sunt utile pentru a vedea care sunt procesele cele mai consumatoare de resurse (de exemplu procesor sau memorie).</p>
 </div>
 </div>
-<div class="section" id="selectarea-proceselor-dupa-anumite-atribute">
-<h3><span class="section-number">2.2.4. </span>Selectarea proceselor după anumite atribute<a class="headerlink" href="#selectarea-proceselor-dupa-anumite-atribute" title="Permalink to this headline">¶</a></h3>
-<p>Mai sus am prezentat un scenariu uzual de folosire a utilitarului <code class="docutils literal notranslate"><span class="pre">ps</span></code>: afișarea proceselor care consumă cele mai multe resurse ale sistemului.
-Un alt scenariu este să filtrăm procesele afișate după un atribut.
-De exemplu, procesele doar care aparțin utilizatorului <code class="docutils literal notranslate"><span class="pre">student</span></code>, ca în comanda de mai jos:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ ps -u student
-  PID TTY          TIME CMD
- <span class="m">1100</span> ?        <span class="m">00</span>:00:00 systemd
- <span class="m">1101</span> ?        <span class="m">00</span>:00:00 <span class="o">(</span>sd-pam<span class="o">)</span>
- <span class="m">1133</span> ?        <span class="m">00</span>:00:00 gnome-keyring-d
- <span class="m">1137</span> tty1     <span class="m">00</span>:00:00 gdm-x-session
- <span class="m">1139</span> tty1     <span class="m">00</span>:00:15 Xorg
- <span class="m">1146</span> ?        <span class="m">00</span>:00:00 dbus-daemon
- <span class="m">1150</span> tty1     <span class="m">00</span>:00:00 gnome-session-b
- <span class="m">1248</span> ?        <span class="m">00</span>:00:00 VBoxClient
- <span class="m">1249</span> ?        <span class="m">00</span>:00:00 VBoxClient
- <span class="o">[</span>...<span class="o">]</span>
-</pre></div>
-</div>
-<p>Sau doar procesele Bash (create din executabilul <code class="docutils literal notranslate"><span class="pre">bash</span></code>) ca mai jos:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ ps -C bash
-  PID TTY          TIME CMD
- <span class="m">3467</span> pts/0    <span class="m">00</span>:00:00 bash
- <span class="m">8386</span> pts/1    <span class="m">00</span>:00:00 bash
-</pre></div>
-</div>
-<p>Așa cum vedem mai sus, utilitarul <code class="docutils literal notranslate"><span class="pre">ps</span></code> are diferite opțiuni care permit selectarea proceselor afișate după anumite atribute.
-Opțiunea <code class="docutils literal notranslate"><span class="pre">-u</span></code> selectează procesele aparținând utilizatorului primit ca argument (în cazul comenzii de mai sus <code class="docutils literal notranslate"><span class="pre">student</span></code>).
-Opțiunea <code class="docutils literal notranslate"><span class="pre">-C</span></code> selectează procesele care au comanda primită ca parametru (în cazul comenzii de mai sus <code class="docutils literal notranslate"><span class="pre">bash</span></code>).</p>
-<div class="section" id="exercitii">
-<h4><span class="section-number">2.2.4.1. </span>Exerciții<a class="headerlink" href="#exercitii" title="Permalink to this headline">¶</a></h4>
-<ol class="arabic simple">
-<li><p>Folosiți utilitarul <code class="docutils literal notranslate"><span class="pre">ps</span></code> pentru a afișa <strong>doar</strong> procesele care aparțin utilizatorului <code class="docutils literal notranslate"><span class="pre">root</span></code>.</p></li>
-<li><p>Folosiți utilitarul <code class="docutils literal notranslate"><span class="pre">ps</span></code> pentru a afișa <strong>doar</strong> procesele Firefox.</p></li>
-<li><p>Folosiți utilitarul <code class="docutils literal notranslate"><span class="pre">ps</span></code> pentru a afișa <strong>doar</strong> procesele care au ca părinte procesul cu PID-ul <code class="docutils literal notranslate"><span class="pre">1</span></code>.</p></li>
-<li><p>Folosiți utilitarul <code class="docutils literal notranslate"><span class="pre">ps</span></code> pentru a afișa <strong>doar</strong> procesele care <strong>NU</strong> aparțin utilizatorului <code class="docutils literal notranslate"><span class="pre">student</span></code>.</p></li>
-</ol>
-</div>
-</div>
-<div class="section" id="sumar-investigarea-proceselor">
-<h3><span class="section-number">2.2.5. </span>Sumar: Investigarea proceselor<a class="headerlink" href="#sumar-investigarea-proceselor" title="Permalink to this headline">¶</a></h3>
-<p>Aplicații care rulează sunt procese.
-Procesele consumă resursele sistemului.
-Pentru a vizualiza și investiga procesele sistemului, folosim utilitarul <code class="docutils literal notranslate"><span class="pre">ps</span></code>.
-Utilitarul <code class="docutils literal notranslate"><span class="pre">ps</span></code> are opțiuni pentru afișarea selectivă a proceselor sistemului.</p>
-</div>
 </div>
 <div class="section" id="monitorizarea-proceselor">
 <span id="app-install-run-mon"></span><h2><span class="section-number">2.3. </span>Monitorizarea proceselor<a class="headerlink" href="#monitorizarea-proceselor" title="Permalink to this headline">¶</a></h2>
@@ -699,7 +704,7 @@ Utilitarul <code class="docutils literal notranslate"><span class="pre">ps</span
 De multe ori ne interesează și evoluția în timp a proceselor: schimbarea în consumul de resurse, apariția de noi procese.
 Adică să monitorizăm procesele.
 Monitorizarea proceselor înseamnă obținerea periodică de informații despre procese.</p>
-<p>Evident, un mod simplu de monitorizare este să folosim rulăm utilitarul <code class="docutils literal notranslate"><span class="pre">ps</span></code> periodic.
+<p>Evident, un mod simplu de monitorizare este să rulăm utilitarul <code class="docutils literal notranslate"><span class="pre">ps</span></code> periodic.
 Există, însă, utilitare dedicate pentru monitorizare.</p>
 <div class="section" id="monitorizarea-folosind-top">
 <h3><span class="section-number">2.3.1. </span>Monitorizarea folosind top<a class="headerlink" href="#monitorizarea-folosind-top" title="Permalink to this headline">¶</a></h3>
@@ -721,152 +726,8 @@ La fel ca în cazul <code class="docutils literal notranslate"><span class="pre"
 De exemplu, așa cum vedem și în imaginea de mai sus, cu ajutorul tastei <code class="docutils literal notranslate"><span class="pre">F6</span></code> putem alege un atribut după care să sortăm procesele.</p>
 </div>
 </div>
-<div class="section" id="app-install-run-id">
-<span id="identificarea-proceselor"></span><h2><span class="section-number">2.4. </span>Identificarea proceselor<a class="headerlink" href="#app-install-run-id" title="Permalink to this headline">¶</a></h2>
-<p>Pentru a lucra punctual cu un proces, trebuie să aflăm PID-ul acestuia.
-Un scenariu uzual este omorârea unui proces, acțiune pentru care vom avea nevoie de PID-ul acestuia, cum vom vedea în <a class="reference internal" href="#app-install-run-signal"><span class="std std-ref">Oprirea și suspendarea proceselor. Semnale</span></a>.</p>
-<div class="section" id="folosirea-ps-pentru-aflarea-pid-ului">
-<h3><span class="section-number">2.4.1. </span>Folosirea ps pentru aflarea PID-ului<a class="headerlink" href="#folosirea-ps-pentru-aflarea-pid-ului" title="Permalink to this headline">¶</a></h3>
-<p>Un prim mod de a afla PID-ului unui proces este prin folosi utilitarului <code class="docutils literal notranslate"><span class="pre">ps</span></code> care afișează procesele sistemului, incluzând PID-urile acestora.
-De exemplu, dacă dorim să aflăm PID-ul / PID-urile procesului <code class="docutils literal notranslate"><span class="pre">bash</span></code>, vom folosi comenzi precum cele de mai jos:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ ps -e <span class="p">|</span> grep bash
- <span class="m">3467</span> pts/0    <span class="m">00</span>:00:00 bash
- <span class="m">8386</span> pts/1    <span class="m">00</span>:00:00 bash
- <span class="m">9477</span> pts/2    <span class="m">00</span>:00:00 bash
- <span class="m">9487</span> pts/3    <span class="m">00</span>:00:00 bash
- <span class="m">9959</span> pts/4    <span class="m">00</span>:00:00 bash
-
-student@uso:~$ ps -C bash
-  PID TTY          TIME CMD
- <span class="m">3467</span> pts/0    <span class="m">00</span>:00:00 bash
- <span class="m">8386</span> pts/1    <span class="m">00</span>:00:00 bash
- <span class="m">9477</span> pts/2    <span class="m">00</span>:00:00 bash
- <span class="m">9487</span> pts/3    <span class="m">00</span>:00:00 bash
- <span class="m">9959</span> pts/4    <span class="m">00</span>:00:00 bash
-</pre></div>
-</div>
-<p>În rezultatul comenzilor de mai sus urmărim coloana <code class="docutils literal notranslate"><span class="pre">PID</span></code> care conține PID-urile proceselor.</p>
-</div>
-<div class="section" id="aflarea-pid-ului-unui-proces">
-<h3><span class="section-number">2.4.2. </span>Aflarea PID-ului unui proces<a class="headerlink" href="#aflarea-pid-ului-unui-proces" title="Permalink to this headline">¶</a></h3>
-<p>O variantă mai simplă și mai directă pentru aflarea PID-ului este folosirea utilitarului <code class="docutils literal notranslate"><span class="pre">pidof</span></code> ca mai jos:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ pidof bash
-<span class="m">8386</span> <span class="m">3467</span>
-
-student@uso:~$ pidof firefox
-<span class="m">8994</span> <span class="m">8981</span> <span class="m">8928</span> <span class="m">8904</span> <span class="m">8830</span>
-
-student@uso:~$ pidof perl
-<span class="m">4780</span>
-</pre></div>
-</div>
-<p>Utilitarul <code class="docutils literal notranslate"><span class="pre">pidof</span></code> primește ca argument numele unui program și afișează PID-urile tuturor procesele pornite din acel program.
-<code class="docutils literal notranslate"><span class="pre">pidof</span></code> este util atunci când avem un singur proces pornit dintr-un program și dorim să-l identificăm.
-Dacă avem mai multe procese, rezultând în mai multe PID-uri, atunci va trebui sa detaliem procesele și să folosim utilitarul <code class="docutils literal notranslate"><span class="pre">ps</span></code>, lucru pe care am fi putut să-l facem de la început.</p>
-<p>Un utilitar mai puternic de identificare a proceselor este utilitarul <code class="docutils literal notranslate"><span class="pre">pgrep</span></code> <a class="footnote-reference brackets" href="#pidof-pgrep" id="id7">7</a>.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ pgrep bash
-<span class="m">3467</span>
-<span class="m">8386</span>
-</pre></div>
-</div>
-<p>În forma simplă de mai sus, similară <code class="docutils literal notranslate"><span class="pre">pidof</span></code>, utilitarul <code class="docutils literal notranslate"><span class="pre">pgrep</span></code> afișează PID-urile proceselor create din programul primit ca argumente.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ pgrep -u student
-<span class="m">1100</span>
-<span class="m">1101</span>
-<span class="m">1133</span>
-<span class="o">[</span>...<span class="o">]</span>
-</pre></div>
-</div>
-<p><code class="docutils literal notranslate"><span class="pre">pgrep</span></code> poate afișa PID-urile proceselor aparținând unui utilizator, <code class="docutils literal notranslate"><span class="pre">student</span></code> în cazul de mai sus.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ pgrep -P <span class="m">1</span>
-<span class="m">212</span>
-<span class="m">272</span>
-<span class="m">295</span>
-<span class="o">[</span>...<span class="o">]</span>
-</pre></div>
-</div>
-<p>Cu opțiunea <code class="docutils literal notranslate"><span class="pre">-P</span></code>, <code class="docutils literal notranslate"><span class="pre">pidof</span></code> poate afișa PID-urile proceselor care au ca părinte procesul cu un PID-ul anume (<code class="docutils literal notranslate"><span class="pre">1</span></code> în cazul de mai sus).</p>
-</div>
-<div class="section" id="afisarea-pid-ului-unui-proces-tinand-cont-de-comanda-completa">
-<h3><span class="section-number">2.4.3. </span>Afișarea PID-ului unui proces ținând cont de comanda completă<a class="headerlink" href="#afisarea-pid-ului-unui-proces-tinand-cont-de-comanda-completa" title="Permalink to this headline">¶</a></h3>
-<p>O opțiune utilă a comenzii <code class="docutils literal notranslate"><span class="pre">pgrep</span></code> este <code class="docutils literal notranslate"><span class="pre">-f</span></code> care permite afișarea PID-urilor proceselor după comanda completă, nu doar după numele executabilului, ca în scenariul următor.</p>
-<p>Pornim o aplicație Shutter și vedem cu ajutorul utilitarului <code class="docutils literal notranslate"><span class="pre">ps</span></code> că există un proces <code class="docutils literal notranslate"><span class="pre">shutter</span></code>:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ ps -f -C shutter
-UID        PID  PPID  C STIME TTY          TIME CMD
-student   <span class="m">4780</span>  <span class="m">1309</span>  <span class="m">0</span> <span class="m">12</span>:53 tty1     <span class="m">00</span>:00:02 /usr/bin/perl /usr/bin/shutter
-</pre></div>
-</div>
-<p>Procesul există și are PID-ul <code class="docutils literal notranslate"><span class="pre">4780</span></code>.</p>
-<p>Folosim <code class="docutils literal notranslate"><span class="pre">pgrep</span></code> pentru a identifica procesul:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ pgrep shutter
-<span class="m">4780</span>
-</pre></div>
-</div>
-<p>Comanda de mai sus funcționează, este afișat PID-ul <code class="docutils literal notranslate"><span class="pre">4780</span></code>.
-Din outputul comenzii <code class="docutils literal notranslate"><span class="pre">ps</span></code> de mai sus, știm că este folosit utilitarul <code class="docutils literal notranslate"><span class="pre">perl</span></code> pentru a porni aplicația Shutter.
-Așa că vrem să identificăm procesul <code class="docutils literal notranslate"><span class="pre">perl</span></code> folosind <code class="docutils literal notranslate"><span class="pre">pgrep</span></code>:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ pgrep perl
-student@uso:~$
-</pre></div>
-</div>
-<p>Nu se afișează, însă, nici un rezultat.
-Utilitarul <code class="docutils literal notranslate"><span class="pre">pgrep</span></code> folosește doar numele programului, nu comanda completă.
-Dacă vrem, să utilizăm comanda completă, folosim opțiunea <code class="docutils literal notranslate"><span class="pre">-f</span></code>:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ pgrep -f perl
-<span class="m">4780</span>
-</pre></div>
-</div>
-<p>În această formă, <code class="docutils literal notranslate"><span class="pre">pgrep</span></code> afișează rezultatul așteptat, <code class="docutils literal notranslate"><span class="pre">4780</span></code>, PID-ul procesului Shutter.</p>
-<p><strong>Exercițiu</strong>: Afișați PID-urile proceselor din sistem pornite cu ajutorul Python.
-Adică să cautați după șirul <code class="docutils literal notranslate"><span class="pre">python</span></code> în toate procesele sistemului.</p>
-</div>
-<div class="section" id="exercitii-identificarea-proceselor">
-<h3><span class="section-number">2.4.4. </span>Exerciții: Identificarea proceselor<a class="headerlink" href="#exercitii-identificarea-proceselor" title="Permalink to this headline">¶</a></h3>
-<div class="section" id="identificarea-unui-proces-dupa-comanda">
-<h4><span class="section-number">2.4.4.1. </span>Identificarea unui proces după comandă<a class="headerlink" href="#identificarea-unui-proces-dupa-comanda" title="Permalink to this headline">¶</a></h4>
-<p>Într-o fereastră de terminal rulați comanda:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ sleep <span class="m">60</span>
-</pre></div>
-</div>
-<p>Comanda va porni un proces <code class="docutils literal notranslate"><span class="pre">sleep</span></code> care se va încheia după <code class="docutils literal notranslate"><span class="pre">60</span></code> de secunde.
-Afișați, din alt terminal, PID-ul procesului.</p>
-<p>Apoi, porniți, pe două terminale, două procese <code class="docutils literal notranslate"><span class="pre">sleep</span></code> folosind comanda de mai sus.
-Afișați din nou, din alt terminal (al treilea), PID-urile celor două procese.</p>
-</div>
-<div class="section" id="identificarea-proceselor-curente">
-<h4><span class="section-number">2.4.4.2. </span>Identificarea proceselor curente<a class="headerlink" href="#identificarea-proceselor-curente" title="Permalink to this headline">¶</a></h4>
-<p>Aflați PID-ul/PID-urile pentru:</p>
-<ol class="arabic simple">
-<li><p>procesul/procesele <code class="docutils literal notranslate"><span class="pre">sshd</span></code></p></li>
-<li><p>procesele utilizatorului <code class="docutils literal notranslate"><span class="pre">student</span></code></p></li>
-<li><p>procesele care au ca părinte procesul cu PID-ul <code class="docutils literal notranslate"><span class="pre">1</span></code></p></li>
-<li><p>procesul/procesele <code class="docutils literal notranslate"><span class="pre">dhclient</span></code></p></li>
-</ol>
-</div>
-<div class="section" id="pornirea-si-identificarea-proceselor">
-<h4><span class="section-number">2.4.4.3. </span>Pornirea și identificarea proceselor<a class="headerlink" href="#pornirea-si-identificarea-proceselor" title="Permalink to this headline">¶</a></h4>
-<p>Porniți o aplicație <code class="docutils literal notranslate"><span class="pre">shutter</span></code>.
-Aflați PID-ul procesului nou creat.</p>
-<p>Porniți o aplicație <code class="docutils literal notranslate"><span class="pre">libreoffice</span></code>.
-Aflați PID-ul procesului nou creat (pot fi mai multe).</p>
-<p>Porniți o aplicație <code class="docutils literal notranslate"><span class="pre">firefox</span></code>.
-Aflați PID-ul procesului nou creat (pot fi mai multe).</p>
-<p>Porniți o aplicație <code class="docutils literal notranslate"><span class="pre">transmission-gtk</span></code>.
-Aflați PID-ul procesului nou creat (pot fi mai multe).</p>
-</div>
-</div>
-<div class="section" id="sumar-identificarea-proceselor">
-<h3><span class="section-number">2.4.5. </span>Sumar: Identificarea proceselor<a class="headerlink" href="#sumar-identificarea-proceselor" title="Permalink to this headline">¶</a></h3>
-<p>Un proces este identificat de PID (<em>Process Identifier</em>).
-Putem folosi <code class="docutils literal notranslate"><span class="pre">ps</span></code> pentru a obține PID-ul unui proces sau a unor procese.
-Dacă ne interesează doar PID-ul, folosim utilitarele <code class="docutils literal notranslate"><span class="pre">pidof</span></code> sau <code class="docutils literal notranslate"><span class="pre">pgrep</span></code>.
-Utilitarul <code class="docutils literal notranslate"><span class="pre">pgrep</span></code> permite identificarea proceselor după atributele sale, precum după utilizatorul care le deține, procesul părinte sau un subșir din comanda completă.
-În general, vom folosi utilitarul <code class="docutils literal notranslate"><span class="pre">ps</span></code> pentru a obține PID-ul proceselor.
-Utilitarele <code class="docutils literal notranslate"><span class="pre">pidof</span></code> și <code class="docutils literal notranslate"><span class="pre">pgrep</span></code> sunt utile în scripturi sau combinații de comenzi care necesită doar PID-ul unui proces.</p>
-</div>
-</div>
-<div class="section" id="oprirea-si-suspendarea-proceselor-semnale">
-<span id="app-install-run-signal"></span><h2><span class="section-number">2.5. </span>Oprirea și suspendarea proceselor. Semnale<a class="headerlink" href="#oprirea-si-suspendarea-proceselor-semnale" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="oprirea-proceselor-semnale">
+<span id="app-install-run-signal"></span><h2><span class="section-number">2.4. </span>Oprirea proceselor. Semnale<a class="headerlink" href="#oprirea-proceselor-semnale" title="Permalink to this headline">¶</a></h2>
 <p>Odată pornit, un proces rulează și consumă resursele sistemului.
 După ce execută codul din executabilul corespunzător, procesul își încheie execuția și eliberează resursele consumate.
 Dar anumite programe (de exemplu serverele) nu au un punct de oprire, ci rulează într-o buclă, teoretic la infinit.
@@ -875,12 +736,12 @@ La fel, anumite programe (de exemplu un browser web) sunt interactive și își 
 <ol class="arabic simple">
 <li><p>Procesul ajunge la sfârșitul codului programului și își încheie execuția.</p></li>
 <li><p>Un comportament neașteptat sau o eroare în funcționarea programului cauzează încheierea execuției acestuia (<em>crash</em>).</p></li>
-<li><p>Utilizatorul execută o acțiune interactivă care trimite comanda de încheierea execuției procesului: de exemplu folosirea tastei <code class="docutils literal notranslate"><span class="pre">q</span></code> pentru a încheia un proces <code class="docutils literal notranslate"><span class="pre">top</span></code> sau folosirea butonului <code class="docutils literal notranslate"><span class="pre">x</span></code> dintr-o aplicație grafică pentru a încheia execuția acesteia.</p></li>
+<li><p>Utilizatorul execută o acțiune interactivă care trimite comanda de încheiere a execuției procesului: de exemplu folosirea tastei <code class="docutils literal notranslate"><span class="pre">q</span></code> pentru a încheia un proces <code class="docutils literal notranslate"><span class="pre">top</span></code> sau folosirea butonului <code class="docutils literal notranslate"><span class="pre">x</span></code> dintr-o aplicație grafică pentru a încheia execuția acesteia.</p></li>
 <li><p>Utilizatorul sau sistemul de operare decide că un proces nu rulează corespunzător și decide terminarea acestuia.</p></li>
 </ol>
 <p>Ultimul punct din pasul de mai sus, numit și terminarea unui proces (sau, informal, omorârea unui proces) este realizat, în Linux, prin folosirea <strong>semnalelor</strong>.</p>
 <div class="section" id="folosirea-semnalelor-pentru-omorarea-proceselor">
-<h3><span class="section-number">2.5.1. </span>Folosirea semnalelor pentru omorârea proceselor<a class="headerlink" href="#folosirea-semnalelor-pentru-omorarea-proceselor" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">2.4.1. </span>Folosirea semnalelor pentru omorârea proceselor<a class="headerlink" href="#folosirea-semnalelor-pentru-omorarea-proceselor" title="Permalink to this headline">¶</a></h3>
 <p>Ca să terminăm forțat (omorâm) un proces folosim semnale.
 Un semnal este o notificare trimisă de utilizator sau de sistemul de operare către un proces.
 Nu este obligatoriu ca un semnal să omoare procesul care îl primește, dar este cel mai des întâlnit comportament, și principala utilizare a semnalelor.</p>
@@ -911,7 +772,7 @@ Terminated
 </pre></div>
 </div>
 <div class="section" id="folosirea-semnalului-sigkill">
-<h4><span class="section-number">2.5.1.1. </span>Folosirea semnalului SIGKILL<a class="headerlink" href="#folosirea-semnalului-sigkill" title="Permalink to this headline">¶</a></h4>
+<h4><span class="section-number">2.4.1.1. </span>Folosirea semnalului SIGKILL<a class="headerlink" href="#folosirea-semnalului-sigkill" title="Permalink to this headline">¶</a></h4>
 <p>În anumite situații, folosirea utilitarului <code class="docutils literal notranslate"><span class="pre">kill</span></code> nu duce la omorârea procesului țintă.
 În această situație, vom transmite procesului țintă semnalul <code class="docutils literal notranslate"><span class="pre">SIGKILL</span></code> care este garantat că va omorî procesul.
 Adică, amuzant spus, <code class="docutils literal notranslate"><span class="pre">SIGKILL</span></code> este o bombă nucleară, un glonț care trece prin vesta anti-glonț, cianură de potasiu.
@@ -932,87 +793,26 @@ Killed
 <p>Mesajul <code class="docutils literal notranslate"><span class="pre">Killed</span></code> este afișat atunci când un proces primește semnalul <code class="docutils literal notranslate"><span class="pre">SIGKILL</span></code>.</p>
 </div>
 </div>
-<div class="section" id="omorarea-proceselor-dupa-atribute">
-<h3><span class="section-number">2.5.2. </span>Omorârea proceselor după atribute<a class="headerlink" href="#omorarea-proceselor-dupa-atribute" title="Permalink to this headline">¶</a></h3>
-<p>Uneori apare situația de a omorî procesele după anumite atribute, de exemplu procesele obținute din programul <code class="docutils literal notranslate"><span class="pre">sleep</span></code> sau procesele unui utilizator.
-În această situație folosim utilitarul <code class="docutils literal notranslate"><span class="pre">pkill</span></code> ca mai jos <a class="footnote-reference brackets" href="#pkill" id="id8">8</a>:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ pkill sleep
-student@uso:~$ pkill -f perl
-student@uso:~$ pkill -u maverick
-student@uso:~$ pkill -KILL sleep
-</pre></div>
-</div>
-<p>Comenzile de mai sus au efectele</p>
-<ul class="simple">
-<li><p>omorârea proceselor <code class="docutils literal notranslate"><span class="pre">sleep</span></code> (prima comandă)</p></li>
-<li><p>omorârea proceselor pentru care comanda completă conține <code class="docutils literal notranslate"><span class="pre">perl</span></code> (a doua comandă)</p></li>
-<li><p>omorârea proceselor deținute de utilizatorul <code class="docutils literal notranslate"><span class="pre">maverick</span></code> (a treia comandă)</p></li>
-<li><p>omorârea garantată a proceselor <code class="docutils literal notranslate"><span class="pre">sleep</span></code> prin transmiterea semnalului <code class="docutils literal notranslate"><span class="pre">SIGKILL</span></code> (a patra comandă)</p></li>
-</ul>
-</div>
-<div class="section" id="suspendarea-proceselor">
-<h3><span class="section-number">2.5.3. </span>Suspendarea proceselor<a class="headerlink" href="#suspendarea-proceselor" title="Permalink to this headline">¶</a></h3>
-<p>Ca alternativă la omorârea unui proces, acesta poate fi suspendat.
-Suspendarea unui proces presupune plasarea acestuia într-o stare în care nu execută instrucțiuni și, deci, nu consumă procesor.
-Procesul există în continuare în memorie.</p>
-<p>În general, acțiunea de suspendare a unui proces este utilă pentru a permite accesul la promptul unui shell.
-De exemplu, dacă pornim o comandă <code class="docutils literal notranslate"><span class="pre">sleep</span> <span class="pre">100</span></code> și dorim accesul la promptul shellului, folosim combinația de taste <code class="docutils literal notranslate"><span class="pre">Ctrl+z</span></code> pentru a suspenda execuția procesului, ca mai jos:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ sleep <span class="m">100</span>
-^Z
-<span class="o">[</span><span class="m">1</span><span class="o">]</span>+  Stopped                 sleep <span class="m">100</span>
-</pre></div>
-</div>
-<p>În comanda de mai sus, am folosit combinația de taste <code class="docutils literal notranslate"><span class="pre">Ctrl+z</span></code> (apare <code class="docutils literal notranslate"><span class="pre">^Z</span></code> în terminal), în urma căreia procesul <code class="docutils literal notranslate"><span class="pre">sleep</span></code> este suspendat.
-Spunem că procesul <code class="docutils literal notranslate"><span class="pre">sleep</span></code> este suspendat în <strong>background</strong>.</p>
-<p>Acum terminalul este disponibil, putem rula alte comenzi.
-Putem, de exemplu, rula comanda <code class="docutils literal notranslate"><span class="pre">jobs</span></code> care afișează procesele aflate în background, printre care și procesul suspendat <code class="docutils literal notranslate"><span class="pre">sleep</span></code>:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ <span class="nb">jobs</span>
-<span class="o">[</span><span class="m">1</span><span class="o">]</span>+  Stopped                 sleep <span class="m">100</span>
-</pre></div>
-</div>
-<p>Un proces suspendat poate fi restaurat (<em>resume</em>) în <strong>foreground</strong> pentru a-și continua rularea <a class="footnote-reference brackets" href="#suspend-resume" id="id9">9</a>.
-Acest lucru îl facem cu ajutorul comenzii <code class="docutils literal notranslate"><span class="pre">fg</span></code>, continuând comenzile de mai sus:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ <span class="nb">jobs</span>
-<span class="o">[</span><span class="m">1</span><span class="o">]</span>+  Stopped                 sleep <span class="m">100</span>
-
-student@uso:~$ <span class="nb">fg</span>
-sleep <span class="m">100</span>
-</pre></div>
-</div>
-<p>Mai sus, comanda <code class="docutils literal notranslate"><span class="pre">fg</span></code> a restaurat procesul <code class="docutils literal notranslate"><span class="pre">sleep</span></code> care a preluat din nou controlul terminalului.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Un proces poate să fie în background și să ruleze, așa cum am văzut în secțiunea <a class="reference internal" href="start.html#app-install-start-stop-gui"><span class="std std-ref">Pornirea și oprirea aplicațiilor grafice</span></a>.
-Transferul din starea suspendat în rulare în background îl facem cu ajutorul comenzii <code class="docutils literal notranslate"><span class="pre">bg</span></code>.</p>
-</div>
-</div>
-<div class="section" id="exercitii-oprirea-si-susppendarea-proceselor">
-<h3><span class="section-number">2.5.4. </span>Exerciții: Oprirea și susppendarea proceselor<a class="headerlink" href="#exercitii-oprirea-si-susppendarea-proceselor" title="Permalink to this headline">¶</a></h3>
-<p>Porniți în trei terminale diferite trei procese <code class="docutils literal notranslate"><span class="pre">sleep</span></code>.
-Omorâți-le pe toate cu o singură comandă.</p>
-<p>Porniți un proces <code class="docutils literal notranslate"><span class="pre">vim</span></code>.
-Suspendați-l.
-Restaurați-l.
-Din alt terminal opriți procesul folosind comanda <code class="docutils literal notranslate"><span class="pre">kill</span></code>.</p>
-<div class="section" id="exercitiu-omorarea-shellului-curent">
-<h4><span class="section-number">2.5.4.1. </span>Exercițiu: Omorârea shellului curent<a class="headerlink" href="#exercitiu-omorarea-shellului-curent" title="Permalink to this headline">¶</a></h4>
-<p>PID-ul shellului curent poate fi aflat folosind comanda</p>
+<div class="section" id="exercitii-oprirea-proceselor">
+<h3><span class="section-number">2.4.2. </span>Exerciții: Oprirea proceselor<a class="headerlink" href="#exercitii-oprirea-proceselor" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic">
+<li><p>Porniți în trei terminale diferite trei procese <code class="docutils literal notranslate"><span class="pre">sleep</span></code>.
+Omorâți-le pe toate cu o singură comandă.</p></li>
+<li><p>PID-ul shellului curent poate fi aflat folosind comanda</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ <span class="nb">echo</span> <span class="nv">$$</span>
 <span class="m">9477</span>
 </pre></div>
 </div>
 <p>Omorâți shellul curent.</p>
-</div>
-<div class="section" id="exercitiu-omorarea-aplicatiilor-grafice">
-<h4><span class="section-number">2.5.4.2. </span>Exercițiu: Omorârea aplicațiilor grafice<a class="headerlink" href="#exercitiu-omorarea-aplicatiilor-grafice" title="Permalink to this headline">¶</a></h4>
-<p>Porniți o aplicație <code class="docutils literal notranslate"><span class="pre">shutter</span></code>.
+</li>
+<li><p>Porniți o aplicație <code class="docutils literal notranslate"><span class="pre">shutter</span></code>.
 Porniți o aplicație <code class="docutils literal notranslate"><span class="pre">libreoffice</span></code>.
 Porniți o aplicație <code class="docutils literal notranslate"><span class="pre">firefox</span></code>.
 Porniți o aplicație <code class="docutils literal notranslate"><span class="pre">transmission-gtk</span></code>.
-Omorâți aceste procese folosind utilitarul <code class="docutils literal notranslate"><span class="pre">kill</span></code>.</p>
-</div>
+Omorâți aceste procese folosind utilitarul <code class="docutils literal notranslate"><span class="pre">kill</span></code>.</p></li>
+</ol>
 <div class="section" id="exercitiu-proces-abuziv">
-<h4><span class="section-number">2.5.4.3. </span>Exercițiu: Proces abuziv<a class="headerlink" href="#exercitiu-proces-abuziv" title="Permalink to this headline">¶</a></h4>
+<h4><span class="section-number">2.4.2.1. </span>Exercițiu: Proces abuziv<a class="headerlink" href="#exercitiu-proces-abuziv" title="Permalink to this headline">¶</a></h4>
 <p>Folosiți scriptul <code class="docutils literal notranslate"><span class="pre">cpu_hog</span></code> din directorul de suport, pentru a porni un proces care consumă mult procesor. Îl porniți folosind o comandă de forma:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ ./cpu_hog
 </pre></div>
@@ -1021,16 +821,6 @@ Omorâți aceste procese folosind utilitarul <code class="docutils literal notra
 <p>Observați, cu ajutorul comenzii <code class="docutils literal notranslate"><span class="pre">top</span></code>, că procesorul este încărcat.
 Identificați procesul cel mai consumator de resurse și omorâți-l.
 Observați, cu ajutorul comenzii <code class="docutils literal notranslate"><span class="pre">top</span></code>, că acum procesorul nu mai este încărcat.</p>
-</div>
-</div>
-<div class="section" id="sumar-oprirea-si-suspendarea-proceselor">
-<h3><span class="section-number">2.5.5. </span>Sumar: Oprirea și suspendarea proceselor<a class="headerlink" href="#sumar-oprirea-si-suspendarea-proceselor" title="Permalink to this headline">¶</a></h3>
-<p>Dacă un proces nu se oprește de la sine sau prin interacțiune cu utilizatorul, o soluție este terminarea / omorârea sa.
-Omorârea unui proces se face, uzual, prin transmiterea unui semnal procesului.
-Utilitarul <code class="docutils literal notranslate"><span class="pre">kill</span></code> trimite un semnal unui proces, primit ca parametru PID-ul procesului.
-Utilitarul <code class="docutils literal notranslate"><span class="pre">pkill</span></code> permite omorârea proceselor după anumite atribute, similar utilitarului <code class="docutils literal notranslate"><span class="pre">pgrep</span></code> pentru afișarea PID-urilor proceselor.
-Procesele pot fi suspendate (în <strong>background</strong>), folosind combinația de taste <code class="docutils literal notranslate"><span class="pre">Ctrl+z</span></code> și restaurate (<em>resume</em>) (în <strong>foreground</strong>) folosind comanda <code class="docutils literal notranslate"><span class="pre">fg</span></code>.
-Putem vedea procesele aflate în <strong>background</strong> folosind comanda <code class="docutils literal notranslate"><span class="pre">jobs</span></code>.</p>
 <p class="rubric">Note de subsol</p>
 <dl class="footnote brackets">
 <dt class="label" id="load-time-run-time"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
@@ -1062,20 +852,8 @@ De aceea, utilitarele de monitorizare a sistemului (și a proceselor) sunt diver
 <li><p><code class="docutils literal notranslate"><span class="pre">sysstat</span></code>: o suită de utilitare pentru monitorizarea sistemului (procese, memorie, I/O, rețea)</p></li>
 </ul>
 </dd>
-<dt class="label" id="pidof-pgrep"><span class="brackets"><a class="fn-backref" href="#id7">7</a></span></dt>
-<dd><p>Utilitarele <code class="docutils literal notranslate"><span class="pre">pgrep</span></code> și <code class="docutils literal notranslate"><span class="pre">pidof</span></code> afișează doar PID-urile proceselor fără alte informații.
-Acest lucru le face utile în practică în scripturi care conțin comenzi care au nevoie doar de PID-urile proceselor.</p>
-</dd>
-<dt class="label" id="pkill"><span class="brackets"><a class="fn-backref" href="#id8">8</a></span></dt>
-<dd><p>Utilitarul <code class="docutils literal notranslate"><span class="pre">pkill</span></code> are aceleași opțiuni ca utilitarul <code class="docutils literal notranslate"><span class="pre">pgrep</span></code>.
-Diferența este că, în timp ce utilitarul <code class="docutils literal notranslate"><span class="pre">pgrep</span></code> este folosit la identificarea proceselor, utilitarul <code class="docutils literal notranslate"><span class="pre">pkill</span></code> este folosit la transmiterea de semnale către acestea, care, uzual, înseamnă omorârea acestora.</p>
-</dd>
-<dt class="label" id="suspend-resume"><span class="brackets"><a class="fn-backref" href="#id9">9</a></span></dt>
-<dd><p>Supendarea și restaurarea proceselor sunt realizate folosind tot semnale.
-Astfel, combinația de taste <code class="docutils literal notranslate"><span class="pre">Ctrl+z</span></code> transmite un semnal, numit <code class="docutils literal notranslate"><span class="pre">SIGSTOP</span></code> procesului.
-La fel, comanda <code class="docutils literal notranslate"><span class="pre">fg</span></code> transmite un semnal numit <code class="docutils literal notranslate"><span class="pre">SIGCONT</span></code>.</p>
-</dd>
 </dl>
+</div>
 </div>
 </div>
 </div>

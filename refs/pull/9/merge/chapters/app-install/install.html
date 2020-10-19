@@ -46,6 +46,13 @@
     <div class="nav-item">
       <a href="../../index.html#uso-lab-book"
          class="nav-link ">
+         Acomodarea în Linux
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
          Lucrul cu fișiere
       </a>
     </div>
@@ -102,6 +109,13 @@
           <navlinks>
             
 
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Acomodarea în Linux
+      </a>
+    </div>
   
     <div class="nav-item">
       <a href="../../index.html#uso-lab-book"
@@ -163,6 +177,45 @@
     </div>
   </div>
 </div><div class="sidebar-links" role="navigation" aria-label="main navigation">
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#uso-lab-book">Acomodarea în Linux</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../basic/apps.html" class="reference internal ">Pornirea și oprirea aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../basic/browser.html" class="reference internal ">Folosirea eficientă a browserului web</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../basic/terminal.html" class="reference internal ">Lucrul în terminal</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../basic/workspace.html" class="reference internal ">Lucrul cu workspace-uri</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../basic/cheatsheet.html" class="reference internal ">Cheatsheet</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
   
     <div class="sidebar-group">
       <p class="caption">
@@ -489,7 +542,7 @@
             
   <div class="section" id="instalarea-si-dezinstalarea-aplicatiilor">
 <span id="app-install-install-uninstall"></span><h1><span class="section-number">6. </span>Instalarea și dezinstalarea aplicațiilor<a class="headerlink" href="#instalarea-si-dezinstalarea-aplicatiilor" title="Permalink to this headline">¶</a></h1>
-<p>Instalarea unui sistem de operare duce la instalarea și unui set de bază de aplicații pe acel sistem.
+<p>Instalarea unui sistem de operare duce la instalarea unui set de bază de aplicații pe acel sistem.
 Acest set este minimal; dacă dorim funcționalități peste acest set, instalăm noi aplicații.
 Instalarea unei aplicații duce la adăugarea în sistem a unui fișier executabil (sau mai multe) pentru rularea aplicației și eventuale fișiere de configurare, de documentare și de stocare a datelor aplicației.
 Instalarea unei aplicații presupune obținerea unui fișier specializat numit <strong>pachet software</strong> și apoi despachetarea acestuia în fișierele specifice aplicației.
@@ -555,119 +608,10 @@ Din acest motiv cele două comenzi de mai sus sunt prefixate de comanda <code cl
 <p>În acest moment, aplicația Inkscape este instalată și poate fi pornită.</p>
 <p><strong>Exercițiu</strong>: Porniți aplicația Inkscape în toate modurile descrise în secțiunea <a class="reference internal" href="start.html#app-install-start-stop-gui"><span class="std std-ref">Pornirea și oprirea aplicațiilor grafice</span></a>.</p>
 </div>
-<div class="section" id="anatomia-instalarii-unei-aplicatii">
-<h3><span class="section-number">6.2.3. </span>Anatomia instalării unei aplicații<a class="headerlink" href="#anatomia-instalarii-unei-aplicatii" title="Permalink to this headline">¶</a></h3>
-<p>Rularea comenzii <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">apt</span> <span class="pre">install</span> <span class="pre">inkscape</span></code> de mai sus poate conduce la două rezultate:</p>
-<ol class="arabic">
-<li><p>Pachetul era deja instalat în sistem, și nu există o versiune mai nouă.
-În acest caz nu se întâmplă nimic nou în sistem, aplicația fiind deja prezentă, lucru confirmat de rezultatul rulării comenzii:</p>
-<div class="highlight-bash notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4
-5
-6</pre></div></td><td class="code"><div class="highlight"><pre><span></span> student@uso:~$ sudo apt install inkscape
- Reading package lists... Done
- Building dependency tree
- Reading state information... Done
- inkscape is already the newest version <span class="o">(</span><span class="m">0</span>.92.3-1<span class="o">)</span>.
- <span class="m">0</span> upgraded, <span class="m">0</span> newly installed, <span class="m">0</span> to remove and <span class="m">314</span> not upgraded.
-</pre></div>
-</td></tr></table></div>
-<p>Linia <code class="docutils literal notranslate"><span class="pre">5</span></code> de mai sus precizează că pachetul <code class="docutils literal notranslate"><span class="pre">inkscape</span></code> se află la cea mai recentă versiune și nu trebuie (re)instalat.</p>
-</li>
-<li><p>Pachetul nu este instalat <strong>sau</strong> există o versiune mai nouă a pachetului.
-În acest caz, pachetul va fi instalat:</p>
-<div class="highlight-bash notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33</pre></div></td><td class="code"><div class="highlight"><pre><span></span> student@uso:~$ sudo apt install inkscape
- Reading package lists... Done
- Building dependency tree
- Reading state information... Done
- The following additional packages will be installed:
-   libgfortran4 libgsl23 libgslcblas0 libgtkmm-2.4-1v5 libgtkspell0 liblapack3 libmagick++-6.q16-7 libpotrace0 python-bs4 python-chardet python-html5lib python-lxml python-numpy
-   python-pkg-resources python-scour python-six python-webencodings python3-scour scour
- Suggested packages:
-   dia libsvg-perl libxml-xql-perl pstoedit python-uniconvertor gsl-ref-psdoc <span class="p">|</span> gsl-doc-pdf <span class="p">|</span> gsl-doc-info <span class="p">|</span> gsl-ref-html python-genshi python-lxml-dbg python-lxml-doc gfortran
-   python-dev python-nose python-numpy-dbg python-numpy-doc python-setuptools
- The following NEW packages will be installed:
-   inkscape libgfortran4 libgsl23 libgslcblas0 libgtkmm-2.4-1v5 libgtkspell0 liblapack3 libmagick++-6.q16-7 libpotrace0 python-bs4 python-chardet python-html5lib python-lxml
-   python-numpy python-pkg-resources python-scour python-six python-webencodings python3-scour scour
- <span class="m">0</span> upgraded, <span class="m">20</span> newly installed, <span class="m">0</span> to remove and <span class="m">314</span> not upgraded.
- Need to get <span class="m">1</span>,966 kB/24.5 MB of archives.
- After this operation, <span class="m">163</span> MB of additional disk space will be used.
- Do you want to <span class="k">continue</span>? <span class="o">[</span>Y/n<span class="o">]</span> Y
- Get:1 http://ro.archive.ubuntu.com/ubuntu bionic-updates/main amd64 libmagick++-6.q16-7 amd64 <span class="m">8</span>:6.9.7.4+dfsg-16ubuntu6.8 <span class="o">[</span><span class="m">139</span> kB<span class="o">]</span>
- <span class="o">[</span>...<span class="o">]</span>
- Fetched <span class="m">1</span>,966 kB in 1s <span class="o">(</span><span class="m">2</span>,048 kB/s<span class="o">)</span>
- <span class="o">[</span>...<span class="o">]</span>
- Selecting previously unselected package libmagick++-6.q16-7:amd64.
- Preparing to unpack .../04-libmagick++-6.q16-7_8%3a6.9.7.4+dfsg-16ubuntu6.8_amd64.deb ...
- Unpacking libmagick++-6.q16-7:amd64 <span class="o">(</span><span class="m">8</span>:6.9.7.4+dfsg-16ubuntu6.8<span class="o">)</span> ...
- <span class="o">[</span>...<span class="o">]</span>
- Selecting previously unselected package inkscape.
- Preparing to unpack .../06-inkscape_0.92.3-1_amd64.deb ...
- Unpacking inkscape <span class="o">(</span><span class="m">0</span>.92.3-1<span class="o">)</span> ...
- <span class="o">[</span>...<span class="o">]</span>
- Setting up libmagick++-6.q16-7:amd64 <span class="o">(</span><span class="m">8</span>:6.9.7.4+dfsg-16ubuntu6.8<span class="o">)</span> ...
- <span class="o">[</span>...<span class="o">]</span>
- Setting up inkscape <span class="o">(</span><span class="m">0</span>.92.3-1<span class="o">)</span> ...
- <span class="o">[</span>...<span class="o">]</span>
-</pre></div>
-</td></tr></table></div>
-<p>Pachetul <code class="docutils literal notranslate"><span class="pre">inkscape</span></code> este instalat împreună cu pachetele de care acesta depinde (de exemplu <code class="docutils literal notranslate"><span class="pre">libmagick++-6.q16-7</span></code>), dacă acestea nu sunt instalate.
-Numim aceste pachete <strong>dependențe</strong> (<em>dependencies</em>).
-În cazul în care instalarea pachetului presupune instalarea unor dependențe, se cere confirmarea utilizatorului (linia <code class="docutils literal notranslate"><span class="pre">17</span></code>).</p>
-<p>Așa cum reiese și din rezultatul de mai sus, instalarea unui pachet (și a dependențelor sale) presupune:</p>
-<ol class="arabic simple">
-<li><p>obținerea pachetului (de exemplu linia <code class="docutils literal notranslate"><span class="pre">18</span></code>): pachetul este descărcat dintr-un mediu de instalare sau, mai uzual, de pe Internet</p></li>
-<li><p>pregătirea pentru instalare (de exemplu liniile <code class="docutils literal notranslate"><span class="pre">22-23</span></code>): sistemul se pregătește pentru instalare cu acțiuni specifice pachetului, de exemplu oprirea unor servicii care pot fi afectate de instalare</p></li>
-<li><p>despachetarea în sistem a fișierelor specifice (de exemplu linia <code class="docutils literal notranslate"><span class="pre">24</span></code>)</p></li>
-<li><p>acțiuni post-instalare (de exemplu linia <code class="docutils literal notranslate"><span class="pre">30</span></code>): aici pot fi actualizate baze de date de căutare sau de pagini de manual sau alte acțiuni specifice pachetului</p></li>
-</ol>
-</li>
-</ol>
-<div class="admonition important">
-<p class="admonition-title">Important</p>
-<p>Așa cum observăm și mai sus, multe pachete software nu sunt aplicații ci sunt biblioteci (colecții software).
-De aceea preferăm să folosim termenul de pachete (instalarea, dezinstalarea, gestiunea pachetelor) în loc de aplicații.
-Este un termen mai acoperitor.</p>
-</div>
-</div>
 <div class="section" id="instalarea-de-noi-aplicatii">
-<h3><span class="section-number">6.2.4. </span>Instalarea de noi aplicații<a class="headerlink" href="#instalarea-de-noi-aplicatii" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.2.3. </span>Instalarea de noi aplicații<a class="headerlink" href="#instalarea-de-noi-aplicatii" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="instalarea-vlc">
-<h4><span class="section-number">6.2.4.1. </span>Instalarea VLC<a class="headerlink" href="#instalarea-vlc" title="Permalink to this headline">¶</a></h4>
+<h4><span class="section-number">6.2.3.1. </span>Instalarea VLC<a class="headerlink" href="#instalarea-vlc" title="Permalink to this headline">¶</a></h4>
 <p>Avem nevoie de un player video și știm că <a class="reference external" href="https://www.videolan.org/vlc/index.html">VLC</a> este unul dintre cele mai folosite playere.
 Pentru a îl folosi pe sistem, instalăm pachetul <code class="docutils literal notranslate"><span class="pre">vlc</span></code>:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ sudo apt install vlc
@@ -685,7 +629,7 @@ Do you want to <span class="k">continue</span>? <span class="o">[</span>Y/n<span
 </div>
 </div>
 <div class="section" id="instalarea-glances">
-<h4><span class="section-number">6.2.4.2. </span>Instalarea Glances<a class="headerlink" href="#instalarea-glances" title="Permalink to this headline">¶</a></h4>
+<h4><span class="section-number">6.2.3.2. </span>Instalarea Glances<a class="headerlink" href="#instalarea-glances" title="Permalink to this headline">¶</a></h4>
 <p>Pentru a monitoriza sistemul și procesele sistemului putem folosi utilitarele <code class="docutils literal notranslate"><span class="pre">top</span></code> sau <code class="docutils literal notranslate"><span class="pre">htop</span></code>.
 Utilitarul Glances rulează tot în linia de comandă și oferă o interfață mai complexă a sistemului, utilă mai ales pentru administratorii de sisteme.
 Instalăm pachetul <code class="docutils literal notranslate"><span class="pre">glances</span></code>:</p>
@@ -700,7 +644,7 @@ Ieșirea din utilitar se face, la fel ca în cazul <code class="docutils literal
 </div>
 </div>
 <div class="section" id="exercitii-de-instalare-de-aplicatii">
-<h3><span class="section-number">6.2.5. </span>Exerciții de instalare de aplicații<a class="headerlink" href="#exercitii-de-instalare-de-aplicatii" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.2.4. </span>Exerciții de instalare de aplicații<a class="headerlink" href="#exercitii-de-instalare-de-aplicatii" title="Permalink to this headline">¶</a></h3>
 <p>Instalați și porniți următoarele pachete:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">wikit</span></code>: pachet care instalează utilitarului <code class="docutils literal notranslate"><span class="pre">wikit</span></code> (în linia de comandă) care obține informații din Wikipedia</p></li>
@@ -907,7 +851,8 @@ Dezvoltatorii aplicației adaugă noi funcționalități, sau rezolvă probleme 
 <p>La fel ca în cazul instalării și dezinstalării, actualizarea aplicațiilor duce la modificarea fișierelor din sistem, deci este o acțiune privilegiată.</p>
 <div class="section" id="actualizarea-individuala-a-unei-aplicatii">
 <h3><span class="section-number">6.5.1. </span>Actualizarea individuală a unei aplicații<a class="headerlink" href="#actualizarea-individuala-a-unei-aplicatii" title="Permalink to this headline">¶</a></h3>
-<p>Dacă dorim actualizarea individuală a unui pachet, vom folosi o comandă precum:</p>
+<p>Dacă dorim actualizarea individuală a unui pachet, putem folosi interfața grafică, navigând până la zona specifică aplicației.</p>
+<p>Altfel, putem folosi o comandă precum:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ sudo apt install inkscape
 <span class="o">[</span>sudo<span class="o">]</span> password <span class="k">for</span> student:
 Reading package lists... Done
