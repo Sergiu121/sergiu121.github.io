@@ -46,6 +46,13 @@
     <div class="nav-item">
       <a href="../../index.html#uso-lab-book"
          class="nav-link ">
+         Acomodarea în Linux
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
          Lucrul cu fișiere
       </a>
     </div>
@@ -102,6 +109,13 @@
           <navlinks>
             
 
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Acomodarea în Linux
+      </a>
+    </div>
   
     <div class="nav-item">
       <a href="../../index.html#uso-lab-book"
@@ -163,6 +177,45 @@
     </div>
   </div>
 </div><div class="sidebar-links" role="navigation" aria-label="main navigation">
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#uso-lab-book">Acomodarea în Linux</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../basic/apps.html" class="reference internal ">Pornirea și oprirea aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../basic/browser.html" class="reference internal ">Folosirea eficientă a browserului web</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../basic/terminal.html" class="reference internal ">Lucrul în terminal</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../basic/workspace.html" class="reference internal ">Lucrul cu workspace-uri</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../basic/cheatsheet.html" class="reference internal ">Cheatsheet</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
   
     <div class="sidebar-group">
       <p class="caption">
@@ -510,8 +563,8 @@ aceștia au nevoie doar de o aplicație client care știe să comunice cu server
 Astfel, aplicația client trimite o cerere către aplicația server, serverul
 primește cererea, procesează cererea și servește răspunsul aplicației client
 care a făcut cererea.</p>
-<p>Această paradigmă poate fi observată în schema &lt;TODO&gt;.</p>
-<p>CAPTION SCHEMĂ:</p>
+<p>Această paradigmă poate fi observată în schema următoare:</p>
+<img alt="Arhitectura client-server" class="align-center" src="../../_images/client-server.png" />
 <p>Atunci când noi vrem să urmărim un film pe Netflix aplicația client Netflix de
 pe calculator sau telefon va trimite o cerere de descărcare a filmului de pe
 serverul Netflix aflat la distanță.</p>
@@ -531,28 +584,50 @@ exemplu, pentru a verifica automat starea unui site avem nevoie să descărcăm
 pagina site-ului.</p>
 <p>Există mai multe implementări de clienți web în linie de comandă. Vom folosi
 comanda <code class="docutils literal notranslate"><span class="pre">wget</span></code> pentru descărcarea unei pagini web.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>student@uso:~$ wget &lt;link&gt;
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>student@uso:~$ wget elf.cs.pub.ro
+--2020-10-20 23:01:02--  http://elf.cs.pub.ro/
+Resolving elf.cs.pub.ro (elf.cs.pub.ro)... 141.85.227.116
+Connecting to elf.cs.pub.ro (elf.cs.pub.ro)|141.85.227.116|:80... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 168 [text/html]
+Saving to: ‘index.html’
+
+index.html                        100%[===========================================================&gt;]     168  --.-KB/s    in 0s
+
+2020-10-20 23:01:02 (7,61 MB/s) - ‘index.html’ saved [168/168]
+
+student@uso:~$ cat index.html
+&lt;html&gt;
+        &lt;head&gt;
+                &lt;meta name=&quot;google-site-verification&quot; content=&quot;gTsIxyV43HSJraRPl6X1A5jzGFgQ3N__hKAcuL2QsO8&quot; /&gt;
+        &lt;/head&gt;
+
+        &lt;body&gt;
+                &lt;h1&gt;It works!&lt;/h1&gt;
+        &lt;/body&gt;
+&lt;/html&gt;
 </pre></div>
 </div>
-<p>EXERCIȚIU</p>
-<p>Deschideți în browser pagina web descărcată pentru a vedea conținutul său.</p>
-<p>EXERCIȚIU</p>
-<p>Deschideți într-un editor de text pagina web descărcată pentru a vedea
-conținutul HTML.</p>
-<p>OBSERVAȚIE:</p>
-<p>Clienții web nu sunt folosiți doar pentru accesarea paginilor web. Putem folosi
-clienți web pentru a descărca fișiere indiferent de tipul acestora.</p>
-<p>EXERCIȚIU 1:</p>
-<p>Descărcați fișierul &lt;insert link&gt;.</p>
-<p>Unele fișiere sunt pro
-Descărcați fișierul &lt;insert link&gt;.</p>
-<p>NOTĂ:</p>
-<p>Observați că descărcarea nu funcționează, deoarece aceasta necesită
-autentificarea utilizatorului.</p>
-<p>HINT:</p>
-<p>Căutați în pagina de manual a utilitarului <code class="docutils literal notranslate"><span class="pre">wget</span></code> (<code class="docutils literal notranslate"><span class="pre">man</span> <span class="pre">wget</span></code>), pentru a
-identifica opțiunea necesară pentru autentificarea la un server HTTP. Pentru
-autentificare veți folosi utilizatorul <code class="docutils literal notranslate"><span class="pre">student</span></code> și parola <code class="docutils literal notranslate"><span class="pre">student</span></code>.</p>
+<p>Am folosit comanda <code class="docutils literal notranslate"><span class="pre">cat</span></code> pentru afișarea conținutului fișierului
+<code class="docutils literal notranslate"><span class="pre">index.html</span></code>. Fișierul <code class="docutils literal notranslate"><span class="pre">index.html</span></code> este fișierul descărcat în mod
+implicit, daca nu descărcăm o pagină specifică.</p>
+<div class="section" id="exercitiu-descarcarea-paginilor-web">
+<h3><span class="section-number">3.1.1. </span>Exercițiu - Descărcarea paginilor web<a class="headerlink" href="#exercitiu-descarcarea-paginilor-web" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Deschideți într-un editor de text pagina web descărcată în pentru a vedea
+conținutul HTML.</p></li>
+<li><p>Descărcați pagina web de la adresa <code class="docutils literal notranslate"><span class="pre">www.facebook.com</span></code>. Afișați conținutul fișierului descărcat.</p></li>
+</ul>
+<div class="admonition-observatie admonition">
+<p class="admonition-title">Observație:</p>
+<p>Clienții web nu sunt folosiți doar pentru accesarea paginilor web. Putem
+folosi clienți web pentru a descărca fișiere indiferent de tipul acestora.</p>
+</div>
+<ul class="simple">
+<li><p>Descărcați pagina web de la adresa <code class="docutils literal notranslate"><span class="pre">http://wttr.in/</span></code>. Afișați conținutul fișierului descărcat.</p></li>
+<li><p>Descărcați fișierul <a class="reference external" href="http://elf.cs.pub.ro/uso/res/final/07-feb/heroes.csv">http://elf.cs.pub.ro/uso/res/final/07-feb/heroes.csv</a>. Ce tip de fișier este acesta?</p></li>
+</ul>
+</div>
 </div>
 <div class="section" id="accesul-la-distanta-in-linie-de-comanda">
 <h2><span class="section-number">3.2. </span>Accesul la distanţă în linie de comandă<a class="headerlink" href="#accesul-la-distanta-in-linie-de-comanda" title="Permalink to this headline">¶</a></h2>
@@ -567,67 +642,167 @@ care vrem să ne autentificăm, sau să folosim o cheie de acces la stație.</p>
 <h3><span class="section-number">3.2.1. </span>Conectarea folosind autentificare cu parolă<a class="headerlink" href="#conectarea-folosind-autentificare-cu-parola" title="Permalink to this headline">¶</a></h3>
 <p>Pentru a rula comenzi pe o altă stație putem folosi programul SSH (Secure Shell)
 pentru a ne conecta la acesta în felul următor:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>student@uso:~$ ssh &lt;username&gt;@&lt;statie&gt;
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>student@uso:~$ hostname
+uso
+student@uso:~$ ssh root@10.10.10.3
+The authenticity of host &#39;10.10.10.3 (10.10.10.3)&#39; can&#39;t be established.
+ECDSA key fingerprint is SHA256:I3Ybkkk7nF2FjwVHMzjkyujDnhlRlnSwPRVwUKm6OCM.
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+Warning: Permanently added &#39;10.10.10.3&#39; (ECDSA) to the list of known hosts.
+root@10.10.10.3&#39;s password:
+Welcome to Ubuntu 18.04.5 LTS (GNU/Linux 5.4.0-51-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+This system has been minimized by removing packages and content that are
+not required on a system that users do not log into.
+
+To restore this content, you can run the &#39;unminimize&#39; command.
+
+The programs included with the Ubuntu system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/\*/copyright.
+
+Ubuntu comes with ABSOLUTELY NO WARRANTY, to the extent permitted by
+applicable law.
+root@ssh:~# ls /
+bin  boot  dev  etc  home  lib  lib64  media  mnt  opt  proc  root  run  sbin  srv  sys  tmp  usr  var
+root@ssh:~# hostname
+ssh
 </pre></div>
 </div>
-<p>Unde &lt;username&gt; este numele utilizatorului și &lt;stație&gt; este adresa IP, sau
+<p>Unde root este numele utilizatorului și 10.10.10.3 este adresa IP, sau
 hostname-ul stației la care vrem să ne conectăm.</p>
-<p>În mod implicit protocolul SSH va folosi autentificarea cu parolă.</p>
-<p>EXERCIȚIU:</p>
-<p>Autentificați-vă la stație &lt;insert hostname&gt; folosind utilizatorul &lt;insert
-utilizator&gt; și parola &lt;insert parolă&gt;</p>
-<p>OBSERVAȚIE:</p>
+<p>Atunci când ne conectăm la o stație, clientul SSH va încerca să autentifice
+stația la care ne-am conectat. Dacă ne conectăm pentru prima oară la o mașină
+trebuie să spunem clientului că am verificat datele clientului la care ne-am
+conectat.</p>
+<p>În mod implicit protocolul SSH va folosi autentificarea cu parolă. Parola
+introdusă în exemplul de mai sus este parola <code class="docutils literal notranslate"><span class="pre">root</span></code>.</p>
+<p>Odată ce ne-am conectat la mașina, avem acces la un shell în care rulăm comenzi
+ca mai sus. Putem observa că ne-am logat pe un calculator diferit deoarece s-a
+schimbat promptul terminalului de la <code class="docutils literal notranslate"><span class="pre">student&#64;uso:~$</span></code> la <code class="docutils literal notranslate"><span class="pre">root&#64;ssh:~#</span></code> și
+s-a afișat un mesaj numit <em>Message of the Day</em>.</p>
+<p>În exemplul de mai sus am rulat comanda <code class="docutils literal notranslate"><span class="pre">hostname</span></code> care afișează numele
+stației la care ne-am conectat pentru a ne asigura că ne-am logat pe un nou
+calculator. Putem observa numele stației și din prompt.</p>
+<div class="section" id="exercitiu-conectarea-la-distanta">
+<h4><span class="section-number">3.2.1.1. </span>Exercițiu - Conectarea la distanță<a class="headerlink" href="#exercitiu-conectarea-la-distanta" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>Autentificați-vă la stația <code class="docutils literal notranslate"><span class="pre">11.11.11.3</span></code> folosind utilizatorul <code class="docutils literal notranslate"><span class="pre">root</span></code> și
+parola <code class="docutils literal notranslate"><span class="pre">root</span></code>.</p></li>
+<li><p>Autentificați-vă la stația <code class="docutils literal notranslate"><span class="pre">12.12.12.3</span></code> folosind utilizatorul <code class="docutils literal notranslate"><span class="pre">student</span></code> și
+parola <code class="docutils literal notranslate"><span class="pre">student</span></code>.</p></li>
+</ul>
+<div class="admonition-observatie admonition">
+<p class="admonition-title">Observație:</p>
 <p>Atunci când ne conectăm la o stație folosind protocolul SSH este necesar să
 precizăm un nume de utilizator valid. Dacă utilizatorul nu există, serverul
 nu va preciza faptul că utilizatorul nu există pe sistem, ci va cere parola
 utilizatorului, dar nu va permite autentificarea la stație. De ce serverul SSH
 nu specifică dacă utilizatorul exista sau nu.</p>
+</div>
+</div>
+</div>
+<div class="section" id="rularea-unei-singure-comenzi-prin-ssh">
+<h3><span class="section-number">3.2.2. </span>Rularea unei singure comenzi prin SSH<a class="headerlink" href="#rularea-unei-singure-comenzi-prin-ssh" title="Permalink to this headline">¶</a></h3>
 <p>Atunci când ne conectăm la o stație avem acces la un shell pe care putem să îl
 folosim, dar dacă nu este necesar putem să rulăm mai multe comenzi, sau vrem să
 automatizăm rularea comenzilor pe alte stații putem folosi comanda SSH în felul
 următor:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>student@uso:~$ ssh &lt;username&gt;@&lt;statie&gt; &lt;comanda&gt;
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>student@uso:~$ ssh root@10.10.10.3 ip address show
+root@10.10.10.3&#39;s password:
+1: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+544: eth0@if545: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc noqueue state UP group default
+    link/ether 02:42:0a:0a:0a:03 brd ff:ff:ff:ff:ff:ff link-netnsid 0
+    inet 10.10.10.3/24 brd 10.10.10.255 scope global eth0
+       valid_lft forever preferred_lft forever
+546: eth1@if547: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc noqueue state UP group default
+    link/ether 02:42:0b:0b:0b:03 brd ff:ff:ff:ff:ff:ff link-netnsid 0
+    inet 11.11.11.3/24 brd 11.11.11.255 scope global eth1
+       valid_lft forever preferred_lft forever
+550: eth2@if551: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc noqueue state UP group default
+    link/ether 02:42:0c:0c:0c:03 brd ff:ff:ff:ff:ff:ff link-netnsid 0
+    inet 12.12.12.3/24 brd 12.12.12.255 scope global eth2
+       valid_lft forever preferred_lft forever
 </pre></div>
 </div>
-<p>Rulați comanda &lt;insert comanda&gt; pe stațiile &lt;insert stații&gt; fără să intrați în
-interfața în linia de comandă de pe stații.</p>
+<div class="section" id="execitiu-rularea-unei-singure-comenzi-prin-ssh">
+<h4><span class="section-number">3.2.2.1. </span>Execițiu - Rularea unei singure comenzi prin SSH<a class="headerlink" href="#execitiu-rularea-unei-singure-comenzi-prin-ssh" title="Permalink to this headline">¶</a></h4>
+<p>Rulați comanda <code class="docutils literal notranslate"><span class="pre">cat</span> <span class="pre">/etc/passwd</span></code> pe mașina de la IP-ul <code class="docutils literal notranslate"><span class="pre">10.10.10.3</span></code> fără să
+intrați în interfața în linia de comandă de pe stații. Vă veți autentifica
+folosind utilizatorul <code class="docutils literal notranslate"><span class="pre">root</span></code> și parola <code class="docutils literal notranslate"><span class="pre">root</span></code>.</p>
+</div>
 </div>
 <div class="section" id="transferul-fisierelor-la-distanta">
-<h3><span class="section-number">3.2.2. </span>Transferul fișierelor la distanţă<a class="headerlink" href="#transferul-fisierelor-la-distanta" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">3.2.3. </span>Transferul fișierelor la distanţă<a class="headerlink" href="#transferul-fisierelor-la-distanta" title="Permalink to this headline">¶</a></h3>
 <p>Pentru a transfera fișiere la distanță să folosească <code class="docutils literal notranslate"><span class="pre">scp</span></code>. Comanda <code class="docutils literal notranslate"><span class="pre">scp</span></code>
 se folosește de protocolul SSH pentru transferul de date între stații, astfel
 ne putem folosi de modelul de autentificare de la SSH</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>student@uso:~$ scp file1 &lt;username&gt;@&lt;stație&gt;:~/file1
-TODO
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>student@uso:~$ scp /bin/bash student@10.10.10.3:~/
+student@10.10.10.3&#39;s password:
+bash                                          100% 1156KB  30.5MB/s   00:00
+student@uso:~$ ssh student@10.10.10.3 ls ~
+student@10.10.10.3&#39;s password:
+bash
 </pre></div>
 </div>
-<p>OBSERVAȚIE:</p>
+<p>Fișierul <code class="docutils literal notranslate"><span class="pre">/bin/bash</span></code> a fost copiat de pe stația <code class="docutils literal notranslate"><span class="pre">uso</span></code> pe stația de la adresa IP
+<code class="docutils literal notranslate"><span class="pre">10.10.10.3</span></code> în directorul home al utilizatorului <code class="docutils literal notranslate"><span class="pre">student</span></code>. Am rulat
+comanda <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">~</span></code> prin SSH pentru a verifica că s-a efectuat copierea cu succes.</p>
 <p>Trimiterea fișierelor poate fi realizată în orice direcție:</p>
 <ul class="simple">
 <li><p>încărcarea fișierelor de la client la server</p></li>
 <li><p>descărcarea fișierelor de la server la client</p></li>
 </ul>
 <p>Pentru descărcarea fișierelor de pe un server folosim comanda <code class="docutils literal notranslate"><span class="pre">scp</span></code>:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>student@uso:~$ scp &lt;username&gt;@&lt;stație&gt;:~/file1 .
-TODO
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>student@uso:~$ scp root@10.10.10.3:/etc/resolv.conf .
+root@10.10.10.3&#39;s password:
+resolv.conf                                   100%   38    19.3KB/s   00:00
+student@uso:~$ cat resolv.conf
+nameserver 127.0.0.11
+options ndots:0
+student@uso:~$ ssh root@10.10.10.3 cat /etc/resolv.conf
+root@10.10.10.3&#39;s password:
+nameserver 127.0.0.11
+options ndots:0
 </pre></div>
 </div>
-<p>OBSERVAȚIE:</p>
-<p>Comanda rulată anterior a descărcat fișierul <code class="docutils literal notranslate"><span class="pre">file1</span></code> din directorul home al
-utilizatorului &lt;user&gt; de pe stația &lt;stație&gt; în directorul curent (<code class="docutils literal notranslate"><span class="pre">.</span></code>).</p>
-<p>EXERCIȚIU:</p>
-<p>Copiați fișierul <code class="docutils literal notranslate"><span class="pre">/etc/passwd</span></code> în directorul home al utilizatorului
-<code class="docutils literal notranslate"><span class="pre">student</span></code>.</p>
+<p>Comanda rulată anterior a descărcat fișierul <code class="docutils literal notranslate"><span class="pre">resolv.conf</span></code> din directorul
+<code class="docutils literal notranslate"><span class="pre">/etc/</span></code> de pe stația <code class="docutils literal notranslate"><span class="pre">10.10.10.3</span></code> în directorul curent (<code class="docutils literal notranslate"><span class="pre">.</span></code>).</p>
+<div class="section" id="exercitiu-copierea-fisierelor-la-distanta">
+<h4><span class="section-number">3.2.3.1. </span>Exercițiu - Copierea fișierelor la distanță<a class="headerlink" href="#exercitiu-copierea-fisierelor-la-distanta" title="Permalink to this headline">¶</a></h4>
+<p>Descărcați fișierul <code class="docutils literal notranslate"><span class="pre">/etc/passwd</span></code> de la adresa <code class="docutils literal notranslate"><span class="pre">10.10.10.3</span></code> folosind
+utilizatorul <code class="docutils literal notranslate"><span class="pre">student</span></code> și parola <code class="docutils literal notranslate"><span class="pre">student</span></code> în directorul
+<code class="docutils literal notranslate"><span class="pre">/home/student/Downloads</span></code>.</p>
+</div>
+<div class="section" id="copierea-directoarelor-la-distanta">
+<h4><span class="section-number">3.2.3.2. </span>Copierea directoarelor la distanță<a class="headerlink" href="#copierea-directoarelor-la-distanta" title="Permalink to this headline">¶</a></h4>
 <p>Pentru copierea unui director folosim opțiunea <code class="docutils literal notranslate"><span class="pre">-r</span></code>:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>student@uso:~$ scp &lt;username&gt;@&lt;stație&gt;:~/file1 .
-TODO
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>student@uso:~$ scp -r ./Downloads/ root@10.10.10.3:~/
+root@10.10.10.3&#39;s password:
+macos.txt                                     100%   18     4.2KB/s   00:00
+index.html                                    100%  168   168.4KB/s   00:00
+teamviewer_15.10.5_amd64.deb                  100%   14MB  48.1MB/s   00:00
 </pre></div>
 </div>
-<p>EXERCIȚIU:</p>
-<p>Copiați directorul de pe stația TODO în directorul home al utilizatorului curent.</p>
+<p>Comanda anterioară a copiat directorul <code class="docutils literal notranslate"><span class="pre">Downloads</span></code> și conținutul său din
+directorul curent în directorul home al utilizatorului <code class="docutils literal notranslate"><span class="pre">root</span></code> de la adresa
+<code class="docutils literal notranslate"><span class="pre">10.10.10.3</span></code>.</p>
+</div>
+<div class="section" id="exercitiu-copierea-directoarelor-la-distanta">
+<h4><span class="section-number">3.2.3.3. </span>Exercițiu - Copierea directoarelor la distanță<a class="headerlink" href="#exercitiu-copierea-directoarelor-la-distanta" title="Permalink to this headline">¶</a></h4>
+<p>Copiați directorul <code class="docutils literal notranslate"><span class="pre">/usr</span></code> de pe stația de la adresa <code class="docutils literal notranslate"><span class="pre">10.10.10.3</span></code> în
+directorul home al utilizatorului curent. Vă veți autentifica pe stația de la
+distanță folosind utilizatorul <code class="docutils literal notranslate"><span class="pre">root</span></code> și parola <code class="docutils literal notranslate"><span class="pre">root</span></code>.</p>
+</div>
 </div>
 <div class="section" id="conectarea-folosind-autentificare-cu-chei">
-<h3><span class="section-number">3.2.3. </span>Conectarea folosind autentificare cu chei<a class="headerlink" href="#conectarea-folosind-autentificare-cu-chei" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">3.2.4. </span>Conectarea folosind autentificare cu chei<a class="headerlink" href="#conectarea-folosind-autentificare-cu-chei" title="Permalink to this headline">¶</a></h3>
 <p>În anumite scenarii ne dorim să evităm introducerea parolei pentru
 autentificarea la o stație la distanță. De exemplu, ne dorim să rulăm aceeași
 comandă pe 10 stații. Dacă am folosi autentificare bazată pe parolă fie ar fi
@@ -637,9 +812,9 @@ de cineva, sau să scriem parola de 10 ori de mână.</p>
 <p>Pentru a trece de această problemă putem să folosim mecanismul de autentificare
 cu chei. Autentificarea cu chei presupune existentă a două chei pereche:</p>
 <ul class="simple">
-<li><p><em>cheia privată</em>: este o cheie secretă care este folosită de un client SSH
+<li><p><strong>cheia privată</strong>: este o cheie secretă care este folosită de un client SSH
 pentru a se autentifica</p></li>
-<li><p><em>cheia publică</em>, este o cheie care este copiată pe stația unde este rulat
+<li><p><strong>cheia publică</strong>, este o cheie care este copiată pe stația unde este rulat
 serverul SSH. Cheia este folosită pentru identificarea clienților SSH care se
 conectează la server.</p></li>
 </ul>
@@ -649,38 +824,59 @@ posesorul cheii private este singurul care are acces la cheie, nimeni nu se va
 mai putea autentifica în locul său.</p>
 <p>Pentru generarea unei perechi de chei folosim comanda <code class="docutils literal notranslate"><span class="pre">ssh-keygen</span></code>:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>student@uso:~$ ssh-keygen
-TODO
+Generating public/private rsa key pair.
+Enter file in which to save the key (/home/student/.ssh/id_rsa):
+Enter passphrase (empty for no passphrase):
+Enter same passphrase again:
+Your identification has been saved in /home/student/.ssh/id_rsa
+Your public key has been saved in /home/student/.ssh/id_rsa.pub
+The key fingerprint is:
+SHA256:mN9IlWoU6bmSA1vvKBSAfAB/Rg9GwTaAhqZ1Kc0vfHM student@uso
+The key&#39;s randomart image is:
++---[RSA 3072]----+
+|=+o**o  ..       |
+|+=++Oo  .. .     |
+|+.o*oo....o      |
+|.  o= =+Eo       |
+|     Bo=S.       |
+|    o ++oo       |
+|   .   =o .      |
+|    . . .        |
+|     .           |
++----[SHA256]-----+
 </pre></div>
 </div>
-<p>OBSERVAȚIE:</p>
 <p>În procesul de generare a cheilor ni se cere și un passphrase
 pentru a asigura securitatea cheii private în cazul în care este pierdută,
 furată sau altcineva are acces accidental la ea. Desigur, uitarea
 passphrase-ului face cheia nefolosibilă. Așa că passphrase-ul trebuie reținut
 (și protejat) ca orice altă parolă.</p>
 <p>Pentru copierea cheii publice pe o stație folosim comanda <code class="docutils literal notranslate"><span class="pre">ssh-copy-id</span></code>:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>student@uso:~$ ssh-copy-id &lt;username&gt;@&lt;statie&gt;
-TODO
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>student@uso:~$ ssh-copy-id root@10.10.10.3
+/usr/bin/ssh-copy-id: INFO: Source of key(s) to be installed: &quot;/home/student/.ssh/id_rsa.pub&quot;
+/usr/bin/ssh-copy-id: INFO: attempting to log in with the new key(s), to filter out any that are already installed
+/usr/bin/ssh-copy-id: INFO: 1 key(s) remain to be installed -- if you are prompted now it is to install the new keys
+root@10.10.10.3&#39;s password:
+
+Number of key(s) added: 1
+
+Now try logging into the machine, with:   &quot;ssh &#39;root@10.10.10.3&#39;&quot;
+and check to make sure that only the key(s) you wanted were added.
 </pre></div>
 </div>
 <p>Este necesar să cunoaștem parola utilizatorului pentru copierea cheii publice.</p>
-<p>OBSERVAȚIE:</p>
 <p>Atunci când copiem cheia publică aceasta va fi copiată pentru un singur
 utilizator. Dacă vrem să ne autentificăm pe același calculator ca utilizatori
 diferiți fără parola, este necesar să copiem cheia publică pentru fiecare
 utilizator.</p>
-<p>EXERCIȚIU:</p>
-<p>Generați o nouă cheie SSH de tip RSA cu passphrase-ul <code class="docutils literal notranslate"><span class="pre">mere</span></code>.</p>
-<p>EXERCIȚIU:</p>
-<p>Efectuați modificările necesare astfel încât să vă puteți autentifica drept
-utilizatorul &lt;TODO&gt; de pe stația &lt;host&gt; fără parolă.</p>
+<div class="section" id="exercitiu-utilizarea-cheilor-ssh">
+<h4><span class="section-number">3.2.4.1. </span>Exercițiu - Utilizarea cheilor ssh<a class="headerlink" href="#exercitiu-utilizarea-cheilor-ssh" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>Generați o nouă cheie SSH de tip RSA cu passphrase-ul <code class="docutils literal notranslate"><span class="pre">mere</span></code>.</p></li>
+<li><p>Efectuați modificările necesare astfel încât să vă puteți autentifica drept
+utilizatorul <code class="docutils literal notranslate"><span class="pre">student</span></code> de pe stația <code class="docutils literal notranslate"><span class="pre">10.10.10.3</span></code> fără parolă.</p></li>
+</ul>
 </div>
-<div class="section" id="conectarea-intre-doua-calculatoare-aflate-in-retele-private-diferite">
-<h3><span class="section-number">3.2.4. </span>Conectarea între două calculatoare aflate în rețele private diferite<a class="headerlink" href="#conectarea-intre-doua-calculatoare-aflate-in-retele-private-diferite" title="Permalink to this headline">¶</a></h3>
-<p>&lt;TODO: de adăugat diagramă&gt;</p>
-<p>Pentru a demonstra principiul tunelării, ne vom folosi iar de netcat pentru a
-realiza o conexiune între două stații. Ei se vor conecta la localhost:2222 și
-vor accesa o altă mașină virtuală remote. Le vom arăta cum se face tunelul.</p>
 </div>
 </div>
 <div class="section" id="controlul-la-distanta-in-mediul-grafic">
@@ -698,13 +894,38 @@ exemplu, installer-ul unui joc nu poate să fie rulat din linie de comandă.</p>
 <p>Pentru control complet al unei sesiuni desktop grafice există o multitudine de
 soluții, cum ar fi VNC, sau FreeRDP, dar noi ne vom concentra pe soluția numită
 TeamViewer, deoarece oferă suport pentru toate sistemele convenționale.</p>
-<p>TeamViewer poate fi descărcat de la această adresă &lt;TODO&gt; și permite
+<p>TeamViewer poate fi descărcat de la <a class="reference external" href="https://www.teamviewer.com/en/download/linux/">această</a> adresă și permite
 autentificarea la o mașină folosind un ID și o parolă generate de aplicația
 server.</p>
-<p>TODO: Demo cu poze</p>
-<p>EXERCIȚIU:</p>
-<p>Porniți TeamViewer pe stația TODO și conectați-vă la stație de pe mașina voastră
-fizică.</p>
+<img alt="Aplicația TeamViewer" class="align-center" src="../../_images/teamviewer_start.png" />
+<div class="section" id="recapitulare-instalarea-aplicatiei-teamviewer">
+<h4><span class="section-number">3.3.1.1. </span>Recapitulare - Instalarea aplicației TeamViewer<a class="headerlink" href="#recapitulare-instalarea-aplicatiei-teamviewer" title="Permalink to this headline">¶</a></h4>
+<p>Descărcați și instalați aplicația TeamViewer pe mașina virtuală <code class="docutils literal notranslate"><span class="pre">USO</span></code> și pe
+mașina voastră fizică.</p>
+</div>
+<div class="section" id="folosirea-teamviewer">
+<h4><span class="section-number">3.3.1.2. </span>Folosirea TeamViewer<a class="headerlink" href="#folosirea-teamviewer" title="Permalink to this headline">¶</a></h4>
+<p>Pentru a ne conecta la o mașină la distanță avem nevoie de ID-ul mașinii și
+parola conexiunii. Aceste informații se găsesc în primul ecran al aplicației
+TeamViewer, cum se vede mai jos.</p>
+<p>Vom scrie ID-ul stației la care vrem să ne conectăm în câmpul <code class="docutils literal notranslate"><span class="pre">Partner</span> <span class="pre">ID</span></code> de
+pe calculatorul de pe care vrem să ne conectăm (stația client).</p>
+<img alt="ID în TeamViewer" class="align-center" src="../../_images/teamviewer_id.png" />
+<p>După ce apăsăm tasta <code class="docutils literal notranslate"><span class="pre">Enter</span></code> apare promptul pentru parolă, unde completăm
+parola stației la care vrem să ne conectăm.</p>
+<img alt="Parola în TeamViewer" class="align-center" src="../../_images/teamviewer_pass.png" />
+<p>După ce am introdus parola a apărut pe ecran desktop-ul mașinii la care am vrut
+să mă conectez. În cazul de față este vorba de un sistem MacOS pe care am rulat
+TeamViewer.</p>
+<img alt="Controlul calculatorului de la distanță" class="align-center" src="../../_images/teamviewer_connection.png" />
+<p>Deasupra cadrului în care apare desktop-ul de la distață apar putoane ce ne
+permit să închidem conexiune, sau trimiterea de acțiuni și fișiere către
+calculatorul server.</p>
+</div>
+<div class="section" id="exercitiu-conectarea-la-distanta-folosind-teamviewer">
+<h4><span class="section-number">3.3.1.3. </span>Exercițiu - Conectarea la distanță folosind TeamViewer<a class="headerlink" href="#exercitiu-conectarea-la-distanta-folosind-teamviewer" title="Permalink to this headline">¶</a></h4>
+<p>Conectați-vă la mașina virtuală USO de pe mașina voastră fizică.</p>
+</div>
 </div>
 <div class="section" id="controlul-unei-ferestre-la-distanta">
 <h3><span class="section-number">3.3.2. </span>Controlul unei ferestre la distanţă<a class="headerlink" href="#controlul-unei-ferestre-la-distanta" title="Permalink to this headline">¶</a></h3>
@@ -715,9 +936,23 @@ grafică pe stația pe care este lansat clientul SSH.</p>
 protocol care nu este menit pentru aplicații care au nevoie să fie responsive,
 cum sunt ferestrele interactive, dar pot fi folosite pentru aplicații cum ar fi
 kituri de instalare ale programelor.</p>
-<p>TODO: Demo cu poze</p>
-<p>EXERCIȚIU:</p>
-<p>Deschideți aplicația firefox ca utilizatorul &lt;username&gt; pe stația &lt;hostname&gt;.</p>
+<p>Pentru a porni o aplicație grafică pe un calculator la distanță trebuie să ne
+conectăm la această stație folosind opțiunea <code class="docutils literal notranslate"><span class="pre">-X</span></code> a comenzii ssh.</p>
+<img alt="Controlul ferestrelor prin SSH" class="align-center" src="../../_images/xforwarding.png" />
+<p>Pentru a rula browserul <code class="docutils literal notranslate"><span class="pre">firefox</span></code> pe mașina de la adresa <code class="docutils literal notranslate"><span class="pre">10.10.10.3</span></code>, ne-am
+conectat la aceasta folosind comanda <code class="docutils literal notranslate"><span class="pre">ssh</span></code> cu opțiunea <code class="docutils literal notranslate"><span class="pre">-X</span></code> și am pornit
+aplicația ca și când am porni-o local.</p>
+<div class="admonition-observatie admonition">
+<p class="admonition-title">Observație:</p>
+<p>Nu putem să preluăm controlul unei aplicații dacă aceasta a fost pornită
+deja pe stația de la distanță, deoarece putem doar sa primim semnalul
+video pentru aplicații noi pornite.</p>
+</div>
+<div class="section" id="exercitiu-controlul-une-ferestre-la-distanta">
+<h4><span class="section-number">3.3.2.1. </span>Exercițiu - Controlul une ferestre la distanță<a class="headerlink" href="#exercitiu-controlul-une-ferestre-la-distanta" title="Permalink to this headline">¶</a></h4>
+<p>Deschideți aplicația <code class="docutils literal notranslate"><span class="pre">qbittorrent</span></code> ca utilizatorul <code class="docutils literal notranslate"><span class="pre">student</span></code> pe stația
+<code class="docutils literal notranslate"><span class="pre">10.10.10.3</span></code>.</p>
+</div>
 </div>
 </div>
 <div class="section" id="securizarea-conexiunii-la-internet-folosind-un-vpn">
@@ -737,15 +972,19 @@ LAN, putem folosi un VPN, cum ar fi Hamachi, la care se conectează doi
 utilizatori. Serverul de VPN va primi datele de la clienți și le va trimite
 mai departe dintr-o rețea privată în alta.</p>
 <p>&lt;insert diagramă&gt;</p>
-<p>EXERCIȚIU:</p>
-<p>Porniți infrastructura</p>
-<p>EXERCIȚIU:</p>
+<div class="section" id="recapitulare-identificarea-adreselor-ip-ale-interfetelor">
+<h3><span class="section-number">3.4.1. </span>Recapitulare - Identificarea adreselor IP ale interfețelor<a class="headerlink" href="#recapitulare-identificarea-adreselor-ip-ale-interfetelor" title="Permalink to this headline">¶</a></h3>
 <p>Identificați adresele IP ale celor două stații la care aveți acces.</p>
-<p>EXERCIȚIU:</p>
-<p>Verificați conectivitatea între cele doua stații.</p>
-<p>OBSERVAȚIE:</p>
+</div>
+<div class="section" id="recapitulare-verificarea-conexiunii-intre-doua-statii">
+<h3><span class="section-number">3.4.2. </span>Recapitulare - Verificarea conexiunii între două stații<a class="headerlink" href="#recapitulare-verificarea-conexiunii-intre-doua-statii" title="Permalink to this headline">¶</a></h3>
+<p>Verificați conectivitatea între cele doua stații folosind IP-urile identificate
+mai sus.</p>
+<div class="admonition-observatie admonition">
+<p class="admonition-title">Observație:</p>
 <p>Nu există conectivitate între cele două stații, deoarece acestea se află în
 rețele private diferite.</p>
+</div>
 <p>Pentru a porni VPN-ul, vom folosi <code class="docutils literal notranslate"><span class="pre">openvpn</span></code>. Rulați următoarea comandă pe ambele
 stații pentru a porni clientul de VPN.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>student@tom:~$ ip a s
@@ -771,6 +1010,14 @@ interfața eth0 ci trec prin interfața virtuală, ajung la serverul VPN în pas
 <p>Astfel, un pachet care se va îndrepta spre o destinație, poate să depășească
 anumite filtre bazate pe locație, deoarece locația de unde provine pachetul va
 fi înlocuită de serverul VPN.</p>
+<p>Acesta a fost un demo didactic, dar și în viața de zi cu zi, când ne conectăm la
+un VPN folosim un fișier de configurare, sau scriem noi explicit adresa VPN-ului
+și folosim date de autentificare pentru a intra în rețeaua VPN-ului. Chiar dacă
+nu se întâmplă folosind <code class="docutils literal notranslate"><span class="pre">openvpn</span></code> ci alte soluții cum ar fi WireGuard sau
+Cisco AnyConnect, principiul este același: ne conectăm la un server care asigură
+conectivitatea între stații care în mod normal nu ar fi interconectate în mod
+normal.</p>
+</div>
 </div>
 </div>
 

@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html >
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+      <title>2. Folosirea eficientă a browserului web</title>
+    
+      <link rel="stylesheet" href="../../_static/pygments.css">
+      <link rel="stylesheet" href="../../_static/theme.css">
+      <link rel="stylesheet" href="../../_static/romnnn_sphinx_press_theme.css">
+      
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+
+      <!-- sphinx script_files -->
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+        <script src="../../_static/my_actions.js"></script>
+
+      
+      <script src="../../_static/theme-vendors.js"></script>
+      <script src="../../_static/theme.js" defer></script>
+    
+  <link rel="index" title="Index" href="../../genindex.html" />
+  <link rel="search" title="Search" href="../../search.html" />
+  <link rel="next" title="3. Lucrul în terminal" href="terminal.html" />
+  <link rel="prev" title="1. Pornirea și oprirea aplicațiilor" href="apps.html" />
+    <link href="../../_static/my_theme.css" rel="stylesheet" type="text/css">
+
+  </head>
+
+  <body>
+    <div id="app" class="theme-container" :class="pageClasses"><navbar @toggle-sidebar="toggleSidebar">
+  <div class="home-link-container">
+      <router-link to="../../index.html" class="home-link">
+      
+        <span class="site-name">USO Lab Book</span>
+    </router-link>
+  </div>
+
+  <div class="links">
+    <navlinks class="can-hide">
+
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link  router-link-active">
+         Acomodarea în Linux
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Lucrul cu fișiere
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Dezvoltarea aplicațiilor
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Conectarea la Internet
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Instalarea și utilizarea aplicațiilor
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Îmbunătățirea lucrului în linia de comandă
+      </a>
+    </div>
+  
+
+
+
+  
+    <div class="nav-item">
+      <a href="https://github.com/Sergiu121/uso-lab-book"
+        class="nav-link external">
+          Github <outboundlink/>
+      </a>
+    </div>
+  
+
+    </navlinks>
+  </div>
+</navbar>
+
+      
+      <div class="sidebar-mask" @click="toggleSidebar(false)">
+      </div>
+        <sidebar @toggle-sidebar="toggleSidebar">
+          
+          <navlinks>
+            
+
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link  router-link-active">
+         Acomodarea în Linux
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Lucrul cu fișiere
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Dezvoltarea aplicațiilor
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Conectarea la Internet
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Instalarea și utilizarea aplicațiilor
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Îmbunătățirea lucrului în linia de comandă
+      </a>
+    </div>
+  
+
+
+
+  
+    <div class="nav-item">
+      <a href="https://github.com/Sergiu121/uso-lab-book"
+        class="nav-link external">
+          Github <outboundlink/>
+      </a>
+    </div>
+  
+
+            
+          </navlinks><div id="searchbox" class="searchbox" role="search">
+  <div class="caption"><span class="caption-text">Search</span>
+    <div class="searchformwrapper">
+      <form autocomplete="off" class="search" action="../../search.html" method="get">
+        <input type="text" name="q" autocomplete="off" />
+        <input type="submit" value="Go" />
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div><div class="sidebar-links" role="navigation" aria-label="main navigation">
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#uso-lab-book">Acomodarea în Linux</a></span>
+      </p>
+      <ul class="current">
+        
+          <li class="toctree-l1 "><a href="apps.html" class="reference internal ">Pornirea și oprirea aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 current"><a href="#" class="reference internal current">Folosirea eficientă a browserului web</a>
+
+            
+              <ul>
+                
+                  <li class="toctree-l2"><a href="#pornirea-si-oprirea-browserului" class="reference internal">Pornirea și oprirea browserului</a></li>
+                
+                  <li class="toctree-l2"><a href="#actiuni-in-browserul-web" class="reference internal">Acțiuni în browserul web</a></li>
+                
+              </ul>
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="terminal.html" class="reference internal ">Lucrul în terminal</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="workspace.html" class="reference internal ">Lucrul cu workspace-uri</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="cheatsheet.html" class="reference internal ">Cheatsheet</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#uso-lab-book">Lucrul cu fișiere</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../files/paths.html" class="reference internal ">Căi absolute și relative</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../files/files.html" class="reference internal ">Interacțiunea cu fișiere în linia de comandă</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../files/file_editor.html" class="reference internal ">Editor de text</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../files/io_redirection.html" class="reference internal ">Redirectări</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../files/archive.html" class="reference internal ">Arhive</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../files/file_system.html" class="reference internal ">Sistemul de fișiere</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#uso-lab-book">Dezvoltarea aplicațiilor</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../app-dev/git-intro.html" class="reference internal ">Introducere în Git și GitHub</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/git-first-commit.html" class="reference internal ">Primul commit</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/git-more-commits.html" class="reference internal ">Crearea unui nou commit</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/git-contribute.html" class="reference internal ">Contribuirea la un alt repository</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/make-setup.html" class="reference internal ">Pregătirea mediului de lucru</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/make-intro.html" class="reference internal ">Compilarea unui fișier cod sursă C</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/make-multiple.html" class="reference internal ">Compilarea unui program din fișiere multiple</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/make-lib.html" class="reference internal ">Legarea executabilelor folosind biblioteci externe</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/make-debug.html" class="reference internal ">Depanare condițională / configurabilă</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/make-simple-automation.html" class="reference internal ">Introducere în utilitarul Make și fișiere Makefile</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/make-advanced-automation.html" class="reference internal ">Aprofundarea folosirii fișierelor Makefile</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/make-contribute.html" class="reference internal ">Contribuirea la un proiect existent pe GitHub</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/extra.html" class="reference internal ">Exerciții suplimentare</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#uso-lab-book">Conectarea la Internet</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../net/browser.html" class="reference internal ">Folosirea eficientă a browser-ului</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../net/troubleshoot.html" class="reference internal ">Conectarea la rețea și la Internet</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../net/services.html" class="reference internal ">Servicii și clienți de rețea</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../net/extra.html" class="reference internal ">Funcţionalităţi suplimentare de reţelistică</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#uso-lab-book">Instalarea și utilizarea aplicațiilor</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../app-install/start.html" class="reference internal ">Pornirea aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-install/run.html" class="reference internal ">Rularea aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-install/config.html" class="reference internal ">Configurarea aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-install/summary1.html" class="reference internal ">Sumar: Pornirea, rularea și configurarea aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-install/show-config.html" class="reference internal ">Vizualizarea configurației sistemului</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-install/install.html" class="reference internal ">Instalarea și dezinstalarea aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-install/install-non-standard.html" class="reference internal ">Instalarea și dezinstalarea aplicațiilor în mod nestandard</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-install/update.html" class="reference internal ">Actualizarea aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-install/show.html" class="reference internal ">Investigarea aplicațiilor instalate</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-install/summary2.html" class="reference internal ">Sumar: Instalarea, dezinstalarea, investigarea, actualizarea aplicațiilor</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#uso-lab-book">Îmbunătățirea lucrului în linia de comandă</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../improve-cli/improve-terminal.html" class="reference internal ">Îmbunătățirea lucrului în linia de comandă</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../improve-cli/inspect-fs.html" class="reference internal ">Inspectarea sistemului de fișiere</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../improve-cli/inspect-sys.html" class="reference internal ">Inspectarea sistemului</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../improve-cli/inspect-files.html" class="reference internal ">Inspectarea fișierelor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../improve-cli/process-files.html" class="reference internal ">Prelucrarea fișierelor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../improve-cli/improve-shell.html" class="reference internal ">O înțelegere mai bună a shell-ului</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../improve-cli/term-multiplexing.html" class="reference internal ">Multiplexarea terminalului</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+</div>
+        </sidebar>
+
+      <page>
+          <div class="body-header" role="navigation" aria-label="navigation">
+  
+  <ul class="breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+    
+    <li><span class="section-number">2. </span>Folosirea eficientă a browserului web</li>
+  </ul>
+  
+
+  <ul class="page-nav">
+  <li class="prev">
+    <a href="apps.html"
+       title="previous chapter">← <span class="section-number">1. </span>Pornirea și oprirea aplicațiilor</a>
+  </li>
+  <li class="next">
+    <a href="terminal.html"
+       title="next chapter"><span class="section-number">3. </span>Lucrul în terminal →</a>
+  </li>
+</ul>
+  
+</div>
+<hr>
+          <div class="content" role="main">
+            
+  <div class="section" id="folosirea-eficienta-a-browserului-web">
+<span id="basic-use-browser"></span><h1><span class="section-number">2. </span>Folosirea eficientă a browserului web<a class="headerlink" href="#folosirea-eficienta-a-browserului-web" title="Permalink to this headline">¶</a></h1>
+<p>În viața de zi cu zi, aplicația pe care o folosim probabil cel mai des, indiferent de platformă sau sistem de operare, este <strong>browserul web</strong>.
+Acesta rulează pe smartphone-uri, laptopuri, tablete și este folosit pentru rularea aplicațiilor web cum ar fi clienți de mesagerie, rularea de jocuri, afișarea de conținut al unei pagini cu știri, sau conținut pe rețele de socializare.</p>
+<p><strong>Browserul web</strong> este o aplicație pe care o folosim în mod constant; de aceea ne dorim să o folosim într-un mod cât mai eficient.
+Adică să petrecem cât mai puțin timp manevrând aplicația și cat mai mult timp folosind aplicația la capacitate maximă.</p>
+<p>Vom folosi <a class="reference external" href="https://www.mozilla.org/en-US/firefox/new/">Firefox</a> în această carte, însă conceptele prezentate sunt similare și în alte browsere (<a class="reference external" href="https://www.google.com/chrome/">Google Chrome</a>, <a class="reference external" href="https://www.chromium.org">Chromium</a>, <a class="reference external" href="https://www.apple.com/safari/">Safari</a>, <a class="reference external" href="https://www.opera.com">Opera</a>, <a class="reference external" href="https://www.microsoft.com/en-us/edge">Edge</a>, etc).
+Acesta este browserul default instalat în Ubuntu 18.04.</p>
+<div class="section" id="pornirea-si-oprirea-browserului">
+<span id="basic-start-stop-browser"></span><h2><span class="section-number">2.1. </span>Pornirea și oprirea browserului<a class="headerlink" href="#pornirea-si-oprirea-browserului" title="Permalink to this headline">¶</a></h2>
+<p>Browserul web este un exemplu de <em>aplicație software</em>.
+Am vorbit despre pornirea și oprirea aplicațiilor în secțiunea <a class="reference internal" href="apps.html#basic-start-stop-apps"><span class="std std-ref">Pornirea și oprirea aplicațiilor</span></a>.</p>
+<p>Atunci când browserul este pornit, spunem că acesta <em>rulează</em>.</p>
+<div class="section" id="pornirea-browserului-web">
+<span id="basic-start-browser"></span><h3><span class="section-number">2.1.1. </span>Pornirea browserului web<a class="headerlink" href="#pornirea-browserului-web" title="Permalink to this headline">¶</a></h3>
+<p>Putem opri browserul Firefox în mai multe moduri (așa cum am menționat în secțiunea <a class="reference internal" href="apps.html#basic-start-stop-apps"><span class="std std-ref">Pornirea și oprirea aplicațiilor</span></a>):</p>
+<ul>
+<li><p>Folosind iconuri.</p></li>
+<li><p>Deschizând un terminal și tastând în terminal comanda de pornire (aici <code class="docutils literal notranslate"><span class="pre">firefox</span></code>), similar cu folosirea <code class="docutils literal notranslate"><span class="pre">Alt+F2</span></code>, ca în imaginea de mai jos:</p>
+<div class="figure align-default">
+<img alt="Pornirea aplicației Firefox din linia de comandă" src="../../_images/start-firefox-terminal.gif" />
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="oprirea-browserului-web">
+<span id="basic-stop-browser"></span><h3><span class="section-number">2.1.2. </span>Oprirea browserului web<a class="headerlink" href="#oprirea-browserului-web" title="Permalink to this headline">¶</a></h3>
+<p>Putem opri browserul Firefox în mai multe moduri, la fel cum am văzut că închidem aplicații în secțiunea <a class="reference internal" href="apps.html#basic-stop-gui-app-icons"><span class="std std-ref">Oprirea unei aplicații grafice</span></a>:</p>
+<ul class="simple">
+<li><p>Folosind butonul de închidere a ferestrei grafice, în forma unui simbol <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p></li>
+<li><p>Folosind combinația de taste <code class="docutils literal notranslate"><span class="pre">Alt+F4</span></code>, care închide fereastra grafică, o scurtătură pentru folosirea butonului de închidere.</p></li>
+</ul>
+<p>După folosirea uneia dintre metodele de mai sus, aplicația Firefox este oprită.
+Adică nu mai putem interacționa cu ea, nu mai folosește resursele sistemului.
+Pentru a accesa din nou aplicații web, va trebui să repornim aplicația Firefox, folosind una dintre motodele din secțiunea <a class="reference internal" href="#basic-start-browser"><span class="std std-ref">Pornirea browserului web</span></a>.</p>
+</div>
+</div>
+<div class="section" id="actiuni-in-browserul-web">
+<span id="basic-actions-browser"></span><h2><span class="section-number">2.2. </span>Acțiuni în browserul web<a class="headerlink" href="#actiuni-in-browserul-web" title="Permalink to this headline">¶</a></h2>
+<p>În această subsecțiune vom prezenta cele mai folosite componente ale interfeței grafice a browserului web și cum să le folosim eficient.
+În general, avem cel puțin două variante pentru a face o acțiune:</p>
+<ol class="arabic simple">
+<li><p>Folosind butoane din interfața grafică</p></li>
+<li><p>Folosind combinația de taste echivalentă clickurilor</p></li>
+</ol>
+<p>Vom face o paralelă între cele două în această subsecțiune.</p>
+<p>Folosirea combinațiilor de taste este mai rapidă, mai eficientă, dar necesită un efort de memorare din partea utilizatorului.
+Utilizatorii avansați vor folosi preponderent combinații de taste.</p>
+<div class="section" id="folosirea-barei-de-adresa">
+<span id="basic-address-bar-browser"></span><h3><span class="section-number">2.2.1. </span>Folosirea barei de adresă<a class="headerlink" href="#folosirea-barei-de-adresa" title="Permalink to this headline">¶</a></h3>
+<p>Dacă dorim să accesăm pagina web (<em>URL-ul</em>, <em>site-ul</em>, <em>linkul</em>) <strong>google.com</strong>, trebuie să introducem șirul <code class="docutils literal notranslate"><span class="pre">google.com</span></code> în bara de adrese.
+Putem plasa cursorul în bara de adrese în două moduri:</p>
+<ul>
+<li><p>Folosind clickuri ca în imaginea de mai jos:</p>
+<div class="figure align-default">
+<img alt="Deschiderea unei pagini web în browser" src="../../_images/open-web-page.gif" />
+</div>
+</li>
+<li><p>Folosind combinația de taste <code class="docutils literal notranslate"><span class="pre">Ctrl+l</span></code>.</p></li>
+</ul>
+<p>Odată accesată bara de adrese putem introduce șirul <code class="docutils literal notranslate"><span class="pre">google.com</span></code>.</p>
+<p id="basic-address-bar-browser-ex"><strong>Exercițiu:</strong> Accesați paginile <strong>curs.upb.ro</strong>, <strong>studenti.pub.ro</strong>, <strong>hotnews.ro</strong>, <strong>facebook.com</strong> folosind ambele metode prezentate mai sus.</p>
+</div>
+<div class="section" id="navigarea-folosind-butoane">
+<span id="basic-navigation-buttons-browser"></span><h3><span class="section-number">2.2.2. </span>Navigarea folosind butoane<a class="headerlink" href="#navigarea-folosind-butoane" title="Permalink to this headline">¶</a></h3>
+<p>Uneori avem nevoie să revenim la pagini accesate anterior.
+După ce am navigat pe o rețea de socializare, am deschis un articol apărut în feed, l-am citit și acum vrem să revenim la feedul de pe rețeaua de socializare.
+Navigăm la pagina anterioară pentru a reveni pe rețea.</p>
+<p>Putem naviga la pagini navigate anterior în două moduri:</p>
+<ul>
+<li><p>Folosind butoanele <strong>săgeată stânga</strong> (<em>Go back one page</em>) și <strong>săgeată dreapta</strong> (<em>Go forward one page</em>) din interfața grafică a browserului, ca în imaginea de mai jos:</p>
+<div class="figure align-default">
+<img alt="Navigarea către pagini vizitate anterior folosind butoane" src="../../_images/back-forward-web-pages.gif" />
+</div>
+<p>Am trecut prin paginile <strong>facebook.com</strong>, <strong>hotnews.ro</strong>, <strong>hotnews.ro</strong> și înapoi la <strong>hotnews.ro</strong>, <strong>facebook.com</strong>.</p>
+</li>
+<li><p>Folosind combinațiile de taste echivalente cu clickurile pe săgețile stânga/dreapta din browser:</p>
+<ul class="simple">
+<li><p>Navigare înapoi: <code class="docutils literal notranslate"><span class="pre">Alt+săgeată</span> <span class="pre">stânga</span></code>.</p></li>
+<li><p>Navigare înainte: <code class="docutils literal notranslate"><span class="pre">Alt+săgeată</span> <span class="pre">dreapta</span></code>.</p></li>
+</ul>
+</li>
+</ul>
+<div class="section" id="exercitii">
+<span id="basic-navigation-buttons-browser-ex"></span><h4><span class="section-number">2.2.2.1. </span>Exerciții<a class="headerlink" href="#exercitii" title="Permalink to this headline">¶</a></h4>
+<ol class="arabic simple">
+<li><p>Folosind combinația de taste <code class="docutils literal notranslate"><span class="pre">Ctlr+l</span></code>, accesați bara de adrese a browserului și deschideți pagina <strong>youtube.com</strong>.</p></li>
+<li><p>Navigați <strong>înapoi</strong> folosind butonul <em>Go back one page</em> până ajungeți la pagina <strong>hotnews.com</strong>.</p></li>
+<li><p>Navigați <strong>înainte</strong> folosind butonul <em>Go forward one page</em> până ajungeți la pagina <strong>facebook.com</strong>.</p></li>
+<li><p>Navigați <strong>înapoi</strong> folosind combinația de taste <code class="docutils literal notranslate"><span class="pre">Alt+săgeată</span> <span class="pre">stânga</span></code> până ajungeți la pagina <strong>google.com</strong>.</p></li>
+</ol>
+</div>
+</div>
+<div class="section" id="scroll-in-browser">
+<span id="basic-scroll-browser"></span><h3><span class="section-number">2.2.3. </span>Scroll în browser<a class="headerlink" href="#scroll-in-browser" title="Permalink to this headline">¶</a></h3>
+<p>Principalul motiv pentru care folosim browsere web este ca să vizualizăm conținut de pagini.
+Navigarea sus/jos în cadrul unei pagini web se numește <strong>scroll</strong>.</p>
+<p>Accesăm pagina <strong>hotnews.ro</strong>.
+Putem da scroll în pagină în mai multe moduri:</p>
+<ul class="simple">
+<li><p>Folosind mouse-ul prin rotiță / touchpadul.</p></li>
+<li><p>Folosind butoanele <code class="docutils literal notranslate"><span class="pre">PageUp</span></code> și <code class="docutils literal notranslate"><span class="pre">PageDown</span></code> de pe tastatură.
+Așa ne deplasăm câte un “ecran” în jos sau în sus.</p></li>
+</ul>
+<p>În imaginea de mai jos se vede cum dăm scroll sus și jos pe pagina <strong>hotnews.ro</strong>:</p>
+<div class="figure align-default">
+<img alt="Scroll în browser" src="../../_images/firefox-scroll.gif" />
+</div>
+</div>
+<div class="section" id="reimprospatarea-paginii">
+<span id="basic-refresh-browser-page"></span><h3><span class="section-number">2.2.4. </span>Reîmprospătarea paginii<a class="headerlink" href="#reimprospatarea-paginii" title="Permalink to this headline">¶</a></h3>
+<p>Avem situații în care trebuie să reîmprospătăm (<em>refresh</em>) conținutul unei pagini web.
+Spre exemplu, am deschis o pagină și imaginile nu au fost încărcate corect (am avut probleme cu conexiunea la Internet în acel moment).
+Alt caz ar putea fi atunci când așteptăm ca pe o pagină să fie publicate notele noastre la un examen, așa că vrem să reîmpropătăm pagina web să vedem dacă aceasta a fost actualizată.</p>
+<p>Intrăm pe pagina <strong>bbc.com</strong>.</p>
+<p>Putem reîmprospăta pagina web în mai multe moduri:</p>
+<ul>
+<li><p>Folosind butonul de remîprospătare (<em>refresh</em>) din browser ca în imaginea de mai jos:</p>
+<div class="figure align-default">
+<img alt="Reîmprospătarea paginii web" src="../../_images/firefox-refresh.gif" />
+</div>
+</li>
+<li><p>Folosind tasta <code class="docutils literal notranslate"><span class="pre">F5</span></code>.</p></li>
+</ul>
+</div>
+<div class="section" id="lucrul-cu-taburi">
+<span id="basic-tabs-browser"></span><h3><span class="section-number">2.2.5. </span>Lucrul cu taburi<a class="headerlink" href="#lucrul-cu-taburi" title="Permalink to this headline">¶</a></h3>
+<p>Un caz pe care îl întâlnim des atunci când lucrăm cu un browser web, este să avem mai multe pagini web deschise simultan.
+Spre exemplu, avem nevoie să căutăm o informație pe Google, cum ar fi <em>Cum gătim supă de pui acasă</em>.
+Există multe rețete pe Internet, vrem să citim mai multe până să ne hotărăm pe care să o folosim.</p>
+<p>Cel mai eficient mod pentru a face acest lucru este să folosim <strong>taburi în browser</strong>.
+Aplicația Firefox aflată în rulare poate avea unul sau mai multe taburi pornite.</p>
+<p>În subsecțiunile următoare vom vorbi despre cum să deschidem taburi, sa navigăm între taburi și să închidem taburi eficient.</p>
+<div class="section" id="deschiderea-taburilor">
+<span id="basic-open-tabs-browser"></span><h4><span class="section-number">2.2.5.1. </span>Deschiderea taburilor<a class="headerlink" href="#deschiderea-taburilor" title="Permalink to this headline">¶</a></h4>
+<p>Atunci când deschidem aplicația Firefox, aceasta va avea un singur tab deschis: cel cu pagina principală.
+Accesăm pagina <strong>google.com</strong>.</p>
+<p>Putem deschide un alt tab în browser în două moduri:</p>
+<ul>
+<li><p>Folosind butonul cu simbolul <code class="docutils literal notranslate"><span class="pre">+</span></code> din interfața grafică a browserului:</p>
+<div class="figure align-default">
+<img alt="Deschiderea unor noi taburi folosind simbolul ``+``" src="../../_images/firefox-open-tabs.gif" />
+</div>
+</li>
+<li><p>Folosind combinația de taste <code class="docutils literal notranslate"><span class="pre">Ctrl+t</span></code>.</p></li>
+</ul>
+<p><strong>Exerciții</strong></p>
+<ol class="arabic simple">
+<li><p>Deschideți două taburi noi folosind simbolul <code class="docutils literal notranslate"><span class="pre">+</span></code>.</p></li>
+<li><p>În primul tab deschis navigați pe pagina <strong>ubuntu.com</strong>, iar în al doilea pe pagina <strong>ocw.cs.pub.ro</strong>. Folosiți combinația de taste <code class="docutils literal notranslate"><span class="pre">Ctrl+l</span></code> și apoi scrieți adresa paginilor.</p></li>
+</ol>
+</div>
+<div class="section" id="navigarea-intre-taburi">
+<span id="basic-navigate-tabs-browser"></span><h4><span class="section-number">2.2.5.2. </span>Navigarea între taburi<a class="headerlink" href="#navigarea-intre-taburi" title="Permalink to this headline">¶</a></h4>
+<p>Avem acum trei taburi deschise:</p>
+<ol class="arabic simple">
+<li><p>Primul pe pagina <strong>google.com</strong>.</p></li>
+<li><p>Al doilea pe pagina <strong>ubuntu.com</strong>.</p></li>
+<li><p>Al treilea pe pagina <strong>ocw.cs.pub.ro</strong>.</p></li>
+</ol>
+<p>Putem naviga printre cele 3 (la modul general <em>N</em>) taburi în mai multe moduri:</p>
+<ul>
+<li><p>Folosind clickuri. Dăm click pe fiecare tab în parte, ca în imaginea de mai jos:</p>
+<div class="figure align-default">
+<img alt="Navigarea între taburi folosind clickuri" src="../../_images/firefox-navigate-tabs.gif" />
+</div>
+</li>
+<li><p>Folosind combinația de taste <code class="docutils literal notranslate"><span class="pre">Alt+&lt;număr&gt;</span></code>.
+Spre exemplu, combinația de taste <code class="docutils literal notranslate"><span class="pre">Alt+2</span></code> ne va duce pe al doilea tab, adică pe pagina <strong>ubuntu.com</strong>.</p></li>
+</ul>
+<p><strong>Exerciții</strong></p>
+<ol class="arabic simple">
+<li><p>Deschideți încă două taburi pe lângă cele trei deja deschise.</p></li>
+<li><p>Accesați al patrulea tab folosind combinația de taste <code class="docutils literal notranslate"><span class="pre">Alt+4</span></code>.</p></li>
+<li><p>Accesați primul tab folosind combinația de taste <code class="docutils literal notranslate"><span class="pre">Alt+1</span></code>.</p></li>
+<li><p>Apăsați combinația de taste <code class="docutils literal notranslate"><span class="pre">Alt+9</span></code>. Ce observați?</p></li>
+</ol>
+</div>
+<div class="section" id="inchiderea-taburilor">
+<span id="basic-close-tabs-browser"></span><h4><span class="section-number">2.2.5.3. </span>Închiderea taburilor<a class="headerlink" href="#inchiderea-taburilor" title="Permalink to this headline">¶</a></h4>
+<p>Fiecare tab deschis consumă resurse ale sistemului, așadar este bine să închidem aplicațiile (sau taburi ale lor) atunci când nu le mai folosim.</p>
+<p>Putem închide un tab în browser în mai multe moduri:</p>
+<ul>
+<li><p>Folosind butonul cu simbolul <code class="docutils literal notranslate"><span class="pre">x</span></code> din browser ca în imaginea de mai jos:</p>
+<div class="figure align-default">
+<img alt="Închiderea taburilor folosind butonul ``x``" src="../../_images/firefox-close-tabs.gif" />
+</div>
+</li>
+<li><p>Folosind combinația de taste <code class="docutils literal notranslate"><span class="pre">Ctrl+w</span></code>.</p></li>
+</ul>
+<p><strong>Exerciții</strong></p>
+<ol class="arabic simple">
+<li><p>Închideți al cincilea tab folosind combinația de taste <code class="docutils literal notranslate"><span class="pre">Ctrl+w</span></code>.</p></li>
+<li><p>Închideți al doilea și al treilea tab folosind combinația de taste <code class="docutils literal notranslate"><span class="pre">Ctrl+w</span></code>. Navigați între taburi folosind combinația de taste <code class="docutils literal notranslate"><span class="pre">Alt+&lt;număr&gt;</span></code>.</p></li>
+<li><p>Închideți ultimele 2 taburi folosind combinația de taste <code class="docutils literal notranslate"><span class="pre">Ctrl+w</span></code>.</p></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>La închiderea ultimului tab din browser se închide aplicația Firefox.</p>
+</div>
+</div>
+<div class="section" id="deschiderea-unui-link-in-alt-tab">
+<span id="basic-open-link-in-tab-browser"></span><h4><span class="section-number">2.2.5.4. </span>Deschiderea unui link în alt tab<a class="headerlink" href="#deschiderea-unui-link-in-alt-tab" title="Permalink to this headline">¶</a></h4>
+<p>Să presupunem că vrem să găsim rețeta perfectă pentru supă de pui gătită în casă și vrem să deschidem mai multe rețete, fiecare într-un tab, pentru a le compara și pentru a alege rețeta cea mai bună.
+Vom vedea cum să deschidem linkurile de rețete găsite pe Google într-un alt tab.
+Alternativa la a deschide linkurile într-un alt tab ar fi să le deschidem într-o altă fereastră.
+Lucrul cu ferestrele aplicației (în cazul nostru <em>Firefox</em>) poate deveni greu de gestionat.</p>
+<p>Deschidem din nou browserul Firefox.
+Intrăm pe <a class="reference external" href="www.google.com">Google</a> și căutăm <em>Homemade chicken soup recipe</em> ca în imaginea de mai jos:</p>
+<div class="figure align-default">
+<img alt="Căutarea rețetă supă de pui pe Google" src="../../_images/firefox-search-for-chicken-soup.gif" />
+</div>
+<p>Putem deschide rețete găsite în alte taburi în mai multe moduri:</p>
+<ul>
+<li><p>Folosind clickuri. Folosim <em>click dreapta</em> pe link după care alegem opțiunea <em>Open Link in New Tab</em> din meniul contextual ca în imaginea de mai jos:</p>
+<div class="figure align-default">
+<img alt="Deschiderea unui link în tab nou" src="../../_images/firefox-open-link-in-tab.gif" />
+</div>
+</li>
+<li><p>Apăsând tasta <code class="docutils literal notranslate"><span class="pre">Ctrl</span></code> și click pe link.</p></li>
+</ul>
+<p><strong>Exerciții</strong></p>
+<ol class="arabic simple">
+<li><p>Deschideți un tab nou și accesați pagina <strong>google.com</strong>.</p></li>
+<li><p>Căutați pe Google întrebarea <em>Which browser should I use Linux</em>.</p></li>
+<li><p>Deschideți primele 2 linkuri găsite în taburi diferite folosind clickuri.</p></li>
+<li><p>Deschideți următoarele 2 linkuri găsite în taburi diferite folosind tasta <code class="docutils literal notranslate"><span class="pre">Ctrl</span></code> urmată de click pe link.</p></li>
+<li><p>Navigați printre paginile deschise folosind combinația de taste <code class="docutils literal notranslate"><span class="pre">Alt+&lt;număr&gt;</span></code>.</p></li>
+<li><p>Închideți browserul folosind combinația de taste <code class="docutils literal notranslate"><span class="pre">Ctrl+F4</span></code>.</p></li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+          <div class="page-nav">
+            <div class="inner"><ul class="page-nav">
+  <li class="prev">
+    <a href="apps.html"
+       title="previous chapter">← <span class="section-number">1. </span>Pornirea și oprirea aplicațiilor</a>
+  </li>
+  <li class="next">
+    <a href="terminal.html"
+       title="next chapter"><span class="section-number">3. </span>Lucrul în terminal →</a>
+  </li>
+</ul><div class="footer" role="contentinfo">
+      &#169; Copyright 2020, USO Team.
+    <br>
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.2.1 with <a href="https://github.com/romnnn/sphinx_press_theme">Press Theme</a>.
+</div>
+            </div>
+          </div>
+      </page>
+    </div>
+    
+    
+  </body>
+</html>

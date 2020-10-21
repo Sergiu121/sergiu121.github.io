@@ -46,6 +46,13 @@
     <div class="nav-item">
       <a href="../../index.html#uso-lab-book"
          class="nav-link ">
+         Acomodarea în Linux
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
          Lucrul cu fișiere
       </a>
     </div>
@@ -102,6 +109,13 @@
           <navlinks>
             
 
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Acomodarea în Linux
+      </a>
+    </div>
   
     <div class="nav-item">
       <a href="../../index.html#uso-lab-book"
@@ -163,6 +177,45 @@
     </div>
   </div>
 </div><div class="sidebar-links" role="navigation" aria-label="main navigation">
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#uso-lab-book">Acomodarea în Linux</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../basic/apps.html" class="reference internal ">Pornirea și oprirea aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../basic/browser.html" class="reference internal ">Folosirea eficientă a browserului web</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../basic/terminal.html" class="reference internal ">Lucrul în terminal</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../basic/workspace.html" class="reference internal ">Lucrul cu workspace-uri</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../basic/cheatsheet.html" class="reference internal ">Cheatsheet</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
   
     <div class="sidebar-group">
       <p class="caption">
@@ -314,8 +367,6 @@
               <ul>
                 
                   <li class="toctree-l2"><a href="#interactiunea-cu-nivelul-fizic" class="reference internal">Interacţiunea cu nivelul fizic</a></li>
-                
-                  <li class="toctree-l2"><a href="#configurarea-retelei-in-mediul-grafic" class="reference internal">Configurarea reţelei în mediul grafic</a></li>
                 
                   <li class="toctree-l2"><a href="#configurarea-nivelului-internet" class="reference internal">Configurarea nivelului Internet</a></li>
                 
@@ -514,17 +565,28 @@ Observăm în GIF-ul &lt;TODO&gt; cum arată ledurile unei plăci de rețea func
 Dacă acestea nu sunt aprinse, atunci nu vom avea conectivitate la rețea.</p>
 <div class="section" id="investigarea-nivelului-fizic-al-retelei">
 <h3><span class="section-number">2.1.1. </span>Investigarea nivelului fizic al rețelei<a class="headerlink" href="#investigarea-nivelului-fizic-al-retelei" title="Permalink to this headline">¶</a></h3>
-<p>NOTĂ</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
 <p>În general, în Linux asociem fiecărei interfețe de rețea o placă de rețea.</p>
+</div>
 <p>La nivelul sistemului de operare putem verifica dacă o placă de rețea este
 activă folosind comanda următoare:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>student@uso:~$ ip link show
-1: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu 65536 qdisc noqueue state UNKNOWN mode DEFAULT group default qlen 1000
-    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
-2: eno2: &lt;NO-CARRIER,BROADCAST,MULTICAST,UP&gt; mtu 1500 qdisc fq_codel state DOWN mode DEFAULT group default qlen 1000
-    link/ether c8:f7:50:78:a1:a7 brd ff:ff:ff:ff:ff:ff
-3: wlo1: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc noqueue state UP mode DORMANT group default qlen 1000
-    link/ether a0:51:0b:68:3d:55 brd ff:ff:ff:ff:ff:ff
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Pentru rularea acestui demo rulați în directorul
+<code class="docutils literal notranslate"><span class="pre">~/uso.git/lab-containers/</span></code> comanda <code class="docutils literal notranslate"><span class="pre">./lab_prepare.sh</span> <span class="pre">install</span> <span class="pre">fizic</span></code>.
+Pentru a ne conecta la infrastructura pentru această secțiune vom folosi
+comanda <code class="docutils literal notranslate"><span class="pre">./lab_prepare.sh</span> <span class="pre">connect</span> <span class="pre">fizic</span></code></p>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">root</span><span class="nd">@fizic</span><span class="p">:</span><span class="o">~</span><span class="c1"># ip link show</span>
+<span class="mi">1</span><span class="p">:</span> <span class="n">lo</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">LOOPBACK</span><span class="p">,</span><span class="n">UP</span><span class="p">,</span><span class="n">LOWER_UP</span><span class="o">&gt;</span> <span class="n">mtu</span> <span class="mi">65536</span> <span class="n">qdisc</span> <span class="n">noqueue</span> <span class="n">state</span> <span class="n">UNKNOWN</span> <span class="n">mode</span> <span class="n">DEFAULT</span> <span class="n">group</span> <span class="n">default</span> <span class="n">qlen</span> <span class="mi">1000</span>
+    <span class="n">link</span><span class="o">/</span><span class="n">loopback</span> <span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span> <span class="n">brd</span> <span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span>
+<span class="mi">293</span><span class="p">:</span> <span class="n">eth0</span><span class="nd">@if294</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">BROADCAST</span><span class="p">,</span><span class="n">MULTICAST</span><span class="p">,</span><span class="n">UP</span><span class="p">,</span><span class="n">LOWER_UP</span><span class="o">&gt;</span> <span class="n">mtu</span> <span class="mi">1500</span> <span class="n">qdisc</span> <span class="n">noqueue</span> <span class="n">state</span> <span class="n">UP</span> <span class="n">mode</span> <span class="n">DEFAULT</span> <span class="n">group</span> <span class="n">default</span>
+    <span class="n">link</span><span class="o">/</span><span class="n">ether</span> <span class="mi">02</span><span class="p">:</span><span class="mi">42</span><span class="p">:</span><span class="mi">0</span><span class="n">a</span><span class="p">:</span><span class="mi">0</span><span class="n">a</span><span class="p">:</span><span class="mi">0</span><span class="n">a</span><span class="p">:</span><span class="mi">01</span> <span class="n">brd</span> <span class="n">ff</span><span class="p">:</span><span class="n">ff</span><span class="p">:</span><span class="n">ff</span><span class="p">:</span><span class="n">ff</span><span class="p">:</span><span class="n">ff</span><span class="p">:</span><span class="n">ff</span> <span class="n">link</span><span class="o">-</span><span class="n">netnsid</span> <span class="mi">0</span>
+<span class="mi">297</span><span class="p">:</span> <span class="n">eth1</span><span class="nd">@if298</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">BROADCAST</span><span class="p">,</span><span class="n">MULTICAST</span><span class="p">,</span><span class="n">UP</span><span class="p">,</span><span class="n">LOWER_UP</span><span class="o">&gt;</span> <span class="n">mtu</span> <span class="mi">1500</span> <span class="n">qdisc</span> <span class="n">noqueue</span> <span class="n">state</span> <span class="n">UP</span> <span class="n">mode</span> <span class="n">DEFAULT</span> <span class="n">group</span> <span class="n">default</span>
+    <span class="n">link</span><span class="o">/</span><span class="n">ether</span> <span class="mi">02</span><span class="p">:</span><span class="mi">42</span><span class="p">:</span><span class="mi">0</span><span class="n">b</span><span class="p">:</span><span class="mi">0</span><span class="n">b</span><span class="p">:</span><span class="mi">0</span><span class="n">b</span><span class="p">:</span><span class="mi">01</span> <span class="n">brd</span> <span class="n">ff</span><span class="p">:</span><span class="n">ff</span><span class="p">:</span><span class="n">ff</span><span class="p">:</span><span class="n">ff</span><span class="p">:</span><span class="n">ff</span><span class="p">:</span><span class="n">ff</span> <span class="n">link</span><span class="o">-</span><span class="n">netnsid</span> <span class="mi">0</span>
+<span class="mi">299</span><span class="p">:</span> <span class="n">eth2</span><span class="nd">@if300</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">BROADCAST</span><span class="p">,</span><span class="n">MULTICAST</span><span class="p">,</span><span class="n">UP</span><span class="p">,</span><span class="n">LOWER_UP</span><span class="o">&gt;</span> <span class="n">mtu</span> <span class="mi">1500</span> <span class="n">qdisc</span> <span class="n">noqueue</span> <span class="n">state</span> <span class="n">UP</span> <span class="n">mode</span> <span class="n">DEFAULT</span> <span class="n">group</span> <span class="n">default</span>
+    <span class="n">link</span><span class="o">/</span><span class="n">ether</span> <span class="mi">02</span><span class="p">:</span><span class="mi">42</span><span class="p">:</span><span class="mi">0</span><span class="n">c</span><span class="p">:</span><span class="mi">0</span><span class="n">c</span><span class="p">:</span><span class="mi">0</span><span class="n">c</span><span class="p">:</span><span class="mi">01</span> <span class="n">brd</span> <span class="n">ff</span><span class="p">:</span><span class="n">ff</span><span class="p">:</span><span class="n">ff</span><span class="p">:</span><span class="n">ff</span><span class="p">:</span><span class="n">ff</span><span class="p">:</span><span class="n">ff</span> <span class="n">link</span><span class="o">-</span><span class="n">netnsid</span> <span class="mi">0</span>
 </pre></div>
 </div>
 <p>Starea fiecărei interfețe de rețea este reprezentată pe câte o linie împreună cu
@@ -532,37 +594,53 @@ parametrii săi de rulate. Majoritatea informațiilor afișate de comanda de mai
 sus nu relevante pentru noi. Singurul șir de caractere care ne este <code class="docutils literal notranslate"><span class="pre">state</span></code>,
 urmat de starea interfeței de rețea, care poate să fie <code class="docutils literal notranslate"><span class="pre">UP</span></code>, <code class="docutils literal notranslate"><span class="pre">DOWN</span></code> sau
 <code class="docutils literal notranslate"><span class="pre">UNKNOWN</span></code>.</p>
-<p>Observăm că interfața de rețea cu numele <code class="docutils literal notranslate"><span class="pre">wlo1</span></code> este pornită, deoarece linia
-asociată interfeței conține șirul de caractere <code class="docutils literal notranslate"><span class="pre">state</span> <span class="pre">UP</span></code>. În
-același timp observăm că interfața de rețea <code class="docutils literal notranslate"><span class="pre">eno2</span></code> nu este activă deoarece pe
-linia sa observăm șirul de caractere <code class="docutils literal notranslate"><span class="pre">state</span> <span class="pre">DOWN</span></code>.</p>
-<p>Pentru a porni interfața <code class="docutils literal notranslate"><span class="pre">eno2</span></code> vom folosi următoarea comandă:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>student@uso:~$ ip link set up dev eno2
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Formatul pentru numele interfețelor diferă de la o distribuție la alta. În
+cadrul infrastructurii de laborator folosim containere de tip Docker
+în cadrul cărora numele interfețelor este de forma <code class="docutils literal notranslate"><span class="pre">ethX</span></code>, unde X este un
+număr. În funcție de mașina pe care rulăm numele interfețelor poate să se
+fie într-un format diferit.</p>
+</div>
+<p>Observăm că interfața de rețea cu numele <code class="docutils literal notranslate"><span class="pre">eth0</span></code> este pornită, deoarece linia
+asociată interfeței conține șirul de caractere <code class="docutils literal notranslate"><span class="pre">state</span> <span class="pre">UP</span></code>. În același timp
+observăm că interfața de rețea <code class="docutils literal notranslate"><span class="pre">eth1</span></code> nu este activă deoarece pe linia sa
+observăm șirul de caractere <code class="docutils literal notranslate"><span class="pre">state</span> <span class="pre">DOWN</span></code>.</p>
+<p>Pentru a porni interfața <code class="docutils literal notranslate"><span class="pre">eth1</span></code> vom folosi următoarea comandă:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">root</span><span class="nd">@uso</span><span class="p">:</span><span class="o">~</span><span class="c1"># ip link set up dev eth1</span>
 </pre></div>
 </div>
 <p>Mereu după ce rulăm o comandă trebuie să verificăm că s-a efectuat comanda cu
 succes folosind o comandă de verificare. În cazul de față vom folosi tot
 comanda <code class="docutils literal notranslate"><span class="pre">ip</span> <span class="pre">link</span> <span class="pre">show</span></code>:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>student@uso:~$ ip link show
-1: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu 65536 qdisc noqueue state UNKNOWN mode DEFAULT group default qlen 1000
-    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
-2: eno2: &lt;NO-CARRIER,BROADCAST,MULTICAST,UP&gt; mtu 1500 qdisc fq_codel state DOWN mode DEFAULT group default qlen 1000
-    link/ether c8:f7:50:78:a1:a7 brd ff:ff:ff:ff:ff:ff
-3: wlo1: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc noqueue state UP mode DORMANT group default qlen 1000
-    link/ether a0:51:0b:68:3d:55 brd ff:ff:ff:ff:ff:ff
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">root</span><span class="nd">@fizic</span><span class="p">:</span><span class="o">~</span><span class="c1"># ip link show</span>
+<span class="mi">1</span><span class="p">:</span> <span class="n">lo</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">LOOPBACK</span><span class="p">,</span><span class="n">UP</span><span class="p">,</span><span class="n">LOWER_UP</span><span class="o">&gt;</span> <span class="n">mtu</span> <span class="mi">65536</span> <span class="n">qdisc</span> <span class="n">noqueue</span> <span class="n">state</span> <span class="n">UNKNOWN</span> <span class="n">mode</span> <span class="n">DEFAULT</span> <span class="n">group</span> <span class="n">default</span> <span class="n">qlen</span> <span class="mi">1000</span>
+    <span class="n">link</span><span class="o">/</span><span class="n">loopback</span> <span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span> <span class="n">brd</span> <span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span>
+<span class="mi">293</span><span class="p">:</span> <span class="n">eth0</span><span class="nd">@if294</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">BROADCAST</span><span class="p">,</span><span class="n">MULTICAST</span><span class="p">,</span><span class="n">UP</span><span class="p">,</span><span class="n">LOWER_UP</span><span class="o">&gt;</span> <span class="n">mtu</span> <span class="mi">1500</span> <span class="n">qdisc</span> <span class="n">noqueue</span> <span class="n">state</span> <span class="n">UP</span> <span class="n">mode</span> <span class="n">DEFAULT</span> <span class="n">group</span> <span class="n">default</span>
+    <span class="n">link</span><span class="o">/</span><span class="n">ether</span> <span class="mi">02</span><span class="p">:</span><span class="mi">42</span><span class="p">:</span><span class="mi">0</span><span class="n">a</span><span class="p">:</span><span class="mi">0</span><span class="n">a</span><span class="p">:</span><span class="mi">0</span><span class="n">a</span><span class="p">:</span><span class="mi">01</span> <span class="n">brd</span> <span class="n">ff</span><span class="p">:</span><span class="n">ff</span><span class="p">:</span><span class="n">ff</span><span class="p">:</span><span class="n">ff</span><span class="p">:</span><span class="n">ff</span><span class="p">:</span><span class="n">ff</span> <span class="n">link</span><span class="o">-</span><span class="n">netnsid</span> <span class="mi">0</span>
+<span class="mi">297</span><span class="p">:</span> <span class="n">eth1</span><span class="nd">@if298</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">BROADCAST</span><span class="p">,</span><span class="n">MULTICAST</span><span class="p">,</span><span class="n">UP</span><span class="p">,</span><span class="n">LOWER_UP</span><span class="o">&gt;</span> <span class="n">mtu</span> <span class="mi">1500</span> <span class="n">qdisc</span> <span class="n">noqueue</span> <span class="n">state</span> <span class="n">UP</span> <span class="n">mode</span> <span class="n">DEFAULT</span> <span class="n">group</span> <span class="n">default</span>
+    <span class="n">link</span><span class="o">/</span><span class="n">ether</span> <span class="mi">02</span><span class="p">:</span><span class="mi">42</span><span class="p">:</span><span class="mi">0</span><span class="n">b</span><span class="p">:</span><span class="mi">0</span><span class="n">b</span><span class="p">:</span><span class="mi">0</span><span class="n">b</span><span class="p">:</span><span class="mi">01</span> <span class="n">brd</span> <span class="n">ff</span><span class="p">:</span><span class="n">ff</span><span class="p">:</span><span class="n">ff</span><span class="p">:</span><span class="n">ff</span><span class="p">:</span><span class="n">ff</span><span class="p">:</span><span class="n">ff</span> <span class="n">link</span><span class="o">-</span><span class="n">netnsid</span> <span class="mi">0</span>
+<span class="mi">299</span><span class="p">:</span> <span class="n">eth2</span><span class="nd">@if300</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">BROADCAST</span><span class="p">,</span><span class="n">MULTICAST</span><span class="p">,</span><span class="n">UP</span><span class="p">,</span><span class="n">LOWER_UP</span><span class="o">&gt;</span> <span class="n">mtu</span> <span class="mi">1500</span> <span class="n">qdisc</span> <span class="n">noqueue</span> <span class="n">state</span> <span class="n">UP</span> <span class="n">mode</span> <span class="n">DEFAULT</span> <span class="n">group</span> <span class="n">default</span>
+    <span class="n">link</span><span class="o">/</span><span class="n">ether</span> <span class="mi">02</span><span class="p">:</span><span class="mi">42</span><span class="p">:</span><span class="mi">0</span><span class="n">c</span><span class="p">:</span><span class="mi">0</span><span class="n">c</span><span class="p">:</span><span class="mi">0</span><span class="n">c</span><span class="p">:</span><span class="mi">01</span> <span class="n">brd</span> <span class="n">ff</span><span class="p">:</span><span class="n">ff</span><span class="p">:</span><span class="n">ff</span><span class="p">:</span><span class="n">ff</span><span class="p">:</span><span class="n">ff</span><span class="p">:</span><span class="n">ff</span> <span class="n">link</span><span class="o">-</span><span class="n">netnsid</span> <span class="mi">0</span>
 </pre></div>
 </div>
+<div class="section" id="exercitiu-pornirea-unei-interfete">
+<h4><span class="section-number">2.1.1.1. </span>Exercițiu - Pornirea unei interfețe<a class="headerlink" href="#exercitiu-pornirea-unei-interfete" title="Permalink to this headline">¶</a></h4>
+<p>Porniți interfața de rețea <code class="docutils literal notranslate"><span class="pre">eth2</span></code>.</p>
 </div>
 </div>
-<div class="section" id="configurarea-retelei-in-mediul-grafic">
-<h2><span class="section-number">2.2. </span>Configurarea reţelei în mediul grafic<a class="headerlink" href="#configurarea-retelei-in-mediul-grafic" title="Permalink to this headline">¶</a></h2>
-<p>Le vom arăta cum să se conecteze la o rețea folosind interfaţa vizuală a unui
-Desktop Environment, probabil GNOME</p>
 </div>
 <div class="section" id="configurarea-nivelului-internet">
-<h2><span class="section-number">2.3. </span>Configurarea nivelului Internet<a class="headerlink" href="#configurarea-nivelului-internet" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">2.2. </span>Configurarea nivelului Internet<a class="headerlink" href="#configurarea-nivelului-internet" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="identificarea-adresei-de-internet">
-<h3><span class="section-number">2.3.1. </span>Identificarea adresei de Internet<a class="headerlink" href="#identificarea-adresei-de-internet" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">2.2.1. </span>Identificarea adresei de Internet<a class="headerlink" href="#identificarea-adresei-de-internet" title="Permalink to this headline">¶</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Pentru rularea acestui demo rulați în directorul
+<code class="docutils literal notranslate"><span class="pre">~/uso.git/lab-containers/</span></code> comanda <code class="docutils literal notranslate"><span class="pre">./lab_prepare.sh</span> <span class="pre">install</span> <span class="pre">internet</span></code>.
+Pentru a ne conecta la infrastructura pentru această secțiune vom folosi
+comanda <code class="docutils literal notranslate"><span class="pre">./lab_prepare.sh</span> <span class="pre">connect</span> <span class="pre">internet</span></code></p>
+</div>
 <p>Pentru comunicare între două stații din Internet, trebuie ca cele două stații să
 fie conectate la Internet. Și apoi cele două stații să se poată adresa una
 alteia. Adică fiecare stație are nevoie de un identificator, o adresă.</p>
@@ -571,21 +649,19 @@ Protocol). Fiecare interfață de rețea are nevoie de o adresă IP să fie
 configurată.</p>
 <p>Pentru a vedea adresele IP configurate pe interfețele de rețea folosim
 următoarea comandă:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>student@uso:~$ ip address show
-1: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
-    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
-    inet 127.0.0.1/8 scope host lo
-       valid_lft forever preferred_lft forever
-    inet6 ::1/128 scope host
-       valid_lft forever preferred_lft forever
-2: eno2: &lt;NO-CARRIER,BROADCAST,MULTICAST,UP&gt; mtu 1500 qdisc fq_codel state DOWN group default qlen 1000
-    link/ether c8:f7:50:78:a1:a7 brd ff:ff:ff:ff:ff:ff
-3: wlo1: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc noqueue state UP group default qlen 1000
-    link/ether a0:51:0b:68:3d:55 brd ff:ff:ff:ff:ff:ff
-    inet 192.168.1.103/24 brd 192.168.1.255 scope global dynamic noprefixroute wlo1
-       valid_lft 6478sec preferred_lft 6478sec
-    inet6 fe80::3849:c687:463f:5508/64 scope link noprefixroute
-       valid_lft forever preferred_lft forever
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">root</span><span class="nd">@internet</span><span class="p">:</span><span class="o">~</span><span class="c1"># ip address show</span>
+<span class="mi">1</span><span class="p">:</span> <span class="n">lo</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">LOOPBACK</span><span class="p">,</span><span class="n">UP</span><span class="p">,</span><span class="n">LOWER_UP</span><span class="o">&gt;</span> <span class="n">mtu</span> <span class="mi">65536</span> <span class="n">qdisc</span> <span class="n">noqueue</span> <span class="n">state</span> <span class="n">UNKNOWN</span> <span class="n">group</span> <span class="n">default</span> <span class="n">qlen</span> <span class="mi">1000</span>
+    <span class="n">link</span><span class="o">/</span><span class="n">loopback</span> <span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span> <span class="n">brd</span> <span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span>
+    <span class="n">inet</span> <span class="mf">127.0</span><span class="o">.</span><span class="mf">0.1</span><span class="o">/</span><span class="mi">8</span> <span class="n">scope</span> <span class="n">host</span> <span class="n">lo</span>
+       <span class="n">valid_lft</span> <span class="n">forever</span> <span class="n">preferred_lft</span> <span class="n">forever</span>
+<span class="mi">195</span><span class="p">:</span> <span class="n">eth0</span><span class="nd">@if196</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">BROADCAST</span><span class="p">,</span><span class="n">MULTICAST</span><span class="p">,</span><span class="n">UP</span><span class="p">,</span><span class="n">LOWER_UP</span><span class="o">&gt;</span> <span class="n">mtu</span> <span class="mi">1500</span> <span class="n">qdisc</span> <span class="n">noqueue</span> <span class="n">state</span> <span class="n">UP</span> <span class="n">group</span> <span class="n">default</span>
+    <span class="n">link</span><span class="o">/</span><span class="n">ether</span> <span class="mi">02</span><span class="p">:</span><span class="mi">42</span><span class="p">:</span><span class="mi">0</span><span class="n">a</span><span class="p">:</span><span class="mi">0</span><span class="n">a</span><span class="p">:</span><span class="mi">0</span><span class="n">a</span><span class="p">:</span><span class="mi">02</span> <span class="n">brd</span> <span class="n">ff</span><span class="p">:</span><span class="n">ff</span><span class="p">:</span><span class="n">ff</span><span class="p">:</span><span class="n">ff</span><span class="p">:</span><span class="n">ff</span><span class="p">:</span><span class="n">ff</span> <span class="n">link</span><span class="o">-</span><span class="n">netnsid</span> <span class="mi">0</span>
+    <span class="n">inet</span> <span class="mf">10.10</span><span class="o">.</span><span class="mf">10.2</span><span class="o">/</span><span class="mi">24</span> <span class="n">brd</span> <span class="mf">10.10</span><span class="o">.</span><span class="mf">10.255</span> <span class="n">scope</span> <span class="k">global</span> <span class="n">eth0</span>
+       <span class="n">valid_lft</span> <span class="n">forever</span> <span class="n">preferred_lft</span> <span class="n">forever</span>
+<span class="mi">199</span><span class="p">:</span> <span class="n">eth1</span><span class="nd">@if200</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">BROADCAST</span><span class="p">,</span><span class="n">MULTICAST</span><span class="o">&gt;</span> <span class="n">mtu</span> <span class="mi">1500</span> <span class="n">qdisc</span> <span class="n">noqueue</span> <span class="n">state</span> <span class="n">DOWN</span> <span class="n">group</span> <span class="n">default</span>
+    <span class="n">link</span><span class="o">/</span><span class="n">ether</span> <span class="mi">02</span><span class="p">:</span><span class="mi">42</span><span class="p">:</span><span class="mi">0</span><span class="n">b</span><span class="p">:</span><span class="mi">0</span><span class="n">b</span><span class="p">:</span><span class="mi">0</span><span class="n">b</span><span class="p">:</span><span class="mi">02</span> <span class="n">brd</span> <span class="n">ff</span><span class="p">:</span><span class="n">ff</span><span class="p">:</span><span class="n">ff</span><span class="p">:</span><span class="n">ff</span><span class="p">:</span><span class="n">ff</span><span class="p">:</span><span class="n">ff</span> <span class="n">link</span><span class="o">-</span><span class="n">netnsid</span> <span class="mi">0</span>
+<span class="mi">203</span><span class="p">:</span> <span class="n">eth2</span><span class="nd">@if204</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">BROADCAST</span><span class="p">,</span><span class="n">MULTICAST</span><span class="o">&gt;</span> <span class="n">mtu</span> <span class="mi">1500</span> <span class="n">qdisc</span> <span class="n">noqueue</span> <span class="n">state</span> <span class="n">DOWN</span> <span class="n">group</span> <span class="n">default</span>
+    <span class="n">link</span><span class="o">/</span><span class="n">ether</span> <span class="mi">02</span><span class="p">:</span><span class="mi">42</span><span class="p">:</span><span class="mi">0</span><span class="n">c</span><span class="p">:</span><span class="mi">0</span><span class="n">c</span><span class="p">:</span><span class="mi">0</span><span class="n">c</span><span class="p">:</span><span class="mi">02</span> <span class="n">brd</span> <span class="n">ff</span><span class="p">:</span><span class="n">ff</span><span class="p">:</span><span class="n">ff</span><span class="p">:</span><span class="n">ff</span><span class="p">:</span><span class="n">ff</span><span class="p">:</span><span class="n">ff</span> <span class="n">link</span><span class="o">-</span><span class="n">netnsid</span> <span class="mi">0</span>
 </pre></div>
 </div>
 <p>Adresele IP ale interfețelor sunt scrise pe liniile care conțin <code class="docutils literal notranslate"><span class="pre">inet</span></code>.
@@ -598,10 +674,7 @@ format hexazecimal care pot lua valori de la <code class="docutils literal notra
 </ul>
 </div>
 <div class="section" id="configurarea-unei-adrese-ip">
-<h3><span class="section-number">2.3.2. </span>Configurarea unei adrese IP<a class="headerlink" href="#configurarea-unei-adrese-ip" title="Permalink to this headline">¶</a></h3>
-<p>RECAPITULARE:</p>
-<p>Faceți modificările necesare astfel încât interfața <code class="docutils literal notranslate"><span class="pre">eno2</span></code> să fie în starea
-<code class="docutils literal notranslate"><span class="pre">UP</span></code>.</p>
+<h3><span class="section-number">2.2.2. </span>Configurarea unei adrese IP<a class="headerlink" href="#configurarea-unei-adrese-ip" title="Permalink to this headline">¶</a></h3>
 <p>Există două metode pentru configurarea unei adrese IP pe o interfață:</p>
 <ul class="simple">
 <li><p>configurare statică, prin care noi configurăm manual adresa IP pe interfață de
@@ -614,31 +687,62 @@ rețea.</p></li>
 <p>Vom insista pe configurarea dinamică, deoarece este mai simplă. În plus,nu avem
 cum să aflam informațiile despre rețea înainte de a configura interfața de
 rețea.</p>
+<div class="section" id="recapitulare-pornirea-interfetelor-de-retea">
+<h4><span class="section-number">2.2.2.1. </span>Recapitulare - Pornirea interfețelor de rețea<a class="headerlink" href="#recapitulare-pornirea-interfetelor-de-retea" title="Permalink to this headline">¶</a></h4>
+<p>Faceți modificările necesare astfel încât interfața <code class="docutils literal notranslate"><span class="pre">eth1</span></code> să fie în starea
+<code class="docutils literal notranslate"><span class="pre">UP</span></code>.</p>
+</div>
+<div class="section" id="configurarea-ip-ului-in-mod-dinamic">
+<h4><span class="section-number">2.2.2.2. </span>Configurarea IP-ului în mod dinamic<a class="headerlink" href="#configurarea-ip-ului-in-mod-dinamic" title="Permalink to this headline">¶</a></h4>
 <p>Pentru a obține dinamic o adresă IP în mod dinamic pe o interfață
 folosim comanda <code class="docutils literal notranslate"><span class="pre">dhclient</span></code>:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>student@uso:~$ dhclient eno2
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">root</span><span class="nd">@internet</span><span class="p">:</span><span class="o">~</span><span class="c1"># dhclient eth1</span>
+<span class="n">mv</span><span class="p">:</span> <span class="n">cannot</span> <span class="n">move</span> <span class="s1">&#39;/etc/resolv.conf.dhclient-new.35&#39;</span> <span class="n">to</span> <span class="s1">&#39;/etc/resolv.conf&#39;</span><span class="p">:</span> <span class="n">Device</span> <span class="ow">or</span> <span class="n">resource</span> <span class="n">busy</span>
 </pre></div>
 </div>
-<p>Mai sus am rulat comanda pentru a obține o adresă IP pentru interfața <code class="docutils literal notranslate"><span class="pre">eno2</span></code>.</p>
+<p>Mai sus am rulat comanda pentru a obține o adresă IP pentru interfața <code class="docutils literal notranslate"><span class="pre">eth1</span></code>.</p>
 <p>Comanda <code class="docutils literal notranslate"><span class="pre">dhclient</span></code> este bazată pe protocolul DHCP (Dynamic Host Configuration
 Protocol). Acesta presupune că există un server pe rețea care cunoaște ce IP-uri
 sunt folosite pe rețea și care poate să ofere adrese IP calculatoarelor care fac
 cereri pe rețea. <code class="docutils literal notranslate"><span class="pre">dhclient</span></code> face o cerere de rezervare a unui IP către
 serverul DHCP de pe rețea.</p>
-<p>TASK DE RECAPITULARE:</p>
+</div>
+<div class="section" id="recapitulare-afisarea-ip-urilor-configurate-pe-interfetele-de-retea">
+<h4><span class="section-number">2.2.2.3. </span>Recapitulare - Afișarea IP-urilor configurate pe interfețele de rețea<a class="headerlink" href="#recapitulare-afisarea-ip-urilor-configurate-pe-interfetele-de-retea" title="Permalink to this headline">¶</a></h4>
 <p>Afișați adresele IP de pe toate interfețele.</p>
-<p>Observați că am obținut o adresă IP pe interfața <code class="docutils literal notranslate"><span class="pre">eno2</span></code>.</p>
+<p>Observați că am obținut o adresă IP pe interfața <code class="docutils literal notranslate"><span class="pre">eth1</span></code>.</p>
+</div>
+<div class="section" id="exercitiu-configurarea-dinamica-a-unei-adrese-ip">
+<h4><span class="section-number">2.2.2.4. </span>Exercițiu - Configurarea dinamică a unei adrese IP<a class="headerlink" href="#exercitiu-configurarea-dinamica-a-unei-adrese-ip" title="Permalink to this headline">¶</a></h4>
+<p>Configurați adresa IP pe interfața <code class="docutils literal notranslate"><span class="pre">eth2</span></code>.</p>
+</div>
+<div class="section" id="stergerea-unei-configurari-de-retea-de-pe-o-interfata">
+<h4><span class="section-number">2.2.2.5. </span>Ștergerea unei configurări de rețea de pe o interfață<a class="headerlink" href="#stergerea-unei-configurari-de-retea-de-pe-o-interfata" title="Permalink to this headline">¶</a></h4>
 <p>Pentru șterge o adresă IP de pe o interfața folosim comanda <code class="docutils literal notranslate"><span class="pre">ip</span> <span class="pre">address</span> <span class="pre">flush</span></code> în felul următor:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>student@uso:~$ ip address flush eno2
-student@uso:~$ ip address show
-&lt;TODO&gt;
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">root</span><span class="nd">@internet</span><span class="p">:</span><span class="o">~</span><span class="c1"># ip address flush eth1</span>
+<span class="n">root</span><span class="nd">@internet</span><span class="p">:</span><span class="o">~</span><span class="c1"># ip address show eth1</span>
+<span class="mi">199</span><span class="p">:</span> <span class="n">eth1</span><span class="nd">@if200</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">BROADCAST</span><span class="p">,</span><span class="n">MULTICAST</span><span class="p">,</span><span class="n">UP</span><span class="p">,</span><span class="n">LOWER_UP</span><span class="o">&gt;</span> <span class="n">mtu</span> <span class="mi">1500</span> <span class="n">qdisc</span> <span class="n">noqueue</span> <span class="n">state</span> <span class="n">UP</span> <span class="n">group</span> <span class="n">default</span>
+    <span class="n">link</span><span class="o">/</span><span class="n">ether</span> <span class="mi">02</span><span class="p">:</span><span class="mi">42</span><span class="p">:</span><span class="mi">0</span><span class="n">b</span><span class="p">:</span><span class="mi">0</span><span class="n">b</span><span class="p">:</span><span class="mi">0</span><span class="n">b</span><span class="p">:</span><span class="mi">02</span> <span class="n">brd</span> <span class="n">ff</span><span class="p">:</span><span class="n">ff</span><span class="p">:</span><span class="n">ff</span><span class="p">:</span><span class="n">ff</span><span class="p">:</span><span class="n">ff</span><span class="p">:</span><span class="n">ff</span> <span class="n">link</span><span class="o">-</span><span class="n">netnsid</span> <span class="mi">0</span>
 </pre></div>
 </div>
-<p>TASK DE RECAPITULARE:</p>
-<p>Configurați adresa IP pe interfața <code class="docutils literal notranslate"><span class="pre">eno3</span></code>.</p>
+<div class="admonition-observatie admonition">
+<p class="admonition-title">Observație:</p>
+<p>Putem să afișăm configurația unei singure interfețe de rețea
+folosind numele interfeței ca parametru pentru comanda <code class="docutils literal notranslate"><span class="pre">ip</span> <span class="pre">address</span> <span class="pre">show</span></code></p>
+</div>
+</div>
+<div class="section" id="exercitiu-stergerea-configurarii-de-retea">
+<h4><span class="section-number">2.2.2.6. </span>Exercițiu - Ștergerea configurării de rețea<a class="headerlink" href="#exercitiu-stergerea-configurarii-de-retea" title="Permalink to this headline">¶</a></h4>
+<p>Ștergeți configurația de rețea de pe interfețele <code class="docutils literal notranslate"><span class="pre">eth1</span></code> și <code class="docutils literal notranslate"><span class="pre">eth2</span></code>.</p>
+</div>
 </div>
 <div class="section" id="verificarea-conectivitatii-la-o-alta-statie">
-<h3><span class="section-number">2.3.3. </span>Verificarea conectivității la o altă stație<a class="headerlink" href="#verificarea-conectivitatii-la-o-alta-statie" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">2.2.3. </span>Verificarea conectivității la o altă stație<a class="headerlink" href="#verificarea-conectivitatii-la-o-alta-statie" title="Permalink to this headline">¶</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Pentru rularea acestui demo comenzile vor fi rulate în cadrul mașinii
+virtuale USO.</p>
+</div>
 <p>Pentru a verifica conexiunea dintre două stații folosim comanda <code class="docutils literal notranslate"><span class="pre">ping</span></code>. Această
 comandă trimite mesaje către o stație și așteaptă un răspuns de la ea.</p>
 <p>Atunci când testăm conexiunea la internet, vrem să verificăm câteva aspecte,
@@ -649,14 +753,32 @@ odată ce am obținut o adresă IP de la serverul DHCP:</p>
 </ul>
 <p>De exemplu, dacă vrem să verificăm conectivitatea la serverul <code class="docutils literal notranslate"><span class="pre">8.8.8.8</span></code> (un
 server public din Internet), folosim comanda:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>student@uso:~$ ping 8.8.8.8
-&lt;TODO&gt;
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">student</span><span class="nd">@uso</span><span class="p">:</span><span class="o">~</span><span class="c1"># ping -c 4 8.8.8.8</span>
+<span class="n">PING</span> <span class="mf">8.8</span><span class="o">.</span><span class="mf">8.8</span> <span class="p">(</span><span class="mf">8.8</span><span class="o">.</span><span class="mf">8.8</span><span class="p">)</span> <span class="mi">56</span><span class="p">(</span><span class="mi">84</span><span class="p">)</span> <span class="nb">bytes</span> <span class="n">of</span> <span class="n">data</span><span class="o">.</span>
+<span class="mi">64</span> <span class="nb">bytes</span> <span class="kn">from</span> <span class="mf">8.8</span><span class="o">.</span><span class="mf">8.8</span><span class="p">:</span> <span class="n">icmp_seq</span><span class="o">=</span><span class="mi">1</span> <span class="n">ttl</span><span class="o">=</span><span class="mi">61</span> <span class="n">time</span><span class="o">=</span><span class="mf">23.0</span> <span class="n">ms</span>
+<span class="mi">64</span> <span class="nb">bytes</span> <span class="kn">from</span> <span class="mf">8.8</span><span class="o">.</span><span class="mf">8.8</span><span class="p">:</span> <span class="n">icmp_seq</span><span class="o">=</span><span class="mi">2</span> <span class="n">ttl</span><span class="o">=</span><span class="mi">61</span> <span class="n">time</span><span class="o">=</span><span class="mf">25.7</span> <span class="n">ms</span>
+<span class="mi">64</span> <span class="nb">bytes</span> <span class="kn">from</span> <span class="mf">8.8</span><span class="o">.</span><span class="mf">8.8</span><span class="p">:</span> <span class="n">icmp_seq</span><span class="o">=</span><span class="mi">3</span> <span class="n">ttl</span><span class="o">=</span><span class="mi">61</span> <span class="n">time</span><span class="o">=</span><span class="mf">24.8</span> <span class="n">ms</span>
+<span class="mi">64</span> <span class="nb">bytes</span> <span class="kn">from</span> <span class="mf">8.8</span><span class="o">.</span><span class="mf">8.8</span><span class="p">:</span> <span class="n">icmp_seq</span><span class="o">=</span><span class="mi">4</span> <span class="n">ttl</span><span class="o">=</span><span class="mi">61</span> <span class="n">time</span><span class="o">=</span><span class="mf">25.2</span> <span class="n">ms</span>
+
+<span class="o">---</span> <span class="mf">8.8</span><span class="o">.</span><span class="mf">8.8</span> <span class="n">ping</span> <span class="n">statistics</span> <span class="o">---</span>
+<span class="mi">4</span> <span class="n">packets</span> <span class="n">transmitted</span><span class="p">,</span> <span class="mi">4</span> <span class="n">received</span><span class="p">,</span> <span class="mi">0</span><span class="o">%</span> <span class="n">packet</span> <span class="n">loss</span><span class="p">,</span> <span class="n">time</span> <span class="mi">3092</span><span class="n">ms</span>
+<span class="n">rtt</span> <span class="nb">min</span><span class="o">/</span><span class="n">avg</span><span class="o">/</span><span class="nb">max</span><span class="o">/</span><span class="n">mdev</span> <span class="o">=</span> <span class="mf">23.051</span><span class="o">/</span><span class="mf">24.731</span><span class="o">/</span><span class="mf">25.707</span><span class="o">/</span><span class="mf">1.020</span> <span class="n">ms</span>
 </pre></div>
 </div>
+<p>Comportamentul implicit al comenzii <code class="docutils literal notranslate"><span class="pre">ping</span></code> este să trimită pachete la infinit.
+Am folsit opțiunea <code class="docutils literal notranslate"><span class="pre">-c</span> <span class="pre">4</span></code> în exemplul de mai sus  pentru a reduce numărul de
+pachete trimise la 4.</p>
 <p>Atunci când nu pot fi trimise mesaje către stația identificată prin adresa IP,
 mesajul de eroare va arăta în felul următor:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>student@uso:~$ ping &lt;TODO&gt;
-&lt;TODO&gt;
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">student</span><span class="nd">@uso</span><span class="p">:</span><span class="o">~</span><span class="c1"># ping -c 4 10.10.10.10</span>
+<span class="n">PING</span> <span class="mf">10.10</span><span class="o">.</span><span class="mf">10.10</span> <span class="p">(</span><span class="mf">10.10</span><span class="o">.</span><span class="mf">10.10</span><span class="p">)</span> <span class="mi">56</span><span class="p">(</span><span class="mi">84</span><span class="p">)</span> <span class="nb">bytes</span> <span class="n">of</span> <span class="n">data</span><span class="o">.</span>
+<span class="n">From</span> <span class="mf">10.10</span><span class="o">.</span><span class="mf">10.3</span> <span class="n">icmp_seq</span><span class="o">=</span><span class="mi">1</span> <span class="n">Destination</span> <span class="n">Host</span> <span class="n">Unreachable</span>
+<span class="n">From</span> <span class="mf">10.10</span><span class="o">.</span><span class="mf">10.3</span> <span class="n">icmp_seq</span><span class="o">=</span><span class="mi">2</span> <span class="n">Destination</span> <span class="n">Host</span> <span class="n">Unreachable</span>
+<span class="n">From</span> <span class="mf">10.10</span><span class="o">.</span><span class="mf">10.3</span> <span class="n">icmp_seq</span><span class="o">=</span><span class="mi">3</span> <span class="n">Destination</span> <span class="n">Host</span> <span class="n">Unreachable</span>
+<span class="n">From</span> <span class="mf">10.10</span><span class="o">.</span><span class="mf">10.3</span> <span class="n">icmp_seq</span><span class="o">=</span><span class="mi">4</span> <span class="n">Destination</span> <span class="n">Host</span> <span class="n">Unreachable</span>
+
+<span class="o">---</span> <span class="mf">10.10</span><span class="o">.</span><span class="mf">10.10</span> <span class="n">ping</span> <span class="n">statistics</span> <span class="o">---</span>
+<span class="mi">4</span> <span class="n">packets</span> <span class="n">transmitted</span><span class="p">,</span> <span class="mi">0</span> <span class="n">received</span><span class="p">,</span> <span class="o">+</span><span class="mi">4</span> <span class="n">errors</span><span class="p">,</span> <span class="mi">100</span><span class="o">%</span> <span class="n">packet</span> <span class="n">loss</span><span class="p">,</span> <span class="n">time</span> <span class="mi">3074</span><span class="n">ms</span>
 </pre></div>
 </div>
 <p>Pentru verificarea conectivității în interiorul rețelei trebuie să verificăm că
@@ -667,91 +789,142 @@ interconectarea rețelelor și care primește mesaje de la toate stațiile din
 rețea pentru a le trimite în Internet.</p>
 <p>Gateway-ul este configurat static sau dinamic, cum este configurată și adresa IP a unei interfețe.</p>
 <p>Pentru a identifica gateway-ul folosim comanda <code class="docutils literal notranslate"><span class="pre">ip</span> <span class="pre">route</span> <span class="pre">show</span></code> în felul următor:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>student@uso:~$ ip route show default
-&lt;TODO&gt;
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">student</span><span class="nd">@uso</span><span class="p">:</span><span class="o">~</span><span class="c1"># ip route show</span>
+<span class="mf">10.0</span><span class="o">.</span><span class="mf">2.0</span><span class="o">/</span><span class="mi">24</span> <span class="n">dev</span> <span class="n">enp0s3</span> <span class="n">proto</span> <span class="n">kernel</span> <span class="n">scope</span> <span class="n">link</span> <span class="n">src</span> <span class="mf">10.0</span><span class="o">.</span><span class="mf">2.15</span> <span class="n">metric</span> <span class="mi">100</span>
+<span class="mf">169.254</span><span class="o">.</span><span class="mf">0.0</span><span class="o">/</span><span class="mi">16</span> <span class="n">dev</span> <span class="n">enp0s3</span> <span class="n">scope</span> <span class="n">link</span> <span class="n">metric</span> <span class="mi">1000</span>
+<span class="mf">172.17</span><span class="o">.</span><span class="mf">0.0</span><span class="o">/</span><span class="mi">16</span> <span class="n">dev</span> <span class="n">docker0</span> <span class="n">proto</span> <span class="n">kernel</span> <span class="n">scope</span> <span class="n">link</span> <span class="n">src</span> <span class="mf">172.17</span><span class="o">.</span><span class="mf">0.1</span> <span class="n">linkdown</span>
+<span class="mf">192.168</span><span class="o">.</span><span class="mf">56.0</span><span class="o">/</span><span class="mi">24</span> <span class="n">dev</span> <span class="n">enp0s8</span> <span class="n">proto</span> <span class="n">kernel</span> <span class="n">scope</span> <span class="n">link</span> <span class="n">src</span> <span class="mf">192.168</span><span class="o">.</span><span class="mf">56.4</span> <span class="n">metric</span> <span class="mi">101</span>
 </pre></div>
 </div>
-<p>Observăm că adresa IP a gateway-ului este &lt;TODO&gt;.</p>
-<p>RECAPITULARE:</p>
-<p>Aflați adresa de rețea de pe interfața &lt;TODO&gt;.</p>
-<p>OBSERVAȚIE:</p>
-<p>După cum putem să observăm, adresa IP a gateway-ului și adresa IP a interfeței
-&lt;TODO&gt; sunt foarte similare. Asta se întâmplă deoarece stațiile se află în
-aceeași rețea.</p>
-<p>EXERCIȚIU:</p>
+<p>Observăm că adresa IP a default gateway-ului este <code class="docutils literal notranslate"><span class="pre">10.0.2.2</span></code>, deoarece
+acesta se află pe linia care conține șirul de caractere <code class="docutils literal notranslate"><span class="pre">default</span></code>.</p>
+<div class="section" id="recapitulare-afisarea-adresei-ip-configurata-pe-o-interfata">
+<h4><span class="section-number">2.2.3.1. </span>Recapitulare - Afișarea adresei IP configurată pe o interfață<a class="headerlink" href="#recapitulare-afisarea-adresei-ip-configurata-pe-o-interfata" title="Permalink to this headline">¶</a></h4>
+<p>Aflați adresa de rețea de pe interfața <code class="docutils literal notranslate"><span class="pre">enp0s3</span></code>.</p>
+<div class="admonition-observatie admonition">
+<p class="admonition-title">Observație</p>
+<p>Adresa IP a gateway-ului și adresa IP a interfeței eth0 sunt foarte
+similare. Asta se întâmplă deoarece stațiile se află în aceeași rețea.</p>
+</div>
+</div>
+<div class="section" id="exercitiu-verificarea-conectivitatii-cu-gateway-ul">
+<h4><span class="section-number">2.2.3.2. </span>Exercițiu - Verificarea conectivității cu gateway-ul<a class="headerlink" href="#exercitiu-verificarea-conectivitatii-cu-gateway-ul" title="Permalink to this headline">¶</a></h4>
 <p>Verificați conexiunea cu gateway-ul folosind comanda <code class="docutils literal notranslate"><span class="pre">ping</span></code>.</p>
 <p>Pentru verificarea conexiunii la Internet este bine să verificăm cu o adresă
 consacrată, care avem încredere că nu va avea probleme tehnice. Un astfel de
 exemplu este server-ul oferit de Google de la adresa IP <code class="docutils literal notranslate"><span class="pre">4.4.4.4</span></code>.</p>
-<p>EXERCIȚIU:</p>
+</div>
+<div class="section" id="exercitiu-verificarea-conectivitatii-la-internet">
+<h4><span class="section-number">2.2.3.3. </span>Exercițiu - Verificarea conectivității la Internet<a class="headerlink" href="#exercitiu-verificarea-conectivitatii-la-internet" title="Permalink to this headline">¶</a></h4>
 <p>Verificați conexiunea la server-ul <code class="docutils literal notranslate"><span class="pre">8.8.8.8</span></code> oferit de Google folosind comanda
 <code class="docutils literal notranslate"><span class="pre">ping</span></code>.</p>
 </div>
+</div>
 <div class="section" id="investigarea-serviciului-dns">
-<h3><span class="section-number">2.3.4. </span>Investigarea serviciului DNS<a class="headerlink" href="#investigarea-serviciului-dns" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">2.2.4. </span>Investigarea serviciului DNS<a class="headerlink" href="#investigarea-serviciului-dns" title="Permalink to this headline">¶</a></h3>
 <p>După cum ați observat, până acum am lucrat numai cu adrese IP, dar noi lucrăm
 în viața de zi cu zi cu numele site-urilor, deoarece ne este mai ușor să
 reținem nume decât adrese IP.</p>
 <p>Pentru a rezolva această necesitate folosim serviciul DNS. Acesta este oferit de
-un server către care noi trimitem cereri de <code class="docutils literal notranslate"><span class="pre">lookup</span></code> pentru o adresa
-<code class="docutils literal notranslate"><span class="pre">hostname</span></code> cum ar fi <code class="docutils literal notranslate"><span class="pre">www.google.com</span></code>. Serverul DSN va răspunde cu adresa IP
+un server către care noi trimitem cereri de <em>lookup</em>  pentru o adresa
+<em>hostname</em> cum ar fi <code class="docutils literal notranslate"><span class="pre">www.google.com</span></code>. Serverul DSN va răspunde cu adresa IP
 asociată cu adresa cerută.</p>
 <p>Ne dorim să avem un serviciu DNS funcțional în permanență pe sistemul pe care lucrăm.</p>
 <p>În mod implicit serviciul DNS este configurat prin DHCP.</p>
+<div class="section" id="identificarea-serviciului-dns-folosit-implicit">
+<h4><span class="section-number">2.2.4.1. </span>Identificarea serviciului DNS folosit implicit<a class="headerlink" href="#identificarea-serviciului-dns-folosit-implicit" title="Permalink to this headline">¶</a></h4>
+<p>Serviciul DNS poate fi configurat în multe moduri care depind de platforma pe
+care o folosim. Pentru mașina virtuala folosită de noi ne putem folosi de
+utilitarul <code class="docutils literal notranslate"><span class="pre">nmcli</span></code> pentru a identifica serverul DNS folosit. Comanda <code class="docutils literal notranslate"><span class="pre">grep</span></code>
+identifică din rezultatul unei comenzi doar linia care conține șirul de
+caractere <code class="docutils literal notranslate"><span class="pre">DNS</span></code>.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>student@uso:~$ nmcli dev show | grep DNS
-&lt;TODO&gt;
+IP4.DNS[1]:                             10.0.2.3
 </pre></div>
 </div>
-<p>RECAPITULARE:</p>
-<p>Afișați adresa IP a gateway-ului.</p>
-<p>OBSERVAȚIE:</p>
-<p>Observați că adresa gateway-ului este aceeași cu adresa DNS-ului. De obicei
-gateway-ul este configurat ca server DNS, iar acesta va trimite cererile
-mai departe către un alt server DNS.</p>
+<p>Conform cu output-ul comenzii, serverul DNS către care sunt trimise comenzi este
+<code class="docutils literal notranslate"><span class="pre">10.0.2.3</span></code>.</p>
+</div>
+<div class="section" id="efectuarea-cererilor-dns">
+<h4><span class="section-number">2.2.4.2. </span>Efectuarea cererilor DNS<a class="headerlink" href="#efectuarea-cererilor-dns" title="Permalink to this headline">¶</a></h4>
 <p>Pentru a verifica funcționalitatea serviciului DNS, putem să facem o cerere DNS
 folosind comanda <code class="docutils literal notranslate"><span class="pre">host</span></code> în felul următor.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>student@uso:~$ host google.com
-&lt;TODO&gt;
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>student@uso:~$ host elf.cs.pub.ro
+elf.cs.pub.ro has address 141.85.227.116
+elf.cs.pub.ro mail is handled by 10 elf.cs.pub.ro.
 </pre></div>
 </div>
+<p>Rezultatul rulării comenzii <code class="docutils literal notranslate"><span class="pre">host</span></code> este o lista cu servicii și adrese care pot
+fi identificare prin numele <code class="docutils literal notranslate"><span class="pre">elf.cs.pub.ro</span></code>. Pe linia care conține șirul de
+caractere <code class="docutils literal notranslate"><span class="pre">address</span></code> se află adresa IPv4 asociată numelui.</p>
+</div>
+<div class="section" id="exemplu-efectuarea-cererilor-dns-in-mod-implicit">
+<h4><span class="section-number">2.2.4.3. </span>Exemplu - Efectuarea cererilor DNS în mod implicit<a class="headerlink" href="#exemplu-efectuarea-cererilor-dns-in-mod-implicit" title="Permalink to this headline">¶</a></h4>
 <p>Cererile DNS nu trebuie să fie făcute direct de noi atunci când încercăm să
 accesăm o resursă din Internet folosind un nume, deoarece aplicațiile fac cereri
 în mod implicit.</p>
-<p>EXEMPLU:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>student@uso:~$ ping google.com
-&lt;TODO&gt;
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>student@uso:~$ ping -c 4 google.com
+PING google.com (216.58.214.238) 56(84) bytes of data.
+64 bytes from bud02s24-in-f14.1e100.net (216.58.214.238): icmp_seq=1 ttl=63 time=19.5 ms
+64 bytes from bud02s24-in-f14.1e100.net (216.58.214.238): icmp_seq=2 ttl=63 time=21.6 ms
+64 bytes from bud02s24-in-f14.1e100.net (216.58.214.238): icmp_seq=3 ttl=63 time=21.3 ms
+64 bytes from bud02s24-in-f14.1e100.net (216.58.214.238): icmp_seq=4 ttl=63 time=19.4 ms
+
+--- google.com ping statistics ---
+4 packets transmitted, 4 received, 0% packet loss, time 3006ms
+rtt min/avg/max/mdev = 19.377/20.426/21.588/1.009 ms
 </pre></div>
 </div>
 <p>Observați că aplicația ping a aflat de una singură care este adresa IP asociată
-numelui <code class="docutils literal notranslate"><span class="pre">google.com</span></code> și a făcut cererea în fundal.</p>
+numelui <code class="docutils literal notranslate"><span class="pre">google.com</span></code> și a făcut cererea în fundal și a verificat conexiunea cu
+serverul de la adresa IP <code class="docutils literal notranslate"><span class="pre">216.58.214.238</span></code>.</p>
+</div>
+<div class="section" id="reconfigurarea-temporara-a-serviciului-dns">
+<h4><span class="section-number">2.2.4.4. </span>Reconfigurarea temporară a serviciului DNS<a class="headerlink" href="#reconfigurarea-temporara-a-serviciului-dns" title="Permalink to this headline">¶</a></h4>
 <p>În caz că vrem să schimbăm temporar DNS-ul pe care îl folosim trebuie să
-modificăm fișierul <code class="docutils literal notranslate"><span class="pre">/etc/resolv.conf</span></code>. Acest fișier specifică DNS-ul care va fi
-folosit pentru cereri pe linia care conține cuvântul nameserver, după cum
+modificăm fișierul <code class="docutils literal notranslate"><span class="pre">/etc/resolv.conf</span></code>. Acest fișier specifică DNS-ul care va
+fi folosit pentru cereri pe linia care conține cuvântul nameserver, după cum
 puteți vedea mai jos.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>student@uso:~$ cat /etc/resolv.conf
-&lt;TODO&gt;
+student@uso:~$ cat /etc/resolv.conf
+&lt;...&gt;
+nameserver 127.0.0.53
+options edns0
 </pre></div>
 </div>
 <p>Dacă schimbăm adresa DNS-ului cu altă adresă, cum ar fi cea a DNS-ului oferit
 de Google, putem să vedem o schimbare în răspunsurile de la serverul DNS.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>student@uso:~$ dig google.com
-&lt;modificăm /etc/resolv.conf&gt;
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>student@uso:~$ host google.com
+google.com has address 172.217.20.14
+google.com has IPv6 address 2a00:1450:400d:803::200e
+&lt;...&gt;
 student@uso:~$ cat /etc/resolv.conf
-&lt;TODO&gt;
-student@uso:~$ dig google.com
-&lt;TODO&gt;
+nameserver 8.8.8.8
+options edns0
+student@uso:~$ host google.com
+google.com has address 172.217.18.78
+google.com has IPv6 address 2a00:1450:400d:809::200e
+&lt;...&gt;
 </pre></div>
 </div>
-<p>ATENȚIE:</p>
+<div class="admonition-atentie admonition">
+<p class="admonition-title">Atenție:</p>
 <p>Acestea sunt modificări temporare folosite pentru depanarea problemelor cu
 serviciul DNS.</p>
-<p>EXERCIȚIU:</p>
-<p>Realizați modificările necesare astfel încât cererile de tip DNS să fie trimise
-către serverul de DNS oferit de CloudFlare de la adresa <code class="docutils literal notranslate"><span class="pre">1.1.1.1</span></code>.</p>
+</div>
+</div>
+<div class="section" id="exercitiu-schimbarea-serverului-dns-folosit">
+<h4><span class="section-number">2.2.4.5. </span>Exercițiu - Schimbarea serverului DNS folosit<a class="headerlink" href="#exercitiu-schimbarea-serverului-dns-folosit" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>Realizați modificările necesare astfel încât cererile de tip DNS să fie trimise
+către serverul de DNS oferit de CloudFlare de la adresa <code class="docutils literal notranslate"><span class="pre">1.1.1.1</span></code>;</p></li>
+<li><p>Afișați cu ce adresă răspunde noul server DNS pentru numele <code class="docutils literal notranslate"><span class="pre">google.com</span></code>.</p></li>
+</ul>
+</div>
 </div>
 </div>
 <div class="section" id="configurarea-nivelului-transport">
-<h2><span class="section-number">2.4. </span>Configurarea nivelului Transport<a class="headerlink" href="#configurarea-nivelului-transport" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">2.3. </span>Configurarea nivelului Transport<a class="headerlink" href="#configurarea-nivelului-transport" title="Permalink to this headline">¶</a></h2>
 <p>Atunci când folosim Internetul ce facem de fapt este că ne conectăm la
 aplicații care rulează și noi pornim la rândul nostru aplicații care așteaptă
 conexiuni din exterior.</p>
@@ -769,52 +942,80 @@ ordine a informației, cum ar fi servere web;</p></li>
 aplicații de video streaming</p></li>
 </ul>
 <div class="section" id="conectivitatea-intre-aplicatii-de-retea-folosind-porturi">
-<h3><span class="section-number">2.4.1. </span>Conectivitatea între aplicații de rețea folosind porturi<a class="headerlink" href="#conectivitatea-intre-aplicatii-de-retea-folosind-porturi" title="Permalink to this headline">¶</a></h3>
-<p>Pentru afișarea porturilor deschide, pe care comunica o aplicație, folosim comanda <cite>netstat</cite>:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>student@uso:~$ netstat -tlpn
-&lt;TODO&gt;
+<h3><span class="section-number">2.3.1. </span>Conectivitatea între aplicații de rețea folosind porturi<a class="headerlink" href="#conectivitatea-intre-aplicatii-de-retea-folosind-porturi" title="Permalink to this headline">¶</a></h3>
+<p>Pentru afișarea porturilor deschide, pe care comunica o aplicație, folosim comanda <code class="docutils literal notranslate"><span class="pre">netstat</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>student@uso:~/lab-container$ sudo netstat -tlpn
+Active Internet connections (only servers)
+Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name
+tcp        0      0 127.0.0.1:5939          0.0.0.0:*               LISTEN      794/teamviewerd
+tcp        0      0 127.0.0.53:53           0.0.0.0:*               LISTEN      530/systemd-resolve
+tcp        0      0 0.0.0.0:22              0.0.0.0:*               LISTEN      693/sshd: /usr/sbin
+tcp        0      0 127.0.0.1:631           0.0.0.0:*               LISTEN      572/cupsd
+tcp        0      0 127.0.0.1:6010          0.0.0.0:*               LISTEN      2630/sshd: student@
+tcp6       0      0 :::22                   :::*                    LISTEN      693/sshd: /usr/sbin
+tcp6       0      0 ::1:631                 :::*                    LISTEN      572/cupsd
+tcp6       0      0 ::1:6010                :::*                    LISTEN      2630/sshd: student@
 </pre></div>
 </div>
-<p>OBSERVAȚIE:</p>
 <p>Pentru comanda de mai sus folosim următoarele opțiuni pentru filtrarea afișării:</p>
 <ul class="simple">
-<li><p><cite>-t</cite> afișează doar porturile TCP deschise</p></li>
-<li><p><cite>-l</cite> afișează doar porturile deschise care ascultă mesaje, nu și cele deschide pentru trimiterea mesajelor</p></li>
-<li><p><cite>-p</cite> afișează programul care a deschis portul</p></li>
-<li><p><cite>-n</cite> afișează IP-ul pe care se ascultă după conexiuni</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-t</span></code> afișează doar porturile TCP deschise</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-l</span></code> afișează doar porturile deschise care ascultă mesaje, nu și cele deschide pentru trimiterea mesajelor</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-p</span></code> afișează programul care a deschis portul</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-n</span></code> afișează IP-ul pe care se ascultă după conexiuni</p></li>
 </ul>
-<p>EXERCIȚIU:</p>
+<div class="admonition-observatie admonition">
+<p class="admonition-title">Observație</p>
+<p>Am folosit comanda sudo pentru a afișa numele programului care ascultă pe
+portul deschis</p>
+</div>
+<div class="section" id="exercitiu-afisarea-porturilor-udp-deschise">
+<h4><span class="section-number">2.3.1.1. </span>Exercițiu - afișarea porturilor UDP deschise<a class="headerlink" href="#exercitiu-afisarea-porturilor-udp-deschise" title="Permalink to this headline">¶</a></h4>
 <p>Afișați porturile UDP deschise pe stația pe care lucrați.</p>
-<p>După cum observăm, există un server HTTP care rulează pe mașină și ascultă pe portul TCP 80.</p>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>Având în vedere că opțiunea <code class="docutils literal notranslate"><span class="pre">-t</span></code> se referă la porturile TCP, care credeți
+ca va fi opțiunea necesară pentru identificarea porturilor UDP?</p>
+</div>
+</div>
 </div>
 <div class="section" id="conectarea-tcp-la-o-aplicatie">
-<h3><span class="section-number">2.4.2. </span>Conectarea TCP la o aplicație<a class="headerlink" href="#conectarea-tcp-la-o-aplicatie" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">2.3.2. </span>Conectarea TCP la o aplicație<a class="headerlink" href="#conectarea-tcp-la-o-aplicatie" title="Permalink to this headline">¶</a></h3>
 <p>Vrem să observăm cum răspunde serverul HTTP la mesaje. De regula un server HTTP răspunde printr-un mesaj în format HTML.</p>
-<p>Pentru a trimite mesaje, indiferent de tipul aplicației care primește mesajul folosim comanda <cite>nc</cite> în felul următor</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>student@uso:~$ nc 127.0.0.1 80
-lala
-HTTP/1.1 400 Bad Request
-Server: nginx/1.18.0
-Date: Tue, 01 Sep 2020 21:46:35 GMT
-Content-Type: text/html
-Content-Length: 157
-Connection: close
+<p>Pentru a trimite mesaje, indiferent de tipul aplicației care primește mesajul folosim comanda <code class="docutils literal notranslate"><span class="pre">nc</span></code> în felul următor</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>student@uso:~/lab-container$ nc google.com 80
+test
+HTTP/1.0 400 Bad Request
+Content-Type: text/html; charset=UTF-8
+Referrer-Policy: no-referrer
+Content-Length: 1555
+Date: Tue, 20 Oct 2020 19:48:04 GMT
 
-&lt;html&gt;
-&lt;head&gt;&lt;title&gt;400 Bad Request&lt;/title&gt;&lt;/head&gt;
-&lt;body&gt;
-&lt;center&gt;&lt;h1&gt;400 Bad Request&lt;/h1&gt;&lt;/center&gt;
-&lt;hr&gt;&lt;center&gt;nginx/1.18.0&lt;/center&gt;
-&lt;/body&gt;
-&lt;/html&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html lang=en&gt;
+  &lt;meta charset=utf-8&gt;
+  &lt;meta name=viewport content=&quot;initial-scale=1, minimum-scale=1, width=device-width&quot;&gt;
+  &lt;title&gt;Error 400 (Bad Request)!!1&lt;/title&gt;
+  &lt;style&gt;
+    *{margin:0;padding:0}html,code{font:15px/22px arial,sans-serif}html{background:#fff;color:#222;padding:15px}body{margin:7% auto 0;max-width:390px;min-height:180px;padding:30px 0 15px}* &gt; body{background:url(//www.google.com/images/errors/robot.png) 100% 5px no-repeat;padding-right:205px}p{margin:11px 0 22px;overflow:hidden}ins{color:#777;text-decoration:none}a img{border:0}@media screen and (max-width:772px){body{background:none;margin-top:0;max-width:none;padding-right:0}}#logo{background:url(//www.google.com/images/branding/googlelogo/1x/googlelogo_color_150x54dp.png) no-repeat;margin-left:-5px}@media only screen and (min-resolution:192dpi){#logo{background:url(//www.google.com/images/branding/googlelogo/2x/googlelogo_color_150x54dp.png) no-repeat 0% 0%/100% 100%;-moz-border-image:url(//www.google.com/images/branding/googlelogo/2x/googlelogo_color_150x54dp.png) 0}}@media only screen and (-webkit-min-device-pixel-ratio:2){#logo{background:url(//www.google.com/images/branding/googlelogo/2x/googlelogo_color_150x54dp.png) no-repeat;-webkit-background-size:100% 100%}}#logo{display:inline-block;height:54px;width:150px}
+  &lt;/style&gt;
+  &lt;a href=//www.google.com/&gt;&lt;span id=logo aria-label=Google&gt;&lt;/span&gt;&lt;/a&gt;
+  &lt;p&gt;&lt;b&gt;400.&lt;/b&gt; &lt;ins&gt;That’s an error.&lt;/ins&gt;
+  &lt;p&gt;Your client has issued a malformed or illegal request.  &lt;ins&gt;That’s all we know.&lt;/ins&gt;
 </pre></div>
 </div>
-<p>OBSERVAȚI:</p>
-<p>Mesajul primit este un răspuns de tipul “Bad Request”, deoarece am trimis un
-mesaj care nu este în formatul așteptat de serverul HTTP.</p>
-<p>EXERCIȚIU:</p>
-<p>Trimiteți un mesaj către programul care ascultă pe portul 8080 pe mașina locală
-(cu IP-ul 127.0.0.1).</p>
+<p>Am rulat comanda <code class="docutils literal notranslate"><span class="pre">nc</span></code> iar apoi am scris mesajul <code class="docutils literal notranslate"><span class="pre">test</span></code> și am apăsat tasta
+<code class="docutils literal notranslate"><span class="pre">Enter</span></code>.  Mesajul primit este un răspuns de tipul <code class="docutils literal notranslate"><span class="pre">Bad</span> <span class="pre">Request</span></code>, deoarece
+am trimis un mesaj care nu este în formatul așteptat de serverul HTTP.</p>
+<div class="section" id="exercitiu-testarea-conexiunii-la-aplicatii">
+<h4><span class="section-number">2.3.2.1. </span>Exercițiu - Testarea conexiunii la aplicații<a class="headerlink" href="#exercitiu-testarea-conexiunii-la-aplicatii" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>Trimiteți un mesaj către programul care ascultă pe portul 22 pe mașina locală
+(cu IP-ul 127.0.0.1).</p></li>
+<li><p>Trimiteți un mesaj către programul care ascultă pe portul 80 de la adresa
+identificată prin numele <code class="docutils literal notranslate"><span class="pre">elf.cs.pub.ro</span></code>.</p></li>
+</ul>
+</div>
 </div>
 </div>
 </div>
