@@ -25,7 +25,7 @@
   <link rel="index" title="Index" href="../../genindex.html" />
   <link rel="search" title="Search" href="../../search.html" />
   <link rel="next" title="3. Servicii și clienți de rețea" href="services.html" />
-  <link rel="prev" title="1. Folosirea eficientă a browser-ului" href="browser.html" />
+  <link rel="prev" title="1. Folosirea eficientă a browserului" href="browser.html" />
     <link href="../../_static/my_theme.css" rel="stylesheet" type="text/css">
 
   </head>
@@ -355,7 +355,7 @@
       </p>
       <ul class="current">
         
-          <li class="toctree-l1 "><a href="browser.html" class="reference internal ">Folosirea eficientă a browser-ului</a>
+          <li class="toctree-l1 "><a href="browser.html" class="reference internal ">Folosirea eficientă a browserului</a>
 
             
           </li>
@@ -528,7 +528,7 @@
   <ul class="page-nav">
   <li class="prev">
     <a href="browser.html"
-       title="previous chapter">← <span class="section-number">1. </span>Folosirea eficientă a browser-ului</a>
+       title="previous chapter">← <span class="section-number">1. </span>Folosirea eficientă a browserului</a>
   </li>
   <li class="next">
     <a href="services.html"
@@ -541,14 +541,15 @@
           <div class="content" role="main">
             
   <div class="section" id="conectarea-la-retea-si-la-internet">
-<h1><span class="section-number">2. </span>Conectarea la rețea și la Internet<a class="headerlink" href="#conectarea-la-retea-si-la-internet" title="Permalink to this headline">¶</a></h1>
-<p>Pentru identificarea și repararea problemelor de conectivitate la rețea (sau,
-mai pe scurt, rezolvarea problemei “nu-mi merge Internetul”) este necesar să
-parcurgem toate nivelurile de rețea prin care trec datele pentru a fi trimise.
-În continuare vom prezenta pașii pe care îi urmăm ca să verificăm
-funcționalitatea nivelului de rețea și cum putem să îl configurăm sumar.</p>
+<span id="network-troubleshoot"></span><h1><span class="section-number">2. </span>Conectarea la rețea și la Internet<a class="headerlink" href="#conectarea-la-retea-si-la-internet" title="Permalink to this headline">¶</a></h1>
+<p>În cadrul acestei secțiuni vom învăța cum să reparăm problemele de conectivitate
+la rețea (sau, informal, rezolvarea problemei “nu-mi merge Internetul”).  Pentru
+a face asta este necesar să parcurgem toate nivelurile de rețea prin care trec
+datele pentru a fi trimise în Internet. În continuare vom prezenta pașii pe care
+îi urmăm ca să verificăm funcționalitatea nivelului de rețea și cum putem să îl
+configurăm sumar.</p>
 <div class="section" id="interactiunea-cu-nivelul-fizic">
-<h2><span class="section-number">2.1. </span>Interacţiunea cu nivelul fizic<a class="headerlink" href="#interactiunea-cu-nivelul-fizic" title="Permalink to this headline">¶</a></h2>
+<span id="network-troubleshoot-phys"></span><h2><span class="section-number">2.1. </span>Interacţiunea cu nivelul fizic<a class="headerlink" href="#interactiunea-cu-nivelul-fizic" title="Permalink to this headline">¶</a></h2>
 <p>Primul nivel cu care noi interacționăm este nivelul fizic. Nivelul fizic este
 reprezentat de cablul UTP pentru o rețea cu fir, sau de undele
 radio ale unei rețele wireless. Acestea sunt mediul prin care informația este
@@ -562,13 +563,13 @@ este cablul de Internet conectat la placa de rețea, sau de la faptul că avem
 conexiune slabă la rețeaua wireless.</p>
 <p>La nivel fizic, putem verifica conexiunea și funcționalitatea unei plăci de
 rețea uitându-ne la ledurile care reprezintă conexiunea la mediul fizic.
-Observăm în GIF-ul de mai joscum arată ledurile unei plăci de rețea funcționale.
+Observăm în GIF-ul de mai jos cum arată ledurile unei plăci de rețea funcționale.
 Dacă acestea nu sunt aprinse, atunci nu vom avea conectivitate la rețea.</p>
 <div class="figure align-default">
 <img alt="Conexiunea la o rețea" src="../../_images/nic.gif" />
 </div>
 <div class="section" id="investigarea-nivelului-fizic-al-retelei">
-<h3><span class="section-number">2.1.1. </span>Investigarea nivelului fizic al rețelei<a class="headerlink" href="#investigarea-nivelului-fizic-al-retelei" title="Permalink to this headline">¶</a></h3>
+<span id="network-troubleshoot-phys-show"></span><h3><span class="section-number">2.1.1. </span>Investigarea nivelului fizic al rețelei<a class="headerlink" href="#investigarea-nivelului-fizic-al-retelei" title="Permalink to this headline">¶</a></h3>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>În general, în Linux fiecare placă de rețea are asociată câte o interfață de
@@ -596,16 +597,16 @@ comanda <code class="docutils literal notranslate"><span class="pre">./lab_prepa
 </div>
 <p>Starea fiecărei interfețe de rețea este reprezentată pe câte o linie împreună cu
 parametrii săi de rulare. Majoritatea informațiilor afișate de comanda de mai
-sus nu relevante pentru noi. O opțiune relevantă este valoarea <code class="docutils literal notranslate"><span class="pre">state</span></code>, urmată
-de starea interfeței de rețea, care poate să fie <code class="docutils literal notranslate"><span class="pre">UP</span></code>, <code class="docutils literal notranslate"><span class="pre">DOWN</span></code> sau
-<code class="docutils literal notranslate"><span class="pre">UNKNOWN</span></code>.</p>
+sus nu sunt relevante pentru noi. O opțiune relevantă este valoarea
+<code class="docutils literal notranslate"><span class="pre">state</span></code>, urmată de starea interfeței de rețea, care poate să fie <code class="docutils literal notranslate"><span class="pre">UP</span></code>,
+<code class="docutils literal notranslate"><span class="pre">DOWN</span></code> sau <code class="docutils literal notranslate"><span class="pre">UNKNOWN</span></code>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Formatul pentru numele interfețelor diferă de la o distribuție la alta. În
-cadrul infrastructurii de laborator folosim containere de tip Docker
-în cadrul cărora numele interfețelor este de forma <code class="docutils literal notranslate"><span class="pre">ethX</span></code>, unde X este un
-număr. În funcție de mașina pe care rulăm numele interfețelor poate să se
-fie într-un format diferit.</p>
+cadrul infrastructurii de laborator folosim containere de tip Docker în
+cadrul cărora numele interfețelor este de forma <code class="docutils literal notranslate"><span class="pre">ethX</span></code>, unde X este un
+număr. În funcție de distribuția pe care rulăm numele interfețelor poate să
+se fie într-un format diferit.</p>
 </div>
 <p>Observăm că interfața de rețea cu numele <code class="docutils literal notranslate"><span class="pre">eth0</span></code> este pornită, deoarece linia
 asociată interfeței conține șirul de caractere <code class="docutils literal notranslate"><span class="pre">state</span> <span class="pre">UP</span></code>. În același timp
@@ -615,9 +616,9 @@ observăm șirul de caractere <code class="docutils literal notranslate"><span c
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">root</span><span class="nd">@uso</span><span class="p">:</span><span class="o">~</span><span class="c1"># ip link set up dev eth1</span>
 </pre></div>
 </div>
-<p>Mereu, după ce rulăm o comandă, trebuie să verificăm că s-a efectuat comanda cu
-succes, folosind o comandă de verificare. În cazul de față vom folosi tot
-comanda <code class="docutils literal notranslate"><span class="pre">ip</span> <span class="pre">link</span> <span class="pre">show</span></code>:</p>
+<p>Mereu, după ce rulăm o comandă, trebuie să verificăm că s-a efectuat cu succes,
+folosind o metodă de verificare. În cazul de față vom folosi tot comanda <code class="docutils literal notranslate"><span class="pre">ip</span>
+<span class="pre">link</span> <span class="pre">show</span></code>:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">root</span><span class="nd">@fizic</span><span class="p">:</span><span class="o">~</span><span class="c1"># ip link show</span>
 <span class="mi">1</span><span class="p">:</span> <span class="n">lo</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">LOOPBACK</span><span class="p">,</span><span class="n">UP</span><span class="p">,</span><span class="n">LOWER_UP</span><span class="o">&gt;</span> <span class="n">mtu</span> <span class="mi">65536</span> <span class="n">qdisc</span> <span class="n">noqueue</span> <span class="n">state</span> <span class="n">UNKNOWN</span> <span class="n">mode</span> <span class="n">DEFAULT</span> <span class="n">group</span> <span class="n">default</span> <span class="n">qlen</span> <span class="mi">1000</span>
     <span class="n">link</span><span class="o">/</span><span class="n">loopback</span> <span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span> <span class="n">brd</span> <span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span>
@@ -636,9 +637,9 @@ comanda <code class="docutils literal notranslate"><span class="pre">ip</span> <
 </div>
 </div>
 <div class="section" id="configurarea-nivelului-internet">
-<h2><span class="section-number">2.2. </span>Configurarea nivelului Internet<a class="headerlink" href="#configurarea-nivelului-internet" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="identificarea-adresei-de-internet">
-<h3><span class="section-number">2.2.1. </span>Identificarea adresei de Internet<a class="headerlink" href="#identificarea-adresei-de-internet" title="Permalink to this headline">¶</a></h3>
+<span id="network-troubleshoot-internet"></span><h2><span class="section-number">2.2. </span>Configurarea nivelului Internet<a class="headerlink" href="#configurarea-nivelului-internet" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="network-troubleshoot-internet-show">
+<span id="identificarea-adresei-de-internet"></span><h3><span class="section-number">2.2.1. </span>Identificarea adresei de Internet<a class="headerlink" href="#network-troubleshoot-internet-show" title="Permalink to this headline">¶</a></h3>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Pentru rularea acestui demo rulați în directorul
@@ -648,7 +649,9 @@ comanda <code class="docutils literal notranslate"><span class="pre">./lab_prepa
 </div>
 <p>Pentru comunicare între două stații din Internet, trebuie ca cele două stații să
 fie conectate la Internet. Și apoi cele două stații să se poată adresa una
-alteia. Adică fiecare stație are nevoie de un identificator, o adresă.</p>
+alteia. Adică fiecare stație are nevoie de un identificator, o adresă. Cum
+fiecare casă din lume are o adresă cu care poate fi identificată unic, similar
+este necesar pentru un calculator.</p>
 <p>Pentru identificarea stațiilor folosim o adresă numită adresa IP (<em>Internet
 Protocol</em>). Fiecare interfață de rețea are nevoie de o adresă IP să fie
 configurată.</p>
@@ -669,20 +672,18 @@ următoarea comandă:</p>
     <span class="n">link</span><span class="o">/</span><span class="n">ether</span> <span class="mi">02</span><span class="p">:</span><span class="mi">42</span><span class="p">:</span><span class="mi">0</span><span class="n">c</span><span class="p">:</span><span class="mi">0</span><span class="n">c</span><span class="p">:</span><span class="mi">0</span><span class="n">c</span><span class="p">:</span><span class="mi">02</span> <span class="n">brd</span> <span class="n">ff</span><span class="p">:</span><span class="n">ff</span><span class="p">:</span><span class="n">ff</span><span class="p">:</span><span class="n">ff</span><span class="p">:</span><span class="n">ff</span><span class="p">:</span><span class="n">ff</span> <span class="n">link</span><span class="o">-</span><span class="n">netnsid</span> <span class="mi">0</span>
 </pre></div>
 </div>
-<p>Adresele IP ale interfețelor sunt scrise pe liniile care conțin <code class="docutils literal notranslate"><span class="pre">inet</span></code>.
-Observăm că există două tipuri de adrese IP, în funcție de parametrul <code class="docutils literal notranslate"><span class="pre">inet</span></code>:</p>
-<ul class="simple">
-<li><p>Adrese IPv4 care sunt de forma <code class="docutils literal notranslate"><span class="pre">A.B.C.D</span></code>, unde A, B, C și D sunt numere cu
-valori între 1 si 255;</p></li>
-<li><p>Adrese IPv6, care sunt de forma <code class="docutils literal notranslate"><span class="pre">A:B:C:D:E:F:G:H</span></code>, unde A-H sunt numere în
-format hexazecimal care pot lua valori de la <code class="docutils literal notranslate"><span class="pre">0x0000&quot;</span> <span class="pre">la</span> <span class="pre">``0xFFFF</span></code>.</p></li>
-</ul>
+<p>Există două tipuri de adrese IP (IPv4 și IPv6), dar în cadrul acestui laborator
+vom lucra numai cu adrese de tip IPv4. Adresele IP ale interfețelor sunt scrise
+pe liniile care conțin <code class="docutils literal notranslate"><span class="pre">inet</span></code>.  Adresele IPv4 sunt de forma <code class="docutils literal notranslate"><span class="pre">A.B.C.D</span></code>, unde
+A, B, C și D sunt numere cu valori între 1 si 255.</p>
+<p>Pentru detalii despre adresele de tip IPv6 folosiți urmăriți această <a class="footnote-reference brackets" href="#ipv6" id="id1">2</a>
+explicație.</p>
 </div>
 <div class="section" id="configurarea-unei-adrese-ip">
-<h3><span class="section-number">2.2.2. </span>Configurarea unei adrese IP<a class="headerlink" href="#configurarea-unei-adrese-ip" title="Permalink to this headline">¶</a></h3>
+<span id="network-troubleshoot-internet-config"></span><h3><span class="section-number">2.2.2. </span>Configurarea unei adrese IP<a class="headerlink" href="#configurarea-unei-adrese-ip" title="Permalink to this headline">¶</a></h3>
 <p>Există două metode pentru configurarea unei adrese IP pe o interfață:</p>
 <ul class="simple">
-<li><p>configurare statică, prin care noi configurăm manual adresa IP pe interfață de
+<li><p>configurare statică, prin care noi configurăm manual adresa IP pe interfața de
 rețea, implică să cunoaștem din ce rețea face parte interfața
 pe care vrem să o configurăm și ce adrese IP sunt libere;</p></li>
 <li><p>configurare dinamică, obținută automat, care nu presupune cunoașterea
@@ -749,7 +750,7 @@ folosind numele interfeței ca parametru pentru comanda <code class="docutils li
 </div>
 </div>
 <div class="section" id="verificarea-conectivitatii-la-o-alta-statie">
-<h3><span class="section-number">2.2.3. </span>Verificarea conectivității la o altă stație<a class="headerlink" href="#verificarea-conectivitatii-la-o-alta-statie" title="Permalink to this headline">¶</a></h3>
+<span id="network-troubleshoot-internet-ping"></span><h3><span class="section-number">2.2.3. </span>Verificarea conectivității la o altă stație<a class="headerlink" href="#verificarea-conectivitatii-la-o-alta-statie" title="Permalink to this headline">¶</a></h3>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Pentru rularea acestui demo, comenzile vor fi rulate în cadrul mașinii
@@ -817,7 +818,7 @@ acesta se află pe linia care conține șirul de caractere <code class="docutils
 <h4><span class="section-number">2.2.3.1. </span>Recapitulare - Afișarea adresei IP configurată pe o interfață<a class="headerlink" href="#recapitulare-afisarea-adresei-ip-configurata-pe-o-interfata" title="Permalink to this headline">¶</a></h4>
 <p>Aflați adresa de rețea de pe interfața <code class="docutils literal notranslate"><span class="pre">enp0s3</span></code>.</p>
 <div class="admonition-observatie admonition">
-<p class="admonition-title">Observație</p>
+<p class="admonition-title">Observație:</p>
 <p>Adresa IP a gateway-ului și adresa IP a interfeței <code class="docutils literal notranslate"><span class="pre">enp0s3</span></code> sunt foarte
 similare. Acest lucru se întâmplă deoarece stațiile se află în aceeași
 rețea.</p>
@@ -837,7 +838,7 @@ exemplu este serverul oferit de Google de la adresa IP <code class="docutils lit
 </div>
 </div>
 <div class="section" id="investigarea-serviciului-dns">
-<h3><span class="section-number">2.2.4. </span>Investigarea serviciului DNS<a class="headerlink" href="#investigarea-serviciului-dns" title="Permalink to this headline">¶</a></h3>
+<span id="network-troubleshoot-internet-dns"></span><h3><span class="section-number">2.2.4. </span>Investigarea serviciului DNS<a class="headerlink" href="#investigarea-serviciului-dns" title="Permalink to this headline">¶</a></h3>
 <p>După cum ați observat, până acum am lucrat numai cu adrese IP, dar noi lucrăm
 în viața de zi cu zi cu numele site-urilor, deoarece ne este mai ușor să
 reținem nume decât adrese IP.</p>
@@ -910,8 +911,9 @@ nameserver 127.0.0.53
 options edns0
 </pre></div>
 </div>
-<p>Dacă schimbăm adresa DNS-ului cu altă adresă, cum ar fi cea a DNS-ului oferit
-de Google, putem să vedem o schimbare în răspunsurile de la serverul DNS.</p>
+<p>Dacă schimbăm adresa serverului DNS cu altă adresă, cum ar fi cea a serverului DNS
+oferit de Google, putem să vedem o schimbare în răspunsurile de la serverul DNS
+pentru unele site-uri.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>student@uso:~$ host google.com
 google.com has address 172.217.20.14
 google.com has IPv6 address 2a00:1450:400d:803::200e
@@ -942,10 +944,10 @@ către serverul de DNS oferit de CloudFlare de la adresa <code class="docutils l
 </div>
 </div>
 <div class="section" id="configurarea-nivelului-transport">
-<h2><span class="section-number">2.3. </span>Configurarea nivelului Transport<a class="headerlink" href="#configurarea-nivelului-transport" title="Permalink to this headline">¶</a></h2>
+<span id="network-troubleshoot-transport"></span><h2><span class="section-number">2.3. </span>Configurarea nivelului Transport<a class="headerlink" href="#configurarea-nivelului-transport" title="Permalink to this headline">¶</a></h2>
 <p>Atunci când folosim Internetul, ce facem de fapt este că ne conectăm la
-aplicații care rulează și noi pornim la rândul nostru aplicații care așteaptă
-conexiuni din exterior.</p>
+aplicații care rulează pe servere în Internet și noi pornim la rândul nostru
+aplicații pe calculatorul nostru care așteaptă conexiuni din Internet.</p>
 <p>Pentru a distinge aplicațiile și destinația mesajelor, folosim conceptul de
 porturi. Astfel, fiecare aplicație deschide un port pentru a comunica cu exteriorul.</p>
 <p>Portul este o adresă locală unei stații. Dacă adresa IP identifică stația,
@@ -961,8 +963,9 @@ trimită informație repede și care sunt rezistente la greșeli de trimitere al
 pachetelor, cum ar fi aplicații de video streaming</p></li>
 </ul>
 <div class="section" id="conectivitatea-intre-aplicatii-de-retea-folosind-porturi">
-<h3><span class="section-number">2.3.1. </span>Conectivitatea între aplicații de rețea folosind porturi<a class="headerlink" href="#conectivitatea-intre-aplicatii-de-retea-folosind-porturi" title="Permalink to this headline">¶</a></h3>
-<p>Pentru afișarea porturilor deschide, pe care comunica o aplicație, folosim comanda <code class="docutils literal notranslate"><span class="pre">netstat</span></code>:</p>
+<span id="network-troubleshoot-transport-show"></span><h3><span class="section-number">2.3.1. </span>Conectivitatea între aplicații de rețea folosind porturi<a class="headerlink" href="#conectivitatea-intre-aplicatii-de-retea-folosind-porturi" title="Permalink to this headline">¶</a></h3>
+<p>Pentru afișarea porturilor deschise, pe care comunică o aplicație, folosim
+comanda <code class="docutils literal notranslate"><span class="pre">netstat</span></code>:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>student@uso:~/lab-container$ sudo netstat -tlpn
 Active Internet connections (only servers)
 Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name
@@ -980,7 +983,7 @@ tcp6       0      0 ::1:6010                :::*                    LISTEN      
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">-t</span></code> afișează doar porturile TCP deschise</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">-l</span></code> afișează doar porturile deschise care ascultă mesaje, nu și cele deschide pentru trimiterea mesajelor</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">-p</span></code> afișează programul care a deschis portul <a class="footnote-reference brackets" href="#netstat-sudo" id="id1">1</a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-p</span></code> afișează programul care a deschis portul <a class="footnote-reference brackets" href="#netstat-sudo" id="id2">1</a></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">-n</span></code> afișează IP-ul pe care se ascultă după conexiuni</p></li>
 </ul>
 <div class="section" id="exercitiu-afisarea-porturilor-udp-deschise">
@@ -994,8 +997,8 @@ ca va fi opțiunea necesară pentru identificarea porturilor UDP?</p>
 </div>
 </div>
 <div class="section" id="conectarea-tcp-la-o-aplicatie">
-<h3><span class="section-number">2.3.2. </span>Conectarea TCP la o aplicație<a class="headerlink" href="#conectarea-tcp-la-o-aplicatie" title="Permalink to this headline">¶</a></h3>
-<p>Vrem să observăm cum răspunde serverul HTTP la mesaje. De regula un server HTTP răspunde printr-un mesaj în format HTML.</p>
+<span id="network-troubleshoot-transport-connect"></span><h3><span class="section-number">2.3.2. </span>Conectarea TCP la o aplicație<a class="headerlink" href="#conectarea-tcp-la-o-aplicatie" title="Permalink to this headline">¶</a></h3>
+<p>Vrem să observăm cum răspunde serverul HTTP la mesaje. De regulă un server HTTP răspunde printr-un mesaj în format HTML.</p>
 <p>Pentru a trimite mesaje, indiferent de tipul aplicației care primește mesajul folosim comanda <code class="docutils literal notranslate"><span class="pre">nc</span></code> în felul următor</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>student@uso:~/lab-container$ nc google.com 80
 test
@@ -1024,17 +1027,20 @@ am trimis un mesaj care nu este în formatul așteptat de serverul HTTP.</p>
 <div class="section" id="exercitiu-testarea-conexiunii-la-aplicatii">
 <h4><span class="section-number">2.3.2.1. </span>Exercițiu - Testarea conexiunii la aplicații<a class="headerlink" href="#exercitiu-testarea-conexiunii-la-aplicatii" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
-<li><p>Trimiteți un mesaj către programul care ascultă pe portul 22 pe mașina locală
+<li><p>Trimiteți un mesaj către programul care ascultă pe portul 22 pe sistemul local
 (cu IP-ul <code class="docutils literal notranslate"><span class="pre">127.0.0.1</span></code>).</p></li>
 <li><p>Trimiteți un mesaj către programul care ascultă pe portul 80 de la adresa
 identificată prin numele <code class="docutils literal notranslate"><span class="pre">elf.cs.pub.ro</span></code>.</p></li>
 </ul>
 <p class="rubric">Note de subsol</p>
 <dl class="footnote brackets">
-<dt class="label" id="netstat-sudo"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dt class="label" id="netstat-sudo"><span class="brackets"><a class="fn-backref" href="#id2">1</a></span></dt>
 <dd><p>Am folosit comanda <code class="docutils literal notranslate"><span class="pre">sudo</span></code> pentru a afișa numele programelor care ascultă pe
 portul deschis, deoarece avem nevoie de privilegiu pentru această
 funcționalitate oferită de opțiunea <code class="docutils literal notranslate"><span class="pre">-p</span></code> a utilitarului <code class="docutils literal notranslate"><span class="pre">netstat</span></code>.</p>
+</dd>
+<dt class="label" id="ipv6"><span class="brackets"><a class="fn-backref" href="#id1">2</a></span></dt>
+<dd><p><a class="reference external" href="https://en.wikipedia.org/wiki/IP_address#IPv6_addresses">https://en.wikipedia.org/wiki/IP_address#IPv6_addresses</a></p>
 </dd>
 </dl>
 </div>
@@ -1048,7 +1054,7 @@ funcționalitate oferită de opțiunea <code class="docutils literal notranslate
             <div class="inner"><ul class="page-nav">
   <li class="prev">
     <a href="browser.html"
-       title="previous chapter">← <span class="section-number">1. </span>Folosirea eficientă a browser-ului</a>
+       title="previous chapter">← <span class="section-number">1. </span>Folosirea eficientă a browserului</a>
   </li>
   <li class="next">
     <a href="services.html"

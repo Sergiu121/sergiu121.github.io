@@ -1,3 +1,5 @@
+.. _network_services:
+
 Servicii și clienți de rețea
 ============================
 
@@ -17,8 +19,8 @@ Vom numi aceste aplicații care rulează în Internet **servicii**.
 Un serviciu este o aplicație care oferă o funcționalitate utilizatorilor care
 apelează la ele. Serviciile în domeniul calculatoarelor lucrează folosind
 paradigma server-client. Un avantaj major al acestei abordări este că reduce
-puterea de calcul necesară pentru rularea aplicațiilor de către utilizatori,
-aceștia au nevoie doar de o aplicație client care știe să comunice cu serverul.
+puterea de calcul necesară pentru rularea aplicațiilor de către utilizatori.
+Aceștia au nevoie doar de o aplicație client care știe să comunice cu serverul.
 Astfel, aplicația client trimite o cerere către aplicația server, serverul
 primește cererea, procesează cererea și servește răspunsul aplicației client
 care a făcut cererea.
@@ -32,6 +34,8 @@ Această paradigmă poate fi observată în schema următoare:
 Atunci când noi vrem să urmărim un film pe Netflix aplicația client Netflix de
 pe calculator sau smart TV va trimite o cerere de descărcare a filmului de pe
 serverul Netflix aflat la distanță.
+
+.. _network_services_clients:
 
 Clienţi web în linia de comandă
 --------------------------------
@@ -106,6 +110,8 @@ Exercițiu - Descărcarea paginilor web
 * Descărcați fișierul ``http://elf.cs.pub.ro/uso/res/final/07-feb/heroes.csv``.
   Ce tip de fișier este acesta?
 
+.. _network_services_remotecli:
+
 Accesul la distanţă în linie de comandă
 ---------------------------------------
 
@@ -122,8 +128,11 @@ stații.
 
 Protocolul cel mai folosit pentru accesul la stații la distanță este protocolul
 SSH. SSH permite autentificarea la o stație pe care rulează un server SSH.
-Pentru a ne conecta la stație este necesar să introducem parola utilizatorului cu
-care vrem să ne autentificăm, sau să folosim o cheie de acces la stație.
+Când ne conecta la o stație, trebuie să precizăm utilizatorul cu care vrem să
+ne logăm. Pentru autentificare introducem parola utilizatorului, sau
+folosim o cheie de acces la stație.
+
+.. _network_services_remotecli_pass:
 
 Conectarea folosind autentificare cu parolă
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -200,6 +209,8 @@ Exercițiu - Conectarea la distanță
     utilizatorului, dar nu va permite autentificarea la stație. De ce serverul SSH
     nu specifică dacă utilizatorul exista sau nu?
 
+.. _network_services_remotecli_cmd:
+
 Rularea unei singure comenzi prin SSH
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -239,6 +250,8 @@ Execițiu - Rularea unei singure comenzi prin SSH
 Rulați comanda ``cat /etc/passwd`` pe stația de la IP-ul ``10.10.10.3`` fără să
 intrați în interfața în linia de comandă de pe stații. Vă veți autentifica
 folosind utilizatorul ``root`` și parola ``root``.
+
+.. _network_services_remotecli_scp:
 
 Transferul fișierelor la distanţă
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -317,13 +330,15 @@ Copiați directorul ``/usr`` de pe stația de la adresa ``10.10.10.3`` în
 directorul home al utilizatorului curent. Vă veți autentifica pe stația de la
 distanță folosind utilizatorul ``root`` și parola ``root``.
 
+.. _network_services_remotecli_key:
+
 Conectarea folosind autentificare cu chei
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 În anumite scenarii ne dorim să evităm introducerea parolei pentru
 autentificarea la o stație la distanță. De exemplu, ne dorim să rulăm aceeași
 comandă pe 10 stații. Dacă am folosi autentificare bazată pe parolă ar fi nevoie
-să scriem într-un fișier în clar parola. Acest este o problema de securitate,
+să scriem într-un fișier în clar parola. Aceasta este o problema de securitate,
 deoarece dacă păstrăm o cheie în format text aceasta poate fi furată de cineva.
 O alternativă ineficientă este să scriem parola de 10 ori de mână.
 
@@ -406,6 +421,8 @@ Exercițiu - Utilizarea cheilor SSH
 * Efectuați modificările necesare astfel încât să vă puteți autentifica drept
   utilizatorul ``student`` de pe stația ``10.10.10.3`` fără parolă.
 
+.. _network_services_remotegui:
+
 Controlul la distanță în mediul grafic
 --------------------------------------
 
@@ -418,6 +435,8 @@ Controlul acestor aplicații se poate reduce la două probleme:
 * controlul întregului desktop;
 
 * controlul unei singure aplicații.
+
+.. _network_services_remotegui_dekstop:
 
 Controlul desktopului la distanţă
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -479,6 +498,8 @@ Exercițiu - Conectarea la distanță folosind TeamViewer
 
 Conectați-vă la mașina virtuală USO de pe stația voastră fizică.
 
+.. _network_services_remotegui_window:
+
 Controlul unei ferestre la distanţă
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -513,6 +534,8 @@ Exercițiu - Controlul une ferestre la distanță
 
 Deschideți aplicația grafică ``qbittorrent`` ca utilizatorul ``student`` pe
 stația ``10.10.10.3``.
+
+.. _network_services_vpn:
 
 Securizarea conexiunii la Internet folosind un VPN
 --------------------------------------------------
@@ -585,7 +608,7 @@ Astfel, un pachet care se va îndrepta spre o destinație, poate să depășeasc
 anumite filtre bazate pe locație, deoarece locația de unde provine pachetul va
 fi înlocuită de serverul VPN.
 
-Acesta a fost o demonstrație didactică, dar și în viața de zi cu zi, când ne
+Aceasta a fost o demonstrație didactică, dar și în viața de zi cu zi, când ne
 conectăm la un VPN folosim un fișier de configurare, sau scriem noi explicit
 adresa VPN-ului și folosim date de autentificare pentru a intra în rețeaua
 VPN-ului. Chiar dacă nu se întâmplă folosind ``openvpn``, ci alte soluții cum ar

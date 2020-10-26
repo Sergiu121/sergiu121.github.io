@@ -1,3 +1,5 @@
+.. _network_extra:
+
 Funcţionalităţi suplimentare de reţelistică
 ===========================================
 
@@ -5,6 +7,8 @@ Aceste exerciții și tutoriale sunt menite să abordeze lucruri care nu sunt
 neapărat necesare pentru utilizarea și înțelegerea conceptelor din acest
 capitol, dar oferă bune practici și cunoștințe extra despre conectarea
 calculatorului la Internet și funcționarea serviciilor în Internet.
+
+.. _network_extra_proxy:
 
 Folosirea proxy-urilor HTTP
 ---------------------------
@@ -71,14 +75,17 @@ mai apare ca cea inițială ci apare ca fiind dintr-o altă țară.
     :align: center
     :alt: WhatsMyIP în proxy
 
-Evitarea paywall-urilor pe site-uri web
------------------------------------------------
+.. _network_extra_paywall:
 
-Sunt unele site-uri pe Internet să accesăm un număr limitat de articole pe ele.
-Funcționalitatea de blocare a conținutului de pe un site până la plata unei sume
-se numește un *paywall*. *Paywall*-urile sunt foarte agasantă atunci când
-încercăm să găsim mai multe surse pentru știri, sau când vrem să parcurgem mai
-multe articole de pe același site.
+Evitarea paywall-urilor pe site-uri web
+---------------------------------------
+
+Exista anumite site-uri, cum ar fi cele de știri, sau articole științifice care
+ne limitează accesul la un număr de articole pe zi. Funcționalitatea de blocare
+a conținutului de pe un site până la plata unei sume se numește un *paywall*.
+*Paywall*-urile sunt foarte agasante atunci când încercăm să găsim mai multe
+surse pentru știri, sau când vrem să parcurgem mai multe articole de pe același
+site.
 
 .. image:: img/browser_paywall.png
     :align: center
@@ -89,10 +96,10 @@ pentru a afișa conținutul complet al unui articol. Elementele web pot fi șter
 manual, sau automat, folosind un add-on de browser.
 
 Pentru ștergerea automată a blocajelor putem folosi `acest
-<https://github.com/iamadamdev/bypass-paywalls-chrome>`_ add-on de browser care
+<https://github.com/iamadamdev/bypass-paywalls-chrome/releases>`_ add-on de browser care
 funcționează atât pe Google Chrome cât și pe Mozilla Firefox, care poate fi
 descărcat și instalat în browser de `aici
-<https://github.com/iamadamdev/bypass-paywalls-chrome/releases>`_.
+<https://github.com/iamadamdev/bypass-paywalls-firefox/releases>`_.
 
 .. image:: img/browser_nopaywall.png
     :align: center
@@ -101,8 +108,12 @@ descărcat și instalat în browser de `aici
 Observăm cum după instalarea și activarea add-onului putem vedea conținutul
 paginii web nerestricționat.
 
+.. _network_extra_ssh:
+
 Configurarea avansată pentru SSH
 --------------------------------
+
+.. _network_extra_ssh_shortcuts:
 
 Configurarea scurtăturilor SSH
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -157,6 +168,8 @@ Realizați configurările necesare astfel încât să va puteți conecta la sta�
 ``10.10.10.3`` ca utilizatorul ``student``, folosind opțiunea de X forwarding cu
 scurtătura ``remote-stud``.
 
+.. _network_extra_ssh_keys:
+
 Configurarea accesului prin chei SSH
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -186,6 +199,8 @@ este suficient să scriem cheia SSH a utilizatorului pe o linie nouă a fișieru
 
 TODO infra
 
+.. _network_extra_nmcli:
+
 Gestiunea avansată a conexiunilor la rețea
 ------------------------------------------
 
@@ -202,6 +217,8 @@ gestionarea configurărilor.
 
 Din punctul de vedere al serviciului ``NetworkManager``, există interfețe pe care
 acesta le configurează și există conexiuni, care rețin configurările.
+
+.. _network_extra_nmcli_connecition:
 
 Configurarea conexiunilor folosind ``nmcli``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -230,12 +247,15 @@ următor:
 
 .. code-block::
 
-    student@uso:~$ nmcli connection modify "Wired connection 1" ignore-auto-dns=true
+    student@uso:~$ nmcli connection modify "Wired connection 1" ignore-auto-dns yes
     student@uso:~$ nmcli connection modify "Wired connection 1" ipv4.dns 1.1.1.1
-    TODO
+    student@uso:~$ sudo systemctl restart network-manager.service
 
-Atributul ``ipv4.dns`` reține date despre serverul DNS care va fi folosit în
-cadrul conexiunii.
+Pentru a folosi un sever DNS dorit de noi, în loc de cel primit prin DHCP este
+nevoie să setăm parametrul ``ignore-audo-dns`` la valoarea ``yes``.  Atributul
+``ipv4.dns`` reține date despre serverul DNS care va fi folosit în cadrul
+conexiunii. Pentru a schimba serverul DNS folosit am setat acest parametru la
+adresa IP ``1.1.1.1``.
 
 Exercițiu - Setarea serverului DNS permanent folosind ``nmcli``
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
