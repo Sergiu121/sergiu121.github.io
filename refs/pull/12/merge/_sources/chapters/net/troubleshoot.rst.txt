@@ -3,6 +3,21 @@
 Conectarea la rețea și la Internet
 ==================================
 
+.. note::
+    Pentru a parcurge această secțiune este recomandat să descărcați ultima
+    versiune a respository-ului laboratorului. Pentru a descărca ultima versiune
+    a repository-ului rulați comanda ``git pull`` în directorul
+    ``~/uso-lab/lab-containers``.
+
+    Infrastructura laboratorului este bazată pe containere docker ale căror
+    imagini vor fi generate pe propriul calculator. Dacă nu veți deja instalat
+    Docker Engine pe sistem, scriptul
+    ``~/uso-lab/lab-containers/lab-prepare.sh`` vă va instala aplicația.
+
+    După ce ați terminat de lucrat vă recomandăm să opriți containerele rulând
+    comanda ``./lab-prepare.sh delete`` în directorul
+    ``~/uso-lab/lab-containers/``.
+
 În cadrul acestei secțiuni vom învăța cum să reparăm problemele de conectivitate
 la rețea (sau, informal, rezolvarea problemei "nu-mi merge Internetul").  Pentru
 a face asta este necesar să parcurgem toate nivelurile de rețea prin care trec
@@ -113,7 +128,6 @@ link show``:
         link/ether 02:42:0b:0b:0b:01 brd ff:ff:ff:ff:ff:ff link-netnsid 0
     299: eth2@if300: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP mode DEFAULT group default
         link/ether 02:42:0c:0c:0c:01 brd ff:ff:ff:ff:ff:ff link-netnsid 0
-
 
 Exercițiu - Pornirea unei interfețe
 """""""""""""""""""""""""""""""""""
@@ -298,7 +312,7 @@ server public din Internet), folosim comanda:
     rtt min/avg/max/mdev = 23.051/24.731/25.707/1.020 ms
 
 Comportamentul implicit al comenzii ``ping`` este să trimită pachete la infinit.
-Am folsit opțiunea ``-c 4`` în exemplul de mai sus pentru a reduce numărul de
+Am folosit opțiunea ``-c 4`` în exemplul de mai sus pentru a reduce numărul de
 pachete trimise la 4.
 
 Atunci când nu pot fi trimise mesaje către stația identificată prin adresa IP,

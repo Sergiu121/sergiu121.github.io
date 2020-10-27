@@ -542,6 +542,20 @@
             
   <div class="section" id="conectarea-la-retea-si-la-internet">
 <span id="network-troubleshoot"></span><h1><span class="section-number">2. </span>Conectarea la rețea și la Internet<a class="headerlink" href="#conectarea-la-retea-si-la-internet" title="Permalink to this headline">¶</a></h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Pentru a parcurge această secțiune este recomandat să descărcați ultima
+versiune a respository-ului laboratorului. Pentru a descărca ultima versiune
+a repository-ului rulați comanda <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">pull</span></code> în directorul
+<code class="docutils literal notranslate"><span class="pre">~/uso-lab/lab-containers</span></code>.</p>
+<p>Infrastructura laboratorului este bazată pe containere docker ale căror
+imagini vor fi generate pe propriul calculator. Dacă nu veți deja instalat
+Docker Engine pe sistem, scriptul
+<code class="docutils literal notranslate"><span class="pre">~/uso-lab/lab-containers/lab-prepare.sh</span></code> vă va instala aplicația.</p>
+<p>După ce ați terminat de lucrat vă recomandăm să opriți containerele rulând
+comanda <code class="docutils literal notranslate"><span class="pre">./lab-prepare.sh</span> <span class="pre">delete</span></code> în directorul
+<code class="docutils literal notranslate"><span class="pre">~/uso-lab/lab-containers/</span></code>.</p>
+</div>
 <p>În cadrul acestei secțiuni vom învăța cum să reparăm problemele de conectivitate
 la rețea (sau, informal, rezolvarea problemei “nu-mi merge Internetul”).  Pentru
 a face asta este necesar să parcurgem toate nivelurile de rețea prin care trec
@@ -779,7 +793,7 @@ server public din Internet), folosim comanda:</p>
 </pre></div>
 </div>
 <p>Comportamentul implicit al comenzii <code class="docutils literal notranslate"><span class="pre">ping</span></code> este să trimită pachete la infinit.
-Am folsit opțiunea <code class="docutils literal notranslate"><span class="pre">-c</span> <span class="pre">4</span></code> în exemplul de mai sus pentru a reduce numărul de
+Am folosit opțiunea <code class="docutils literal notranslate"><span class="pre">-c</span> <span class="pre">4</span></code> în exemplul de mai sus pentru a reduce numărul de
 pachete trimise la 4.</p>
 <p>Atunci când nu pot fi trimise mesaje către stația identificată prin adresa IP,
 mesajul de eroare va arăta în felul următor:</p>
