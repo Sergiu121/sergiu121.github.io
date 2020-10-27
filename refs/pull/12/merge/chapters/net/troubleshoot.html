@@ -547,14 +547,14 @@
 <p>Pentru a parcurge această secțiune este recomandat să descărcați ultima
 versiune a respository-ului laboratorului. Pentru a descărca ultima versiune
 a repository-ului rulați comanda <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">pull</span></code> în directorul
-<code class="docutils literal notranslate"><span class="pre">~/uso-lab/lab-containers</span></code>.</p>
+<code class="docutils literal notranslate"><span class="pre">~/uso-lab/labs/03-user/lab-containers/</span></code>.</p>
 <p>Infrastructura laboratorului este bazată pe containere docker ale căror
 imagini vor fi generate pe propriul calculator. Dacă nu veți deja instalat
 Docker Engine pe sistem, scriptul
-<code class="docutils literal notranslate"><span class="pre">~/uso-lab/lab-containers/lab-prepare.sh</span></code> vă va instala aplicația.</p>
+<code class="docutils literal notranslate"><span class="pre">~/uso-lab/labs/03-user/lab-containers/lab-prepare.sh</span></code> vă va instala aplicația.</p>
 <p>După ce ați terminat de lucrat vă recomandăm să opriți containerele rulând
 comanda <code class="docutils literal notranslate"><span class="pre">./lab-prepare.sh</span> <span class="pre">delete</span></code> în directorul
-<code class="docutils literal notranslate"><span class="pre">~/uso-lab/lab-containers/</span></code>.</p>
+<code class="docutils literal notranslate"><span class="pre">~/uso-lab/labs/03-user/lab-containers/</span></code>.</p>
 </div>
 <p>În cadrul acestei secțiuni vom învăța cum să reparăm problemele de conectivitate
 la rețea (sau, informal, rezolvarea problemei “nu-mi merge Internetul”).  Pentru
@@ -594,7 +594,7 @@ activă folosind comanda următoare:</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Pentru rularea acestui demo rulați în directorul
-<code class="docutils literal notranslate"><span class="pre">~/uso.git/lab-containers/</span></code> comanda <code class="docutils literal notranslate"><span class="pre">./lab_prepare.sh</span> <span class="pre">install</span> <span class="pre">fizic</span></code>.
+<code class="docutils literal notranslate"><span class="pre">~/uso.git/labs/03-user/lab-containers/</span></code> comanda <code class="docutils literal notranslate"><span class="pre">./lab_prepare.sh</span> <span class="pre">install</span> <span class="pre">fizic</span></code>.
 Pentru a ne conecta la infrastructura pentru această secțiune vom folosi
 comanda <code class="docutils literal notranslate"><span class="pre">./lab_prepare.sh</span> <span class="pre">connect</span> <span class="pre">fizic</span></code></p>
 </div>
@@ -657,7 +657,7 @@ folosind o metodă de verificare. În cazul de față vom folosi tot comanda <co
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Pentru rularea acestui demo rulați în directorul
-<code class="docutils literal notranslate"><span class="pre">~/uso.git/lab-containers/</span></code> comanda <code class="docutils literal notranslate"><span class="pre">./lab_prepare.sh</span> <span class="pre">install</span> <span class="pre">internet</span></code>.
+<code class="docutils literal notranslate"><span class="pre">~/uso.git/labs/03-user/lab-containers/</span></code> comanda <code class="docutils literal notranslate"><span class="pre">./lab_prepare.sh</span> <span class="pre">install</span> <span class="pre">internet</span></code>.
 Pentru a ne conecta la infrastructura pentru această secțiune vom folosi
 comanda <code class="docutils literal notranslate"><span class="pre">./lab_prepare.sh</span> <span class="pre">connect</span> <span class="pre">internet</span></code></p>
 </div>
@@ -980,7 +980,7 @@ pachetelor, cum ar fi aplicații de video streaming</p></li>
 <span id="network-troubleshoot-transport-show"></span><h3><span class="section-number">2.3.1. </span>Conectivitatea între aplicații de rețea folosind porturi<a class="headerlink" href="#conectivitatea-intre-aplicatii-de-retea-folosind-porturi" title="Permalink to this headline">¶</a></h3>
 <p>Pentru afișarea porturilor deschise, pe care comunică o aplicație, folosim
 comanda <code class="docutils literal notranslate"><span class="pre">netstat</span></code>:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>student@uso:~/lab-container$ sudo netstat -tlpn
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>student@uso:~$ sudo netstat -tlpn
 Active Internet connections (only servers)
 Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name
 tcp        0      0 127.0.0.1:5939          0.0.0.0:*               LISTEN      794/teamviewerd
@@ -1014,7 +1014,7 @@ ca va fi opțiunea necesară pentru identificarea porturilor UDP?</p>
 <span id="network-troubleshoot-transport-connect"></span><h3><span class="section-number">2.3.2. </span>Conectarea TCP la o aplicație<a class="headerlink" href="#conectarea-tcp-la-o-aplicatie" title="Permalink to this headline">¶</a></h3>
 <p>Vrem să observăm cum răspunde serverul HTTP la mesaje. De regulă un server HTTP răspunde printr-un mesaj în format HTML.</p>
 <p>Pentru a trimite mesaje, indiferent de tipul aplicației care primește mesajul folosim comanda <code class="docutils literal notranslate"><span class="pre">nc</span></code> în felul următor</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>student@uso:~/lab-container$ nc google.com 80
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>student@uso:~$ nc google.com 80
 test
 HTTP/1.0 400 Bad Request
 Content-Type: text/html; charset=UTF-8

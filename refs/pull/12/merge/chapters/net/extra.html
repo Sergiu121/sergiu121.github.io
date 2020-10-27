@@ -611,11 +611,18 @@ paginii web nerestricționat.</p>
 <span id="network-extra-ssh"></span><h2><span class="section-number">4.3. </span>Configurarea avansată pentru SSH<a class="headerlink" href="#configurarea-avansata-pentru-ssh" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="configurarea-scurtaturilor-ssh">
 <span id="network-extra-ssh-shortcuts"></span><h3><span class="section-number">4.3.1. </span>Configurarea scurtăturilor SSH<a class="headerlink" href="#configurarea-scurtaturilor-ssh" title="Permalink to this headline">¶</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Pentru rularea acestui demo rulați în directorul
+<code class="docutils literal notranslate"><span class="pre">~/uso.git/labs/03-user/lab-containers/</span></code> comanda <code class="docutils literal notranslate"><span class="pre">./lab_prepare.sh</span> <span class="pre">install</span> <span class="pre">ssh</span></code>.
+Pentru a ne conecta la infrastructura pentru această secțiune vom folosi
+comanda <code class="docutils literal notranslate"><span class="pre">./lab_prepare.sh</span> <span class="pre">connect</span> <span class="pre">ssh</span></code></p>
+</div>
 <p>Aplicația SSH permite configurarea scurtăturilor pentru destinații la care vrem
 să ne conectăm prin SSH.</p>
 <p>Pentru a ne conecta în mod normal la stația <code class="docutils literal notranslate"><span class="pre">10.10.10.3</span></code>, ca utilizatorul
 <code class="docutils literal notranslate"><span class="pre">root</span></code> folosind opțiunea <code class="docutils literal notranslate"><span class="pre">-X</span></code>, ar fi nevoie să rulăm comanda:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>student@tom:~$ ssh -X root@10.10.10.3
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>student@uso:~$ ssh -X root@10.10.10.3
 </pre></div>
 </div>
 <p>Introducerea acestei comenzi pentru fiecare conexiune succesivă este ineficientă și
@@ -693,7 +700,7 @@ acesta le configurează și există conexiuni, care rețin configurările.</p>
 <p>Pentru interfețe conectate prin cablu există doar o singură conexiune în mod
 normal.</p>
 <p>Pentru a vizualiza parametrii de funcționare ai unei conexiuni rulăm comanda:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>student@tom:~$ nmcli connection show &quot;Wired connection 1&quot; | less
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>student@uso:~$ nmcli connection show &quot;Wired connection 1&quot; | less
 connection.id:                          Wired connection 1
 connection.uuid:                        eb564cd4-e37e-3d00-a94a-6596698ef4e3
 connection.stable-id:                   --
