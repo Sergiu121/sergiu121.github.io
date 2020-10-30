@@ -46,6 +46,13 @@
     <div class="nav-item">
       <a href="../../index.html#uso-lab-book"
          class="nav-link ">
+         Acomodarea în Linux
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
          Lucrul cu fișiere
       </a>
     </div>
@@ -102,6 +109,13 @@
           <navlinks>
             
 
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Acomodarea în Linux
+      </a>
+    </div>
   
     <div class="nav-item">
       <a href="../../index.html#uso-lab-book"
@@ -163,6 +177,45 @@
     </div>
   </div>
 </div><div class="sidebar-links" role="navigation" aria-label="main navigation">
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#uso-lab-book">Acomodarea în Linux</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../basic/apps.html" class="reference internal ">Pornirea și oprirea aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../basic/browser.html" class="reference internal ">Folosirea eficientă a browserului web</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../basic/terminal.html" class="reference internal ">Lucrul în terminal</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../basic/workspace.html" class="reference internal ">Lucrul cu workspace-uri</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../basic/cheatsheet.html" class="reference internal ">Cheatsheet</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
   
     <div class="sidebar-group">
       <p class="caption">
@@ -240,7 +293,7 @@
                 
                   <li class="toctree-l2"><a href="#modificarea-fisierului-gitignore" class="reference internal">Modificarea fișierului .gitignore</a></li>
                 
-                  <li class="toctree-l2"><a href="#exercitii-practice" class="reference internal">Exerciții practice</a></li>
+                  <li class="toctree-l2"><a href="#exercitii" class="reference internal">Exerciții</a></li>
                 
                   <li class="toctree-l2"><a href="#bune-practici" class="reference internal">Bune practici</a></li>
                 
@@ -497,9 +550,9 @@
 <span id="app-dev-branches"></span><h1><span class="section-number">3. </span>Lucrul pe branch-uri<a class="headerlink" href="#lucrul-pe-branch-uri" title="Permalink to this headline">¶</a></h1>
 <p>Un dezvoltator vrea să lucreze la o funcționalitate nouă, care poate destabiliza proiectul.
 Pentru aceasta creează <strong>o ramură de dezvoltare nouă</strong> (<em>branch</em>) pe care face commituri noi.
-Ulterior, dacă funcționalitatea este utilă, va fi adăugată în proiect prin unificarea acestui branch (merge); altfel branch-ul va fi șters.</p>
+Ulterior, dacă funcționalitatea este utilă, va fi adăugată în proiect prin unificarea acestui branch (<em>merge</em>); altfel branch-ul va fi șters.</p>
 <p>Un repository Git are un branch principal de dezvoltare, numit <strong>master</strong>.
-Branch-ul master este branch-ul implicit cu care lucrăm, în care adăugăm commituri și în care vedem istoricul de commituri.</p>
+Branch-ul <code class="docutils literal notranslate"><span class="pre">master</span></code> este branch-ul implicit cu care lucrăm, în care adăugăm commituri și în care vedem istoricul de commituri.</p>
 <p>În acest moment istoricul de commituri este următorul:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/array-sorting-algorithms$ git log
 commit 66b7c5fabb93b521326e6cd9ff219a06a3aec064
@@ -543,8 +596,8 @@ Date:   Thu Sep <span class="m">24</span> <span class="m">09</span>:09:51 <span 
 <div class="figure align-default">
 <a class="reference internal image-reference" href="../../_images/GitHub-commit-history.png"><img alt="Reprezentarea vizuală a istoricului de commituri" src="../../_images/GitHub-commit-history.png" style="width: 550.8000000000001px; height: 189.0px;" /></a>
 </div>
-<p><strong>Root-commitul</strong> este primul commit din istoric (<em>b2a590a8637f1eab96e557334dbd4be14bf95833</em>, <em>b2a590a</em>).
-Toate celelalte commituri vin în continuarea acestuia
+<p><strong>Root-commitul</strong> este primul commit din istoric (<em>b2a590a8637f1eab96e557334dbd4be14bf95833</em>, <em>b2a590a</em>) [#hash]
+Toate celelalte commituri vin în continuarea acestuia.
 Spre exemplu, al doilea commit (<em>f65a7fbe8bbe1b36ba5c8e16607456a879bfb6fa</em>, <em>f65a7fb</em>) a avut la bază primul commit (<em>b2a590a</em>).
 Modificările au fost făcute peste commitul <em>b2a590a</em>.</p>
 <p>Crearea unui commit nou pe un <em>alt</em> branch va modifica istoricul ca în imaginea de mai jos:</p>
@@ -561,7 +614,7 @@ Modificările au fost făcute peste commitul <em>b2a590a</em>.</p>
 </div>
 <div class="section" id="adaugarea-unui-fisier-gitignore-repository-ului">
 <span id="app-dev-add-gitignore"></span><h2><span class="section-number">3.1. </span>Adăugarea unui fișier .gitignore repository-ului<a class="headerlink" href="#adaugarea-unui-fisier-gitignore-repository-ului" title="Permalink to this headline">¶</a></h2>
-<p>De acum încolo, vom face toate modificările de pe un nou branch, diferit de branch-ul <strong>master</strong>.</p>
+<p>De acum încolo, vom face toate modificările de pe un nou branch, diferit de branch-ul <strong>master</strong> <a class="footnote-reference brackets" href="#good-practice" id="id1">2</a>.</p>
 <p>În această subsecțiune vom crea un nou branch numit <code class="docutils literal notranslate"><span class="pre">add-gitignore</span></code>.
 Vom adăuga un fișier <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code> proiectului de pe acest branch.</p>
 <p>Verificăm branch-ul pe care ne aflăm folosind comanda <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">branch</span></code>:</p>
@@ -589,11 +642,6 @@ master
 <p>Avem 2 branch-uri <strong>add-gitignore</strong> și <strong>master</strong> și ne aflăm pe branch-ul <strong>add-gitignore</strong>.</p>
 <p>În acest moment branch-ul <strong>add-gitignore</strong> nu diferă de branch-ul <strong>master</strong>.
 Când vom face schimbări (în formă de commituri), cele două branch-uri vor diverge.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Este <strong>GOOD-PRACTICE</strong> ca fiecare modificare făcută pe un repository să fie făcută pe un branch nou.
-Branch-ul trebuie să aibă un nume sugestiv ca ceilalți să poată înțelege rapid ce schimbări se fac pe el.</p>
-</div>
 <p>Nu dorim să avem fișiere obiect în repository așa că vom configura Git să ignore aceste fișiere.
 Facem acest lucru prin adăugarea șirului <code class="docutils literal notranslate"><span class="pre">*.o</span></code> în fișierul <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code>:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/array-sorting-algorithms$ <span class="nb">echo</span> <span class="s2">&quot;*.o&quot;</span> &gt; .gitignore
@@ -609,7 +657,8 @@ Untracked files:
 nothing added to commit but untracked files present <span class="o">(</span>use <span class="s2">&quot;git add&quot;</span> to track<span class="o">)</span>
 </pre></div>
 </div>
-<p>Creăm un commit cu această modificare și în publicăm.</p>
+<p>Creăm un commit cu această modificare și în publicăm.
+Odată cu publicarea commitului pe GitHib, a fost creat și branch-ul <code class="docutils literal notranslate"><span class="pre">add-gitignore</span></code> remote.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/array-sorting-algorithms$ git add .gitignore
 student@uso:~/array-sorting-algorithms$ git status
 On branch add-gitignore
@@ -642,7 +691,7 @@ To https://github.com/lizababu/array-sorting-algorithmss.git
 <p class="admonition-title">Note</p>
 <p>Orice operație trebuie să fie urmată de o operație de verficare.
 Din grabă sau neatenție putem face operații incorecte și este mai ușor să le remediem pe loc decât mai târziu.
-Spre exemplu, după crearea unui commit, verificăm <strong>statusul repository-uluiu</strong> și <strong>istoricul de commituri</strong>.</p>
+Spre exemplu, după crearea unui commit, verificăm <strong>statusul repository-ului</strong> și <strong>istoricul de commituri</strong>.</p>
 </div>
 </div>
 <div class="section" id="operatia-merge-dintre-un-branch-secundar-si-master">
@@ -761,8 +810,15 @@ student@uso:~/array-sorting-algorithms$ git checkout update-gitignore
 Switched to branch <span class="s1">&#39;update-gitignore&#39;</span>
 </pre></div>
 </div>
-<p>Suntem pe branch-ul <strong>update-gitignore</strong> și adăugăm linia <code class="docutils literal notranslate"><span class="pre">build/</span></code> în fișierul <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code>.
-Putem face acest lucru folosind un editor text sau folosind următoarea comandă:</p>
+<p>Suntem pe branch-ul <strong>update-gitignore</strong> și adăugăm linia <code class="docutils literal notranslate"><span class="pre">build/</span></code> în fișierul <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>De obicei, într-un proiect vom avea un director în care punem fișierele generate (spre exemplu, fișierele excutabile).
+Astfel, punem doar numele directorului în <code class="docutils literal notranslate"><span class="pre">.gitginore</span></code> și toate fișierele din el vor fi ignorate de Git.</p>
+<p>Alternativa ar fi să adăugăm numele tuturor fișierelor executabile pe care le generăm în <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code>.
+Dezavantajul aici este că nu putem refolosi un fișier <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code> de la un proiect la altul pentru că numele executabilelor vor fi, cel mai probabil, diferite.</p>
+</div>
+<p>Putem face acest lucru folosind un editor text sau folosind următoarea comandă:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/array-sorting-algorithms$ <span class="nb">echo</span> <span class="s2">&quot;build/&quot;</span> &gt;&gt; .gitignore
 </pre></div>
 </div>
@@ -809,7 +865,7 @@ Date:   Thu Sep <span class="m">24</span> <span class="m">10</span>:40:06 <span 
 </pre></div>
 </div>
 <p>Am verificat istoricul de commituri și vedem că ultimul commit este cel cu identificatorul <em>6d5189fd7095a19a6ad9bddb8c95491b37d9e828</em>, adică cel creat în această subsecțiune.</p>
-<p>Publicăm commitul și în repository-ul origin folosind comanda <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">push</span></code>:</p>
+<p>Publicăm commitul și în repository-ul origin ca el să fie vizibil și celorlalți colaboratori ai proiectului,folosind comanda <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">push</span></code></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/array-sorting-algorithms$ git push origin update-gitignore
 Counting objects: <span class="m">3</span>, <span class="k">done</span>.
 Delta compression using up to <span class="m">2</span> threads.
@@ -857,12 +913,13 @@ To https://github.com/lizababu/array-sorting-algorithms.git
 <a class="reference internal image-reference" href="../../_images/GitHub-delete-branch-update-gitignore.png"><img alt="Vizualizarea branch-urilor din interfața GitHub" src="../../_images/GitHub-delete-branch-update-gitignore.png" style="width: 956.7px; height: 546.3000000000001px;" /></a>
 </div>
 </div>
-<div class="section" id="exercitii-practice">
-<span id="app-dev-branches-ex"></span><h2><span class="section-number">3.5. </span>Exerciții practice<a class="headerlink" href="#exercitii-practice" title="Permalink to this headline">¶</a></h2>
-<ol class="arabic">
+<div class="section" id="exercitii">
+<span id="app-dev-branches-ex"></span><h2><span class="section-number">3.5. </span>Exerciții<a class="headerlink" href="#exercitii" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
 <li><p>Creați un branch cu numele <code class="docutils literal notranslate"><span class="pre">merge-sort-implementation</span></code>.</p></li>
 <li><p>Treceți pe branch-ul <code class="docutils literal notranslate"><span class="pre">merge-sort-implementation</span></code>.</p></li>
-<li><p>Modificați conținutul fișierului <strong>merge-sort.c</strong> cu următorul conținut:</p>
+<li><p>Modificați conținutul fișierului <strong>merge-sort.c</strong> cu următorul conținut:</p></li>
+</ol>
 <blockquote>
 <div><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
 
@@ -956,7 +1013,7 @@ To https://github.com/lizababu/array-sorting-algorithms.git
 </pre></div>
 </div>
 </div></blockquote>
-</li>
+<ol class="arabic simple">
 <li><p>Creați un nou commit cu această schimbare folosind mesajul de commit <code class="docutils literal notranslate"><span class="pre">Add</span> <span class="pre">Merge</span> <span class="pre">Sort</span> <span class="pre">implementation</span></code>.</p></li>
 <li><p>Publicați commitul folosind comanda <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">push</span> <span class="pre">origin</span> <span class="pre">merge-sort-implementation</span></code>.</p></li>
 <li><p>Efectuați operația <strong>merge</strong> între branch-ul <strong>master</strong> și <strong>merge-sort-implementation</strong>.</p></li>
@@ -972,6 +1029,17 @@ Astfel, lucrul pe acest branch ar însemna să facem commituri doar atunci când
 <p>2. Lucrul pe un singur branch nu se oferă posibilitatea de a da feedback pe schimbările făcute pe repository.
 Dacă nu avem posibilitatea să oferim feedback unui coleg prin intermediul GitHub, atunci vom avea nevoie să comunicăm pe un alt mediu observațiile noastre, iar ei vor trebui să creeze un nou commit pentru rezolvarea problemelor.
 Mult mai simplu este să se realizeze întreaga etapă de feedback, numită <strong>code review</strong> înainte ca schimbările să apară pe <strong>master</strong>.</p>
+<p class="rubric">Note de subsol</p>
+<dl class="footnote brackets">
+<dt class="label" id="hash"><span class="brackets">1</span></dt>
+<dd><p>ID-ul unui commit are o formă lungă, completă, și o formă scurtă formată din primele 7 caractere.
+De exemplu, pentru commitul cu ID-ul <em>b2a590a8637f1eab96e557334dbd4be14bf95833</em>, forma scurtă este <em>b2a590a</em>.</p>
+</dd>
+<dt class="label" id="good-practice"><span class="brackets"><a class="fn-backref" href="#id1">2</a></span></dt>
+<dd><p>Este <strong>GOOD-PRACTICE</strong> ca fiecare modificare făcută pe un repository să fie făcută pe un branch nou.
+Branch-ul trebuie să aibă un nume sugestiv ca ceilalți să poată înțelege rapid ce schimbări se fac pe el.</p>
+</dd>
+</dl>
 </div>
 </div>
 

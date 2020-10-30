@@ -46,6 +46,13 @@
     <div class="nav-item">
       <a href="../../index.html#uso-lab-book"
          class="nav-link ">
+         Acomodarea în Linux
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
          Lucrul cu fișiere
       </a>
     </div>
@@ -102,6 +109,13 @@
           <navlinks>
             
 
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Acomodarea în Linux
+      </a>
+    </div>
   
     <div class="nav-item">
       <a href="../../index.html#uso-lab-book"
@@ -163,6 +177,45 @@
     </div>
   </div>
 </div><div class="sidebar-links" role="navigation" aria-label="main navigation">
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#uso-lab-book">Acomodarea în Linux</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../basic/apps.html" class="reference internal ">Pornirea și oprirea aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../basic/browser.html" class="reference internal ">Folosirea eficientă a browserului web</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../basic/terminal.html" class="reference internal ">Lucrul în terminal</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../basic/workspace.html" class="reference internal ">Lucrul cu workspace-uri</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../basic/cheatsheet.html" class="reference internal ">Cheatsheet</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
   
     <div class="sidebar-group">
       <p class="caption">
@@ -266,7 +319,7 @@
                 
                   <li class="toctree-l2"><a href="#compilarea-fisierelor" class="reference internal">Compilarea fișierelor</a></li>
                 
-                  <li class="toctree-l2"><a href="#verificarea-bibliotecilor-folosite" class="reference internal">Verificarea bibliotecilor folosite</a></li>
+                  <li class="toctree-l2"><a href="#exercitii" class="reference internal">Exerciții</a></li>
                 
               </ul>
             
@@ -488,29 +541,128 @@
           <div class="content" role="main">
             
   <div class="section" id="legarea-executabilelor-folosind-biblioteci-externe">
-<h1><span class="section-number">8. </span>Legarea executabilelor folosind biblioteci externe<a class="headerlink" href="#legarea-executabilelor-folosind-biblioteci-externe" title="Permalink to this headline">¶</a></h1>
+<span id="app-dev-link-libs"></span><h1><span class="section-number">8. </span>Legarea executabilelor folosind biblioteci externe<a class="headerlink" href="#legarea-executabilelor-folosind-biblioteci-externe" title="Permalink to this headline">¶</a></h1>
+<p>În secțiunea anterioară, <a class="reference internal" href="make-multiple.html#app-dev-compile-multiple-files"><span class="std std-ref">Compilarea unui program din fișiere multiple</span></a> am compilat fișierul <code class="docutils literal notranslate"><span class="pre">~/support/compile-multiple/main.c</span></code>, care conține:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&quot;algorithms.h&quot;</span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">n</span><span class="p">;</span>
+
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;gimme number and i&#39;ll give you factorial: &quot;</span><span class="p">);</span>
+    <span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">n</span><span class="p">);</span>
+
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d! = %u</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">factorial</span><span class="p">(</span><span class="n">n</span><span class="p">));</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d! = %u</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">factorial</span><span class="p">(</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">));</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>În acest cod sursă am apelat 2 funcții diferite <code class="docutils literal notranslate"><span class="pre">printf</span></code> și <code class="docutils literal notranslate"><span class="pre">factorial</span></code>.
+Găsim implementarea funcției <code class="docutils literal notranslate"><span class="pre">factorial</span></code> în fișierul <code class="docutils literal notranslate"><span class="pre">algorithms.c</span></code>:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">unsigned</span> <span class="kt">int</span> <span class="nf">factorial</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">fact</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+
+    <span class="k">while</span> <span class="p">(</span><span class="n">n</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">fact</span> <span class="o">*=</span> <span class="n">n</span><span class="p">;</span>
+        <span class="n">n</span><span class="o">--</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="n">fact</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Găsim implementarea funcției <code class="docutils literal notranslate"><span class="pre">printf</span></code> în <strong>biblioteca stdio</strong> (<em>Standard Input Output library</em>).
+O <strong>bibliotecă</strong> este un fișier în care găsim colecție de funcții generale, pe care le putem folosi în programele noastre, dar pe care nu le-am scris noi.</p>
+<p>Prima linie din fișierul <code class="docutils literal notranslate"><span class="pre">main.c</span></code>, <code class="docutils literal notranslate"><span class="pre">#include</span> <span class="pre">&lt;stdio.h&gt;</span></code>, înseamnă că îm <em>inclus</em> biblioteca în fișierul nostru sursă și că putem să folosim funcțiile definite din bibliotecă.</p>
+<p>Atunci când am legat fișierele obiect <code class="docutils literal notranslate"><span class="pre">main.o</span></code> și <code class="docutils literal notranslate"><span class="pre">algorithms.o</span></code> în executabilul <code class="docutils literal notranslate"><span class="pre">algorithms</span></code>, am legat, de fapt, fișierele obiect <code class="docutils literal notranslate"><span class="pre">main.o</span></code>, <code class="docutils literal notranslate"><span class="pre">algorithms.o</span></code> <strong>și</strong> biblioteca stdio.
+Compilatorul GCC leagă implicit această bibliotecă la executabilul final.
+Diagrama de mai jos arată cum se întâmplă acest lucru:</p>
+<img alt="../../_images/ditaa-69813b41926d904b24fb3cbf912307967bb41557.png" src="../../_images/ditaa-69813b41926d904b24fb3cbf912307967bb41557.png" />
+<p>Există alte biblioteci, precum biblioteca <code class="docutils literal notranslate"><span class="pre">math</span></code> pe care compilatorul nu le leagă implicit la programele noastre.</p>
+<p>În continuare vom compila un fișier cod sursă care folosește biblioteca <code class="docutils literal notranslate"><span class="pre">math</span></code> pentru a calcula rădăcina pătrată a unui număr întreg.</p>
 <div class="section" id="inspectarea-fisierelor">
-<h2><span class="section-number">8.1. </span>Inspectarea fișierelor<a class="headerlink" href="#inspectarea-fisierelor" title="Permalink to this headline">¶</a></h2>
-<p>Analiză statică pe codul sursă dat. Trebuie să observe ce headere sunt
-incluse în fișiere pentru a înțelege mai încolo de ce este nevoie de
-legarea la o bibliotecă externă.</p>
+<span id="app-dev-link-libs-inspect-file"></span><h2><span class="section-number">8.1. </span>Inspectarea fișierelor<a class="headerlink" href="#inspectarea-fisierelor" title="Permalink to this headline">¶</a></h2>
+<p>Intrăm în directorul <code class="docutils literal notranslate"><span class="pre">~/support/compile-with-lib</span></code> folosind comanda <code class="docutils literal notranslate"><span class="pre">cd</span></code>, unde găsim fișierul <code class="docutils literal notranslate"><span class="pre">squared_root.c</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ <span class="nb">cd</span> ~/support/compile-with-lib/
+student@uso:~/support/compile-with-lib$ ls
+squared_root.c
+</pre></div>
+</div>
+<p>Afișăm conținutul fișierului <code class="docutils literal notranslate"><span class="pre">squared_root.c</span></code>, folosind comanda <code class="docutils literal notranslate"><span class="pre">cat</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/support/compile-with-lib$ cat squared_root.c
+<span class="c1">#include &lt;stdio.h&gt;</span>
+<span class="c1">#include &lt;math.h&gt;</span>
+
+int main<span class="o">(</span>void<span class="o">)</span>
+<span class="o">{</span>
+    int n<span class="p">;</span>
+
+    printf<span class="o">(</span><span class="s2">&quot;gimme a number and i&#39;ll give its square root: &quot;</span><span class="o">)</span><span class="p">;</span>
+    scanf<span class="o">(</span><span class="s2">&quot;%d&quot;</span>, <span class="p">&amp;</span>n<span class="o">)</span><span class="p">;</span>
+
+    printf<span class="o">(</span><span class="s2">&quot;here you go: %f\n&quot;</span>, sqrt<span class="o">(</span>n<span class="o">))</span><span class="p">;</span>
+
+    <span class="k">return</span> <span class="m">0</span><span class="p">;</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>Linia <code class="docutils literal notranslate"><span class="pre">#include</span> <span class="pre">&lt;math.h&gt;</span></code> a fost scrisă pentru că în acest fișier cod sursă folosim funcția <code class="docutils literal notranslate"><span class="pre">sqrt</span></code> din biblioteca <code class="docutils literal notranslate"><span class="pre">math</span></code>.
+Spunem că <em>includem fișierul header</em> asociat bibliotecii <code class="docutils literal notranslate"><span class="pre">math</span></code> în fișier.</p>
+<p>În continuare vom vedea cum compilăm fișierul <code class="docutils literal notranslate"><span class="pre">squared_root.c</span></code> astfel încât să obținem un executabil care calculează rădăcina pătrată a unui număr întreg citit de la tastatură.</p>
 </div>
 <div class="section" id="compilarea-fisierelor">
-<h2><span class="section-number">8.2. </span>Compilarea fișierelor<a class="headerlink" href="#compilarea-fisierelor" title="Permalink to this headline">¶</a></h2>
-<p>Aici vor avea nevoie să compileze cu -l&lt;lib&gt; pentru a funcționa.
-Și cu -L &lt;path-to-lib&gt; pentru a-i spune path-ul unde să caute &lt;lib&gt;.</p>
-<div class="section" id="instalarea-bibliotecii-necesare-pentru-compilarea-codului">
-<h3><span class="section-number">8.2.1. </span>Instalarea bibliotecii necesare pentru compilarea codului<a class="headerlink" href="#instalarea-bibliotecii-necesare-pentru-compilarea-codului" title="Permalink to this headline">¶</a></h3>
-<p>Lipsește una dintre bibliotecile necesare, trebuie instalată.</p>
+<span id="app-dev-link-libs-compile-file"></span><h2><span class="section-number">8.2. </span>Compilarea fișierelor<a class="headerlink" href="#compilarea-fisierelor" title="Permalink to this headline">¶</a></h2>
+<p>Compilăm fișierul <code class="docutils literal notranslate"><span class="pre">main.c</span></code>, folosind comanda <code class="docutils literal notranslate"><span class="pre">gcc</span></code>, ca în secțiunea <a class="reference internal" href="make-intro.html#app-dev-compile-custom"><span class="std std-ref">Compilarea codului sursă într-un executabil cu nume diferit</span></a>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/support/compile-with-lib$ gcc -o squared_root squared_root.c
+/tmp/ccp4kfvm.o: In <span class="k">function</span> <span class="sb">`</span>main<span class="sb">`</span>:
+squared_root.c:<span class="o">(</span>.text+0x48<span class="o">)</span>: undefined reference to <span class="sb">`</span>sqrt<span class="sb">`</span>
+collect2: error: ld returned <span class="m">1</span> <span class="nb">exit</span> status
+</pre></div>
 </div>
-<div class="section" id="compilarea-codului-sursa">
-<h3><span class="section-number">8.2.2. </span>Compilarea codului sursă<a class="headerlink" href="#compilarea-codului-sursa" title="Permalink to this headline">¶</a></h3>
-<p>Compilarea propriu-zisă.</p>
+<p>Eroarea <code class="docutils literal notranslate"><span class="pre">undefined</span> <span class="pre">reference</span> <span class="pre">to</span> <span class="pre">`sqrt`</span></code> apare din cauză că în fișierul <code class="docutils literal notranslate"><span class="pre">squared_root.c</span></code> folosim funcția <code class="docutils literal notranslate"><span class="pre">sqrt</span></code>, dar compilatorul nu știe unde să caute implementarea ei.
+Corectăm eroarea folosind opțiunea <code class="docutils literal notranslate"><span class="pre">-lm</span></code> pentru <code class="docutils literal notranslate"><span class="pre">gcc</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/support/compile-with-lib$ gcc -o squared_root squared_root.c -lm
+student@uso:~/support/compile-with-lib$ ls
+squared_root  squared_root.c
+</pre></div>
 </div>
+<p>Opțiunea <code class="docutils literal notranslate"><span class="pre">-lm</span></code> este formată prin alipirea opțiunii <code class="docutils literal notranslate"><span class="pre">-l``(*library*,</span> <span class="pre">*bibliotecă*)</span> <span class="pre">cu</span> <span class="pre">``m``(*math*).</span>
+<span class="pre">În</span> <span class="pre">cazul</span> <span class="pre">bibliotecii</span> <span class="pre">``math</span></code> trebuie folosită prescurtarea <code class="docutils literal notranslate"><span class="pre">m</span></code>, pentru alte biblioteci va fi diferit.</p>
+<p>Rulăm executabilul <code class="docutils literal notranslate"><span class="pre">squared_root</span></code> ca să verificăm că funcționează:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/support/compile-with-lib$ ./squared_root
+gimme a number and i&#39;ll give its square root: 15
+here you go: 3.872983
+</pre></div>
 </div>
-<div class="section" id="verificarea-bibliotecilor-folosite">
-<h2><span class="section-number">8.3. </span>Verificarea bibliotecilor folosite<a class="headerlink" href="#verificarea-bibliotecilor-folosite" title="Permalink to this headline">¶</a></h2>
-<p>Se găsesc toate bibliotecile la care este legat executabilul generat anterior.</p>
+<p>Legarea bibliotecii <code class="docutils literal notranslate"><span class="pre">math</span></code> la executabilul <code class="docutils literal notranslate"><span class="pre">squared_root</span></code> se face după ce fișierul <code class="docutils literal notranslate"><span class="pre">squared_root.c</span></code> a fost compilat.
+Cu alte cuvinte, putem compila mai întâi fișierul <code class="docutils literal notranslate"><span class="pre">squared_root.c</span></code> până la un fișier obiect și după să îl legăm la biblioteca <code class="docutils literal notranslate"><span class="pre">math</span></code>, ca în exemplul de mai jos:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/support/compile-with-lib$ gcc -c squared_root.c
+student@uso:~/support/compile-with-lib$ gcc -o squared_root squared_root.o -lm
+student@uso:~/support/compile-with-lib$ ./squared_root
+gimme a number and i&#39;ll give its square root: 15
+here you go: 3.872983
+</pre></div>
+</div>
+<p>Vedem acești pași și în diagrama de mai jos:</p>
+<img alt="../../_images/ditaa-da144c599dc486bddba43c0d76c55dc6e70513f3.png" src="../../_images/ditaa-da144c599dc486bddba43c0d76c55dc6e70513f3.png" />
+</div>
+<div class="section" id="exercitii">
+<span id="app-dev-link-libs-ex"></span><h2><span class="section-number">8.3. </span>Exerciții<a class="headerlink" href="#exercitii" title="Permalink to this headline">¶</a></h2>
+<p>Înainte să începeți exercițiile, rulați comanda <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">apt-get</span> <span class="pre">install</span> <span class="pre">libncurses5-dev</span> <span class="pre">libncursesw5-dev</span></code>.
+Ea are rolul de a instala biblioteca grafică <code class="docutils literal notranslate"><span class="pre">ncurses</span></code> pe sistemul vostru; bibliotecă folosită de programul <code class="docutils literal notranslate"><span class="pre">hello_world.c</span></code>.</p>
+<ol class="arabic simple">
+<li><p>Intrați în directorul <code class="docutils literal notranslate"><span class="pre">~/support/compile-with-lib-ex</span></code>.</p></li>
+<li><p>Inspectați fișierul <code class="docutils literal notranslate"><span class="pre">hello_world.c</span></code> și identificați linia din program care ne arată că programul folosește biblioteca <code class="docutils literal notranslate"><span class="pre">ncurses</span></code>.</p></li>
+<li><p>Compilați programul, legați-l la biblioteca <code class="docutils literal notranslate"><span class="pre">ncurses</span></code> și creați executabilul <code class="docutils literal notranslate"><span class="pre">hello_world</span></code>.</p></li>
+<li><p>Verificați că programul <code class="docutils literal notranslate"><span class="pre">hello_world</span></code> funcționează.</p></li>
+</ol>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>Pentru a lega programul la biblioteca ncurses folosiți opțiunea <code class="docutils literal notranslate"><span class="pre">-lncurses</span></code>.</p>
+</div>
 </div>
 </div>
 

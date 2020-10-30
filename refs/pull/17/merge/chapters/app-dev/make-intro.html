@@ -46,6 +46,13 @@
     <div class="nav-item">
       <a href="../../index.html#uso-lab-book"
          class="nav-link ">
+         Acomodarea în Linux
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
          Lucrul cu fișiere
       </a>
     </div>
@@ -102,6 +109,13 @@
           <navlinks>
             
 
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Acomodarea în Linux
+      </a>
+    </div>
   
     <div class="nav-item">
       <a href="../../index.html#uso-lab-book"
@@ -163,6 +177,45 @@
     </div>
   </div>
 </div><div class="sidebar-links" role="navigation" aria-label="main navigation">
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#uso-lab-book">Acomodarea în Linux</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../basic/apps.html" class="reference internal ">Pornirea și oprirea aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../basic/browser.html" class="reference internal ">Folosirea eficientă a browserului web</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../basic/terminal.html" class="reference internal ">Lucrul în terminal</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../basic/workspace.html" class="reference internal ">Lucrul cu workspace-uri</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../basic/cheatsheet.html" class="reference internal ">Cheatsheet</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
   
     <div class="sidebar-group">
       <p class="caption">
@@ -250,11 +303,13 @@
             
               <ul>
                 
-                  <li class="toctree-l2"><a href="#crearea-unui-nou-branch-de-lucru" class="reference internal">Crearea unui nou branch de lucru</a></li>
+                  <li class="toctree-l2"><a href="#crearea-unui-fisier-cod-sursa" class="reference internal">Crearea unui fișier cod sursă</a></li>
                 
-                  <li class="toctree-l2"><a href="#id1" class="reference internal">Compilarea unui fișier cod sursă C</a></li>
+                  <li class="toctree-l2"><a href="#compilarea-codului-sursa-in-executabilul-a-out" class="reference internal">Compilarea codului sursă în executabilul a.out</a></li>
                 
-                  <li class="toctree-l2"><a href="#recompilarea-programului" class="reference internal">Recompilarea programului</a></li>
+                  <li class="toctree-l2"><a href="#compilarea-codului-sursa-intr-un-executabil-cu-nume-diferit" class="reference internal">Compilarea codului sursă într-un executabil cu nume diferit</a></li>
+                
+                  <li class="toctree-l2"><a href="#exercitii" class="reference internal">Exerciții</a></li>
                 
               </ul>
             
@@ -488,26 +543,143 @@
           <div class="content" role="main">
             
   <div class="section" id="compilarea-unui-fisier-cod-sursa-c">
-<h1><span class="section-number">6. </span>Compilarea unui fișier cod sursă C<a class="headerlink" href="#compilarea-unui-fisier-cod-sursa-c" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="crearea-unui-nou-branch-de-lucru">
-<h2><span class="section-number">6.1. </span>Crearea unui nou branch de lucru<a class="headerlink" href="#crearea-unui-nou-branch-de-lucru" title="Permalink to this headline">¶</a></h2>
-<p>Își vor crea un branch cu numele lor pe care vor lucra pe parcursul acestei secțiuni.</p>
+<span id="app-dev-compile-source-file"></span><h1><span class="section-number">6. </span>Compilarea unui fișier cod sursă C<a class="headerlink" href="#compilarea-unui-fisier-cod-sursa-c" title="Permalink to this headline">¶</a></h1>
+<p>În această secțiune vom crea un program care verifică dacă un număr citit de la tastatură este prim sau nu.
+Vom scrie într-un nou fișier algoritmul, vom compila codul sursă folosind <a class="reference external" href="https://gcc.gnu.org">compilatorul GNU Compiler Collection</a> (<em>GCC</em>) și vom testa că programul funcționează.</p>
+<div class="section" id="crearea-unui-fisier-cod-sursa">
+<span id="app-dev-create-source-file"></span><h2><span class="section-number">6.1. </span>Crearea unui fișier cod sursă<a class="headerlink" href="#crearea-unui-fisier-cod-sursa" title="Permalink to this headline">¶</a></h2>
+<p>Creăm fișierul <code class="docutils literal notranslate"><span class="pre">is-prime.c</span></code> folosind Nano, ca în imaginea de mai jos:</p>
+<div class="figure align-default">
+<img alt="Crearea unui fișier ``is-prime.c`` cu algoritmul asociat" src="../../_images/create-is-prime.gif" />
 </div>
-<div class="section" id="id1">
-<h2><span class="section-number">6.2. </span>Compilarea unui fișier cod sursă C<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
-<p>Aici vor găsi în primul director un cod sursă C. Vor avea de compilat codul
-și rulat binarul pentru a vedea că totul e în regulă. Scopul este să rezulte 2 binare: a.out
-și unul denumit custom</p>
+<p>Conținutul fișierului <code class="docutils literal notranslate"><span class="pre">is-prime.c</span></code> este următorul:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">check_if_prime</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
+
+    <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span> <span class="o">/</span> <span class="mi">2</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">n</span> <span class="o">%</span> <span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">n</span><span class="p">;</span>
+
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Please gimme a number: &quot;</span><span class="p">);</span>
+    <span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">n</span><span class="p">);</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="n">check_if_prime</span><span class="p">(</span><span class="n">n</span><span class="p">))</span> <span class="p">{</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d is prime</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">n</span><span class="p">);</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d is not prime</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">n</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
 </div>
-<div class="section" id="recompilarea-programului">
-<h2><span class="section-number">6.3. </span>Recompilarea programului<a class="headerlink" href="#recompilarea-programului" title="Permalink to this headline">¶</a></h2>
-<p>Vor face o modificare în codul sursă (oricât de mică) cu scopul de a crea un commit cu asta.
-Până să comită schimbările se vor ocupa să modifice și fișierul .gitignore pentru a ignora
-fișierele generate (a.out și cel custom). Scopul este să facă 2 commit-uri diferite: unul cu
-modificările din .gitignore și unul cu codul sursă. Mesajele de commit trebuie să descrie bine
-ce au făcut.</p>
-<p>Tot aici introducem și ideea de director /gen pentru a putea face un fișier .gitignore cât mai
-generic și să nu adauge în .gitignore toate numele de fișiere, vrem să fie universal valabil.</p>
+</div>
+<div class="section" id="compilarea-codului-sursa-in-executabilul-a-out">
+<span id="app-dev-compile-aout"></span><h2><span class="section-number">6.2. </span>Compilarea codului sursă în executabilul <code class="docutils literal notranslate"><span class="pre">a.out</span></code><a class="headerlink" href="#compilarea-codului-sursa-in-executabilul-a-out" title="Permalink to this headline">¶</a></h2>
+<p>Compilăm codul sursă pe care l-am scris în fișierul <code class="docutils literal notranslate"><span class="pre">is-prime.c</span></code> pentru a obține un program pe care putem să îl rulăm pe sistemul nostru.
+Acest program este de fapt un <strong>executabil</strong> (<em>binar</em>).
+Executabilele sunt fișiere care conțin instrucțiuni pe care procesorul știe să le interpreteze și să le ruleze.</p>
+<p>Creăm un executabil din fișierul <code class="docutils literal notranslate"><span class="pre">is-prime.c</span></code> folosind comanda <code class="docutils literal notranslate"><span class="pre">gcc</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ gcc is-prime.c
+student@uso:~$ ls -l
+total <span class="m">16</span>
+-rwxr-xr-x <span class="m">1</span> student student <span class="m">8448</span> Oct <span class="m">26</span> <span class="m">06</span>:34 a.out
+-rw-r--r-- <span class="m">1</span> student student  <span class="m">406</span> Oct <span class="m">26</span> <span class="m">06</span>:17 is-prime.c
+</pre></div>
+</div>
+<p>Executabilul se numește <code class="docutils literal notranslate"><span class="pre">a.out</span></code>.
+Verificăm că fișierul <code class="docutils literal notranslate"><span class="pre">a.out</span></code> este într-adevăr un fișier executabil:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ file a.out
+a.out: ELF <span class="m">64</span>-bit LSB shared object, x86-64, version <span class="m">1</span> <span class="o">(</span>SYSV<span class="o">)</span>, dynamically linked, interpreter /lib64/l, <span class="k">for</span> GNU/Linux <span class="m">3</span>.2.0, BuildID<span class="o">[</span>sha1<span class="o">]=</span>14553360a84b6dbe4dba5f287a665047572bde7f, not stripped
+</pre></div>
+</div>
+<p><em>ELF 64-bit LSB shared object</em> din output ne indică acest lucru.</p>
+<p>Rulăm executabilul <code class="docutils literal notranslate"><span class="pre">a.out</span></code> în felul următor și introducem de la tastatură un număr:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ ./a.out
+Please gimme a number: <span class="m">13</span>
+<span class="m">13</span> is not prime
+</pre></div>
+</div>
+</div>
+<div class="section" id="compilarea-codului-sursa-intr-un-executabil-cu-nume-diferit">
+<span id="app-dev-compile-custom"></span><h2><span class="section-number">6.3. </span>Compilarea codului sursă într-un executabil cu nume diferit<a class="headerlink" href="#compilarea-codului-sursa-intr-un-executabil-cu-nume-diferit" title="Permalink to this headline">¶</a></h2>
+<p>Numele <code class="docutils literal notranslate"><span class="pre">a.out</span></code> nu este intuitiv, vrem ca executabilele să aibă un nume care să sugereze ceea ce fac.
+Spre exemplu, pentru programul care verifică dacă un număr este prim sau nu, numim executabilul <code class="docutils literal notranslate"><span class="pre">is-prime</span></code>.
+Creăm un executabil cu numele <code class="docutils literal notranslate"><span class="pre">is-prime</span></code> din fișierul <code class="docutils literal notranslate"><span class="pre">is-prime.c</span></code> folosind comanda <code class="docutils literal notranslate"><span class="pre">gcc</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ gcc -o is-prime is-prime.c
+student@uso:~$ ls -l
+total <span class="m">28</span>
+-rwxr-xr-x <span class="m">1</span> student student <span class="m">8448</span> Oct <span class="m">26</span> <span class="m">06</span>:34 a.out
+-rwxr-xr-x <span class="m">1</span> student student <span class="m">8448</span> Oct <span class="m">26</span> <span class="m">06</span>:57 is-prime
+-rw-r--r-- <span class="m">1</span> student student  <span class="m">406</span> Oct <span class="m">26</span> <span class="m">06</span>:17 is-prime.c
+student@uso:~$ file is-prime
+is-prime: ELF <span class="m">64</span>-bit LSB shared object, x86-64, version <span class="m">1</span> <span class="o">(</span>SYSV<span class="o">)</span>, dynamically linked, interpreter /lib64/l, <span class="k">for</span> GNU/Linux <span class="m">3</span>.2.0, BuildID<span class="o">[</span>sha1<span class="o">]=</span>14553360a84b6dbe4dba5f287a665047572bde7f, not stripped
+</pre></div>
+</div>
+<p>Opțiunea <code class="docutils literal notranslate"><span class="pre">-o</span></code> urmată de numele ales pentru program(<code class="docutils literal notranslate"><span class="pre">is-prime</span></code>) specifică compilatorului ca programul să se numească <code class="docutils literal notranslate"><span class="pre">is-prime</span></code>, și nu <code class="docutils literal notranslate"><span class="pre">a.out</span></code>.
+Rulăm executabilul <code class="docutils literal notranslate"><span class="pre">is-prime</span></code> în felul următor și introducem de la tastatură un număr:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ ./is-prime
+Please gimme a number: <span class="m">13</span>
+<span class="m">13</span> is not prime
+</pre></div>
+</div>
+<p>Vedem că programele <code class="docutils literal notranslate"><span class="pre">a.out</span></code> și <code class="docutils literal notranslate"><span class="pre">is-prime</span></code> au același comportament, dar au nume diferit.
+Acest lucru este normal deoarece ele sunt 2 fișiere executabile obținute din același fișier cod sursă obținute folosind același compilator: GCC.</p>
+</div>
+<div class="section" id="exercitii">
+<span id="app-dev-make-intro-ex"></span><h2><span class="section-number">6.4. </span>Exerciții<a class="headerlink" href="#exercitii" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p>Creați un fișier cu numele <code class="docutils literal notranslate"><span class="pre">is-palindrome.c</span></code> care să conțină următorul conținut:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">check_if_palindrome</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">new_n</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+    <span class="k">while</span> <span class="p">(</span><span class="n">n</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kt">int</span> <span class="n">r</span> <span class="o">=</span> <span class="n">n</span> <span class="o">%</span> <span class="mi">10</span><span class="p">;</span>
+        <span class="n">n</span> <span class="o">/=</span> <span class="mi">10</span><span class="p">;</span>
+        <span class="n">new_n</span> <span class="o">=</span> <span class="n">new_n</span> <span class="o">*</span> <span class="mi">10</span> <span class="o">+</span> <span class="n">r</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="p">(</span><span class="n">new_n</span> <span class="o">==</span> <span class="n">n</span><span class="p">)</span> <span class="o">?</span> <span class="mi">1</span> <span class="o">:</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">n</span><span class="p">;</span>
+
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Please gimme a number: &quot;</span><span class="p">);</span>
+    <span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">n</span><span class="p">);</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="n">check_if_palindrome</span><span class="p">(</span><span class="n">n</span><span class="p">))</span> <span class="p">{</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d is a palindome</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">n</span><span class="p">);</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d is not a palindrome</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">n</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+<li><p>Compilați fișierul <code class="docutils literal notranslate"><span class="pre">is-palindrome.c</span></code> într-un executabil cu numele <code class="docutils literal notranslate"><span class="pre">a.out</span></code> folosind <code class="docutils literal notranslate"><span class="pre">gcc</span></code>.
+Verificați funcționalitatea programului.</p></li>
+<li><p>Compilați fișierul <code class="docutils literal notranslate"><span class="pre">is-palindrome.c</span></code> într-un executabil cu numele <code class="docutils literal notranslate"><span class="pre">is-palindrome</span></code> folosind <code class="docutils literal notranslate"><span class="pre">gcc</span></code>.
+Verificați funcționalitatea programului.</p></li>
+</ul>
 </div>
 </div>
 
