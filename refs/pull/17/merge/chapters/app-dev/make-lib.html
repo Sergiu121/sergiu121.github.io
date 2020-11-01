@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-      <title>8. Legarea executabilelor folosind biblioteci externe</title>
+      <title>3. Legarea executabilelor folosind biblioteci externe</title>
     
       <link rel="stylesheet" href="../../_static/pygments.css">
       <link rel="stylesheet" href="../../_static/theme.css">
@@ -24,8 +24,8 @@
     
   <link rel="index" title="Index" href="../../genindex.html" />
   <link rel="search" title="Search" href="../../search.html" />
-  <link rel="next" title="9. Depanare condițională / configurabilă" href="make-debug.html" />
-  <link rel="prev" title="7. Compilarea unui program din fișiere multiple" href="make-multiple.html" />
+  <link rel="next" title="4. Introducere în utilitarul Make și fișiere Makefile" href="make-simple-automation.html" />
+  <link rel="prev" title="2. Compilarea unui program din fișiere multiple" href="make-multiple.html" />
     <link href="../../_static/my_theme.css" rel="stylesheet" type="text/css">
 
   </head>
@@ -268,37 +268,7 @@
       </p>
       <ul class="current">
         
-          <li class="toctree-l1 "><a href="git-intro.html" class="reference internal ">Introducere în Git și GitHub</a>
-
-            
-          </li>
-
-        
-          <li class="toctree-l1 "><a href="git-first-commits.html" class="reference internal ">Primele commituri</a>
-
-            
-          </li>
-
-        
-          <li class="toctree-l1 "><a href="git-branches.html" class="reference internal ">Lucrul pe branch-uri</a>
-
-            
-          </li>
-
-        
-          <li class="toctree-l1 "><a href="git-first-pull-request.html" class="reference internal ">Crearea unui Pull Request (PR) pe GitHub</a>
-
-            
-          </li>
-
-        
-          <li class="toctree-l1 "><a href="make-setup.html" class="reference internal ">Pregătirea mediului de lucru</a>
-
-            
-          </li>
-
-        
-          <li class="toctree-l1 "><a href="make-intro.html" class="reference internal ">Compilarea unui fișier cod sursă C</a>
+          <li class="toctree-l1 "><a href="intro.html" class="reference internal ">Introducere</a>
 
             
           </li>
@@ -326,12 +296,6 @@
           </li>
 
         
-          <li class="toctree-l1 "><a href="make-debug.html" class="reference internal ">Depanare condițională / configurabilă</a>
-
-            
-          </li>
-
-        
           <li class="toctree-l1 "><a href="make-simple-automation.html" class="reference internal ">Introducere în utilitarul Make și fișiere Makefile</a>
 
             
@@ -344,7 +308,25 @@
           </li>
 
         
-          <li class="toctree-l1 "><a href="make-contribute.html" class="reference internal ">Contribuirea la un proiect existent pe GitHub</a>
+          <li class="toctree-l1 "><a href="git-intro.html" class="reference internal ">Introducere în Git și GitHub</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="git-first-commits.html" class="reference internal ">Primele commituri</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="git-branches.html" class="reference internal ">Lucrul pe branch-uri</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="git-first-pull-request.html" class="reference internal ">Crearea unui Pull Request (PR) pe GitHub</a>
 
             
           </li>
@@ -521,18 +503,18 @@
   <ul class="breadcrumbs">
     <li><a href="../../index.html">Docs</a> &raquo;</li>
     
-    <li><span class="section-number">8. </span>Legarea executabilelor folosind biblioteci externe</li>
+    <li><span class="section-number">3. </span>Legarea executabilelor folosind biblioteci externe</li>
   </ul>
   
 
   <ul class="page-nav">
   <li class="prev">
     <a href="make-multiple.html"
-       title="previous chapter">← <span class="section-number">7. </span>Compilarea unui program din fișiere multiple</a>
+       title="previous chapter">← <span class="section-number">2. </span>Compilarea unui program din fișiere multiple</a>
   </li>
   <li class="next">
-    <a href="make-debug.html"
-       title="next chapter"><span class="section-number">9. </span>Depanare condițională / configurabilă →</a>
+    <a href="make-simple-automation.html"
+       title="next chapter"><span class="section-number">4. </span>Introducere în utilitarul Make și fișiere Makefile →</a>
   </li>
 </ul>
   
@@ -541,7 +523,7 @@
           <div class="content" role="main">
             
   <div class="section" id="legarea-executabilelor-folosind-biblioteci-externe">
-<span id="app-dev-link-libs"></span><h1><span class="section-number">8. </span>Legarea executabilelor folosind biblioteci externe<a class="headerlink" href="#legarea-executabilelor-folosind-biblioteci-externe" title="Permalink to this headline">¶</a></h1>
+<span id="app-dev-link-libs"></span><h1><span class="section-number">3. </span>Legarea executabilelor folosind biblioteci externe<a class="headerlink" href="#legarea-executabilelor-folosind-biblioteci-externe" title="Permalink to this headline">¶</a></h1>
 <p>În secțiunea anterioară, <a class="reference internal" href="make-multiple.html#app-dev-compile-multiple-files"><span class="std std-ref">Compilarea unui program din fișiere multiple</span></a> am compilat fișierul <code class="docutils literal notranslate"><span class="pre">~/support/compile-multiple/main.c</span></code>, care conține:</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&quot;algorithms.h&quot;</span><span class="cp"></span>
@@ -584,7 +566,7 @@ Diagrama de mai jos arată cum se întâmplă acest lucru:</p>
 <p>Există alte biblioteci, precum biblioteca <code class="docutils literal notranslate"><span class="pre">math</span></code> pe care compilatorul nu le leagă implicit la programele noastre.</p>
 <p>În continuare vom compila un fișier cod sursă care folosește biblioteca <code class="docutils literal notranslate"><span class="pre">math</span></code> pentru a calcula rădăcina pătrată a unui număr întreg.</p>
 <div class="section" id="inspectarea-fisierelor">
-<span id="app-dev-link-libs-inspect-file"></span><h2><span class="section-number">8.1. </span>Inspectarea fișierelor<a class="headerlink" href="#inspectarea-fisierelor" title="Permalink to this headline">¶</a></h2>
+<span id="app-dev-link-libs-inspect-file"></span><h2><span class="section-number">3.1. </span>Inspectarea fișierelor<a class="headerlink" href="#inspectarea-fisierelor" title="Permalink to this headline">¶</a></h2>
 <p>Intrăm în directorul <code class="docutils literal notranslate"><span class="pre">~/support/compile-with-lib</span></code> folosind comanda <code class="docutils literal notranslate"><span class="pre">cd</span></code>, unde găsim fișierul <code class="docutils literal notranslate"><span class="pre">squared_root.c</span></code>:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ <span class="nb">cd</span> ~/support/compile-with-lib/
 student@uso:~/support/compile-with-lib$ ls
@@ -614,8 +596,8 @@ Spunem că <em>includem fișierul header</em> asociat bibliotecii <code class="d
 <p>În continuare vom vedea cum compilăm fișierul <code class="docutils literal notranslate"><span class="pre">squared_root.c</span></code> astfel încât să obținem un executabil care calculează rădăcina pătrată a unui număr întreg citit de la tastatură.</p>
 </div>
 <div class="section" id="compilarea-fisierelor">
-<span id="app-dev-link-libs-compile-file"></span><h2><span class="section-number">8.2. </span>Compilarea fișierelor<a class="headerlink" href="#compilarea-fisierelor" title="Permalink to this headline">¶</a></h2>
-<p>Compilăm fișierul <code class="docutils literal notranslate"><span class="pre">main.c</span></code>, folosind comanda <code class="docutils literal notranslate"><span class="pre">gcc</span></code>, ca în secțiunea <a class="reference internal" href="make-intro.html#app-dev-compile-custom"><span class="std std-ref">Compilarea codului sursă într-un executabil cu nume diferit</span></a>:</p>
+<span id="app-dev-link-libs-compile-file"></span><h2><span class="section-number">3.2. </span>Compilarea fișierelor<a class="headerlink" href="#compilarea-fisierelor" title="Permalink to this headline">¶</a></h2>
+<p>Compilăm fișierul <code class="docutils literal notranslate"><span class="pre">main.c</span></code>, folosind comanda <code class="docutils literal notranslate"><span class="pre">gcc</span></code>, ca în secțiunea <span class="xref std std-ref">app_dev_compile_custom</span>:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/support/compile-with-lib$ gcc -o squared_root squared_root.c
 /tmp/ccp4kfvm.o: In <span class="k">function</span> <span class="sb">`</span>main<span class="sb">`</span>:
 squared_root.c:<span class="o">(</span>.text+0x48<span class="o">)</span>: undefined reference to <span class="sb">`</span>sqrt<span class="sb">`</span>
@@ -650,7 +632,7 @@ here you go: 3.872983
 <img alt="../../_images/ditaa-da144c599dc486bddba43c0d76c55dc6e70513f3.png" src="../../_images/ditaa-da144c599dc486bddba43c0d76c55dc6e70513f3.png" />
 </div>
 <div class="section" id="exercitii">
-<span id="app-dev-link-libs-ex"></span><h2><span class="section-number">8.3. </span>Exerciții<a class="headerlink" href="#exercitii" title="Permalink to this headline">¶</a></h2>
+<span id="app-dev-link-libs-ex"></span><h2><span class="section-number">3.3. </span>Exerciții<a class="headerlink" href="#exercitii" title="Permalink to this headline">¶</a></h2>
 <p>Înainte să începeți exercițiile, rulați comanda <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">apt-get</span> <span class="pre">install</span> <span class="pre">libncurses5-dev</span> <span class="pre">libncursesw5-dev</span></code>.
 Ea are rolul de a instala biblioteca grafică <code class="docutils literal notranslate"><span class="pre">ncurses</span></code> pe sistemul vostru; bibliotecă folosită de programul <code class="docutils literal notranslate"><span class="pre">hello_world.c</span></code>.</p>
 <ol class="arabic simple">
@@ -672,11 +654,11 @@ Ea are rolul de a instala biblioteca grafică <code class="docutils literal notr
             <div class="inner"><ul class="page-nav">
   <li class="prev">
     <a href="make-multiple.html"
-       title="previous chapter">← <span class="section-number">7. </span>Compilarea unui program din fișiere multiple</a>
+       title="previous chapter">← <span class="section-number">2. </span>Compilarea unui program din fișiere multiple</a>
   </li>
   <li class="next">
-    <a href="make-debug.html"
-       title="next chapter"><span class="section-number">9. </span>Depanare condițională / configurabilă →</a>
+    <a href="make-simple-automation.html"
+       title="next chapter"><span class="section-number">4. </span>Introducere în utilitarul Make și fișiere Makefile →</a>
   </li>
 </ul><div class="footer" role="contentinfo">
       &#169; Copyright 2020, USO Team.
