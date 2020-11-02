@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-      <title>6. Introducere în Git și GitHub</title>
+      <title>7. Introducere în Git și GitHub</title>
     
       <link rel="stylesheet" href="../../_static/pygments.css">
       <link rel="stylesheet" href="../../_static/theme.css">
@@ -24,8 +24,8 @@
     
   <link rel="index" title="Index" href="../../genindex.html" />
   <link rel="search" title="Search" href="../../search.html" />
-  <link rel="next" title="7. Primele commituri" href="git-first-commits.html" />
-  <link rel="prev" title="5. Aprofundarea folosirii fișierelor Makefile" href="make-advanced-automation.html" />
+  <link rel="next" title="8. Primele commituri" href="git-first-commits.html" />
+  <link rel="prev" title="6. Aprofundarea folosirii fișierelor Makefile" href="make-advanced-automation.html" />
     <link href="../../_static/my_theme.css" rel="stylesheet" type="text/css">
 
   </head>
@@ -274,6 +274,12 @@
           </li>
 
         
+          <li class="toctree-l1 "><a href="make-intro.html" class="reference internal ">Compilarea unui fișier cod sursă C</a>
+
+            
+          </li>
+
+        
           <li class="toctree-l1 "><a href="make-multiple.html" class="reference internal ">Compilarea unui program din fișiere multiple</a>
 
             
@@ -503,18 +509,18 @@
   <ul class="breadcrumbs">
     <li><a href="../../index.html">Docs</a> &raquo;</li>
     
-    <li><span class="section-number">6. </span>Introducere în Git și GitHub</li>
+    <li><span class="section-number">7. </span>Introducere în Git și GitHub</li>
   </ul>
   
 
   <ul class="page-nav">
   <li class="prev">
     <a href="make-advanced-automation.html"
-       title="previous chapter">← <span class="section-number">5. </span>Aprofundarea folosirii fișierelor Makefile</a>
+       title="previous chapter">← <span class="section-number">6. </span>Aprofundarea folosirii fișierelor Makefile</a>
   </li>
   <li class="next">
     <a href="git-first-commits.html"
-       title="next chapter"><span class="section-number">7. </span>Primele commituri →</a>
+       title="next chapter"><span class="section-number">8. </span>Primele commituri →</a>
   </li>
 </ul>
   
@@ -523,7 +529,7 @@
           <div class="content" role="main">
             
   <div class="section" id="introducere-in-git-si-github">
-<span id="app-dev-git-intro"></span><h1><span class="section-number">6. </span>Introducere în Git și GitHub<a class="headerlink" href="#introducere-in-git-si-github" title="Permalink to this headline">¶</a></h1>
+<span id="app-dev-git-intro"></span><h1><span class="section-number">7. </span>Introducere în Git și GitHub<a class="headerlink" href="#introducere-in-git-si-github" title="Permalink to this headline">¶</a></h1>
 <p>Vor fi cazuri când vom <em>strica</em> o versiune a codului și vom avea nevoie să revenim la ea, caz în care un istoric de versiuni ne-ar fi de folos.
 Vom putea să lucrăm la un proiect de pe un alt sistem, în afară de al nostru, sau vom vrea să cerem feedback pe codul scris de noi.</p>
 <p>Când vorbim despre un proiect software vrem să avem dezvoltatori, oameni care să lucreze împreună cu noi la proiect.
@@ -543,7 +549,7 @@ Comenzile pe care le vom studia se aplică pentru toate platformele care foloses
 În mare parte acesta nu diferă foarte mult de alte platforme.</p>
 </div>
 <div class="section" id="crearea-unui-cont-pe-github-daca-nu-aveti-deja">
-<span id="app-dev-create-github-account"></span><h2><span class="section-number">6.1. </span>Crearea unui cont pe GitHub (dacă nu aveți deja)<a class="headerlink" href="#crearea-unui-cont-pe-github-daca-nu-aveti-deja" title="Permalink to this headline">¶</a></h2>
+<span id="app-dev-create-github-account"></span><h2><span class="section-number">7.1. </span>Crearea unui cont pe GitHub (dacă nu aveți deja)<a class="headerlink" href="#crearea-unui-cont-pe-github-daca-nu-aveti-deja" title="Permalink to this headline">¶</a></h2>
 <p>Înainte de toate, ne asigurăm că avem cont pe GitHub.
 Dacă aveți deja un cont pe GitHub puteți trece la subsecțiunea următoare: <a class="reference internal" href="#app-dev-git-setup"><span class="std std-ref">Pregătirea inițială a mediului Git</span></a>.</p>
 <p>Dacă nu aveți cont, intrați pe <a class="reference external" href="http://www.github.com/">GitHub</a>.
@@ -562,7 +568,7 @@ Găsiți mai multe detalii pe <a class="reference external" href="https://educat
 </div>
 </div>
 <div class="section" id="pregatirea-initiala-a-mediului-git">
-<span id="app-dev-git-setup"></span><h2><span class="section-number">6.2. </span>Pregătirea inițială a mediului Git<a class="headerlink" href="#pregatirea-initiala-a-mediului-git" title="Permalink to this headline">¶</a></h2>
+<span id="app-dev-git-setup"></span><h2><span class="section-number">7.2. </span>Pregătirea inițială a mediului Git<a class="headerlink" href="#pregatirea-initiala-a-mediului-git" title="Permalink to this headline">¶</a></h2>
 <p>Ca să utilizăm Git, facem în primă fază niște pași de configurare. Adică vom configura numele și e-mail-ul nostru, ca mai jos:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ git config --global user.name <span class="s2">&quot;Prenume Nume&quot;</span>
 student@uso:~$ git config --global user.email <span class="s2">&quot;adresa_de_email@example.com&quot;</span>
@@ -577,7 +583,7 @@ student@uso:~$ git config --global user.email <span class="s2">&quot;lizababu@ex
 </div>
 </div>
 <div class="section" id="crearea-primului-repository">
-<span id="app-dev-create-first-repo"></span><h2><span class="section-number">6.3. </span>Crearea primului repository<a class="headerlink" href="#crearea-primului-repository" title="Permalink to this headline">¶</a></h2>
+<span id="app-dev-create-first-repo"></span><h2><span class="section-number">7.3. </span>Crearea primului repository<a class="headerlink" href="#crearea-primului-repository" title="Permalink to this headline">¶</a></h2>
 <p>Pentru a lucra la un proiect software, creăm un <strong>repository software</strong>.
 Vom crea unul pe GitHub, unul local, după care le vom interconecta.</p>
 <div class="admonition-repository-software admonition">
@@ -594,7 +600,7 @@ De obicei, într-un proiect Git / GitHub există un repository central (remote) 
 Vom detalia aceste operații când le vom folosi în acest capitol.</p>
 </div>
 <div class="section" id="crearea-unui-repository-gol-pe-github">
-<span id="app-dev-create-github-repo"></span><h3><span class="section-number">6.3.1. </span>Crearea unui repository gol pe GitHub<a class="headerlink" href="#crearea-unui-repository-gol-pe-github" title="Permalink to this headline">¶</a></h3>
+<span id="app-dev-create-github-repo"></span><h3><span class="section-number">7.3.1. </span>Crearea unui repository gol pe GitHub<a class="headerlink" href="#crearea-unui-repository-gol-pe-github" title="Permalink to this headline">¶</a></h3>
 <p>Ne autentificăm pe GitHub.
 Urmărim pașii prezentați în imaginea de mai jos și explicați imediat după.</p>
 <div class="figure align-default">
@@ -619,7 +625,7 @@ Acest lucru este acoperit în secțiunile următoare.</p></li>
 <p>Acum avem un repository creat remote, pe GitHub, numit <code class="docutils literal notranslate"><span class="pre">array-sorting-algorithms</span></code>.</p>
 </div>
 <div class="section" id="crearea-unui-repository-gol-local">
-<span id="app-dev-create-local-repo"></span><h3><span class="section-number">6.3.2. </span>Crearea unui repository gol local<a class="headerlink" href="#crearea-unui-repository-gol-local" title="Permalink to this headline">¶</a></h3>
+<span id="app-dev-create-local-repo"></span><h3><span class="section-number">7.3.2. </span>Crearea unui repository gol local<a class="headerlink" href="#crearea-unui-repository-gol-local" title="Permalink to this headline">¶</a></h3>
 <p>Creăm un director din ierarhia de fișiere în care vom inițializa repository-ul git.</p>
 <p>În acest tutorial creăm directorul <code class="docutils literal notranslate"><span class="pre">array-sorting-algorithms</span></code> în directorul home (adică <code class="docutils literal notranslate"><span class="pre">/home/student</span></code> sau <code class="docutils literal notranslate"><span class="pre">~</span></code>), folosind comenzile de mai jos:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ <span class="nb">pwd</span>
@@ -644,7 +650,7 @@ Directorul <code class="docutils literal notranslate"><span class="pre">.git</sp
 </div>
 </div>
 <div class="section" id="conectarea-celor-doua-repository-uri">
-<span id="app-dev-connect-repos"></span><h3><span class="section-number">6.3.3. </span>Conectarea celor două repository-uri<a class="headerlink" href="#conectarea-celor-doua-repository-uri" title="Permalink to this headline">¶</a></h3>
+<span id="app-dev-connect-repos"></span><h3><span class="section-number">7.3.3. </span>Conectarea celor două repository-uri<a class="headerlink" href="#conectarea-celor-doua-repository-uri" title="Permalink to this headline">¶</a></h3>
 <p>Am creat până în acest moment un repository local și unul remote.
 Trebuie să le interconectăm pentru a lucra cu ele.</p>
 <p>În cazul în care suntem mai mulți membri în echipă, fiecare membru va conecta repository-ul său local, la repository-ul remote.
@@ -670,16 +676,16 @@ Sincronizarea lor se face prin intermediul operațiilor <strong>push</strong> ș
             <div class="inner"><ul class="page-nav">
   <li class="prev">
     <a href="make-advanced-automation.html"
-       title="previous chapter">← <span class="section-number">5. </span>Aprofundarea folosirii fișierelor Makefile</a>
+       title="previous chapter">← <span class="section-number">6. </span>Aprofundarea folosirii fișierelor Makefile</a>
   </li>
   <li class="next">
     <a href="git-first-commits.html"
-       title="next chapter"><span class="section-number">7. </span>Primele commituri →</a>
+       title="next chapter"><span class="section-number">8. </span>Primele commituri →</a>
   </li>
 </ul><div class="footer" role="contentinfo">
       &#169; Copyright 2020, USO Team.
     <br>
-    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.2.1 with <a href="https://github.com/romnnn/sphinx_press_theme">Press Theme</a>.
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.3.0 with <a href="https://github.com/romnnn/sphinx_press_theme">Press Theme</a>.
 </div>
             </div>
           </div>

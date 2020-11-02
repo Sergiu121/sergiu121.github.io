@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-      <title>8. Lucrul pe branch-uri</title>
+      <title>9. Lucrul pe branch-uri</title>
     
       <link rel="stylesheet" href="../../_static/pygments.css">
       <link rel="stylesheet" href="../../_static/theme.css">
@@ -24,8 +24,8 @@
     
   <link rel="index" title="Index" href="../../genindex.html" />
   <link rel="search" title="Search" href="../../search.html" />
-  <link rel="next" title="9. Crearea unui Pull Request (PR) pe GitHub" href="git-first-pull-request.html" />
-  <link rel="prev" title="7. Primele commituri" href="git-first-commits.html" />
+  <link rel="next" title="10. Crearea unui Pull Request (PR) pe GitHub" href="git-first-pull-request.html" />
+  <link rel="prev" title="8. Primele commituri" href="git-first-commits.html" />
     <link href="../../_static/my_theme.css" rel="stylesheet" type="text/css">
 
   </head>
@@ -274,6 +274,12 @@
           </li>
 
         
+          <li class="toctree-l1 "><a href="make-intro.html" class="reference internal ">Compilarea unui fișier cod sursă C</a>
+
+            
+          </li>
+
+        
           <li class="toctree-l1 "><a href="make-multiple.html" class="reference internal ">Compilarea unui program din fișiere multiple</a>
 
             
@@ -509,18 +515,18 @@
   <ul class="breadcrumbs">
     <li><a href="../../index.html">Docs</a> &raquo;</li>
     
-    <li><span class="section-number">8. </span>Lucrul pe branch-uri</li>
+    <li><span class="section-number">9. </span>Lucrul pe branch-uri</li>
   </ul>
   
 
   <ul class="page-nav">
   <li class="prev">
     <a href="git-first-commits.html"
-       title="previous chapter">← <span class="section-number">7. </span>Primele commituri</a>
+       title="previous chapter">← <span class="section-number">8. </span>Primele commituri</a>
   </li>
   <li class="next">
     <a href="git-first-pull-request.html"
-       title="next chapter"><span class="section-number">9. </span>Crearea unui Pull Request (PR) pe GitHub →</a>
+       title="next chapter"><span class="section-number">10. </span>Crearea unui Pull Request (PR) pe GitHub →</a>
   </li>
 </ul>
   
@@ -529,7 +535,7 @@
           <div class="content" role="main">
             
   <div class="section" id="lucrul-pe-branch-uri">
-<span id="app-dev-branches"></span><h1><span class="section-number">8. </span>Lucrul pe branch-uri<a class="headerlink" href="#lucrul-pe-branch-uri" title="Permalink to this headline">¶</a></h1>
+<span id="app-dev-branches"></span><h1><span class="section-number">9. </span>Lucrul pe branch-uri<a class="headerlink" href="#lucrul-pe-branch-uri" title="Permalink to this headline">¶</a></h1>
 <p>Un dezvoltator vrea să lucreze la o funcționalitate nouă, care poate destabiliza proiectul.
 Pentru aceasta creează <strong>o ramură de dezvoltare nouă</strong> (<em>branch</em>) pe care face commituri noi.
 Ulterior, dacă funcționalitatea este utilă, va fi adăugată în proiect prin unificarea acestui branch (<em>merge</em>); altfel branch-ul va fi șters.</p>
@@ -595,7 +601,7 @@ Modificările au fost făcute peste commitul <em>b2a590a</em>.</p>
 <p>În secțiunea <a class="reference internal" href="#app-dev-add-gitignore"><span class="std std-ref">Adăugarea unui fișier .gitignore repository-ului</span></a> îl vom adăuga de pe un alt branch pe care îl numim <code class="docutils literal notranslate"><span class="pre">add-gitignore</span></code> ca să ne obișnuim să folosim branch-uri.</p>
 </div>
 <div class="section" id="adaugarea-unui-fisier-gitignore-repository-ului">
-<span id="app-dev-add-gitignore"></span><h2><span class="section-number">8.1. </span>Adăugarea unui fișier .gitignore repository-ului<a class="headerlink" href="#adaugarea-unui-fisier-gitignore-repository-ului" title="Permalink to this headline">¶</a></h2>
+<span id="app-dev-add-gitignore"></span><h2><span class="section-number">9.1. </span>Adăugarea unui fișier .gitignore repository-ului<a class="headerlink" href="#adaugarea-unui-fisier-gitignore-repository-ului" title="Permalink to this headline">¶</a></h2>
 <p>De acum încolo, vom face toate modificările de pe un nou branch, diferit de branch-ul <strong>master</strong> <a class="footnote-reference brackets" href="#good-practice" id="id1">2</a>.</p>
 <p>În această subsecțiune vom crea un nou branch numit <code class="docutils literal notranslate"><span class="pre">add-gitignore</span></code>.
 Vom adăuga un fișier <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code> proiectului de pe acest branch.</p>
@@ -639,8 +645,7 @@ Untracked files:
 nothing added to commit but untracked files present <span class="o">(</span>use <span class="s2">&quot;git add&quot;</span> to track<span class="o">)</span>
 </pre></div>
 </div>
-<p>Creăm un commit cu această modificare și în publicăm.
-Odată cu publicarea commitului pe GitHub, a fost creat și branch-ul <code class="docutils literal notranslate"><span class="pre">add-gitignore</span></code> remote.</p>
+<p>Creăm un commit cu această modificare (<code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">add</span></code> și <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">commit</span></code>) și îl publicăm (<code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">push</span></code>):</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/array-sorting-algorithms$ git add .gitignore
 student@uso:~/array-sorting-algorithms$ git status
 On branch add-gitignore
@@ -668,7 +673,8 @@ To https://github.com/lizababu/array-sorting-algorithmss.git
 * <span class="o">[</span>new branch<span class="o">]</span>      add-gitignore -&gt; add-gitignore
 </pre></div>
 </div>
-<p>Am publicat commitul în repository-ul remote pe branch-ul <code class="docutils literal notranslate"><span class="pre">add-gitignore</span></code>.</p>
+<p>Am publicat commitul în repository-ul remote pe branch-ul <code class="docutils literal notranslate"><span class="pre">add-gitignore</span></code>.
+Odată cu publicarea commitului pe GitHub, a fost creat și branch-ul <code class="docutils literal notranslate"><span class="pre">add-gitignore</span></code> remote.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Orice operație trebuie să fie urmată de o operație de verficare.
@@ -677,7 +683,7 @@ Spre exemplu, după crearea unui commit, verificăm <strong>statusul repository-
 </div>
 </div>
 <div class="section" id="operatia-merge-dintre-un-branch-secundar-si-master">
-<span id="app-dev-merge"></span><h2><span class="section-number">8.2. </span>Operația <strong>merge</strong> dintre un branch secundar și master<a class="headerlink" href="#operatia-merge-dintre-un-branch-secundar-si-master" title="Permalink to this headline">¶</a></h2>
+<span id="app-dev-merge"></span><h2><span class="section-number">9.2. </span>Operația <strong>merge</strong> dintre un branch secundar și master<a class="headerlink" href="#operatia-merge-dintre-un-branch-secundar-si-master" title="Permalink to this headline">¶</a></h2>
 <p>În secțiunea <a class="reference internal" href="#app-dev-add-gitignore"><span class="std std-ref">Adăugarea unui fișier .gitignore repository-ului</span></a> de mai sus am creat un commit pe branch-ul <strong>add-gitignore</strong>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -750,7 +756,7 @@ To https://github.com/lizababu/array-sorting-algorithms
 </div>
 </div>
 <div class="section" id="stergerea-unui-branch">
-<span id="app-dev-delete-branch"></span><h2><span class="section-number">8.3. </span>Ștergerea unui branch<a class="headerlink" href="#stergerea-unui-branch" title="Permalink to this headline">¶</a></h2>
+<span id="app-dev-delete-branch"></span><h2><span class="section-number">9.3. </span>Ștergerea unui branch<a class="headerlink" href="#stergerea-unui-branch" title="Permalink to this headline">¶</a></h2>
 <p>După ce terminăm lucrul pe un branch, îl ștergem.
 Vom folosi noi ramuri de dezvoltare (<em>branch-uri</em>) pentru alte funcționalități, deci nu vom mai avea nevoie de branch-urile vechi.</p>
 <p>În acestă secțiune vom șterge branch-ul <strong>add-gitignore</strong> atât din repository-ul local cât și din interfața GitHub.</p>
@@ -782,7 +788,7 @@ To https://github.com/lizababu/array-sorting-algorithms.git
 </div>
 </div>
 <div class="section" id="modificarea-fisierului-gitignore">
-<span id="app-dev-another-merge"></span><h2><span class="section-number">8.4. </span>Modificarea fișierului .gitignore<a class="headerlink" href="#modificarea-fisierului-gitignore" title="Permalink to this headline">¶</a></h2>
+<span id="app-dev-another-merge"></span><h2><span class="section-number">9.4. </span>Modificarea fișierului .gitignore<a class="headerlink" href="#modificarea-fisierului-gitignore" title="Permalink to this headline">¶</a></h2>
 <p>În această subsecțiune vom relua pașii prezentați în subsecțiunile anterioare.
 Vom lucra în continuare pe branch-uri.
 Vom adăuga o nouă linie în fișierul <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code>, vom crea un commit cu această schimbare și vom integra schimbările din branch-ul secundar în branch-ul <strong>master</strong> prin operația <strong>merge</strong>.</p>
@@ -896,7 +902,7 @@ To https://github.com/lizababu/array-sorting-algorithms.git
 </div>
 </div>
 <div class="section" id="exercitii">
-<span id="app-dev-branches-ex"></span><h2><span class="section-number">8.5. </span>Exerciții<a class="headerlink" href="#exercitii" title="Permalink to this headline">¶</a></h2>
+<span id="app-dev-branches-ex"></span><h2><span class="section-number">9.5. </span>Exerciții<a class="headerlink" href="#exercitii" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic">
 <li><p>Creați un branch cu numele <code class="docutils literal notranslate"><span class="pre">merge-sort-implementation</span></code>.</p></li>
 <li><p>Treceți pe branch-ul <code class="docutils literal notranslate"><span class="pre">merge-sort-implementation</span></code>.</p></li>
@@ -1000,7 +1006,7 @@ To https://github.com/lizababu/array-sorting-algorithms.git
 </ol>
 </div>
 <div class="section" id="bune-practici">
-<span id="app-dev-branches-good-practices"></span><h2><span class="section-number">8.6. </span>Bune practici<a class="headerlink" href="#bune-practici" title="Permalink to this headline">¶</a></h2>
+<span id="app-dev-branches-good-practices"></span><h2><span class="section-number">9.6. </span>Bune practici<a class="headerlink" href="#bune-practici" title="Permalink to this headline">¶</a></h2>
 <p>Atunci când contribuim la un proiect putem să lucrăm fie branch-ul <strong>master</strong>, fie pe un alt branch.
 Este considerat <strong>BAD PRACTICE</strong> să lucrăm pe branch-ul <strong>master</strong> din mai multe motive:</p>
 <p>#. Pe branch-ul <strong>master</strong> se ține întotdeauna o versiune de cod funcțională.
@@ -1029,16 +1035,16 @@ Branch-ul trebuie să aibă un nume sugestiv ca ceilalți să poată înțelege 
             <div class="inner"><ul class="page-nav">
   <li class="prev">
     <a href="git-first-commits.html"
-       title="previous chapter">← <span class="section-number">7. </span>Primele commituri</a>
+       title="previous chapter">← <span class="section-number">8. </span>Primele commituri</a>
   </li>
   <li class="next">
     <a href="git-first-pull-request.html"
-       title="next chapter"><span class="section-number">9. </span>Crearea unui Pull Request (PR) pe GitHub →</a>
+       title="next chapter"><span class="section-number">10. </span>Crearea unui Pull Request (PR) pe GitHub →</a>
   </li>
 </ul><div class="footer" role="contentinfo">
       &#169; Copyright 2020, USO Team.
     <br>
-    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.2.1 with <a href="https://github.com/romnnn/sphinx_press_theme">Press Theme</a>.
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.3.0 with <a href="https://github.com/romnnn/sphinx_press_theme">Press Theme</a>.
 </div>
             </div>
           </div>
