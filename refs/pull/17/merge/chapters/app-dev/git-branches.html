@@ -584,7 +584,7 @@ Date:   Thu Sep <span class="m">24</span> <span class="m">09</span>:09:51 <span 
 <div class="figure align-default">
 <a class="reference internal image-reference" href="../../_images/GitHub-commit-history.png"><img alt="Reprezentarea vizuală a istoricului de commituri" src="../../_images/GitHub-commit-history.png" style="width: 550.8000000000001px; height: 189.0px;" /></a>
 </div>
-<p><strong>Root-commitul</strong> este primul commit din istoric (<em>b2a590a8637f1eab96e557334dbd4be14bf95833</em>, <em>b2a590a</em>) [#hash]
+<p><strong>Root-commitul</strong> este primul commit din istoric (<em>b2a590a8637f1eab96e557334dbd4be14bf95833</em>, <em>b2a590a</em>) <a class="footnote-reference brackets" href="#hash" id="id1">1</a>.
 Toate celelalte commituri vin în continuarea acestuia.
 Spre exemplu, al doilea commit (<em>f65a7fbe8bbe1b36ba5c8e16607456a879bfb6fa</em>, <em>f65a7fb</em>) a avut la bază primul commit (<em>b2a590a</em>).
 Modificările au fost făcute peste commitul <em>b2a590a</em>.</p>
@@ -592,7 +592,7 @@ Modificările au fost făcute peste commitul <em>b2a590a</em>.</p>
 <div class="figure align-default">
 <a class="reference internal image-reference" href="../../_images/GitHub-commit-history.gif"><img alt="Reprezentarea vizuală a istoricului de commituri" src="../../_images/GitHub-commit-history.gif" style="width: 612.0px; height: 210.0px;" /></a>
 </div>
-<p>În acest moment, pe repository-ul vostru aveți un singur branch - <strong>master</strong>.
+<p>În acest moment, pe repository-ul nostru aveți un singur branch - <strong>master</strong>.
 În continuare vom lucra la proiectul nostru <code class="docutils literal notranslate"><span class="pre">array-sorting-algorithms</span></code>, dar vom face schimbări de pe alt branch-uri.</p>
 <p>În această secțiune vom adăuga un fișier <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code> proiectului și vom adăuga implementarea pentru agloritmul Merge Sort.</p>
 <div class="admonition note">
@@ -602,7 +602,7 @@ Modificările au fost făcute peste commitul <em>b2a590a</em>.</p>
 </div>
 <div class="section" id="adaugarea-unui-fisier-gitignore-repository-ului">
 <span id="app-dev-add-gitignore"></span><h2><span class="section-number">9.1. </span>Adăugarea unui fișier .gitignore repository-ului<a class="headerlink" href="#adaugarea-unui-fisier-gitignore-repository-ului" title="Permalink to this headline">¶</a></h2>
-<p>De acum încolo, vom face toate modificările de pe un nou branch, diferit de branch-ul <strong>master</strong> <a class="footnote-reference brackets" href="#good-practice" id="id1">2</a>.</p>
+<p>De acum încolo, vom face toate modificările de pe un nou branch, diferit de branch-ul <strong>master</strong> <a class="footnote-reference brackets" href="#good-practice" id="id2">2</a>.</p>
 <p>În această subsecțiune vom crea un nou branch numit <code class="docutils literal notranslate"><span class="pre">add-gitignore</span></code>.
 Vom adăuga un fișier <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code> proiectului de pe acest branch.</p>
 <p>Verificăm branch-ul pe care ne aflăm folosind comanda <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">branch</span></code>:</p>
@@ -853,7 +853,7 @@ Date:   Thu Sep <span class="m">24</span> <span class="m">10</span>:40:06 <span 
 </pre></div>
 </div>
 <p>Am verificat istoricul de commituri și vedem că ultimul commit este cel cu identificatorul <em>6d5189fd7095a19a6ad9bddb8c95491b37d9e828</em>, adică cel creat în această subsecțiune.</p>
-<p>Publicăm commitul și în repository-ul origin ca el să fie vizibil și celorlalți colaboratori ai proiectului,folosind comanda <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">push</span></code></p>
+<p>Publicăm commitul și în repository-ul origin, pentru ca acesta să fie vizibil și celorlalți colaboratori ai proiectului, folosind comanda <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">push</span></code></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/array-sorting-algorithms$ git push origin update-gitignore
 Counting objects: <span class="m">3</span>, <span class="k">done</span>.
 Delta compression using up to <span class="m">2</span> threads.
@@ -1009,21 +1009,23 @@ To https://github.com/lizababu/array-sorting-algorithms.git
 <span id="app-dev-branches-good-practices"></span><h2><span class="section-number">9.6. </span>Bune practici<a class="headerlink" href="#bune-practici" title="Permalink to this headline">¶</a></h2>
 <p>Atunci când contribuim la un proiect putem să lucrăm fie branch-ul <strong>master</strong>, fie pe un alt branch.
 Este considerat <strong>BAD PRACTICE</strong> să lucrăm pe branch-ul <strong>master</strong> din mai multe motive:</p>
-<p>#. Pe branch-ul <strong>master</strong> se ține întotdeauna o versiune de cod funcțională.
-Astfel, lucrul pe acest branch ar însemna să facem commituri doar atunci când o funcționalitate este finalizată, altfel pe branch-ul <strong>master</strong> vom avea o bucată de cod neterminată care poate să afecteze întreg proiectul.</p>
-<p>#. Lucrul pe un singur branch nu oferă posibilitatea de a da feedback pe schimbările făcute pe repository.
+<ol class="arabic simple">
+<li><p>Pe branch-ul <strong>master</strong> se ține întotdeauna o versiune de cod funcțională.
+Astfel, lucrul pe acest branch ar însemna să facem commituri doar atunci când o funcționalitate este finalizată, altfel pe branch-ul <strong>master</strong> vom avea o bucată de cod neterminată care poate să afecteze întreg proiectul.</p></li>
+<li><p>Lucrul pe un singur branch nu oferă posibilitatea de a da feedback pe schimbările făcute pe repository.
 Dacă nu avem posibilitatea să oferim feedback unui coleg prin intermediul GitHub, atunci vom avea nevoie să comunicăm pe un alt mediu observațiile noastre, iar ei vor trebui să creeze un nou commit pentru rezolvarea problemelor.
 Mult mai simplu este să se realizeze întreaga etapă de feedback, numită <strong>code review</strong> înainte ca schimbările să apară pe <strong>master</strong>.
-Vom vorbi în următoarea secțiune, <a class="reference internal" href="git-first-pull-request.html#app-dev-pr"><span class="std std-ref">Crearea unui Pull Request (PR) pe GitHub</span></a>, termenul de <em>pull request</em>, folosit pentru code review.</p>
+Vom vorbi în următoarea secțiune, <a class="reference internal" href="git-first-pull-request.html#app-dev-pr"><span class="std std-ref">Crearea unui Pull Request (PR) pe GitHub</span></a>, termenul de <em>pull request</em>, folosit pentru code review.</p></li>
+</ol>
 <p class="rubric">Note de subsol</p>
 <dl class="footnote brackets">
-<dt class="label" id="hash"><span class="brackets">1</span></dt>
+<dt class="label" id="hash"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
 <dd><p>ID-ul unui commit are o formă lungă, completă, și o formă scurtă formată din primele 7 caractere.
 De exemplu, pentru commitul cu ID-ul <em>b2a590a8637f1eab96e557334dbd4be14bf95833</em>, forma scurtă este <em>b2a590a</em>.</p>
 </dd>
-<dt class="label" id="good-practice"><span class="brackets"><a class="fn-backref" href="#id1">2</a></span></dt>
+<dt class="label" id="good-practice"><span class="brackets"><a class="fn-backref" href="#id2">2</a></span></dt>
 <dd><p>Este <strong>GOOD PRACTICE</strong> ca fiecare modificare făcută pe un repository să fie făcută pe un branch nou.
-Branch-ul trebuie să aibă un nume sugestiv ca ceilalți să poată înțelege rapid ce schimbări se fac pe el.</p>
+Branch-ul trebuie să aibă un nume sugestiv pentru ca ceilalți să poată înțelege rapid ce schimbări se fac pe el.</p>
 </dd>
 </dl>
 </div>

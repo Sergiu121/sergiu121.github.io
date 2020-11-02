@@ -544,10 +544,10 @@ Având commiturile în repository putem să gestionăm mai ușor proiectul, adic
 <li><p>să creăm o ramură de dezvoltare separată pornind la un commit anterior, pe care să încercăm o funcționalitate nouă, fără a afecta restul proiectului</p></li>
 </ul>
 <p>Git se ocupă de păstrarea și gestiunea istoricului repository-ului nostru prin păstrarea listei de commituri făcute.
-Adică, Git păstrează un istoric de versiuni al proiectului.</p>
+Adică Git păstrează un istoric de versiuni al proiectului.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Când facem un commit acesta va fi reținut în repository-ul Git local, nu și în repository-ul Git remote.</p>
+<p>Când facem un commit, acesta va fi reținut în repository-ul Git local, nu și în repository-ul Git remote.</p>
 <p>Fără a actualiza și repository-ul remote, ceilalți colegi nu vor putea vedea schimbările făcute de noi.
 Vrem, așadar, ca modificările făcute local să se găsească și remote.
 Adică să publicăm commiturile din repository-ul local în repository-ul remote.
@@ -563,7 +563,7 @@ Vom crea commituri în repository-ul local pentru fiecare schimbare, după care 
 <div class="admonition-reamintire admonition">
 <p class="admonition-title">Reamintire</p>
 <p>O bună practică, prezentă în majoritatea proiectelor software, este să adăugăm un fișier <code class="docutils literal notranslate"><span class="pre">README</span></code> în care se află informații despre un proiect.
-Spre exemplu în <code class="docutils literal notranslate"><span class="pre">README</span></code> se află informații despre ce funcționalități are proiectul nostru, cum se compilează un proiect, cum se rulează, pe ce tip de platforme poate fi rulat etc.</p>
+Spre exemplu, în <code class="docutils literal notranslate"><span class="pre">README</span></code> se află informații despre ce funcționalități are proiectul nostru, cum se compilează un proiect, cum se rulează, pe ce tip de platforme poate fi rulat etc.</p>
 </div>
 <p>Un fișier <code class="docutils literal notranslate"><span class="pre">README</span></code> este un fișier text.
 Îl putem crea și îi putem adăuga titlul <code class="docutils literal notranslate"><span class="pre">Sorting</span> <span class="pre">Algorithms</span> <span class="pre">for</span> <span class="pre">Beginners</span></code> folosind un editor sau, mai simplu și mai direct, folosind comanda de mai jos:</p>
@@ -616,8 +616,8 @@ Untracked files:
 Vom discuta în secțiunea <a class="reference internal" href="git-branches.html#app-dev-branches"><span class="std std-ref">Lucrul pe branch-uri</span></a> despre branch-uri.</p>
 <p>A doua linie afișată <code class="docutils literal notranslate"><span class="pre">No</span> <span class="pre">commits</span> <span class="pre">yet</span></code> ne spune că nu am făcut până acum niciun commit, adică am pornit de la un repository gol.</p>
 <p>În ultima parte a outputului se află o listă de fișiere <code class="docutils literal notranslate"><span class="pre">untracked</span></code>, adică lista fișierelor pe care Git le vede ca nou adăugate în repository-ul curent, dar pe care nu le monitorizează încă.
-Asta înseamnă că, deocamdată, orice modificare vom face asupra acestor fișiere nu va fi urmărită (<em>tracked</em>) de Git.
-În cazul nostru fișierul aflat în starea <em>untracked</em> este <code class="docutils literal notranslate"><span class="pre">README.md</span></code>.</p>
+Acest lucru înseamnă că, deocamdată, orice modificare vom face asupra acestor fișiere nu va fi urmărită (<em>tracked</em>) de Git.
+În cazul nostru, fișierul aflat în starea <em>untracked</em> este <code class="docutils literal notranslate"><span class="pre">README.md</span></code>.</p>
 </div>
 <div class="section" id="adaugarea-unui-fisier-in-staging-area">
 <span id="app-dev-add-staging"></span><h3><span class="section-number">8.2.2. </span>Adăugarea unui fișier (în <strong>staging area</strong>)<a class="headerlink" href="#adaugarea-unui-fisier-in-staging-area" title="Permalink to this headline">¶</a></h3>
@@ -628,7 +628,7 @@ Acest pas de pregătire înseamnă să adăugăm (<em>add</em>) aceste modifică
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/array-sorting-algorithms$ git add README.md
 </pre></div>
 </div>
-<p>Verificăm se s-a schimbat în urma adăugării fișierului <code class="docutils literal notranslate"><span class="pre">README.md</span></code> în staging folosind comanda <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">status</span></code>:</p>
+<p>Verificăm ce s-a schimbat în urma adăugării fișierului <code class="docutils literal notranslate"><span class="pre">README.md</span></code> în staging folosind comanda <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">status</span></code>:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/array-sorting-algorithms$ git status
 On branch master
 
@@ -663,7 +663,7 @@ Aceasta este o descriere succintă a modificările făcute prin acest commit.</p
 </div>
 <div class="section" id="crearea-unui-nou-commit">
 <span id="app-dev-create-new-commit"></span><h3><span class="section-number">8.2.4. </span>Crearea unui nou commit<a class="headerlink" href="#crearea-unui-nou-commit" title="Permalink to this headline">¶</a></h3>
-<p>În continuare vom adăuga scheletul de cod pentru algotimul Bubble Sort în repository.
+<p>În continuare vom adăuga scheletul de cod pentru algoritmul Bubble Sort în repository.
 Vom crea un nou fișier cod sursă C <code class="docutils literal notranslate"><span class="pre">bubble-sort.c</span></code> și vom scrie în el scheletul de cod pentru algoritm.
 Vom crea un nou commit care va conține fișierul <code class="docutils literal notranslate"><span class="pre">bubble-sort.c</span></code>.
 Pentru aceasta vom folosi un editor, precum nano, ca în imaginea de mai jos:</p>
@@ -714,6 +714,8 @@ student@uso:~/array-sorting-algorithms$ git commit -m <span class="s2">&quot;Add
 </li>
 <li><p>Creați un commit care să conțină fișierul <code class="docutils literal notranslate"><span class="pre">radix-sort.c</span></code>.
 Folosiți următorul mesaj de commit: <code class="docutils literal notranslate"><span class="pre">Add</span> <span class="pre">Radix</span> <span class="pre">Sort</span> <span class="pre">algorithm</span> <span class="pre">skeleton</span></code>.</p></li>
+<li><p>Dați comanda de verificare <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">log</span></code>.
+Detaliem outputul comenzii <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">log</span></code> în subsecțiunea <a class="reference internal" href="#app-dev-check-history"><span class="std std-ref">Verificarea istoricului de commituri</span></a>.</p></li>
 <li><p>Creați un nou fișier numit <code class="docutils literal notranslate"><span class="pre">merge-sort.c</span></code> cu următorul conținut:</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
 
@@ -731,6 +733,7 @@ Folosiți următorul mesaj de commit: <code class="docutils literal notranslate"
 </li>
 <li><p>Creați un commit care să conțină fișierul <code class="docutils literal notranslate"><span class="pre">merge-sort.c</span></code>.
 Folosiți următorul mesaj de commit: <code class="docutils literal notranslate"><span class="pre">Add</span> <span class="pre">Merge</span> <span class="pre">Sort</span> <span class="pre">algorithm</span> <span class="pre">skeleton</span></code>.</p></li>
+<li><p>Dați comanda de verificare <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">log</span></code>.</p></li>
 </ol>
 </div>
 </div>
@@ -762,20 +765,8 @@ t explanation&quot;
 1 file changed, 1 insertion(+)
 </pre></div>
 </div>
-<p>Când am adăugat fișierul <code class="docutils literal notranslate"><span class="pre">bubble-sort.c</span></code> în staging area în imaginea din secțiunea <a class="reference internal" href="#app-dev-create-new-commit"><span class="std std-ref">Crearea unui nou commit</span></a>, comanda <code class="docutils literal notranslate"><span class="pre">status</span></code> ne arăta că fișierul <code class="docutils literal notranslate"><span class="pre">bubble-sort.c</span></code> este nou (<em>new file</em>).</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">(</span>...<span class="o">)</span>
-student@uso:~/array-sorting-algorithms$ git add bubble-sort.c
-student@uso:~/array-sorting-algorithms$ git status
-On branch master
-Changes to be committed:
-<span class="o">(</span>use <span class="s2">&quot;git reset HEAD &lt;file&gt;...&quot;</span> to unstage<span class="o">)</span>
-
-    new file:   README.md
-<span class="o">(</span>...<span class="o">)</span>
-</pre></div>
-</div>
-<p>Mai sus am folosit comanda <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">add</span></code> pentru că am modificat fișierul <code class="docutils literal notranslate"><span class="pre">README.md</span></code> care deja exista.
-Comanda <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">status</span></code> arată că acesta a fost modificat (<em>modified</em>).</p>
+<p>Spre deosebire de secțiunea <a class="reference internal" href="#app-dev-create-new-commit"><span class="std std-ref">Crearea unui nou commit</span></a>, unde comanda <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">status</span></code> arăta că fișierul modificat (în acel caz, <code class="docutils literal notranslate"><span class="pre">bubble-sort.c</span></code>) este nou (<em>new file</em>), acum comanda <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">status</span></code> arată că fișierul modificat (în acest caz, <code class="docutils literal notranslate"><span class="pre">README.md</span></code>) a fost modificat (<em>modified</em>).
+Deși apare această diferență în outputul comenzii <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">status</span></code>, pașii pentru crearea unui commit care conține un fișier nou sau unul deja existent (dar modificat) sunt aceiași.</p>
 <div class="section" id="app-dev-modify-commit-ex">
 <span id="id3"></span><h4><span class="section-number">8.2.5.1. </span>Exerciții<a class="headerlink" href="#app-dev-modify-commit-ex" title="Permalink to this headline">¶</a></h4>
 <ol class="arabic simple">
@@ -890,7 +881,7 @@ Dacă rezolvarea conflictelor nu se poate face automat, trebuie să ne ocupăm d
 <dt class="label" id="commit-message"><span class="brackets"><a class="fn-backref" href="#id2">4</a></span></dt>
 <dd><p>Mesajele de commit trebuie să fie punctuale și ușor de înțeles.
 Alte persoane care lucrează la același proiect software vor vrea să înțeleagă rapid ce am modificat printr-un anumit commit.</p>
-<p><a class="reference external" href="https://chris.beams.io/posts/git-commit/">https://chris.beams.io/posts/git-commit/</a></p>
+<p>Recomandări punctuale legate de crearea unor bune mesaje de commit găsiți aici: <a class="reference external" href="https://chris.beams.io/posts/git-commit/">https://chris.beams.io/posts/git-commit/</a></p>
 </dd>
 </dl>
 </div>

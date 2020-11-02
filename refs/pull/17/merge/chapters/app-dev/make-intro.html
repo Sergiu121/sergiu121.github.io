@@ -578,7 +578,7 @@ Copiem codul sursă de mai jos și îl lipim în nano ca în imaginea de mai jos
 <div class="section" id="compilarea-codului-sursa-in-executabilul-a-out">
 <span id="app-dev-compile-aout"></span><h2><span class="section-number">2.2. </span>Compilarea codului sursă în executabilul <code class="docutils literal notranslate"><span class="pre">a.out</span></code><a class="headerlink" href="#compilarea-codului-sursa-in-executabilul-a-out" title="Permalink to this headline">¶</a></h2>
 <p>Avem fișierul cod sursă <code class="docutils literal notranslate"><span class="pre">is-prime.c</span></code> și vrem să obținem un program pe care să-l rulăm pe sistemul nostru.
-Pentru aceasta, trebuie să compilăm fișierul``is-prime.c``.
+Pentru aceasta, trebuie să compilăm fișierul <code class="docutils literal notranslate"><span class="pre">is-prime.c</span></code>.
 Acest program este de fapt un <strong>executabil</strong> (<em>binar</em>).
 Executabilele sunt fișiere care conțin instrucțiuni pe care sistemul de calcul le poate interpreta și rula.</p>
 <p>Creăm un executabil din fișierul <code class="docutils literal notranslate"><span class="pre">is-prime.c</span></code> folosind comanda <code class="docutils literal notranslate"><span class="pre">gcc</span></code>:</p>
@@ -589,7 +589,7 @@ total <span class="m">16</span>
 -rw-r--r-- <span class="m">1</span> student student  <span class="m">406</span> Oct <span class="m">26</span> <span class="m">06</span>:17 is-prime.c
 </pre></div>
 </div>
-<p>Executabilul se numește <code class="docutils literal notranslate"><span class="pre">a.out</span></code>.
+<p>Așa cum vedem în rezultatul rulări comenzii <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-l</span></code> de mai sus, executabilul se numește <code class="docutils literal notranslate"><span class="pre">a.out</span></code>.
 Acesta este numele implicit dat de GCC.
 Adică <code class="docutils literal notranslate"><span class="pre">a.out</span></code> va fi numele tuturor fișierelor executabile generate cu GCC, indiferent de fișierul cod sursă.
 Verificăm că fișierul <code class="docutils literal notranslate"><span class="pre">a.out</span></code> este într-adevăr un fișier executabil:</p>
@@ -597,7 +597,7 @@ Verificăm că fișierul <code class="docutils literal notranslate"><span class=
 a.out: ELF <span class="m">64</span>-bit LSB shared object, x86-64, version <span class="m">1</span> <span class="o">(</span>SYSV<span class="o">)</span>, dynamically linked, interpreter /lib64/l, <span class="k">for</span> GNU/Linux <span class="m">3</span>.2.0, BuildID<span class="o">[</span>sha1<span class="o">]=</span>14553360a84b6dbe4dba5f287a665047572bde7f, not stripped
 </pre></div>
 </div>
-<p>Acronimele <strong>ELF</strong> (<em>Executable and Linkable Format) și **LSB**(*Least Significant Byte</em>) nu sunt relevante în această carte, dar reținem că atunci când vedem un fișier <em>ELF</em>, acesta este un fișier <em>executabil</em>.</p>
+<p>Acronimele <strong>ELF</strong> (<em>Executable and Linkable Format) și **LSB*</em> (<em>Linux Standard Base</em>) nu sunt relevante în această carte, dar reținem că atunci când vedem un fișier <strong>ELF</strong>, acesta este un fișier <em>executabil</em>.</p>
 <p>Rulăm executabilul <code class="docutils literal notranslate"><span class="pre">a.out</span></code> în felul următor și introducem de la tastatură un număr:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ ./a.out
 Please gimme a number: <span class="m">13</span>
@@ -609,7 +609,7 @@ Please gimme a number: <span class="m">13</span>
 <div class="section" id="compilarea-codului-sursa-intr-un-executabil-cu-nume-diferit">
 <span id="app-dev-compile-custom"></span><h2><span class="section-number">2.3. </span>Compilarea codului sursă într-un executabil cu nume diferit<a class="headerlink" href="#compilarea-codului-sursa-intr-un-executabil-cu-nume-diferit" title="Permalink to this headline">¶</a></h2>
 <p>Numele <code class="docutils literal notranslate"><span class="pre">a.out</span></code> este implicit, deci toate programele compilate cu GCC se vor numi <code class="docutils literal notranslate"><span class="pre">a.out</span></code>.
-Putem seta un nume diferit pentru executabilul obținut.</p>
+Putem configura un nume diferit pentru executabilul obținut.</p>
 <p>Spre exemplu, pentru programul care verifică dacă un număr este prim sau nu, numim executabilul <code class="docutils literal notranslate"><span class="pre">is-prime</span></code>.
 Creăm un executabil cu numele <code class="docutils literal notranslate"><span class="pre">is-prime</span></code> din fișierul <code class="docutils literal notranslate"><span class="pre">is-prime.c</span></code> folosind comanda <code class="docutils literal notranslate"><span class="pre">gcc</span></code>:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ gcc -o is-prime is-prime.c
@@ -629,7 +629,7 @@ Please gimme a number: <span class="m">13</span>
 <span class="m">13</span> is not prime
 </pre></div>
 </div>
-<p>Vedem că programele <code class="docutils literal notranslate"><span class="pre">a.out</span></code> și <code class="docutils literal notranslate"><span class="pre">is-prime</span></code> au același comportament, dar au nume diferit.
+<p>Vedem că, deși au nume diferit, programele <code class="docutils literal notranslate"><span class="pre">a.out</span></code> și <code class="docutils literal notranslate"><span class="pre">is-prime</span></code> au același comportament.
 Acest lucru este normal deoarece ele sunt 2 fișiere executabile obținute din același fișier cod sursă obținute folosind același compilator: GCC.</p>
 </div>
 <div class="section" id="exercitii">

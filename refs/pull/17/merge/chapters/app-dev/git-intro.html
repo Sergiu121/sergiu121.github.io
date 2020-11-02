@@ -538,7 +538,7 @@ După ce le dăm acces, vrem ca fiecare dezvoltator să știe la ce a lucrat și
 <p>Pentru a putea rezolva problemele de sincronizare între doi sau mai mulți colegi de echipă care lucrează la același proiect, ne ajută să avem un <strong>sistem de versionare a codului</strong>, adică să avem un istoric de modificări.
 Fiecare modificare înseamnă o nouă versiune a proiectului; avem astfel o listă de versiuni gestionată de sistemul de versionare a codului.
 Pe lângă rezolvarea problemelor de sincronizare, versionarea codului aduce și alte avantaje cum ar fi revenirea la o versiune mai veche a proiectului, găsirea rapidă a autorului unei secvențe de cod sau, pur și simplu, organizarea unui proiect.</p>
-<p><strong>Git</strong> este un sistem de management și versionare a codului sursă care permite lucru eficient la un proiect software..</p>
+<p><strong>Git</strong> este un sistem de management și versionare a codului sursă care permite lucru eficient la un proiect software.</p>
 <p><a class="reference external" href="http://www.github.com/">GitHub</a> este o platformă online, bazată pe Git, pe care dezvoltatorii o pot folosi pentru a stoca și versiona codul lor sursă.
 Git este utilitarul folosit, iar GitHub este serverul și aplicația web pe care rulează acesta, locul în care păstrăm repository-ul remote.</p>
 <div class="admonition note">
@@ -546,12 +546,12 @@ Git este utilitarul folosit, iar GitHub este serverul și aplicația web pe care
 <p>Similar cu GitHub există și alte platforme precum <a class="reference external" href="https://bitbucket.org">Bitbucket</a> sau <a class="reference external" href="https://about.gitlab.com">GitLab</a>.
 Comenzile pe care le vom studia se aplică pentru toate platformele care folosesc <strong>Git</strong>, doar interfața grafică diferă.</p>
 <p>În această carte vom folosi GitHub ca suport.
-În mare parte acesta nu diferă foarte mult de alte platforme.</p>
+În mare parte, acesta nu diferă foarte mult de alte platforme.</p>
 </div>
 <div class="section" id="crearea-unui-cont-pe-github-daca-nu-aveti-deja">
 <span id="app-dev-create-github-account"></span><h2><span class="section-number">7.1. </span>Crearea unui cont pe GitHub (dacă nu aveți deja)<a class="headerlink" href="#crearea-unui-cont-pe-github-daca-nu-aveti-deja" title="Permalink to this headline">¶</a></h2>
 <p>Înainte de toate, ne asigurăm că avem cont pe GitHub.
-Dacă aveți deja un cont pe GitHub puteți trece la subsecțiunea următoare: <a class="reference internal" href="#app-dev-git-setup"><span class="std std-ref">Pregătirea inițială a mediului Git</span></a>.</p>
+Dacă aveți deja un cont pe GitHub, puteți trece la subsecțiunea următoare: <a class="reference internal" href="#app-dev-git-setup"><span class="std std-ref">Pregătirea inițială a mediului Git</span></a>.</p>
 <p>Dacă nu aveți cont, intrați pe <a class="reference external" href="http://www.github.com/">GitHub</a>.
 Pagina de pornire va arăta similar cu cea din imaginea de mai jos.</p>
 <div class="figure align-default">
@@ -626,7 +626,7 @@ Acest lucru este acoperit în secțiunile următoare.</p></li>
 </div>
 <div class="section" id="crearea-unui-repository-gol-local">
 <span id="app-dev-create-local-repo"></span><h3><span class="section-number">7.3.2. </span>Crearea unui repository gol local<a class="headerlink" href="#crearea-unui-repository-gol-local" title="Permalink to this headline">¶</a></h3>
-<p>Creăm un director din ierarhia de fișiere în care vom inițializa repository-ul git.</p>
+<p>Creăm un director din ierarhia de fișiere în care vom inițializa repository-ul Git.</p>
 <p>În acest tutorial creăm directorul <code class="docutils literal notranslate"><span class="pre">array-sorting-algorithms</span></code> în directorul home (adică <code class="docutils literal notranslate"><span class="pre">/home/student</span></code> sau <code class="docutils literal notranslate"><span class="pre">~</span></code>), folosind comenzile de mai jos:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ <span class="nb">pwd</span>
 /home/student
@@ -638,12 +638,12 @@ student@uso:~/array-sorting-algorithms$ ls -a
 ./    ../   .git/
 </pre></div>
 </div>
-<p>Mai sus am inițializat repository-ul local prin comanda <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">init</span></code> dată în directorul ales (<code class="docutils literal notranslate"><span class="pre">array-sorting-algorithms</span></code>) din directorul home al utilizatorului student (<code class="docutils literal notranslate"><span class="pre">/home/student</span></code>).</p>
+<p>Mai sus am inițializat repository-ul local prin comanda <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">init</span></code>, dată în directorul ales (<code class="docutils literal notranslate"><span class="pre">array-sorting-algorithms</span></code>) din directorul home al utilizatorului student (<code class="docutils literal notranslate"><span class="pre">/home/student</span></code>).</p>
 <p>Acum avem un repository creat local, numit <code class="docutils literal notranslate"><span class="pre">array-sorting-algorithms</span></code>.</p>
 <div class="admonition-init admonition">
 <p class="admonition-title"><strong>Init</strong></p>
 <p>Operația <strong>init</strong> este una locală și are rolul de a inițializa un repository gol, local.
-Inițializarea repository-ului local înseamnă crearea, în directorul ales, a mediului pentru a putea a putea lucra la un proiect software versionat Git.
+Inițializarea repository-ului local înseamnă crearea, în directorul ales, a mediului pentru a putea lucra la un proiect software versionat Git.
 Această operare duce la crearea unui director numit <code class="docutils literal notranslate"><span class="pre">.git</span></code> în care se vor ține ulterior date suplimentare despre repository, numite <strong>metadatele</strong> repository-ului.</p>
 <p>Am folosit opțiunea <code class="docutils literal notranslate"><span class="pre">-a</span></code> (<code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-a</span></code>) pentru a afișa și fișierele și directoarele ascunse.
 Directorul <code class="docutils literal notranslate"><span class="pre">.git</span></code> este un director ascuns.</p>
@@ -654,13 +654,13 @@ Directorul <code class="docutils literal notranslate"><span class="pre">.git</sp
 <p>Am creat până în acest moment un repository local și unul remote.
 Trebuie să le interconectăm pentru a lucra cu ele.</p>
 <p>În cazul în care suntem mai mulți membri în echipă, fiecare membru va conecta repository-ul său local, la repository-ul remote.
-Pentru conectarea celor două repository-uri folosim comanda de mai jos, dată în directorul unde este repository-ul local Git (adică în <code class="docutils literal notranslate"><span class="pre">/home/student/array-sorting-algorithms</span></code>):</p>
+Pentru conectarea celor două repository-uri folosim comanda de mai jos, dată în directorul unde este repository-ul local Git (în cazul nostru <code class="docutils literal notranslate"><span class="pre">/home/student/array-sorting-algorithms</span></code>):</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/array-sorting-algorithms$ git remote add origin https://github.com/<span class="o">{</span>username<span class="o">}</span>/array-sorting-algorithms.git
 </pre></div>
 </div>
 <p>În comanda de mai sus <code class="docutils literal notranslate"><span class="pre">{username}</span></code> este numele utilizatorului nostru de pe GitHub.
-De exemplu, pentru autorul acestui capitol <code class="docutils literal notranslate"><span class="pre">{username}</span></code> se înlocuiește cu <code class="docutils literal notranslate"><span class="pre">lizababu</span></code>.</p>
-<p>Conectarea celor două repository-uril înseamnă setarea repository-ului <code class="docutils literal notranslate"><span class="pre">origin</span></code>, adică repository-ului remote la care se conectează cel local.</p>
+De exemplu, pentru autorul acestui capitol, <code class="docutils literal notranslate"><span class="pre">{username}</span></code> se înlocuiește cu <code class="docutils literal notranslate"><span class="pre">lizababu</span></code>.</p>
+<p>Conectarea celor două repository-uri înseamnă setarea repository-ului <code class="docutils literal notranslate"><span class="pre">origin</span></code>, adică repository-ului remote la care se conectează cel local.</p>
 <p>Imaginea de mai jos arată cum arată cum se contectează repository-urile <strong>remote</strong> și <strong>local</strong>.
 Sincronizarea lor se face prin intermediul operațiilor <strong>push</strong> și <strong>pull</strong> care sunt prezentate pe parcursul secțiunii <a class="reference internal" href="git-first-commits.html#app-dev-first-commits"><span class="std std-ref">Primele commituri</span></a>.</p>
 <div class="figure align-default">

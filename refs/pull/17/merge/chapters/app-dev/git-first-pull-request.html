@@ -546,9 +546,9 @@ Alți colaboratori ai proiectului vor recenza modificările și vor aproba, vor 
 În momentul în care un Pull Request este aprobat, schimbările propuse în Pull Request pot fi integrate în proiect, adică se va putea face merge între codul sursă curent și noile modificări.</p>
 <p>Practic, un Pull Request este o interfață GitHub de contribuit la proiecte software, interfață bazată pe lucrul cu branch-uri Git.</p>
 <p>Spunem că deschidem un Pull Request care urmează să fie integrat într-un anumit branch.
-De obice acel branch este <strong>main</strong>.
-În acest tutorial vom deschide un Pull Request care urmează să fie integrat în branch-ul <strong>main</strong>.</p>
-<p>În secțiunea <a class="reference internal" href="git-branches.html#app-dev-branches"><span class="std std-ref">Lucrul pe branch-uri</span></a> am adus modificările de pe branch-ul <strong>add-gitignore</strong> pe branch-ul <strong>main</strong> prin operația <strong>merge</strong>.
+De obicei acel branch este <strong>master</strong>.
+În acest tutorial vom deschide un Pull Request care urmează să fie integrat în branch-ul <strong>master</strong>.</p>
+<p>În secțiunea <a class="reference internal" href="git-branches.html#app-dev-branches"><span class="std std-ref">Lucrul pe branch-uri</span></a> am adus modificările de pe branch-ul <strong>add-gitignore</strong> pe branch-ul <strong>master</strong> prin operația <strong>merge</strong>.
 În această secțiune vom integra schimbările prin intermediul unui <strong>Pull Request</strong> <a class="footnote-reference brackets" href="#pull-request" id="id1">1</a> urmând pașii din subsecțiunea <a class="reference internal" href="#app-dev-pr-steps"><span class="std std-ref">Pași Pull Request</span></a>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -567,14 +567,14 @@ De obice acel branch este <strong>main</strong>.
 <li><p>Creăm un commit (sau mai multe) pe noul branch și îl publicăm pe GitHub.</p></li>
 <li><p>Creăm un PR în interfața GitHub.</p></li>
 <li><p>Ulterior, un maintainer al repository-ului va recenza PR-ul. Dacă e nevoie de modificări, vom face actualizări pe care le vom adăuga (prin operația <strong>push</strong>) din nou în branch-ul nou creat, PR-ul fiind actualizat.</p></li>
-<li><p>După un număr dat de iterații, PR-ul va fi definitivat. Atunci maintainerul va integra branch-ul în <strong>main</strong> (operația <strong>merge</strong>).</p></li>
+<li><p>După un număr dat de iterații, PR-ul va fi definitivat. Atunci maintainerul va integra branch-ul în <strong>master</strong> (operația <strong>merge</strong>).</p></li>
 </ol>
 <p>În următoarele subsecțiuni vom implementa algoritmul Bubble Sort și vom modifica repository-ul <code class="docutils literal notranslate"><span class="pre">array-sorting-algorithms</span></code> prin intermediul unui <strong>Pull Request</strong>.</p>
 </div>
 <div class="section" id="crearea-unui-branch-nou">
 <span id="app-dev-pr-create-branch"></span><h2><span class="section-number">10.2. </span>Crearea unui branch nou<a class="headerlink" href="#crearea-unui-branch-nou" title="Permalink to this headline">¶</a></h2>
-<p>Pentru a putea deschide un Pull Request, trebuie să lucrăm pe un branch diferit dață de cel în care vrem să integrăm schimbările.
-Vom lucra pe un nou branch, diferit de branch-ul <strong>main</strong>.</p>
+<p>Pentru a putea deschide un Pull Request, trebuie să lucrăm pe un branch diferit față de cel în care vrem să integrăm schimbările.
+Vom lucra pe un nou branch, diferit de branch-ul <strong>master</strong>.</p>
 <p>Creăm un branch numit <strong>bubble-sort-implementation</strong> folosind comanda <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">branch</span></code>:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/array-sorting-algorithms$ git branch
 *  master
@@ -767,7 +767,7 @@ O descriere potrivită poate fi:</p>
 </div>
 <div class="section" id="configurarea-branch-ului-in-care-vom-integra-pr-ul">
 <span id="app-dev-pr-config"></span><h3><span class="section-number">10.4.2. </span>Configurarea branch-ului în care vom integra PR-ul<a class="headerlink" href="#configurarea-branch-ului-in-care-vom-integra-pr-ul" title="Permalink to this headline">¶</a></h3>
-<p>Ca să finalizăm PR-ul, modificările din acesta trebuie să fie adăugate într-un branch, cel mai adesea în branch-ul <strong>main</strong> <a class="footnote-reference brackets" href="#base-branch" id="id2">2</a>.</p>
+<p>Ca să finalizăm PR-ul, modificările din acesta trebuie să fie adăugate într-un branch, cel mai adesea în branch-ul <strong>master</strong> <a class="footnote-reference brackets" href="#base-branch" id="id2">2</a>.</p>
 <p>În acest tutorial vom folosi branch-ul <code class="docutils literal notranslate"><span class="pre">master</span></code> ca în imaginea de mai jos:</p>
 <div class="figure align-default">
 <a class="reference internal image-reference" href="../../_images/GitHub-create-PR-base-branch.png"><img alt="Setarea branch-ului în care se va integra PR-ul" src="../../_images/GitHub-create-PR-base-branch.png" style="width: 1276.2px; height: 569.7px;" /></a>
@@ -790,7 +790,7 @@ Recenzenții fac parte din colaboratorii proiectului.</p>
 </div>
 <div class="section" id="integrarea-pr-ului">
 <span id="app-dev-pr-integration"></span><h2><span class="section-number">10.5. </span>Integrarea PR-ului<a class="headerlink" href="#integrarea-pr-ului" title="Permalink to this headline">¶</a></h2>
-<p>După mai multe runde de feedback și aplicarea acestuia, PR-ul va fi gata de integrat în branch-ul <strong>main</strong>.</p>
+<p>După mai multe runde de feedback și aplicarea acestuia, PR-ul va fi gata de integrat în branch-ul <strong>master</strong>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Acest scenariu <em>ping-pong</em> se va repeta până când voi, împreună cu recenzenții, ajungeți la concluzia că schimbările pot fi integrate.</p>
@@ -801,7 +801,7 @@ Apăsăm mai întâi butonul <code class="docutils literal notranslate"><span cl
 <img alt="Operația merge. Închiderea PR-ului" src="../../_images/GitHub-create-PR.gif" />
 </div>
 <p>Am făcut operația <strong>merge</strong> în repository-ul remote (<em>origin</em>).
-Avem pe branch-ul <strong>main</strong> implementarea algoritmului Bubble Sort.
+Avem pe branch-ul <strong>master</strong> implementarea algoritmului Bubble Sort.
 Actualizăm și repository-ul local folosind comanda <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">pull</span></code>:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/array-sorting-algorithms$ git checkout master
 Switched to branch <span class="s1">&#39;master&#39;</span>
@@ -835,7 +835,7 @@ student@uso:~/array-sorting-algorithms$ git branch
 * master
 </pre></div>
 </div>
-<p>În final am ajuns să integrăm modificările de pe branch-ul <strong>bubble-sort-implementation</strong> în branch-ul <strong>main</strong> prin intermediul unui <strong>Pull Request</strong>.
+<p>În final am ajuns să integrăm modificările de pe branch-ul <strong>bubble-sort-implementation</strong> în branch-ul <strong>master</strong> prin intermediul unui <strong>Pull Request</strong>.
 Am șters branch-ul <strong>bubble-sort-implementation</strong>.</p>
 </div>
 <div class="section" id="exercitiu-crearea-unui-pr">
@@ -929,12 +929,16 @@ De această dată veți modifica fișierul <code class="docutils literal notrans
 </div>
 <div class="section" id="bune-practici">
 <span id="app-dev-pr-good-practices"></span><h2><span class="section-number">10.8. </span>Bune practici<a class="headerlink" href="#bune-practici" title="Permalink to this headline">¶</a></h2>
-<p>Alternativa la a crea un <strong>Pull Request</strong> ar fi să lucrăm direct pe branch-ul <strong>main</strong>.</p>
-<p>Așa cum am menționat și în secțiunile anterioare, este <strong>BAD-PRACTICE</strong> să lucrăm direct pe branch-ul <strong>main</strong> din mai multe motive:</p>
+<p>Alternativa la a crea un <strong>Pull Request</strong> ar fi să lucrăm direct pe branch-ul <strong>master</strong>.</p>
+<p>Așa cum am menționat și în secțiunile anterioare, este <strong>BAD-PRACTICE</strong> să lucrăm direct pe branch-ul <strong>master</strong> din mai multe motive:</p>
 <ol class="arabic simple">
-<li><p>Pe branch-ul <strong>main</strong> se ține întotdeauna o versiune de cod funcțională. Astfel, lucrul pe acest branch ar însemna să facem commituri doar atunci când o funcționalitate este finalizată. Altfel pe branch-ul <strong>main</strong> vom avea o bucată de cod neterminată care poate să afecteze întreg proiectul.</p></li>
-<li><p>Lucrul pe un singur branch nu oferă posibilitatea de a da feedback pe schimbările făcute pe repository. Dacă nu avem posibilitatea să oferim feedback unui coleg prin intermediul GitHub, atunci vom avea nevoie să comunicăm pe un alt mediu observațiile noastre, iar ei vor trebui să creeze un nou commit pentru rezolvarea problemelor. Mult mai simplu este să se realizeze întreaga etapă de feedback, numită <strong>code review</strong> înainte ca schimbările să apară pe <strong>main</strong>.</p></li>
-<li><p>În unele situații nici nu vom avea drepturi să scriem pe branch-ul <strong>main</strong>, astfel devenind obligatoriu lucrul pe un alt branch și integrarea codului în branch-ul <strong>main</strong> printr-un <strong>Pull Request</strong>.</p></li>
+<li><p>Pe branch-ul <strong>master</strong> se ține întotdeauna o versiune de cod funcțională.
+Astfel, lucrul pe acest branch ar însemna să facem commituri doar atunci când o funcționalitate este finalizată.
+Altfel pe branch-ul <strong>master</strong> vom avea o bucată de cod neterminată care poate să afecteze întreg proiectul.</p></li>
+<li><p>Lucrul pe un singur branch nu oferă posibilitatea de a da feedback pe schimbările făcute pe repository.
+Dacă nu avem posibilitatea să oferim feedback unui coleg prin intermediul GitHub, atunci vom avea nevoie să comunicăm pe un alt mediu observațiile noastre, iar ei vor trebui să creeze un nou commit pentru rezolvarea problemelor.
+Mult mai simplu este să se realizeze întreaga etapă de feedback, numită <strong>code review</strong>, înainte ca schimbările să apară pe <strong>master</strong>.</p></li>
+<li><p>În unele situații nici nu vom avea drepturi să scriem pe branch-ul <strong>master</strong>, astfel devenind obligatoriu lucrul pe un alt branch și integrarea codului în branch-ul <strong>master</strong> printr-un <strong>Pull Request</strong>.</p></li>
 </ol>
 <p class="rubric">Note de subsol</p>
 <dl class="footnote brackets">
