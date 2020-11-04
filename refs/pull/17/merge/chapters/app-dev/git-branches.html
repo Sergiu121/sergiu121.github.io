@@ -593,8 +593,8 @@ Modificările au fost făcute peste commitul <em>b2a590a</em>.</p>
 <a class="reference internal image-reference" href="../../_images/GitHub-commit-history.gif"><img alt="Reprezentarea vizuală a istoricului de commituri" src="../../_images/GitHub-commit-history.gif" style="width: 612.0px; height: 210.0px;" /></a>
 </div>
 <p>În acest moment, pe repository-ul nostru aveți un singur branch - <strong>master</strong>.
-În continuare vom lucra la proiectul nostru <code class="docutils literal notranslate"><span class="pre">array-sorting-algorithms</span></code>, dar vom face schimbări de pe alt branch-uri.</p>
-<p>În această secțiune vom adăuga un fișier <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code> proiectului și vom adăuga implementarea pentru agloritmul Merge Sort.</p>
+În continuare vom lucra la proiectul nostru <code class="docutils literal notranslate"><span class="pre">array-sorting-algorithms</span></code>, dar vom face schimbări de pe alte branch-uri.</p>
+<p>În următoarea secțiune vom adăuga un fișier <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code> proiectului și vom adăuga implementarea pentru agloritmul Merge Sort.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>În general adăugăm fișierul <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code> la un proiect de pe branch-ul master.</p>
@@ -605,6 +605,13 @@ Modificările au fost făcute peste commitul <em>b2a590a</em>.</p>
 <p>De acum încolo, vom face toate modificările de pe un nou branch, diferit de branch-ul <strong>master</strong> <a class="footnote-reference brackets" href="#good-practice" id="id2">2</a>.</p>
 <p>În această subsecțiune vom crea un nou branch numit <code class="docutils literal notranslate"><span class="pre">add-gitignore</span></code>.
 Vom adăuga un fișier <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code> proiectului de pe acest branch.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Într-un proiect Git, scriem în fișierul <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code> nume de fișiere și directoare.
+Acestea sunt fișiere și directoare din directorul proiectului pe care nu vrem să le adăugăm în repository.</p>
+<p>Spre exemplu, nu punem fișiere obiect și fișiere executabile în repository pentru că sunt fișiere generate pentru un anumit tip de sistem.
+Având codul sursă, putem genera fișierele obiect și executabile pe sistemul nostru.</p>
+</div>
 <p>Verificăm branch-ul pe care ne aflăm folosind comanda <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">branch</span></code>:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/array-sorting-algorithms$ git branch
 *  master
@@ -674,7 +681,7 @@ To https://github.com/lizababu/array-sorting-algorithmss.git
 </pre></div>
 </div>
 <p>Am publicat commitul în repository-ul remote pe branch-ul <code class="docutils literal notranslate"><span class="pre">add-gitignore</span></code>.
-Odată cu publicarea commitului pe GitHub, a fost creat și branch-ul <code class="docutils literal notranslate"><span class="pre">add-gitignore</span></code> remote.</p>
+Odată cu publicarea commitului pe GitHub, a fost creat și branch-ul <code class="docutils literal notranslate"><span class="pre">add-gitignore</span></code> în repository-ul remote.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Orice operație trebuie să fie urmată de o operație de verficare.
@@ -911,36 +918,36 @@ To https://github.com/lizababu/array-sorting-algorithms.git
 
 <span class="cp">#define MAX_LEN 100</span>
 
-<span class="k">static</span> <span class="kt">void</span> <span class="nf">merge</span><span class="p">(</span><span class="kt">int</span> <span class="n">arr</span><span class="p">[],</span> <span class="kt">int</span> <span class="n">l</span><span class="p">,</span> <span class="kt">int</span> <span class="n">m</span><span class="p">,</span> <span class="kt">int</span> <span class="n">r</span><span class="p">)</span>
+<span class="k">static</span> <span class="kt">void</span> <span class="nf">merge</span><span class="p">(</span><span class="kt">int</span> <span class="n">arr</span><span class="p">[],</span> <span class="kt">int</span> <span class="n">left</span><span class="p">,</span> <span class="kt">int</span> <span class="n">mid</span><span class="p">,</span> <span class="kt">int</span> <span class="n">right</span><span class="p">)</span>
 <span class="p">{</span>
     <span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">k</span><span class="p">;</span>
-    <span class="kt">int</span> <span class="n">n1</span> <span class="o">=</span> <span class="n">m</span> <span class="o">-</span> <span class="n">l</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
-    <span class="kt">int</span> <span class="n">n2</span> <span class="o">=</span> <span class="n">r</span> <span class="o">-</span> <span class="n">m</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">n1</span> <span class="o">=</span> <span class="n">mid</span> <span class="o">-</span> <span class="n">left</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">n2</span> <span class="o">=</span> <span class="n">right</span> <span class="o">-</span> <span class="n">mid</span><span class="p">;</span>
 
-    <span class="kt">int</span> <span class="n">L</span><span class="p">[</span><span class="n">n1</span><span class="p">],</span> <span class="n">R</span><span class="p">[</span><span class="n">n2</span><span class="p">];</span>
+    <span class="kt">int</span> <span class="n">aux_left</span><span class="p">[</span><span class="n">n1</span><span class="p">],</span> <span class="n">aux_right</span><span class="p">[</span><span class="n">n2</span><span class="p">];</span>
 
     <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n1</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
-        <span class="n">L</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">arr</span><span class="p">[</span><span class="n">l</span> <span class="o">+</span> <span class="n">i</span><span class="p">];</span>
+        <span class="n">aux_left</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">arr</span><span class="p">[</span><span class="n">left</span> <span class="o">+</span> <span class="n">i</span><span class="p">];</span>
     <span class="k">for</span> <span class="p">(</span><span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">n2</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span>
-        <span class="n">R</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">arr</span><span class="p">[</span><span class="n">m</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">j</span><span class="p">];</span>
+        <span class="n">aux_right</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">arr</span><span class="p">[</span><span class="n">mid</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">j</span><span class="p">];</span>
 
     <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
     <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
     <span class="n">k</span> <span class="o">=</span> <span class="n">l</span><span class="p">;</span>
     <span class="k">while</span> <span class="p">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="n">n1</span> <span class="o">&amp;&amp;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">n2</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">if</span> <span class="p">(</span><span class="n">L</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">R</span><span class="p">[</span><span class="n">j</span><span class="p">])</span> <span class="p">{</span>
-            <span class="n">arr</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">L</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">aux_left</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">aux_right</span><span class="p">[</span><span class="n">j</span><span class="p">])</span> <span class="p">{</span>
+            <span class="n">arr</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">aux_left</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
             <span class="n">i</span><span class="o">++</span><span class="p">;</span>
         <span class="p">}</span>
         <span class="k">else</span> <span class="p">{</span>
-            <span class="n">arr</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">R</span><span class="p">[</span><span class="n">j</span><span class="p">];</span>
+            <span class="n">arr</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">aux_right</span><span class="p">[</span><span class="n">j</span><span class="p">];</span>
             <span class="n">j</span><span class="o">++</span><span class="p">;</span>
         <span class="p">}</span>
         <span class="n">k</span><span class="o">++</span><span class="p">;</span>
     <span class="p">}</span>
 
     <span class="k">while</span> <span class="p">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="n">n1</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">arr</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">L</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+        <span class="n">arr</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">aux_left</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
         <span class="n">i</span><span class="o">++</span><span class="p">;</span>
         <span class="n">k</span><span class="o">++</span><span class="p">;</span>
     <span class="p">}</span>
@@ -952,15 +959,15 @@ To https://github.com/lizababu/array-sorting-algorithms.git
     <span class="p">}</span>
 <span class="p">}</span>
 
-<span class="k">static</span> <span class="kt">void</span> <span class="nf">sort</span><span class="p">(</span><span class="kt">int</span> <span class="n">arr</span><span class="p">[],</span> <span class="kt">int</span> <span class="n">l</span><span class="p">,</span> <span class="kt">int</span> <span class="n">r</span><span class="p">)</span>
+<span class="k">static</span> <span class="kt">void</span> <span class="nf">sort</span><span class="p">(</span><span class="kt">int</span> <span class="n">arr</span><span class="p">[],</span> <span class="kt">int</span> <span class="n">left</span><span class="p">,</span> <span class="kt">int</span> <span class="n">right</span><span class="p">)</span>
 <span class="p">{</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">l</span> <span class="o">&lt;</span> <span class="n">r</span><span class="p">)</span> <span class="p">{</span>
-        <span class="kt">int</span> <span class="n">m</span> <span class="o">=</span> <span class="n">l</span> <span class="o">+</span> <span class="p">(</span><span class="n">r</span> <span class="o">-</span> <span class="n">l</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">left</span> <span class="o">&lt;</span> <span class="n">right</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kt">int</span> <span class="n">mid</span> <span class="o">=</span> <span class="n">left</span> <span class="o">+</span> <span class="p">(</span><span class="n">right</span> <span class="o">-</span> <span class="n">left</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">;</span>
 
-        <span class="n">sort</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">l</span><span class="p">,</span> <span class="n">m</span><span class="p">);</span>
-        <span class="n">sort</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">m</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">r</span><span class="p">);</span>
+        <span class="n">sort</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">left</span><span class="p">,</span> <span class="n">mid</span><span class="p">);</span>
+        <span class="n">sort</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">mid</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">right</span><span class="p">);</span>
 
-        <span class="n">merge</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">l</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">r</span><span class="p">);</span>
+        <span class="n">merge</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">left</span><span class="p">,</span> <span class="n">mid</span><span class="p">,</span> <span class="n">right</span><span class="p">);</span>
     <span class="p">}</span>
 <span class="p">}</span>
 
@@ -1007,7 +1014,7 @@ To https://github.com/lizababu/array-sorting-algorithms.git
 </div>
 <div class="section" id="bune-practici">
 <span id="app-dev-branches-good-practices"></span><h2><span class="section-number">9.6. </span>Bune practici<a class="headerlink" href="#bune-practici" title="Permalink to this headline">¶</a></h2>
-<p>Atunci când contribuim la un proiect putem să lucrăm fie branch-ul <strong>master</strong>, fie pe un alt branch.
+<p>Atunci când contribuim la un proiect putem să lucrăm fie pe branch-ul <strong>master</strong>, fie pe un alt branch.
 Este considerat <strong>BAD PRACTICE</strong> să lucrăm pe branch-ul <strong>master</strong> din mai multe motive:</p>
 <ol class="arabic simple">
 <li><p>Pe branch-ul <strong>master</strong> se ține întotdeauna o versiune de cod funcțională.

@@ -541,7 +541,7 @@ Având commiturile în repository putem să gestionăm mai ușor proiectul, adic
 <ul class="simple">
 <li><p>să revenim la un commit anterior (adesea chiar ultimul) dacă modificările cele mai recente “strică” proiectul</p></li>
 <li><p>să vedem cine este autorul anumitor modificări</p></li>
-<li><p>să creăm o ramură de dezvoltare separată pornind la un commit anterior, pe care să încercăm o funcționalitate nouă, fără a afecta restul proiectului</p></li>
+<li><p>să creăm o ramură de dezvoltare separată pornind de la un commit anterior, pe care să încercăm o funcționalitate nouă, fără a afecta restul proiectului</p></li>
 </ul>
 <p>Git se ocupă de păstrarea și gestiunea istoricului repository-ului nostru prin păstrarea listei de commituri făcute.
 Adică Git păstrează un istoric de versiuni al proiectului.</p>
@@ -598,7 +598,7 @@ Creăm commitul.</p></li>
 <div class="section" id="verificarea-starii-repository-ului-local">
 <span id="app-dev-check-status"></span><h3><span class="section-number">8.2.1. </span>Verificarea stării repository-ului local<a class="headerlink" href="#verificarea-starii-repository-ului-local" title="Permalink to this headline">¶</a></h3>
 <p>Prin <strong>starea repository-ului</strong> înțelegem forma la care am adus proiectul prin modificările noastre.
-Aceasta include ce fișiere am creat, modificat sau șters de la ultima sincronizare cu repository-ul remote.
+Aceasta include ce fișiere am creat, modificat sau șters de la ultimul commit.
 Ne interesează întotdeauna starea repository-ului pe care lucrăm.</p>
 <p>Pentru a verifica starea repository-ului folosim comanda <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">status</span></code>:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/array-sorting-algorithms$ git status
@@ -659,7 +659,7 @@ nothing to commit, working tree clean
 </pre></div>
 </div>
 <p>Am folosit descrierea <code class="docutils literal notranslate"><span class="pre">Add</span> <span class="pre">README</span> <span class="pre">file</span></code> la comanda <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">commit</span></code> drept <strong>mesaj de commit</strong> <a class="footnote-reference brackets" href="#commit-message" id="id2">4</a>.
-Aceasta este o descriere succintă a modificările făcute prin acest commit.</p>
+Aceasta este o descriere succintă a modificărilor făcute prin acest commit.</p>
 </div>
 <div class="section" id="crearea-unui-nou-commit">
 <span id="app-dev-create-new-commit"></span><h3><span class="section-number">8.2.4. </span>Crearea unui nou commit<a class="headerlink" href="#crearea-unui-nou-commit" title="Permalink to this headline">¶</a></h3>
@@ -782,6 +782,7 @@ Folosiți următorul mesaj de commit: <code class="docutils literal notranslate"
 De aceea folosim un sistem de versionare a codului, în cazul nostru <code class="docutils literal notranslate"><span class="pre">Git</span></code>.
 Verificăm istoricul commiturilor folosind comanda <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">log</span></code>:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>student@uso:~/array-sorting-algorithms$ git log
+commit 66b7c5fabb93b521326e6cd9ff219a06a3aec064 (HEAD -&gt; master)
 Author: Liza Babu &lt;lizababu@example.com&gt;
 Date:   Thu Sep 24 10:40:06 2020 -0700
 
@@ -829,7 +830,7 @@ Apăsați tasta <strong>q</strong> când ați terminat de inspectat.</p>
 </div>
 <p>Fiecare commit este identificat unic printr-un cod, numit <strong>cod hash</strong> <a class="footnote-reference brackets" href="#hash" id="id4">2</a>.
 Discutăm în continuare despre ultimul commit din listă.
-Acesta are codul hash <code class="docutils literal notranslate"><span class="pre">0dfb632b9de79f9a25011e8b98be48c7b1a0aad8</span></code> și mesajul de commit <code class="docutils literal notranslate"><span class="pre">Update</span> <span class="pre">README</span> <span class="pre">title</span></code>.</p>
+Acesta are codul hash <code class="docutils literal notranslate"><span class="pre">66b7c5fabb93b521326e6cd9ff219a06a3aec064</span></code> și mesajul de commit <code class="docutils literal notranslate"><span class="pre">Update</span> <span class="pre">README</span> <span class="pre">title</span></code>.</p>
 <p>Acum vedem că repository-ul indică spre acest nou commit.
 Ne dăm seama de acest lucru pentru că <code class="docutils literal notranslate"><span class="pre">HEAD</span></code> se află în dreptul commitului tocmai făcut.
 <code class="docutils literal notranslate"><span class="pre">HEAD</span></code> ne indică starea repository-ului, adică ne arată care este ultimul commit pe care l-am făcut în repository.</p>

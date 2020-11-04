@@ -546,7 +546,7 @@ Copiem codul sursă de mai jos și îl lipim în nano ca în imaginea de mai jos
     <span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
 
     <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span> <span class="o">/</span> <span class="mi">2</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">if</span> <span class="p">(</span><span class="n">n</span> <span class="o">%</span> <span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">n</span> <span class="o">%</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
             <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
         <span class="p">}</span>
     <span class="p">}</span>
@@ -574,6 +574,7 @@ Copiem codul sursă de mai jos și îl lipim în nano ca în imaginea de mai jos
 <div class="figure align-default">
 <img alt="Crearea unui fișier ``is-prime.c`` cu algoritmul asociat" src="../../_images/create-is-prime.gif" />
 </div>
+<p>Mai multe detalii despre folosirea editorului de text <code class="docutils literal notranslate"><span class="pre">nano</span></code> găsim în capitolul <em>Lucrul cu fișiere</em>.</p>
 </div>
 <div class="section" id="compilarea-codului-sursa-in-executabilul-a-out">
 <span id="app-dev-compile-aout"></span><h2><span class="section-number">2.2. </span>Compilarea codului sursă în executabilul <code class="docutils literal notranslate"><span class="pre">a.out</span></code><a class="headerlink" href="#compilarea-codului-sursa-in-executabilul-a-out" title="Permalink to this headline">¶</a></h2>
@@ -601,7 +602,7 @@ a.out: ELF <span class="m">64</span>-bit LSB shared object, x86-64, version <spa
 <p>Rulăm executabilul <code class="docutils literal notranslate"><span class="pre">a.out</span></code> în felul următor și introducem de la tastatură un număr:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ ./a.out
 Please gimme a number: <span class="m">13</span>
-<span class="m">13</span> is not prime
+<span class="m">13</span> is prime
 </pre></div>
 </div>
 <p>Programul funcționează: citește un număr de la tastatură și afișează dacă acesta este prim sau nu.</p>
@@ -611,7 +612,7 @@ Please gimme a number: <span class="m">13</span>
 <p>Numele <code class="docutils literal notranslate"><span class="pre">a.out</span></code> este implicit, deci toate programele compilate cu GCC se vor numi <code class="docutils literal notranslate"><span class="pre">a.out</span></code>.
 Putem configura un nume diferit pentru executabilul obținut.</p>
 <p>Spre exemplu, pentru programul care verifică dacă un număr este prim sau nu, numim executabilul <code class="docutils literal notranslate"><span class="pre">is-prime</span></code>.
-Creăm un executabil cu numele <code class="docutils literal notranslate"><span class="pre">is-prime</span></code> din fișierul <code class="docutils literal notranslate"><span class="pre">is-prime.c</span></code> folosind comanda <code class="docutils literal notranslate"><span class="pre">gcc</span></code>:</p>
+Creăm un executabil cu numele <code class="docutils literal notranslate"><span class="pre">is-prime</span></code> din fișierul <code class="docutils literal notranslate"><span class="pre">is-prime.c</span></code> folosind opțiunea <code class="docutils literal notranslate"><span class="pre">-o</span></code> a comenzii <code class="docutils literal notranslate"><span class="pre">gcc</span></code>:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ gcc -o is-prime is-prime.c
 student@uso:~$ ls -l
 total <span class="m">28</span>
@@ -626,7 +627,7 @@ is-prime: ELF <span class="m">64</span>-bit LSB shared object, x86-64, version <
 Rulăm executabilul <code class="docutils literal notranslate"><span class="pre">is-prime</span></code> în felul următor și introducem de la tastatură un număr:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ ./is-prime
 Please gimme a number: <span class="m">13</span>
-<span class="m">13</span> is not prime
+<span class="m">13</span> is prime
 </pre></div>
 </div>
 <p>Vedem că, deși au nume diferit, programele <code class="docutils literal notranslate"><span class="pre">a.out</span></code> și <code class="docutils literal notranslate"><span class="pre">is-prime</span></code> au același comportament.
