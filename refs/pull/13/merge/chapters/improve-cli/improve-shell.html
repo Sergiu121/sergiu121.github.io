@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-      <title>6. O înțelegere mai bună a shell-ului</title>
+      <title>5. O înțelegere mai bună a shellului</title>
     
       <link rel="stylesheet" href="../../_static/pygments.css">
       <link rel="stylesheet" href="../../_static/theme.css">
@@ -24,8 +24,7 @@
     
   <link rel="index" title="Index" href="../../genindex.html" />
   <link rel="search" title="Search" href="../../search.html" />
-  <link rel="next" title="7. Multiplexarea terminalului" href="term-multiplexing.html" />
-  <link rel="prev" title="5. Prelucrarea fișierelor" href="process-files.html" />
+  <link rel="prev" title="4. Inspectarea fișierelor" href="inspect-files.html" />
     <link href="../../_static/my_theme.css" rel="stylesheet" type="text/css">
 
   </head>
@@ -481,30 +480,18 @@
           </li>
 
         
-          <li class="toctree-l1 "><a href="process-files.html" class="reference internal ">Prelucrarea fișierelor</a>
-
-            
-          </li>
-
-        
-          <li class="toctree-l1 current"><a href="#" class="reference internal current">O înțelegere mai bună a shell-ului</a>
+          <li class="toctree-l1 current"><a href="#" class="reference internal current">O înțelegere mai bună a shellului</a>
 
             
               <ul>
                 
-                  <li class="toctree-l2"><a href="#custom-is-better" class="reference internal">1) Custom is better</a></li>
+                  <li class="toctree-l2"><a href="#configurarea-shellului-bash" class="reference internal">Configurarea shellului bash</a></li>
                 
-                  <li class="toctree-l2"><a href="#executia-comenzilor" class="reference internal">2) Execuția comenzilor</a></li>
+                  <li class="toctree-l2"><a href="#executia-comenzilor" class="reference internal">Execuția comenzilor</a></li>
                 
                   <li class="toctree-l2"><a href="#shell-scripting" class="reference internal">3) Shell scripting</a></li>
                 
               </ul>
-            
-          </li>
-
-        
-          <li class="toctree-l1 "><a href="term-multiplexing.html" class="reference internal ">Multiplexarea terminalului</a>
-
             
           </li>
 
@@ -521,18 +508,14 @@
   <ul class="breadcrumbs">
     <li><a href="../../index.html">Docs</a> &raquo;</li>
     
-    <li><span class="section-number">6. </span>O înțelegere mai bună a shell-ului</li>
+    <li><span class="section-number">5. </span>O înțelegere mai bună a shellului</li>
   </ul>
   
 
   <ul class="page-nav">
   <li class="prev">
-    <a href="process-files.html"
-       title="previous chapter">← <span class="section-number">5. </span>Prelucrarea fișierelor</a>
-  </li>
-  <li class="next">
-    <a href="term-multiplexing.html"
-       title="next chapter"><span class="section-number">7. </span>Multiplexarea terminalului →</a>
+    <a href="inspect-files.html"
+       title="previous chapter">← <span class="section-number">4. </span>Inspectarea fișierelor</a>
   </li>
 </ul>
   
@@ -540,55 +523,303 @@
 <hr>
           <div class="content" role="main">
             
-  <div class="section" id="o-intelegere-mai-buna-a-shell-ului">
-<h1><span class="section-number">6. </span>O înțelegere mai bună a shell-ului<a class="headerlink" href="#o-intelegere-mai-buna-a-shell-ului" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="custom-is-better">
-<h2><span class="section-number">6.1. </span>1) Custom is better<a class="headerlink" href="#custom-is-better" title="Permalink to this headline">¶</a></h2>
-<p>Totul este mai bun cu un fișier de configurare</p>
-<ul class="simple">
-<li><p>Prezentare <code class="docutils literal notranslate"><span class="pre">alias</span></code> și noțiunea de fișier de configurare: cel mai important, deocamdată: <code class="docutils literal notranslate"><span class="pre">.bashrc</span></code>. Observare alias-uri existente: <code class="docutils literal notranslate"><span class="pre">ls</span></code>, <code class="docutils literal notranslate"><span class="pre">ll</span></code>, <code class="docutils literal notranslate"><span class="pre">grep</span></code>; și definirea de noi alias-uri</p></li>
-<li><p>Utilizarea comenzii <code class="docutils literal notranslate"><span class="pre">source</span></code> pentru încărcarea <code class="docutils literal notranslate"><span class="pre">.bashrc</span></code></p></li>
-</ul>
-<div class="section" id="a-exercitii">
-<h3><span class="section-number">6.1.1. </span>a. Exerciții<a class="headerlink" href="#a-exercitii" title="Permalink to this headline">¶</a></h3>
-<ol class="arabic simple">
-<li><p>Alias pentru search &amp; replace recursiv cu <code class="docutils literal notranslate"><span class="pre">find</span> <span class="pre">--exec</span> <span class="pre">sed</span> <span class="pre">-i</span> <span class="pre">-e</span> <span class="pre">...</span></code></p></li>
-<li><p>Alias pentru eliminare leading/trailing/extra whitespaces</p></li>
-</ol>
+  <div class="section" id="o-intelegere-mai-buna-a-shellului">
+<h1><span class="section-number">5. </span>O înțelegere mai bună a shellului<a class="headerlink" href="#o-intelegere-mai-buna-a-shellului" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="configurarea-shellului-bash">
+<h2><span class="section-number">5.1. </span>Configurarea shellului bash<a class="headerlink" href="#configurarea-shellului-bash" title="Permalink to this headline">¶</a></h2>
+<p>Așa cum am menționat în secțiunea Configurarea rulării aplicațiilor, modul în care o aplicație rulează este configurabil.
+Fișierul de configurare al shellului <strong>BASH</strong> este <code class="docutils literal notranslate"><span class="pre">~/.bashrc</span></code>.
+Fiecare în directorul home al fiecărui utilizator se găsește un fișier <code class="docutils literal notranslate"><span class="pre">.bashrc</span></code>.
+Există câte un fișier <code class="docutils literal notranslate"><span class="pre">.bashrc</span></code> în directorul home al fiecărui utilizator pentru a le permite utilizatorilor să își personalizeze comportamentul shellului lor bash, fără a intra în conflict cu configurările bash ale altor utilizatori din sistem.
+Atunci când un utilizator pornește un shell bash, conținutul fișierului <code class="docutils literal notranslate"><span class="pre">~/.bashrc</span></code> este citit și sunt aplicate configurările specifice utilizatorului.</p>
+<div class="section" id="modificarea-dimensiunii-istoricului">
+<h3><span class="section-number">5.1.1. </span>Modificarea dimensiunii istoricului<a class="headerlink" href="#modificarea-dimensiunii-istoricului" title="Permalink to this headline">¶</a></h3>
+<p>Inspectăm conținutul fișierului <code class="docutils literal notranslate"><span class="pre">~/.bashrc</span></code> folosind comanda următoare:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ less ~/.bashrc
+</pre></div>
+</div>
+<p>În sesiunea interactivă <code class="docutils literal notranslate"><span class="pre">less</span></code> căutăm după cuvântul <code class="docutils literal notranslate"><span class="pre">HISTSIZE</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>...<span class="o">]</span>
+<span class="c1"># for setting history length see HISTSIZE and HISTFILESIZE in bash(1)</span>
+<span class="nv">HISTSIZE</span><span class="o">=</span><span class="m">1000</span>
+<span class="nv">HISTFILESIZE</span><span class="o">=</span><span class="m">2000</span>
+<span class="o">[</span>...<span class="o">]</span>
+</pre></div>
+</div>
+<p>Shellul bash reține istoricul de comenzi în fișierul <code class="docutils literal notranslate"><span class="pre">~/.bash_history</span></code> din directorul home al fiecărui utilizator.
+Valorile variabilelor <code class="docutils literal notranslate"><span class="pre">HISTSIZE</span></code> și <code class="docutils literal notranslate"><span class="pre">HISTFILESIZE</span></code> limitează numărul maxim de comenzi, respectiv linii, din fișierul <code class="docutils literal notranslate"><span class="pre">~/.bash_history</span></code>.
+Dacă vrem să avem un istoric nelimitat putem seta valoarea variabilelor la un număr negativ.</p>
+<p><strong>Exercițiu</strong>: Deschideți fișierul <code class="docutils literal notranslate"><span class="pre">~/.bashrc</span></code> în editorul preferat și atribuiți valoarea <code class="docutils literal notranslate"><span class="pre">-1</span></code> pentru <code class="docutils literal notranslate"><span class="pre">HISTSIZE</span></code> și <code class="docutils literal notranslate"><span class="pre">HISTFILESIZE</span></code>.
+Salvați modificările făcute.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Atenție!
+<strong>Nu</strong> trebuie să existe spațiu între numele variabilei, <code class="docutils literal notranslate"><span class="pre">=</span></code> și valoarea atribuită.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Pentru a afla mai multe despre valorile <code class="docutils literal notranslate"><span class="pre">HISTSIZE</span></code> și <code class="docutils literal notranslate"><span class="pre">HISTFILESIZE</span></code> accesați pagina de manual a terminalului bash (<code class="docutils literal notranslate"><span class="pre">man</span> <span class="pre">bash</span></code>) și căutați după numele variabilelor.</p>
+</div>
+</div>
+<div class="section" id="vizualizarea-aliasurilor-predefinite">
+<h3><span class="section-number">5.1.2. </span>Vizualizarea aliasurilor predefinite<a class="headerlink" href="#vizualizarea-aliasurilor-predefinite" title="Permalink to this headline">¶</a></h3>
+<p>Pentru a înțelege ce este un <code class="docutils literal notranslate"><span class="pre">alias</span></code>, rulăm comanda de mai jos:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ <span class="nb">alias</span> ls
+<span class="nb">alias</span> <span class="nv">ls</span><span class="o">=</span><span class="s1">&#39;ls --color=auto&#39;</span>
+</pre></div>
+</div>
+<p>Observăm că un alias este un nume (placeholder) care înlocuiește un șir de caractere.
+Atunci când scriem în terminal numele unei comenzi, dacă numele scris este un alias, numele comenzii va fi înlocuit cu șirul de caractere definit în alias.
+Cu alte cuvinte, atunci când executăm comanda <code class="docutils literal notranslate"><span class="pre">ls</span></code> în terminalul bash, defapt executăm comanda <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">--color=auto</span></code>.
+Opțiunea <code class="docutils literal notranslate"><span class="pre">--color=auto</span></code> este cea care ne colorează rezultatul comenzii <code class="docutils literal notranslate"><span class="pre">ls</span></code>.</p>
+<p>Pentru a vedea toate aliasurile definite în instanța curentă de bash, folosim comanda <code class="docutils literal notranslate"><span class="pre">alias</span></code>, ca în exemplul de mai jos:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ alias
+alias alert=&#39;notify-send --urgency=low -i &quot;$([ $? = 0 ] &amp;&amp; echo terminal || echo error)&quot; &quot;$(history|tail -n1|sed -e &#39;\&#39;&#39;s/^\s*[0-9]\+\s*//;s/[;&amp;|]\s*alert$//&#39;\&#39;&#39;)&quot;&#39;
+alias boot-cli=&#39;systemctl set-default multi-user.target&#39;
+alias boot-gui=&#39;systemctl set-default graphical.target&#39;
+alias cal=&#39;ncal -M&#39;
+alias egrep=&#39;egrep --color=auto&#39;
+alias fgrep=&#39;fgrep --color=auto&#39;
+alias gigt=&#39;git&#39;
+alias gpre=&#39;grep&#39;
+alias grep=&#39;grep --color=auto&#39;
+alias grpe=&#39;grep&#39;
+alias gti=&#39;git&#39;
+alias l=&#39;ls -CF&#39;
+alias la=&#39;ls -A&#39;
+alias ll=&#39;ls -alF&#39;
+alias ls=&#39;ls --color=auto&#39;
+alias ncal=&#39;ncal -M
+</pre></div>
+</div>
+<p>Observăm că atât <code class="docutils literal notranslate"><span class="pre">grep</span></code> cât și <code class="docutils literal notranslate"><span class="pre">egrep</span></code> au câte un alias pentru opțiunea <code class="docutils literal notranslate"><span class="pre">--color</span></code>, care în cazul acesta face highlight expresiei găsite.
+Putem defini un alias și pentru un typo pe care îl facem des, așa cum este cazul pentru <code class="docutils literal notranslate"><span class="pre">gti</span></code>, un alias pentru comanda <code class="docutils literal notranslate"><span class="pre">git</span></code>.</p>
+<p>O parte din aceste aliasuri sunt definite în fișierul <code class="docutils literal notranslate"><span class="pre">~/.bashrc</span></code>, iar altele în fișierul <code class="docutils literal notranslate"><span class="pre">~/.bash_aliases</span></code>.
+Putem observa asta folosind comanda următoare:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ grep <span class="nb">alias</span> ~/.bashrc
+<span class="c1"># enable color support of ls and also add handy aliases</span>
+    <span class="nb">alias</span> <span class="nv">ls</span><span class="o">=</span><span class="s1">&#39;ls --color=auto&#39;</span>
+    <span class="c1">#alias dir=&#39;dir --color=auto&#39;</span>
+    <span class="c1">#alias vdir=&#39;vdir --color=auto&#39;</span>
+    <span class="nb">alias</span> <span class="nv">grep</span><span class="o">=</span><span class="s1">&#39;grep --color=auto&#39;</span>
+    <span class="nb">alias</span> <span class="nv">fgrep</span><span class="o">=</span><span class="s1">&#39;fgrep --color=auto&#39;</span>
+    <span class="nb">alias</span> <span class="nv">egrep</span><span class="o">=</span><span class="s1">&#39;egrep --color=auto&#39;</span>
+<span class="o">[</span>...<span class="o">]</span>
+
+student@uso:~$ cat ~/.bash_aliases
+<span class="nb">alias</span> <span class="nv">grep</span><span class="o">=</span><span class="s1">&#39;grep --color=auto&#39;</span>
+<span class="nb">alias</span> <span class="nv">grpe</span><span class="o">=</span><span class="s1">&#39;grep&#39;</span>
+<span class="nb">alias</span> <span class="nv">gpre</span><span class="o">=</span><span class="s1">&#39;grep&#39;</span>
+<span class="nb">alias</span> <span class="nv">gti</span><span class="o">=</span><span class="s1">&#39;git&#39;</span>
+<span class="o">[</span>...<span class="o">]</span>
+</pre></div>
+</div>
+<p>Conținutul fișierului <code class="docutils literal notranslate"><span class="pre">~/.bash_aliases</span></code> este inclus de către fișierul <code class="docutils literal notranslate"><span class="pre">~/.bashrc</span></code> la pornirea shellului bash.
+Astfel, pentru o organizare mai bună, este recomandat ca utilizatorul să-și definească aliasurile în fișierul <code class="docutils literal notranslate"><span class="pre">~/.bash_aliases</span></code>.</p>
+</div>
+<div class="section" id="definirea-unui-alias">
+<h3><span class="section-number">5.1.3. </span>Definirea unui alias<a class="headerlink" href="#definirea-unui-alias" title="Permalink to this headline">¶</a></h3>
+<p>Utilitarul <code class="docutils literal notranslate"><span class="pre">xdg-open</span></code> primește calea către un fișier și deschide fișierul respectiv cu aplicația asociată tipului de fișier.
+Astfel, comanda <code class="docutils literal notranslate"><span class="pre">xdg-open</span> <span class="pre">image.png</span></code> va deschide imaginea <strong>image.png</strong> cu aplicația asociată deschiderii formatului <strong>PNG</strong>.
+Putem să folosim și un URL ca argument al comenzii <code class="docutils literal notranslate"><span class="pre">xdg-open</span></code>; astfel, comanda <code class="docutils literal notranslate"><span class="pre">xdg-open</span> <span class="pre">https://www.google.com</span></code> va deschide pagina Google în browserul vostru implicit.</p>
+<p>Ne dorim să definim aliasul <code class="docutils literal notranslate"><span class="pre">go</span></code> pentru comanda <code class="docutils literal notranslate"><span class="pre">xdg-open</span></code>.
+Adăugați linia <code class="docutils literal notranslate"><span class="pre">alias</span> <span class="pre">go='xdg-open'</span></code> în fișierul <code class="docutils literal notranslate"><span class="pre">~/.bash_aliases</span></code> și salvați modificările.</p>
+<p>Dacă încercăm să folosim aliasul proaspăt definit, vom primi o eroare similară cu cea de mai jos:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ go https://www.google.com
+
+Command <span class="s1">&#39;go&#39;</span> not found, did you mean:
+
+  <span class="nb">command</span> <span class="s1">&#39;go&#39;</span> from snap go <span class="o">(</span><span class="m">1</span>.15.3<span class="o">)</span>
+  <span class="nb">command</span> <span class="s1">&#39;mco&#39;</span> from deb mcollective-client
+  <span class="nb">command</span> <span class="s1">&#39;mgb&#39;</span> from deb mathicgb
+  <span class="nb">command</span> <span class="s1">&#39;mgp&#39;</span> from deb mgp
+  <span class="nb">command</span> <span class="s1">&#39;mgt&#39;</span> from deb mgt
+<span class="o">[</span>...<span class="o">]</span>
+</pre></div>
+</div>
+<p>Acest lucru se întâmplă din cauză că fișierul <code class="docutils literal notranslate"><span class="pre">~/.bashrc</span></code> este citit atunci când pornim o instanță de bash (când deschidem un terminal).
+Ca să recitim fișierul, și să aplicăm modificările, folosim comanda <code class="docutils literal notranslate"><span class="pre">source</span></code> ca în exemplul de mai jos:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ <span class="nb">source</span> ~/.bashrc
+student@uso:~$ go https://www.google.com
+</pre></div>
+</div>
+<p>Comanda <code class="docutils literal notranslate"><span class="pre">source</span> <span class="pre">~/.bashrc</span></code> a avut ca efect citirea și aplicarea modificărilor definite în fișierul <code class="docutils literal notranslate"><span class="pre">.bashrc</span></code> și fișierele pe care acesta le include.</p>
 </div>
 </div>
 <div class="section" id="executia-comenzilor">
-<h2><span class="section-number">6.2. </span>2) Execuția comenzilor<a class="headerlink" href="#executia-comenzilor" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">5.2. </span>Execuția comenzilor<a class="headerlink" href="#executia-comenzilor" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="incheierea-executiei-unei-comenzi">
+<h3><span class="section-number">5.2.1. </span>Încheierea execuției unei comenzi<a class="headerlink" href="#incheierea-executiei-unei-comenzi" title="Permalink to this headline">¶</a></h3>
+<p>Atunci când rulăm o comandă aceasta își poate încheia execuția în două moduri: cu succes sau cu eșec.
+Atunci când își încheie execuția, orice proces întoarce un cod de eroare, care este un număr:</p>
 <ul>
-<li><dl>
-<dt>Terminarea (cu succes) a unei comenzi: <code class="docutils literal notranslate"><span class="pre">echo</span> <span class="pre">$?</span></code></dt><dd><ul class="simple">
-<li><p>Înlănțuirea comenzilor în funcție de succes/eșec. Ex.</p></li>
-</ul>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">apt</span> <span class="n">update</span> <span class="o">&amp;&amp;</span> <span class="n">apt</span> <span class="n">install</span> <span class="o">-</span><span class="n">y</span> <span class="n">cmd</span> <span class="o">&amp;&amp;</span> <span class="n">cmd</span>
+<li><p>Dacă numărul întors are valoarea <code class="docutils literal notranslate"><span class="pre">0</span></code>, procesul și-a încheiat execuția cu succes.</p></li>
+<li><p>Dacă numărul întors are orice altă valoare, procesul și-a încheiat execuția cu eroare, iar codul întors poate fi folosit pentru a afla mai multe informații despre eroarea pe care a întors-o procesul.
+În pagina <code class="docutils literal notranslate"><span class="pre">man</span></code> a utilitarului <code class="docutils literal notranslate"><span class="pre">ls</span></code> este specificat:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Exit status:
+       <span class="m">0</span>      <span class="k">if</span> OK,
+
+       <span class="m">1</span>      <span class="k">if</span> minor problems <span class="o">(</span>e.g., cannot access subdirectory<span class="o">)</span>,
+
+       <span class="m">2</span>      <span class="k">if</span> serious trouble <span class="o">(</span>e.g., cannot access command-line argument<span class="o">)</span>.
 </pre></div>
 </div>
-</dd>
-</dl>
 </li>
-<li><dl class="simple">
-<dt>Înlănțuirea comenzilor folosind pipe</dt><dd><ul class="simple">
-<li><p>Exemplu utilizare <code class="docutils literal notranslate"><span class="pre">xargs</span></code></p></li>
 </ul>
-</dd>
-</dl>
+<p>Pentru a vedea codul cu care și-a încheiat execuția o comandă folosim sintaxa <code class="docutils literal notranslate"><span class="pre">$?</span></code>.
+Urmărim exemplul de mai jos:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ ls Desktop/
+todos.txt
+student@uso:~$ <span class="nb">echo</span> <span class="nv">$?</span>
+<span class="m">0</span>
+student@uso:~$ ls non-existent
+ls: cannot access <span class="s1">&#39;non-existent&#39;</span>: No such file or directory
+student@uso:~$ <span class="nb">echo</span> <span class="nv">$?</span>
+<span class="m">2</span>
+</pre></div>
+</div>
+<p>Observăm că în cazul fișierului inexistet, comanda <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">non-existent</span></code> a întors valoarea <code class="docutils literal notranslate"><span class="pre">2</span></code>, așa cum era specificat și în pagina de manual.</p>
+<div class="section" id="inlantuirea-comenzilor-in-functie-de-succes-sau-esec">
+<h4><span class="section-number">5.2.1.1. </span>Înlănțuirea comenzilor în funcție de succes sau eșec<a class="headerlink" href="#inlantuirea-comenzilor-in-functie-de-succes-sau-esec" title="Permalink to this headline">¶</a></h4>
+<p>De multe ori vrem să executăm o succesiune de comenzi pentru a realiza o sarcină.
+De exemplu, atunci când vrem să instalăm o aplicație o rulăm trei comenzi:</p>
+<ul class="simple">
+<li><p>O să actualizăm indexul surselor de pachete folosind <code class="docutils literal notranslate"><span class="pre">apt</span> <span class="pre">update</span></code></p></li>
+<li><p>O să instalăm pachetul care conține aplicația folosind <code class="docutils literal notranslate"><span class="pre">apt</span> <span class="pre">install</span></code></p></li>
+<li><p>O să rulăm aplicația pentru a valida că instalarea a fost cu succes.</p></li>
+</ul>
+<p>Preferăm să înlănțuim cele trei comenzi într-una singură pentru că astfel putem să pornim tot acest proces, să plecăm de la calculator, iar când ne întoarcem avem tot sistemul pregătit.</p>
+<p>Pentru a înlănțui comenzi în terminalul bash avem trei operatori disponibili:</p>
+<ul>
+<li><p>Operatorul <code class="docutils literal notranslate"><span class="pre">;</span></code> - este folosit pentru separarea comenzilor, dar nu ține cont dacă comenzile anterioare au fost executate cu succes sau nu.
+Urmărim exemplul de mai jos:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ mkdir operators/demo<span class="p">;</span> <span class="nb">cd</span> operators/demo
+mkdir: cannot create directory ‘operators/demo’: No such file or directory
+-bash: cd: operators/demo: No such file or directory
+</pre></div>
+</div>
+<p>În exemplul de mai sus, comanda <code class="docutils literal notranslate"><span class="pre">mkdir</span></code> a eșuat deoarece nu a găsit directorul <code class="docutils literal notranslate"><span class="pre">operators</span></code> în care să creeze directorul <code class="docutils literal notranslate"><span class="pre">demo</span></code>. Cu toate acestea, operatorul <code class="docutils literal notranslate"><span class="pre">;</span></code> doar separă comenzile între ele, așa că și comanda <code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">operators/demo</span></code> a fost executată, și și aceasta a eșuat deoarece nu există calea <code class="docutils literal notranslate"><span class="pre">operators/demo</span></code>.</p>
+<p>Folosim operatorul <code class="docutils literal notranslate"><span class="pre">;</span></code> pentru a înlănțui comenzi care sunt independente unele de altele, și deci execuția lor nu depinde de succesul unei comenzi precedente.</p>
 </li>
-<li><dl class="simple">
-<dt>Redirectări (reminder)</dt><dd><ul class="simple">
+<li><p>Operatorul binar <code class="docutils literal notranslate"><span class="pre">&amp;&amp;</span></code> (și logic) - execută a doua comandă doar dacă precedenta s-a executat cu succes.
+Exemplul anterior devine:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ mkdir operators/demo <span class="o">&amp;&amp;</span> <span class="nb">cd</span> operators/demo
+mkdir: cannot create directory ‘operators/demo’: No such file or directory
+</pre></div>
+</div>
+<p>Observăm că din moment ce comanda <code class="docutils literal notranslate"><span class="pre">mkdir</span></code> a eșuat, comanda <code class="docutils literal notranslate"><span class="pre">cd</span></code> nu a mai fost executată.</p>
+</li>
+<li><p>Operatorul binar <code class="docutils literal notranslate"><span class="pre">||</span></code> (sau logic) - execută a doua comandă doar dacă prima s-a terminat cu eșec.
+Urmărim exemplul de mai jos:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ <span class="o">(</span>ls -d operators <span class="o">||</span> mkdir operators<span class="o">)</span> <span class="o">&amp;&amp;</span> ls -d operators
+ls: cannot access <span class="s1">&#39;operators&#39;</span>: No such file or directory
+operators
+student@uso:~$ <span class="o">(</span>ls -d operators <span class="o">||</span> mkdir operators<span class="o">)</span> <span class="o">&amp;&amp;</span> ls -d operators
+operators
+operators
+</pre></div>
+</div>
+<p>În exemplul de mai sus, prima comandă <code class="docutils literal notranslate"><span class="pre">ls</span></code> a eșuat, așa că a fost executată comanda <code class="docutils literal notranslate"><span class="pre">mkdir</span></code> și apoi a fost executată ultima comandă <code class="docutils literal notranslate"><span class="pre">ls</span></code>.
+La cea de-a doua rulare, a fost executată cu succes prima comandă <code class="docutils literal notranslate"><span class="pre">ls</span></code>, așa că comanda <code class="docutils literal notranslate"><span class="pre">mkdir</span></code> nu a mai fost executată, și apoi a fost executată ultima comandă <code class="docutils literal notranslate"><span class="pre">ls</span></code>.</p>
+</li>
+</ul>
+<p>Pentru a rezolva scenariul de la care am plecat inițial, putem rula:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo apt update <span class="o">&amp;&amp;</span> sudo apt install -y cowsay <span class="o">&amp;&amp;</span> cowsay <span class="s2">&quot;Howdy&quot;</span>
+</pre></div>
+</div>
+<p>Comanda de mai sus va actualiza indexul pachetelor sursă, va instala pachetul <code class="docutils literal notranslate"><span class="pre">cowsay</span></code> și va rula comanda <code class="docutils literal notranslate"><span class="pre">cowsay</span></code> pentru a valida instalarea.
+O astfel de înlănțuire de comenzi este numită oneliner.</p>
+</div>
+<div class="section" id="exercitii">
+<h4><span class="section-number">5.2.1.2. </span>Exerciții<a class="headerlink" href="#exercitii" title="Permalink to this headline">¶</a></h4>
+<ol class="arabic simple">
+<li><p>Scrieți un oneliner cu ajutorul căruia descărcați arhiva tar de la adresa TODO, creați directorul <code class="docutils literal notranslate"><span class="pre">~/operators/demo/tar</span></code> și apoi dezarhivați conținutul în directorul creat.</p></li>
+<li><p>Actualizați onelinerul anterior a.î. după dezarhivare să pornească compilarea proiectului folosind comanda <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">build</span></code>.</p></li>
+</ol>
+</div>
+</div>
+<div class="section" id="inlantuirea-comenzilor-folosind-operatorul-pipe">
+<h3><span class="section-number">5.2.2. </span>Înlănțuirea comenzilor folosind operatorul <code class="docutils literal notranslate"><span class="pre">|</span></code> (pipe)<a class="headerlink" href="#inlantuirea-comenzilor-folosind-operatorul-pipe" title="Permalink to this headline">¶</a></h3>
+<p>Așa cum am descoperit în secțiunile și capitolele anterioare, în mediul Linux avem multe utilitare care rezolvă o nevoie specifică: <code class="docutils literal notranslate"><span class="pre">ls</span></code> afișează informații despre fișiere, <code class="docutils literal notranslate"><span class="pre">ps</span></code> despre procese, <code class="docutils literal notranslate"><span class="pre">grep</span></code> filtrează, etc.
+Toate acestea au la bază filozofia mediului Linux: “do one thing and do it well”.
+Ca întodeauna, frumusețea stă în simplitate: avem o suită de unelte la dispoziție, fiecare capabilă să rezolve rapid o sarcină dată; pentru a rezolva o problemă mai complexă trebuie doar să îmbinăm uneltele.</p>
+<p>Operatorul <code class="docutils literal notranslate"><span class="pre">|</span></code> (pipe) ne ajută să facem acest lucru.
+Atunci când folosim operatorul <code class="docutils literal notranslate"><span class="pre">|</span></code> preluăm rezultatul comenzii din stânga operatorului și îl oferim ca intrare comenzii aflate în dreapta operatorului.</p>
+<p>Am folosit de mai multe ori operatorul <code class="docutils literal notranslate"><span class="pre">|</span></code> până acum:</p>
+<ul>
+<li><p>Am afișat informații despre procesele din sistem și am filtrat după numele unui proces:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ ps -aux <span class="p">|</span> grep firefox
+student  <span class="m">15211</span>  <span class="m">0</span>.5 <span class="m">17</span>.6 <span class="m">3090808</span> <span class="m">359960</span> pts/1  Sl   <span class="m">00</span>:14   <span class="m">0</span>:40 /usr/lib/firefox/firefox https://www.google.com
+student  <span class="m">15557</span>  <span class="m">0</span>.0  <span class="m">5</span>.3 <span class="m">2591440</span> <span class="m">108220</span> pts/1  Sl   <span class="m">00</span>:14   <span class="m">0</span>:05 /usr/lib/firefox/firefox -contentproc -childID <span class="m">2</span> -isForBrowser -prefsLen <span class="m">6264</span> -prefMapSize <span class="m">228098</span> -parentBuildID <span class="m">20201027185343</span> -appdir /usr/lib/firefox/browser <span class="m">15211</span> <span class="nb">true</span> tab
+student  <span class="m">15623</span>  <span class="m">0</span>.0  <span class="m">7</span>.1 <span class="m">2625192</span> <span class="m">145232</span> pts/1  Sl   <span class="m">00</span>:14   <span class="m">0</span>:02 /usr/lib/firefox/firefox -contentproc -childID <span class="m">4</span> -isForBrowser -prefsLen <span class="m">7129</span> -prefMapSize <span class="m">228098</span> -parentBuildID <span class="m">20201027185343</span> -appdir /usr/lib/firefox/browser <span class="m">15211</span> <span class="nb">true</span> tab
+student  <span class="m">15647</span>  <span class="m">0</span>.0  <span class="m">5</span>.9 <span class="m">2629464</span> <span class="m">120896</span> pts/1  Sl   <span class="m">00</span>:14   <span class="m">0</span>:02 /usr/lib/firefox/firefox -contentproc -childID <span class="m">5</span> -isForBrowser -prefsLen <span class="m">7129</span> -prefMapSize <span class="m">228098</span> -parentBuildID <span class="m">20201027185343</span> -appdir /usr/lib/firefox/browser <span class="m">15211</span> <span class="nb">true</span> tab
+student  <span class="m">15699</span>  <span class="m">0</span>.0  <span class="m">6</span>.5 <span class="m">2613656</span> <span class="m">133844</span> pts/1  Sl   <span class="m">00</span>:14   <span class="m">0</span>:01 /usr/lib/firefox/firefox -contentproc -childID <span class="m">6</span> -isForBrowser -prefsLen <span class="m">9473</span> -prefMapSize <span class="m">228098</span> -parentBuildID <span class="m">20201027185343</span> -appdir /usr/lib/firefox/browser <span class="m">15211</span> <span class="nb">true</span> tab
+student  <span class="m">15726</span>  <span class="m">0</span>.0  <span class="m">3</span>.7 <span class="m">2567444</span> <span class="m">77320</span> pts/1   Sl   <span class="m">00</span>:14   <span class="m">0</span>:00 /usr/lib/firefox/firefox -contentproc -childID <span class="m">7</span> -isForBrowser -prefsLen <span class="m">9473</span> -prefMapSize <span class="m">228098</span> -parentBuildID <span class="m">20201027185343</span> -appdir /usr/lib/firefox/browser <span class="m">15211</span> <span class="nb">true</span> tab
+student  <span class="m">16922</span>  <span class="m">0</span>.0  <span class="m">0</span>.0  <span class="m">15972</span>  <span class="m">1040</span> pts/0    S+   <span class="m">02</span>:18   <span class="m">0</span>:00 grep --color<span class="o">=</span>auto firefox
+</pre></div>
+</div>
+</li>
+<li><p>Am extras primele zece procese care consumă cel mai mare procent de memorie:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ ps -aux --sort<span class="o">=</span>-%mem <span class="p">|</span> head -11
+USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+student  <span class="m">15211</span>  <span class="m">0</span>.5 <span class="m">17</span>.7 <span class="m">3090808</span> <span class="m">362316</span> pts/1  Sl   <span class="m">00</span>:14   <span class="m">0</span>:40 /usr/lib/firefox/firefox https://www.google.com
+student   <span class="m">8263</span>  <span class="m">0</span>.1 <span class="m">13</span>.8 <span class="m">3515972</span> <span class="m">283712</span> tty1   Sl+  nov06   <span class="m">0</span>:43 /usr/bin/gnome-shell
+student   <span class="m">8763</span>  <span class="m">0</span>.0  <span class="m">8</span>.2 <span class="m">1405448</span> <span class="m">168436</span> tty1   SLl+ nov06   <span class="m">0</span>:10 /usr/bin/gnome-software --gapplication-service
+student  <span class="m">15623</span>  <span class="m">0</span>.0  <span class="m">7</span>.1 <span class="m">2625192</span> <span class="m">145452</span> pts/1  Sl   <span class="m">00</span>:14   <span class="m">0</span>:03 /usr/lib/firefox/firefox -contentproc -childID <span class="m">4</span> -isForBrowser -prefsLen <span class="m">7129</span> -prefMapSize <span class="m">228098</span> -parentBuildID <span class="m">20201027185343</span> -appdir /usr/lib/firefox/browser <span class="m">15211</span> <span class="nb">true</span> tab
+student  <span class="m">15699</span>  <span class="m">0</span>.0  <span class="m">6</span>.5 <span class="m">2613656</span> <span class="m">133844</span> pts/1  Sl   <span class="m">00</span>:14   <span class="m">0</span>:01 /usr/lib/firefox/firefox -contentproc -childID <span class="m">6</span> -isForBrowser -prefsLen <span class="m">9473</span> -prefMapSize <span class="m">228098</span> -parentBuildID <span class="m">20201027185343</span> -appdir /usr/lib/firefox/browser <span class="m">15211</span> <span class="nb">true</span> tab
+student  <span class="m">15647</span>  <span class="m">0</span>.0  <span class="m">5</span>.9 <span class="m">2629464</span> <span class="m">120896</span> pts/1  Sl   <span class="m">00</span>:14   <span class="m">0</span>:02 /usr/lib/firefox/firefox -contentproc -childID <span class="m">5</span> -isForBrowser -prefsLen <span class="m">7129</span> -prefMapSize <span class="m">228098</span> -parentBuildID <span class="m">20201027185343</span> -appdir /usr/lib/firefox/browser <span class="m">15211</span> <span class="nb">true</span> tab
+student  <span class="m">15557</span>  <span class="m">0</span>.0  <span class="m">5</span>.3 <span class="m">2591440</span> <span class="m">108220</span> pts/1  Sl   <span class="m">00</span>:14   <span class="m">0</span>:05 /usr/lib/firefox/firefox -contentproc -childID <span class="m">2</span> -isForBrowser -prefsLen <span class="m">6264</span> -prefMapSize <span class="m">228098</span> -parentBuildID <span class="m">20201027185343</span> -appdir /usr/lib/firefox/browser <span class="m">15211</span> <span class="nb">true</span> tab
+student  <span class="m">15726</span>  <span class="m">0</span>.0  <span class="m">3</span>.7 <span class="m">2567444</span> <span class="m">77320</span> pts/1   Sl   <span class="m">00</span>:14   <span class="m">0</span>:00 /usr/lib/firefox/firefox -contentproc -childID <span class="m">7</span> -isForBrowser -prefsLen <span class="m">9473</span> -prefMapSize <span class="m">228098</span> -parentBuildID <span class="m">20201027185343</span> -appdir /usr/lib/firefox/browser <span class="m">15211</span> <span class="nb">true</span> tab
+student   <span class="m">8106</span>  <span class="m">0</span>.0  <span class="m">3</span>.6 <span class="m">756452</span> <span class="m">73800</span> tty1     Sl+  nov06   <span class="m">0</span>:04 /usr/lib/xorg/Xorg vt1 -displayfd <span class="m">3</span> -auth /run/user/1000/gdm/Xauthority -background none -noreset -keeptty -verbose <span class="m">3</span>
+student   <span class="m">8631</span>  <span class="m">0</span>.0  <span class="m">2</span>.5 <span class="m">886656</span> <span class="m">52380</span> ?        Ssl  nov06   <span class="m">0</span>:00 /usr/lib/evolution/evolution-calendar-factory
+</pre></div>
+</div>
+</li>
+</ul>
+<p>Până acum am efectuat procesări text pe rezultatul unor comenzi.
+Folosind operatorul <code class="docutils literal notranslate"><span class="pre">|</span></code> și utilitarul <code class="docutils literal notranslate"><span class="pre">xargs</span></code> putem să folosim rezultatul pe post de argument pentru altă comandă, ca în exemplul de mai jos:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ find . -maxdepth <span class="m">1</span> -type f <span class="p">|</span> xargs ls -l
+-rw------- <span class="m">1</span> student student    <span class="m">10992</span> nov  <span class="m">6</span> <span class="m">14</span>:56 ./.ICEauthority
+-rw-r--r-- <span class="m">1</span> student student      <span class="m">297</span> nov  <span class="m">7</span> <span class="m">00</span>:18 ./.bash_aliases
+-rw------- <span class="m">1</span> student student    <span class="m">43604</span> nov  <span class="m">5</span> <span class="m">02</span>:34 ./.bash_history
+-rw-r--r-- <span class="m">1</span> student student      <span class="m">220</span> aug  <span class="m">6</span>  <span class="m">2018</span> ./.bash_logout
+-rw-r--r-- <span class="m">1</span> student student     <span class="m">3824</span> aug <span class="m">13</span> <span class="m">19</span>:04 ./.bashrc
+-rw-r--r-- <span class="m">1</span> student student     <span class="m">3159</span> aug <span class="m">20</span>  <span class="m">2018</span> ./.emacs
+-rw-r--r-- <span class="m">1</span> student student       <span class="m">87</span> aug <span class="m">21</span>  <span class="m">2018</span> ./.gitconfig
+-rw------- <span class="m">1</span> student student      <span class="m">361</span> nov  <span class="m">7</span> <span class="m">02</span>:40 ./.lesshst
+</pre></div>
+</div>
+<p>Comanda din exemplul de mai sus afișează informații în format lung despre toate fișierele din directorul curent, excluzând directoarele.</p>
+<p>Dacă folosim opțiunea <code class="docutils literal notranslate"><span class="pre">-p</span></code> a utilitarului <code class="docutils literal notranslate"><span class="pre">xargs</span></code>, acesta o să ne afișeze ce comandă urmează să execute și așteaptă confirmarea noastră prin apăsarea tastei <code class="docutils literal notranslate"><span class="pre">y</span></code> (yes) sau <code class="docutils literal notranslate"><span class="pre">n</span></code> (no).
+Este recomandat să folosiți opțiunea <code class="docutils literal notranslate"><span class="pre">-p</span></code> atunci când vă scrieți onelinerul pentru a verifica că comanda pe care urmează să o executați este corectă.
+În exemplul următor ne dorim să mutăm toate arhivele <code class="docutils literal notranslate"><span class="pre">.tar</span></code> în directorul <code class="docutils literal notranslate"><span class="pre">archives</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ ls *.tar <span class="p">|</span> xargs -p mv archives
+mv archives courses.tar labhidden.tar uso.tar wiki.tar ?...n
+</pre></div>
+</div>
+<p>Cu ajutorul opțiunii <code class="docutils literal notranslate"><span class="pre">-p</span></code> am putut să observăm că comanda nu are sintaxa dorită și am anulat execuția ei.
+Problema este că avem destinația (<code class="docutils literal notranslate"><span class="pre">archives</span></code>) înaintea arhivelor care trebuie mutate.</p>
+<p>Pentru a rezolva această problemă folosim opțiunea <code class="docutils literal notranslate"><span class="pre">-I</span> <span class="pre">str</span></code>, ca mai jos:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ ls *.tar <span class="p">|</span> xargs -I str -p mv str archives
+mv courses.tar archives ?...n
+mv labhidden.tar archives ?...n
+mv uso.tar archives ?...n
+mv wiki.tar archives ?...n
+</pre></div>
+</div>
+<p>Opțiunea <code class="docutils literal notranslate"><span class="pre">-I</span></code> va înlocui șirul de caractere <code class="docutils literal notranslate"><span class="pre">str</span></code> cu numele arhivelor primite din pipe, așa cum observăm mai sus.
+Șirul de caractere placeholder poate să fie orice, nu neapărat <code class="docutils literal notranslate"><span class="pre">str</span></code>; comanda <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">*.tar</span> <span class="pre">|</span> <span class="pre">xargs</span> <span class="pre">-I</span> <span class="pre">{}</span> <span class="pre">-p</span> <span class="pre">mv</span> <span class="pre">{}</span> <span class="pre">archives</span></code> produce aceelași rezultat.</p>
+</div>
+<div class="section" id="redirectari-todo">
+<h3><span class="section-number">5.2.3. </span>Redirectări - TODO<a class="headerlink" href="#redirectari-todo" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
 <li><p>În fișiere și în void (<code class="docutils literal notranslate"><span class="pre">/dev/null</span></code>)</p></li>
 <li><p>Din generatoare <code class="docutils literal notranslate"><span class="pre">/dev/zero</span></code>, <code class="docutils literal notranslate"><span class="pre">/dev/urandom</span></code></p></li>
 <li><p>Selecția stream-urilor de ieșire (<code class="docutils literal notranslate"><span class="pre">out</span></code> și <code class="docutils literal notranslate"><span class="pre">err</span></code>), și combinarea lor (<code class="docutils literal notranslate"><span class="pre">&amp;&gt;</span></code>)</p></li>
 </ul>
-</dd>
-</dl>
-</li>
-</ul>
-<div class="section" id="id1">
-<h3><span class="section-number">6.2.1. </span>a. Exerciții<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="exercitii-todo">
+<h3><span class="section-number">5.2.4. </span>Exerciții - TODO<a class="headerlink" href="#exercitii-todo" title="Permalink to this headline">¶</a></h3>
 <ol class="arabic simple">
 <li><p>Clonați repo folosind <code class="docutils literal notranslate"><span class="pre">git</span></code>. Rulează o anumită comandă, sau un șir de comenzi doar dacă s-a modificat ceva în repo git log pt a vedea dacă s-au făcut modificări în repo build și pus binare generate în <code class="docutils literal notranslate"><span class="pre">~/bin</span></code></p></li>
 <li><p>Căutat în repo/cod sursă după un simbol (<cite>grep -nr &lt;simbol&gt;</cite>). Deschis vim la locația unde a fost găsit simbolul.</p></li>
@@ -605,7 +836,8 @@
 </div>
 </div>
 <div class="section" id="shell-scripting">
-<h2><span class="section-number">6.3. </span>3) Shell scripting<a class="headerlink" href="#shell-scripting" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">5.3. </span>3) Shell scripting<a class="headerlink" href="#shell-scripting" title="Permalink to this headline">¶</a></h2>
+<p>Cred că secțiunea asta intră la capitolul de automatizare. N-aș mai băga-o aici că și așa mi se pare că am vorbit de foarte multe.</p>
 <ul class="simple">
 <li><dl class="simple">
 <dt>Variabile de mediu: ce sunt, la ce le folosim și care sunt variabilele uzuale (<code class="docutils literal notranslate"><span class="pre">$HOST</span></code>, <code class="docutils literal notranslate"><span class="pre">$USER</span></code>)</dt><dd><ul>
@@ -620,8 +852,8 @@
 <li><p>Control flow în bash: <code class="docutils literal notranslate"><span class="pre">if</span></code>, <code class="docutils literal notranslate"><span class="pre">for</span></code>, <code class="docutils literal notranslate"><span class="pre">while</span> <span class="pre">read</span></code>, <code class="docutils literal notranslate"><span class="pre">test</span></code></p></li>
 <li><p>Bouns: Definirea de funcții în <code class="docutils literal notranslate"><span class="pre">.bashrc</span></code></p></li>
 </ul>
-<div class="section" id="id2">
-<h3><span class="section-number">6.3.1. </span>a. Exerciții<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="a-exercitii">
+<h3><span class="section-number">5.3.1. </span>a. Exerciții<a class="headerlink" href="#a-exercitii" title="Permalink to this headline">¶</a></h3>
 <ol class="arabic simple">
 <li><p>Snippeturi pentru a crea fișiere: sursa main, fișiere header care au <code class="docutils literal notranslate"><span class="pre">#ifndef/define/endif</span> <span class="pre">__PLACEHOLDER__</span></code>, <code class="docutils literal notranslate"><span class="pre">Makefile</span></code> etc. Modificarea placeholder-elor cu nume date de utilizator.</p></li>
 <li><dl class="simple">
@@ -660,17 +892,13 @@
           <div class="page-nav">
             <div class="inner"><ul class="page-nav">
   <li class="prev">
-    <a href="process-files.html"
-       title="previous chapter">← <span class="section-number">5. </span>Prelucrarea fișierelor</a>
-  </li>
-  <li class="next">
-    <a href="term-multiplexing.html"
-       title="next chapter"><span class="section-number">7. </span>Multiplexarea terminalului →</a>
+    <a href="inspect-files.html"
+       title="previous chapter">← <span class="section-number">4. </span>Inspectarea fișierelor</a>
   </li>
 </ul><div class="footer" role="contentinfo">
       &#169; Copyright 2020, USO Team.
     <br>
-    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.2.1 with <a href="https://github.com/romnnn/sphinx_press_theme">Press Theme</a>.
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.3.0 with <a href="https://github.com/romnnn/sphinx_press_theme">Press Theme</a>.
 </div>
             </div>
           </div>
