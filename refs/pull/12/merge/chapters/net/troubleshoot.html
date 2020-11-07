@@ -551,7 +551,7 @@ a repository-ului rulați comanda <code class="docutils literal notranslate"><sp
 <p>Infrastructura laboratorului este bazată pe containere docker ale căror
 imagini vor fi generate pe propriul calculator. Dacă nu veți deja instalat
 Docker Engine pe sistem, scriptul
-<code class="docutils literal notranslate"><span class="pre">~/uso-lab/labs/03-user/lab-containers/lab-prepare.sh</span></code> vă va instala aplicația.</p>
+<code class="docutils literal notranslate"><span class="pre">~/uso-lab/labs/03-user/lab-containers/lab_prepare.sh</span></code> vă va instala aplicația.</p>
 <p>După ce ați terminat de lucrat vă recomandăm să opriți containerele rulând
 comanda <code class="docutils literal notranslate"><span class="pre">./lab-prepare.sh</span> <span class="pre">delete</span></code> în directorul
 <code class="docutils literal notranslate"><span class="pre">~/uso-lab/labs/03-user/lab-containers/</span></code>.</p>
@@ -780,16 +780,16 @@ odată ce am obținut o adresă IP de la serverul DHCP:</p>
 </ul>
 <p>De exemplu, dacă vrem să verificăm conectivitatea la serverul <code class="docutils literal notranslate"><span class="pre">8.8.8.8</span></code> (un
 server public din Internet), folosim comanda:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">student</span><span class="nd">@uso</span><span class="p">:</span><span class="o">~</span><span class="c1"># ping -c 4 8.8.8.8</span>
-<span class="n">PING</span> <span class="mf">8.8</span><span class="o">.</span><span class="mf">8.8</span> <span class="p">(</span><span class="mf">8.8</span><span class="o">.</span><span class="mf">8.8</span><span class="p">)</span> <span class="mi">56</span><span class="p">(</span><span class="mi">84</span><span class="p">)</span> <span class="nb">bytes</span> <span class="n">of</span> <span class="n">data</span><span class="o">.</span>
-<span class="mi">64</span> <span class="nb">bytes</span> <span class="kn">from</span> <span class="mf">8.8</span><span class="o">.</span><span class="mf">8.8</span><span class="p">:</span> <span class="n">icmp_seq</span><span class="o">=</span><span class="mi">1</span> <span class="n">ttl</span><span class="o">=</span><span class="mi">61</span> <span class="n">time</span><span class="o">=</span><span class="mf">23.0</span> <span class="n">ms</span>
-<span class="mi">64</span> <span class="nb">bytes</span> <span class="kn">from</span> <span class="mf">8.8</span><span class="o">.</span><span class="mf">8.8</span><span class="p">:</span> <span class="n">icmp_seq</span><span class="o">=</span><span class="mi">2</span> <span class="n">ttl</span><span class="o">=</span><span class="mi">61</span> <span class="n">time</span><span class="o">=</span><span class="mf">25.7</span> <span class="n">ms</span>
-<span class="mi">64</span> <span class="nb">bytes</span> <span class="kn">from</span> <span class="mf">8.8</span><span class="o">.</span><span class="mf">8.8</span><span class="p">:</span> <span class="n">icmp_seq</span><span class="o">=</span><span class="mi">3</span> <span class="n">ttl</span><span class="o">=</span><span class="mi">61</span> <span class="n">time</span><span class="o">=</span><span class="mf">24.8</span> <span class="n">ms</span>
-<span class="mi">64</span> <span class="nb">bytes</span> <span class="kn">from</span> <span class="mf">8.8</span><span class="o">.</span><span class="mf">8.8</span><span class="p">:</span> <span class="n">icmp_seq</span><span class="o">=</span><span class="mi">4</span> <span class="n">ttl</span><span class="o">=</span><span class="mi">61</span> <span class="n">time</span><span class="o">=</span><span class="mf">25.2</span> <span class="n">ms</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>student@uso:~$ ping -c 4 8.8.8.8
+PING 8.8.8.8 (8.8.8.8) 56(84) bytes of data.
+64 bytes from 8.8.8.8: icmp_seq=1 ttl=61 time=23.0 ms
+64 bytes from 8.8.8.8: icmp_seq=2 ttl=61 time=25.7 ms
+64 bytes from 8.8.8.8: icmp_seq=3 ttl=61 time=24.8 ms
+64 bytes from 8.8.8.8: icmp_seq=4 ttl=61 time=25.2 ms
 
-<span class="o">---</span> <span class="mf">8.8</span><span class="o">.</span><span class="mf">8.8</span> <span class="n">ping</span> <span class="n">statistics</span> <span class="o">---</span>
-<span class="mi">4</span> <span class="n">packets</span> <span class="n">transmitted</span><span class="p">,</span> <span class="mi">4</span> <span class="n">received</span><span class="p">,</span> <span class="mi">0</span><span class="o">%</span> <span class="n">packet</span> <span class="n">loss</span><span class="p">,</span> <span class="n">time</span> <span class="mi">3092</span><span class="n">ms</span>
-<span class="n">rtt</span> <span class="nb">min</span><span class="o">/</span><span class="n">avg</span><span class="o">/</span><span class="nb">max</span><span class="o">/</span><span class="n">mdev</span> <span class="o">=</span> <span class="mf">23.051</span><span class="o">/</span><span class="mf">24.731</span><span class="o">/</span><span class="mf">25.707</span><span class="o">/</span><span class="mf">1.020</span> <span class="n">ms</span>
+--- 8.8.8.8 ping statistics ---
+4 packets transmitted, 4 received, 0% packet loss, time 3092ms
+rtt min/avg/max/mdev = 23.051/24.731/25.707/1.020 ms
 </pre></div>
 </div>
 <p>Comportamentul implicit al comenzii <code class="docutils literal notranslate"><span class="pre">ping</span></code> este să trimită pachete la infinit.
@@ -797,15 +797,15 @@ Am folosit opțiunea <code class="docutils literal notranslate"><span class="pre
 pachete trimise la 4.</p>
 <p>Atunci când nu pot fi trimise mesaje către stația identificată prin adresa IP,
 mesajul de eroare va arăta în felul următor:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">student</span><span class="nd">@uso</span><span class="p">:</span><span class="o">~</span><span class="c1"># ping 10.10.10.10</span>
-<span class="n">PING</span> <span class="mf">10.10</span><span class="o">.</span><span class="mf">10.10</span> <span class="p">(</span><span class="mf">10.10</span><span class="o">.</span><span class="mf">10.10</span><span class="p">)</span> <span class="mi">56</span><span class="p">(</span><span class="mi">84</span><span class="p">)</span> <span class="nb">bytes</span> <span class="n">of</span> <span class="n">data</span><span class="o">.</span>
-<span class="n">From</span> <span class="mf">10.10</span><span class="o">.</span><span class="mf">10.3</span> <span class="n">icmp_seq</span><span class="o">=</span><span class="mi">1</span> <span class="n">Destination</span> <span class="n">Host</span> <span class="n">Unreachable</span>
-<span class="n">From</span> <span class="mf">10.10</span><span class="o">.</span><span class="mf">10.3</span> <span class="n">icmp_seq</span><span class="o">=</span><span class="mi">2</span> <span class="n">Destination</span> <span class="n">Host</span> <span class="n">Unreachable</span>
-<span class="n">From</span> <span class="mf">10.10</span><span class="o">.</span><span class="mf">10.3</span> <span class="n">icmp_seq</span><span class="o">=</span><span class="mi">3</span> <span class="n">Destination</span> <span class="n">Host</span> <span class="n">Unreachable</span>
-<span class="n">From</span> <span class="mf">10.10</span><span class="o">.</span><span class="mf">10.3</span> <span class="n">icmp_seq</span><span class="o">=</span><span class="mi">4</span> <span class="n">Destination</span> <span class="n">Host</span> <span class="n">Unreachable</span>
-<span class="o">^</span><span class="n">C</span>
-<span class="o">---</span> <span class="mf">10.10</span><span class="o">.</span><span class="mf">10.10</span> <span class="n">ping</span> <span class="n">statistics</span> <span class="o">---</span>
-<span class="mi">4</span> <span class="n">packets</span> <span class="n">transmitted</span><span class="p">,</span> <span class="mi">0</span> <span class="n">received</span><span class="p">,</span> <span class="o">+</span><span class="mi">4</span> <span class="n">errors</span><span class="p">,</span> <span class="mi">100</span><span class="o">%</span> <span class="n">packet</span> <span class="n">loss</span><span class="p">,</span> <span class="n">time</span> <span class="mi">3074</span><span class="n">ms</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>student@uso:~$ ping 10.10.10.10
+PING 10.10.10.10 (10.10.10.10) 56(84) bytes of data.
+From 10.10.10.3 icmp_seq=1 Destination Host Unreachable
+From 10.10.10.3 icmp_seq=2 Destination Host Unreachable
+From 10.10.10.3 icmp_seq=3 Destination Host Unreachable
+From 10.10.10.3 icmp_seq=4 Destination Host Unreachable
+^C
+--- 10.10.10.10 ping statistics ---
+4 packets transmitted, 0 received, +4 errors, 100% packet loss, time 3074ms
 </pre></div>
 </div>
 <p>Pentru verificarea conectivității în interiorul rețelei trebuie să verificăm că
@@ -819,11 +819,11 @@ interconectarea rețelelor și care primește mesaje de la toate stațiile din
 rețea pentru a le trimite în Internet.</p>
 <p>Gateway-ul este configurat static sau dinamic, cum este configurată și adresa IP a unei interfețe.</p>
 <p>Pentru a identifica gateway-ul, folosim comanda <code class="docutils literal notranslate"><span class="pre">ip</span> <span class="pre">route</span> <span class="pre">show</span></code> în felul următor:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">student</span><span class="nd">@uso</span><span class="p">:</span><span class="o">~</span><span class="c1"># ip route show</span>
-<span class="mf">10.0</span><span class="o">.</span><span class="mf">2.0</span><span class="o">/</span><span class="mi">24</span> <span class="n">dev</span> <span class="n">enp0s3</span> <span class="n">proto</span> <span class="n">kernel</span> <span class="n">scope</span> <span class="n">link</span> <span class="n">src</span> <span class="mf">10.0</span><span class="o">.</span><span class="mf">2.15</span> <span class="n">metric</span> <span class="mi">100</span>
-<span class="mf">169.254</span><span class="o">.</span><span class="mf">0.0</span><span class="o">/</span><span class="mi">16</span> <span class="n">dev</span> <span class="n">enp0s3</span> <span class="n">scope</span> <span class="n">link</span> <span class="n">metric</span> <span class="mi">1000</span>
-<span class="mf">172.17</span><span class="o">.</span><span class="mf">0.0</span><span class="o">/</span><span class="mi">16</span> <span class="n">dev</span> <span class="n">docker0</span> <span class="n">proto</span> <span class="n">kernel</span> <span class="n">scope</span> <span class="n">link</span> <span class="n">src</span> <span class="mf">172.17</span><span class="o">.</span><span class="mf">0.1</span> <span class="n">linkdown</span>
-<span class="mf">192.168</span><span class="o">.</span><span class="mf">56.0</span><span class="o">/</span><span class="mi">24</span> <span class="n">dev</span> <span class="n">enp0s8</span> <span class="n">proto</span> <span class="n">kernel</span> <span class="n">scope</span> <span class="n">link</span> <span class="n">src</span> <span class="mf">192.168</span><span class="o">.</span><span class="mf">56.4</span> <span class="n">metric</span> <span class="mi">101</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>student@uso:~$ ip route show
+10.0.2.0/24 dev enp0s3 proto kernel scope link src 10.0.2.15 metric 100
+169.254.0.0/16 dev enp0s3 scope link metric 1000
+172.17.0.0/16 dev docker0 proto kernel scope link src 172.17.0.1 linkdown
+192.168.56.0/24 dev enp0s8 proto kernel scope link src 192.168.56.4 metric 101
 </pre></div>
 </div>
 <p>Observăm că adresa IP a default gateway-ului este <code class="docutils literal notranslate"><span class="pre">10.0.2.2</span></code>, deoarece
@@ -843,7 +843,7 @@ rețea.</p>
 <p>Verificați conexiunea cu gateway-ul folosind comanda <code class="docutils literal notranslate"><span class="pre">ping</span></code>.</p>
 <p>Pentru verificarea conexiunii la Internet este bine să verificăm cu o adresă
 consacrată, care avem încredere că nu va avea probleme tehnice. Un astfel de
-exemplu este serverul oferit de Google de la adresa IP <code class="docutils literal notranslate"><span class="pre">4.4.4.4</span></code>.</p>
+exemplu este serverul oferit de Google de la adresa IP <code class="docutils literal notranslate"><span class="pre">1.1.1.1</span></code>.</p>
 </div>
 <div class="section" id="exercitiu-verificarea-conectivitatii-la-internet">
 <h4><span class="section-number">2.2.3.3. </span>Exercițiu - Verificarea conectivității la Internet<a class="headerlink" href="#exercitiu-verificarea-conectivitatii-la-internet" title="Permalink to this headline">¶</a></h4>
@@ -858,7 +858,7 @@ exemplu este serverul oferit de Google de la adresa IP <code class="docutils lit
 reținem nume decât adrese IP.</p>
 <p>Pentru a rezolva această necesitate folosim serviciul DNS. Acesta este oferit de
 un server către care noi trimitem cereri de <em>lookup</em> pentru o adresa
-<em>hostname</em> cum ar fi <code class="docutils literal notranslate"><span class="pre">www.google.com</span></code>. Serverul DSN va răspunde cu adresa IP
+<em>hostname</em> cum ar fi <code class="docutils literal notranslate"><span class="pre">www.google.com</span></code>. Serverul DNS va răspunde cu adresa IP
 asociată cu adresa cerută.</p>
 <p>Ne dorim să avem un serviciu DNS funcțional în permanență pe sistemul pe care lucrăm.</p>
 <p>În mod implicit serviciul DNS este configurat prin DHCP.</p>
@@ -1078,7 +1078,7 @@ utilizatot privilegiat pentru această funcționalitate oferită de opțiunea
 </ul><div class="footer" role="contentinfo">
       &#169; Copyright 2020, USO Team.
     <br>
-    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.2.1 with <a href="https://github.com/romnnn/sphinx_press_theme">Press Theme</a>.
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.3.0 with <a href="https://github.com/romnnn/sphinx_press_theme">Press Theme</a>.
 </div>
             </div>
           </div>
