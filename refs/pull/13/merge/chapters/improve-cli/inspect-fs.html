@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-      <title>2. Inspectarea sistemului de fișiere</title>
+      <title>3. Inspectarea sistemului de fișiere</title>
     
       <link rel="stylesheet" href="../../_static/pygments.css">
       <link rel="stylesheet" href="../../_static/theme.css">
@@ -24,8 +24,8 @@
     
   <link rel="index" title="Index" href="../../genindex.html" />
   <link rel="search" title="Search" href="../../search.html" />
-  <link rel="next" title="3. Inspectarea sistemului" href="inspect-sys.html" />
-  <link rel="prev" title="1. Îmbunătățirea lucrului în linia de comandă" href="improve-terminal.html" />
+  <link rel="next" title="4. Sumar: Inspectarea sistemului de fișiere" href="inspect-fs-summary.html" />
+  <link rel="prev" title="2. Sumar: Îmbunătățirea lucrului în linia de comandă" href="improve-terminal-summary.html" />
     <link href="../../_static/my_theme.css" rel="stylesheet" type="text/css">
 
   </head>
@@ -463,6 +463,12 @@
           </li>
 
         
+          <li class="toctree-l1 "><a href="improve-terminal-summary.html" class="reference internal ">Sumar: Îmbunătățirea lucrului în linia de comandă</a>
+
+            
+          </li>
+
+        
           <li class="toctree-l1 current"><a href="#" class="reference internal current">Inspectarea sistemului de fișiere</a>
 
             
@@ -476,16 +482,12 @@
                 
                   <li class="toctree-l2"><a href="#cautarea-unui-fisier-in-sistem" class="reference internal">Căutarea unui fișier în sistem</a></li>
                 
-                  <li class="toctree-l2"><a href="#file-si-touch" class="reference internal">file și touch</a></li>
-                
-                  <li class="toctree-l2"><a href="#bonus-procfs" class="reference internal">Bonus: procfs</a></li>
-                
               </ul>
             
           </li>
 
         
-          <li class="toctree-l1 "><a href="inspect-sys.html" class="reference internal ">Inspectarea sistemului</a>
+          <li class="toctree-l1 "><a href="inspect-fs-summary.html" class="reference internal ">Sumar: Inspectarea sistemului de fișiere</a>
 
             
           </li>
@@ -515,18 +517,18 @@
   <ul class="breadcrumbs">
     <li><a href="../../index.html">Docs</a> &raquo;</li>
     
-    <li><span class="section-number">2. </span>Inspectarea sistemului de fișiere</li>
+    <li><span class="section-number">3. </span>Inspectarea sistemului de fișiere</li>
   </ul>
   
 
   <ul class="page-nav">
   <li class="prev">
-    <a href="improve-terminal.html"
-       title="previous chapter">← <span class="section-number">1. </span>Îmbunătățirea lucrului în linia de comandă</a>
+    <a href="improve-terminal-summary.html"
+       title="previous chapter">← <span class="section-number">2. </span>Sumar: Îmbunătățirea lucrului în linia de comandă</a>
   </li>
   <li class="next">
-    <a href="inspect-sys.html"
-       title="next chapter"><span class="section-number">3. </span>Inspectarea sistemului →</a>
+    <a href="inspect-fs-summary.html"
+       title="next chapter"><span class="section-number">4. </span>Sumar: Inspectarea sistemului de fișiere →</a>
   </li>
 </ul>
   
@@ -535,9 +537,9 @@
           <div class="content" role="main">
             
   <div class="section" id="inspectarea-sistemului-de-fisiere">
-<span id="improve-cli-inspect-fs"></span><h1><span class="section-number">2. </span>Inspectarea sistemului de fișiere<a class="headerlink" href="#inspectarea-sistemului-de-fisiere" title="Permalink to this headline">¶</a></h1>
+<span id="improve-cli-inspect-fs"></span><h1><span class="section-number">3. </span>Inspectarea sistemului de fișiere<a class="headerlink" href="#inspectarea-sistemului-de-fisiere" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="cea-mai-importanta-comanda">
-<h2><span class="section-number">2.1. </span>Cea mai importantă comandă<a class="headerlink" href="#cea-mai-importanta-comanda" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.1. </span>Cea mai importantă comandă<a class="headerlink" href="#cea-mai-importanta-comanda" title="Permalink to this headline">¶</a></h2>
 <p>Așa cum spuneam mai devreme, marele avantaj al utilizării terminalului este că ne ajută să rezolvăm sarcini foarte rapid.
 Rezolvăm sarcini folosind utilitarele pe care le avem disponibile în linia de comandă, fie că acestea fac parte din sistemul nostru sau le-am instalat.</p>
 <p>Cel mai important utilitar pe care îl avem la dispoziție este <code class="docutils literal notranslate"><span class="pre">man</span></code>.
@@ -583,17 +585,19 @@ SYNOPSIS
 <li><p>Putem apăsa tasta <code class="docutils literal notranslate"><span class="pre">q</span></code> pentru a ieși din manual</p></li>
 </ul>
 <div class="section" id="navigarea-prin-paginile-manualului">
-<h3><span class="section-number">2.1.1. </span>Navigarea prin paginile manualului<a class="headerlink" href="#navigarea-prin-paginile-manualului" title="Permalink to this headline">¶</a></h3>
-<p>Pentru a naviga prin pagina de manual putem folosi tastele <code class="docutils literal notranslate"><span class="pre">Arrow</span> <span class="pre">Down</span></code> și <code class="docutils literal notranslate"><span class="pre">Arrow</span> <span class="pre">Up</span></code> pentru a naviga, cu câte o linie, în jos, respectiv în sus, în pagină.
+<h3><span class="section-number">3.1.1. </span>Navigarea prin paginile manualului<a class="headerlink" href="#navigarea-prin-paginile-manualului" title="Permalink to this headline">¶</a></h3>
+<p>Navigăm câte un ecran de terminal în joș și în sus folosind folosind tastele <code class="docutils literal notranslate"><span class="pre">Arrow</span> <span class="pre">Down</span></code> și <code class="docutils literal notranslate"><span class="pre">Arrow</span> <span class="pre">Up</span></code>.
 Putem folosi tastele <code class="docutils literal notranslate"><span class="pre">Pg</span> <span class="pre">Dn</span></code> și <code class="docutils literal notranslate"><span class="pre">Pg</span> <span class="pre">Up</span></code> pentru a naviga, cu câte un ecran de terminal, în jos și în sus în pagină.
-Pentru a naviga la începutul paginii putem folosi tasta <code class="docutils literal notranslate"><span class="pre">g</span></code>, iar pentru a naviga la sfârșitul paginii folosim tasta <code class="docutils literal notranslate"><span class="pre">G</span></code>.</p>
+Navigăm la începutul paginii folosind tasta <code class="docutils literal notranslate"><span class="pre">g</span></code>.
+Navigăm la sfârșit paginii folosind tasta <code class="docutils literal notranslate"><span class="pre">G</span></code>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Putem folosi tastele <code class="docutils literal notranslate"><span class="pre">j</span></code> și <code class="docutils literal notranslate"><span class="pre">k</span></code> ca alternative pentru <code class="docutils literal notranslate"><span class="pre">Arrow</span> <span class="pre">Down</span></code> și <code class="docutils literal notranslate"><span class="pre">Arrow</span> <span class="pre">Up</span></code>.
 Astfel suntem mai rapizi pentru că nu ne mai mutăm mâna de pe tastele caractere.</p>
 </div>
-<p>De cele mai multe ori, atunci când consultăm pagina de manual a unui utilitar suntem interesați să aflăm dacă acesta expune o anumită funcționalitate și cum o putem folosim.
-Decât să citim linie cu linie în căutarea funcționalității dorite, putem să folosim funcția de căutare a manualului:</p>
+<p>Folosim <code class="docutils literal notranslate"><span class="pre">man</span></code> ca să vedem dacă un utilitar oferă o anumită funcționaltiate.
+Citim întreaga pagină de manual ca să vedem toate funcționalitățile sau căutăm o funcționalitate folosind cuvinte cheie.
+Pașii pentru căutarea unui cuvânt cheie sunt următorii:</p>
 <ol class="arabic simple">
 <li><p>Pentru a porni funcția de căutare apăsăm tasta <code class="docutils literal notranslate"><span class="pre">/</span></code> în sesiunea interactivă din <code class="docutils literal notranslate"><span class="pre">man</span></code>.</p></li>
 <li><p>În continuare vom introduce textul pe care dorim să-l căutăm: poate să fie un cuvântul cheie pe care îl știm deja sau orice text care sperăm că ne duce la rezultatul dorit.</p></li>
@@ -602,13 +606,10 @@ Vom fi duși la primul rezultat care se potrivește căutării, dacă acesta exi
 <li><p>Dacă vrem să navigăm la următorul rezultat apăsăm tasta <code class="docutils literal notranslate"><span class="pre">n</span></code>.
 Dacă vrem să navigăm la un rezultat anterior apăsăm tasta <code class="docutils literal notranslate"><span class="pre">N</span></code>.</p></li>
 </ol>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
 <p>Căutarea are loc de la poziția curentă în pagină către sfârșitul paginii.
 Dacă am navigat deja în interiorul paginii, trebuie să avem în vedere că rezultatul de interes al căutării noastre se poate alfa undeva între începutul paginii și poziția noastră curentă.
 Putem folosi tasta <code class="docutils literal notranslate"><span class="pre">?</span></code> pentru a porni o căutare de la poziția curentă către începutul paginii.
 Alternativ, putem naviga la începutul paginii prin apăsarea unei singure taste (<code class="docutils literal notranslate"><span class="pre">g</span></code>) și apoi pornim căutarea <code class="docutils literal notranslate"><span class="pre">/</span></code> de acolo.</p>
-</div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Căutarea este case-sensitive.
@@ -617,9 +618,9 @@ Dacă doriți să aflați mai multe despre opțiunile pe care le putem introduce
 </div>
 </div>
 <div class="section" id="interpretarea-paginii-de-manual">
-<h3><span class="section-number">2.1.2. </span>Interpretarea paginii de manual<a class="headerlink" href="#interpretarea-paginii-de-manual" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">3.1.2. </span>Interpretarea paginii de manual<a class="headerlink" href="#interpretarea-paginii-de-manual" title="Permalink to this headline">¶</a></h3>
 <p>La o primă vedere, textul paginii de manual poate fi intimidant; unele utilitare au mai multe opțiuni și argumente, unele opționale, altele nu.
-O să trecem prin syntaxă și o să vedem că lucrurile sunt mult mai simple decât par.
+O să trecem prin sintaxă și o să vedem că lucrurile sunt mult mai simple decât par.
 Să analizăm pagina de manual a utilitarului <code class="docutils literal notranslate"><span class="pre">ls</span></code>; <code class="docutils literal notranslate"><span class="pre">man</span> <span class="pre">ls</span></code>:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>LS<span class="o">(</span><span class="m">1</span><span class="o">)</span>                            User Commands                           LS<span class="o">(</span><span class="m">1</span><span class="o">)</span>
 
@@ -650,8 +651,7 @@ DESCRIPTION
 <ol class="arabic">
 <li><p>Prima secțiune care ne interesează este “DESCRIPTION”.
 Citim descrierea și ne dăm seama dacă utilitarul ne va ajuta în rezolvarea sarcinii pe care o avem.
-În cazul utilitarului <code class="docutils literal notranslate"><span class="pre">ls</span></code>, descrierea ne informează că acesta afișează informații despre fișierele din calea indicată, sau din directorul curent atunci când nu specificăm o cale.
-Informațiile sunt sortate alfabetic, dacă utilizatorul nu specifică altceva prin opțiunile disponibile.</p></li>
+În cazul utilitarului <code class="docutils literal notranslate"><span class="pre">ls</span></code>, descrierea ne informează că acesta afișează informații despre fișierele din calea indicată, sau din directorul curent atunci când nu specificăm o cale.</p></li>
 <li><p>Cea de-a doua secțiune care ne interesează este “SYNOPSIS”.
 Aceasta ne spune cum putem să rulăm utilitarul, ce opțiuni și argumente sunt opționale (pot lipsi) și ce opțiuni și argumente sunt obligatorii.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>SYNOPSIS
@@ -661,9 +661,8 @@ Aceasta ne spune cum putem să rulăm utilitarul, ce opțiuni și argumente sunt
 <p>Sintaxa <strong>[ ]</strong> ne spune că acea categorie este opțională.
 Astfel, pentru <code class="docutils literal notranslate"><span class="pre">ls</span></code>, deducem că atât opțiunile (<code class="docutils literal notranslate"><span class="pre">[OPTION]...</span></code>) cât și argumentele (<code class="docutils literal notranslate"><span class="pre">[FILE]...</span></code>, calea către fișiere sau directoare) sunt opționale.
 Cele trei puncte <code class="docutils literal notranslate"><span class="pre">...</span></code> înseamnă mai multe din categoria precedentă: deci <code class="docutils literal notranslate"><span class="pre">[OPTION]...</span></code> înseamnă că nu suntem limitați la o singură opțiune, dar opțiunile pot să și lipsească în totalitate datorită <strong>[ ]</strong>.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Am menționat că o comandă poate avea atât opțiuni, cât și argumente.
+<blockquote>
+<div><p>O comandă poate avea atât opțiuni, cât și argumente.
 Opțiunile îi spun unei comenzi cum să își modifice comportamentul, și de obicei sunt precedate de <code class="docutils literal notranslate"><span class="pre">-</span></code> (ex. <code class="docutils literal notranslate"><span class="pre">-l</span></code>, <code class="docutils literal notranslate"><span class="pre">--verbose</span></code>, etc.).
 Argumentele îi spun unei comenzi pe ce să acționeze.</p>
 <p>În exemplul de mai jos:</p>
@@ -671,7 +670,7 @@ Argumentele îi spun unei comenzi pe ce să acționeze.</p>
 </pre></div>
 </div>
 <p>Avem utilitarul <code class="docutils literal notranslate"><span class="pre">ls</span></code> care primește opțiunea <code class="docutils literal notranslate"><span class="pre">-l</span></code> și argumentul <code class="docutils literal notranslate"><span class="pre">Desktop/</span></code>.</p>
-</div>
+</div></blockquote>
 </li>
 <li><p>Ultima observație pe care o facem este că opțiunile unei comenzi pot avea o formă prescurtată, <code class="docutils literal notranslate"><span class="pre">-a</span></code>, sau o formă lungă, <code class="docutils literal notranslate"><span class="pre">--all</span></code>.
 Nu este obligatoriu ca o opțiune să expună ambele forme, deși majoritatea o fac.
@@ -681,9 +680,25 @@ Opțiunile în formă prescurtată pot fi concatenate și precedate de un singur
 </div>
 </li>
 </ol>
+<div class="section" id="exercitii">
+<h4><span class="section-number">3.1.2.1. </span>Exerciții<a class="headerlink" href="#exercitii" title="Permalink to this headline">¶</a></h4>
+<p>Deschideți pagina de manual a utilitarului <code class="docutils literal notranslate"><span class="pre">ls</span></code>.</p>
+<ol class="arabic simple">
+<li><p>Căutați opțiunea <code class="docutils literal notranslate"><span class="pre">-a</span></code>.
+Rulați comanda <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-a</span></code>.</p></li>
+<li><p>Căutați opțiunea <code class="docutils literal notranslate"><span class="pre">-d</span></code>.
+Rulați comanda <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-d</span></code>.</p></li>
+<li><p>Căutați opțiunea <code class="docutils literal notranslate"><span class="pre">-F</span></code>.
+Rulați comanda <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-F</span></code>.</p></li>
+<li><p>Căutați cuvântul cheie <code class="docutils literal notranslate"><span class="pre">list</span></code>.
+Treceți la următoarea apariție a cuvântului cheie până ajungeți la opțiunea <code class="docutils literal notranslate"><span class="pre">-l</span></code>.</p></li>
+<li><p>Mergeți la finalul paginii folosind tasta <code class="docutils literal notranslate"><span class="pre">G</span></code>.
+Căutați cuvântul cheie <code class="docutils literal notranslate"><span class="pre">color</span></code> până ajungeți la opțiunea <code class="docutils literal notranslate"><span class="pre">--color</span></code>.</p></li>
+</ol>
 </div>
-<div class="section" id="utilizarea-sectiunilor-din-manual">
-<h3><span class="section-number">2.1.3. </span>Utilizarea secțiunilor din manual<a class="headerlink" href="#utilizarea-sectiunilor-din-manual" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="extra-utilizarea-sectiunilor-din-manual">
+<h3><span class="section-number">3.1.3. </span>Extra: Utilizarea secțiunilor din manual<a class="headerlink" href="#extra-utilizarea-sectiunilor-din-manual" title="Permalink to this headline">¶</a></h3>
 <p>În descrierea manualului (<code class="docutils literal notranslate"><span class="pre">man</span> <span class="pre">man</span></code>) este specificat faptul că manualul este împărțit în diferite secțiuni:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>The table below shows the section numbers of the manual followed by the types of pages they contain.
 
@@ -770,7 +785,7 @@ SYNOPSIS
 </div>
 </div>
 <div class="section" id="bonus-utilizarea-pachetului-tldr">
-<h3><span class="section-number">2.1.4. </span>Bonus: Utilizarea pachetului <code class="docutils literal notranslate"><span class="pre">tldr</span></code><a class="headerlink" href="#bonus-utilizarea-pachetului-tldr" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">3.1.4. </span>Bonus: Utilizarea pachetului <code class="docutils literal notranslate"><span class="pre">tldr</span></code><a class="headerlink" href="#bonus-utilizarea-pachetului-tldr" title="Permalink to this headline">¶</a></h3>
 <p>Utilitarul <code class="docutils literal notranslate"><span class="pre">tldr</span></code> (too long, didn’t read) oferă o versiune simplificată a paginilor de manual.
 Acesta ne va arăta un rezumat al utilizării unei comenzi cu opțiunile cele mai des folosite în comunitate.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ tldr ls
@@ -804,8 +819,8 @@ Acestea fiind spuse, vă recomandăm ca întotdeaună să citiți și să înțe
 Feriți-vă să rulați comenzi orbește, pentru că așa ați găsit pe StackOverflow, tldr, etc.
 Întotdeauna asigurați-vă că ați înțeles cum și de ce rulați comanda și abia apoi treceți la fapte.</p>
 </div>
-<div class="section" id="utilizarea-pachetului-tldr">
-<h4><span class="section-number">2.1.4.1. </span>Utilizarea pachetului <code class="docutils literal notranslate"><span class="pre">tldr</span></code><a class="headerlink" href="#utilizarea-pachetului-tldr" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="exercitii-utilizarea-pachetului-tldr">
+<h4><span class="section-number">3.1.4.1. </span>Exerciții: Utilizarea pachetului <code class="docutils literal notranslate"><span class="pre">tldr</span></code><a class="headerlink" href="#exercitii-utilizarea-pachetului-tldr" title="Permalink to this headline">¶</a></h4>
 <p>Instalați pachetul <code class="docutils literal notranslate"><span class="pre">tldr</span></code> pe mașina voastră.</p>
 <ol class="arabic simple">
 <li><p>Accesați pagina <code class="docutils literal notranslate"><span class="pre">tldr</span></code> a utilitarului <code class="docutils literal notranslate"><span class="pre">ls</span></code>.</p></li>
@@ -816,22 +831,14 @@ Feriți-vă să rulați comenzi orbește, pentru că așa ați găsit pe StackOv
 </ol>
 </div>
 </div>
-<div class="section" id="sumar-inspectarea-paginilor-de-manual">
-<h3><span class="section-number">2.1.5. </span>Sumar: Inspectarea paginilor de manual<a class="headerlink" href="#sumar-inspectarea-paginilor-de-manual" title="Permalink to this headline">¶</a></h3>
-<ul class="simple">
-<li><p>Navigarea prin paginile manualului: search (/, ?, n, N), go up (g), go down (G), help (h) în timp ce folosim comanda man pt a afla mai multe despre cum o putem folosi mai bine; bonus: j/k pt navigare jos/sus</p></li>
-<li><p>Prezentarea secțiunilor din manual: <code class="docutils literal notranslate"><span class="pre">man</span> <span class="pre">printf</span></code> vs <code class="docutils literal notranslate"><span class="pre">man</span> <span class="pre">3</span> <span class="pre">printf</span></code>.</p></li>
-<li><p>Prezentarea pachetului <code class="docutils literal notranslate"><span class="pre">tldr</span></code> - poate fi util pentru cazurile uzuale, dar nu trebuie să ne fie frică să căutăm în <code class="docutils literal notranslate"><span class="pre">man</span></code> pentru detalii</p></li>
-</ul>
-</div>
 </div>
 <div class="section" id="navigarea-sistemului-de-fisiere-comanda-cd">
-<h2><span class="section-number">2.2. </span>Navigarea sistemului de fișiere: comanda <code class="docutils literal notranslate"><span class="pre">cd</span></code><a class="headerlink" href="#navigarea-sistemului-de-fisiere-comanda-cd" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.2. </span>Navigarea sistemului de fișiere: comanda <code class="docutils literal notranslate"><span class="pre">cd</span></code><a class="headerlink" href="#navigarea-sistemului-de-fisiere-comanda-cd" title="Permalink to this headline">¶</a></h2>
 <p>Comanda <code class="docutils literal notranslate"><span class="pre">cd</span></code> este una dintre cele mai folosite comenzi.
 Funcționalitatea este în numele ei, <strong>cd</strong> fiind o abreviere pentru <strong>change directory</strong>.
 Este esențial să ne simțim foarte comfortabili atunci când navigăm prin sistemul de fișiere.</p>
 <div class="section" id="navigarea-eficienta-folosind-cd">
-<h3><span class="section-number">2.2.1. </span>Navigarea eficientă folosind <code class="docutils literal notranslate"><span class="pre">cd</span></code><a class="headerlink" href="#navigarea-eficienta-folosind-cd" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">3.2.1. </span>Navigarea eficientă folosind <code class="docutils literal notranslate"><span class="pre">cd</span></code><a class="headerlink" href="#navigarea-eficienta-folosind-cd" title="Permalink to this headline">¶</a></h3>
 <p>Întotdeauna când deschidem un terminal o facem pentru că vrem să realizăm o sarcină: vrem să redenumim rapid ultimele poze făcute cu telefonul de la genericul <strong>DCIM1001</strong> la ceva util <strong>Excursie Sinaia, Ian 2020, 1001</strong>, vrem să ne testăm proiectul și să urcăm modificările pe GitHub, etc.</p>
 <p>Pentru a ne realiza sarcina, vrem să navigăm în directorul în directorul în care ne-am salvat pozele.
 Primul pas este să aflăm directorul curent în care ne aflăm.
@@ -890,8 +897,8 @@ student@uso:~/Pictures/Sinaia$
 <p>Observăm că sintaxa <code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">~/Pictures/Sinaia</span></code> este mult mai scurtă și simplă de urmărit față de alternativa <code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">../../../../../Pictures/Sinaia</span></code>.</p>
 <p>În exemplul de mai sus am folosit o altă scurtătură pusă la dispoziție de comanda <code class="docutils literal notranslate"><span class="pre">cd</span></code>, anume <code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">-</span></code>.
 Comanda <code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">-</span></code> are ca efect navigarea în directorul anterior, așa cum am văzut în exemplul anterior când am folosit-o pentru a reveni în directorul <code class="docutils literal notranslate"><span class="pre">/home/student/workspace/uni/programming/labs/lab01</span></code>.</p>
-<div class="section" id="exersarea-navigarii-in-cardul-sistemului-de-fisiere">
-<h4><span class="section-number">2.2.1.1. </span>Exersarea navigării în cardul sistemului de fișiere<a class="headerlink" href="#exersarea-navigarii-in-cardul-sistemului-de-fisiere" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="exercitii-exersarea-navigarii-in-cadrul-sistemului-de-fisiere">
+<h4><span class="section-number">3.2.1.1. </span>Exerciții: Exersarea navigării în cadrul sistemului de fișiere<a class="headerlink" href="#exercitii-exersarea-navigarii-in-cadrul-sistemului-de-fisiere" title="Permalink to this headline">¶</a></h4>
 <p>Prin exercițiile care urmează o să ne exersăm mâna astfel încât să devenim cât mai comfortabili cu navigarea prin sistemul de fișiere.
 Trebuie să ne fie foarte clar când folosim o cale absolută, când folosim una relativă și să devenim din ce în ce mai rapizi.</p>
 <div class="admonition tip">
@@ -921,7 +928,7 @@ Navigați în directorul <code class="docutils literal notranslate"><span class=
 </div>
 </div>
 <div class="section" id="explorarea-sistemului-de-fisiere-comanda-ls">
-<h2><span class="section-number">2.3. </span>Explorarea sistemului de fișiere: comanda <code class="docutils literal notranslate"><span class="pre">ls</span></code><a class="headerlink" href="#explorarea-sistemului-de-fisiere-comanda-ls" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.3. </span>Explorarea sistemului de fișiere: comanda <code class="docutils literal notranslate"><span class="pre">ls</span></code><a class="headerlink" href="#explorarea-sistemului-de-fisiere-comanda-ls" title="Permalink to this headline">¶</a></h2>
 <p>Comanda <code class="docutils literal notranslate"><span class="pre">ls</span></code> este și ea una dintre cele mai folosite comenzi.
 Funcționalitatea este în numele ei, <strong>ls</strong> fiind o abreviere pentru <strong>list</strong>.
 Folosim <code class="docutils literal notranslate"><span class="pre">ls</span></code> pentru a afișa mai multe informații despre conținutul unui director sau despre fișiere.</p>
@@ -948,7 +955,7 @@ Atunci când argumentul este un fișier, acesta este afișat, așa cum este cazu
 Observăm că în cazul folosim ca argument o cale către un fișier sau director care nu există (<code class="docutils literal notranslate"><span class="pre">nonexistent</span></code> în exemplul de mai sus) utilitarul <code class="docutils literal notranslate"><span class="pre">ls</span></code> nu își oprește execuția.
 Acesta afișează un mesaj de eroare pentru argumentul în cauză și apoi își continuă execuția cu restul argumentelor.</p>
 <div class="section" id="afisarea-fisierelor-ascunse">
-<h3><span class="section-number">2.3.1. </span>Afișarea fișierelor ascunse<a class="headerlink" href="#afisarea-fisierelor-ascunse" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">3.3.1. </span>Afișarea fișierelor ascunse<a class="headerlink" href="#afisarea-fisierelor-ascunse" title="Permalink to this headline">¶</a></h3>
 <p>În mediul linux, un fișier este ascuns dacă numele său începe cu caracterul <code class="docutils literal notranslate"><span class="pre">.</span></code> (punct).
 În mod implicit, utilitarul <code class="docutils literal notranslate"><span class="pre">ls</span></code> omite fișierele ascunse.
 Pentru a afișa fișierele ascunse folosim opțiunea <code class="docutils literal notranslate"><span class="pre">-a</span></code> (all).</p>
@@ -971,7 +978,7 @@ Multe dintre acestea sunt fișiere de configurare (<code class="docutils literal
 Vom vorbi mai multe despre acestea în viitorul apropriat.</p>
 </div>
 <div class="section" id="afisarea-informatiilor-extinse-despre-fisiere">
-<h3><span class="section-number">2.3.2. </span>Afișarea informațiilor extinse despre fișiere<a class="headerlink" href="#afisarea-informatiilor-extinse-despre-fisiere" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">3.3.2. </span>Afișarea informațiilor extinse despre fișiere<a class="headerlink" href="#afisarea-informatiilor-extinse-despre-fisiere" title="Permalink to this headline">¶</a></h3>
 <p>De cele mai multe ori suntem interesați să aflăm mai multe informații despre fișiere: cum ar fi tipul fișierului, permisiuni, ownership, dimensiunea și data ultimei modificări.
 Toate acestea sunt afișate prin utilizarea opțiunii <code class="docutils literal notranslate"><span class="pre">-l</span></code>:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ ls -l
@@ -1043,7 +1050,7 @@ drwxr-xr-x  <span class="m">2</span> student student <span class="m">4</span>,0K
 <li><p>Ultimele coloane ne arată data ultimei modificări, în ordinea lună, zi, an.</p></li>
 </ol>
 <div class="section" id="afisarea-informatiilor-extinse-despre-un-fisier-de-tip-director">
-<h4><span class="section-number">2.3.2.1. </span>Afișarea informațiilor extinse despre un fișier de tip director<a class="headerlink" href="#afisarea-informatiilor-extinse-despre-un-fisier-de-tip-director" title="Permalink to this headline">¶</a></h4>
+<h4><span class="section-number">3.3.2.1. </span>Afișarea informațiilor extinse despre un fișier de tip director<a class="headerlink" href="#afisarea-informatiilor-extinse-despre-un-fisier-de-tip-director" title="Permalink to this headline">¶</a></h4>
 <p>Am observat că, în mod implicit, utilitarul <code class="docutils literal notranslate"><span class="pre">ls</span></code> ne afișază informații despre conținutul unui director atunci când primește calea către un director ca argument:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ ls -l Desktop/
 total <span class="m">0</span>
@@ -1062,24 +1069,24 @@ drwxr-xr-x <span class="m">2</span> student student <span class="m">4096</span> 
 </div>
 </div>
 <div class="section" id="selectarea-multiplor-fisiere-folosind-globbing">
-<h3><span class="section-number">2.3.3. </span>Selectarea multiplor fișiere folosind globbing<a class="headerlink" href="#selectarea-multiplor-fisiere-folosind-globbing" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">3.3.3. </span>Selectarea multiplor fișiere folosind globbing<a class="headerlink" href="#selectarea-multiplor-fisiere-folosind-globbing" title="Permalink to this headline">¶</a></h3>
 <p>Până acum am aplicat diferite comenzi fie pe fișiere individuale, fie pe întreg directorul.
-Foarte des vom avea nevoie de un mijloc prin care să putem selecta un număr variabil de fișiere care au un nume care corespunde unui tipar (pattern) comun.</p>
+Foarte des vom avea nevoie de un mijloc prin care să putem selecta un număr variabil de fișiere care au un nume care corespunde unui tipar (<em>pattern</em>) comun.</p>
 <p>Să revenim la scenariul prezentat anterior: vrem să selectăm pozele din excursia din Sinaia.
 În directorul în care avem pozele din excursie avem și alte poze de la alte evenimente.
 Știm că pozele din excursie încep toate cu numele <strong>DCIM</strong> și apoi sunt urmate de un număr.
 Ceea ce vrem să facem este să selectăm toate pozele al căror nume corespunde acestui tipar și să le mutăm într-un director separat.
-Pentru asta folosim globbing, ca în exemplul de mai jos:</p>
+Pentru a face acest lucru, folosim <strong>globbing</strong>, ca în exemplul de mai jos:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/Pictures$ mv DCIM* excursie-Sinaia-2020/
 </pre></div>
 </div>
 <p>Observăm argumentul pe care l-am dat comenzii <code class="docutils literal notranslate"><span class="pre">mv</span></code>, și anume <code class="docutils literal notranslate"><span class="pre">DCIM*</span></code>.
 Expresia <code class="docutils literal notranslate"><span class="pre">DCIM*</span></code> este un exemplu de globbing: adică o expresie care descrie un tipar prin folosirea unor caractere speciale, așa cum este caracterul <code class="docutils literal notranslate"><span class="pre">*</span></code>.
-În cazul de față, expresia <code class="docutils literal notranslate"><span class="pre">DCIM*</span></code> înseamnă orice fișier care începe cu șirul de caractere <code class="docutils literal notranslate"><span class="pre">DCIM</span></code>.</p>
+În cazul de față, expresia <code class="docutils literal notranslate"><span class="pre">DCIM*</span></code> înseamnă orice fișier al cărui nume începe cu șirul de caractere <code class="docutils literal notranslate"><span class="pre">DCIM</span></code>.</p>
 <div class="section" id="caracterul-special">
-<h4><span class="section-number">2.3.3.1. </span>Caracterul special <code class="docutils literal notranslate"><span class="pre">*</span></code><a class="headerlink" href="#caracterul-special" title="Permalink to this headline">¶</a></h4>
+<h4><span class="section-number">3.3.3.1. </span>Caracterul special <code class="docutils literal notranslate"><span class="pre">*</span></code><a class="headerlink" href="#caracterul-special" title="Permalink to this headline">¶</a></h4>
 <p>În sintaxa globbing, caracterul <code class="docutils literal notranslate"><span class="pre">*</span></code> poate fi înlocuit cu orice caracter de oricâte ori, sau poate lipsi cu totul.
-În directorul vostru home (<code class="docutils literal notranslate"><span class="pre">~</span></code>), executați următoarele comenzi:</p>
+În directorul nostru home (<code class="docutils literal notranslate"><span class="pre">~</span></code>), executăm următoarele comenzi:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ ls
 Desktop    Downloads  Pictures  Templates  examples.desktop  vm-actions-log.txt
 Documents  Music      Public    Videos     uso.git           workspace
@@ -1095,9 +1102,9 @@ Music
 Observăm că în cazul expresie <code class="docutils literal notranslate"><span class="pre">Music*</span></code>, <code class="docutils literal notranslate"><span class="pre">*</span></code> nu ține locul nici unui caracter.</p>
 </div>
 <div class="section" id="id1">
-<h4><span class="section-number">2.3.3.2. </span>Caracterul special <code class="docutils literal notranslate"><span class="pre">?</span></code><a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h4>
+<h4><span class="section-number">3.3.3.2. </span>Caracterul special <code class="docutils literal notranslate"><span class="pre">?</span></code><a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h4>
 <p>În sintaxa globbing, caracterul <code class="docutils literal notranslate"><span class="pre">?</span></code> înlocuiește exact un caracter, oricare ar fi acela.
-În directorul vostru home (<code class="docutils literal notranslate"><span class="pre">~</span></code>), executați următoarele comenzi:</p>
+În directorul nostru home (<code class="docutils literal notranslate"><span class="pre">~</span></code>), executăm următoarele comenzi:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ ls -d Musi?
 Music
 
@@ -1110,11 +1117,11 @@ ls: cannot access <span class="s1">&#39;Music?&#39;</span>: No such file or dire
 </div>
 <p>Observăm că expresiile <code class="docutils literal notranslate"><span class="pre">Musi?</span></code> și <code class="docutils literal notranslate"><span class="pre">Mus??</span></code> s-au înlocuit cu succes cu numele directorului <code class="docutils literal notranslate"><span class="pre">Music</span></code>, dar expresia <code class="docutils literal notranslate"><span class="pre">Music?</span></code> a generat o eroare deoarece nu există nici un fișier <strong>Music</strong> urmat de un caracter.</p>
 </div>
-<div class="section" id="sintaxa-speciala">
-<h4><span class="section-number">2.3.3.3. </span>Sintaxa specială <code class="docutils literal notranslate"><span class="pre">[]</span></code><a class="headerlink" href="#sintaxa-speciala" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="extra-sintaxa-speciala">
+<h4><span class="section-number">3.3.3.3. </span>Extra: Sintaxa specială <code class="docutils literal notranslate"><span class="pre">[]</span></code><a class="headerlink" href="#extra-sintaxa-speciala" title="Permalink to this headline">¶</a></h4>
 <p>În sintaxa globbing, folosim sintaxa <code class="docutils literal notranslate"><span class="pre">[]</span></code> pentru a defini o listă de caractere care pot fi folosite în înlocuire.
 Această sintaxă înlocuiește exact un caracter din lista oferită.
-În directorul vostru home (<code class="docutils literal notranslate"><span class="pre">~</span></code>), executați următoarele comenzi:</p>
+În directorul nostru home (<code class="docutils literal notranslate"><span class="pre">~</span></code>), executăm următoarele comenzi:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ ls -d Mus<span class="o">[</span>ijk<span class="o">]</span>c
 Music
 
@@ -1132,14 +1139,7 @@ Sintaxa accepta și intervale, cum observăm în exemplul de mai jos:</p>
 Music
 </pre></div>
 </div>
-<p>Citim expresia <code class="docutils literal notranslate"><span class="pre">[A-Za-z0-9]</span></code> în următorul mod: această expresie înlocuiește un caracter din intervalul <code class="docutils literal notranslate"><span class="pre">A-Z</span></code> sau din intervalul <code class="docutils literal notranslate"><span class="pre">a-z</span></code> sau din intervalul <code class="docutils literal notranslate"><span class="pre">0-9</span></code>; cu alte cuvinte înlocuiește un caracter alfa-numeric.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Folosim forma <code class="docutils literal notranslate"><span class="pre">A-Za-z</span></code> pentru a spune orice caracter din alfabetul englez, indiferent dacă este majusculă sau nu.
-Nu putem folosi forma <code class="docutils literal notranslate"><span class="pre">A-z</span></code> datorită reprezentării caracterelor în tabelul ascii.
-Caracterele <strong>A-Z</strong> sunt reprezentate în intervalul <strong>65-90</strong>, iar caracterele <strong>a-z</strong> în intervalul <strong>97-122</strong> în tabelul ascii.
-Dacă am folosi forma <strong>A-z</strong>, i-am spune expresiei globbing să includă și caracterele din intervalul <strong>91-96</strong> din tabelul ascii în expresia noastră.</p>
-</div>
+<p>Citim expresia <code class="docutils literal notranslate"><span class="pre">[A-Za-z0-9]</span></code> în următorul mod: această expresie înlocuiește un caracter din intervalul <code class="docutils literal notranslate"><span class="pre">A-Z</span></code> sau din intervalul <code class="docutils literal notranslate"><span class="pre">a-z</span></code> sau din intervalul <code class="docutils literal notranslate"><span class="pre">0-9</span></code>; cu alte cuvinte înlocuiește un caracter <em>alfa-numeric</em> <a class="footnote-reference brackets" href="#glob-list" id="id2">1</a>.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>Folosind sintaxa <code class="docutils literal notranslate"><span class="pre">[]</span></code> putem rescrie mutarea pozelor a.î. să o facem mai precisă:</p>
@@ -1149,8 +1149,8 @@ Dacă am folosi forma <strong>A-z</strong>, i-am spune expresiei globbing să in
 <p>Cu expresia de mai sus vom muta toate pozele din intervalul <strong>DCIM0000</strong> - <strong>DCIM9999</strong>.</p>
 </div>
 </div>
-<div class="section" id="id2">
-<h4><span class="section-number">2.3.3.4. </span>Sintaxa specială <code class="docutils literal notranslate"><span class="pre">{}</span></code><a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="id3">
+<h4><span class="section-number">3.3.3.4. </span>Extra: Sintaxa specială <code class="docutils literal notranslate"><span class="pre">{}</span></code><a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h4>
 <p>În sintaxa globbing, folosim sintaxa <code class="docutils literal notranslate"><span class="pre">{}</span></code> pentru a defini o listă de cuvinte (grupuri de caractere) care pot fi folosite în înlocuire.
 Această sintaxă înlocuiește exact un caracter din lista oferită.
 În directorul vostru home (<code class="docutils literal notranslate"><span class="pre">~</span></code>), executați următoarele comenzi:</p>
@@ -1164,8 +1164,8 @@ Downloads  Music
 <p>Citim expresia <code class="docutils literal notranslate"><span class="pre">{Downloads,Music}</span></code>: în locul acestei expresii poate să existe cuvântul <strong>Downloads</strong> sau cuvântul <strong>Music</strong>.
 Observăm că putem să combinăm orice elemente de globbing, așa cum am făcut în expresia <code class="docutils literal notranslate"><span class="pre">{Down,Mus}*</span></code>.</p>
 </div>
-<div class="section" id="folosirea-ad-litteram-a-caracterelor-speciale">
-<h4><span class="section-number">2.3.3.5. </span>Folosirea ad-litteram a caracterelor speciale<a class="headerlink" href="#folosirea-ad-litteram-a-caracterelor-speciale" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="extra-folosirea-ad-litteram-a-caracterelor-speciale">
+<h4><span class="section-number">3.3.3.5. </span>Extra: Folosirea ad-litteram a caracterelor speciale<a class="headerlink" href="#extra-folosirea-ad-litteram-a-caracterelor-speciale" title="Permalink to this headline">¶</a></h4>
 <p>Există cazuri când numele fișierelor conțin caractere speciale.
 Unele fișiere pot fi prefixate cu o categorie din care fac parte, ca în exemplul de mai jos:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ ls Documents/uni
@@ -1186,21 +1186,21 @@ Termenul vine de la cuvântul <strong>escape</strong> (a scăpa), și exprimă c
 </div>
 </div>
 <div class="section" id="cautarea-unui-fisier-in-sistem">
-<h2><span class="section-number">2.4. </span>Căutarea unui fișier în sistem<a class="headerlink" href="#cautarea-unui-fisier-in-sistem" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.4. </span>Căutarea unui fișier în sistem<a class="headerlink" href="#cautarea-unui-fisier-in-sistem" title="Permalink to this headline">¶</a></h2>
 <p>De multe ori ne aflăm în situația în care căutăm un fișier pe disk: ex. doar ce am clonat un proiect de pe GitHub și vrem să inspectăm fișierul <strong>Makefile</strong> pentru a vedea cum compilăm și rulăm proiectul.
 Un alt exemplu poate fi că vrem să vedem cum arată fișierele de test existente în proiect; de multe ori, ințelegem mai bine proiectul doar prin simpla inspectare a testelor.</p>
 <p>Există două utilitare care ne permit să căutăm în cadrul sistemului de fișiere: <code class="docutils literal notranslate"><span class="pre">locate</span></code> și <code class="docutils literal notranslate"><span class="pre">find</span></code>.</p>
 <div class="section" id="utilitarul-locate">
-<h3><span class="section-number">2.4.1. </span>Utilitarul <code class="docutils literal notranslate"><span class="pre">locate</span></code><a class="headerlink" href="#utilitarul-locate" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">3.4.1. </span>Utilitarul <code class="docutils literal notranslate"><span class="pre">locate</span></code><a class="headerlink" href="#utilitarul-locate" title="Permalink to this headline">¶</a></h3>
 <p>Utilitarul <code class="docutils literal notranslate"><span class="pre">locate</span></code> folosește o bază de date pentru a căuta în fișierele de pe sistem.
-Inspectăm pagina de manual a utilitarului pentru a vedea cum îl putem folosi.</p>
+Inspectăm pagina de manual a utilitarului pentru a vedea cum îl putem folosi, folosind comanda <code class="docutils literal notranslate"><span class="pre">man</span></code>:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ man locate
 
 SYNOPSIS
        locate <span class="o">[</span>OPTION<span class="o">]</span>... PATTERN...
 </pre></div>
 </div>
-<p>Observăm că <code class="docutils literal notranslate"><span class="pre">locate</span></code> primește ca argument un șir de caractere, <strong>PATTERN</strong>, care fac parte din numele fișierului pe care în căutăm, dar nu trebuie să-i dăm numele exact</p>
+<p>Observăm că <code class="docutils literal notranslate"><span class="pre">locate</span></code> primește ca argument un șir de caractere, <strong>PATTERN</strong>, care fac parte din numele fișierului pe care în căutăm, dar nu trebuie să-i dăm numele exact:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ locate todos.txt
 /home/student/Desktop/todos.txt
 student@uso:~$ locate todos
@@ -1262,23 +1262,18 @@ Parola utilizatorului <strong>student</strong>, pe mașina noastră virtuală, e
 /home/student/workspace/C/searching/pattern_search/rabin_karp_search.c
 </pre></div>
 </div>
-<div class="section" id="sumar-locate">
-<h4><span class="section-number">2.4.1.1. </span>Sumar: <code class="docutils literal notranslate"><span class="pre">locate</span></code><a class="headerlink" href="#sumar-locate" title="Permalink to this headline">¶</a></h4>
-<p>Folosim utilitarul <code class="docutils literal notranslate"><span class="pre">locate</span></code> pentru a căuta un fișier în întreg sistemul de fișiere.</p>
-<p>Are avantajul că este foarte rapid, deoarece folosește o bază de date pentru a indexa fișierele.</p>
-<dl class="simple">
-<dt>Are două dezavantaje:</dt><dd><ol class="arabic simple">
-<li><p>Baza de date trebuie reconstruită periodic.
-Dacă vrem să reconstruim manual baza de date, avem nevoie de drepturi privilegiate pentru a rula comanda <code class="docutils literal notranslate"><span class="pre">updatedb</span></code>.</p></li>
-<li><p>Utilitarul caută în tot sistemul de fișiere: nu putem să specificăm un punct de start pentru căutare.
-Este necesar să filtrăm rezultatul căutării cu punctul de start dorit, așa cum am făcut în exemplul de mai sus: <code class="docutils literal notranslate"><span class="pre">|</span> <span class="pre">grep</span> <span class="pre">workspace/C</span></code>.</p></li>
+<div class="section" id="id4">
+<h4><span class="section-number">3.4.1.1. </span>Exerciții<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h4>
+<ol class="arabic simple">
+<li><p>Folosind <code class="docutils literal notranslate"><span class="pre">locate</span></code> căutați fișierele care conțin șirul <code class="docutils literal notranslate"><span class="pre">bubble_sort</span></code> în nume.</p></li>
+<li><p>Folosind <code class="docutils literal notranslate"><span class="pre">locate</span></code> căutați fișierele care conțin șirul <code class="docutils literal notranslate"><span class="pre">quick_sort</span></code> în nume.</p></li>
+<li><p>Folosind <code class="docutils literal notranslate"><span class="pre">locate</span></code> căutați fișierele care conțin șirul <code class="docutils literal notranslate"><span class="pre">merge_sort</span></code> în nume.</p></li>
+<li><p>Folosind <code class="docutils literal notranslate"><span class="pre">locate</span></code> căutați fișierele care conțin șirul <code class="docutils literal notranslate"><span class="pre">sort</span></code> în nume.</p></li>
 </ol>
-</dd>
-</dl>
 </div>
 </div>
 <div class="section" id="utilitarul-find">
-<h3><span class="section-number">2.4.2. </span>Utilitarul <code class="docutils literal notranslate"><span class="pre">find</span></code><a class="headerlink" href="#utilitarul-find" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">3.4.2. </span>Utilitarul <code class="docutils literal notranslate"><span class="pre">find</span></code><a class="headerlink" href="#utilitarul-find" title="Permalink to this headline">¶</a></h3>
 <p>Utilitarul <code class="docutils literal notranslate"><span class="pre">find</span></code> îndeplinește același scop: căuta în fișierele de pe sistem.
 <code class="docutils literal notranslate"><span class="pre">find</span></code> este un utilitar mai complex decât <code class="docutils literal notranslate"><span class="pre">locate</span></code>.
 Acesta ne permite să căutăm fișiere după nume, permisiuni, tipul fișierelor, data ultimei modificări și multe altele.
@@ -1309,7 +1304,7 @@ Folosim <code class="docutils literal notranslate"><span class="pre">find</span>
 ./C/data_structures/binary_trees/binary_search_tree.c
 </pre></div>
 </div>
-<p>În exemplul de mai sus observă că am folosit ca <strong>starting-point</strong> <code class="docutils literal notranslate"><span class="pre">.</span></code> (directorul curent), iar ca <strong>expression</strong> <code class="docutils literal notranslate"><span class="pre">-name</span> <span class="pre">&quot;*search*&quot;</span></code>.</p>
+<p>În exemplul de mai sus observă că am folosit ca <strong>starting-point</strong> <code class="docutils literal notranslate"><span class="pre">.</span></code> (căutarea pleacă din directorul curent), iar ca <strong>expression</strong> <code class="docutils literal notranslate"><span class="pre">-name</span> <span class="pre">&quot;*search*&quot;</span></code>.</p>
 <p>Utilitarul <code class="docutils literal notranslate"><span class="pre">find</span></code> folosește o expresie compusă pentru căutare.
 În exemplul anterior am folosit opțiunea <code class="docutils literal notranslate"><span class="pre">-name</span> <span class="pre">PATTERN</span></code>.
 Exact ca în cazul utilitarului <code class="docutils literal notranslate"><span class="pre">locate</span></code>, <strong>PATTERN</strong> poate folosi sintaxa globbing, așa cum am făcut în exemplul de mai sus <code class="docutils literal notranslate"><span class="pre">&quot;*search*&quot;</span></code>.</p>
@@ -1318,8 +1313,8 @@ Exact ca în cazul utilitarului <code class="docutils literal notranslate"><span
 <p>Atunci când folosim sintaxa globbing, trebuie să fim atenți să încadrăm <strong>PATTERN</strong> între <code class="docutils literal notranslate"><span class="pre">&quot;</span></code> (ghilimele), așa cum am făcut în exemplul de mai sus.
 Trebuie să facem asta pentru ca sintaxa globbing să fie interpretată de către utilitarul <code class="docutils literal notranslate"><span class="pre">find</span></code> și nu de către terminalul (<code class="docutils literal notranslate"><span class="pre">bash</span></code>) din care lansăm utilitarul.</p>
 </div>
-<div class="section" id="scenarii-complexe-de-cautare">
-<h4><span class="section-number">2.4.2.1. </span>Scenarii complexe de căutare<a class="headerlink" href="#scenarii-complexe-de-cautare" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="extra-scenarii-complexe-de-cautare">
+<h4><span class="section-number">3.4.2.1. </span>Extra: Scenarii complexe de căutare<a class="headerlink" href="#extra-scenarii-complexe-de-cautare" title="Permalink to this headline">¶</a></h4>
 <p>Utilitarul <code class="docutils literal notranslate"><span class="pre">find</span></code> are o lungă listă de opțiuni pe care le putem folosi în expresii de căutare.
 Una din opțiunile mai populare este <code class="docutils literal notranslate"><span class="pre">-type</span></code> care ne oferă posibilitatea de a căuta după tipul unui fișier:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ find workspace/C -type f
@@ -1361,22 +1356,17 @@ Atunci când folosim <code class="docutils literal notranslate"><span class="pre
 În cuvinte, pentru fiecare fișier text care conține șirul <strong>search</strong> vom afișa informații în format lung (<code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-l</span> <span class="pre">{}</span></code>).
 Observăm că <code class="docutils literal notranslate"><span class="pre">-exec</span></code> se încheie cu <code class="docutils literal notranslate"><span class="pre">\;</span></code>: este nevoie să escapăm caracterul <code class="docutils literal notranslate"><span class="pre">;</span></code> pentru ca acesta să fie interpretat de către utilitarul <code class="docutils literal notranslate"><span class="pre">find</span></code> și nu de către terminalul în care rulăm, exact ca în cazul <code class="docutils literal notranslate"><span class="pre">-name</span> <span class="pre">PATTERN</span></code>.</p>
 <p>În secțiunile ce urmează vom vedea cum ne folosim de opțiunea <code class="docutils literal notranslate"><span class="pre">exec</span></code> pentru a face recursiv search &amp; replace în fișiere.</p>
+<p class="rubric">Note de subsol</p>
+<dl class="footnote brackets">
+<dt class="label" id="glob-list"><span class="brackets"><a class="fn-backref" href="#id2">1</a></span></dt>
+<dd><p>Folosim forma <code class="docutils literal notranslate"><span class="pre">A-Za-z</span></code> pentru a spune orice caracter din alfabetul englez, indiferent dacă este majusculă sau nu.
+Nu putem folosi forma <code class="docutils literal notranslate"><span class="pre">A-z</span></code> datorită reprezentării caracterelor în tabelul ascii.
+Caracterele <strong>A-Z</strong> sunt reprezentate în intervalul <strong>65-90</strong>, iar caracterele <strong>a-z</strong> în intervalul <strong>97-122</strong> în tabelul ascii.
+Dacă am folosi forma <strong>A-z</strong>, i-am spune expresiei globbing să includă și caracterele din intervalul <strong>91-96</strong> din tabelul ascii în expresia noastră.</p>
+</dd>
+</dl>
 </div>
-<div class="section" id="sumar-find">
-<h4><span class="section-number">2.4.2.2. </span>Sumar: <code class="docutils literal notranslate"><span class="pre">find</span></code><a class="headerlink" href="#sumar-find" title="Permalink to this headline">¶</a></h4>
-<p>Folosim <code class="docutils literal notranslate"><span class="pre">find</span></code> pentru a căuta după criterii mai complexe decât numele fișierului, cum ar fi tipul fișierului, data ultimei modificări, etc.</p>
-<p>De cele mai multe ori vom folosi <code class="docutils literal notranslate"><span class="pre">find</span></code> în conjuncție cu opțiunea <code class="docutils literal notranslate"><span class="pre">-exec</span></code> pentru a rula o comandă asupra fișierelor găsite.</p>
-<p>Utilitarul <code class="docutils literal notranslate"><span class="pre">find</span></code> este mai lent decât <code class="docutils literal notranslate"><span class="pre">locate</span></code>, dar nu necesită o bază de date care trebuie actualizată periodic.
-<code class="docutils literal notranslate"><span class="pre">locate</span></code> este probabil suficient pentru majoritatea cazurilor când suntem interesați de căutarea unui fișier.</p>
 </div>
-</div>
-</div>
-<div class="section" id="file-si-touch">
-<h2><span class="section-number">2.5. </span><code class="docutils literal notranslate"><span class="pre">file</span></code> și <code class="docutils literal notranslate"><span class="pre">touch</span></code><a class="headerlink" href="#file-si-touch" title="Permalink to this headline">¶</a></h2>
-<p>În contextul ăsta arătăm că touch actualizează data ultimei modificări pentru un fișier existent</p>
-</div>
-<div class="section" id="bonus-procfs">
-<h2><span class="section-number">2.6. </span>Bonus: procfs<a class="headerlink" href="#bonus-procfs" title="Permalink to this headline">¶</a></h2>
 </div>
 </div>
 
@@ -1385,12 +1375,12 @@ Observăm că <code class="docutils literal notranslate"><span class="pre">-exec
           <div class="page-nav">
             <div class="inner"><ul class="page-nav">
   <li class="prev">
-    <a href="improve-terminal.html"
-       title="previous chapter">← <span class="section-number">1. </span>Îmbunătățirea lucrului în linia de comandă</a>
+    <a href="improve-terminal-summary.html"
+       title="previous chapter">← <span class="section-number">2. </span>Sumar: Îmbunătățirea lucrului în linia de comandă</a>
   </li>
   <li class="next">
-    <a href="inspect-sys.html"
-       title="next chapter"><span class="section-number">3. </span>Inspectarea sistemului →</a>
+    <a href="inspect-fs-summary.html"
+       title="next chapter"><span class="section-number">4. </span>Sumar: Inspectarea sistemului de fișiere →</a>
   </li>
 </ul><div class="footer" role="contentinfo">
       &#169; Copyright 2020, USO Team.

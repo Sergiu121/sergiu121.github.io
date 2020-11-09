@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-      <title>4. Inspectarea fișierelor</title>
+      <title>5. Inspectarea fișierelor</title>
     
       <link rel="stylesheet" href="../../_static/pygments.css">
       <link rel="stylesheet" href="../../_static/theme.css">
@@ -24,8 +24,8 @@
     
   <link rel="index" title="Index" href="../../genindex.html" />
   <link rel="search" title="Search" href="../../search.html" />
-  <link rel="next" title="5. O înțelegere mai bună a shellului" href="improve-shell.html" />
-  <link rel="prev" title="3. Inspectarea sistemului" href="inspect-sys.html" />
+  <link rel="next" title="6. O înțelegere mai bună a shellului" href="improve-shell.html" />
+  <link rel="prev" title="4. Sumar: Inspectarea sistemului de fișiere" href="inspect-fs-summary.html" />
     <link href="../../_static/my_theme.css" rel="stylesheet" type="text/css">
 
   </head>
@@ -463,13 +463,19 @@
           </li>
 
         
+          <li class="toctree-l1 "><a href="improve-terminal-summary.html" class="reference internal ">Sumar: Îmbunătățirea lucrului în linia de comandă</a>
+
+            
+          </li>
+
+        
           <li class="toctree-l1 "><a href="inspect-fs.html" class="reference internal ">Inspectarea sistemului de fișiere</a>
 
             
           </li>
 
         
-          <li class="toctree-l1 "><a href="inspect-sys.html" class="reference internal ">Inspectarea sistemului</a>
+          <li class="toctree-l1 "><a href="inspect-fs-summary.html" class="reference internal ">Sumar: Inspectarea sistemului de fișiere</a>
 
             
           </li>
@@ -482,9 +488,9 @@
                 
                   <li class="toctree-l2"><a href="#inspectarea-rapida-a-continutului-fisierelor" class="reference internal">Inspectarea rapida a conținutului fișierelor</a></li>
                 
-                  <li class="toctree-l2"><a href="#compararea-fisierelor" class="reference internal">Compararea fișierelor</a></li>
-                
                   <li class="toctree-l2"><a href="#cautarea-in-fisiere" class="reference internal">Căutarea în fișiere</a></li>
+                
+                  <li class="toctree-l2"><a href="#compararea-fisierelor" class="reference internal">Compararea fișierelor</a></li>
                 
               </ul>
             
@@ -509,18 +515,18 @@
   <ul class="breadcrumbs">
     <li><a href="../../index.html">Docs</a> &raquo;</li>
     
-    <li><span class="section-number">4. </span>Inspectarea fișierelor</li>
+    <li><span class="section-number">5. </span>Inspectarea fișierelor</li>
   </ul>
   
 
   <ul class="page-nav">
   <li class="prev">
-    <a href="inspect-sys.html"
-       title="previous chapter">← <span class="section-number">3. </span>Inspectarea sistemului</a>
+    <a href="inspect-fs-summary.html"
+       title="previous chapter">← <span class="section-number">4. </span>Sumar: Inspectarea sistemului de fișiere</a>
   </li>
   <li class="next">
     <a href="improve-shell.html"
-       title="next chapter"><span class="section-number">5. </span>O înțelegere mai bună a shellului →</a>
+       title="next chapter"><span class="section-number">6. </span>O înțelegere mai bună a shellului →</a>
   </li>
 </ul>
   
@@ -529,29 +535,22 @@
           <div class="content" role="main">
             
   <div class="section" id="inspectarea-fisierelor">
-<h1><span class="section-number">4. </span>Inspectarea fișierelor<a class="headerlink" href="#inspectarea-fisierelor" title="Permalink to this headline">¶</a></h1>
+<span id="improve-cli-inspect-files"></span><h1><span class="section-number">5. </span>Inspectarea fișierelor<a class="headerlink" href="#inspectarea-fisierelor" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="inspectarea-rapida-a-continutului-fisierelor">
-<h2><span class="section-number">4.1. </span>Inspectarea rapida a conținutului fișierelor<a class="headerlink" href="#inspectarea-rapida-a-continutului-fisierelor" title="Permalink to this headline">¶</a></h2>
-<p>În secțiunea anterioară am văzut cum căutăm fișiere în sistem cu ajutorul utilitarelor <code class="docutils literal notranslate"><span class="pre">locate</span></code> și <code class="docutils literal notranslate"><span class="pre">find</span></code>.
+<h2><span class="section-number">5.1. </span>Inspectarea rapida a conținutului fișierelor<a class="headerlink" href="#inspectarea-rapida-a-continutului-fisierelor" title="Permalink to this headline">¶</a></h2>
+<p>În secțiunea anterioară, <a class="reference internal" href="inspect-fs.html#improve-cli-inspect-fs"><span class="std std-ref">Inspectarea sistemului de fișiere</span></a>, am văzut cum căutăm fișiere în sistem cu ajutorul utilitarelor <code class="docutils literal notranslate"><span class="pre">locate</span></code> și <code class="docutils literal notranslate"><span class="pre">find</span></code>.
 Căutăm un fișier cu un scop: vrem să găsim fișierul <code class="docutils literal notranslate"><span class="pre">README</span></code> pentru informații despre compilarea proiectului, vrem să ne amintim un detaliu de implementare din cod, etc.</p>
 <p>De cele mai multe ori acțiunea noastră se poate grupa în una din următoarele două categorii:</p>
-<ol class="arabic simple">
-<li><p>Ne dorim să inspectăm rapid conținutul fișierelor pentru a ne da seama dacă am găsit informația căutată</p></li>
-<li><p>Ne dorim să afișăm pe ecran conținutul fișierelor pentru a extrage și prelucra informații din el</p></li>
-</ol>
+<ul class="simple">
+<li><p>Ne dorim să inspectăm rapid conținutul fișierelor pentru a ne da seama dacă am găsit informația căutată.</p></li>
+<li><p>Ne dorim să afișăm pe ecran conținutul fișierelor pentru a extrage și prelucra informații din acestea.</p></li>
+</ul>
 <div class="section" id="cautarea-informatiei-intr-un-fisier">
-<h3><span class="section-number">4.1.1. </span>Căutarea informației într-un fișier<a class="headerlink" href="#cautarea-informatiei-intr-un-fisier" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">5.1.1. </span>Căutarea informației într-un fișier<a class="headerlink" href="#cautarea-informatiei-intr-un-fisier" title="Permalink to this headline">¶</a></h3>
 <p>Pentru a vedea rapid conținutul unui fișier folosim utlitarul <code class="docutils literal notranslate"><span class="pre">less</span></code>.</p>
-<p>Revenim la exemplul în care am căutat algoritmii de căutare folosind utilitarul <code class="docutils literal notranslate"><span class="pre">find</span></code>:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ find workspace/C -type f -name <span class="s2">&quot;*search*&quot;</span>
-workspace/C/searching/modified_binary_search.c
-workspace/C/searching/ternary_search.c
-workspace/C/searching/jump_search.c
-workspace/C/searching/binary_search.c
-</pre></div>
-</div>
-<p>Vrem să ne facem rapid o idee despre cum arată implementarea algoritmului <strong>binary_search</strong>.
-Inspectăm conținutul fișierului <code class="docutils literal notranslate"><span class="pre">workspace/C/searching/binary_search.c</span></code> ca în exemplul de mai jos:</p>
+<p>Avem fișierul <code class="docutils literal notranslate"><span class="pre">workspace/C/searching/binary_search.c</span></code>.
+Vrem să ne facem rapid o idee despre cum arată implementarea algoritmului <strong>binary_search</strong>.
+Inspectăm conținutul fișierului <code class="docutils literal notranslate"><span class="pre">workspace/C/searching/binary_search.c</span></code>, folosind utilitarul <a href="#id1"><span class="problematic" id="id2">``</span></a>less`, ca în exemplul de mai jos:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ less workspace/C/searching/binary_search.c
 
 /**
@@ -595,16 +594,14 @@ int binarysearch1<span class="o">(</span>const int *arr, int l, int r, int x<spa
 <li><p>Search (<code class="docutils literal notranslate"><span class="pre">/</span></code>, <code class="docutils literal notranslate"><span class="pre">?</span></code>, <code class="docutils literal notranslate"><span class="pre">n</span></code>, <code class="docutils literal notranslate"><span class="pre">N</span></code>)</p></li>
 <li><p>Go up (<code class="docutils literal notranslate"><span class="pre">g</span></code>), go down (<code class="docutils literal notranslate"><span class="pre">G</span></code>)</p></li>
 <li><p>Help (<code class="docutils literal notranslate"><span class="pre">h</span></code>) pentru a afla mai multe despre cum putem folosi mai bine sesiunea interactivă</p></li>
+<li><p>Quit (<code class="docutils literal notranslate"><span class="pre">q</span></code>) pentru a ieși din sesiunea interactivă</p></li>
 </ul>
 </div>
 <p>În sesiunea interactivă căutăm după cuvântul cheie <strong>search</strong>.
 Pentru a porni căutarea apăsăm tasta <code class="docutils literal notranslate"><span class="pre">/</span></code>, introducem textul căutat (<strong>search</strong>) și apăsăm tasta <code class="docutils literal notranslate"><span class="pre">Enter</span></code>.
 Apăsăm tasta <code class="docutils literal notranslate"><span class="pre">n</span></code> pentru a merge la următoarea apariție a textului căutat; apăsăm <code class="docutils literal notranslate"><span class="pre">n</span></code> până când ajungem la implementarea funcției <code class="docutils literal notranslate"><span class="pre">binarysearch2</span></code>.</p>
-<ul class="simple">
-<li><p>TODO: bonus: reload (:Examine non_existing_file, ex. :e ee) - îl mai trec sau este prea mult / prea exoteric?</p></li>
-</ul>
 <div class="section" id="exercitii">
-<h4><span class="section-number">4.1.1.1. </span>Exerciții<a class="headerlink" href="#exercitii" title="Permalink to this headline">¶</a></h4>
+<h4><span class="section-number">5.1.1.1. </span>Exerciții<a class="headerlink" href="#exercitii" title="Permalink to this headline">¶</a></h4>
 <ol class="arabic simple">
 <li><p>Analizați, folosind <code class="docutils literal notranslate"><span class="pre">less</span></code>, algoritmul de căutare din fișierul <code class="docutils literal notranslate"><span class="pre">workspace/C/searching/linear_search.c</span></code>.
 Ce implementare este mai eficientă: <strong>binary_search</strong> sau <strong>linear_search</strong>?</p></li>
@@ -618,7 +615,7 @@ Când folosim <strong>merge_sort</strong> și când folosim <strong>quick_sort</
 </div>
 </div>
 <div class="section" id="prelucrarea-informatiei-dintr-un-fisier">
-<h3><span class="section-number">4.1.2. </span>Prelucrarea informației dintr-un fișier<a class="headerlink" href="#prelucrarea-informatiei-dintr-un-fisier" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">5.1.2. </span>Prelucrarea informației dintr-un fișier<a class="headerlink" href="#prelucrarea-informatiei-dintr-un-fisier" title="Permalink to this headline">¶</a></h3>
 <p>Pentru a afișa pe ecran conținutul unui fișier folosim utlitarul <code class="docutils literal notranslate"><span class="pre">cat</span></code>.
 Rulăm comanda de mai jos, pentru a exemplifica:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ cat workspace/C/searching/binary_search.c
@@ -633,24 +630,6 @@ Rulăm comanda de mai jos, pentru a exemplifica:</p>
  */
 <span class="c1">#include &lt;assert.h&gt;</span>
 <span class="c1">#include &lt;stdio.h&gt;</span>
-
-/** Recursive implementation
- * <span class="se">\p</span>aram<span class="o">[</span>in<span class="o">]</span> arr array to search
- * <span class="se">\p</span>aram l left index of search range
- * <span class="se">\p</span>aram r right index of search range
- * <span class="se">\p</span>aram x target value to search <span class="k">for</span>
- * <span class="se">\r</span>eturns location of x assuming array arr<span class="o">[</span>l..r<span class="o">]</span> is present
- * <span class="se">\r</span>eturns -1 otherwise
- */
-int binarysearch1<span class="o">(</span>const int *arr, int l, int r, int x<span class="o">)</span>
-<span class="o">{</span>
-    <span class="k">if</span> <span class="o">(</span>r &gt;<span class="o">=</span> l<span class="o">)</span>
-    <span class="o">{</span>
-        int <span class="nv">mid</span> <span class="o">=</span> l + <span class="o">(</span>r - l<span class="o">)</span> / <span class="m">2</span><span class="p">;</span>
-
-        // If element is present at middle
-        <span class="k">if</span> <span class="o">(</span>arr<span class="o">[</span>mid<span class="o">]</span> <span class="o">==</span> x<span class="o">)</span>
-            <span class="k">return</span> mid<span class="p">;</span>
 
 <span class="o">[</span>...<span class="o">]</span>
 </pre></div>
@@ -668,10 +647,11 @@ MemFree:          <span class="m">236092</span> kB
 MemAvailable:     <span class="m">874420</span> kB
 </pre></div>
 </div>
-<p>În exemplul de mai sus folosim <code class="docutils literal notranslate"><span class="pre">cat</span></code> pentru a oferi ca intrare conținutul fișierului <code class="docutils literal notranslate"><span class="pre">/proc/meminfo</span></code> utilitarului <code class="docutils literal notranslate"><span class="pre">grep</span></code>; cu utilitarul <code class="docutils literal notranslate"><span class="pre">grep</span></code> filtrăm conținutul după textul <code class="docutils literal notranslate"><span class="pre">&quot;Mem&quot;</span></code>.</p>
+<p>În exemplul de mai sus folosim <code class="docutils literal notranslate"><span class="pre">cat</span></code> pentru a oferi ca intrare conținutul fișierului <code class="docutils literal notranslate"><span class="pre">/proc/meminfo</span></code> utilitarului <code class="docutils literal notranslate"><span class="pre">grep</span></code>; cu utilitarul <code class="docutils literal notranslate"><span class="pre">grep</span></code> filtrăm conținutul după textul <code class="docutils literal notranslate"><span class="pre">&quot;Mem&quot;</span></code>.
+Cu alte cuvinte, outputul comenzii <code class="docutils literal notranslate"><span class="pre">cat</span> <span class="pre">/proc/meminfo</span></code>, adică conținutul fișierului <code class="docutils literal notranslate"><span class="pre">/proc/meminfo</span></code> este textul pe care utilitarul <code class="docutils literal notranslate"><span class="pre">grep</span></code> îl prelucrează.</p>
 <p><strong>Exercițiu</strong>: Plecând de la exemplul de mai sus, extrageți din fișierul <code class="docutils literal notranslate"><span class="pre">/proc/cpuinfo</span></code> dimensiunea memoriei cache a procesorului vostru; filtrați conținutul după textul <code class="docutils literal notranslate"><span class="pre">&quot;cache&quot;</span></code>.</p>
 <div class="section" id="afisarea-partiala-a-unui-fisier">
-<h4><span class="section-number">4.1.2.1. </span>Afișarea parțială a unui fișier<a class="headerlink" href="#afisarea-partiala-a-unui-fisier" title="Permalink to this headline">¶</a></h4>
+<h4><span class="section-number">5.1.2.1. </span>Afișarea parțială a unui fișier<a class="headerlink" href="#afisarea-partiala-a-unui-fisier" title="Permalink to this headline">¶</a></h4>
 <p>Am văzut că utilitarul <code class="docutils literal notranslate"><span class="pre">cat</span></code> afișează întreg conținutul unui fișier.
 Există scenarii în care suntem interesați doar de începutul sau sfârșitul unui conținut.
 Pentru aceste cazuri putem folosi utilitarele:</p>
@@ -684,7 +664,7 @@ Pentru aceste cazuri putem folosi utilitarele:</p>
 <p>Valoarea <strong>10</strong> este valoarea implicită a ambelor utilitare, dar putem specifica un alt număr de linii.</p>
 </div>
 <p>Așa cum am observat în capitolul despre procese, putem folosi utilitarul <code class="docutils literal notranslate"><span class="pre">ps</span></code> pentru a vedea care sunt procesele din sistem și ce resurse consumă acestea.
-Memoria sistemului este una dintre cele mai importante resurse; dacă sistemul nostru rămâne fără memorie disponibilă, tot sistemul este impactat: sistemul se va “mișca” mai greu, procesele se vor “mișca” mai greu sau pot chiar să își întrerupă activitatea.
+Memoria sistemului este una dintre cele mai importante resurse; dacă sistemul nostru rămâne fără memorie disponibilă, tot sistemul este afectat: sistemul se va “mișca” mai greu, procesele se vor “mișca” mai greu sau pot chiar să își întrerupă activitatea.
 Știind acest lucru, suntem interesați să vedem care sunt primele zece procese care consumă cea mai multă memorie.</p>
 <p>Folosim utilitarul <code class="docutils literal notranslate"><span class="pre">ps</span></code> pentru a afișa toate procesele din sistem:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ ps -aux --sort<span class="o">=</span>%mem
@@ -725,7 +705,7 @@ student   <span class="m">8263</span>  <span class="m">0</span>.1 <span class="m
 <p>În acest moment am găsit răspunsul căutat, dar avem două mici neajunsuri:</p>
 <ul class="simple">
 <li><p>Ne lipsește antetul, așa că nu știm ce informații avem pe coloane</p></li>
-<li><p>Procesele sunt sortate crescător, a.î. cel mai consumator este utlimult; vrem să fie sortate descrescător</p></li>
+<li><p>Procesele sunt sortate crescător, a.î. cel mai consumator este ultimul; vrem să fie sortate descrescător</p></li>
 </ul>
 <p>Rezolvăm cele două probleme prin intermediul opțiunii <code class="docutils literal notranslate"><span class="pre">--sort</span></code>: dacă punem un <code class="docutils literal notranslate"><span class="pre">-</span></code> (minus) în fața argumentului după care sortăm, o să sortăm descrescător.
 Rulăm comanda:</p>
@@ -742,85 +722,34 @@ student   <span class="m">8631</span>  <span class="m">0</span>.0  <span class="
 <p>Observăm că acum avem formatul dorit.
 Ne mai rămâne să extragem primele <strong>11</strong> linii din rezultatul comenzii de mai sus; <strong>11</strong> deoarece prima este linia antetului iar următoarele zece sunt procesele de interes.
 Pentru aceasta utilizăm comanda <code class="docutils literal notranslate"><span class="pre">head</span></code> cu opțiunea <code class="docutils literal notranslate"><span class="pre">-11</span></code> ca în exemplul de mai jos:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>student@uso:~$ ps -aux --sort=-%mem | head -11
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ ps -aux --sort<span class="o">=</span>-%mem <span class="p">|</span> head -11
 USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
-student   8263  0.1 12.0 3495576 245636 tty1   Sl+  14:56   0:17 /usr/bin/gnome-shell
-student   8763  0.0  8.3 1405448 169956 tty1   SLl+ 14:57   0:09 /usr/bin/gnome-software --gapplication-service
-student   9985  0.0  8.0 988180 163784 tty1    SNl+ 15:03   0:06 /usr/bin/python3 /usr/bin/update-manager --no-update --no-focus-on-map
-student   8631  0.0  2.5 886656 52796 ?        Ssl  14:56   0:00 /usr/lib/evolution/evolution-calendar-factory
-root      1261  0.0  2.4 1049660 50992 ?       Ssl  14:54   0:05 /usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock
-student   8661  0.0  2.4 1064796 49160 ?       Sl   14:56   0:00 /usr/lib/evolution/evolution-calendar-factory-subprocess --factory all --bus-name org.gnome.evolution.dataserver.Subprocess.Backend.Calendarx8631x2 --own-path /org/gnome/evolution/dataserver/Subprocess/Backend/Calendar/8631/2
-root      8427  0.1  2.2 516492 45436 ?        Ssl  14:56   0:14 /usr/lib/packagekit/packagekitd
-student   8106  0.0  2.1 729116 43776 tty1     Sl+  14:56   0:01 /usr/lib/xorg/Xorg vt1 -displayfd 3 -auth /run/user/1000/gdm/Xauthority -background none -noreset -keeptty -verbose 3
-student   8590  0.0  1.6 1033348 34148 tty1    Sl+  14:56   0:01 nautilus-desktop
-root       308  0.0  1.5 127576 32032 ?        S&lt;s  14:54   0:01 /lib/systemd/systemd-journald
+student   <span class="m">8263</span>  <span class="m">0</span>.1 <span class="m">12</span>.0 <span class="m">3495576</span> <span class="m">245636</span> tty1   Sl+  <span class="m">14</span>:56   <span class="m">0</span>:17 /usr/bin/gnome-shell
+student   <span class="m">8763</span>  <span class="m">0</span>.0  <span class="m">8</span>.3 <span class="m">1405448</span> <span class="m">169956</span> tty1   SLl+ <span class="m">14</span>:57   <span class="m">0</span>:09 /usr/bin/gnome-software --gapplication-service
+student   <span class="m">9985</span>  <span class="m">0</span>.0  <span class="m">8</span>.0 <span class="m">988180</span> <span class="m">163784</span> tty1    SNl+ <span class="m">15</span>:03   <span class="m">0</span>:06 /usr/bin/python3 /usr/bin/update-manager --no-update --no-focus-on-map
+student   <span class="m">8631</span>  <span class="m">0</span>.0  <span class="m">2</span>.5 <span class="m">886656</span> <span class="m">52796</span> ?        Ssl  <span class="m">14</span>:56   <span class="m">0</span>:00 /usr/lib/evolution/evolution-calendar-factory
+root      <span class="m">1261</span>  <span class="m">0</span>.0  <span class="m">2</span>.4 <span class="m">1049660</span> <span class="m">50992</span> ?       Ssl  <span class="m">14</span>:54   <span class="m">0</span>:05 /usr/bin/dockerd -H fd:// --containerd<span class="o">=</span>/run/containerd/containerd.sock
+student   <span class="m">8661</span>  <span class="m">0</span>.0  <span class="m">2</span>.4 <span class="m">1064796</span> <span class="m">49160</span> ?       Sl   <span class="m">14</span>:56   <span class="m">0</span>:00 /usr/lib/evolution/evolution-calendar-factory-subprocess --factory all --bus-name org.gnome.evolution.dataserver.Subprocess.Backend.Calendarx8631x2 --own-path /org/gnome/evolution/dataserver/Subprocess/Backend/Calendar/8631/2
+root      <span class="m">8427</span>  <span class="m">0</span>.1  <span class="m">2</span>.2 <span class="m">516492</span> <span class="m">45436</span> ?        Ssl  <span class="m">14</span>:56   <span class="m">0</span>:14 /usr/lib/packagekit/packagekitd
+student   <span class="m">8106</span>  <span class="m">0</span>.0  <span class="m">2</span>.1 <span class="m">729116</span> <span class="m">43776</span> tty1     Sl+  <span class="m">14</span>:56   <span class="m">0</span>:01 /usr/lib/xorg/Xorg vt1 -displayfd <span class="m">3</span> -auth /run/user/1000/gdm/Xauthority -background none -noreset -keeptty -verbose <span class="m">3</span>
+student   <span class="m">8590</span>  <span class="m">0</span>.0  <span class="m">1</span>.6 <span class="m">1033348</span> <span class="m">34148</span> tty1    Sl+  <span class="m">14</span>:56   <span class="m">0</span>:01 nautilus-desktop
+root       <span class="m">308</span>  <span class="m">0</span>.0  <span class="m">1</span>.5 <span class="m">127576</span> <span class="m">32032</span> ?        S&lt;s  <span class="m">14</span>:54   <span class="m">0</span>:01 /lib/systemd/systemd-journald
 </pre></div>
 </div>
 </div>
-<div class="section" id="id1">
-<h4><span class="section-number">4.1.2.2. </span>Exerciții<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="id3">
+<h4><span class="section-number">5.1.2.2. </span>Exerciții<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h4>
 <ol class="arabic simple">
-<li><p>Afișați primele zece procese sortate după coloana <code class="docutils literal notranslate"><span class="pre">RSS</span></code>. Nu uitați să includeți antetul.</p></li>
-<li><p>Afișați ultimele zece procese sortate după coloana <code class="docutils literal notranslate"><span class="pre">%CPU</span></code>. Nu uitați să includeți antetul.</p></li>
-</ol>
-</div>
-</div>
-</div>
-<div class="section" id="compararea-fisierelor">
-<h2><span class="section-number">4.2. </span>Compararea fișierelor<a class="headerlink" href="#compararea-fisierelor" title="Permalink to this headline">¶</a></h2>
-<p>Atunci când lucrăm cu fișiere o să ne întâlnim sporadic cu nevoia de a compara două fișiere între ele.</p>
-<div class="section" id="compararea-octet-cu-octet">
-<h3><span class="section-number">4.2.1. </span>Compararea octet cu octet<a class="headerlink" href="#compararea-octet-cu-octet" title="Permalink to this headline">¶</a></h3>
-<p>Compararea octet cu octet este utilă atunci când vrem aflăm dacă două fișiere sunt diferite sau nu, dar nu ne interesează cu ce diferă.
-Un exemplu ar fi: avem o arhivă cu aceelași nume în două locații diferite și nu mai ținem minte dacă am copiat-o noi sau este o coincidență de nume.
-Verificăm, fără să fie nevoie să le dezarhivăm, printr-o comparare la nivel de octet folosind comanda <code class="docutils literal notranslate"><span class="pre">cmp</span></code>:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ cmp Documents/uso.tar Downloads/uso.tar
-student@uso:~$ cmp Downloads/courses.tar Downloads/uso.tar
-Downloads/courses.tar Downloads/uso.tar differ: byte <span class="m">1</span>, line <span class="m">1</span>
-</pre></div>
-</div>
-<p>În exemplul de mai sus, observăm că arhiva din calea <code class="docutils literal notranslate"><span class="pre">Documents/uso.tar</span></code> și cea din calea <code class="docutils literal notranslate"><span class="pre">Downloads/uso.tar</span></code> sunt identice, pe când arhivele <code class="docutils literal notranslate"><span class="pre">Downloads/courses.tar</span></code> și <code class="docutils literal notranslate"><span class="pre">Downloads/uso.tar</span></code> diferă de la primul octet.
-În cazul în care fișierele sunt identice, <code class="docutils literal notranslate"><span class="pre">cmp</span></code> nu afișează nimic pe ecran.</p>
-</div>
-<div class="section" id="compararea-text">
-<h3><span class="section-number">4.2.2. </span>Compararea text<a class="headerlink" href="#compararea-text" title="Permalink to this headline">¶</a></h3>
-<p>Putem folosi <code class="docutils literal notranslate"><span class="pre">cmp</span></code> pentru a compara orice tip de fișier, inclusiv fișiere text, ca în exemplul de mai jos:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ cmp workspace/C/sorting/merge_sort.c workspace/C/sorting/quick_sort.c
-workspace/C/sorting/merge_sort.c workspace/C/sorting/quick_sort.c differ: byte <span class="m">1</span>, line <span class="m">1</span>
-</pre></div>
-</div>
-<p>Rezultatul de mai sus nu este ideal: știm că cele două fișiere sunt diferite, dar nu știm și cu ce anume diferă.
-Pentru comparații text folosim utilitarul <code class="docutils literal notranslate"><span class="pre">diff</span></code>.</p>
-<p>Pentru a exemplifica, navigăm în directorul <code class="docutils literal notranslate"><span class="pre">~/workspace/C/sorting/</span></code>, facem o copie fișierului <code class="docutils literal notranslate"><span class="pre">quick_sort.c</span></code> cu numele <code class="docutils literal notranslate"><span class="pre">quick_sort_old.c</span></code> și adăugăm comentariul <code class="docutils literal notranslate"><span class="pre">//</span> <span class="pre">It's</span> <span class="pre">so</span> <span class="pre">simple</span> <span class="pre">to</span> <span class="pre">diff</span></code>:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ <span class="nb">cd</span> workspace/C/sorting/
-student@uso:~/workspace/C/sorting$ cp quick_sort.c quick_sort_old.c
-student@uso:~/workspace/C/sorting$ <span class="nb">echo</span> <span class="s2">&quot;// It&#39;s so simple to diff&quot;</span> &gt;&gt; quick_sort.c
-</pre></div>
-</div>
-<p>Folosim comanda <code class="docutils literal notranslate"><span class="pre">diff`</span> <span class="pre">pentru</span> <span class="pre">a</span> <span class="pre">vedea</span> <span class="pre">diferențele</span> <span class="pre">dintre</span> <span class="pre">``quick_sort.c</span></code> și <code class="docutils literal notranslate"><span class="pre">quick_sort_old.c</span></code>:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/workspace/C/sorting$ diff quick_sort.c quick_sort_old.c
-98d97
-&lt; // It<span class="s1">&#39;s so simple to diff</span>
-<span class="s1">student@uso:~/workspace/C/sorting$ diff quick_sort_old.c quick_sort.c</span>
-<span class="s1">97a98</span>
-<span class="s1">&gt; // It&#39;</span>s so simple to diff
-</pre></div>
-</div>
-<p>Observăm următorul lucru: linia care diferă este precedată de caracterul <code class="docutils literal notranslate"><span class="pre">&lt;</span></code> atunci când provine din primul fișier, și este precedată de caracterul <code class="docutils literal notranslate"><span class="pre">&gt;</span></code> atunci când provine din al doilea fișier.</p>
-<div class="section" id="id2">
-<h4><span class="section-number">4.2.2.1. </span>Exerciții<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h4>
-<ol class="arabic simple">
-<li><p>Bonus: Dacă avem pachetul <code class="docutils literal notranslate"><span class="pre">vim</span></code> instalat pe sistem putem folosi utilitarul <code class="docutils literal notranslate"><span class="pre">vimdiff</span></code> pentru a vizualiza diferențele.
-Instalați pachetul <code class="docutils literal notranslate"><span class="pre">vim</span></code> și rulați comanda <code class="docutils literal notranslate"><span class="pre">vimdiff</span> <span class="pre">quick_sort.c</span> <span class="pre">quick_sort_old.c</span></code>.</p></li>
-<li><p>Deoarece directorul <code class="docutils literal notranslate"><span class="pre">~/workspace/C</span></code> este un repository de git putem folosi utilitarul <code class="docutils literal notranslate"><span class="pre">git</span></code> pentru a vedea diferentețe.
-Utilizați comanda <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">diff</span></code> pentru a vedea diferențele din proiect.
-Aduceți fișierul <code class="docutils literal notranslate"><span class="pre">quick_sort.c</span></code> la starea inițială și folosiți <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">diff</span></code> pentru a valida aceasta.</p></li>
+<li><p>Afișați primele zece procese sortate în funcție de memoria ocupată (Hint: RSS).
+Nu uitați să includeți antetul.</p></li>
+<li><p>Afișați ultimele zece procese sortate în funcție de utilizarea procesorului (Hint: CPU).
+Nu uitați să includeți antetul.</p></li>
 </ol>
 </div>
 </div>
 </div>
 <div class="section" id="cautarea-in-fisiere">
-<h2><span class="section-number">4.3. </span>Căutarea în fișiere<a class="headerlink" href="#cautarea-in-fisiere" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">5.2. </span>Căutarea în fișiere<a class="headerlink" href="#cautarea-in-fisiere" title="Permalink to this headline">¶</a></h2>
 <p>Așa cum am văzut până în acest punct din carte, majoritatea comenzilor linux afișează o gamă largă de informații pe care apoi utilizatorul (adică noi) le filtrează pentru a extrage ceea ce îl intresează.
 La începutul acestei secțiuni, dar și de-a lungul cărții, am folosit utilitarul <code class="docutils literal notranslate"><span class="pre">grep</span></code> ca să filtrăm rezultatul unei comenzi.</p>
 <p>Comanda <code class="docutils literal notranslate"><span class="pre">grep</span></code> este una dintre cele mai folosite în linie de comandă.
@@ -844,7 +773,7 @@ int binarysearch1<span class="o">(</span>const int *arr, int l, int r, int x<spa
 </pre></div>
 </div>
 <p>În exemplul de mai sus, operatorul <code class="docutils literal notranslate"><span class="pre">|</span></code> trimite textul afișat de comanda <code class="docutils literal notranslate"><span class="pre">cat</span></code> către intrarea standard a comenzii <code class="docutils literal notranslate"><span class="pre">grep</span></code>.
-Vom discuta mai multe despre acesta în secțiunea Înlănțuirea comenzilor.</p>
+Vom discuta mai multe despre acesta în secțiunea <a class="reference internal" href="improve-shell.html#improve-cli-improve-shell-oneliners"><span class="std std-ref">Înlănțuirea comenzilor în funcție de succes sau eșec</span></a>.</p>
 <p>Comanda următoare este echivalentă cu cea de mai sus:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ grep search workspace/C/searching/binary_search.c
  * search<span class="o">](</span>https://en.wikipedia.org/wiki/Binary_search_algorithm<span class="o">)</span> of a target
@@ -857,10 +786,22 @@ int binarysearch1<span class="o">(</span>const int *arr, int l, int r, int x<spa
 </pre></div>
 </div>
 <p>Observăm modul de folosire: <code class="docutils literal notranslate"><span class="pre">grep</span> <span class="pre">PATTERN</span> <span class="pre">cale/către/fișier</span></code>.</p>
+<div class="section" id="id4">
+<h3><span class="section-number">5.2.1. </span>Exerciții<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple">
+<li><p>Căutați <em>patternul</em> “l” în fișierul <code class="docutils literal notranslate"><span class="pre">binary_search.c</span></code>, pentru a vedea unde este folosit parametrul <strong>left</strong>.
+Observați cât de multe rezultate irelevante ați găsit datorită faptului că am căutat doar caracterul <strong>l</strong>.
+Aici există o lecție de învățat.
+Numele variabilelor sunt foarte improtante: nu fac doar codul mai ușor de înțeles, dar ajută și căutarea.
+Folosiți <em>patternul</em> “param l” în încercarea de a restrânge căutarea.</p></li>
+<li><p>Căutați <em>patternul</em> “arr” în fișierul <code class="docutils literal notranslate"><span class="pre">binary_search.c</span></code>.</p></li>
+<li><p>Căutați <em>patternul</em> “binarysearch1” în fișierul <code class="docutils literal notranslate"><span class="pre">binary_search.c</span></code> pentru a vedea cum este apelată funcția de căutare.</p></li>
+</ol>
+</div>
 <div class="section" id="optiuni-uzuale-ale-grep">
-<h3><span class="section-number">4.3.1. </span>Opțiuni uzuale ale <code class="docutils literal notranslate"><span class="pre">grep</span></code><a class="headerlink" href="#optiuni-uzuale-ale-grep" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">5.2.2. </span>Opțiuni uzuale ale <code class="docutils literal notranslate"><span class="pre">grep</span></code><a class="headerlink" href="#optiuni-uzuale-ale-grep" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="afisarea-numarului-liniei-care-contine-patternul">
-<h4><span class="section-number">4.3.1.1. </span>Afișarea numărului liniei care conține patternul<a class="headerlink" href="#afisarea-numarului-liniei-care-contine-patternul" title="Permalink to this headline">¶</a></h4>
+<h4><span class="section-number">5.2.2.1. </span>Afișarea numărului liniei care conține patternul<a class="headerlink" href="#afisarea-numarului-liniei-care-contine-patternul" title="Permalink to this headline">¶</a></h4>
 <p>Folosim opțiunea <code class="docutils literal notranslate"><span class="pre">-n</span></code> pentru a afișa și numărul liniei care conține patternul căutat:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ grep -n search workspace/C/searching/binary_search.c
 <span class="m">4</span>: * search<span class="o">](</span>https://en.wikipedia.org/wiki/Binary_search_algorithm<span class="o">)</span> of a target
@@ -874,7 +815,7 @@ int binarysearch1<span class="o">(</span>const int *arr, int l, int r, int x<spa
 </div>
 </div>
 <div class="section" id="cautarea-case-insensitive">
-<h4><span class="section-number">4.3.1.2. </span>Căutarea case-insensitive<a class="headerlink" href="#cautarea-case-insensitive" title="Permalink to this headline">¶</a></h4>
+<h4><span class="section-number">5.2.2.2. </span>Căutarea case-insensitive<a class="headerlink" href="#cautarea-case-insensitive" title="Permalink to this headline">¶</a></h4>
 <p>Implicit, grep caută în mod case-sensitive patternul, așa cum putem observa din exemplul de mai jos:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ grep Search workspace/C/searching/binary_search.c
 </pre></div>
@@ -892,7 +833,7 @@ int binarysearch1<span class="o">(</span>const int *arr, int l, int r, int x<spa
 </div>
 </div>
 <div class="section" id="excluderea-unui-pattern">
-<h4><span class="section-number">4.3.1.3. </span>Excluderea unui pattern<a class="headerlink" href="#excluderea-unui-pattern" title="Permalink to this headline">¶</a></h4>
+<h4><span class="section-number">5.2.2.3. </span>Excluderea unui pattern<a class="headerlink" href="#excluderea-unui-pattern" title="Permalink to this headline">¶</a></h4>
 <p>Pentru a afișa toate liniile, mai puțin pe cele care conțin pattern, folosim opțiunea <code class="docutils literal notranslate"><span class="pre">-v</span></code>, ca în exemplul de mai jos:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ grep -v search workspace/C/searching/binary_search.c <span class="p">|</span> less
 /**
@@ -910,7 +851,7 @@ int binarysearch1<span class="o">(</span>const int *arr, int l, int r, int x<spa
 </div>
 </div>
 <div class="section" id="cautarea-recursiva-a-unui-pattern">
-<h4><span class="section-number">4.3.1.4. </span>Căutarea recursivă a unui pattern<a class="headerlink" href="#cautarea-recursiva-a-unui-pattern" title="Permalink to this headline">¶</a></h4>
+<h4><span class="section-number">5.2.2.4. </span>Căutarea recursivă a unui pattern<a class="headerlink" href="#cautarea-recursiva-a-unui-pattern" title="Permalink to this headline">¶</a></h4>
 <p>În căutările noastre de până acum, ca și în exemplele de mai sus, am presupus că știm în ce fișiere se găsește informația căutată de noi.
 Acest lucru este adevărat pentru fișiere din sistem cu informații bine cunoscute, cum ar fi <code class="docutils literal notranslate"><span class="pre">/proc/meminfo</span></code>, dar atunci când lucrăm cu un proiect nou nu vom ști în ce fișiere să căutăm informația dorită.
 De exemplu, în cazul proiectului cu algoritmi implementați în C, noi am făcut presupunerea că vom găsi linii care conțin patternul <strong>search</strong> în fișierul <code class="docutils literal notranslate"><span class="pre">workspace/C/searching/binary_search.c</span></code>.</p>
@@ -942,7 +883,7 @@ workspace/C/DIRECTORY.md:  * <span class="o">[</span>Fibonacci Search<span class
 </div>
 </div>
 <div class="section" id="best-practice">
-<h4><span class="section-number">4.3.1.5. </span>Best practice<a class="headerlink" href="#best-practice" title="Permalink to this headline">¶</a></h4>
+<h4><span class="section-number">5.2.2.5. </span>Best practice<a class="headerlink" href="#best-practice" title="Permalink to this headline">¶</a></h4>
 <p>De cele mai multe ori vom folosi opțiunile <code class="docutils literal notranslate"><span class="pre">-n</span></code>, <code class="docutils literal notranslate"><span class="pre">-i</span></code> și <code class="docutils literal notranslate"><span class="pre">-r</span></code> în aceelași timp.
 În cazul nostru de până acum, aceasta se traduce în:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ grep -nri search workspace/C/ <span class="p">|</span> less
@@ -973,9 +914,9 @@ workspace/C/DIRECTORY.md:338:## Searching
 <p>Astfel avem o căutare cât mai cuprinzătoare și putem folosi funcția de căutare în sesiunea interactivă <code class="docutils literal notranslate"><span class="pre">less</span></code> pentru a găsi linia și fișierul care ne interesează.</p>
 </div>
 <div class="section" id="bonus-cautarea-unui-cuvant">
-<h4><span class="section-number">4.3.1.6. </span>Bonus: Căutarea unui cuvânt<a class="headerlink" href="#bonus-cautarea-unui-cuvant" title="Permalink to this headline">¶</a></h4>
+<h4><span class="section-number">5.2.2.6. </span>Bonus: Căutarea unui cuvânt<a class="headerlink" href="#bonus-cautarea-unui-cuvant" title="Permalink to this headline">¶</a></h4>
 <p>Din rezultatele căutărilor de mai sus observăm că <code class="docutils literal notranslate"><span class="pre">grep</span></code> caută patternul dat ca un subșir.
-Acest lucuru se vede foarte ușor în rezultatul anterior:</p>
+Acest lucru se vede foarte ușor în rezultatul anterior:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ grep -nri search workspace/C/ <span class="p">|</span> less
 
 workspace/C/leetcode/src/700.c:10:struct TreeNode *searchBST<span class="o">(</span>struct TreeNode *root, int val<span class="o">)</span>
@@ -995,14 +936,15 @@ workspace/C/leetcode/README.md:26:<span class="p">|</span><span class="m">35</sp
 </div>
 </div>
 <div class="section" id="cautarea-unei-expresii-regulate">
-<h3><span class="section-number">4.3.2. </span>Căutarea unei expresii regulate<a class="headerlink" href="#cautarea-unei-expresii-regulate" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">5.2.3. </span>Căutarea unei expresii regulate<a class="headerlink" href="#cautarea-unei-expresii-regulate" title="Permalink to this headline">¶</a></h3>
 <p>În exemplele de până acum, patternul folosit era un cuvânt sau șir de caractere.
-Folosind o expresie regulată putem să căutăm după șiruri de caractere care se potrivesc cu descrierea dată în expresia regulată.</p>
+Folosind o expresie regulată, putem să căutăm după șiruri de caractere care se potrivesc cu descrierea dată în expresia regulată.</p>
 <p>Ca și în cazul globbing, avem un set de caractere speciale în cazul expresiilor regulate.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>Expresiile regulate sunt diferite de globbing.
-Mare atenție să nu faceți confuzie între cele două.</p>
+Mare atenție să nu faceți confuzie între cele două.
+Vom vedea diferențele în continuare.</p>
 </div>
 <p>Pentru a căuta folosind o expresie regulată putem să folosim opțiunea <code class="docutils literal notranslate"><span class="pre">-E</span></code> a utilitarului <code class="docutils literal notranslate"><span class="pre">grep</span></code>, sau forma prescurtată <code class="docutils literal notranslate"><span class="pre">egrep</span></code>.</p>
 <p>Scrieți într-un fișier numit <code class="docutils literal notranslate"><span class="pre">demo-regex.txt</span></code> textul de mai jos:</p>
@@ -1018,9 +960,16 @@ Ana mere are
 USO RUL3Z
 </pre></div>
 </div>
-<p>Vom folosi fișierul <code class="docutils literal notranslate"><span class="pre">demo-regex.txt</span></code> în exemplele următoare.</p>
+<p>Vom folosi fișierul <code class="docutils literal notranslate"><span class="pre">demo-regex.txt</span></code> în exemplele următoare.
+Textul din fișier este un exemplu didactic.
+Este scris în așa fel încât să putem exemplifica mai multe lucruri într-un mod ușor de urmărit.</p>
 <div class="section" id="caracterul-special">
-<h4><span class="section-number">4.3.2.1. </span>Caracterul special <code class="docutils literal notranslate"><span class="pre">.</span></code><a class="headerlink" href="#caracterul-special" title="Permalink to this headline">¶</a></h4>
+<h4><span class="section-number">5.2.3.1. </span>Caracterul special <code class="docutils literal notranslate"><span class="pre">.</span></code><a class="headerlink" href="#caracterul-special" title="Permalink to this headline">¶</a></h4>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Caracterul <code class="docutils literal notranslate"><span class="pre">.</span></code> reprezintă un caracter special în cadrul unei expresii regulate.
+Nu îl confundați cu directorul curent (reprezentat tot de caracterul <code class="docutils literal notranslate"><span class="pre">.</span></code>) în contextul navigării sistemului de fișiere.</p>
+</div>
 <p>În cadrul unei expresii regulate, caracterul <code class="docutils literal notranslate"><span class="pre">.</span></code> poate fi înlocuit cu orice caracter.</p>
 <p>Rulăm comanda din exemplul de mai jos:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ egrep <span class="s2">&quot;a.a&quot;</span> demo-regex.txt
@@ -1033,8 +982,8 @@ Ana are mere
 <p>Citim expresia regulată de mai sus în următorul mod: șirul <code class="docutils literal notranslate"><span class="pre">a</span></code>, urmat de orice caracter, urmat de șirul <code class="docutils literal notranslate"><span class="pre">a</span></code>.
 Astfel, observăm cum caracterul <code class="docutils literal notranslate"><span class="pre">.</span></code> a înlocuit, pe rând, caracterele <code class="docutils literal notranslate"><span class="pre">n</span></code>, <code class="docutils literal notranslate"><span class="pre">a</span></code>, <code class="docutils literal notranslate"><span class="pre">a</span></code> și `` `` (space).</p>
 </div>
-<div class="section" id="id3">
-<h4><span class="section-number">4.3.2.2. </span>Caracterul special <code class="docutils literal notranslate"><span class="pre">+</span></code><a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="id5">
+<h4><span class="section-number">5.2.3.2. </span>Caracterul special <code class="docutils literal notranslate"><span class="pre">+</span></code><a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h4>
 <p>În cadrul unei expresii regulate, caracterul <code class="docutils literal notranslate"><span class="pre">+</span></code> urmează întotdeauna un caracter sau o expresie și spune că expresia sau caracterul din stânga lui apare cel puțin o dată în patternul căutat.</p>
 <p>Rulăm comanda din exemplul de mai jos:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ egrep <span class="s2">&quot;aa+&quot;</span> demo-regex.txt
@@ -1052,8 +1001,8 @@ aaabbb
 </div>
 <p>Citim expresia regulată de mai sus în următorul mod: șirul <code class="docutils literal notranslate"><span class="pre">ab</span></code> trebuie să apară cel puțin o dată.</p>
 </div>
-<div class="section" id="id4">
-<h4><span class="section-number">4.3.2.3. </span>Caracterul special <code class="docutils literal notranslate"><span class="pre">*</span></code><a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="id6">
+<h4><span class="section-number">5.2.3.3. </span>Caracterul special <code class="docutils literal notranslate"><span class="pre">*</span></code><a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h4>
 <p>În cadrul unei expresii regulate, caracterul <code class="docutils literal notranslate"><span class="pre">*</span></code> urmează întotdeauna un caracter sau o expresie și spune că expresia sau caracterul din stânga lui apare de oricâte ori, sau poate lipsi cu totul.</p>
 <p>Rulăm comanda din exemplul de mai jos:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ egrep <span class="s2">&quot;ab*&quot;</span> demo-regex.txt
@@ -1071,8 +1020,8 @@ Ana mere are
 <p>Citim expresia regulată de mai sus în următorul mod: șirul <code class="docutils literal notranslate"><span class="pre">a</span></code>, urmat de caracterul <code class="docutils literal notranslate"><span class="pre">b</span></code> de oricâte ori.
 Astfel, observăm cum expresia a înlocuit orice șir care conținea cel puțin o apariție a caracterului <code class="docutils literal notranslate"><span class="pre">a</span></code>.</p>
 </div>
-<div class="section" id="id5">
-<h4><span class="section-number">4.3.2.4. </span>Caracterul special <code class="docutils literal notranslate"><span class="pre">?</span></code><a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="id7">
+<h4><span class="section-number">5.2.3.4. </span>Caracterul special <code class="docutils literal notranslate"><span class="pre">?</span></code><a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h4>
 <p>În cadrul unei expresii regulate, caracterul <code class="docutils literal notranslate"><span class="pre">?</span></code> urmează întotdeauna un caracter sau o expresie și spune că expresia sau caracterul din stânga lui apare cel mult o dată.</p>
 <p>Rulăm comanda din exemplul de mai jos:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ egrep <span class="s2">&quot;a?&quot;</span> demo-regex.txt
@@ -1091,8 +1040,8 @@ USO RUL3Z
 <p>Citim expresia regulată de mai sus în următorul mod: șirul <code class="docutils literal notranslate"><span class="pre">a</span></code> apare cel mult o dată.
 Astfel, observăm cum expresia a înlocuit orice șir care conținea cel mult o apariție a caracterului <code class="docutils literal notranslate"><span class="pre">a</span></code>; textul “USO RUL3Z” respectă regula întrucât nu conține niciun caracter <code class="docutils literal notranslate"><span class="pre">a</span></code>.</p>
 </div>
-<div class="section" id="id6">
-<h4><span class="section-number">4.3.2.5. </span>Caracterul special <code class="docutils literal notranslate"><span class="pre">|</span></code><a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="id8">
+<h4><span class="section-number">5.2.3.5. </span>Caracterul special <code class="docutils literal notranslate"><span class="pre">|</span></code><a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h4>
 <p>În cadrul unei expresii regulate, caracterul <code class="docutils literal notranslate"><span class="pre">|</span></code> separă două expresii și spune că poate să se potrivească expresia din stânga sau din dreapta lui.</p>
 <p>Rulăm comenzile din exemplul de mai jos:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ egrep <span class="s2">&quot;Ana|Ama&quot;</span> demo-regex.txt
@@ -1112,7 +1061,7 @@ Astfel, observăm cum expresia a înlocuit orice șir care conținea fie <code c
 Mai observăm că cele două comenzi sunt echivalente.</p>
 </div>
 <div class="section" id="sintaxa-speciala">
-<h4><span class="section-number">4.3.2.6. </span>Sintaxa specială <code class="docutils literal notranslate"><span class="pre">[]</span></code><a class="headerlink" href="#sintaxa-speciala" title="Permalink to this headline">¶</a></h4>
+<h4><span class="section-number">5.2.3.6. </span>Sintaxa specială <code class="docutils literal notranslate"><span class="pre">[]</span></code><a class="headerlink" href="#sintaxa-speciala" title="Permalink to this headline">¶</a></h4>
 <p>În cadrul unei expresii regulate, folosim sintaxa <code class="docutils literal notranslate"><span class="pre">[]</span></code> pentru a defini o listă de caractere care pot fi folosite în înlocuire.
 Această sintaxă înlocuiește exact un caracter din lista oferită.
 Ca și pentru globbing, sintaxa <code class="docutils literal notranslate"><span class="pre">[]</span></code> nu ne limitează la a oferi enumarații de caractere, și accepta și intervale, cum observăm în exemplul de mai jos:</p>
@@ -1126,6 +1075,59 @@ Ana mere are
 <p>Citim expresia regulată de mai sus în următorul mod: șirul <code class="docutils literal notranslate"><span class="pre">A</span></code>, urmat de un caracter din intervalul <code class="docutils literal notranslate"><span class="pre">a-z</span></code>, urmat de caracterul a.
 Astfel, observăm cum expresia a înlocuit șirurile <code class="docutils literal notranslate"><span class="pre">Ana</span></code> și <code class="docutils literal notranslate"><span class="pre">Ama</span></code>.</p>
 </div>
+<div class="section" id="id9">
+<h4><span class="section-number">5.2.3.7. </span>Exerciții<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h4>
+<p>TODO</p>
+</div>
+</div>
+</div>
+<div class="section" id="compararea-fisierelor">
+<h2><span class="section-number">5.3. </span>Compararea fișierelor<a class="headerlink" href="#compararea-fisierelor" title="Permalink to this headline">¶</a></h2>
+<p>Atunci când lucrăm cu fișiere o să ne întâlnim sporadic cu nevoia de a compara două fișiere între ele.</p>
+<div class="section" id="compararea-octet-cu-octet">
+<h3><span class="section-number">5.3.1. </span>Compararea octet cu octet<a class="headerlink" href="#compararea-octet-cu-octet" title="Permalink to this headline">¶</a></h3>
+<p>Compararea octet cu octet este utilă atunci când vrem aflăm dacă două fișiere sunt diferite sau nu, dar nu ne interesează cu ce diferă.
+Un exemplu ar fi: avem o arhivă cu aceelași nume în două locații diferite și nu mai ținem minte dacă am copiat-o noi sau este o coincidență de nume.
+Verificăm, fără să fie nevoie să le dezarhivăm, printr-o comparare la nivel de octet folosind comanda <code class="docutils literal notranslate"><span class="pre">cmp</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ cmp Documents/uso.tar Downloads/uso.tar
+student@uso:~$ cmp Downloads/courses.tar Downloads/uso.tar
+Downloads/courses.tar Downloads/uso.tar differ: byte <span class="m">1</span>, line <span class="m">1</span>
+</pre></div>
+</div>
+<p>În exemplul de mai sus, observăm că arhiva din calea <code class="docutils literal notranslate"><span class="pre">Documents/uso.tar</span></code> și cea din calea <code class="docutils literal notranslate"><span class="pre">Downloads/uso.tar</span></code> sunt identice, pe când arhivele <code class="docutils literal notranslate"><span class="pre">Downloads/courses.tar</span></code> și <code class="docutils literal notranslate"><span class="pre">Downloads/uso.tar</span></code> diferă de la primul octet <em>(byte 1, line 1)</em>.
+Observăm că în cazul în care fișierele sunt identice, <code class="docutils literal notranslate"><span class="pre">cmp</span></code> nu afișează nimic pe ecran.</p>
+</div>
+<div class="section" id="compararea-text">
+<h3><span class="section-number">5.3.2. </span>Compararea text<a class="headerlink" href="#compararea-text" title="Permalink to this headline">¶</a></h3>
+<p>Putem folosi <code class="docutils literal notranslate"><span class="pre">cmp</span></code> pentru a compara orice tip de fișier, inclusiv fișiere text, ca în exemplul de mai jos:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ cmp workspace/C/sorting/merge_sort.c workspace/C/sorting/quick_sort.c
+workspace/C/sorting/merge_sort.c workspace/C/sorting/quick_sort.c differ: byte <span class="m">1</span>, line <span class="m">1</span>
+</pre></div>
+</div>
+<p>Rezultatul de mai sus nu este ideal: știm că cele două fișiere sunt diferite, dar nu știm și cu ce anume diferă.
+Pentru comparații text folosim utilitarul <code class="docutils literal notranslate"><span class="pre">diff</span></code>.</p>
+<p>Pentru a exemplifica, navigăm în directorul <code class="docutils literal notranslate"><span class="pre">~/workspace/C/sorting/</span></code>, facem o copie fișierului <code class="docutils literal notranslate"><span class="pre">quick_sort.c</span></code> cu numele <code class="docutils literal notranslate"><span class="pre">quick_sort_old.c</span></code> și adăugăm comentariul <code class="docutils literal notranslate"><span class="pre">//</span> <span class="pre">It's</span> <span class="pre">so</span> <span class="pre">simple</span> <span class="pre">to</span> <span class="pre">diff</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ <span class="nb">cd</span> workspace/C/sorting/
+student@uso:~/workspace/C/sorting$ cp quick_sort.c quick_sort_old.c
+student@uso:~/workspace/C/sorting$ <span class="nb">echo</span> <span class="s2">&quot;// It&#39;s so simple to diff&quot;</span> &gt;&gt; quick_sort.c
+</pre></div>
+</div>
+<p>Folosim comanda <code class="docutils literal notranslate"><span class="pre">diff`</span> <span class="pre">pentru</span> <span class="pre">a</span> <span class="pre">vedea</span> <span class="pre">diferențele</span> <span class="pre">dintre</span> <span class="pre">``quick_sort.c</span></code> și <code class="docutils literal notranslate"><span class="pre">quick_sort_old.c</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/workspace/C/sorting$ diff quick_sort.c quick_sort_old.c
+98d97
+&lt; // It<span class="s1">&#39;s so simple to diff</span>
+<span class="s1">student@uso:~/workspace/C/sorting$ diff quick_sort_old.c quick_sort.c</span>
+<span class="s1">97a98</span>
+<span class="s1">&gt; // It&#39;</span>s so simple to diff
+</pre></div>
+</div>
+<p>Observăm următorul lucru: linia care diferă este precedată de caracterul <code class="docutils literal notranslate"><span class="pre">&lt;</span></code> atunci când provine din primul fișier, și este precedată de caracterul <code class="docutils literal notranslate"><span class="pre">&gt;</span></code> atunci când provine din al doilea fișier.</p>
+<div class="section" id="id10">
+<h4><span class="section-number">5.3.2.1. </span>Exerciții<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h4>
+<ol class="arabic simple">
+<li><p>TODO</p></li>
+</ol>
+</div>
 </div>
 </div>
 </div>
@@ -1135,12 +1137,12 @@ Astfel, observăm cum expresia a înlocuit șirurile <code class="docutils liter
           <div class="page-nav">
             <div class="inner"><ul class="page-nav">
   <li class="prev">
-    <a href="inspect-sys.html"
-       title="previous chapter">← <span class="section-number">3. </span>Inspectarea sistemului</a>
+    <a href="inspect-fs-summary.html"
+       title="previous chapter">← <span class="section-number">4. </span>Sumar: Inspectarea sistemului de fișiere</a>
   </li>
   <li class="next">
     <a href="improve-shell.html"
-       title="next chapter"><span class="section-number">5. </span>O înțelegere mai bună a shellului →</a>
+       title="next chapter"><span class="section-number">6. </span>O înțelegere mai bună a shellului →</a>
   </li>
 </ul><div class="footer" role="contentinfo">
       &#169; Copyright 2020, USO Team.
