@@ -24,7 +24,7 @@
     
   <link rel="index" title="Index" href="../../genindex.html" />
   <link rel="search" title="Search" href="../../search.html" />
-  <link rel="next" title="2. Sumar: Îmbunătățirea lucrului în linia de comandă" href="improve-terminal-summary.html" />
+  <link rel="next" title="2. Inspectarea sistemului de fișiere" href="inspect-fs.html" />
   <link rel="prev" title="10. Sumar: Instalarea, dezinstalarea, investigarea, actualizarea aplicațiilor" href="../app-install/summary2.html" />
     <link href="../../_static/my_theme.css" rel="stylesheet" type="text/css">
 
@@ -462,8 +462,6 @@
             
               <ul>
                 
-                  <li class="toctree-l2"><a href="#scurtaturi-in-cadrul-sistemului-de-operare" class="reference internal">Scurtături în cadrul sistemului de operare</a></li>
-                
                   <li class="toctree-l2"><a href="#scurtaturi-in-terminal" class="reference internal">Scurtături în terminal</a></li>
                 
               </ul>
@@ -471,19 +469,7 @@
           </li>
 
         
-          <li class="toctree-l1 "><a href="improve-terminal-summary.html" class="reference internal ">Sumar: Îmbunătățirea lucrului în linia de comandă</a>
-
-            
-          </li>
-
-        
           <li class="toctree-l1 "><a href="inspect-fs.html" class="reference internal ">Inspectarea sistemului de fișiere</a>
-
-            
-          </li>
-
-        
-          <li class="toctree-l1 "><a href="inspect-fs-summary.html" class="reference internal ">Sumar: Inspectarea sistemului de fișiere</a>
 
             
           </li>
@@ -495,19 +481,13 @@
           </li>
 
         
-          <li class="toctree-l1 "><a href="inspect-files-summary.html" class="reference internal ">Sumar: Inspectarea fișierelor</a>
-
-            
-          </li>
-
-        
           <li class="toctree-l1 "><a href="improve-shell.html" class="reference internal ">O înțelegere mai bună a shellului</a>
 
             
           </li>
 
         
-          <li class="toctree-l1 "><a href="improve-shell-summary.html" class="reference internal ">Sumar: O înțelegere mai bună a shellului</a>
+          <li class="toctree-l1 "><a href="improve-cli-summary.html" class="reference internal ">Sumar: Îmbunătățirea lucrului în linia de comandă</a>
 
             
           </li>
@@ -535,8 +515,8 @@
        title="previous chapter">← <span class="section-number">10. </span>Sumar: Instalarea, dezinstalarea, investigarea, actualizarea aplicațiilor</a>
   </li>
   <li class="next">
-    <a href="improve-terminal-summary.html"
-       title="next chapter"><span class="section-number">2. </span>Sumar: Îmbunătățirea lucrului în linia de comandă →</a>
+    <a href="inspect-fs.html"
+       title="next chapter"><span class="section-number">2. </span>Inspectarea sistemului de fișiere →</a>
   </li>
 </ul>
   
@@ -548,107 +528,57 @@
 <span id="improve-cli-improve-terminal"></span><h1><span class="section-number">1. </span>Îmbunătățirea lucrului în linia de comandă<a class="headerlink" href="#imbunatatirea-lucrului-in-linia-de-comanda" title="Permalink to this headline">¶</a></h1>
 <p>Principalul atu al utilizării aplicațiilor în linie de comandă, și nu în mediul grafic, este viteza cu care rezolvăm anumite sarcini.
 Această viteză este dată de posibilitatea de a combina utilitare în linia de comandă pentru a automatiza procese manuale, repetitive.
-Întotdeauna ne dorim să fim mai rapizi și să automatizăm cât mai mult din sarcinile noastre deoarece cu cât ne terminăm treaba mai repede, cu atât avem mai mult timp liber la dispoziție.</p>
+Întotdeauna ne dorim să fim mai rapizi și să automatizăm cât mai mult din sarcinile noastre, deoarece cu cât ne terminăm treaba mai repede, cu atât avem mai mult timp liber la dispoziție.</p>
 <p>De regulă, cu cât petrecem mai mult timp cu mâna pe tastatură și mai puțin pe mouse, cu atât suntem mai rapizi.
 Aliniate la această idee, aplicațiile ne pun la dispoziție scurtături pe care suntem încurajați să le folosim pentru a ne utiliza timpul mai eficient.</p>
-<div class="section" id="scurtaturi-in-cadrul-sistemului-de-operare">
-<h2><span class="section-number">1.1. </span>Scurtături în cadrul sistemului de operare<a class="headerlink" href="#scurtaturi-in-cadrul-sistemului-de-operare" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="pornirea-unei-instante-noi-de-terminal">
-<h3><span class="section-number">1.1.1. </span>Pornirea unei instanțe noi de terminal<a class="headerlink" href="#pornirea-unei-instante-noi-de-terminal" title="Permalink to this headline">¶</a></h3>
-<p>În capitolul <strong>Instalarea și utilizarea aplicațiilor</strong> am văzut diferite moduri prin care putem porni aplicația <strong>GNOME Terminal</strong>.
-Unele distribuții pun la dispoziție scurtătura dată de combinația de taste <code class="docutils literal notranslate"><span class="pre">Ctrl+Alt+t</span></code> pentru a deschide o nouă instanță de terminal.</p>
-<p>Pentru a vedea scurtăturile disponibile la nivel de sistem, și pentru a defini noi scurtături, pe distribuțiile <strong>Ubuntu</strong> accesați <em>Settings</em> -&gt; <em>Devices</em> -&gt; <em>Keyboards</em> -&gt; <em>Keyboard Shortcuts</em> din mediul grafic al sistemului de operare, și veți ajunge la un meniu similar cu cel din imaginea de mai jos:</p>
-<img alt="Vizualizarea și definirea scurtăturilor din sistem" class="align-center" src="../../_images/settings-keyboard-shortcuts.png" />
-<p>Există scenarii în care folosirea unei singure instanțe de terminal nu este cel mai productiv mod de lucru.
-Un astfel de scenariu este dat de dezvoltarea aplicațiilor, scenariu pe care îl putem sparge în trei componente (sub-task-uri): scrierea aplicației, compilarea aplicației și testarea aplicației.
-Am putea să folosim un singur terminal pentru cele trei sub-task-uri, dar este de preferat să folosim câte un terminal pentru fiecare sub-task; astfel avem o separare logică mai clară.
-Astfel, ferestrele din sistem vor arăta similar cu imaginea de mai jos:</p>
-<img alt="Separarea unui task în sub-task-uri per terminal" class="align-center" src="../../_images/hello-multi-terms.png" />
-<p>Am făcut un pas în direcția corectă, însă această abordare poate să ducă la o complexitate sporită a managementului ferestrelor: dacă am dezvolta în paralel două aplicații?
-Am avea șase ferestre de terminal deschise, prin care trebuie să ciclăm.
-Putem găsi o abordare mai bună.</p>
-<p>În loc să pornim noi instanțe de terminal în ferestre diferite, le vom porni în taburi diferite ale aceleiași ferestre.
-Folosind scurtătura <code class="docutils literal notranslate"><span class="pre">Ctrl+Shift+t</span></code> vom deschide o instanță nouă de terminal în cadrul aceleiași ferestre.
-Putem observa acest lucru în imaginea de mai jos:</p>
-<img alt="Separarea unui task în sub-task-uri per taskb" class="align-center" src="../../_images/hello-multi-tabs.png" />
-<p>Acum structura este mai ordonată și am păstrat separarea logică: în primul tab vom scrie aplicația, în cel de-al doilea tab o vom compila și în ultimul tab (al treilea) o vom executa.</p>
-<p>Separarea logică în fereastră per task și tab per sub-task este benefică atunci când vă ocupați concomitent de mai multe lucruri.</p>
-<div class="section" id="pornirea-unor-instante-noi-de-terminal-folosind-scurtaturi">
-<h4><span class="section-number">1.1.1.1. </span>Pornirea unor instanțe noi de terminal folosind scurtături<a class="headerlink" href="#pornirea-unor-instante-noi-de-terminal-folosind-scurtaturi" title="Permalink to this headline">¶</a></h4>
-<p><strong>Exercițiu</strong>: Deschideți două terminale în ferestre separate.
-În fiecare fereastră deschideți un terminal într-un tab nou.
-Puteți folosi exercițiile din capitolul <strong>Dezvoltarea Aplicațiilor</strong> ca suport pentru spargerea în task-uri și sub-task-uri.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Folosim combinația de taste <code class="docutils literal notranslate"><span class="pre">Ctrl+d</span></code> pentru a executa comanda <code class="docutils literal notranslate"><span class="pre">exit</span></code> într-un terminal.
-Aceasta va închide tabul în care a fost rulată.</p>
-</div>
-</div>
-</div>
-<div class="section" id="navigarea-intre-ferestre-si-taburi">
-<h3><span class="section-number">1.1.2. </span>Navigarea între ferestre și taburi<a class="headerlink" href="#navigarea-intre-ferestre-si-taburi" title="Permalink to this headline">¶</a></h3>
-<p>Pentru a naviga între ferestrele aplicațiilor deschise în sistem folosim combinația de taste <code class="docutils literal notranslate"><span class="pre">Alt+Tab</span></code>.</p>
-<p>Pentru a naviga între instanțe ale aceleiași aplicații (ex. două terminale deschise în două ferestre diferite) folosim combinația de taste <code class="docutils literal notranslate"><span class="pre">Alt+~</span></code> (apăsăm tastele <code class="docutils literal notranslate"><span class="pre">Alt</span></code> și <code class="docutils literal notranslate"><span class="pre">~</span></code> simultan).</p>
-<p>Pentru a naviga între taburi folosim combinația de taste <code class="docutils literal notranslate"><span class="pre">Alt+#num</span></code> unde <strong>#num</strong> reprezintă numărul tabului; taburile sunt numerotate de la unu (1) la nouă (9), de la stânga la dreapta.
-Astfel, dacă vrem să navigăm la al doilea tab, într-o fereastră cu mai multe taburi, vom folosi combinația de taste <code class="docutils literal notranslate"><span class="pre">Alt+2</span></code>.
-Un caz particular este reprezentat de tabul cu numărul <strong>10</strong> care poate fi accesat folosind combinația de taste <code class="docutils literal notranslate"><span class="pre">Alt+0</span></code>.</p>
-<p><strong>Exercițiu</strong>: Deschideți mai mult de 10 taburi într-o fereastră și navigați între ele folosind combinația de taste <code class="docutils literal notranslate"><span class="pre">Alt+#num</span></code>.
-Puteți naviga la al 11-lea tab?</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Putem folosi și combinațiile de taste <code class="docutils literal notranslate"><span class="pre">Ctrl+PgDn</span></code> și <code class="docutils literal notranslate"><span class="pre">Ctrl+PgUp</span></code> pentru a naviga între taburile pe care le avem deschise.
-Putem folosi aceste scurtături în cazul în care avem mai mult de 10 taburi deschise.</p>
-</div>
-</div>
-<div class="section" id="redimensionarea-ferestrelor">
-<h3><span class="section-number">1.1.3. </span>Redimensionarea ferestrelor<a class="headerlink" href="#redimensionarea-ferestrelor" title="Permalink to this headline">¶</a></h3>
-<p>Pentru redimensionarea ferestrelor avem două opțiuni:</p>
-<ul class="simple">
-<li><p>Manual, folosind mouse-ul</p></li>
-<li><p>Automat, la niște valori predefinite folosind combinația de taste <code class="docutils literal notranslate"><span class="pre">Win</span> <span class="pre">Key+Arrow</span> <span class="pre">Keys</span></code></p></li>
-</ul>
-<p><strong>Exercițiu</strong>: Deschideți două aplicații: un terminal și un browser web (Firefox).
-Având terminalul în prim-plan, apăsați combinația de taste <code class="docutils literal notranslate"><span class="pre">Win</span> <span class="pre">Key+Arrow</span> <span class="pre">Left</span></code>.
-Observați cum fereastra s-a redimensionat și s-a aliniat în jumătatea din stânga a ecranului, în mod automat.
-Acum, având browserul în prim-plan, apăsați combinația de taste <code class="docutils literal notranslate"><span class="pre">Win</span> <span class="pre">Key+Arrow</span> <span class="pre">Right</span></code>.
-Explorați și celelalte combinații de taste.</p>
-</div>
-</div>
 <div class="section" id="scurtaturi-in-terminal">
-<h2><span class="section-number">1.2. </span>Scurtături în terminal<a class="headerlink" href="#scurtaturi-in-terminal" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">1.1. </span>Scurtături în terminal<a class="headerlink" href="#scurtaturi-in-terminal" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="tab-completion">
-<h3><span class="section-number">1.2.1. </span>Tab completion<a class="headerlink" href="#tab-completion" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">1.1.1. </span>Tab completion<a class="headerlink" href="#tab-completion" title="Permalink to this headline">¶</a></h3>
 <p>Funcția de <strong>tab completion</strong> este probabil una dintre cele mai utile funcții expuse de către terminal.
 Prin simpla apăsare a tastei <code class="docutils literal notranslate"><span class="pre">Tab</span></code> în timp ce scriem numele unei comenzi, al unei opțiuni a unei comenzi sau calea către un director sau fișier, terminalul va completa în mod automat textul.
 În cazul în care există mai multe opțiuni pentru auto-complete, prin dubla apăsare a tastei <code class="docutils literal notranslate"><span class="pre">Tab</span></code> ne va sugera opțiunile de auto-complete.</p>
 <p>În imaginea de mai jos putem observa că pentru comanda <code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">D</span></code> funcția de <code class="docutils literal notranslate"><span class="pre">Tab</span></code> completion a găsit mai multe opțiuni valide pentru auto-complete.
 În astfel de scenarii, cu mai multe opțiuni valide, apăsarea tastei <code class="docutils literal notranslate"><span class="pre">Tab</span></code> o singură dată nu produce niciun rezultat; trebuie să apăsăm tasta <code class="docutils literal notranslate"><span class="pre">Tab</span></code> de două ori consecutiv pentru a genera afișarea opțiunilor de auto-complete.</p>
-<img alt="Demo tab completion" class="align-center" src="../../_images/tab-completion.png" />
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ <span class="nb">cd</span> D
+Desktop/   Documents/ Downloads/
+student@uso:~$ <span class="nb">cd</span> D
+</pre></div>
+</div>
 <p>Funcția de auto-complete este extrem de utilă și îmbunătățește semnificativ viteza cu care realizăm acțiuni în terminal.</p>
 <p>Funcția este extrem de utilă atunci când lucrăm cu nume de fișiere, directoare și căi din sistem.
-În loc să scriem manual o cale către un nume foarte lung lăsăm tasta <code class="docutils literal notranslate"><span class="pre">Tab</span></code> să facă asta pentru noi.</p>
-<p>Un alt avantaj al folosirii tastei <code class="docutils literal notranslate"><span class="pre">Tab</span></code> este că atunci când aceasta nu produce nici un rezultat, este un indicator foarte bun că avem o eroare în comandă: am scris greșit o anumită parte din numele comenzii sau al fișierului, fișierul nu există, etc.</p>
-<p>Folosiți funcția de <code class="docutils literal notranslate"><span class="pre">Tab</span></code> completion cât mai des cu putință.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Putem să ne găsim în situația în care ecranul terminalului nostru este plin cu rezultatele comenzilor rulate anterior sau cu opțiuni afișate de către auto-complete.
-Putem să curățăm ecranul folosind comanda <code class="docutils literal notranslate"><span class="pre">clear</span></code>.
-O alternativă mai rapidă este să folosim combinația de taste <code class="docutils literal notranslate"><span class="pre">Ctrl+l</span></code>.
-Aceasta va produce același rezultat (va curăța ecranul) și are avantajul că poate fi folosită în timp ce scriem deja o comandă.</p>
-</div>
+În loc să scriem manual o cale către un nume foarte lung, lăsăm tasta <code class="docutils literal notranslate"><span class="pre">Tab</span></code> să facă asta pentru noi.</p>
+<p>Atunci când avem o eroare în comandă (am scris greșit o anumită parte din numele comenzii sau al fișierului, fișierul nu există, etc.), tasta <code class="docutils literal notranslate"><span class="pre">Tab</span></code> nu produce nici un rezultat.
+Acesta este un alt motiv pentru care să folosim tasta <code class="docutils literal notranslate"><span class="pre">Tab</span></code>.</p>
+<p>Folosiți funcția de <code class="docutils literal notranslate"><span class="pre">Tab</span></code> completion cât mai des cu putință <a class="footnote-reference brackets" href="#clear" id="id1">1</a>.</p>
 </div>
 <div class="section" id="navigarea-in-istoricul-unei-comenzi">
-<span id="improve-cli-history-nav"></span><h3><span class="section-number">1.2.2. </span>Navigarea în istoricul unei comenzi<a class="headerlink" href="#navigarea-in-istoricul-unei-comenzi" title="Permalink to this headline">¶</a></h3>
-<p>Terminalul implementează funcția de a reține istoricul comenzilor pe care le-am executat.
+<span id="improve-cli-history-nav"></span><h3><span class="section-number">1.1.2. </span>Navigarea în istoricul unei comenzi<a class="headerlink" href="#navigarea-in-istoricul-unei-comenzi" title="Permalink to this headline">¶</a></h3>
+<p>Shellul implementează funcția de a reține istoricul comenzilor pe care le-am executat.
 Pentru a vedea istoricul curent putem rula comanda <code class="docutils literal notranslate"><span class="pre">history</span></code>.
 Vom obține un rezultat asemănător cu cel de mai jos:</p>
-<img alt="Output of running the `history` command" class="align-center" src="../../_images/bash-history.png" />
-<p>Ciclăm prin comenzile date anterior folosind combinația de taste <code class="docutils literal notranslate"><span class="pre">Arrow</span> <span class="pre">Up</span></code>, respectiv <code class="docutils literal notranslate"><span class="pre">Arrow</span> <span class="pre">Down</span></code>.</p>
-<p><strong>Exercițiu</strong>: Ciclați prin istoricul de comenzi folosind combinația de taste <code class="docutils literal notranslate"><span class="pre">Arrow</span> <span class="pre">Up</span></code>, respectiv <code class="docutils literal notranslate"><span class="pre">Arrow</span> <span class="pre">Down</span></code>.</p>
-<div class="section" id="cautarea-inversa-in-istoricul-comenzilor">
-<h4><span class="section-number">1.2.2.1. </span>Căutarea inversă în istoricul comenzilor<a class="headerlink" href="#cautarea-inversa-in-istoricul-comenzilor" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ <span class="nb">history</span>
+<span class="o">[</span>...<span class="o">]</span>
+<span class="m">21</span>  ls
+<span class="m">22</span>  <span class="nb">cd</span> sorting/
+<span class="m">23</span>  ls -l
+<span class="m">24</span>  ls
+<span class="m">25</span>  <span class="nb">cd</span>
+<span class="m">26</span>  ls ~/Desktop ~/Documents ~/Downloads
+<span class="m">27</span>  ls ~/Desktop
+<span class="m">28</span>  ls Desktop/todos.txt
+<span class="m">29</span>  cp Desktop/todos.txt cp
+<span class="m">30</span>  ls
+<span class="m">31</span>  rm cp
+<span class="o">[</span>...<span class="o">]</span>
+</pre></div>
+</div>
+<p>Ciclăm prin comenzile date anterior folosind combinația de taste <code class="docutils literal notranslate"><span class="pre">Arrow</span> <span class="pre">Up</span></code> sau <code class="docutils literal notranslate"><span class="pre">Ctrl+p</span></code>, respectiv <code class="docutils literal notranslate"><span class="pre">Arrow</span> <span class="pre">Down</span></code> sau <code class="docutils literal notranslate"><span class="pre">Ctrl+n</span></code>.</p>
+<p><strong>Exercițiu</strong>: Ciclați prin istoricul de comenzi folosind combinația de taste <code class="docutils literal notranslate"><span class="pre">Ctrl+p</span></code>, respectiv <code class="docutils literal notranslate"><span class="pre">Ctrl+n</span></code>.</p>
+<div class="section" id="cautarea-in-istoricul-comenzilor">
+<h4><span class="section-number">1.1.2.1. </span>Căutarea în istoricul comenzilor<a class="headerlink" href="#cautarea-in-istoricul-comenzilor" title="Permalink to this headline">¶</a></h4>
 <p>Terminalul ne pune la dispoziție un mod mai inteligent de a căuta în istoricul comenzilor prin combinația de taste <code class="docutils literal notranslate"><span class="pre">Ctrl+r</span></code>, ordinea căutării fiind de la cea mai recentă comandă la cea mai veche.
-Funcția este cunoscută sub numele de <strong>reverse search</strong>.</p>
+Funcția este cunoscută sub numele de <strong>history search</strong>.</p>
 <p>Pentru a porni căutarea, apăsați combinația de taste <code class="docutils literal notranslate"><span class="pre">Ctrl+r</span></code> și începeți să scrieți o parte din textul comenzii pe care o căutați, de exemplu <code class="docutils literal notranslate"><span class="pre">cd</span></code>.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>(reverse-i-search)`cd&#39;: cd workspace/hello
 </pre></div>
@@ -659,6 +589,9 @@ Funcția este cunoscută sub numele de <strong>reverse search</strong>.</p>
 <li><p>Rulăm comanda pe care am găsit-o, folosind combinația de taste <code class="docutils literal notranslate"><span class="pre">Ctrl+o</span></code></p></li>
 <li><p>Anulăm căutarea comenzii și revenim la starea inițială, folosind combinația de taste <code class="docutils literal notranslate"><span class="pre">Ctrl+g</span></code></p></li>
 </ul>
+<p>Căutarea este incrementală.
+Adică se rafinează pe măsură ce tastăm un caracter.
+Orice caracter apăsat rafinează căutarea.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Textul căutat se poate afla oriunde în interiorul comenzii; nu trebuie să fie primele litere din comandă.
@@ -669,7 +602,7 @@ Pentru exemplul de mai sus, căutarea folosind textul <code class="docutils lite
 </div>
 </div>
 <div class="section" id="expandarea-comenzilor-anterioare">
-<h4><span class="section-number">1.2.2.2. </span>Expandarea comenzilor anterioare<a class="headerlink" href="#expandarea-comenzilor-anterioare" title="Permalink to this headline">¶</a></h4>
+<h4><span class="section-number">1.1.2.2. </span>Expandarea comenzilor anterioare<a class="headerlink" href="#expandarea-comenzilor-anterioare" title="Permalink to this headline">¶</a></h4>
 <p>Terminalul ne pune la dispoziție și alte moduri prin care putem reutiliza comenzile din istoric.</p>
 <p>Atunci când rulăm comanda <code class="docutils literal notranslate"><span class="pre">history</span></code>, ca în subsecțiunea <a class="reference internal" href="#improve-cli-history-nav"><span class="std std-ref">Navigarea în istoricul unei comenzi</span></a> , vedem că fiecare comandă din istoric este precedată de un număr:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="m">23</span>  ls -l
@@ -704,12 +637,13 @@ total <span class="m">4</span>
 drwxr-xr-x <span class="m">2</span> student student <span class="m">4096</span> aug <span class="m">11</span> <span class="m">21</span>:32 hello
 </pre></div>
 </div>
-<p>În exemplul de mai sus observăm că <code class="docutils literal notranslate"><span class="pre">!!</span></code> a fost înlocuit cu <code class="docutils literal notranslate"><span class="pre">ls</span></code> în textul comenzii, pentru ca apoi să se execute comanda <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-l</span> <span class="pre">workspace</span></code>.</p>
+<p>În exemplul de mai sus observăm că <code class="docutils literal notranslate"><span class="pre">!!</span></code> a fost înlocuit cu <code class="docutils literal notranslate"><span class="pre">ls</span></code> în textul comenzii, pentru ca apoi să se execute comanda <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-l</span> <span class="pre">workspace</span></code>.
+Sintaxa <code class="docutils literal notranslate"><span class="pre">!!</span></code> este echivalentă cu <code class="docutils literal notranslate"><span class="pre">!-1</span></code>.</p>
 <p><strong>Exercițiu</strong>: Rulați trei comenzi din istoricul vostru folosind atât înlocuirea numerică (<code class="docutils literal notranslate"><span class="pre">!2</span></code>), cât și înlocuirea ultimei comenzi (<code class="docutils literal notranslate"><span class="pre">!!</span></code>).
 Folosiți-vă de faptul că această înlocuire are loc înaintea executării comenzii pentru a adăuga argumente comenzilor, similar exemplului de mai sus.</p>
 </div>
 <div class="section" id="reutilizarea-argumentelor-comenzii-anterioare">
-<h4><span class="section-number">1.2.2.3. </span>Reutilizarea argumentelor comenzii anterioare<a class="headerlink" href="#reutilizarea-argumentelor-comenzii-anterioare" title="Permalink to this headline">¶</a></h4>
+<h4><span class="section-number">1.1.2.3. </span>Reutilizarea argumentelor comenzii anterioare<a class="headerlink" href="#reutilizarea-argumentelor-comenzii-anterioare" title="Permalink to this headline">¶</a></h4>
 <p>Terminalul ne oferă și o sintaxă prin care avem posibilitatea de a reutiliza argumentele comenzii anterioare în corpul comenzii curente.
 Acest lucru este util în reutilizarea argumentelor lungi sau complicate, pentru că evităm rescrierea lor.
 Astfel nu doar că suntem mai rapizi, dar evităm și apariția unor probleme din categoria typourilor.</p>
@@ -728,7 +662,7 @@ student@uso:~$ ls -l !^
 <p>Observăm că șirul <code class="docutils literal notranslate"><span class="pre">!^</span></code> din comanda <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-l</span> <span class="pre">!^</span></code> a fost înlocuit cu primul argument al comenzii, anterioare, <code class="docutils literal notranslate"><span class="pre">~/Desktop</span></code>.</p>
 </div>
 <div class="section" id="exercitii">
-<h4><span class="section-number">1.2.2.4. </span>Exerciții<a class="headerlink" href="#exercitii" title="Permalink to this headline">¶</a></h4>
+<h4><span class="section-number">1.1.2.4. </span>Exerciții<a class="headerlink" href="#exercitii" title="Permalink to this headline">¶</a></h4>
 <ol class="arabic simple">
 <li><p>Afișați istoricul vostru de comenezi.
 Rulați a zecea comandă din istoric, folosind sintaxa <code class="docutils literal notranslate"><span class="pre">!#num</span></code>.</p></li>
@@ -740,11 +674,16 @@ Acum rulați comanda anterioară, folosind sintaxa <code class="docutils literal
 </div>
 </div>
 <div class="section" id="navigarea-in-interiorul-unei-comenzi">
-<h3><span class="section-number">1.2.3. </span>Navigarea în interiorul unei comenzi<a class="headerlink" href="#navigarea-in-interiorul-unei-comenzi" title="Permalink to this headline">¶</a></h3>
-<p>Ne găsim des în situația în care căutăm o comandă în istoric folosind funcția de reverse search, modificăm un argument al comenzii și apoi o executăm.
+<h3><span class="section-number">1.1.3. </span>Navigarea în interiorul unei comenzi<a class="headerlink" href="#navigarea-in-interiorul-unei-comenzi" title="Permalink to this headline">¶</a></h3>
+<p>Ne găsim des în situația în care căutăm o comandă în istoric folosind funcția de history search, modificăm un argument al comenzii și apoi o executăm.
 Pentru navigarea în cadrul textului comenzii putem folosi <code class="docutils literal notranslate"><span class="pre">Arrow</span> <span class="pre">Keys</span></code>, iar pentru ștergeri putem folosi tasta <code class="docutils literal notranslate"><span class="pre">Backspace</span></code> sau <code class="docutils literal notranslate"><span class="pre">Del</span></code>.</p>
 <p>Terminalul ne pune la dispoziție și o serie de scurtături cu ajutorul cărora putem face realiza aceeași acțiune mai rapid.
 Dacă vreți să vă impresionați prietenii, acesta este un mod simplu, dar eficient, de a o face.</p>
+<p>Pentru a naviga în istoricul de comenzi putem folosi combinațiile de taste:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Ctrl+p</span></code> - accesăm ultima comandă dată; prin apăsări succesive ciclăm prin istoricul de comenzi, de la ultima la prima comandă dată</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Ctrl+n</span></code> - accesăm comenzile în sens invers față de <code class="docutils literal notranslate"><span class="pre">Ctrl+p</span></code>, de la comanda actuală până la ultima comandă dată</p></li>
+</ul>
 <p>Pentru a naviga în corpul textului putem folosi combinațiile de taste:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">Ctrl+a</span></code> - mută cursorul la începutul liniei</p></li>
@@ -765,20 +704,20 @@ Dacă vreți să vă impresionați prietenii, acesta este un mod simplu, dar efi
 <p>Textul șters este salvat într-un registru și poate fi folosit folosind combinația de taste <code class="docutils literal notranslate"><span class="pre">Ctrl+y</span></code>.
 Funcționalitatea este similară cu procesul de <strong>Cut</strong> (<code class="docutils literal notranslate"><span class="pre">Ctrl+k</span></code>, <code class="docutils literal notranslate"><span class="pre">Ctrl+u</span></code> sau <code class="docutils literal notranslate"><span class="pre">Alt+d</span></code>) și <strong>Paste</strong> (<code class="docutils literal notranslate"><span class="pre">Ctrl+y</span></code>).</p>
 </div>
-<div class="section" id="id1">
-<h4><span class="section-number">1.2.3.1. </span>Exerciții<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="id2">
+<h4><span class="section-number">1.1.3.1. </span>Exerciții<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h4>
 <p>Rulați comanda <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">Documents/</span> <span class="pre">Downloads/</span> <span class="pre">Desktop/</span> <span class="pre">Pictures/</span> <span class="pre">Music/</span></code> înainte de a vă apuca de exerciții.</p>
 <ol class="arabic simple">
-<li><p>Apăsați tasta <code class="docutils literal notranslate"><span class="pre">Arrow</span> <span class="pre">Up</span></code> pentru a accesa comanda rulată anterior.</p></li>
-<li><p>Săriți la începutul comenzii folosind combinația de taste <code class="docutils literal notranslate"><span class="pre">Ctrl+a</span></code>.</p></li>
-<li><p>Săriți la sfârșitul comenzii folosind combinația de taste <code class="docutils literal notranslate"><span class="pre">Ctrl+e</span></code>.</p></li>
+<li><p>Apăsați tasta <code class="docutils literal notranslate"><span class="pre">Ctrl+p</span></code> pentru a accesa comanda rulată anterior.</p></li>
+<li><p>Plasați-vă la începutul comenzii folosind combinația de taste <code class="docutils literal notranslate"><span class="pre">Ctrl+a</span></code>.</p></li>
+<li><p>Plasați-vă la sfârșitul comenzii folosind combinația de taste <code class="docutils literal notranslate"><span class="pre">Ctrl+e</span></code>.</p></li>
 <li><p>Mergeți, cuvânt cu cuvânt, la începutul comenzii folosind combinația de taste <code class="docutils literal notranslate"><span class="pre">Alt+b</span></code>.</p></li>
 <li><p>Mergeți, cuvânt cu cuvânt, la sfârșitul comenzii folosind combinația de taste <code class="docutils literal notranslate"><span class="pre">Alt+f</span></code>.</p></li>
 <li><p>Rulați comanda <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">Docuents/</span> <span class="pre">Downlads/</span> <span class="pre">Dektop/</span> <span class="pre">Pitures/</span> <span class="pre">Muic/</span></code>.</p></li>
-<li><p>Apăsați tasta <code class="docutils literal notranslate"><span class="pre">Arrow</span> <span class="pre">Up</span></code> pentru a accesa comanda rulată anterior.
+<li><p>Apăsați tasta <code class="docutils literal notranslate"><span class="pre">Ctrl+p</span></code> pentru a accesa comanda rulată anterior.
 Corectați typourile (greșelile de scriere) din comanda anterioară.
 Folosiți combinațiile de taste <code class="docutils literal notranslate"><span class="pre">Ctrl+f</span></code>, <code class="docutils literal notranslate"><span class="pre">Ctrl+b</span></code> pentru a deplasa cursorul în cadrul comenzii.</p></li>
-<li><p>Apăsați tasta <code class="docutils literal notranslate"><span class="pre">Arrow</span> <span class="pre">Up</span></code> pentru a accesa comanda rulată anterior (comanda corectată).
+<li><p>Apăsați tasta <code class="docutils literal notranslate"><span class="pre">Ctrl+p</span></code> pentru a accesa comanda rulată anterior (comanda corectată).
 Avansați până la începutul cuvântului <code class="docutils literal notranslate"><span class="pre">Desktop/</span></code>.
 Ștergeți tot până la final folosind combinația de taste <code class="docutils literal notranslate"><span class="pre">Ctrl+k</span></code>.
 Acum anulați comanda curentă apăsând combinația de taste <code class="docutils literal notranslate"><span class="pre">Ctrl+c</span></code>.
@@ -787,7 +726,7 @@ O să rulați comanda <code class="docutils literal notranslate"><span class="pr
 Scrieți comanda <code class="docutils literal notranslate"><span class="pre">ls</span></code> și apoi apăsați combinația de taste <code class="docutils literal notranslate"><span class="pre">Ctrl+y</span></code>.
 Textul a fost scris din buffer în continuarea comenzii <code class="docutils literal notranslate"><span class="pre">ls</span></code> (scrisă de voi).</p></li>
 <li><p>Rulați comanda <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">Documents/</span> <span class="pre">Downloads/</span> <span class="pre">Desktop/</span> <span class="pre">Pictures/</span> <span class="pre">Music/</span></code>.
-Apăsați tasta <code class="docutils literal notranslate"><span class="pre">Arrow</span> <span class="pre">Up</span></code> pentru a accesa comanda rulată anterior (comanda corectată).
+Apăsați tasta <code class="docutils literal notranslate"><span class="pre">Ctrl+p</span></code> pentru a accesa comanda rulată anterior (comanda corectată).
 Avansați până la începutul cuvântului <code class="docutils literal notranslate"><span class="pre">Pictures/</span></code>.
 Ștergeți cuvântul folosind combinația de taste <code class="docutils literal notranslate"><span class="pre">Alt+d</span></code>.
 Acum anulați comanda curentă apăsând combinația de taste <code class="docutils literal notranslate"><span class="pre">Ctrl+c</span></code>.
@@ -796,6 +735,15 @@ O să rulați comanda <code class="docutils literal notranslate"><span class="pr
 Scrieți comanda <code class="docutils literal notranslate"><span class="pre">ls</span></code> și apoi apăsați combinația de taste <code class="docutils literal notranslate"><span class="pre">Ctrl+y</span></code>.
 Textul a fost scris din buffer în continuarea comenzii <code class="docutils literal notranslate"><span class="pre">ls</span></code> (scrisă de voi).</p></li>
 </ol>
+<p class="rubric">Note de subsol</p>
+<dl class="footnote brackets">
+<dt class="label" id="clear"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd><p>Putem să ne găsim în situația în care ecranul terminalului nostru este plin cu rezultatele comenzilor rulate anterior sau cu opțiuni afișate de către auto-complete.
+Putem să curățăm ecranul folosind comanda <code class="docutils literal notranslate"><span class="pre">clear</span></code>.
+O alternativă mai rapidă este să folosim combinația de taste <code class="docutils literal notranslate"><span class="pre">Ctrl+l</span></code>.
+Aceasta va produce același rezultat (va curăța ecranul) și are avantajul că poate fi folosită în timp ce scriem deja o comandă.</p>
+</dd>
+</dl>
 </div>
 </div>
 </div>
@@ -810,8 +758,8 @@ Textul a fost scris din buffer în continuarea comenzii <code class="docutils li
        title="previous chapter">← <span class="section-number">10. </span>Sumar: Instalarea, dezinstalarea, investigarea, actualizarea aplicațiilor</a>
   </li>
   <li class="next">
-    <a href="improve-terminal-summary.html"
-       title="next chapter"><span class="section-number">2. </span>Sumar: Îmbunătățirea lucrului în linia de comandă →</a>
+    <a href="inspect-fs.html"
+       title="next chapter"><span class="section-number">2. </span>Inspectarea sistemului de fișiere →</a>
   </li>
 </ul><div class="footer" role="contentinfo">
       &#169; Copyright 2020, USO Team.

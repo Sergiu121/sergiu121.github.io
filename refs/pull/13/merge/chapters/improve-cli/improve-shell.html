@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-      <title>7. O înțelegere mai bună a shellului</title>
+      <title>4. O înțelegere mai bună a shellului</title>
     
       <link rel="stylesheet" href="../../_static/pygments.css">
       <link rel="stylesheet" href="../../_static/theme.css">
@@ -24,8 +24,8 @@
     
   <link rel="index" title="Index" href="../../genindex.html" />
   <link rel="search" title="Search" href="../../search.html" />
-  <link rel="next" title="8. Sumar: O înțelegere mai bună a shellului" href="improve-shell-summary.html" />
-  <link rel="prev" title="6. Sumar: Inspectarea fișierelor" href="inspect-files-summary.html" />
+  <link rel="next" title="5. Sumar: Îmbunătățirea lucrului în linia de comandă" href="improve-cli-summary.html" />
+  <link rel="prev" title="3. Inspectarea fișierelor" href="inspect-files.html" />
     <link href="../../_static/my_theme.css" rel="stylesheet" type="text/css">
 
   </head>
@@ -463,31 +463,13 @@
           </li>
 
         
-          <li class="toctree-l1 "><a href="improve-terminal-summary.html" class="reference internal ">Sumar: Îmbunătățirea lucrului în linia de comandă</a>
-
-            
-          </li>
-
-        
           <li class="toctree-l1 "><a href="inspect-fs.html" class="reference internal ">Inspectarea sistemului de fișiere</a>
 
             
           </li>
 
         
-          <li class="toctree-l1 "><a href="inspect-fs-summary.html" class="reference internal ">Sumar: Inspectarea sistemului de fișiere</a>
-
-            
-          </li>
-
-        
           <li class="toctree-l1 "><a href="inspect-files.html" class="reference internal ">Inspectarea fișierelor</a>
-
-            
-          </li>
-
-        
-          <li class="toctree-l1 "><a href="inspect-files-summary.html" class="reference internal ">Sumar: Inspectarea fișierelor</a>
 
             
           </li>
@@ -507,7 +489,7 @@
           </li>
 
         
-          <li class="toctree-l1 "><a href="improve-shell-summary.html" class="reference internal ">Sumar: O înțelegere mai bună a shellului</a>
+          <li class="toctree-l1 "><a href="improve-cli-summary.html" class="reference internal ">Sumar: Îmbunătățirea lucrului în linia de comandă</a>
 
             
           </li>
@@ -525,18 +507,18 @@
   <ul class="breadcrumbs">
     <li><a href="../../index.html">Docs</a> &raquo;</li>
     
-    <li><span class="section-number">7. </span>O înțelegere mai bună a shellului</li>
+    <li><span class="section-number">4. </span>O înțelegere mai bună a shellului</li>
   </ul>
   
 
   <ul class="page-nav">
   <li class="prev">
-    <a href="inspect-files-summary.html"
-       title="previous chapter">← <span class="section-number">6. </span>Sumar: Inspectarea fișierelor</a>
+    <a href="inspect-files.html"
+       title="previous chapter">← <span class="section-number">3. </span>Inspectarea fișierelor</a>
   </li>
   <li class="next">
-    <a href="improve-shell-summary.html"
-       title="next chapter"><span class="section-number">8. </span>Sumar: O înțelegere mai bună a shellului →</a>
+    <a href="improve-cli-summary.html"
+       title="next chapter"><span class="section-number">5. </span>Sumar: Îmbunătățirea lucrului în linia de comandă →</a>
   </li>
 </ul>
   
@@ -545,9 +527,9 @@
           <div class="content" role="main">
             
   <div class="section" id="o-intelegere-mai-buna-a-shellului">
-<span id="improve-cli-improve-shell"></span><h1><span class="section-number">7. </span>O înțelegere mai bună a shellului<a class="headerlink" href="#o-intelegere-mai-buna-a-shellului" title="Permalink to this headline">¶</a></h1>
+<span id="improve-cli-improve-shell"></span><h1><span class="section-number">4. </span>O înțelegere mai bună a shellului<a class="headerlink" href="#o-intelegere-mai-buna-a-shellului" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="configurarea-shellului-bash">
-<h2><span class="section-number">7.1. </span>Configurarea shellului bash<a class="headerlink" href="#configurarea-shellului-bash" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">4.1. </span>Configurarea shellului bash<a class="headerlink" href="#configurarea-shellului-bash" title="Permalink to this headline">¶</a></h2>
 <p>Așa cum am menționat în secțiunea Configurarea rulării aplicațiilor, modul în care o aplicație rulează este configurabil.
 Fișierul de configurare al shellului <strong>BASH</strong> este <code class="docutils literal notranslate"><span class="pre">~/.bashrc</span></code>.
 În directorul home al fiecărui utilizator se găsește un fișier <code class="docutils literal notranslate"><span class="pre">.bashrc</span></code>.
@@ -556,7 +538,7 @@ Atunci când un utilizator pornește un shell bash, conținutul fișierului <cod
 <p>Shellul <em>bash</em>, ca majoritatea programelor, vine cu un set de configurări default care poate nu sunt pe placul tuturor utilizatorilor.
 Prin fișierul <code class="docutils literal notranslate"><span class="pre">.bashrc</span></code> utilizatorul poate modifica setul default a.î. să se potrivească cu stilul său: un exemplu des întâlnit este modificarea dimensiunii isoricului de comenzi.</p>
 <div class="section" id="modificarea-dimensiunii-istoricului">
-<h3><span class="section-number">7.1.1. </span>Modificarea dimensiunii istoricului<a class="headerlink" href="#modificarea-dimensiunii-istoricului" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">4.1.1. </span>Modificarea dimensiunii istoricului<a class="headerlink" href="#modificarea-dimensiunii-istoricului" title="Permalink to this headline">¶</a></h3>
 <p>Inspectăm conținutul fișierului <code class="docutils literal notranslate"><span class="pre">~/.bashrc</span></code> folosind comanda următoare:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ less ~/.bashrc
 </pre></div>
@@ -585,7 +567,7 @@ Salvați modificările făcute.</p>
 </div>
 </div>
 <div class="section" id="vizualizarea-aliasurilor-predefinite">
-<h3><span class="section-number">7.1.2. </span>Vizualizarea aliasurilor predefinite<a class="headerlink" href="#vizualizarea-aliasurilor-predefinite" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">4.1.2. </span>Vizualizarea aliasurilor predefinite<a class="headerlink" href="#vizualizarea-aliasurilor-predefinite" title="Permalink to this headline">¶</a></h3>
 <p>Pentru a înțelege ce este un <strong>alias</strong>, rulăm comanda de mai jos:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ <span class="nb">alias</span> ls
 <span class="nb">alias</span> <span class="nv">ls</span><span class="o">=</span><span class="s1">&#39;ls --color=auto&#39;</span>
@@ -641,7 +623,7 @@ student@uso:~$ cat ~/.bash_aliases
 </div>
 </div>
 <div class="section" id="definirea-unui-alias">
-<h3><span class="section-number">7.1.3. </span>Definirea unui alias<a class="headerlink" href="#definirea-unui-alias" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">4.1.3. </span>Definirea unui alias<a class="headerlink" href="#definirea-unui-alias" title="Permalink to this headline">¶</a></h3>
 <p>Utilitarul <code class="docutils literal notranslate"><span class="pre">xdg-open</span></code> primește calea către un fișier și deschide fișierul respectiv cu aplicația asociată tipului de fișier.
 Astfel, comanda <code class="docutils literal notranslate"><span class="pre">xdg-open</span> <span class="pre">image.png</span></code> va deschide imaginea <strong>image.png</strong> cu aplicația asociată deschiderii formatului <strong>PNG</strong>.
 Putem să folosim și un URL ca argument al comenzii <code class="docutils literal notranslate"><span class="pre">xdg-open</span></code>; astfel, comanda <code class="docutils literal notranslate"><span class="pre">xdg-open</span> <span class="pre">https://www.google.com</span></code> va deschide pagina Google în browserul vostru implicit.</p>
@@ -670,9 +652,9 @@ student@uso:~$ go https://www.google.com
 </div>
 </div>
 <div class="section" id="executia-comenzilor">
-<h2><span class="section-number">7.2. </span>Execuția comenzilor<a class="headerlink" href="#executia-comenzilor" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">4.2. </span>Execuția comenzilor<a class="headerlink" href="#executia-comenzilor" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="incheierea-executiei-unei-comenzi">
-<h3><span class="section-number">7.2.1. </span>Încheierea execuției unei comenzi<a class="headerlink" href="#incheierea-executiei-unei-comenzi" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">4.2.1. </span>Încheierea execuției unei comenzi<a class="headerlink" href="#incheierea-executiei-unei-comenzi" title="Permalink to this headline">¶</a></h3>
 <p>Atunci când rulăm o comandă aceasta își poate încheia execuția în două moduri: cu <strong>succes</strong> sau cu <strong>eșec</strong>.
 Atunci când își încheie execuția, orice proces întoarce un cod de eroare, care este un număr:</p>
 <ul>
@@ -703,7 +685,7 @@ student@uso:~$ <span class="nb">echo</span> <span class="nv">$?</span>
 </div>
 <p>Observăm că în cazul fișierului inexistet, comanda <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">non-existent</span></code> a întors valoarea <code class="docutils literal notranslate"><span class="pre">2</span></code>, așa cum era specificat și în pagina de manual.</p>
 <div class="section" id="inlantuirea-comenzilor-in-functie-de-succes-sau-esec">
-<span id="improve-cli-improve-shell-oneliners"></span><h4><span class="section-number">7.2.1.1. </span>Înlănțuirea comenzilor în funcție de succes sau eșec<a class="headerlink" href="#inlantuirea-comenzilor-in-functie-de-succes-sau-esec" title="Permalink to this headline">¶</a></h4>
+<span id="improve-cli-improve-shell-oneliners"></span><h4><span class="section-number">4.2.1.1. </span>Înlănțuirea comenzilor în funcție de succes sau eșec<a class="headerlink" href="#inlantuirea-comenzilor-in-functie-de-succes-sau-esec" title="Permalink to this headline">¶</a></h4>
 <p>De multe ori vrem să executăm o succesiune de comenzi pentru a realiza o sarcină.
 De exemplu, atunci când vrem să instalăm o aplicație o rulăm trei comenzi:</p>
 <ul class="simple">
@@ -762,7 +744,7 @@ La cea de-a doua rulare, a fost executată cu succes prima comandă <code class=
 O astfel de înlănțuire de comenzi este numită <strong>oneliner</strong>.</p>
 </div>
 <div class="section" id="exercitii">
-<h4><span class="section-number">7.2.1.2. </span>Exerciții<a class="headerlink" href="#exercitii" title="Permalink to this headline">¶</a></h4>
+<h4><span class="section-number">4.2.1.2. </span>Exerciții<a class="headerlink" href="#exercitii" title="Permalink to this headline">¶</a></h4>
 <ol class="arabic simple">
 <li><p>Scrieți un oneliner cu ajutorul căruia descărcați arhiva tar de la adresa TODO, creați directorul <code class="docutils literal notranslate"><span class="pre">~/operators/demo/tar</span></code> și apoi dezarhivați conținutul în directorul creat.</p></li>
 <li><p>Actualizați onelinerul anterior a.î. după dezarhivare să pornească compilarea proiectului folosind comanda <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">build</span></code>.</p></li>
@@ -770,7 +752,7 @@ O astfel de înlănțuire de comenzi este numită <strong>oneliner</strong>.</p>
 </div>
 </div>
 <div class="section" id="inlantuirea-comenzilor-folosind-operatorul-pipe">
-<h3><span class="section-number">7.2.2. </span>Înlănțuirea comenzilor folosind operatorul <code class="docutils literal notranslate"><span class="pre">|</span></code> (pipe)<a class="headerlink" href="#inlantuirea-comenzilor-folosind-operatorul-pipe" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">4.2.2. </span>Înlănțuirea comenzilor folosind operatorul <code class="docutils literal notranslate"><span class="pre">|</span></code> (pipe)<a class="headerlink" href="#inlantuirea-comenzilor-folosind-operatorul-pipe" title="Permalink to this headline">¶</a></h3>
 <p>Așa cum am descoperit în secțiunile și capitolele anterioare, în mediul Linux avem multe utilitare care rezolvă o nevoie specifică: <code class="docutils literal notranslate"><span class="pre">ls</span></code> afișează informații despre fișiere, <code class="docutils literal notranslate"><span class="pre">ps</span></code> despre procese, <code class="docutils literal notranslate"><span class="pre">grep</span></code> filtrează, etc.
 Toate acestea au la bază filozofia mediului Linux: “do one thing and do it well”.
 Ca întodeauna, frumusețea stă în simplitate: avem o suită de unelte la dispoziție, fiecare capabilă să rezolve rapid o sarcină dată; pentru a rezolva o problemă mai complexă trebuie doar să îmbinăm uneltele.</p>
@@ -779,30 +761,24 @@ Atunci când folosim operatorul <code class="docutils literal notranslate"><span
 <p>Am folosit de mai multe ori operatorul <code class="docutils literal notranslate"><span class="pre">|</span></code> până acum:</p>
 <ul>
 <li><p>Am afișat informații despre procesele din sistem și am filtrat după numele unui proces:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ ps -aux <span class="p">|</span> grep firefox
-student  <span class="m">15211</span>  <span class="m">0</span>.5 <span class="m">17</span>.6 <span class="m">3090808</span> <span class="m">359960</span> pts/1  Sl   <span class="m">00</span>:14   <span class="m">0</span>:40 /usr/lib/firefox/firefox https://www.google.com
-student  <span class="m">15557</span>  <span class="m">0</span>.0  <span class="m">5</span>.3 <span class="m">2591440</span> <span class="m">108220</span> pts/1  Sl   <span class="m">00</span>:14   <span class="m">0</span>:05 /usr/lib/firefox/firefox -contentproc -childID <span class="m">2</span> -isForBrowser -prefsLen <span class="m">6264</span> -prefMapSize <span class="m">228098</span> -parentBuildID <span class="m">20201027185343</span> -appdir /usr/lib/firefox/browser <span class="m">15211</span> <span class="nb">true</span> tab
-student  <span class="m">15623</span>  <span class="m">0</span>.0  <span class="m">7</span>.1 <span class="m">2625192</span> <span class="m">145232</span> pts/1  Sl   <span class="m">00</span>:14   <span class="m">0</span>:02 /usr/lib/firefox/firefox -contentproc -childID <span class="m">4</span> -isForBrowser -prefsLen <span class="m">7129</span> -prefMapSize <span class="m">228098</span> -parentBuildID <span class="m">20201027185343</span> -appdir /usr/lib/firefox/browser <span class="m">15211</span> <span class="nb">true</span> tab
-student  <span class="m">15647</span>  <span class="m">0</span>.0  <span class="m">5</span>.9 <span class="m">2629464</span> <span class="m">120896</span> pts/1  Sl   <span class="m">00</span>:14   <span class="m">0</span>:02 /usr/lib/firefox/firefox -contentproc -childID <span class="m">5</span> -isForBrowser -prefsLen <span class="m">7129</span> -prefMapSize <span class="m">228098</span> -parentBuildID <span class="m">20201027185343</span> -appdir /usr/lib/firefox/browser <span class="m">15211</span> <span class="nb">true</span> tab
-student  <span class="m">15699</span>  <span class="m">0</span>.0  <span class="m">6</span>.5 <span class="m">2613656</span> <span class="m">133844</span> pts/1  Sl   <span class="m">00</span>:14   <span class="m">0</span>:01 /usr/lib/firefox/firefox -contentproc -childID <span class="m">6</span> -isForBrowser -prefsLen <span class="m">9473</span> -prefMapSize <span class="m">228098</span> -parentBuildID <span class="m">20201027185343</span> -appdir /usr/lib/firefox/browser <span class="m">15211</span> <span class="nb">true</span> tab
-student  <span class="m">15726</span>  <span class="m">0</span>.0  <span class="m">3</span>.7 <span class="m">2567444</span> <span class="m">77320</span> pts/1   Sl   <span class="m">00</span>:14   <span class="m">0</span>:00 /usr/lib/firefox/firefox -contentproc -childID <span class="m">7</span> -isForBrowser -prefsLen <span class="m">9473</span> -prefMapSize <span class="m">228098</span> -parentBuildID <span class="m">20201027185343</span> -appdir /usr/lib/firefox/browser <span class="m">15211</span> <span class="nb">true</span> tab
-student  <span class="m">16922</span>  <span class="m">0</span>.0  <span class="m">0</span>.0  <span class="m">15972</span>  <span class="m">1040</span> pts/0    S+   <span class="m">02</span>:18   <span class="m">0</span>:00 grep --color<span class="o">=</span>auto firefox
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ ps -e <span class="p">|</span> grep firefox
+<span class="m">14912</span> pts/0    <span class="m">00</span>:00:19 firefox
 </pre></div>
 </div>
 </li>
 <li><p>Am extras primele zece procese care consumă cel mai mare procent de memorie:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ ps -aux --sort<span class="o">=</span>-%mem <span class="p">|</span> head -11
-USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
-student  <span class="m">15211</span>  <span class="m">0</span>.5 <span class="m">17</span>.7 <span class="m">3090808</span> <span class="m">362316</span> pts/1  Sl   <span class="m">00</span>:14   <span class="m">0</span>:40 /usr/lib/firefox/firefox https://www.google.com
-student   <span class="m">8263</span>  <span class="m">0</span>.1 <span class="m">13</span>.8 <span class="m">3515972</span> <span class="m">283712</span> tty1   Sl+  nov06   <span class="m">0</span>:43 /usr/bin/gnome-shell
-student   <span class="m">8763</span>  <span class="m">0</span>.0  <span class="m">8</span>.2 <span class="m">1405448</span> <span class="m">168436</span> tty1   SLl+ nov06   <span class="m">0</span>:10 /usr/bin/gnome-software --gapplication-service
-student  <span class="m">15623</span>  <span class="m">0</span>.0  <span class="m">7</span>.1 <span class="m">2625192</span> <span class="m">145452</span> pts/1  Sl   <span class="m">00</span>:14   <span class="m">0</span>:03 /usr/lib/firefox/firefox -contentproc -childID <span class="m">4</span> -isForBrowser -prefsLen <span class="m">7129</span> -prefMapSize <span class="m">228098</span> -parentBuildID <span class="m">20201027185343</span> -appdir /usr/lib/firefox/browser <span class="m">15211</span> <span class="nb">true</span> tab
-student  <span class="m">15699</span>  <span class="m">0</span>.0  <span class="m">6</span>.5 <span class="m">2613656</span> <span class="m">133844</span> pts/1  Sl   <span class="m">00</span>:14   <span class="m">0</span>:01 /usr/lib/firefox/firefox -contentproc -childID <span class="m">6</span> -isForBrowser -prefsLen <span class="m">9473</span> -prefMapSize <span class="m">228098</span> -parentBuildID <span class="m">20201027185343</span> -appdir /usr/lib/firefox/browser <span class="m">15211</span> <span class="nb">true</span> tab
-student  <span class="m">15647</span>  <span class="m">0</span>.0  <span class="m">5</span>.9 <span class="m">2629464</span> <span class="m">120896</span> pts/1  Sl   <span class="m">00</span>:14   <span class="m">0</span>:02 /usr/lib/firefox/firefox -contentproc -childID <span class="m">5</span> -isForBrowser -prefsLen <span class="m">7129</span> -prefMapSize <span class="m">228098</span> -parentBuildID <span class="m">20201027185343</span> -appdir /usr/lib/firefox/browser <span class="m">15211</span> <span class="nb">true</span> tab
-student  <span class="m">15557</span>  <span class="m">0</span>.0  <span class="m">5</span>.3 <span class="m">2591440</span> <span class="m">108220</span> pts/1  Sl   <span class="m">00</span>:14   <span class="m">0</span>:05 /usr/lib/firefox/firefox -contentproc -childID <span class="m">2</span> -isForBrowser -prefsLen <span class="m">6264</span> -prefMapSize <span class="m">228098</span> -parentBuildID <span class="m">20201027185343</span> -appdir /usr/lib/firefox/browser <span class="m">15211</span> <span class="nb">true</span> tab
-student  <span class="m">15726</span>  <span class="m">0</span>.0  <span class="m">3</span>.7 <span class="m">2567444</span> <span class="m">77320</span> pts/1   Sl   <span class="m">00</span>:14   <span class="m">0</span>:00 /usr/lib/firefox/firefox -contentproc -childID <span class="m">7</span> -isForBrowser -prefsLen <span class="m">9473</span> -prefMapSize <span class="m">228098</span> -parentBuildID <span class="m">20201027185343</span> -appdir /usr/lib/firefox/browser <span class="m">15211</span> <span class="nb">true</span> tab
-student   <span class="m">8106</span>  <span class="m">0</span>.0  <span class="m">3</span>.6 <span class="m">756452</span> <span class="m">73800</span> tty1     Sl+  nov06   <span class="m">0</span>:04 /usr/lib/xorg/Xorg vt1 -displayfd <span class="m">3</span> -auth /run/user/1000/gdm/Xauthority -background none -noreset -keeptty -verbose <span class="m">3</span>
-student   <span class="m">8631</span>  <span class="m">0</span>.0  <span class="m">2</span>.5 <span class="m">886656</span> <span class="m">52380</span> ?        Ssl  nov06   <span class="m">0</span>:00 /usr/lib/evolution/evolution-calendar-factory
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ ps -e -ouser,uid,pid,%mem,%cpu,rss,cmd --sort<span class="o">=</span>-%mem <span class="p">|</span> head -11
+USER       UID   PID %MEM %CPU   RSS CMD
+student   <span class="m">1000</span>  <span class="m">7938</span> <span class="m">18</span>.0  <span class="m">0</span>.1 <span class="m">367952</span> /usr/bin/gnome-shell
+student   <span class="m">1000</span>  <span class="m">8437</span>  <span class="m">8</span>.4  <span class="m">0</span>.0 <span class="m">171916</span> /usr/bin/gnome-software --gapplication-service
+student   <span class="m">1000</span>  <span class="m">7782</span>  <span class="m">3</span>.9  <span class="m">0</span>.0 <span class="m">81312</span> /usr/lib/xorg/Xorg vt1 -displayfd <span class="m">3</span> -auth /run/user/1000/gdm/Xauthority -background none -noreset -keeptty -verbose <span class="m">3</span>
+root         <span class="m">0</span>  <span class="m">1338</span>  <span class="m">3</span>.8  <span class="m">0</span>.0 <span class="m">78880</span> /usr/bin/dockerd -H fd:// --containerd<span class="o">=</span>/run/containerd/containerd.sock
+student   <span class="m">1000</span>  <span class="m">8307</span>  <span class="m">3</span>.1  <span class="m">0</span>.0 <span class="m">64628</span> /usr/lib/evolution/evolution-calendar-factory
+student   <span class="m">1000</span>  <span class="m">8338</span>  <span class="m">3</span>.0  <span class="m">0</span>.0 <span class="m">61860</span> /usr/lib/evolution/evolution-calendar-factory-subprocess --factory all --bus-name org.gnome.evolution.dataserver.Subprocess.Backend.Calendarx8307x2 --own-path /org/gnome/evolution/dataserver/Subprocess/Backend/Calendar/8307/2
+root         <span class="m">0</span>   <span class="m">336</span>  <span class="m">2</span>.6  <span class="m">0</span>.0 <span class="m">53612</span> /lib/systemd/systemd-journald
+student   <span class="m">1000</span>  <span class="m">8274</span>  <span class="m">2</span>.3  <span class="m">0</span>.0 <span class="m">48296</span> nautilus-desktop
+root         <span class="m">0</span>  <span class="m">1074</span>  <span class="m">2</span>.2  <span class="m">0</span>.0 <span class="m">45460</span> /usr/bin/containerd
+student   <span class="m">1000</span> <span class="m">12966</span>  <span class="m">1</span>.8  <span class="m">0</span>.0 <span class="m">38216</span> /usr/lib/gnome-terminal/gnome-terminal-server
 </pre></div>
 </div>
 </li>
@@ -842,7 +818,7 @@ mv wiki.tar archives ?...n
 Șirul de caractere placeholder poate să fie orice, nu neapărat <code class="docutils literal notranslate"><span class="pre">str</span></code>; comanda <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">*.tar</span> <span class="pre">|</span> <span class="pre">xargs</span> <span class="pre">-I</span> <span class="pre">{}</span> <span class="pre">-p</span> <span class="pre">mv</span> <span class="pre">{}</span> <span class="pre">archives</span></code> produce aceelași rezultat.</p>
 </div>
 <div class="section" id="redirectari">
-<h3><span class="section-number">7.2.3. </span>Redirectări<a class="headerlink" href="#redirectari" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">4.2.3. </span>Redirectări<a class="headerlink" href="#redirectari" title="Permalink to this headline">¶</a></h3>
 <p>Majoritatea utilitarelor pe care le folosim afișează rezultatele operațiilor pe care le aplică la ieșirea standard, adică pe ecran.
 În continuare vom aprofunda ceea ce am discutat despre redirectări în capitolul <strong>Lucrul cu Fișiere</strong>.
 Anterior am mai menționat și termenul de intrare standard; în această secțiune ne vom clarifica ce înseamnă, ce rol îndeplinesc și cum ne folosim de aceste cunoștințe.</p>
@@ -862,7 +838,7 @@ Acest lucru permite filtrarea erorilor.</p></li>
 Datorită faptului că informațiile sunt scrise în două fluxuri distincte, utilizatorul are posibilitatea de a separa rezultatele de erori.
 Utilizatorul face aceasta folosind redirectări.</p>
 <div class="section" id="redirectarea-iesirilor-standard">
-<h4><span class="section-number">7.2.3.1. </span>Redirectarea ieșirilor standard<a class="headerlink" href="#redirectarea-iesirilor-standard" title="Permalink to this headline">¶</a></h4>
+<h4><span class="section-number">4.2.3.1. </span>Redirectarea ieșirilor standard<a class="headerlink" href="#redirectarea-iesirilor-standard" title="Permalink to this headline">¶</a></h4>
 <p>Cum spuneam mai sus, majoritatea programelor pe care le folosim vor afișa rezultatele pe ecran.
 Acest comportament este bun atunci când ne scriem onelinerul care ne extrage informațiile căutate, dar cel mai probabil o să vrem să salvăm rezultatul procesării într-un fișier.</p>
 <p>Folosim operatorul <code class="docutils literal notranslate"><span class="pre">&gt;</span></code> pentru a redirecta <strong>STDOUT</strong> sau <strong>STDERR</strong> într-un fișier.
@@ -881,19 +857,19 @@ Pentru a redirecta ieșirea standard a erorilor folosim sintaxa <code class="doc
 Dacă fișierul destinație există, operatorul <code class="docutils literal notranslate"><span class="pre">&gt;</span></code> va șterge conținutul acestuia.</p>
 </div>
 <p>Urmăm exemplul de mai jos:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ ps -aux --sort<span class="o">=</span>-%mem <span class="p">|</span> head -11
-USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
-student   <span class="m">8378</span>  <span class="m">0</span>.9 <span class="m">14</span>.2 <span class="m">3490116</span> <span class="m">289980</span> tty1   Sl+  <span class="m">14</span>:55   <span class="m">0</span>:09 /usr/bin/gnome-shell
-student   <span class="m">8839</span>  <span class="m">0</span>.4  <span class="m">9</span>.0 <span class="m">1210772</span> <span class="m">184492</span> tty1   SLl+ <span class="m">14</span>:56   <span class="m">0</span>:04 /usr/bin/gnome-software --gapplication-service
-root      <span class="m">1244</span>  <span class="m">0</span>.2  <span class="m">4</span>.0 <span class="m">1049660</span> <span class="m">82704</span> ?       Ssl  <span class="m">14</span>:53   <span class="m">0</span>:02 /usr/bin/dockerd -H fd:// --containerd<span class="o">=</span>/run/containerd/containerd.sock
-student   <span class="m">8223</span>  <span class="m">0</span>.1  <span class="m">3</span>.6 <span class="m">726348</span> <span class="m">74876</span> tty1     Sl+  <span class="m">14</span>:55   <span class="m">0</span>:01 /usr/lib/xorg/Xorg vt1 -displayfd <span class="m">3</span> -auth /run/user/1000/gdm/Xauthority -background none -noreset -keeptty -verbose <span class="m">3</span>
-student   <span class="m">8710</span>  <span class="m">0</span>.0  <span class="m">3</span>.3 <span class="m">886656</span> <span class="m">67540</span> ?        Ssl  <span class="m">14</span>:55   <span class="m">0</span>:00 /usr/lib/evolution/evolution-calendar-factory
-student   <span class="m">8740</span>  <span class="m">0</span>.0  <span class="m">3</span>.0 <span class="m">1204196</span> <span class="m">62236</span> ?       Sl   <span class="m">14</span>:55   <span class="m">0</span>:00 /usr/lib/evolution/evolution-calendar-factory-subprocess --factory all --bus-name org.gnome.evolution.dataserver.Subprocess.Backend.Calendarx8710x2 --own-path /org/gnome/evolution/dataserver/Subprocess/Backend/Calendar/8710/2
-root      <span class="m">3516</span>  <span class="m">0</span>.7  <span class="m">2</span>.9 <span class="m">516496</span> <span class="m">60988</span> ?        Ssl  <span class="m">14</span>:54   <span class="m">0</span>:07 /usr/lib/packagekit/packagekitd
-student   <span class="m">8672</span>  <span class="m">0</span>.1  <span class="m">2</span>.5 <span class="m">1033364</span> <span class="m">51296</span> tty1    Sl+  <span class="m">14</span>:55   <span class="m">0</span>:01 nautilus-desktop
-root       <span class="m">311</span>  <span class="m">0</span>.0  <span class="m">2</span>.2 <span class="m">136104</span> <span class="m">45800</span> ?        S&lt;s  <span class="m">14</span>:53   <span class="m">0</span>:00 /lib/systemd/systemd-journald
-root       <span class="m">999</span>  <span class="m">0</span>.0  <span class="m">2</span>.2 <span class="m">912140</span> <span class="m">45628</span> ?        Ssl  <span class="m">14</span>:53   <span class="m">0</span>:01 /usr/bin/containerd
-student@uso:~$ ps -aux --sort<span class="o">=</span>-%mem <span class="p">|</span> head -11 <span class="m">1</span>&gt; top10-consumers
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ ps -e -ouser,uid,pid,%mem,%cpu,rss,cmd --sort<span class="o">=</span>-%mem <span class="p">|</span> head -11
+USER       UID   PID %MEM %CPU   RSS CMD
+student   <span class="m">1000</span>  <span class="m">7938</span> <span class="m">18</span>.0  <span class="m">0</span>.1 <span class="m">367952</span> /usr/bin/gnome-shell
+student   <span class="m">1000</span>  <span class="m">8437</span>  <span class="m">8</span>.4  <span class="m">0</span>.0 <span class="m">171916</span> /usr/bin/gnome-software --gapplication-service
+student   <span class="m">1000</span>  <span class="m">7782</span>  <span class="m">3</span>.9  <span class="m">0</span>.0 <span class="m">81312</span> /usr/lib/xorg/Xorg vt1 -displayfd <span class="m">3</span> -auth /run/user/1000/gdm/Xauthority -background none -noreset -keeptty -verbose <span class="m">3</span>
+root         <span class="m">0</span>  <span class="m">1338</span>  <span class="m">3</span>.8  <span class="m">0</span>.0 <span class="m">78880</span> /usr/bin/dockerd -H fd:// --containerd<span class="o">=</span>/run/containerd/containerd.sock
+student   <span class="m">1000</span>  <span class="m">8307</span>  <span class="m">3</span>.1  <span class="m">0</span>.0 <span class="m">64628</span> /usr/lib/evolution/evolution-calendar-factory
+student   <span class="m">1000</span>  <span class="m">8338</span>  <span class="m">3</span>.0  <span class="m">0</span>.0 <span class="m">61860</span> /usr/lib/evolution/evolution-calendar-factory-subprocess --factory all --bus-name org.gnome.evolution.dataserver.Subprocess.Backend.Calendarx8307x2 --own-path /org/gnome/evolution/dataserver/Subprocess/Backend/Calendar/8307/2
+root         <span class="m">0</span>   <span class="m">336</span>  <span class="m">2</span>.6  <span class="m">0</span>.0 <span class="m">53612</span> /lib/systemd/systemd-journald
+student   <span class="m">1000</span>  <span class="m">8274</span>  <span class="m">2</span>.3  <span class="m">0</span>.0 <span class="m">48296</span> nautilus-desktop
+root         <span class="m">0</span>  <span class="m">1074</span>  <span class="m">2</span>.2  <span class="m">0</span>.0 <span class="m">45460</span> /usr/bin/containerd
+student   <span class="m">1000</span> <span class="m">12966</span>  <span class="m">1</span>.8  <span class="m">0</span>.0 <span class="m">38216</span> /usr/lib/gnome-terminal/gnome-terminal-server
+student@uso:~$ ps -e -ouser,uid,pid,%mem,%cpu,rss,cmd --sort<span class="o">=</span>-%mem <span class="p">|</span> head -11 <span class="m">1</span>&gt; top10-consumers
 student@uso:~$ less top10-consumers
 </pre></div>
 </div>
@@ -935,14 +911,14 @@ Acesta conectează fluxul de ieșire (STDOUT) al comenzii din stânga sa cu flux
 </div>
 </div>
 <div class="section" id="redirectarea-in-mod-append">
-<h4><span class="section-number">7.2.3.2. </span>Redirectarea în mod <em>append</em><a class="headerlink" href="#redirectarea-in-mod-append" title="Permalink to this headline">¶</a></h4>
+<h4><span class="section-number">4.2.3.2. </span>Redirectarea în mod <em>append</em><a class="headerlink" href="#redirectarea-in-mod-append" title="Permalink to this headline">¶</a></h4>
 <p>Implicit, operatoru <code class="docutils literal notranslate"><span class="pre">&gt;</span></code> șterge (trunchează) conținutul fișierului destinație.
 Dacă vrem să păstrăm conținutul fișierului și să adăugăm rezultatul redirectării în continuarea acestuia, folosim operatorul <code class="docutils literal notranslate"><span class="pre">&gt;&gt;</span></code>.</p>
 <p>Rulați din nou exemplele de mai sus folosind operatorul <code class="docutils literal notranslate"><span class="pre">&gt;&gt;</span></code> în locul operatorului <code class="docutils literal notranslate"><span class="pre">&gt;</span></code>.
 Folosiți less pentru a inspecta fișierele de ieșire și de erori.</p>
 </div>
 <div class="section" id="redirectarea-erorilor-la-iesirea-standard">
-<h4><span class="section-number">7.2.3.3. </span>Redirectarea erorilor la ieșirea standard<a class="headerlink" href="#redirectarea-erorilor-la-iesirea-standard" title="Permalink to this headline">¶</a></h4>
+<h4><span class="section-number">4.2.3.3. </span>Redirectarea erorilor la ieșirea standard<a class="headerlink" href="#redirectarea-erorilor-la-iesirea-standard" title="Permalink to this headline">¶</a></h4>
 <p>Motivul pentru care redirectăm erorile într-un fișier este pentru că vrem să analizăm mesajele de eroare.
 Avem și scenarii în care rulăm un program care afișează mesaje, la STDOUT și STDERR, de care nu suntem interesați.</p>
 <p>Un astfel de scenariu întâlnim atunci când pornim browserul <code class="docutils literal notranslate"><span class="pre">firefox</span></code> în linia de comandă: acesta afișează din când în când mesaje de care nu suntem interesați.
@@ -963,7 +939,7 @@ Această sintaxă trebuie precedată de <code class="docutils literal notranslat
 </ul>
 </div>
 <div class="section" id="fisiere-speciale">
-<h4><span class="section-number">7.2.3.4. </span>Fișiere speciale<a class="headerlink" href="#fisiere-speciale" title="Permalink to this headline">¶</a></h4>
+<h4><span class="section-number">4.2.3.4. </span>Fișiere speciale<a class="headerlink" href="#fisiere-speciale" title="Permalink to this headline">¶</a></h4>
 <p>Pe sistemele Linux găsim un număr de fișiere speciale pe care le putem folosim în diferite scopuri:</p>
 <ul>
 <li><p>Fișierul <code class="docutils literal notranslate"><span class="pre">/dev/null</span></code> este un fișier care ignoră orice este scris în el.
@@ -1000,9 +976,12 @@ Trecem rezultatul lui <code class="docutils literal notranslate"><span class="pr
 Cu alte cuvinte nu este un caracter obișnuit, ca cele de pe tastatură, deoarece nu are un echivalent grafic.
 Folosim <code class="docutils literal notranslate"><span class="pre">Ctrl+c</span></code> pentru a opri execția.</p>
 <p><strong>Exercițiu</strong>: Rulați comanda <code class="docutils literal notranslate"><span class="pre">cat</span> <span class="pre">/dev/zero</span></code> pentru a înțelege nevoia utilitarului <code class="docutils literal notranslate"><span class="pre">xxd</span></code> din exemplul de mai sus.</p>
-</li>
-<li><p>Fișierul <code class="docutils literal notranslate"><span class="pre">/dev/urandom</span></code> este un alt generator de octeți.
-Acesta generează atâția octeți cu valoare random cât îi sunt ceruți.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Fișierul <code class="docutils literal notranslate"><span class="pre">/dev/urandom</span></code> este un alt generator de octeți.</p></li>
+</ul>
+</div></blockquote>
+<p>Acesta generează atâția octeți cu valoare random cât îi sunt ceruți.</p>
 <p><strong>Exercițiu</strong>: Rulați comenzile din exemplul anterior, dar acum citiți din <code class="docutils literal notranslate"><span class="pre">/dev/urandom</span></code>.</p>
 </li>
 </ul>
@@ -1037,9 +1016,18 @@ Astfel suprascriem datele șterse pentru a preveni posibilitatea recuperării da
 Mai multe informații găsiți <a class="reference external" href="https://uwnthesis.wordpress.com/2014/07/26/kali-how-to-use-dd-to-wipe-your-usb-pen-the-visual-guide/">aici</a>.</p>
 </div>
 </div>
-</div>
-<div class="section" id="exercitii-todo">
-<h3><span class="section-number">7.2.4. </span>Exerciții - TODO<a class="headerlink" href="#exercitii-todo" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id2">
+<h4><span class="section-number">4.2.3.5. </span>Exerciții<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h4>
+<ol class="arabic simple">
+<li><p>Afișați primele zece procese sortate în funcție de memoria ocupată (Hint: RSS).
+Nu uitați să includeți antetul.
+Redirectați rezultatul în fișierul <strong>top10-rss-consumers</strong>.
+Modificați comanda astfel încât rezultatul redirectării să nu șteargă conținutul existent.</p></li>
+<li><p>Afișați ultimele zece procese sortate în funcție de utilizarea procesorului (Hint: CPU).
+Nu uitați să includeți antetul.
+Redirectați rezultatul în fișierul <strong>top10-cpu-consumers</strong>.
+Modificați comanda astfel încât rezultatul redirectării să nu șteargă conținutul existent.</p></li>
+</ol>
 <p class="rubric">Note de subsol</p>
 <dl class="footnote brackets">
 <dt class="label" id="dev-zero"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
@@ -1051,18 +1039,19 @@ Caracterul <strong>0</strong> are valoarea <strong>48</strong> în tabelul ASCII
 </div>
 </div>
 </div>
+</div>
 
 
           </div>
           <div class="page-nav">
             <div class="inner"><ul class="page-nav">
   <li class="prev">
-    <a href="inspect-files-summary.html"
-       title="previous chapter">← <span class="section-number">6. </span>Sumar: Inspectarea fișierelor</a>
+    <a href="inspect-files.html"
+       title="previous chapter">← <span class="section-number">3. </span>Inspectarea fișierelor</a>
   </li>
   <li class="next">
-    <a href="improve-shell-summary.html"
-       title="next chapter"><span class="section-number">8. </span>Sumar: O înțelegere mai bună a shellului →</a>
+    <a href="improve-cli-summary.html"
+       title="next chapter"><span class="section-number">5. </span>Sumar: Îmbunătățirea lucrului în linia de comandă →</a>
   </li>
 </ul><div class="footer" role="contentinfo">
       &#169; Copyright 2020, USO Team.
