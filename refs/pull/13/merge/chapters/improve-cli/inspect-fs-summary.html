@@ -480,7 +480,11 @@
             
               <ul>
                 
-                  <li class="toctree-l2"><a href="#sumar-inspectarea-paginilor-de-manual" class="reference internal">Sumar: Inspectarea paginilor de manual</a></li>
+                  <li class="toctree-l2"><a href="#inspectarea-paginilor-de-manual" class="reference internal">Inspectarea paginilor de manual</a></li>
+                
+                  <li class="toctree-l2"><a href="#selectarea-multiplor-fisiere-folosind-globbing" class="reference internal">Selectarea multiplor fișiere folosind globbing</a></li>
+                
+                  <li class="toctree-l2"><a href="#cautarea-unui-fisier-in-sistem" class="reference internal">Căutarea unui fișier în sistem</a></li>
                 
               </ul>
             
@@ -493,7 +497,19 @@
           </li>
 
         
+          <li class="toctree-l1 "><a href="inspect-files-summary.html" class="reference internal ">Sumar: Inspectarea fișierelor</a>
+
+            
+          </li>
+
+        
           <li class="toctree-l1 "><a href="improve-shell.html" class="reference internal ">O înțelegere mai bună a shellului</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="improve-shell-summary.html" class="reference internal ">Sumar: O înțelegere mai bună a shellului</a>
 
             
           </li>
@@ -532,15 +548,37 @@
             
   <div class="section" id="sumar-inspectarea-sistemului-de-fisiere">
 <span id="improve-cli-inspect-fs-summary"></span><h1><span class="section-number">4. </span>Sumar: Inspectarea sistemului de fișiere<a class="headerlink" href="#sumar-inspectarea-sistemului-de-fisiere" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="sumar-inspectarea-paginilor-de-manual">
-<h2><span class="section-number">4.1. </span>Sumar: Inspectarea paginilor de manual<a class="headerlink" href="#sumar-inspectarea-paginilor-de-manual" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="inspectarea-paginilor-de-manual">
+<h2><span class="section-number">4.1. </span>Inspectarea paginilor de manual<a class="headerlink" href="#inspectarea-paginilor-de-manual" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p>Navigarea prin paginile manualului: search (/, ?, n, N), go up (g), go down (G), help (h) în timp ce folosim comanda man pt a afla mai multe despre cum o putem folosi mai bine; bonus: j/k pt navigare jos/sus</p></li>
+<li><p>Navigarea prin paginile manualului:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">Arrow</span> <span class="pre">Down</span></code>/<code class="docutils literal notranslate"><span class="pre">Arrow</span> <span class="pre">Up</span></code> sau <code class="docutils literal notranslate"><span class="pre">j</span></code>/<code class="docutils literal notranslate"><span class="pre">k</span></code> pentru a naviga, cu câte o linie, în jos, respectiv în sus; recomandăm utlizarea tastelor <code class="docutils literal notranslate"><span class="pre">j</span></code>/<code class="docutils literal notranslate"><span class="pre">k</span></code> pentru a fi mai eficienți</p></li>
+<li><p>Search (<code class="docutils literal notranslate"><span class="pre">/</span></code>, <code class="docutils literal notranslate"><span class="pre">?</span></code>, <code class="docutils literal notranslate"><span class="pre">n</span></code>, <code class="docutils literal notranslate"><span class="pre">N</span></code>)</p></li>
+<li><p>Go up (<code class="docutils literal notranslate"><span class="pre">g</span></code>), go down (<code class="docutils literal notranslate"><span class="pre">G</span></code>)</p></li>
+<li><p>Help (<code class="docutils literal notranslate"><span class="pre">h</span></code>) pentru a afla mai multe despre cum putem folosi mai bine sesiunea interactivă</p></li>
+<li><p>Quit (<code class="docutils literal notranslate"><span class="pre">q</span></code>) pentru a ieși din sesiunea interactivă</p></li>
+</ul>
+</li>
 <li><p>Prezentarea secțiunilor din manual: <code class="docutils literal notranslate"><span class="pre">man</span> <span class="pre">printf</span></code> vs <code class="docutils literal notranslate"><span class="pre">man</span> <span class="pre">3</span> <span class="pre">printf</span></code>.</p></li>
 <li><p>Prezentarea pachetului <code class="docutils literal notranslate"><span class="pre">tldr</span></code> - poate fi util pentru cazurile uzuale, dar nu trebuie să ne fie frică să căutăm în <code class="docutils literal notranslate"><span class="pre">man</span></code> pentru detalii</p></li>
 </ul>
-<div class="section" id="sumar-locate">
-<h3><span class="section-number">4.1.1. </span>Sumar: <code class="docutils literal notranslate"><span class="pre">locate</span></code><a class="headerlink" href="#sumar-locate" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="selectarea-multiplor-fisiere-folosind-globbing">
+<h2><span class="section-number">4.2. </span>Selectarea multiplor fișiere folosind globbing<a class="headerlink" href="#selectarea-multiplor-fisiere-folosind-globbing" title="Permalink to this headline">¶</a></h2>
+<p>Folosim <em>globbing</em> pentru a selecta mai multe fișiere al căror nume corespunde unui tipar:</p>
+<ul class="simple">
+<li><p>Caracterul <code class="docutils literal notranslate"><span class="pre">*</span></code> poate fi înlocuit cu orice caracter de oricâte ori, sau poate lipsi cu totul.</p></li>
+<li><p>Caracterul <code class="docutils literal notranslate"><span class="pre">?</span></code> înlocuiește exact un caracter, oricare ar fi acela.</p></li>
+<li><p>Folosim sintaxa <code class="docutils literal notranslate"><span class="pre">[]</span></code> pentru a defini o listă de caractere care pot fi folosite în înlocuire.</p></li>
+<li><p>Folosim sintaxa <code class="docutils literal notranslate"><span class="pre">{}</span></code> pentru a defini o listă de cuvinte (grupuri de caractere) care pot fi folosite în înlocuire.</p></li>
+<li><p>Scăpăm de semnificația specială a unei expresii încadrând-o între <code class="docutils literal notranslate"><span class="pre">&quot;</span></code> (ghilimele).</p></li>
+</ul>
+</div>
+<div class="section" id="cautarea-unui-fisier-in-sistem">
+<h2><span class="section-number">4.3. </span>Căutarea unui fișier în sistem<a class="headerlink" href="#cautarea-unui-fisier-in-sistem" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="utilitarul-locate">
+<h3><span class="section-number">4.3.1. </span>Utilitarul <code class="docutils literal notranslate"><span class="pre">locate</span></code><a class="headerlink" href="#utilitarul-locate" title="Permalink to this headline">¶</a></h3>
 <p>Folosim utilitarul <code class="docutils literal notranslate"><span class="pre">locate</span></code> pentru a căuta un fișier în întreg sistemul de fișiere.</p>
 <p>Are avantajul că este foarte rapid, deoarece folosește o bază de date pentru a indexa fișierele.</p>
 <dl class="simple">
@@ -553,12 +591,13 @@ Este necesar să filtrăm rezultatul căutării cu punctul de start dorit, așa 
 </dd>
 </dl>
 </div>
-<div class="section" id="sumar-find">
-<h3><span class="section-number">4.1.2. </span>Sumar: <code class="docutils literal notranslate"><span class="pre">find</span></code><a class="headerlink" href="#sumar-find" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="utilitarul-find">
+<h3><span class="section-number">4.3.2. </span>Utilitarul <code class="docutils literal notranslate"><span class="pre">find</span></code><a class="headerlink" href="#utilitarul-find" title="Permalink to this headline">¶</a></h3>
 <p>Folosim <code class="docutils literal notranslate"><span class="pre">find</span></code> pentru a căuta după criterii mai complexe decât numele fișierului, cum ar fi tipul fișierului, data ultimei modificări, etc.</p>
 <p>De cele mai multe ori vom folosi <code class="docutils literal notranslate"><span class="pre">find</span></code> în conjuncție cu opțiunea <code class="docutils literal notranslate"><span class="pre">-exec</span></code> pentru a rula o comandă asupra fișierelor găsite.</p>
 <p>Utilitarul <code class="docutils literal notranslate"><span class="pre">find</span></code> este mai lent decât <code class="docutils literal notranslate"><span class="pre">locate</span></code>, dar nu necesită o bază de date care trebuie actualizată periodic.
-<code class="docutils literal notranslate"><span class="pre">locate</span></code> este probabil suficient pentru majoritatea cazurilor când suntem interesați de căutarea unui fișier.</p>
+<code class="docutils literal notranslate"><span class="pre">locate</span></code> este probabil suficient pentru majoritatea cazurilor când suntem interesați de căutarea unui fișier.
+j</p>
 </div>
 </div>
 </div>

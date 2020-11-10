@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-      <title>6. O înțelegere mai bună a shellului</title>
+      <title>7. O înțelegere mai bună a shellului</title>
     
       <link rel="stylesheet" href="../../_static/pygments.css">
       <link rel="stylesheet" href="../../_static/theme.css">
@@ -24,7 +24,8 @@
     
   <link rel="index" title="Index" href="../../genindex.html" />
   <link rel="search" title="Search" href="../../search.html" />
-  <link rel="prev" title="5. Inspectarea fișierelor" href="inspect-files.html" />
+  <link rel="next" title="8. Sumar: O înțelegere mai bună a shellului" href="improve-shell-summary.html" />
+  <link rel="prev" title="6. Sumar: Inspectarea fișierelor" href="inspect-files-summary.html" />
     <link href="../../_static/my_theme.css" rel="stylesheet" type="text/css">
 
   </head>
@@ -486,6 +487,12 @@
           </li>
 
         
+          <li class="toctree-l1 "><a href="inspect-files-summary.html" class="reference internal ">Sumar: Inspectarea fișierelor</a>
+
+            
+          </li>
+
+        
           <li class="toctree-l1 current"><a href="#" class="reference internal current">O înțelegere mai bună a shellului</a>
 
             
@@ -495,9 +502,13 @@
                 
                   <li class="toctree-l2"><a href="#executia-comenzilor" class="reference internal">Execuția comenzilor</a></li>
                 
-                  <li class="toctree-l2"><a href="#shell-scripting" class="reference internal">3) Shell scripting</a></li>
-                
               </ul>
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="improve-shell-summary.html" class="reference internal ">Sumar: O înțelegere mai bună a shellului</a>
+
             
           </li>
 
@@ -514,14 +525,18 @@
   <ul class="breadcrumbs">
     <li><a href="../../index.html">Docs</a> &raquo;</li>
     
-    <li><span class="section-number">6. </span>O înțelegere mai bună a shellului</li>
+    <li><span class="section-number">7. </span>O înțelegere mai bună a shellului</li>
   </ul>
   
 
   <ul class="page-nav">
   <li class="prev">
-    <a href="inspect-files.html"
-       title="previous chapter">← <span class="section-number">5. </span>Inspectarea fișierelor</a>
+    <a href="inspect-files-summary.html"
+       title="previous chapter">← <span class="section-number">6. </span>Sumar: Inspectarea fișierelor</a>
+  </li>
+  <li class="next">
+    <a href="improve-shell-summary.html"
+       title="next chapter"><span class="section-number">8. </span>Sumar: O înțelegere mai bună a shellului →</a>
   </li>
 </ul>
   
@@ -530,16 +545,18 @@
           <div class="content" role="main">
             
   <div class="section" id="o-intelegere-mai-buna-a-shellului">
-<span id="improve-cli-improve-shell"></span><h1><span class="section-number">6. </span>O înțelegere mai bună a shellului<a class="headerlink" href="#o-intelegere-mai-buna-a-shellului" title="Permalink to this headline">¶</a></h1>
+<span id="improve-cli-improve-shell"></span><h1><span class="section-number">7. </span>O înțelegere mai bună a shellului<a class="headerlink" href="#o-intelegere-mai-buna-a-shellului" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="configurarea-shellului-bash">
-<h2><span class="section-number">6.1. </span>Configurarea shellului bash<a class="headerlink" href="#configurarea-shellului-bash" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">7.1. </span>Configurarea shellului bash<a class="headerlink" href="#configurarea-shellului-bash" title="Permalink to this headline">¶</a></h2>
 <p>Așa cum am menționat în secțiunea Configurarea rulării aplicațiilor, modul în care o aplicație rulează este configurabil.
 Fișierul de configurare al shellului <strong>BASH</strong> este <code class="docutils literal notranslate"><span class="pre">~/.bashrc</span></code>.
 În directorul home al fiecărui utilizator se găsește un fișier <code class="docutils literal notranslate"><span class="pre">.bashrc</span></code>.
 Există câte un fișier <code class="docutils literal notranslate"><span class="pre">.bashrc</span></code> în directorul home al fiecărui utilizator pentru a le permite utilizatorilor să își personalizeze comportamentul shellului lor bash, fără a intra în conflict cu configurările bash ale altor utilizatori din sistem.
 Atunci când un utilizator pornește un shell bash, conținutul fișierului <code class="docutils literal notranslate"><span class="pre">~/.bashrc</span></code> este citit și sunt aplicate configurările specifice utilizatorului.</p>
+<p>Shellul <em>bash</em>, ca majoritatea programelor, vine cu un set de configurări default care poate nu sunt pe placul tuturor utilizatorilor.
+Prin fișierul <code class="docutils literal notranslate"><span class="pre">.bashrc</span></code> utilizatorul poate modifica setul default a.î. să se potrivească cu stilul său: un exemplu des întâlnit este modificarea dimensiunii isoricului de comenzi.</p>
 <div class="section" id="modificarea-dimensiunii-istoricului">
-<h3><span class="section-number">6.1.1. </span>Modificarea dimensiunii istoricului<a class="headerlink" href="#modificarea-dimensiunii-istoricului" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">7.1.1. </span>Modificarea dimensiunii istoricului<a class="headerlink" href="#modificarea-dimensiunii-istoricului" title="Permalink to this headline">¶</a></h3>
 <p>Inspectăm conținutul fișierului <code class="docutils literal notranslate"><span class="pre">~/.bashrc</span></code> folosind comanda următoare:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ less ~/.bashrc
 </pre></div>
@@ -568,7 +585,7 @@ Salvați modificările făcute.</p>
 </div>
 </div>
 <div class="section" id="vizualizarea-aliasurilor-predefinite">
-<h3><span class="section-number">6.1.2. </span>Vizualizarea aliasurilor predefinite<a class="headerlink" href="#vizualizarea-aliasurilor-predefinite" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">7.1.2. </span>Vizualizarea aliasurilor predefinite<a class="headerlink" href="#vizualizarea-aliasurilor-predefinite" title="Permalink to this headline">¶</a></h3>
 <p>Pentru a înțelege ce este un <strong>alias</strong>, rulăm comanda de mai jos:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ <span class="nb">alias</span> ls
 <span class="nb">alias</span> <span class="nv">ls</span><span class="o">=</span><span class="s1">&#39;ls --color=auto&#39;</span>
@@ -624,7 +641,7 @@ student@uso:~$ cat ~/.bash_aliases
 </div>
 </div>
 <div class="section" id="definirea-unui-alias">
-<h3><span class="section-number">6.1.3. </span>Definirea unui alias<a class="headerlink" href="#definirea-unui-alias" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">7.1.3. </span>Definirea unui alias<a class="headerlink" href="#definirea-unui-alias" title="Permalink to this headline">¶</a></h3>
 <p>Utilitarul <code class="docutils literal notranslate"><span class="pre">xdg-open</span></code> primește calea către un fișier și deschide fișierul respectiv cu aplicația asociată tipului de fișier.
 Astfel, comanda <code class="docutils literal notranslate"><span class="pre">xdg-open</span> <span class="pre">image.png</span></code> va deschide imaginea <strong>image.png</strong> cu aplicația asociată deschiderii formatului <strong>PNG</strong>.
 Putem să folosim și un URL ca argument al comenzii <code class="docutils literal notranslate"><span class="pre">xdg-open</span></code>; astfel, comanda <code class="docutils literal notranslate"><span class="pre">xdg-open</span> <span class="pre">https://www.google.com</span></code> va deschide pagina Google în browserul vostru implicit.</p>
@@ -653,9 +670,9 @@ student@uso:~$ go https://www.google.com
 </div>
 </div>
 <div class="section" id="executia-comenzilor">
-<h2><span class="section-number">6.2. </span>Execuția comenzilor<a class="headerlink" href="#executia-comenzilor" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">7.2. </span>Execuția comenzilor<a class="headerlink" href="#executia-comenzilor" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="incheierea-executiei-unei-comenzi">
-<h3><span class="section-number">6.2.1. </span>Încheierea execuției unei comenzi<a class="headerlink" href="#incheierea-executiei-unei-comenzi" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">7.2.1. </span>Încheierea execuției unei comenzi<a class="headerlink" href="#incheierea-executiei-unei-comenzi" title="Permalink to this headline">¶</a></h3>
 <p>Atunci când rulăm o comandă aceasta își poate încheia execuția în două moduri: cu <strong>succes</strong> sau cu <strong>eșec</strong>.
 Atunci când își încheie execuția, orice proces întoarce un cod de eroare, care este un număr:</p>
 <ul>
@@ -686,7 +703,7 @@ student@uso:~$ <span class="nb">echo</span> <span class="nv">$?</span>
 </div>
 <p>Observăm că în cazul fișierului inexistet, comanda <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">non-existent</span></code> a întors valoarea <code class="docutils literal notranslate"><span class="pre">2</span></code>, așa cum era specificat și în pagina de manual.</p>
 <div class="section" id="inlantuirea-comenzilor-in-functie-de-succes-sau-esec">
-<span id="improve-cli-improve-shell-oneliners"></span><h4><span class="section-number">6.2.1.1. </span>Înlănțuirea comenzilor în funcție de succes sau eșec<a class="headerlink" href="#inlantuirea-comenzilor-in-functie-de-succes-sau-esec" title="Permalink to this headline">¶</a></h4>
+<span id="improve-cli-improve-shell-oneliners"></span><h4><span class="section-number">7.2.1.1. </span>Înlănțuirea comenzilor în funcție de succes sau eșec<a class="headerlink" href="#inlantuirea-comenzilor-in-functie-de-succes-sau-esec" title="Permalink to this headline">¶</a></h4>
 <p>De multe ori vrem să executăm o succesiune de comenzi pentru a realiza o sarcină.
 De exemplu, atunci când vrem să instalăm o aplicație o rulăm trei comenzi:</p>
 <ul class="simple">
@@ -745,7 +762,7 @@ La cea de-a doua rulare, a fost executată cu succes prima comandă <code class=
 O astfel de înlănțuire de comenzi este numită <strong>oneliner</strong>.</p>
 </div>
 <div class="section" id="exercitii">
-<h4><span class="section-number">6.2.1.2. </span>Exerciții<a class="headerlink" href="#exercitii" title="Permalink to this headline">¶</a></h4>
+<h4><span class="section-number">7.2.1.2. </span>Exerciții<a class="headerlink" href="#exercitii" title="Permalink to this headline">¶</a></h4>
 <ol class="arabic simple">
 <li><p>Scrieți un oneliner cu ajutorul căruia descărcați arhiva tar de la adresa TODO, creați directorul <code class="docutils literal notranslate"><span class="pre">~/operators/demo/tar</span></code> și apoi dezarhivați conținutul în directorul creat.</p></li>
 <li><p>Actualizați onelinerul anterior a.î. după dezarhivare să pornească compilarea proiectului folosind comanda <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">build</span></code>.</p></li>
@@ -753,7 +770,7 @@ O astfel de înlănțuire de comenzi este numită <strong>oneliner</strong>.</p>
 </div>
 </div>
 <div class="section" id="inlantuirea-comenzilor-folosind-operatorul-pipe">
-<h3><span class="section-number">6.2.2. </span>Înlănțuirea comenzilor folosind operatorul <code class="docutils literal notranslate"><span class="pre">|</span></code> (pipe)<a class="headerlink" href="#inlantuirea-comenzilor-folosind-operatorul-pipe" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">7.2.2. </span>Înlănțuirea comenzilor folosind operatorul <code class="docutils literal notranslate"><span class="pre">|</span></code> (pipe)<a class="headerlink" href="#inlantuirea-comenzilor-folosind-operatorul-pipe" title="Permalink to this headline">¶</a></h3>
 <p>Așa cum am descoperit în secțiunile și capitolele anterioare, în mediul Linux avem multe utilitare care rezolvă o nevoie specifică: <code class="docutils literal notranslate"><span class="pre">ls</span></code> afișează informații despre fișiere, <code class="docutils literal notranslate"><span class="pre">ps</span></code> despre procese, <code class="docutils literal notranslate"><span class="pre">grep</span></code> filtrează, etc.
 Toate acestea au la bază filozofia mediului Linux: “do one thing and do it well”.
 Ca întodeauna, frumusețea stă în simplitate: avem o suită de unelte la dispoziție, fiecare capabilă să rezolve rapid o sarcină dată; pentru a rezolva o problemă mai complexă trebuie doar să îmbinăm uneltele.</p>
@@ -825,8 +842,9 @@ mv wiki.tar archives ?...n
 Șirul de caractere placeholder poate să fie orice, nu neapărat <code class="docutils literal notranslate"><span class="pre">str</span></code>; comanda <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">*.tar</span> <span class="pre">|</span> <span class="pre">xargs</span> <span class="pre">-I</span> <span class="pre">{}</span> <span class="pre">-p</span> <span class="pre">mv</span> <span class="pre">{}</span> <span class="pre">archives</span></code> produce aceelași rezultat.</p>
 </div>
 <div class="section" id="redirectari">
-<h3><span class="section-number">6.2.3. </span>Redirectări<a class="headerlink" href="#redirectari" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">7.2.3. </span>Redirectări<a class="headerlink" href="#redirectari" title="Permalink to this headline">¶</a></h3>
 <p>Majoritatea utilitarelor pe care le folosim afișează rezultatele operațiilor pe care le aplică la ieșirea standard, adică pe ecran.
+În continuare vom aprofunda ceea ce am discutat despre redirectări în capitolul <strong>Lucrul cu Fișiere</strong>.
 Anterior am mai menționat și termenul de intrare standard; în această secțiune ne vom clarifica ce înseamnă, ce rol îndeplinesc și cum ne folosim de aceste cunoștințe.</p>
 <p>Orice proces folosește implicit trei fluxuri (streams) de date:</p>
 <ul class="simple">
@@ -844,7 +862,7 @@ Acest lucru permite filtrarea erorilor.</p></li>
 Datorită faptului că informațiile sunt scrise în două fluxuri distincte, utilizatorul are posibilitatea de a separa rezultatele de erori.
 Utilizatorul face aceasta folosind redirectări.</p>
 <div class="section" id="redirectarea-iesirilor-standard">
-<h4><span class="section-number">6.2.3.1. </span>Redirectarea ieșirilor standard<a class="headerlink" href="#redirectarea-iesirilor-standard" title="Permalink to this headline">¶</a></h4>
+<h4><span class="section-number">7.2.3.1. </span>Redirectarea ieșirilor standard<a class="headerlink" href="#redirectarea-iesirilor-standard" title="Permalink to this headline">¶</a></h4>
 <p>Cum spuneam mai sus, majoritatea programelor pe care le folosim vor afișa rezultatele pe ecran.
 Acest comportament este bun atunci când ne scriem onelinerul care ne extrage informațiile căutate, dar cel mai probabil o să vrem să salvăm rezultatul procesării într-un fișier.</p>
 <p>Folosim operatorul <code class="docutils literal notranslate"><span class="pre">&gt;</span></code> pentru a redirecta <strong>STDOUT</strong> sau <strong>STDERR</strong> într-un fișier.
@@ -917,14 +935,14 @@ Acesta conectează fluxul de ieșire (STDOUT) al comenzii din stânga sa cu flux
 </div>
 </div>
 <div class="section" id="redirectarea-in-mod-append">
-<h4><span class="section-number">6.2.3.2. </span>Redirectarea în mod <em>append</em><a class="headerlink" href="#redirectarea-in-mod-append" title="Permalink to this headline">¶</a></h4>
+<h4><span class="section-number">7.2.3.2. </span>Redirectarea în mod <em>append</em><a class="headerlink" href="#redirectarea-in-mod-append" title="Permalink to this headline">¶</a></h4>
 <p>Implicit, operatoru <code class="docutils literal notranslate"><span class="pre">&gt;</span></code> șterge (trunchează) conținutul fișierului destinație.
 Dacă vrem să păstrăm conținutul fișierului și să adăugăm rezultatul redirectării în continuarea acestuia, folosim operatorul <code class="docutils literal notranslate"><span class="pre">&gt;&gt;</span></code>.</p>
 <p>Rulați din nou exemplele de mai sus folosind operatorul <code class="docutils literal notranslate"><span class="pre">&gt;&gt;</span></code> în locul operatorului <code class="docutils literal notranslate"><span class="pre">&gt;</span></code>.
 Folosiți less pentru a inspecta fișierele de ieșire și de erori.</p>
 </div>
 <div class="section" id="redirectarea-erorilor-la-iesirea-standard">
-<h4><span class="section-number">6.2.3.3. </span>Redirectarea erorilor la ieșirea standard<a class="headerlink" href="#redirectarea-erorilor-la-iesirea-standard" title="Permalink to this headline">¶</a></h4>
+<h4><span class="section-number">7.2.3.3. </span>Redirectarea erorilor la ieșirea standard<a class="headerlink" href="#redirectarea-erorilor-la-iesirea-standard" title="Permalink to this headline">¶</a></h4>
 <p>Motivul pentru care redirectăm erorile într-un fișier este pentru că vrem să analizăm mesajele de eroare.
 Avem și scenarii în care rulăm un program care afișează mesaje, la STDOUT și STDERR, de care nu suntem interesați.</p>
 <p>Un astfel de scenariu întâlnim atunci când pornim browserul <code class="docutils literal notranslate"><span class="pre">firefox</span></code> în linia de comandă: acesta afișează din când în când mesaje de care nu suntem interesați.
@@ -945,7 +963,7 @@ Această sintaxă trebuie precedată de <code class="docutils literal notranslat
 </ul>
 </div>
 <div class="section" id="fisiere-speciale">
-<h4><span class="section-number">6.2.3.4. </span>Fișiere speciale<a class="headerlink" href="#fisiere-speciale" title="Permalink to this headline">¶</a></h4>
+<h4><span class="section-number">7.2.3.4. </span>Fișiere speciale<a class="headerlink" href="#fisiere-speciale" title="Permalink to this headline">¶</a></h4>
 <p>Pe sistemele Linux găsim un număr de fișiere speciale pe care le putem folosim în diferite scopuri:</p>
 <ul>
 <li><p>Fișierul <code class="docutils literal notranslate"><span class="pre">/dev/null</span></code> este un fișier care ignoră orice este scris în el.
@@ -988,7 +1006,10 @@ Acesta generează atâția octeți cu valoare random cât îi sunt ceruți.</p>
 <p><strong>Exercițiu</strong>: Rulați comenzile din exemplul anterior, dar acum citiți din <code class="docutils literal notranslate"><span class="pre">/dev/urandom</span></code>.</p>
 </li>
 </ul>
-<p>Generatoarele de octeți sunt utile pentru a testa aplicațiile pe care le dezvoltăm pe inputuri random.
+<p>Generatoarele de octeți sunt utile pentru a testa aplicațiile pe care le dezvoltăm.
+Majoritatea aplicațiilor pe care le vom scrie, ca și cele pe care le utilizăm, citesc și prelucrează informații.
+Testăm o aplicație pentru că vrem să verificăm că nu avem buguri.
+Pentru aceasta putem să folosim seturi de date de intrare cât mai variate și mai aleatoare, adică inputuri random.
 Folosim utilitarul <code class="docutils literal notranslate"><span class="pre">dd</span></code> pentru a genera un fișier de 100 MB cu octeți random, ca în exemplul de mai jos:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ dd <span class="k">if</span><span class="o">=</span>/dev/urandom <span class="nv">of</span><span class="o">=</span>rand-100mb <span class="nv">count</span><span class="o">=</span><span class="m">100</span> <span class="nv">bs</span><span class="o">=</span>1M
 <span class="m">100</span>+0 records in
@@ -1018,70 +1039,7 @@ Mai multe informații găsiți <a class="reference external" href="https://uwnth
 </div>
 </div>
 <div class="section" id="exercitii-todo">
-<h3><span class="section-number">6.2.4. </span>Exerciții - TODO<a class="headerlink" href="#exercitii-todo" title="Permalink to this headline">¶</a></h3>
-<ol class="arabic simple">
-<li><p>Clonați repo folosind <code class="docutils literal notranslate"><span class="pre">git</span></code>. Rulează o anumită comandă, sau un șir de comenzi doar dacă s-a modificat ceva în repo git log pt a vedea dacă s-au făcut modificări în repo build și pus binare generate în <code class="docutils literal notranslate"><span class="pre">~/bin</span></code></p></li>
-<li><p>Căutat în repo/cod sursă după un simbol (<cite>grep -nr &lt;simbol&gt;</cite>). Deschis vim la locația unde a fost găsit simbolul.</p></li>
-<li><dl class="simple">
-<dt>Implementarea unui alias pt <cite>rm</cite> care muta fișierele în <cite>~/Trash</cite></dt><dd><ul class="simple">
-<li><p>Adăugare intrare în crontab care șterge periodic (1/zi) fișierele mai vechi de T (ex. 30 zile)</p></li>
-<li><p>Utilizare <code class="docutils literal notranslate"><span class="pre">find</span> <span class="pre">|</span> <span class="pre">xargs</span></code> sau <code class="docutils literal notranslate"><span class="pre">find</span> <span class="pre">--exec</span></code> pentru rezolvare</p></li>
-</ul>
-</dd>
-</dl>
-</li>
-<li><p>Lansarea în execuție a unui proces care supraviețuiește închiderii terminalului părinte. Inspectarea acestui proces (<code class="docutils literal notranslate"><span class="pre">lsof</span></code>, <code class="docutils literal notranslate"><span class="pre">ps</span></code>). Trimiterea unor semnale. Oprirea lui. Un mod de a notifica utilizatorul de terminarea cu succes a procesului (mail?)</p></li>
-</ol>
-</div>
-</div>
-<div class="section" id="shell-scripting">
-<h2><span class="section-number">6.3. </span>3) Shell scripting<a class="headerlink" href="#shell-scripting" title="Permalink to this headline">¶</a></h2>
-<p>Cred că secțiunea asta intră la capitolul de automatizare. N-aș mai băga-o aici că și așa mi se pare că am vorbit de foarte multe.</p>
-<ul class="simple">
-<li><dl class="simple">
-<dt>Variabile de mediu: ce sunt, la ce le folosim și care sunt variabilele uzuale (<code class="docutils literal notranslate"><span class="pre">$HOST</span></code>, <code class="docutils literal notranslate"><span class="pre">$USER</span></code>)</dt><dd><ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">$PATH</span></code> - la ce este folosit; cum adăugăm ceva la <code class="docutils literal notranslate"><span class="pre">$PATH</span></code>, ce face export și de ce este util, cum facem ca modificarea <code class="docutils literal notranslate"><span class="pre">$PATH</span></code> să fie persistentă (edităm în <code class="docutils literal notranslate"><span class="pre">.bashrc</span></code>)</p></li>
-</ul>
-</dd>
-</dl>
-</li>
-<li><p>Pornirea mai multor instanțe de shell în aceelași terminal.</p></li>
-<li><p>Definirea de variabile cu valori statice (x=42) sau dinamice (x=`ls -l`)</p></li>
-<li><p>Oneliners</p></li>
-<li><p>Control flow în bash: <code class="docutils literal notranslate"><span class="pre">if</span></code>, <code class="docutils literal notranslate"><span class="pre">for</span></code>, <code class="docutils literal notranslate"><span class="pre">while</span> <span class="pre">read</span></code>, <code class="docutils literal notranslate"><span class="pre">test</span></code></p></li>
-<li><p>Bouns: Definirea de funcții în <code class="docutils literal notranslate"><span class="pre">.bashrc</span></code></p></li>
-</ul>
-<div class="section" id="a-exercitii">
-<h3><span class="section-number">6.3.1. </span>a. Exerciții<a class="headerlink" href="#a-exercitii" title="Permalink to this headline">¶</a></h3>
-<ol class="arabic simple">
-<li><p>Snippeturi pentru a crea fișiere: sursa main, fișiere header care au <code class="docutils literal notranslate"><span class="pre">#ifndef/define/endif</span> <span class="pre">__PLACEHOLDER__</span></code>, <code class="docutils literal notranslate"><span class="pre">Makefile</span></code> etc. Modificarea placeholder-elor cu nume date de utilizator.</p></li>
-<li><dl class="simple">
-<dt>Creat un director template pentru a fi folosit în inițializarea structurii unor noi proiecte (boilerplate).</dt><dd><ul class="simple">
-<li><p>Generează directoare pt <code class="docutils literal notranslate"><span class="pre">src/,</span> <span class="pre">build/,</span> <span class="pre">gen/,</span> <span class="pre">res/</span></code> și fișier <code class="docutils literal notranslate"><span class="pre">Readme</span></code> etc.</p></li>
-<li><p>Search and replace după anumite cuvinte placeholder: ex. Numele proiectului în fișierul <code class="docutils literal notranslate"><span class="pre">Readme</span></code>.</p></li>
-<li><p>Mutat totul într-un script.</p></li>
-<li><p>Script-ul trebuie să primească ca argumente: numele proiectului, repo către github, autor, etc.</p></li>
-</ul>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt>Scrie un script care generează un fișier Makefile pentru fișierele sursă din directorul curent. Script-ul trebuie să primească tipul fișierelor sursă (<cite>c, cpp, d, java</cite>, etc.) și compilatorul pe care să-l folosească.</dt><dd><ul class="simple">
-<li><p>Pune script-ul în <code class="docutils literal notranslate"><span class="pre">~/bin</span></code> și actualizează variabila <code class="docutils literal notranslate"><span class="pre">$PATH</span></code>.</p></li>
-<li><p>Fă alias-uri pentru cazurile cele mai uzuale: <code class="docutils literal notranslate"><span class="pre">c_make_init</span></code> (pt C) și <code class="docutils literal notranslate"><span class="pre">cpp_make_init</span></code> pt (C++)</p></li>
-</ul>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt>Mount în modul read-only al unei partiții (util pt cei care au dualboot și vor să-și monteze discul de Windows, D:filme, etc).</dt><dd><ul class="simple">
-<li><p>Utilizare sshfs (mount la o partiție prin ssh) - util pt lucrat pe cluster pt cei care folosesc IDE-uri</p></li>
-<li><p>Nu are ce căuta aici, dar nu știam unde să-l pun și nu voiam să uit de el</p></li>
-</ul>
-</dd>
-</dl>
-</li>
-</ol>
+<h3><span class="section-number">7.2.4. </span>Exerciții - TODO<a class="headerlink" href="#exercitii-todo" title="Permalink to this headline">¶</a></h3>
 <p class="rubric">Note de subsol</p>
 <dl class="footnote brackets">
 <dt class="label" id="dev-zero"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
@@ -1099,8 +1057,12 @@ Caracterul <strong>0</strong> are valoarea <strong>48</strong> în tabelul ASCII
           <div class="page-nav">
             <div class="inner"><ul class="page-nav">
   <li class="prev">
-    <a href="inspect-files.html"
-       title="previous chapter">← <span class="section-number">5. </span>Inspectarea fișierelor</a>
+    <a href="inspect-files-summary.html"
+       title="previous chapter">← <span class="section-number">6. </span>Sumar: Inspectarea fișierelor</a>
+  </li>
+  <li class="next">
+    <a href="improve-shell-summary.html"
+       title="next chapter"><span class="section-number">8. </span>Sumar: O înțelegere mai bună a shellului →</a>
   </li>
 </ul><div class="footer" role="contentinfo">
       &#169; Copyright 2020, USO Team.

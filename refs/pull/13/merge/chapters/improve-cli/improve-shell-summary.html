@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-      <title>9. Depanare condițională / configurabilă</title>
+      <title>8. Sumar: O înțelegere mai bună a shellului</title>
     
       <link rel="stylesheet" href="../../_static/pygments.css">
       <link rel="stylesheet" href="../../_static/theme.css">
@@ -24,8 +24,7 @@
     
   <link rel="index" title="Index" href="../../genindex.html" />
   <link rel="search" title="Search" href="../../search.html" />
-  <link rel="next" title="10. Introducere în utilitarul Make și fișiere Makefile" href="make-simple-automation.html" />
-  <link rel="prev" title="8. Legarea executabilelor folosind biblioteci externe" href="make-lib.html" />
+  <link rel="prev" title="7. O înțelegere mai bună a shellului" href="improve-shell.html" />
     <link href="../../_static/my_theme.css" rel="stylesheet" type="text/css">
 
   </head>
@@ -59,7 +58,7 @@
   
     <div class="nav-item">
       <a href="../../index.html#uso-lab-book"
-         class="nav-link  router-link-active">
+         class="nav-link ">
          Dezvoltarea aplicațiilor
       </a>
     </div>
@@ -80,7 +79,7 @@
   
     <div class="nav-item">
       <a href="../../index.html#uso-lab-book"
-         class="nav-link ">
+         class="nav-link  router-link-active">
          Îmbunătățirea lucrului în linia de comandă
       </a>
     </div>
@@ -126,7 +125,7 @@
   
     <div class="nav-item">
       <a href="../../index.html#uso-lab-book"
-         class="nav-link  router-link-active">
+         class="nav-link ">
          Dezvoltarea aplicațiilor
       </a>
     </div>
@@ -147,7 +146,7 @@
   
     <div class="nav-item">
       <a href="../../index.html#uso-lab-book"
-         class="nav-link ">
+         class="nav-link  router-link-active">
          Îmbunătățirea lucrului în linia de comandă
       </a>
     </div>
@@ -266,91 +265,81 @@
       <p class="caption">
         <span class="caption-text"><a href="../../index.html#uso-lab-book">Dezvoltarea aplicațiilor</a></span>
       </p>
-      <ul class="current">
+      <ul class="">
         
-          <li class="toctree-l1 "><a href="git-intro.html" class="reference internal ">Introducere în Git și GitHub</a>
+          <li class="toctree-l1 "><a href="../app-dev/git-intro.html" class="reference internal ">Introducere în Git și GitHub</a>
 
             
           </li>
 
         
-          <li class="toctree-l1 "><a href="git-first-commit.html" class="reference internal ">Primul commit</a>
+          <li class="toctree-l1 "><a href="../app-dev/git-first-commit.html" class="reference internal ">Primul commit</a>
 
             
           </li>
 
         
-          <li class="toctree-l1 "><a href="git-more-commits.html" class="reference internal ">Crearea unui nou commit</a>
+          <li class="toctree-l1 "><a href="../app-dev/git-more-commits.html" class="reference internal ">Crearea unui nou commit</a>
 
             
           </li>
 
         
-          <li class="toctree-l1 "><a href="git-contribute.html" class="reference internal ">Contribuirea la un alt repository</a>
+          <li class="toctree-l1 "><a href="../app-dev/git-contribute.html" class="reference internal ">Contribuirea la un alt repository</a>
 
             
           </li>
 
         
-          <li class="toctree-l1 "><a href="make-setup.html" class="reference internal ">Pregătirea mediului de lucru</a>
+          <li class="toctree-l1 "><a href="../app-dev/make-setup.html" class="reference internal ">Pregătirea mediului de lucru</a>
 
             
           </li>
 
         
-          <li class="toctree-l1 "><a href="make-intro.html" class="reference internal ">Compilarea unui fișier cod sursă C</a>
+          <li class="toctree-l1 "><a href="../app-dev/make-intro.html" class="reference internal ">Compilarea unui fișier cod sursă C</a>
 
             
           </li>
 
         
-          <li class="toctree-l1 "><a href="make-multiple.html" class="reference internal ">Compilarea unui program din fișiere multiple</a>
+          <li class="toctree-l1 "><a href="../app-dev/make-multiple.html" class="reference internal ">Compilarea unui program din fișiere multiple</a>
 
             
           </li>
 
         
-          <li class="toctree-l1 "><a href="make-lib.html" class="reference internal ">Legarea executabilelor folosind biblioteci externe</a>
+          <li class="toctree-l1 "><a href="../app-dev/make-lib.html" class="reference internal ">Legarea executabilelor folosind biblioteci externe</a>
 
             
           </li>
 
         
-          <li class="toctree-l1 current"><a href="#" class="reference internal current">Depanare condițională / configurabilă</a>
-
-            
-              <ul>
-                
-                  <li class="toctree-l2"><a href="#inspectarea-fisierelor" class="reference internal">1) Inspectarea fișierelor</a></li>
-                
-                  <li class="toctree-l2"><a href="#modificarea-codului-sursa" class="reference internal">2) Modificarea codului sursă</a></li>
-                
-                  <li class="toctree-l2"><a href="#crearea-unui-nou-commit-cu-modificarile-anterioare" class="reference internal">2) Crearea unui nou commit cu modificările anterioare</a></li>
-                
-              </ul>
-            
-          </li>
-
-        
-          <li class="toctree-l1 "><a href="make-simple-automation.html" class="reference internal ">Introducere în utilitarul Make și fișiere Makefile</a>
+          <li class="toctree-l1 "><a href="../app-dev/make-debug.html" class="reference internal ">Depanare condițională / configurabilă</a>
 
             
           </li>
 
         
-          <li class="toctree-l1 "><a href="make-advanced-automation.html" class="reference internal ">Aprofundarea folosirii fișierelor Makefile</a>
+          <li class="toctree-l1 "><a href="../app-dev/make-simple-automation.html" class="reference internal ">Introducere în utilitarul Make și fișiere Makefile</a>
 
             
           </li>
 
         
-          <li class="toctree-l1 "><a href="make-contribute.html" class="reference internal ">Contribuirea la un proiect existent pe GitHub</a>
+          <li class="toctree-l1 "><a href="../app-dev/make-advanced-automation.html" class="reference internal ">Aprofundarea folosirii fișierelor Makefile</a>
 
             
           </li>
 
         
-          <li class="toctree-l1 "><a href="extra.html" class="reference internal ">Exerciții suplimentare</a>
+          <li class="toctree-l1 "><a href="../app-dev/make-contribute.html" class="reference internal ">Contribuirea la un proiect existent pe GitHub</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/extra.html" class="reference internal ">Exerciții suplimentare</a>
 
             
           </li>
@@ -465,52 +454,60 @@
       <p class="caption">
         <span class="caption-text"><a href="../../index.html#uso-lab-book">Îmbunătățirea lucrului în linia de comandă</a></span>
       </p>
-      <ul class="">
+      <ul class="current">
         
-          <li class="toctree-l1 "><a href="../improve-cli/improve-terminal.html" class="reference internal ">Îmbunătățirea lucrului în linia de comandă</a>
+          <li class="toctree-l1 "><a href="improve-terminal.html" class="reference internal ">Îmbunătățirea lucrului în linia de comandă</a>
 
             
           </li>
 
         
-          <li class="toctree-l1 "><a href="../improve-cli/improve-terminal-summary.html" class="reference internal ">Sumar: Îmbunătățirea lucrului în linia de comandă</a>
+          <li class="toctree-l1 "><a href="improve-terminal-summary.html" class="reference internal ">Sumar: Îmbunătățirea lucrului în linia de comandă</a>
 
             
           </li>
 
         
-          <li class="toctree-l1 "><a href="../improve-cli/inspect-fs.html" class="reference internal ">Inspectarea sistemului de fișiere</a>
+          <li class="toctree-l1 "><a href="inspect-fs.html" class="reference internal ">Inspectarea sistemului de fișiere</a>
 
             
           </li>
 
         
-          <li class="toctree-l1 "><a href="../improve-cli/inspect-fs-summary.html" class="reference internal ">Sumar: Inspectarea sistemului de fișiere</a>
+          <li class="toctree-l1 "><a href="inspect-fs-summary.html" class="reference internal ">Sumar: Inspectarea sistemului de fișiere</a>
 
             
           </li>
 
         
-          <li class="toctree-l1 "><a href="../improve-cli/inspect-files.html" class="reference internal ">Inspectarea fișierelor</a>
+          <li class="toctree-l1 "><a href="inspect-files.html" class="reference internal ">Inspectarea fișierelor</a>
 
             
           </li>
 
         
-          <li class="toctree-l1 "><a href="../improve-cli/inspect-files-summary.html" class="reference internal ">Sumar: Inspectarea fișierelor</a>
+          <li class="toctree-l1 "><a href="inspect-files-summary.html" class="reference internal ">Sumar: Inspectarea fișierelor</a>
 
             
           </li>
 
         
-          <li class="toctree-l1 "><a href="../improve-cli/improve-shell.html" class="reference internal ">O înțelegere mai bună a shellului</a>
+          <li class="toctree-l1 "><a href="improve-shell.html" class="reference internal ">O înțelegere mai bună a shellului</a>
 
             
           </li>
 
         
-          <li class="toctree-l1 "><a href="../improve-cli/improve-shell-summary.html" class="reference internal ">Sumar: O înțelegere mai bună a shellului</a>
+          <li class="toctree-l1 current"><a href="#" class="reference internal current">Sumar: O înțelegere mai bună a shellului</a>
 
+            
+              <ul>
+                
+                  <li class="toctree-l2"><a href="#configurarea-shellului-bash" class="reference internal">Configurarea shellului bash</a></li>
+                
+                  <li class="toctree-l2"><a href="#executia-comenzilor" class="reference internal">Execuția comenzilor</a></li>
+                
+              </ul>
             
           </li>
 
@@ -527,18 +524,14 @@
   <ul class="breadcrumbs">
     <li><a href="../../index.html">Docs</a> &raquo;</li>
     
-    <li><span class="section-number">9. </span>Depanare condițională / configurabilă</li>
+    <li><span class="section-number">8. </span>Sumar: O înțelegere mai bună a shellului</li>
   </ul>
   
 
   <ul class="page-nav">
   <li class="prev">
-    <a href="make-lib.html"
-       title="previous chapter">← <span class="section-number">8. </span>Legarea executabilelor folosind biblioteci externe</a>
-  </li>
-  <li class="next">
-    <a href="make-simple-automation.html"
-       title="next chapter"><span class="section-number">10. </span>Introducere în utilitarul Make și fișiere Makefile →</a>
+    <a href="improve-shell.html"
+       title="previous chapter">← <span class="section-number">7. </span>O înțelegere mai bună a shellului</a>
   </li>
 </ul>
   
@@ -546,24 +539,49 @@
 <hr>
           <div class="content" role="main">
             
-  <div class="section" id="depanare-conditionala-configurabila">
-<h1><span class="section-number">9. </span>Depanare condițională / configurabilă<a class="headerlink" href="#depanare-conditionala-configurabila" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="inspectarea-fisierelor">
-<h2><span class="section-number">9.1. </span>1) Inspectarea fișierelor<a class="headerlink" href="#inspectarea-fisierelor" title="Permalink to this headline">¶</a></h2>
-<p>În codul sursă se află macro-ul DEBUG și în funcție de el se fac printează loguri.
-Se va compila codul de 2 ori: o dată folosind opțiunea -D&lt;macro&gt;, adică -DDEBUG și o dată
-fără. Se va rula codul în ambele cazuri și se observă diferențele. Ca exercițiu vor avea un
-alt fișier cod sursă pe care trebuie să-l modifice ei (să folosească un macro de debug după care
-să îl compileze asemănător cu exemplul anterior.</p>
+  <div class="section" id="sumar-o-intelegere-mai-buna-a-shellului">
+<span id="improve-cli-improve-shell-summary"></span><h1><span class="section-number">8. </span>Sumar: O înțelegere mai bună a shellului<a class="headerlink" href="#sumar-o-intelegere-mai-buna-a-shellului" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="configurarea-shellului-bash">
+<h2><span class="section-number">8.1. </span>Configurarea shellului bash<a class="headerlink" href="#configurarea-shellului-bash" title="Permalink to this headline">¶</a></h2>
+<p>Fișierul de configurare al shellului <strong>BASH</strong> este <code class="docutils literal notranslate"><span class="pre">~/.bashrc</span></code>.
+Atunci când un utilizator pornește un shell bash, conținutul fișierului <code class="docutils literal notranslate"><span class="pre">~/.bashrc</span></code> este citit și sunt aplicate configurările specifice utilizatorului.</p>
+<p>Valorile variabilelor <code class="docutils literal notranslate"><span class="pre">HISTSIZE</span></code> și <code class="docutils literal notranslate"><span class="pre">HISTFILESIZE</span></code> limitează numărul maxim de comenzi, respectiv linii, din fișierul <code class="docutils literal notranslate"><span class="pre">~/.bash_history</span></code>.</p>
+<p>Un alias este un nume (<em>placeholder</em>) care înlocuiește un șir de caractere.
+Pentru o organizare mai bună, este recomandat ca utilizatorul să-și definească aliasurile în fișierul <code class="docutils literal notranslate"><span class="pre">~/.bash_aliases</span></code>.</p>
 </div>
-<div class="section" id="modificarea-codului-sursa">
-<h2><span class="section-number">9.2. </span>2) Modificarea codului sursă<a class="headerlink" href="#modificarea-codului-sursa" title="Permalink to this headline">¶</a></h2>
-<p>Modificarea codului astfel încât să se foloseasca DEBUG, recompilarea surselor și observarea
-diferențelor față de punctul anterior.</p>
+<div class="section" id="executia-comenzilor">
+<h2><span class="section-number">8.2. </span>Execuția comenzilor<a class="headerlink" href="#executia-comenzilor" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="inlantuirea-comenzilor">
+<h3><span class="section-number">8.2.1. </span>Înlănțuirea comenzilor<a class="headerlink" href="#inlantuirea-comenzilor" title="Permalink to this headline">¶</a></h3>
+<p>Atunci când își încheie execuția, orice proces întoarce un cod de eroare, care este un număr: valoarea <code class="docutils literal notranslate"><span class="pre">0</span></code> semnifică că acesta și-a încheiat execuția cu succes, iar orice ală valoare indică o eroare.</p>
+<p>Pentru a înlănțui comenzi în terminalul bash avem trei operatori disponibili:</p>
+<ul class="simple">
+<li><p>Operatorul <code class="docutils literal notranslate"><span class="pre">;</span></code> - este folosit pentru separarea comenzilor, indiferent de cum s-au executat acestea.</p></li>
+<li><p>Operatorul binar <code class="docutils literal notranslate"><span class="pre">&amp;&amp;</span></code> (și logic) - execută a doua comandă doar dacă precedenta s-a executat cu succes.</p></li>
+<li><p>Operatorul binar <code class="docutils literal notranslate"><span class="pre">||</span></code> (sau logic) - execută a doua comandă doar dacă prima s-a terminat cu eșec.</p></li>
+</ul>
+<p>Atunci când folosim operatorul <code class="docutils literal notranslate"><span class="pre">|</span></code> preluăm rezultatul comenzii din stânga operatorului și îl oferim ca intrare comenzii aflate în dreapta operatorului.
+Operatorul <code class="docutils literal notranslate"><span class="pre">|</span></code> ne permite să prelucrăm datele de interes, trecându-le prin mai multe utilitare, fiecare cu un scop bine definit.</p>
 </div>
-<div class="section" id="crearea-unui-nou-commit-cu-modificarile-anterioare">
-<h2><span class="section-number">9.3. </span>2) Crearea unui nou commit cu modificările anterioare<a class="headerlink" href="#crearea-unui-nou-commit-cu-modificarile-anterioare" title="Permalink to this headline">¶</a></h2>
-<p>Vor comite modificările făcute.</p>
+<div class="section" id="redirectari">
+<h3><span class="section-number">8.2.2. </span>Redirectări<a class="headerlink" href="#redirectari" title="Permalink to this headline">¶</a></h3>
+<p>Folosim operatorul <code class="docutils literal notranslate"><span class="pre">&gt;</span></code> pentru a redirecta <strong>STDOUT</strong> sau <strong>STDERR</strong> într-un fișier.
+Pentru a redirecta ieșirea standard folosim sintaxa <code class="docutils literal notranslate"><span class="pre">cmd</span> <span class="pre">&gt;</span> <span class="pre">nume-fișier</span></code>.
+Pentru a redirecta ieșirea standard a erorilor folosim sintaxa <code class="docutils literal notranslate"><span class="pre">cmd</span> <span class="pre">2&gt;</span> <span class="pre">nume-fișier</span></code>.</p>
+<p>Implicit, operatoru <code class="docutils literal notranslate"><span class="pre">&gt;</span></code> șterge (trunchează) conținutul fișierului destinație.
+Dacă vrem să păstrăm conținutul fișierului și să adăugăm rezultatul redirectării în continuarea acestuia, folosim operatorul <code class="docutils literal notranslate"><span class="pre">&gt;&gt;</span></code>.</p>
+<p>Folosim sintaxa <code class="docutils literal notranslate"><span class="pre">&amp;&gt;</span> <span class="pre">cale/către/nume-fișier</span></code> pentru a redirecta atât STDERR, cât și STDOUT, în fișierul primit ca argument.</p>
+<div class="section" id="fisiere-speciale">
+<h4><span class="section-number">8.2.2.1. </span>Fișiere speciale<a class="headerlink" href="#fisiere-speciale" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>Fișierul <code class="docutils literal notranslate"><span class="pre">/dev/null</span></code> este un fișier care ignoră orice este scris în el.</p></li>
+<li><p>Fișierul <code class="docutils literal notranslate"><span class="pre">/dev/zero</span></code> este un generator de octeți.
+Acesta generează atâția octeți cu valoarea zero (<strong>0</strong>) <a href="#id3"><span class="problematic" id="id1">[#dev-zero]_</span></a> cât îi sunt ceruți.</p></li>
+<li><p>Fișierul <code class="docutils literal notranslate"><span class="pre">/dev/urandom</span></code> este un alt generator de octeți.
+Acesta generează atâția octeți cu valoare random cât îi sunt ceruți.</p></li>
+</ul>
+</div>
+</div>
 </div>
 </div>
 
@@ -572,12 +590,8 @@ diferențelor față de punctul anterior.</p>
           <div class="page-nav">
             <div class="inner"><ul class="page-nav">
   <li class="prev">
-    <a href="make-lib.html"
-       title="previous chapter">← <span class="section-number">8. </span>Legarea executabilelor folosind biblioteci externe</a>
-  </li>
-  <li class="next">
-    <a href="make-simple-automation.html"
-       title="next chapter"><span class="section-number">10. </span>Introducere în utilitarul Make și fișiere Makefile →</a>
+    <a href="improve-shell.html"
+       title="previous chapter">← <span class="section-number">7. </span>O înțelegere mai bună a shellului</a>
   </li>
 </ul><div class="footer" role="contentinfo">
       &#169; Copyright 2020, USO Team.
