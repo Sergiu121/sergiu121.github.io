@@ -15,7 +15,6 @@
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/language_data.js"></script>
         <script src="../../_static/my_actions.js"></script>
 
       
@@ -995,7 +994,7 @@ adică stația de pe care se trimit datele și serverul VPN-ului. Astfel, aceste
 mai pot fi văzute de alte entități până când ajung la serverul VPN.</p>
 <p>Al doilea avantaj al VPN-urilor este interconectarea facilă între calculatoare
 care se află în rețele private diferite. De exemplu, pentru a juca un joc în
-LAN, putem folosi un VPN, cum ar fi Hamachi, la care se conectează doi
+LAN, putem folosi un VPN, cum ar fi Hamachi <a class="footnote-reference brackets" href="#hamachi" id="id1">1</a> , la care se conectează doi
 utilizatori. Serverul de VPN va primi datele de la clienți și le va trimite
 mai departe dintr-o rețea privată în alta.</p>
 <p>&lt;insert diagramă&gt;</p>
@@ -1052,8 +1051,8 @@ stațiile în rețeaua VPN-ului. Observați că ambele adrese de pe interfețele
 <code class="docutils literal notranslate"><span class="pre">tun0</span></code> sunt foarte similare. Asta înseamnă că cele două stații sunt acum în
 aceeași rețea virtuală</p>
 </div>
-<div class="section" id="id1">
-<h3><span class="section-number">3.4.3. </span>Recapitulare - Verificarea conexiunii între două stații<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id2">
+<h3><span class="section-number">3.4.3. </span>Recapitulare - Verificarea conexiunii între două stații<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
 <p>Testați conectivitatea de pe stația <code class="docutils literal notranslate"><span class="pre">openvpn-client1</span></code> cu stația
 <code class="docutils literal notranslate"><span class="pre">openvpn-client2</span></code> folosind adresele configurate pe interfața <code class="docutils literal notranslate"><span class="pre">tun0</span></code> de pe
 ambele sisteme.</p>
@@ -1091,15 +1090,18 @@ fi înlocuită de serverul VPN.</p>
 conectăm la un VPN folosim un fișier de configurare, sau scriem noi explicit
 adresa VPN-ului și folosim date de autentificare pentru a intra în rețeaua
 VPN-ului. Chiar dacă nu se întâmplă folosind <code class="docutils literal notranslate"><span class="pre">openvpn</span></code>, ci alte soluții cum ar
-fi WireGuard <a class="footnote-reference brackets" href="#wireguard" id="id2">1</a> sau Cisco AnyConnect <a class="footnote-reference brackets" href="#anyconnect" id="id3">2</a>, principiul este
+fi WireGuard <a class="footnote-reference brackets" href="#wireguard" id="id3">2</a> sau Cisco AnyConnect <a class="footnote-reference brackets" href="#anyconnect" id="id4">3</a>, principiul este
 același: ne conectăm la un server care asigură conectivitatea între stații care
 în mod normal nu ar fi interconectate.</p>
 <p class="rubric">Notă de subsol</p>
 <dl class="footnote brackets">
-<dt class="label" id="wireguard"><span class="brackets"><a class="fn-backref" href="#id2">1</a></span></dt>
+<dt class="label" id="hamachi"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd><p><a class="reference external" href="https://www.vpn.net/">https://www.vpn.net/</a></p>
+</dd>
+<dt class="label" id="wireguard"><span class="brackets"><a class="fn-backref" href="#id3">2</a></span></dt>
 <dd><p><a class="reference external" href="https://www.wireguard.com/">https://www.wireguard.com/</a></p>
 </dd>
-<dt class="label" id="anyconnect"><span class="brackets"><a class="fn-backref" href="#id3">2</a></span></dt>
+<dt class="label" id="anyconnect"><span class="brackets"><a class="fn-backref" href="#id4">3</a></span></dt>
 <dd><p><a class="reference external" href="https://www.cisco.com/c/en/us/products/security/anyconnect-secure-mobility-client/index.html">https://www.cisco.com/c/en/us/products/security/anyconnect-secure-mobility-client/index.html</a></p>
 </dd>
 </dl>
@@ -1122,7 +1124,7 @@ același: ne conectăm la un server care asigură conectivitatea între stații 
 </ul><div class="footer" role="contentinfo">
       &#169; Copyright 2020, USO Team.
     <br>
-    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.3.0 with <a href="https://github.com/romnnn/sphinx_press_theme">Press Theme</a>.
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.4.1 with <a href="https://github.com/romnnn/sphinx_press_theme">Press Theme</a>.
 </div>
             </div>
           </div>
