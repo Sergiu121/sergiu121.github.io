@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-      <title>Programarea rulării acțiunilor</title>
+      <title>6. Programarea rulării acțiunilor</title>
     
       <link rel="stylesheet" href="../../_static/pygments.css">
       <link rel="stylesheet" href="../../_static/theme.css">
@@ -23,6 +23,7 @@
     
   <link rel="index" title="Index" href="../../genindex.html" />
   <link rel="search" title="Search" href="../../search.html" />
+  <link rel="prev" title="5. Monitorizarea sistemului" href="monitor.html" />
     <link href="../../_static/my_theme.css" rel="stylesheet" type="text/css">
 
   </head>
@@ -79,6 +80,13 @@
       <a href="../../index.html#uso-lab-book"
          class="nav-link ">
          Îmbunătățirea lucrului în linia de comandă
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link  router-link-active">
+         Planificarea sarcinilor administrative
       </a>
     </div>
   
@@ -146,6 +154,13 @@
       <a href="../../index.html#uso-lab-book"
          class="nav-link ">
          Îmbunătățirea lucrului în linia de comandă
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link  router-link-active">
+         Planificarea sarcinilor administrative
       </a>
     </div>
   
@@ -499,6 +514,59 @@
       </ul>
     </div>
   
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#uso-lab-book">Planificarea sarcinilor administrative</a></span>
+      </p>
+      <ul class="current">
+        
+          <li class="toctree-l1 "><a href="workstation.html" class="reference internal ">Folosirea unui workstation remote</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="remote.html" class="reference internal ">Conectarea la workstation</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="services-install.html" class="reference internal ">Instalarea aplicațiilor (serviciilor) folosind Docker</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="storage.html" class="reference internal ">Gestionarea spațiului de stocare partajat</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="monitor.html" class="reference internal ">Monitorizarea sistemului</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 current"><a href="#" class="reference internal current">Programarea rulării acțiunilor</a>
+
+            
+              <ul>
+                
+                  <li class="toctree-l2"><a href="#rularea-amanata-a-unei-aplicatii" class="reference internal">Rularea amânată a unei aplicații</a></li>
+                
+                  <li class="toctree-l2"><a href="#rularea-programata-a-unei-aplicatii" class="reference internal">Rularea programată a unei aplicații</a></li>
+                
+              </ul>
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
 </div>
         </sidebar>
 
@@ -508,11 +576,15 @@
   <ul class="breadcrumbs">
     <li><a href="../../index.html">Docs</a> &raquo;</li>
     
-    <li>Programarea rulării acțiunilor</li>
+    <li><span class="section-number">6. </span>Programarea rulării acțiunilor</li>
   </ul>
   
 
   <ul class="page-nav">
+  <li class="prev">
+    <a href="monitor.html"
+       title="previous chapter">← <span class="section-number">5. </span>Monitorizarea sistemului</a>
+  </li>
 </ul>
   
 </div>
@@ -520,20 +592,30 @@
           <div class="content" role="main">
             
   <div class="section" id="programarea-rularii-actiunilor">
-<h1>Programarea rulării acțiunilor<a class="headerlink" href="#programarea-rularii-actiunilor" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">6. </span>Programarea rulării acțiunilor<a class="headerlink" href="#programarea-rularii-actiunilor" title="Permalink to this headline">¶</a></h1>
+<p>Un workstation, ca oricare alt calculator, necesită mentenanță, cum ar fi
+actualizarea regulată a pachetelor, crearea de copii de rezervă pentru fișierele
+importante, sau ștergerea anumitor fișiere jurnal care devin prea mari. Toate
+aceste acțiuni sunt acțiuni fixe, repetitive, care nu necesită atenția
+utilizatorului. Din acest motiv, putem spune că automatizăm aceste acțiuni
+astfel încât acestea să ruleze programat la un anumit interval.</p>
 <div class="section" id="rularea-amanata-a-unei-aplicatii">
-<h2>Rularea amânată a unei aplicații<a class="headerlink" href="#rularea-amanata-a-unei-aplicatii" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.1. </span>Rularea amânată a unei aplicații<a class="headerlink" href="#rularea-amanata-a-unei-aplicatii" title="Permalink to this headline">¶</a></h2>
+<p>Le vom arăta cum să folosească at ca să programeze o acțiune care poate să
+ruleze la un anumit timp o singură dată (care va rula chiar și după un shutdown)</p>
 </div>
 <div class="section" id="rularea-programata-a-unei-aplicatii">
-<h2>Rularea programată a unei aplicații<a class="headerlink" href="#rularea-programata-a-unei-aplicatii" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.2. </span>Rularea programată a unei aplicații<a class="headerlink" href="#rularea-programata-a-unei-aplicatii" title="Permalink to this headline">¶</a></h2>
+<p>Le vom arăta ce face cron și le vom explica despre fișierele din
+/etc/cron.{daily, monthly, hourly, weekly}.</p>
 <div class="section" id="formatarea-actiunilor-amanabile">
-<h3>Formatarea acțiunilor amânabile<a class="headerlink" href="#formatarea-actiunilor-amanabile" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.2.1. </span>Formatarea acțiunilor amânabile<a class="headerlink" href="#formatarea-actiunilor-amanabile" title="Permalink to this headline">¶</a></h3>
+<p>Pentru formatare vom folosi fișierele /etc/cron.d/</p>
 </div>
-<div class="section" id="trimiterea-mailurilor-in-linie-de-comanda">
-<h3>Trimiterea mailurilor în linie de comandă<a class="headerlink" href="#trimiterea-mailurilor-in-linie-de-comanda" title="Permalink to this headline">¶</a></h3>
-</div>
-<div class="section" id="trimiterea-automata-a-notificarilor">
-<h3>Trimiterea automată a notificărilor<a class="headerlink" href="#trimiterea-automata-a-notificarilor" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="realizarea-automata-a-copiilor-de-rezerva">
+<h3><span class="section-number">6.2.2. </span>Realizarea automată a copiilor de rezervă<a class="headerlink" href="#realizarea-automata-a-copiilor-de-rezerva" title="Permalink to this headline">¶</a></h3>
+<p>Îi vom pune să își facă copii de rezervă fișierelor de configurare din /etc
+într-un director partajat prin Dropbox.</p>
 </div>
 </div>
 </div>
@@ -542,6 +624,10 @@
           </div>
           <div class="page-nav">
             <div class="inner"><ul class="page-nav">
+  <li class="prev">
+    <a href="monitor.html"
+       title="previous chapter">← <span class="section-number">5. </span>Monitorizarea sistemului</a>
+  </li>
 </ul><div class="footer" role="contentinfo">
       &#169; Copyright 2020, USO Team.
     <br>
