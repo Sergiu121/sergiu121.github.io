@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-      <title>3. Instalarea aplicațiilor (serviciilor) folosind Docker</title>
+      <title>4. Instalarea aplicațiilor (serviciilor) folosind Docker</title>
     
       <link rel="stylesheet" href="../../_static/pygments.css">
       <link rel="stylesheet" href="../../_static/theme.css">
@@ -23,8 +23,8 @@
     
   <link rel="index" title="Index" href="../../genindex.html" />
   <link rel="search" title="Search" href="../../search.html" />
-  <link rel="next" title="4. Gestionarea spațiului de stocare partajat" href="storage.html" />
-  <link rel="prev" title="2. Conectarea la workstation" href="remote.html" />
+  <link rel="next" title="5. Gestionarea spațiului de stocare partajat" href="storage.html" />
+  <link rel="prev" title="3. Configurarea și administrarea serviciilor" href="services-config.html" />
     <link href="../../_static/my_theme.css" rel="stylesheet" type="text/css">
 
   </head>
@@ -533,6 +533,12 @@
           </li>
 
         
+          <li class="toctree-l1 "><a href="services-config.html" class="reference internal ">Configurarea și administrarea serviciilor</a>
+
+            
+          </li>
+
+        
           <li class="toctree-l1 current"><a href="#" class="reference internal current">Instalarea aplicațiilor (serviciilor) folosind Docker</a>
 
             
@@ -577,18 +583,18 @@
   <ul class="breadcrumbs">
     <li><a href="../../index.html">Docs</a> &raquo;</li>
     
-    <li><span class="section-number">3. </span>Instalarea aplicațiilor (serviciilor) folosind Docker</li>
+    <li><span class="section-number">4. </span>Instalarea aplicațiilor (serviciilor) folosind Docker</li>
   </ul>
   
 
   <ul class="page-nav">
   <li class="prev">
-    <a href="remote.html"
-       title="previous chapter">← <span class="section-number">2. </span>Conectarea la workstation</a>
+    <a href="services-config.html"
+       title="previous chapter">← <span class="section-number">3. </span>Configurarea și administrarea serviciilor</a>
   </li>
   <li class="next">
     <a href="storage.html"
-       title="next chapter"><span class="section-number">4. </span>Gestionarea spațiului de stocare partajat →</a>
+       title="next chapter"><span class="section-number">5. </span>Gestionarea spațiului de stocare partajat →</a>
   </li>
 </ul>
   
@@ -597,7 +603,7 @@
           <div class="content" role="main">
             
   <div class="section" id="instalarea-aplicatiilor-serviciilor-folosind-docker">
-<h1><span class="section-number">3. </span>Instalarea aplicațiilor (serviciilor) folosind Docker<a class="headerlink" href="#instalarea-aplicatiilor-serviciilor-folosind-docker" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">4. </span>Instalarea aplicațiilor (serviciilor) folosind Docker<a class="headerlink" href="#instalarea-aplicatiilor-serviciilor-folosind-docker" title="Permalink to this headline">¶</a></h1>
 <p>Scopul acestui capitol este să îi introducem pe studenți în instalarea,
 folosirea containerelor și în instalarea serviciilor folosind containerele.</p>
 <p>Problema în momentul de față cu instalarea serviciilor este că acestea nu se
@@ -614,23 +620,23 @@ adică o aplicație care rulează în Docker nu are acces în mod obișnuit la r
 mașinii, iar orice modificare asupra sistemului de fișiere din Docker nu se va
 reflecta asupra sistemului.</p>
 <div class="section" id="folosirea-docker">
-<h2><span class="section-number">3.1. </span>Folosirea Docker<a class="headerlink" href="#folosirea-docker" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">4.1. </span>Folosirea Docker<a class="headerlink" href="#folosirea-docker" title="Permalink to this headline">¶</a></h2>
 <p>În această subsecțiune studenții vor învăța cum să folosească Docker ca să
 pornească un container, cum să descarce un container, cum să se conecteze la un
 container. Nu punem accentul pe crearea containerelor ci pe folosirea lor.</p>
 <div class="section" id="gestionarea-containerelor">
-<h3><span class="section-number">3.1.1. </span>Gestionarea containerelor<a class="headerlink" href="#gestionarea-containerelor" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">4.1.1. </span>Gestionarea containerelor<a class="headerlink" href="#gestionarea-containerelor" title="Permalink to this headline">¶</a></h3>
 <p>În această sub-subsecțiune vom prezenta cum să descarce și cum să pornească un
 container care oferă o pagină web simplă, ca apoi să oprească containerul.</p>
 </div>
 <div class="section" id="conectarea-la-un-container">
-<h3><span class="section-number">3.1.2. </span>Conectarea la un container<a class="headerlink" href="#conectarea-la-un-container" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">4.1.2. </span>Conectarea la un container<a class="headerlink" href="#conectarea-la-un-container" title="Permalink to this headline">¶</a></h3>
 <p>În această sub-subsecțiune vor învăța cum să se conecteze la containerul de la
 secțiunea anterioară și vor modifica pagina web afișată.</p>
 </div>
 </div>
 <div class="section" id="instalarea-serviciilor-folosind-docker">
-<h2><span class="section-number">3.2. </span>Instalarea serviciilor folosind Docker<a class="headerlink" href="#instalarea-serviciilor-folosind-docker" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">4.2. </span>Instalarea serviciilor folosind Docker<a class="headerlink" href="#instalarea-serviciilor-folosind-docker" title="Permalink to this headline">¶</a></h2>
 <p>Cum am prezentat mai devreme, un avantaj al folosirii containerelor este faptul
 că putem să descărcăm containere care pot rula servicii. Aceste servicii nu vor
 mai fi lansate și gestionate de aplicația systemd care rulează pe stația de
@@ -638,23 +644,23 @@ lucru, deoarece acestea vor rula în cadrul unui container care va gestiona
 rularea serviciului. Noi trebuie doar să ne asigurăm ca rulăm containerul
 folosind opțiunile potrivite.</p>
 <div class="section" id="identificarea-containerelor-pe-dockerhub">
-<h3><span class="section-number">3.2.1. </span>Identificarea containerelor pe Dockerhub<a class="headerlink" href="#identificarea-containerelor-pe-dockerhub" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">4.2.1. </span>Identificarea containerelor pe Dockerhub<a class="headerlink" href="#identificarea-containerelor-pe-dockerhub" title="Permalink to this headline">¶</a></h3>
 <p>Precum aplicațiile obișnuite, și containerele Docker pot fi descărcate dintr-un
 repository central. Repository-ul central pentru containere este Dockerhub. Noi
 vom folosi site-ul Dockerhub pentru a căuta containere împreună cu instrucțiuni
 de folosire ale acestora.</p>
 </div>
 <div class="section" id="instalarea-unui-server-de-minecraft-folosind-containere">
-<h3><span class="section-number">3.2.2. </span>Instalarea unui server de minecraft folosind containere<a class="headerlink" href="#instalarea-unui-server-de-minecraft-folosind-containere" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">4.2.2. </span>Instalarea unui server de minecraft folosind containere<a class="headerlink" href="#instalarea-unui-server-de-minecraft-folosind-containere" title="Permalink to this headline">¶</a></h3>
 <p>Își vor instala un server de Minecraft pe PC, pe care îl vor testa folosind
 TLauncher (nu știu cât de legal e asta, TBD).</p>
 </div>
 <div class="section" id="instalarea-grafana-folosind-containere">
-<h3><span class="section-number">3.2.3. </span>Instalarea Grafana folosind containere<a class="headerlink" href="#instalarea-grafana-folosind-containere" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">4.2.3. </span>Instalarea Grafana folosind containere<a class="headerlink" href="#instalarea-grafana-folosind-containere" title="Permalink to this headline">¶</a></h3>
 <p>Își vor instala un server de grafana și baza de date pentru acesta.</p>
 </div>
 <div class="section" id="extra-instalarea-containerelor-personalizate">
-<h3><span class="section-number">3.2.4. </span>Extra: Instalarea containerelor personalizate<a class="headerlink" href="#extra-instalarea-containerelor-personalizate" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">4.2.4. </span>Extra: Instalarea containerelor personalizate<a class="headerlink" href="#extra-instalarea-containerelor-personalizate" title="Permalink to this headline">¶</a></h3>
 <p>Studenții vor descărca un Dockerfile și vor face build acestuia în loc să
 descarce direct containerul despre net.</p>
 <p>Le vom arăta cum să modifice Dockerfile-ul ca să instaleze diverse aplicații.</p>
@@ -667,12 +673,12 @@ descarce direct containerul despre net.</p>
           <div class="page-nav">
             <div class="inner"><ul class="page-nav">
   <li class="prev">
-    <a href="remote.html"
-       title="previous chapter">← <span class="section-number">2. </span>Conectarea la workstation</a>
+    <a href="services-config.html"
+       title="previous chapter">← <span class="section-number">3. </span>Configurarea și administrarea serviciilor</a>
   </li>
   <li class="next">
     <a href="storage.html"
-       title="next chapter"><span class="section-number">4. </span>Gestionarea spațiului de stocare partajat →</a>
+       title="next chapter"><span class="section-number">5. </span>Gestionarea spațiului de stocare partajat →</a>
   </li>
 </ul><div class="footer" role="contentinfo">
       &#169; Copyright 2020, USO Team.

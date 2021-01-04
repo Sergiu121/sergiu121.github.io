@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-      <title>4. Gestionarea spațiului de stocare partajat</title>
+      <title>5. Gestionarea spațiului de stocare partajat</title>
     
       <link rel="stylesheet" href="../../_static/pygments.css">
       <link rel="stylesheet" href="../../_static/theme.css">
@@ -23,8 +23,8 @@
     
   <link rel="index" title="Index" href="../../genindex.html" />
   <link rel="search" title="Search" href="../../search.html" />
-  <link rel="next" title="5. Monitorizarea sistemului" href="monitor.html" />
-  <link rel="prev" title="3. Instalarea aplicațiilor (serviciilor) folosind Docker" href="services-install.html" />
+  <link rel="next" title="6. Monitorizarea sistemului" href="monitor.html" />
+  <link rel="prev" title="4. Instalarea aplicațiilor (serviciilor) folosind Docker" href="services-install.html" />
     <link href="../../_static/my_theme.css" rel="stylesheet" type="text/css">
 
   </head>
@@ -533,6 +533,12 @@
           </li>
 
         
+          <li class="toctree-l1 "><a href="services-config.html" class="reference internal ">Configurarea și administrarea serviciilor</a>
+
+            
+          </li>
+
+        
           <li class="toctree-l1 "><a href="services-install.html" class="reference internal ">Instalarea aplicațiilor (serviciilor) folosind Docker</a>
 
             
@@ -577,18 +583,18 @@
   <ul class="breadcrumbs">
     <li><a href="../../index.html">Docs</a> &raquo;</li>
     
-    <li><span class="section-number">4. </span>Gestionarea spațiului de stocare partajat</li>
+    <li><span class="section-number">5. </span>Gestionarea spațiului de stocare partajat</li>
   </ul>
   
 
   <ul class="page-nav">
   <li class="prev">
     <a href="services-install.html"
-       title="previous chapter">← <span class="section-number">3. </span>Instalarea aplicațiilor (serviciilor) folosind Docker</a>
+       title="previous chapter">← <span class="section-number">4. </span>Instalarea aplicațiilor (serviciilor) folosind Docker</a>
   </li>
   <li class="next">
     <a href="monitor.html"
-       title="next chapter"><span class="section-number">5. </span>Monitorizarea sistemului →</a>
+       title="next chapter"><span class="section-number">6. </span>Monitorizarea sistemului →</a>
   </li>
 </ul>
   
@@ -597,7 +603,7 @@
           <div class="content" role="main">
             
   <div class="section" id="gestionarea-spatiului-de-stocare-partajat">
-<h1><span class="section-number">4. </span>Gestionarea spațiului de stocare partajat<a class="headerlink" href="#gestionarea-spatiului-de-stocare-partajat" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">5. </span>Gestionarea spațiului de stocare partajat<a class="headerlink" href="#gestionarea-spatiului-de-stocare-partajat" title="Permalink to this headline">¶</a></h1>
 <p>O componentă importantă a mediului de lucru este spațiul de stocare. Cu toate că
 noi vom rula aplicații pe serverul de la distanță, noi avem nevoie de acces la
 spațiul de stocare al acestuia, deoarece vrem ca într-un final să urmărim
@@ -609,12 +615,12 @@ grafice, care nu pot rula mereu eficient de la distanță. Soluția la această
 nevoie este să partajăm spațiul de stocare între serverul de la distanță și
 laptopul sau stația locală de pe care lucrăm</p>
 <div class="section" id="stocare-partajata-folosind-sshfs">
-<h2><span class="section-number">4.1. </span>Stocare partajată folosind SSHFS<a class="headerlink" href="#stocare-partajata-folosind-sshfs" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">5.1. </span>Stocare partajată folosind SSHFS<a class="headerlink" href="#stocare-partajata-folosind-sshfs" title="Permalink to this headline">¶</a></h2>
 <p>Le vom face tutorial despre cum să monteze un sistem de fișiere folosind SSHFS
 și le vom explica că acest mod de lucru nu duce la duplicarea fișierelor</p>
 </div>
 <div class="section" id="stocare-partajata-folosind-aplicatii-online">
-<h2><span class="section-number">4.2. </span>Stocare partajată folosind aplicații online<a class="headerlink" href="#stocare-partajata-folosind-aplicatii-online" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">5.2. </span>Stocare partajată folosind aplicații online<a class="headerlink" href="#stocare-partajata-folosind-aplicatii-online" title="Permalink to this headline">¶</a></h2>
 <p>SSHFS nu este o soluție bună pentru a face backup fișierelor, deoarece existând
 o singură replică, ai șters un fișier și au dispărut toate replicile.</p>
 <p>O alternativă pentru acest serviciu sunt soluții cum ar fi GoogleDrive, Dropbox,
@@ -623,7 +629,7 @@ calculatoarele autentificate de pe un anumit cont. Avantajul aici este că acest
 sisteme oferă suport pentru controlul versiunilor pentru a șterge modificarea
 anterioară.</p>
 <div class="section" id="stocarea-partajata-folosind-dropbox">
-<h3><span class="section-number">4.2.1. </span>Stocarea partajată folosind Dropbox<a class="headerlink" href="#stocarea-partajata-folosind-dropbox" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">5.2.1. </span>Stocarea partajată folosind Dropbox<a class="headerlink" href="#stocarea-partajata-folosind-dropbox" title="Permalink to this headline">¶</a></h3>
 <p>Dropbox este o soluție care se folosește de un server în internet care stochează
 fișierele noastre, ca apoi acestea să fie replicate pe fiecare calculator
 client.</p>
@@ -631,7 +637,7 @@ client.</p>
 și mașina locală.</p>
 </div>
 <div class="section" id="extra-stocarea-partajata-folosind-un-server-privat">
-<h3><span class="section-number">4.2.2. </span>Extra: Stocarea partajată folosind un server privat<a class="headerlink" href="#extra-stocarea-partajata-folosind-un-server-privat" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">5.2.2. </span>Extra: Stocarea partajată folosind un server privat<a class="headerlink" href="#extra-stocarea-partajata-folosind-un-server-privat" title="Permalink to this headline">¶</a></h3>
 <p>Îi vom pune să instaleze un container cu ownCloud și să îl configureze astfel
 încât să îl folosească ca o alternativă la Dropbox.</p>
 </div>
@@ -644,11 +650,11 @@ client.</p>
             <div class="inner"><ul class="page-nav">
   <li class="prev">
     <a href="services-install.html"
-       title="previous chapter">← <span class="section-number">3. </span>Instalarea aplicațiilor (serviciilor) folosind Docker</a>
+       title="previous chapter">← <span class="section-number">4. </span>Instalarea aplicațiilor (serviciilor) folosind Docker</a>
   </li>
   <li class="next">
     <a href="monitor.html"
-       title="next chapter"><span class="section-number">5. </span>Monitorizarea sistemului →</a>
+       title="next chapter"><span class="section-number">6. </span>Monitorizarea sistemului →</a>
   </li>
 </ul><div class="footer" role="contentinfo">
       &#169; Copyright 2020, USO Team.
