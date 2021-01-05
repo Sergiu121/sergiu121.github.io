@@ -1,12 +1,9 @@
 Programarea rulării acțiunilor
 ==============================
 
-Un workstation, ca oricare alt calculator, necesită mentenanță, cum ar fi
-actualizarea regulată a pachetelor, crearea de copii de rezervă pentru fișierele
-importante, sau ștergerea anumitor fișiere jurnal care devin prea mari. Toate
-aceste acțiuni sunt acțiuni fixe, repetitive, care nu necesită atenția
-utilizatorului. Din acest motiv, putem spune că automatizăm aceste acțiuni
-astfel încât acestea să ruleze programat la un anumit interval.
+Un workstation, ca oricare alt calculator, necesită mentenanță, cum ar fi crearea de copii de rezervă pentru fișierele importante, sau ștergerea anumitor fișiere jurnal care devin prea mari.
+Toate aceste acțiuni sunt acțiuni fixe, repetitive, care nu necesită atenția utilizatorului.
+Din acest motiv, putem spune că automatizăm aceste acțiuni astfel încât acestea să ruleze programat la un anumit interval.
 
 Rularea amânată a unei aplicații
 --------------------------------

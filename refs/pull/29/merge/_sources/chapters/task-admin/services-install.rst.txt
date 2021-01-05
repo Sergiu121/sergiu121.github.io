@@ -1,23 +1,14 @@
 Instalarea aplicațiilor (serviciilor) folosind Docker
 =====================================================
 
-Scopul acestui capitol este să îi introducem pe studenți în instalarea,
-folosirea containerelor și în instalarea serviciilor folosind containerele.
+Scopul acestui capitol este să îi introducem pe studenți în instalarea, folosirea containerelor și în instalarea serviciilor folosind containerele.
 
-Problema în momentul de față cu instalarea serviciilor este că acestea nu se
-instalează într-un mod simplu. Acestea depind de aplicații și biblioteci care
-uneori nu sunt disponibile, sau nu există versiunile necesare pentru distribuția
-noastră. O altă problemă vine de la faptul că serviciile nu sunt de tipul
-"plug-and-play", adică nu oferă o configurație simplă care să permită rularea
-serviciului imediat după instalarea aplicației.
+Problema în momentul de față cu instalarea serviciilor este că acestea nu se instalează într-un mod simplu.
+Acestea depind de aplicații și biblioteci care uneori nu sunt disponibile, sau nu există versiunile necesare pentru distribuția noastră.
+O altă problemă vine de la faptul că serviciile nu sunt de tipul "plug-and-play", adică nu oferă o configurație simplă care să permită rularea serviciului imediat după instalarea aplicației.
 
-Docker vine ca o soluție pentru această problemă, deoarece acesta ne oferă
-servicii pre-împachetate cu dependențele pe care le are serviciul respectiv și
-cu configurările necesare pentru rularea serviciului. Un alt avantaj al
-folosirii docker este că mediul oferit de Docker este unul izolat și efemer,
-adică o aplicație care rulează în Docker nu are acces în mod obișnuit la restul
-mașinii, iar orice modificare asupra sistemului de fișiere din Docker nu se va
-reflecta asupra sistemului.
+Docker vine ca o soluție pentru această problemă, deoarece acesta ne oferă servicii pre-împachetate cu dependențele pe care le are serviciul respectiv și cu configurările necesare pentru rularea serviciului.
+Un alt avantaj al folosirii Docker este că mediul oferit de Docker este unul izolat și efemer, adică o aplicație care rulează în Docker nu are acces în mod obișnuit la restul sistemului, iar orice modificare asupra sistemului de fișiere din Docker nu se va reflecta asupra sistemului.
 
 Folosirea Docker
 ----------------
