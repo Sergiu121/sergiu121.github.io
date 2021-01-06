@@ -94,9 +94,10 @@ USO lab book
 
    chapters/task-admin/workstation.rst
    chapters/task-admin/remote.rst
+   chapters/task-admin/usage.rst
+   chapters/task-admin/storage.rst
    chapters/task-admin/services-config.rst
    chapters/task-admin/services-install.rst
-   chapters/task-admin/storage.rst
    chapters/task-admin/monitor.rst
    chapters/task-admin/cron.rst
 

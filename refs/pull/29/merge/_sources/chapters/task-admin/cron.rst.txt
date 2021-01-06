@@ -14,8 +14,7 @@ ruleze la un anumit timp o singură dată (care va rula chiar și după un shutd
 Rularea programată a unei aplicații
 -----------------------------------
 
-Le vom arăta ce face cron și le vom explica despre fișierele din
-/etc/cron.{daily, monthly, hourly, weekly}.
+Le vom arăta ce face cron și le vom explica despre fișierele din /etc/cron.{daily, monthly, hourly, weekly}.
 
 Formatarea acțiunilor amânabile
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -25,5 +24,4 @@ Pentru formatare vom folosi fișierele /etc/cron.d/
 Realizarea automată a copiilor de rezervă
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Îi vom pune să își facă copii de rezervă fișierelor de configurare din /etc
-într-un director partajat prin Dropbox.
+Îi vom pune să își facă copii de rezervă fișierelor de configurare din /etc într-un director partajat prin Dropbox.
