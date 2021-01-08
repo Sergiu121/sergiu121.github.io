@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html >
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+      <title>3. Folosirea stației la distanță</title>
+    
+      <link rel="stylesheet" href="../../_static/pygments.css">
+      <link rel="stylesheet" href="../../_static/theme.css">
+      <link rel="stylesheet" href="../../_static/romnnn_sphinx_press_theme.css">
+      
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+
+      <!-- sphinx script_files -->
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/my_actions.js"></script>
+
+      
+      <script src="../../_static/theme-vendors.js"></script>
+      <script src="../../_static/theme.js" defer></script>
+    
+  <link rel="index" title="Index" href="../../genindex.html" />
+  <link rel="search" title="Search" href="../../search.html" />
+  <link rel="next" title="4. Gestionarea spațiului de stocare partajat" href="storage.html" />
+  <link rel="prev" title="2. Conectarea la workstation" href="remote.html" />
+    <link href="../../_static/my_theme.css" rel="stylesheet" type="text/css">
+
+  </head>
+
+  <body>
+    <div id="app" class="theme-container" :class="pageClasses"><navbar @toggle-sidebar="toggleSidebar">
+  <div class="home-link-container">
+      <router-link to="../../index.html" class="home-link">
+      
+        <span class="site-name">USO Lab Book</span>
+    </router-link>
+  </div>
+
+  <div class="links">
+    <navlinks class="can-hide">
+
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Acomodarea în Linux
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Lucrul cu fișiere
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Dezvoltarea aplicațiilor
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Conectarea la Internet
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Instalarea și utilizarea aplicațiilor
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Îmbunătățirea lucrului în linia de comandă
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link  router-link-active">
+         Planificarea sarcinilor administrative
+      </a>
+    </div>
+  
+
+
+
+  
+    <div class="nav-item">
+      <a href="https://github.com/Sergiu121/uso-lab-book"
+        class="nav-link external">
+          Github <outboundlink/>
+      </a>
+    </div>
+  
+
+    </navlinks>
+  </div>
+</navbar>
+
+      
+      <div class="sidebar-mask" @click="toggleSidebar(false)">
+      </div>
+        <sidebar @toggle-sidebar="toggleSidebar">
+          
+          <navlinks>
+            
+
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Acomodarea în Linux
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Lucrul cu fișiere
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Dezvoltarea aplicațiilor
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Conectarea la Internet
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Instalarea și utilizarea aplicațiilor
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Îmbunătățirea lucrului în linia de comandă
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link  router-link-active">
+         Planificarea sarcinilor administrative
+      </a>
+    </div>
+  
+
+
+
+  
+    <div class="nav-item">
+      <a href="https://github.com/Sergiu121/uso-lab-book"
+        class="nav-link external">
+          Github <outboundlink/>
+      </a>
+    </div>
+  
+
+            
+          </navlinks><div id="searchbox" class="searchbox" role="search">
+  <div class="caption"><span class="caption-text">Search</span>
+    <div class="searchformwrapper">
+      <form autocomplete="off" class="search" action="../../search.html" method="get">
+        <input type="text" name="q" autocomplete="off" />
+        <input type="submit" value="Go" />
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div><div class="sidebar-links" role="navigation" aria-label="main navigation">
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#uso-lab-book">Acomodarea în Linux</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../basic/apps.html" class="reference internal ">Pornirea și oprirea aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../basic/browser.html" class="reference internal ">Folosirea eficientă a browserului web</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../basic/terminal.html" class="reference internal ">Lucrul în terminal</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../basic/workspace.html" class="reference internal ">Lucrul cu workspace-uri</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../basic/cheatsheet.html" class="reference internal ">Cheatsheet</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#uso-lab-book">Lucrul cu fișiere</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../files/paths.html" class="reference internal ">Căi absolute și relative</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../files/files.html" class="reference internal ">Interacțiunea cu fișiere în linia de comandă</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../files/file_editor.html" class="reference internal ">Editor de text</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../files/io_redirection.html" class="reference internal ">Redirectări</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../files/archive.html" class="reference internal ">Arhive</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../files/file_system.html" class="reference internal ">Sistemul de fișiere</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#uso-lab-book">Dezvoltarea aplicațiilor</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../app-dev/git-intro.html" class="reference internal ">Introducere în Git și GitHub</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/git-first-commit.html" class="reference internal ">Primul commit</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/git-more-commits.html" class="reference internal ">Crearea unui nou commit</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/git-contribute.html" class="reference internal ">Contribuirea la un alt repository</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/make-setup.html" class="reference internal ">Pregătirea mediului de lucru</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/make-intro.html" class="reference internal ">Compilarea unui fișier cod sursă C</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/make-multiple.html" class="reference internal ">Compilarea unui program din fișiere multiple</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/make-lib.html" class="reference internal ">Legarea executabilelor folosind biblioteci externe</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/make-debug.html" class="reference internal ">Depanare condițională / configurabilă</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/make-simple-automation.html" class="reference internal ">Introducere în utilitarul Make și fișiere Makefile</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/make-advanced-automation.html" class="reference internal ">Aprofundarea folosirii fișierelor Makefile</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/make-contribute.html" class="reference internal ">Contribuirea la un proiect existent pe GitHub</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/extra.html" class="reference internal ">Exerciții suplimentare</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#uso-lab-book">Conectarea la Internet</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../net/browser.html" class="reference internal ">Folosirea eficientă a browser-ului</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../net/troubleshoot.html" class="reference internal ">Verificarea conectivităţii la reţea</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../net/services.html" class="reference internal ">Servicii şi clienţi de reţea</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../net/extra.html" class="reference internal ">Funcţionalităţi suplimentare de reţelistică</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#uso-lab-book">Instalarea și utilizarea aplicațiilor</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../app-install/start.html" class="reference internal ">Pornirea aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-install/run.html" class="reference internal ">Rularea aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-install/config.html" class="reference internal ">Configurarea aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-install/summary1.html" class="reference internal ">Sumar: Pornirea, rularea și configurarea aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-install/show-config.html" class="reference internal ">Vizualizarea configurației sistemului</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-install/install.html" class="reference internal ">Instalarea și dezinstalarea aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-install/install-non-standard.html" class="reference internal ">Instalarea și dezinstalarea aplicațiilor în mod nestandard</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-install/update.html" class="reference internal ">Actualizarea aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-install/show.html" class="reference internal ">Investigarea aplicațiilor instalate</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-install/summary2.html" class="reference internal ">Sumar: Instalarea, dezinstalarea, investigarea, actualizarea aplicațiilor</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#uso-lab-book">Îmbunătățirea lucrului în linia de comandă</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../improve-cli/improve-terminal.html" class="reference internal ">Îmbunătățirea lucrului în linia de comandă</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../improve-cli/inspect-fs.html" class="reference internal ">Inspectarea sistemului de fișiere</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../improve-cli/inspect-sys.html" class="reference internal ">Inspectarea sistemului</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../improve-cli/inspect-files.html" class="reference internal ">Inspectarea fișierelor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../improve-cli/process-files.html" class="reference internal ">Prelucrarea fișierelor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../improve-cli/improve-shell.html" class="reference internal ">O înțelegere mai bună a shell-ului</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../improve-cli/term-multiplexing.html" class="reference internal ">Multiplexarea terminalului</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#uso-lab-book">Planificarea sarcinilor administrative</a></span>
+      </p>
+      <ul class="current">
+        
+          <li class="toctree-l1 "><a href="workstation.html" class="reference internal ">Folosirea unui workstation remote</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="remote.html" class="reference internal ">Conectarea la workstation</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 current"><a href="#" class="reference internal current">Folosirea stației la distanță</a>
+
+            
+              <ul>
+                
+                  <li class="toctree-l2"><a href="#folosirea-tmux" class="reference internal">Folosirea tmux</a></li>
+                
+                  <li class="toctree-l2"><a href="#scenarii-de-folosire-a-sistemului-la-distanta" class="reference internal">Scenarii de folosire a sistemului la distanță</a></li>
+                
+              </ul>
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="storage.html" class="reference internal ">Gestionarea spațiului de stocare partajat</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="services-config.html" class="reference internal ">Configurarea și administrarea serviciilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="services-install.html" class="reference internal ">Instalarea aplicațiilor (serviciilor) folosind Docker</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="monitor.html" class="reference internal ">Monitorizarea sistemului</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="cron.html" class="reference internal ">Programarea rulării acțiunilor</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+</div>
+        </sidebar>
+
+      <page>
+          <div class="body-header" role="navigation" aria-label="navigation">
+  
+  <ul class="breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+    
+    <li><span class="section-number">3. </span>Folosirea stației la distanță</li>
+  </ul>
+  
+
+  <ul class="page-nav">
+  <li class="prev">
+    <a href="remote.html"
+       title="previous chapter">← <span class="section-number">2. </span>Conectarea la workstation</a>
+  </li>
+  <li class="next">
+    <a href="storage.html"
+       title="next chapter"><span class="section-number">4. </span>Gestionarea spațiului de stocare partajat →</a>
+  </li>
+</ul>
+  
+</div>
+<hr>
+          <div class="content" role="main">
+            
+  <div class="section" id="folosirea-statiei-la-distanta">
+<h1><span class="section-number">3. </span>Folosirea stației la distanță<a class="headerlink" href="#folosirea-statiei-la-distanta" title="Permalink to this headline">¶</a></h1>
+<p>Odată ce am reușit să realizăm o conexiune persistentă între stația noastră cea de toate zilele și workstationul pe care vrem să lucrăm, trebuie să ne configurăm stația pe care vom lucra.</p>
+<p>Pentru configurarea stației vom presupune următorul flux de lucru:
+* ne conectăm la sistem
+* edităm fișiere sursă sau fișiere de configurare
+* compilăm un program, sau rulăm o aplicație
+* ne deconectăm de la sistem</p>
+<div class="section" id="folosirea-tmux">
+<h2><span class="section-number">3.1. </span>Folosirea <code class="docutils literal notranslate"><span class="pre">tmux</span></code><a class="headerlink" href="#folosirea-tmux" title="Permalink to this headline">¶</a></h2>
+<p>Spre deosebire de un laptop, unde dacă închidem ecranul și îl băgăm în ghiozdan, acesta intră în hibernare, stația de lucru poate să lucreze în continuare. Acest lucru ne oferă persistență fluxului de lucru, este necesar mai puțin setup atunci când lucrezi.</p>
+<p>Atunci când ne conectăm la un calculator printr-un client SSH și rulăm comenzi, acestea vor rula în foreground.</p>
+<p>Dacă avem o aplicație care rulează mult timp, cum ar fi un <code class="docutils literal notranslate"><span class="pre">find</span></code>, și conexiunea SSH se întrerupe, se va întrerupe și execuția comenzii <code class="docutils literal notranslate"><span class="pre">find</span></code>.</p>
+<p>Pentru a rezolva această problemă și a ne folosi de disponibilitatea oferită de un sistem distanță, vom folosi utilitarul <code class="docutils literal notranslate"><span class="pre">tmux</span></code>.</p>
+<p>Aceasta pornește o sesiune de shell care este independentă de terminalul în care rulează, astfel, putem să ne conectăm și să ne deconectăm de la ea.</p>
+<div class="section" id="crearea-unei-sesiuni-tmux">
+<h3><span class="section-number">3.1.1. </span>Crearea unei sesiuni <code class="docutils literal notranslate"><span class="pre">tmux</span></code><a class="headerlink" href="#crearea-unei-sesiuni-tmux" title="Permalink to this headline">¶</a></h3>
+<p>Fiecare pornire a aplicației <code class="docutils literal notranslate"><span class="pre">tmux</span></code> deschide o nouă sesiune.
+Putem considera fiecare sesiune ca o fereastră a unui browser.
+De regulă nu este nevoie să avem mai multe ferestre de browser, sau de <code class="docutils literal notranslate"><span class="pre">tmux</span></code> pornite, deoarece avem alte moduri de organizare a spațiului de lucru cu care putem să lucrăm mai ușor folosind scurtături.
+În plus, pentru fiecare sesiune de <code class="docutils literal notranslate"><span class="pre">tmux</span></code> ar fi nevoie să pornim un nou client SSH și în funcție de modul de conectare la stație, asta adaugă pași în plus.</p>
+<p>&lt;insert gif&gt;</p>
+</div>
+<div class="section" id="detasarea-si-reatasarea-la-o-sesiune-tmux">
+<h3><span class="section-number">3.1.2. </span>Detașarea și reatașarea la o sesiune <code class="docutils literal notranslate"><span class="pre">tmux</span></code><a class="headerlink" href="#detasarea-si-reatasarea-la-o-sesiune-tmux" title="Permalink to this headline">¶</a></h3>
+<p>Aplicația <code class="docutils literal notranslate"><span class="pre">tmux</span></code> permite detașarea de la o sesiune folosind combinația de
+taste <code class="docutils literal notranslate"><span class="pre">Ctrl+v</span> <span class="pre">d</span></code></p>
+<p>&lt;insert gif&gt;</p>
+<div class="admonition-observatie admonition">
+<p class="admonition-title">Observație</p>
+<p>Vom vedea pe parcursul acestei subsecțiuni că toate scurtăturile de taste ale aplicației tmux începu cu combinația de taste <code class="docutils literal notranslate"><span class="pre">Ctrl+v</span></code></p>
+</div>
+<p>Pentru a ne reatașa la o sesiune trebuie să ne dăm seama la care sesiune să ne atașăm.
+Fiecare sesiune <code class="docutils literal notranslate"><span class="pre">tmux</span></code> are asociat un identificator.</p>
+<p>Vom afișa toate sesiunile deschise folosind comanda <code class="docutils literal notranslate"><span class="pre">tmux</span> <span class="pre">ls</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>student@uso:~$ tmux ls
+0: 1 windows (created Wed Jan  6 02:44:06 2021)
+</pre></div>
+</div>
+<p>În momentul de față există o singură sesiune cu identificatorul 0.</p>
+<p>Pentru a ne reatașa la sesiune folosim comanda <code class="docutils literal notranslate"><span class="pre">tmux</span> <span class="pre">attach-session</span> <span class="pre">-t</span> <span class="pre">0</span></code>.</p>
+</div>
+<div class="section" id="taburi-in-tmux">
+<h3><span class="section-number">3.1.3. </span>Taburi în <code class="docutils literal notranslate"><span class="pre">tmux</span></code><a class="headerlink" href="#taburi-in-tmux" title="Permalink to this headline">¶</a></h3>
+<p>Pentru a ne organiza terminalele deschise pe stația de la distanță recomandăm folosirea taburilor, deoarece acestea sunt deschise pe durata sesiunii și permit deschiderea și manipularea facilă.</p>
+<p>De exemplu, pentru a lucra la o aplicație, avem nevoie să deschidem într-un tab docul sursă pe care îl manipulăm, într-un tab avem un shell în care compilăm aplicația și într-un tab rulăm comenzi de verificare a aplicației.
+Având fiecare tab cu sarcina sa desemnată păstrăm un istoric mai curat și mai ușor de interpretat și reducem numărul de comenzi pe care le rulăm pentru a reporni editorul de text, a schimba directul de lucru etc.</p>
+<p>Pentru a porni un nou tab folosim combinația de taste <code class="docutils literal notranslate"><span class="pre">Ctrl+v</span> <span class="pre">c</span></code>.</p>
+<p>&lt;insert gif&gt;</p>
+<div class="admonition-observatie admonition">
+<p class="admonition-title">Observație</p>
+<p>În bara de taburi din terminal a apărut un nou tab cu denumirea `` 1:bash*``.</p>
+</div>
+<p>Fiecare tab are propriul identificator și propriul nume.
+Atunci când vrem să mutăm tabul activ folosim combinația de taste <code class="docutils literal notranslate"><span class="pre">Ctrl+v</span> <span class="pre">#</span></code>, unde <code class="docutils literal notranslate"><span class="pre">#</span></code> este numărul tabului care vrem să devină activ.</p>
+<p>&lt;insert gif&gt;</p>
+<div class="admonition-observatie admonition">
+<p class="admonition-title">Observație</p>
+<p>Odată ce se schimbă tabul activ se schimbă și sublinierea tabului activ din bara de taburi.</p>
+</div>
+</div>
+<div class="section" id="exercitii">
+<h3><span class="section-number">3.1.4. </span>Exerciții<a class="headerlink" href="#exercitii" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple">
+<li><p>Creați două sesiuni de <code class="docutils literal notranslate"><span class="pre">tmux</span></code>.</p></li>
+<li><p>În prima sesiune creată deschideți două taburi. Rulați în primul tab comanda <code class="docutils literal notranslate"><span class="pre">htop</span></code> și în al doilea tab deschideți fișierul <code class="docutils literal notranslate"><span class="pre">/etc/passwd</span></code> folosind editorul de text <code class="docutils literal notranslate"><span class="pre">nano</span></code>.</p></li>
+<li><p>În a doua sesiune creată deschideți trei taburi. Rulați în primul tab comanda <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">apt-get</span> <span class="pre">update</span></code>, rulați în al doilea terminal comanda <code class="docutils literal notranslate"><span class="pre">iostat</span> <span class="pre">-x</span> <span class="pre">2</span> <span class="pre">5</span></code> și în al treilea tab rulați comanda <code class="docutils literal notranslate"><span class="pre">tail</span> <span class="pre">-f</span> <span class="pre">/var/log/syslog</span></code>.</p></li>
+</ol>
+</div>
+</div>
+<div class="section" id="scenarii-de-folosire-a-sistemului-la-distanta">
+<h2><span class="section-number">3.2. </span>Scenarii de folosire a sistemului la distanță<a class="headerlink" href="#scenarii-de-folosire-a-sistemului-la-distanta" title="Permalink to this headline">¶</a></h2>
+<p>Vom folosi această subsecțiune ca un tutorial pentru a exemplifica un workflow pentru lucrul la distanță</p>
+</div>
+</div>
+
+
+          </div>
+          <div class="page-nav">
+            <div class="inner"><ul class="page-nav">
+  <li class="prev">
+    <a href="remote.html"
+       title="previous chapter">← <span class="section-number">2. </span>Conectarea la workstation</a>
+  </li>
+  <li class="next">
+    <a href="storage.html"
+       title="next chapter"><span class="section-number">4. </span>Gestionarea spațiului de stocare partajat →</a>
+  </li>
+</ul><div class="footer" role="contentinfo">
+      &#169; Copyright 2020, USO Team.
+    <br>
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.4.3 with <a href="https://github.com/romnnn/sphinx_press_theme">Press Theme</a>.
+</div>
+            </div>
+          </div>
+      </page>
+    </div>
+    
+    
+  </body>
+</html>
