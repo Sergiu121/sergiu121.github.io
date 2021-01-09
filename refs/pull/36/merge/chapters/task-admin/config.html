@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-      <title>Configurarea stației la distanță</title>
+      <title>3. Configurarea stației la distanță</title>
     
       <link rel="stylesheet" href="../../_static/pygments.css">
       <link rel="stylesheet" href="../../_static/theme.css">
@@ -23,6 +23,8 @@
     
   <link rel="index" title="Index" href="../../genindex.html" />
   <link rel="search" title="Search" href="../../search.html" />
+  <link rel="next" title="4. Folosirea stației la distanță" href="usage.html" />
+  <link rel="prev" title="2. Conectarea la workstation" href="remote.html" />
     <link href="../../_static/my_theme.css" rel="stylesheet" type="text/css">
 
   </head>
@@ -84,7 +86,7 @@
   
     <div class="nav-item">
       <a href="../../index.html#uso-lab-book"
-         class="nav-link ">
+         class="nav-link  router-link-active">
          Planificarea sarcinilor administrative
       </a>
     </div>
@@ -158,7 +160,7 @@
   
     <div class="nav-item">
       <a href="../../index.html#uso-lab-book"
-         class="nav-link ">
+         class="nav-link  router-link-active">
          Planificarea sarcinilor administrative
       </a>
     </div>
@@ -517,7 +519,7 @@
       <p class="caption">
         <span class="caption-text"><a href="../../index.html#uso-lab-book">Planificarea sarcinilor administrative</a></span>
       </p>
-      <ul class="">
+      <ul class="current">
         
           <li class="toctree-l1 "><a href="workstation.html" class="reference internal ">Folosirea unui workstation remote</a>
 
@@ -527,6 +529,20 @@
         
           <li class="toctree-l1 "><a href="remote.html" class="reference internal ">Conectarea la workstation</a>
 
+            
+          </li>
+
+        
+          <li class="toctree-l1 current"><a href="#" class="reference internal current">Configurarea stației la distanță</a>
+
+            
+              <ul>
+                
+                  <li class="toctree-l2"><a href="#configurarea-shellului" class="reference internal">Configurarea shellului</a></li>
+                
+                  <li class="toctree-l2"><a href="#configurarea-aplicatiilor-de-baza" class="reference internal">Configurarea aplicațiilor de bază</a></li>
+                
+              </ul>
             
           </li>
 
@@ -579,11 +595,19 @@
   <ul class="breadcrumbs">
     <li><a href="../../index.html">Docs</a> &raquo;</li>
     
-    <li>Configurarea stației la distanță</li>
+    <li><span class="section-number">3. </span>Configurarea stației la distanță</li>
   </ul>
   
 
   <ul class="page-nav">
+  <li class="prev">
+    <a href="remote.html"
+       title="previous chapter">← <span class="section-number">2. </span>Conectarea la workstation</a>
+  </li>
+  <li class="next">
+    <a href="usage.html"
+       title="next chapter"><span class="section-number">4. </span>Folosirea stației la distanță →</a>
+  </li>
 </ul>
   
 </div>
@@ -591,67 +615,187 @@
           <div class="content" role="main">
             
   <div class="section" id="configurarea-statiei-la-distanta">
-<h1>Configurarea stației la distanță<a class="headerlink" href="#configurarea-statiei-la-distanta" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">3. </span>Configurarea stației la distanță<a class="headerlink" href="#configurarea-statiei-la-distanta" title="Permalink to this headline">¶</a></h1>
 <p>După ce am realizat o conexiune către stația pe care vom lucra, trebuie să ne pregătim mediul de lucru.
 Configurația mediului de lucru depinde de propriile gusturi și aplicațiile pe care le folosește fiecare.</p>
-<p>Configurarea mediului de lucru este recomandată pentru a adapta sistemul la propriile nevoi. De exemplu, o persoană care va lucra foarte mult cu repository-uri de tip git, probabil va avea nevoie de un prompt care să îi afișeze pe ce branch lucrează, astfel încât să gestioneze mai ușor branchurile. Aceste modificări au rolul de a reduce acțiunile repetitive pe care le facem sau de a pregăti aplicații pe care le vom folosi mai departe.</p>
-<p>Noi vă vom recomanda niște modificări asupra sistemului la distanță, dar acestea nu sunt în niciun fel obligatorii pentru toți ci sunt mai de grabă sugestii după care vă puteți inspira pentru a vă configura mai departe propriul mediu de lucru.</p>
+<p>Configurarea mediului de lucru este recomandată pentru a adapta sistemul la propriile nevoi.
+De exemplu, o persoană care va lucra foarte mult cu repository-uri de tip Git, probabil va avea nevoie de un prompt care să îi afișeze pe ce branch lucrează, astfel încât să gestioneze mai ușor branchurile.
+Aceste modificări au rolul de a reduce acțiunile repetitive pe care le facem sau de a pregăti aplicații pe care le vom folosi mai departe.</p>
+<p>Această secțiune cuprinde recomandări de configurare a sistemului de la distanță.
+Au formă de sugestii, nu sunt obligații, pe baza cărora fiecare poate decide pentru configurarea propriului mediu de lucru.</p>
 <div class="section" id="configurarea-shellului">
-<h2>Configurarea shellului<a class="headerlink" href="#configurarea-shellului" title="Permalink to this headline">¶</a></h2>
-<p>Primul aspect pe care îl vom modifica la mediul de lucru este shellul în care rulăm comenzi, deoarece acesta este cea mai folosită unealtă, fiecă că edităm cod, sau administrăm sisteme, acesta este locul unde rulăm comenzi.</p>
+<h2><span class="section-number">3.1. </span>Configurarea shellului<a class="headerlink" href="#configurarea-shellului" title="Permalink to this headline">¶</a></h2>
+<p>Primul aspect pe care îl vom modifica la mediul de lucru este shellul în care rulăm comenzi, deoarece acesta este cea mai folosită unealtă.
+Fie că că edităm cod, sau administrăm sisteme, acesta este locul unde rulăm comenzi.</p>
 <p>Modificările la nivelul shellului se fac schimbând variabile de mediu sau rulând comenzi înainte de rularea efectivă a shell-ului.</p>
-<p>Pentru a modifica mediul shellului, trebuie să facem asta într-un fișier de configurare. Noi vom folosi fișierul <code class="docutils literal notranslate"><span class="pre">~/.profile</span></code>, deoarece acesta este citit și rulat de toate implementările de shell majorore, cum ar fi <code class="docutils literal notranslate"><span class="pre">dash</span></code>, <code class="docutils literal notranslate"><span class="pre">csh</span></code>, <code class="docutils literal notranslate"><span class="pre">bash</span></code> sau <code class="docutils literal notranslate"><span class="pre">zsh</span></code>, astfel oferă intercompatibilitate între shelluri.</p>
+<p>Pentru a modifica mediul shellului, trebuie să facem asta într-un fișier de configurare.
+Vom folosi fișierul <code class="docutils literal notranslate"><span class="pre">~/.profile</span></code>, deoarece acesta este citit și rulat de toate implementările de shell majorore, cum ar fi <code class="docutils literal notranslate"><span class="pre">dash</span></code>, <code class="docutils literal notranslate"><span class="pre">csh</span></code>, <code class="docutils literal notranslate"><span class="pre">bash</span></code> sau <code class="docutils literal notranslate"><span class="pre">zsh</span></code>, astfel oferă intercompatibilitate între shelluri.</p>
 <div class="section" id="modificarea-shellului-predefinit">
-<h3>Modificarea shellului predefinit<a class="headerlink" href="#modificarea-shellului-predefinit" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">3.1.1. </span>Modificarea shellului predefinit<a class="headerlink" href="#modificarea-shellului-predefinit" title="Permalink to this headline">¶</a></h3>
 <p>Ne dorim să modificăm shellul predefinit pe care îl folosește sistemul, deoarece fiecare implementare de shell oferă propriile funcționalități.
 De exemplu, <code class="docutils literal notranslate"><span class="pre">csh</span></code>, <code class="docutils literal notranslate"><span class="pre">bash</span></code> și <code class="docutils literal notranslate"><span class="pre">zsh</span></code> fiecare implementează un mecanism de auto-completion diferit, astfel completarea se face în mod diferit atunci când apăsăm tasta <code class="docutils literal notranslate"><span class="pre">TAB</span></code>.</p>
-<p>Pentru a modifica shellul predefinit al unui utilizator folosim comanda
-<code class="docutils literal notranslate"><span class="pre">usermod</span></code> cu opțiunea <code class="docutils literal notranslate"><span class="pre">-s</span></code> în felul următor:</p>
+<p>Pentru a modifica shellul predefinit al unui utilizator folosim comanda <code class="docutils literal notranslate"><span class="pre">usermod</span></code> cu opțiunea <code class="docutils literal notranslate"><span class="pre">-s</span></code> în felul următor:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
-<p>Rulând comanda de mai sus, am modificat shellul predefinit al utilizatorului <code class="docutils literal notranslate"><span class="pre">student</span></code> în <code class="docutils literal notranslate"><span class="pre">/bin/csh</span></code>. Pentru e verifica că s-a efectuat operați corect, ne-am autentificat ca utilizatorul student și am afișat valoarea variabilei <code class="docutils literal notranslate"><span class="pre">SHELL</span></code>.</p>
+<p>Rulând comanda de mai sus, am modificat shellul predefinit al utilizatorului <code class="docutils literal notranslate"><span class="pre">student</span></code> în <code class="docutils literal notranslate"><span class="pre">/bin/zsh</span></code>.
+Pentru e verifica că s-a efectuat operați corect, ne-am autentificat ca utilizatorul student și am afișat valoarea variabilei <code class="docutils literal notranslate"><span class="pre">SHELL</span></code>.</p>
 <div class="section" id="exercitiu-modificarea-shellului-predefinit">
-<h4>Exercițiu: Modificarea shellului predefinit:<a class="headerlink" href="#exercitiu-modificarea-shellului-predefinit" title="Permalink to this headline">¶</a></h4>
-<p>Modificați shellul predefinit al utilizatorului <code class="docutils literal notranslate"><span class="pre">student</span></code> cu shellul <code class="docutils literal notranslate"><span class="pre">/bin/zsh</span></code>. Încercați să folosiți funcționalitatea de auto-complete. Ce observați?</p>
+<h4><span class="section-number">3.1.1.1. </span>Exercițiu: Modificarea shellului predefinit:<a class="headerlink" href="#exercitiu-modificarea-shellului-predefinit" title="Permalink to this headline">¶</a></h4>
+<p>Modificați shellul predefinit al utilizatorului <code class="docutils literal notranslate"><span class="pre">student</span></code> cu shellul <code class="docutils literal notranslate"><span class="pre">/bin/bash</span></code>.
+Încercați să folosiți funcționalitatea de auto-complete. Ce observați?</p>
 </div>
 </div>
 <div class="section" id="configurarea-aliasurilor">
-<h3>Configurarea aliasurilor<a class="headerlink" href="#configurarea-aliasurilor" title="Permalink to this headline">¶</a></h3>
-<p>Există comenzi pe care le rulăm frecvent. Totuși, unele comenzi sunt lungi și durează mult timp să le tastăm de fiecare dată atunci când vrem să le rulăm. Pentru a rezolva această problemă, putem folosi aliasuri. Un alias este o prescurtare pentru o comandă.</p>
+<h3><span class="section-number">3.1.2. </span>Configurarea aliasurilor<a class="headerlink" href="#configurarea-aliasurilor" title="Permalink to this headline">¶</a></h3>
+<p>Există comenzi pe care le rulăm frecvent.
+Totuși, unele comenzi sunt lungi și durează mult timp să le tastăm de fiecare dată atunci când vrem să le rulăm.
+Pentru a rezolva această problemă, putem folosi aliasuri.
+Un alias este o prescurtare pentru o comandă.</p>
 <p>Vom folosi comanda <code class="docutils literal notranslate"><span class="pre">alias</span></code> pentru defini un alias.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">student</span><span class="nd">@uso</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>student@uso:~$ alias gs=&quot;git status&quot;
+student@uso:~$ cd uso-lab/
+student@uso:~/uso-lab$ gs
+On branch master
+Your branch is up to date with &#39;origin/master&#39;.
+
+nothing to commit, working tree clean
+student@uso:~/uso-lab$ alias
+[...]
+alias gs=&#39;git status&#39;
+alias gti=&#39;git&#39;
+alias l=&#39;ls -CF&#39;
+alias la=&#39;ls -A&#39;
+alias ll=&#39;ls -alF&#39;
+alias ls=&#39;ls --color=auto&#39;
 </pre></div>
 </div>
+<p>Am definit aliasul <code class="docutils literal notranslate"><span class="pre">gs</span></code> pentru comanda <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">status</span></code> și am verificat-o în repository-ul <code class="docutils literal notranslate"><span class="pre">uso-lab</span></code>.</p>
+<p>Pentru a verifica ce aliasuri sunt definite, vom folosi comanda <code class="docutils literal notranslate"><span class="pre">alias</span></code> fără parametri.</p>
+<p>Definirea de mai sus a unui alias nu este persistent, ci acesta va fi definit cât timp shellul curent este deschis.
+Pentru a defini un alias persistent, trebuie să îl definim, folosind comanda <code class="docutils literal notranslate"><span class="pre">alias</span></code> într-un fișier de configurare, cum ar fi <code class="docutils literal notranslate"><span class="pre">.profile</span></code>.</p>
 </div>
 <div class="section" id="exercitiu-configurarea-aliasurilor">
-<h3>Exercițiu: Configurarea aliasurilor<a class="headerlink" href="#exercitiu-configurarea-aliasurilor" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">3.1.3. </span>Exercițiu: Configurarea aliasurilor<a class="headerlink" href="#exercitiu-configurarea-aliasurilor" title="Permalink to this headline">¶</a></h3>
 <ol class="arabic simple">
 <li><p>Configurați aliasul <code class="docutils literal notranslate"><span class="pre">gcs</span></code> pentru comanda <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">commit</span> <span class="pre">--signnoff</span></code>.</p></li>
 <li><p>Configurați aliasul <code class="docutils literal notranslate"><span class="pre">glog</span></code> pentru comanda <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">log</span> <span class="pre">--oneline</span></code>.</p></li>
 </ol>
 </div>
 <div class="section" id="modificarea-dimensiunii-istoricului-de-comenzi">
-<h3>Modificarea dimensiunii istoricului de comenzi<a class="headerlink" href="#modificarea-dimensiunii-istoricului-de-comenzi" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">3.1.4. </span>Modificarea dimensiunii istoricului de comenzi<a class="headerlink" href="#modificarea-dimensiunii-istoricului-de-comenzi" title="Permalink to this headline">¶</a></h3>
 <p>Fișierul de istoric al unui shell este locul unde sunt salvate comenzile rulate într-ul shell până la delogare.
 Acest fișier este folositor pentru repetarea acțiunilor.</p>
-<p>De exemplu, funcționalitatea de căutare inversă din shell bazată pe <code class="docutils literal notranslate"><span class="pre">Ctrl+r</span></code> caută în istoricul shell-ului, așa că este de preferat să avem un istoric complet în care să căutăm pentru a avea mai multe intrări în care să căutăm.</p>
-<p>Pentru a mări dimensiunea istoricului este suficient să setăm variabila de mediu <code class="docutils literal notranslate"><span class="pre">HISTSIZE</span></code> într-un fișier de configurare. Noi vom folosi fișierul de configurare <code class="docutils literal notranslate"><span class="pre">.profile</span></code> din motivele enumerate mai sus.</p>
+<p>De exemplu, funcționalitatea de căutare inversă din shell bazată pe <code class="docutils literal notranslate"><span class="pre">Ctrl+r</span></code> caută în istoricul shellului, așa că este de preferat să avem un istoric complet în care să căutăm pentru a avea mai multe intrări în care să căutăm.</p>
+<p>Pentru a mări dimensiunea istoricului shellului este suficient să setăm variabila de mediu <code class="docutils literal notranslate"><span class="pre">HISTSIZE</span></code> într-un fișier de configurare.
+Vom folosi fișierul de configurare <code class="docutils literal notranslate"><span class="pre">.profile</span></code> din motivele enumerate mai sus, aflat în directorul home al utilizatorului <code class="docutils literal notranslate"><span class="pre">student</span></code>.
+Această modificare va fi valabilă doar pentru utilizatorul <code class="docutils literal notranslate"><span class="pre">student</span></code>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>student@uso:~$ echo HISTSIZE=20000 &gt;&gt; /home/student/.profile
+</pre></div>
+</div>
+</div>
+<div class="section" id="exercitiu-modificarea-dimensiunii-istoricului-de-comenzi">
+<h3><span class="section-number">3.1.5. </span>Exercițiu: Modificarea dimensiunii istoricului de comenzi<a class="headerlink" href="#exercitiu-modificarea-dimensiunii-istoricului-de-comenzi" title="Permalink to this headline">¶</a></h3>
+<p>Modificarea de mai sus nu este suficientă, deoarece această schimbă doar dimensiunea istoricului din shell care sunt salvate, la pornirea shellului, dimensiunea fișierului de istoric este concatenată folosind variabila <code class="docutils literal notranslate"><span class="pre">HISTFILESIZE</span></code>.
+Valoarea predefinită a acestei variabile este <code class="docutils literal notranslate"><span class="pre">500</span></code>.</p>
+<p>Faceți modificările necesare astfel încât fișierul de istoric să fie concatenat la <code class="docutils literal notranslate"><span class="pre">20000</span></code> de comenzi la pornirea shellului.</p>
 </div>
 <div class="section" id="configurarea-promptului">
-<h3>Configurarea promptului<a class="headerlink" href="#configurarea-promptului" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">3.1.6. </span>Configurarea promptului<a class="headerlink" href="#configurarea-promptului" title="Permalink to this headline">¶</a></h3>
+<p>După cum am învățat în capitolul &lt;TODO&gt;, atunci când am început să lucrăm cu shellul prima oară, promptul este o sursă foarte importantă de informații. Acesta ne poate oferi mai multă informație și ne eliberează din a rula anumite comenzi.
+Practic, noi putem obține mai mult informații rulând mai puține comenzi.</p>
+<p>De exemplu, dacă lucrăm foarte des cu repository-uri de Git, vrem să avem un mod cât mai facil de a vedea pe ce branch lucrăm. Această informație poate fi adăugată în prompt.</p>
+<p>Promptul shellului <code class="docutils literal notranslate"><span class="pre">bash</span></code> este setat folosind variabila <code class="docutils literal notranslate"><span class="pre">PS1</span></code>.
+Orice și de caractere va fi scris în variabila <code class="docutils literal notranslate"><span class="pre">PS1</span></code>, va fi afișat înainte de zona în care introducem comenzi
+Dacă modificăm variabila <code class="docutils literal notranslate"><span class="pre">PS1</span></code> vom vedea că prompt-ul se modifică:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>student@uso:~$ echo $PS1
+\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$
+student@uso:~$ PS1=&quot;president@white-house:~$ &quot;
+president@white-house:~$ hostname
+uso
+president@white-house:~$ id
+uid=1000(student) gid=1000(student) groups=1000(student),4(adm),24(cdrom),27(sudo),30(dip),46(plugdev),120(lpadmin),131(lxd),132(sambashare),997(docker)
+president@white-house:~$
+</pre></div>
+</div>
+<p>După cum observăm în rezultatul primei comenzi rulate mai sus, valoarea variabilei <code class="docutils literal notranslate"><span class="pre">PS1</span></code>  este un șir de caractere complex, dar noi putem să îl supra-scriem folosind.
+Odată suprascrisă variabila promptul se schimbă în valoarea din variabilă.
+Totuși, am rulat comenzi de verificare pentru a vedea că utilizatorul cu care suntem logați este în continuare <code class="docutils literal notranslate"><span class="pre">student</span></code> și stația la care suntem conectați este <code class="docutils literal notranslate"><span class="pre">uso</span></code></p>
+<p>Putem să ne generăm propriul prompt complex folosind utilitare online.
+Noi recomandăm EZPrompt &lt;TODO ref&gt;.
+Acest site are funcționalitatea de a genera un prompt modificat.
+Noi vrem să generăm un prompt de forma <code class="docutils literal notranslate"><span class="pre">username&#64;hostname:path_to_current_dir-git_branch</span></code>.
+EZPrompt ne-a generat următoarele comenzi pentru a modifica promptul pe care le vom adăuga la finalul fișierului <code class="docutils literal notranslate"><span class="pre">.profile</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span># get current branch in git repo
+function parse_git_branch() {
+    BRANCH=`git branch 2&gt; /dev/null | sed -e &#39;/^[^*]/d&#39; -e &#39;s/* \(.*\)/\1/&#39;`
+    if [ ! &quot;${BRANCH}&quot; == &quot;&quot; ]
+    then
+            STAT=`parse_git_dirty`
+            echo &quot;[${BRANCH}${STAT}]&quot;
+    else
+            echo &quot;&quot;
+    fi
+}
+# get current status of git repo
+function parse_git_dirty {
+    status=`git status 2&gt;&amp;1 | tee`
+    dirty=`echo -n &quot;${status}&quot; 2&gt; /dev/null | grep &quot;modified:&quot; &amp;&gt; /dev/null; echo &quot;$?&quot;`
+    untracked=`echo -n &quot;${status}&quot; 2&gt; /dev/null | grep &quot;Untracked files&quot; &amp;&gt; /dev/null; echo &quot;$?&quot;`
+    ahead=`echo -n &quot;${status}&quot; 2&gt; /dev/null | grep &quot;Your branch is ahead of&quot; &amp;&gt; /dev/null; echo &quot;$?&quot;`
+    newfile=`echo -n &quot;${status}&quot; 2&gt; /dev/null | grep &quot;new file:&quot; &amp;&gt; /dev/null; echo &quot;$?&quot;`
+    renamed=`echo -n &quot;${status}&quot; 2&gt; /dev/null | grep &quot;renamed:&quot; &amp;&gt; /dev/null; echo &quot;$?&quot;`
+    deleted=`echo -n &quot;${status}&quot; 2&gt; /dev/null | grep &quot;deleted:&quot; &amp;&gt; /dev/null; echo &quot;$?&quot;`
+    bits=&#39;&#39;
+    if [ &quot;${renamed}&quot; == &quot;0&quot; ]; then
+            bits=&quot;&gt;${bits}&quot;
+    fi
+    if [ &quot;${ahead}&quot; == &quot;0&quot; ]; then
+            bits=&quot;*${bits}&quot;
+    fi
+    if [ &quot;${newfile}&quot; == &quot;0&quot; ]; then
+            bits=&quot;+${bits}&quot;
+    fi
+    if [ &quot;${untracked}&quot; == &quot;0&quot; ]; then
+            bits=&quot;?${bits}&quot;
+    fi
+    if [ &quot;${deleted}&quot; == &quot;0&quot; ]; then
+            bits=&quot;x${bits}&quot;
+    fi
+    if [ &quot;${dirty}&quot; == &quot;0&quot; ]; then
+            bits=&quot;!${bits}&quot;
+    fi
+    if [ ! &quot;${bits}&quot; == &quot;&quot; ]; then
+            echo &quot; ${bits}&quot;
+    else
+            echo &quot;&quot;
+    fi
+}
+export PS1=&quot;\u@\h:\w-\`parse_git_branch\` &quot;
+</pre></div>
+</div>
+<p>Pornind un nou shell, vedem că promptul s-a schimbat, acum nu mai este colorat.
+Când schimbăm directorul curent într-un repository Git, în promp va apărea și branch-ul pe care este setată replica repository-ului</p>
+</div>
+<div class="section" id="exercitiu-configurarea-promptului">
+<h3><span class="section-number">3.1.7. </span>Exercițiu: Configurarea promptului<a class="headerlink" href="#exercitiu-configurarea-promptului" title="Permalink to this headline">¶</a></h3>
+<p>Se întâmplă ca atunci când lucrăm cu arbori de fișiere cu multe directoare, să nu încapă comenzile pe un singur rând.
+Acest lucru este deranjant, deoarece comenzile devin greu de urmărit.</p>
+<p>Pentru a rezolva această problemă vrem să avem promptul pe un rând și spațiul unde introducem textul pe următorul rând.</p>
+<p>Modificați promptul astfel încât comenzile rulate să apară pe următorul rând față de prompt.</p>
 </div>
 </div>
 <div class="section" id="configurarea-aplicatiilor-de-baza">
-<h2>Configurarea aplicațiilor de bază<a class="headerlink" href="#configurarea-aplicatiilor-de-baza" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.2. </span>Configurarea aplicațiilor de bază<a class="headerlink" href="#configurarea-aplicatiilor-de-baza" title="Permalink to this headline">¶</a></h2>
+<p>După ce am configurat mediul de lucru, vrem să configurăm și aplicațiile pe care le vom folosi.</p>
 <div class="section" id="configurarea-git">
-<h3>Configurarea git<a class="headerlink" href="#configurarea-git" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">3.2.1. </span>Configurarea Git<a class="headerlink" href="#configurarea-git" title="Permalink to this headline">¶</a></h3>
 </div>
 <div class="section" id="configurarea-vim">
-<h3>Configurarea vim<a class="headerlink" href="#configurarea-vim" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">3.2.2. </span>Configurarea Vim<a class="headerlink" href="#configurarea-vim" title="Permalink to this headline">¶</a></h3>
 </div>
 <div class="section" id="configurarea-tmux">
-<h3>Configurarea tmux<a class="headerlink" href="#configurarea-tmux" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">3.2.3. </span>Configurarea tmux<a class="headerlink" href="#configurarea-tmux" title="Permalink to this headline">¶</a></h3>
 </div>
 </div>
 </div>
@@ -660,6 +804,14 @@ Acest fișier este folositor pentru repetarea acțiunilor.</p>
           </div>
           <div class="page-nav">
             <div class="inner"><ul class="page-nav">
+  <li class="prev">
+    <a href="remote.html"
+       title="previous chapter">← <span class="section-number">2. </span>Conectarea la workstation</a>
+  </li>
+  <li class="next">
+    <a href="usage.html"
+       title="next chapter"><span class="section-number">4. </span>Folosirea stației la distanță →</a>
+  </li>
 </ul><div class="footer" role="contentinfo">
       &#169; Copyright 2020, USO Team.
     <br>
