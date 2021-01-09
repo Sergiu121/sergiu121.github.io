@@ -610,24 +610,45 @@
             
   <div class="section" id="gestionarea-spatiului-de-stocare-partajat">
 <h1><span class="section-number">4. </span>Gestionarea spațiului de stocare partajat<a class="headerlink" href="#gestionarea-spatiului-de-stocare-partajat" title="Permalink to this headline">¶</a></h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Pentru a parcurge această secțiune este recomandat să descărcați ultima
+versiune a respository-ului laboratorului. Pentru a descărca ultima versiune
+a repository-ului rulați comanda <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">pull</span></code> în directorul
+<code class="docutils literal notranslate"><span class="pre">~/uso-lab/labs/10-tasks-admin/lab-containers/</span></code>.</p>
+<p>Infrastructura laboratorului este bazată pe containere docker ale căror
+imagini vor fi generate pe propriul calculator. Dacă nu veți deja instalat
+Docker Engine pe sistem, scriptul
+<code class="docutils literal notranslate"><span class="pre">~/uso-lab/labs/10-tasks-admin/lab-containers/lab_prepare.sh</span></code> vă va instala aplicația.</p>
+<p>După ce ați terminat de lucrat vă recomandăm să opriți containerele rulând
+comanda <code class="docutils literal notranslate"><span class="pre">./lab-prepare.sh</span> <span class="pre">delete</span></code> în directorul
+<code class="docutils literal notranslate"><span class="pre">~/uso-lab/labs/10-tasks-admin/lab-containers/</span></code>.</p>
+</div>
 <p>O componentă importantă a mediului de lucru este spațiul de stocare.
-Cu toate că noi vom rula aplicații pe serverul de la distanță, noi avem nevoie de acces la spațiul de stocare al acestuia, deoarece vrem ca într-un final să urmărim rezultatul procesării și eventual să îl analizăm folosind diferite utilitate grafice.
+Cu toate că vom rula aplicații pe serverul de la distanță, avem nevoie de acces la spațiul de stocare al acestuia, deoarece vrem ca, într-un final, să urmărim rezultatul procesării și, eventual, să îl analizăm folosind utilitare grafice dedicate.
 O altă nevoie pe care o avem este editarea codului la distanță, deoarece majoritatea programatorilor folosesc IDE-uri în mediu grafic, care nu pot rula mereu eficient de la distanță.
-Soluția la această nevoie este să partajăm spațiul de stocare între serverul de la distanță și laptopul sau stația locală de pe care lucrăm.</p>
+Soluția la această nevoie este să partajăm spațiul de stocare între serverul <code class="docutils literal notranslate"><span class="pre">remote</span></code> și <code class="docutils literal notranslate"><span class="pre">local</span></code> de pe care lucrăm.</p>
 <div class="section" id="stocare-partajata-folosind-sshfs">
 <h2><span class="section-number">4.1. </span>Stocare partajată folosind SSHFS<a class="headerlink" href="#stocare-partajata-folosind-sshfs" title="Permalink to this headline">¶</a></h2>
-<p>SSHFS este o soluție de stocare partajată care permite montarea unui sistem de fișiere care nu este legat fizic la stația curent ci se folosește de protocolul SSH pentru a transmite operațiile asupra fișierelor prin rețea către un sistem de fișiere conectat prin rețea.</p>
-<p>Avantajul folosirii SSHFS este că acesta nu necesită descărcarea sistemului de fișiere de la distanță, deci nu duce la duplicarea fișierelor.
-Dezavantajul acestei abordări este faptul că dacă pierdem conexiunea la sistemul de fișiere de la distanță, nu mai avem acces la fișiere.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Pentru rularea acestui demo rulați în directorul <code class="docutils literal notranslate"><span class="pre">~/uso.git/labs/03-user/lab-containers/</span></code> comanda <code class="docutils literal notranslate"><span class="pre">./lab_prepare.sh</span> <span class="pre">install</span> <span class="pre">remote</span></code>, comanda  <code class="docutils literal notranslate"><span class="pre">./lab_prepare.sh</span> <span class="pre">install</span> <span class="pre">config</span></code> și comanda <code class="docutils literal notranslate"><span class="pre">./lab_prepare.sh</span> <span class="pre">install</span> <span class="pre">ssh-server</span></code>.
+Pentru a ne conecta la infrastructura pentru această secțiune vom folosi comanda <code class="docutils literal notranslate"><span class="pre">./lab_prepare.sh</span> <span class="pre">connect</span> <span class="pre">local</span></code>.</p>
+</div>
+<p>SSHFS este o soluție de stocare partajată care permite montarea unui sistem de fișiere care nu este legat fizic la stația <code class="docutils literal notranslate"><span class="pre">local</span></code>, ci se folosește de protocolul SSH pentru a transmite operațiile asupra fișierelor prin rețea către un sistem de fișiere conectat prin rețea.</p>
+<p>Avantajul folosirii SSHFS este că nu necesită descărcarea sistemului de fișiere de la distanță, deci nu duce la duplicarea fișierelor.
+Dezavantajul acestei abordări este că dacă pierdem conexiunea la sistemul de fișiere de la distanță, nu mai avem acces la fișiere.</p>
 <div class="section" id="montarea-temporara-a-unui-sistem-de-fisiere">
 <h3><span class="section-number">4.1.1. </span>Montarea temporară a unui sistem de fișiere<a class="headerlink" href="#montarea-temporara-a-unui-sistem-de-fisiere" title="Permalink to this headline">¶</a></h3>
 <p>Pentru a monta sistemul de fișiere de pe un alt sistem, vom folosi comanda <code class="docutils literal notranslate"><span class="pre">sshfs</span></code></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>root@local:~# ls /mnt/
+
 root@local:~# sshfs root@10.10.10.2:/ /mnt/
 The authenticity of host &#39;10.10.10.2 (10.10.10.2)&#39; can&#39;t be established.
 ECDSA key fingerprint is SHA256:xV1orHYj4fhkc5HE91sfh8QhaVqke/AEMa8mYI423HY.
 Are you sure you want to continue connecting (yes/no)? yes
 root@10.10.10.2&#39;s password:
+
 root@local:~# df -h
 Filesystem         Size  Used Avail Use% Mounted on
 overlay             16G   14G  539M  97% /
@@ -636,36 +657,50 @@ tmpfs              2.0G     0  2.0G   0% /sys/fs/cgroup
 /dev/sda5           16G   14G  539M  97% /etc/hosts
 shm                 64M     0   64M   0% /dev/shm
 root@10.10.10.2:/   16G   14G  539M  97% /mnt
+
 root@local:~# ls /mnt/
 bin  boot  dev  etc  home  lib  lib64  media  mnt  opt  proc  root  run  sbin  srv  sys  tmp  usr  var
 </pre></div>
 </div>
-<p>Comanda de mai sus a montat arborele de fișiere cu rădăcina în directorul <code class="docutils literal notranslate"><span class="pre">/</span></code> de pe sistemul de la adresa IP <code class="docutils literal notranslate"><span class="pre">10.10.10.2</span></code> în directorul <code class="docutils literal notranslate"><span class="pre">/mnt</span></code> de pe stația locală, cu numele <code class="docutils literal notranslate"><span class="pre">local</span></code>, autentificându-se ca utilizatorul <code class="docutils literal notranslate"><span class="pre">root</span></code>.</p>
-<p>Am folosit comanda <code class="docutils literal notranslate"><span class="pre">df</span></code> pentru a afișa informații despre toate sistemele de fișiere montate pe stația locală.</p>
+<p>Comanda de mai sus a montat ierarhia de fișiere cu rădăcina în directorul <code class="docutils literal notranslate"><span class="pre">/</span></code> de pe sistemul de la adresa IP <code class="docutils literal notranslate"><span class="pre">10.10.10.2</span></code> în directorul <code class="docutils literal notranslate"><span class="pre">/mnt</span></code> de pe stația locală, cu numele <code class="docutils literal notranslate"><span class="pre">local</span></code>, autentificându-se ca utilizatorul <code class="docutils literal notranslate"><span class="pre">root</span></code>.</p>
+<p>Am folosit comanda <code class="docutils literal notranslate"><span class="pre">df</span></code> pentru a afișa informații despre toate sistemele de fișiere montate pe stația locală.
+Observăm că pe ultima linie apare conexiunea către stația de la adresa <code class="docutils literal notranslate"><span class="pre">10.10.10.2</span></code>.</p>
 <div class="admonition-observatie admonition">
 <p class="admonition-title">Observație</p>
 <p>Sintaxa comenzii <code class="docutils literal notranslate"><span class="pre">sshfs</span></code> se aseamănă cu sintaxa comenzii <code class="docutils literal notranslate"><span class="pre">scp</span></code>.</p>
 </div>
-<p>Acest mod te montare al sistemului de fișier este temporară. Atunci când vom opri stația sistemul de fișiere va fi demontat.</p>
+<p>Acest mod te montare a sistemului de fișier este temporară.
+Atunci când vom opri stația sistemul de fișiere va fi demontat.</p>
 </div>
 <div class="section" id="exercitiu-montarea-temporara-a-unui-sistem-de-fisiere">
 <h3><span class="section-number">4.1.2. </span>Exercițiu: Montarea temporară a unui sistem de fișiere<a class="headerlink" href="#exercitiu-montarea-temporara-a-unui-sistem-de-fisiere" title="Permalink to this headline">¶</a></h3>
 <ol class="arabic simple">
-<li><p>Montați temporar sistemul de fișiere cu rădăcina în directorul <code class="docutils literal notranslate"><span class="pre">/</span></code> de pe stația <code class="docutils literal notranslate"><span class="pre">10.10.10.4</span></code> în directorul <code class="docutils literal notranslate"><span class="pre">/mnt/vol1</span></code>.</p></li>
+<li><p>Montați temporar sistemul de fișiere cu rădăcina în directorul <code class="docutils literal notranslate"><span class="pre">/</span></code> de pe stația <code class="docutils literal notranslate"><span class="pre">10.10.10.2</span></code> în directorul <code class="docutils literal notranslate"><span class="pre">/mnt/vol1</span></code>.</p></li>
 <li><p>Montați temporar sistemul de fișiere cu rădăcina în directorul <code class="docutils literal notranslate"><span class="pre">/home/student</span></code> de pe stația <code class="docutils literal notranslate"><span class="pre">10.10.10.2</span></code> în directorul <code class="docutils literal notranslate"><span class="pre">/mnt/vol2</span></code>.</p></li>
 </ol>
 </div>
 <div class="section" id="montarea-persistenta-a-unui-sistem-de-fisiere">
 <h3><span class="section-number">4.1.3. </span>Montarea persistentă a unui sistem de fișiere<a class="headerlink" href="#montarea-persistenta-a-unui-sistem-de-fisiere" title="Permalink to this headline">¶</a></h3>
-<p>Deoarece nu ne dorim să rulăm comanda <code class="docutils literal notranslate"><span class="pre">sshfs</span></code> atunci când vrem să folosim un sistem de fișiere la distanță, vrem să montăm persistent sistemul de fișiere de la distanța, astfel încât această montare să persiste după oprirea stației locale.</p>
-<p>Ca să montăm sistemul de fișiere persistent avem nevoie să ne copiem cheia ssh pe stația de la distanța, deoarece montarea se va face în mod neinteractiv, deci nu vom avea posibilitatea de a introduce parola. &lt;TODO REF NETWORKING&gt;</p>
-<p>Pentru a monta sistemul de fișiere în mod persistent vom scrie o intrare în fișierul <code class="docutils literal notranslate"><span class="pre">/etc/fstab</span></code> care va conține detalii despre sistemul de fișiere pe care vrem să îl montăm. Pentru a monta sistemul de fișiere <code class="docutils literal notranslate"><span class="pre">/`</span></code> de pe sistemul de la adresa IP <code class="docutils literal notranslate"><span class="pre">10.10.10.2</span></code> în directorul <code class="docutils literal notranslate"><span class="pre">/mnt</span></code> de pe stația locală, autentificându-ne ca utilizatorul <code class="docutils literal notranslate"><span class="pre">root</span></code> vom folosi următoarele comenzi.</p>
+<p>Deoarece nu ne dorim să rulăm comanda <code class="docutils literal notranslate"><span class="pre">sshfs</span></code> atunci când vrem să folosim un sistem de fișiere la distanță, vrem să montăm persistent sistemul de fișiere de la distanță, astfel încât această montare să persiste după oprirea stației locale.</p>
+<p>Ca să montăm persistent sistemul de fișiere avem nevoie să copiem cheia SSH pe stația de la distanța, deoarece montarea se va face în mod neinteractiv, deci nu vom avea posibilitatea de a introduce parola. &lt;TODO REF NETWORKING&gt;</p>
+<p>Pentru a monta persistent sistemul de fișiere vom scrie o intrare în fișierul <code class="docutils literal notranslate"><span class="pre">/etc/fstab</span></code> care va conține detalii despre sistemul de fișiere pe care vrem să îl montăm.
+Pentru a monta sistemul de fișiere <code class="docutils literal notranslate"><span class="pre">/`</span></code> de pe sistemul de la adresa IP <code class="docutils literal notranslate"><span class="pre">10.10.10.2</span></code> în directorul <code class="docutils literal notranslate"><span class="pre">/mnt</span></code> de pe stația locală, autentificându-ne ca utilizatorul <code class="docutils literal notranslate"><span class="pre">root</span></code>, vom folosi următoarele comenzi:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">root</span><span class="nd">@local</span><span class="p">:</span><span class="o">~</span><span class="c1"># ssh-keygen</span>
 <span class="p">[</span><span class="o">...</span><span class="p">]</span>
 <span class="n">root</span><span class="nd">@local</span><span class="p">:</span><span class="o">~</span><span class="c1"># ssh-copy-id root@10.10.10.2</span>
 <span class="p">[</span><span class="o">...</span><span class="p">]</span>
-<span class="n">root</span><span class="nd">@local</span><span class="p">:</span><span class="o">~</span><span class="c1"># echo root@10.10.10.2:/  /mnt  fuse.sshfs  defaults  0  0 &gt; /etc/fstab</span>
+<span class="n">root</span><span class="nd">@local</span><span class="p">:</span><span class="o">~</span><span class="c1"># echo &quot;root@10.10.10.2:/  /mnt  fuse.sshfs  defaults  0  0&quot; &gt; /etc/fstab</span>
+
 <span class="n">root</span><span class="nd">@local</span><span class="p">:</span><span class="o">~</span><span class="c1"># mount -a</span>
+
+<span class="n">root</span><span class="nd">@local</span><span class="p">:</span><span class="o">~</span><span class="c1"># df -h</span>
+<span class="n">Filesystem</span>         <span class="n">Size</span>  <span class="n">Used</span> <span class="n">Avail</span> <span class="n">Use</span><span class="o">%</span> <span class="n">Mounted</span> <span class="n">on</span>
+<span class="n">overlay</span>             <span class="mi">16</span><span class="n">G</span>   <span class="mi">14</span><span class="n">G</span>  <span class="mi">539</span><span class="n">M</span>  <span class="mi">97</span><span class="o">%</span> <span class="o">/</span>
+<span class="n">tmpfs</span>               <span class="mi">64</span><span class="n">M</span>     <span class="mi">0</span>   <span class="mi">64</span><span class="n">M</span>   <span class="mi">0</span><span class="o">%</span> <span class="o">/</span><span class="n">dev</span>
+<span class="n">tmpfs</span>              <span class="mf">2.0</span><span class="n">G</span>     <span class="mi">0</span>  <span class="mf">2.0</span><span class="n">G</span>   <span class="mi">0</span><span class="o">%</span> <span class="o">/</span><span class="n">sys</span><span class="o">/</span><span class="n">fs</span><span class="o">/</span><span class="n">cgroup</span>
+<span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">sda5</span>           <span class="mi">16</span><span class="n">G</span>   <span class="mi">14</span><span class="n">G</span>  <span class="mi">539</span><span class="n">M</span>  <span class="mi">97</span><span class="o">%</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">hosts</span>
+<span class="n">shm</span>                 <span class="mi">64</span><span class="n">M</span>     <span class="mi">0</span>   <span class="mi">64</span><span class="n">M</span>   <span class="mi">0</span><span class="o">%</span> <span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">shm</span>
+<span class="n">root</span><span class="nd">@10</span><span class="o">.</span><span class="mf">10.10</span><span class="o">.</span><span class="mi">2</span><span class="p">:</span><span class="o">/</span>   <span class="mi">16</span><span class="n">G</span>   <span class="mi">14</span><span class="n">G</span>  <span class="mi">539</span><span class="n">M</span>  <span class="mi">97</span><span class="o">%</span> <span class="o">/</span><span class="n">mnt</span>
 </pre></div>
 </div>
 <p>Am scris în fișierul <code class="docutils literal notranslate"><span class="pre">/etc/fstab</span></code> folosind comanda <code class="docutils literal notranslate"><span class="pre">echo</span></code>, iar pentru a monta sistemul de fișiere am folosit comanda <code class="docutils literal notranslate"><span class="pre">mount</span></code> cu opțiunea <code class="docutils literal notranslate"><span class="pre">-a</span></code> pentru montarea sistemelor de fișiere descrise în fișierul <code class="docutils literal notranslate"><span class="pre">/etc/fstab</span></code>.</p>
@@ -680,17 +715,22 @@ bin  boot  dev  etc  home  lib  lib64  media  mnt  opt  proc  root  run  sbin  s
 </div>
 <div class="section" id="stocare-partajata-folosind-aplicatii-online">
 <h2><span class="section-number">4.2. </span>Stocare partajată folosind aplicații online<a class="headerlink" href="#stocare-partajata-folosind-aplicatii-online" title="Permalink to this headline">¶</a></h2>
-<p>SSHFS nu este o soluție bună pentru a face backup fișierelor, deoarece existând o singură replică, ai șters un fișier și au dispărut toate replicile.
-Pe lângă asta, dacă ai Internet slab, ai acces greu la fișiere (le vrei și local).
-Și, pe lângă asta, trebuie să ai SSH configurat, care poate necesita tunel etc.</p>
-<p>O alternativă pentru acest serviciu sunt soluții cum ar fi GoogleDrive, Dropbox, ownCloud sau OneDrive, care for stoca o replică a fișierului pe toate calculatoarele autentificate de pe un anumit cont.
-Avantajul aici este că aceste sisteme oferă suport pentru controlul versiunilor pentru a șterge modificarea anterioară.
-Cu dezavantajul că trebuie configurate.
+<p>SSHFS nu este o soluție bună pentru a face backup fișierelor deorece, existând o singură replică, ștergerea locală a unui fișier duce la ștergerea sa și de pe stația remote și, astfel, la pierderea sa.
+Pe lângă aceasta, dacă stația locală are conexiune slabă la Internet, accesul la fișiere este greoi și neresponsiv.
+Suplimentar, trebuie configurată o conexiune SSH, care poate necesita la rândul ei existența unui tunel etc.</p>
+<p>O alternativă la folosirea SSHFS sunt soluții cum ar fi GoogleDrive, Dropbox, ownCloud sau One Drive.
+Aceste soluții sochează o replică a fișierului pe toate calculatoarele autentificate de pe un anumit cont.
+Un alt avantaj al acestora este că oferă suport pentru controlul versiunilor pentru a șterge modificarea anterioară.
+Cu dezavantajul că trebuie configurate și riscul apariției conflictelor la modificări simultane pe noduri diferite.
 Și cu dezavantajul că acum informația este duplicată: dublu spațiu ocupat și pot apărea conflicte la modificări.</p>
 <div class="section" id="stocarea-partajata-folosind-dropbox">
 <h3><span class="section-number">4.2.1. </span>Stocarea partajată folosind Dropbox<a class="headerlink" href="#stocarea-partajata-folosind-dropbox" title="Permalink to this headline">¶</a></h3>
-<p>Dropbox este o soluție care se folosește de un server în Internet care stochează fișierele noastre, ca apoi acestea să fie replicate pe fiecare calculator client.</p>
-<p>Este necesar să ne creăm un cont pentru a folosi serviciul Dropbox și să îl activăm.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Pentru rularea acestui demo vom folosi direct mașina virtuală <code class="docutils literal notranslate"><span class="pre">uso</span></code>,</p>
+</div>
+<p>Dropbox este o soluție care se folosește de un server în Internet care stochează fișierele, ca apoi acestea să fie replicate pe fiecare calculator client.</p>
+<p>Este necesară crearea și activarea un cont pentru a folosi serviciul Dropbox.</p>
 <p>Dropbox oferă o aplicație care rulează în linie de comandă pe care o vom descărca pentru a sincroniza sistemul de fișiere de pe serverele Dropbox într-un director local.</p>
 <p>Pentru a descărca aplicația Dropbox, pe care o vom descărca folosind comanda <code class="docutils literal notranslate"><span class="pre">wget</span></code> și o vom instala folosind comanda <code class="docutils literal notranslate"><span class="pre">dpkg</span></code> împreună cu parametrul.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>student@uso:~$ wget https://www.dropbox.com/download?dl=packages/ubuntu/dropbox_2020.03.04_amd64.deb -O dropbox.deb
