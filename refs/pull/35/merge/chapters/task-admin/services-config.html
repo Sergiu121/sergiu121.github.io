@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html >
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+      <title>5. Configurarea și administrarea serviciilor</title>
+    
+      <link rel="stylesheet" href="../../_static/pygments.css">
+      <link rel="stylesheet" href="../../_static/theme.css">
+      <link rel="stylesheet" href="../../_static/romnnn_sphinx_press_theme.css">
+      
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+
+      <!-- sphinx script_files -->
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/my_actions.js"></script>
+
+      
+      <script src="../../_static/theme-vendors.js"></script>
+      <script src="../../_static/theme.js" defer></script>
+    
+  <link rel="index" title="Index" href="../../genindex.html" />
+  <link rel="search" title="Search" href="../../search.html" />
+  <link rel="next" title="6. Instalarea aplicațiilor (serviciilor) folosind Docker" href="services-install.html" />
+  <link rel="prev" title="4. Gestionarea spațiului de stocare partajat" href="storage.html" />
+    <link href="../../_static/my_theme.css" rel="stylesheet" type="text/css">
+
+  </head>
+
+  <body>
+    <div id="app" class="theme-container" :class="pageClasses"><navbar @toggle-sidebar="toggleSidebar">
+  <div class="home-link-container">
+      <router-link to="../../index.html" class="home-link">
+      
+        <span class="site-name">USO Lab Book</span>
+    </router-link>
+  </div>
+
+  <div class="links">
+    <navlinks class="can-hide">
+
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Acomodarea în Linux
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Lucrul cu fișiere
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Dezvoltarea aplicațiilor
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Conectarea la Internet
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Instalarea și utilizarea aplicațiilor
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Îmbunătățirea lucrului în linia de comandă
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link  router-link-active">
+         Planificarea sarcinilor administrative
+      </a>
+    </div>
+  
+
+
+
+  
+    <div class="nav-item">
+      <a href="https://github.com/Sergiu121/uso-lab-book"
+        class="nav-link external">
+          Github <outboundlink/>
+      </a>
+    </div>
+  
+
+    </navlinks>
+  </div>
+</navbar>
+
+      
+      <div class="sidebar-mask" @click="toggleSidebar(false)">
+      </div>
+        <sidebar @toggle-sidebar="toggleSidebar">
+          
+          <navlinks>
+            
+
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Acomodarea în Linux
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Lucrul cu fișiere
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Dezvoltarea aplicațiilor
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Conectarea la Internet
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Instalarea și utilizarea aplicațiilor
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Îmbunătățirea lucrului în linia de comandă
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link  router-link-active">
+         Planificarea sarcinilor administrative
+      </a>
+    </div>
+  
+
+
+
+  
+    <div class="nav-item">
+      <a href="https://github.com/Sergiu121/uso-lab-book"
+        class="nav-link external">
+          Github <outboundlink/>
+      </a>
+    </div>
+  
+
+            
+          </navlinks><div id="searchbox" class="searchbox" role="search">
+  <div class="caption"><span class="caption-text">Search</span>
+    <div class="searchformwrapper">
+      <form autocomplete="off" class="search" action="../../search.html" method="get">
+        <input type="text" name="q" autocomplete="off" />
+        <input type="submit" value="Go" />
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div><div class="sidebar-links" role="navigation" aria-label="main navigation">
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#uso-lab-book">Acomodarea în Linux</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../basic/apps.html" class="reference internal ">Pornirea și oprirea aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../basic/browser.html" class="reference internal ">Folosirea eficientă a browserului web</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../basic/terminal.html" class="reference internal ">Lucrul în terminal</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../basic/workspace.html" class="reference internal ">Lucrul cu workspace-uri</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../basic/cheatsheet.html" class="reference internal ">Cheatsheet</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#uso-lab-book">Lucrul cu fișiere</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../files/paths.html" class="reference internal ">Căi absolute și relative</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../files/files.html" class="reference internal ">Interacțiunea cu fișiere în linia de comandă</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../files/file_editor.html" class="reference internal ">Editor de text</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../files/io_redirection.html" class="reference internal ">Redirectări</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../files/archive.html" class="reference internal ">Arhive</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../files/file_system.html" class="reference internal ">Sistemul de fișiere</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#uso-lab-book">Dezvoltarea aplicațiilor</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../app-dev/git-intro.html" class="reference internal ">Introducere în Git și GitHub</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/git-first-commit.html" class="reference internal ">Primul commit</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/git-more-commits.html" class="reference internal ">Crearea unui nou commit</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/git-contribute.html" class="reference internal ">Contribuirea la un alt repository</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/make-setup.html" class="reference internal ">Pregătirea mediului de lucru</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/make-intro.html" class="reference internal ">Compilarea unui fișier cod sursă C</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/make-multiple.html" class="reference internal ">Compilarea unui program din fișiere multiple</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/make-lib.html" class="reference internal ">Legarea executabilelor folosind biblioteci externe</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/make-debug.html" class="reference internal ">Depanare condițională / configurabilă</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/make-simple-automation.html" class="reference internal ">Introducere în utilitarul Make și fișiere Makefile</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/make-advanced-automation.html" class="reference internal ">Aprofundarea folosirii fișierelor Makefile</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/make-contribute.html" class="reference internal ">Contribuirea la un proiect existent pe GitHub</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/extra.html" class="reference internal ">Exerciții suplimentare</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#uso-lab-book">Conectarea la Internet</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../net/browser.html" class="reference internal ">Folosirea eficientă a browser-ului</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../net/troubleshoot.html" class="reference internal ">Verificarea conectivităţii la reţea</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../net/services.html" class="reference internal ">Servicii şi clienţi de reţea</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../net/extra.html" class="reference internal ">Funcţionalităţi suplimentare de reţelistică</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#uso-lab-book">Instalarea și utilizarea aplicațiilor</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../app-install/start.html" class="reference internal ">Pornirea aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-install/run.html" class="reference internal ">Rularea aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-install/config.html" class="reference internal ">Configurarea aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-install/summary1.html" class="reference internal ">Sumar: Pornirea, rularea și configurarea aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-install/show-config.html" class="reference internal ">Vizualizarea configurației sistemului</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-install/install.html" class="reference internal ">Instalarea și dezinstalarea aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-install/install-non-standard.html" class="reference internal ">Instalarea și dezinstalarea aplicațiilor în mod nestandard</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-install/update.html" class="reference internal ">Actualizarea aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-install/show.html" class="reference internal ">Investigarea aplicațiilor instalate</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-install/summary2.html" class="reference internal ">Sumar: Instalarea, dezinstalarea, investigarea, actualizarea aplicațiilor</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#uso-lab-book">Îmbunătățirea lucrului în linia de comandă</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../improve-cli/improve-terminal.html" class="reference internal ">Îmbunătățirea lucrului în linia de comandă</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../improve-cli/inspect-fs.html" class="reference internal ">Inspectarea sistemului de fișiere</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../improve-cli/inspect-sys.html" class="reference internal ">Inspectarea sistemului</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../improve-cli/inspect-files.html" class="reference internal ">Inspectarea fișierelor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../improve-cli/process-files.html" class="reference internal ">Prelucrarea fișierelor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../improve-cli/improve-shell.html" class="reference internal ">O înțelegere mai bună a shell-ului</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../improve-cli/term-multiplexing.html" class="reference internal ">Multiplexarea terminalului</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#uso-lab-book">Planificarea sarcinilor administrative</a></span>
+      </p>
+      <ul class="current">
+        
+          <li class="toctree-l1 "><a href="workstation.html" class="reference internal ">Folosirea unui workstation remote</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="remote.html" class="reference internal ">Conectarea la workstation</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="usage.html" class="reference internal ">Folosirea stației la distanță</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="storage.html" class="reference internal ">Gestionarea spațiului de stocare partajat</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 current"><a href="#" class="reference internal current">Configurarea și administrarea serviciilor</a>
+
+            
+              <ul>
+                
+                  <li class="toctree-l2"><a href="#lucrul-cu-serviciile-in-linux" class="reference internal">Lucrul cu serviciile în Linux</a></li>
+                
+                  <li class="toctree-l2"><a href="#definirea-unui-serviciu-personalizat" class="reference internal">Definirea unui serviciu personalizat</a></li>
+                
+              </ul>
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="services-install.html" class="reference internal ">Instalarea aplicațiilor (serviciilor) folosind Docker</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="monitor.html" class="reference internal ">Monitorizarea sistemului</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="cron.html" class="reference internal ">Programarea rulării acțiunilor</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+</div>
+        </sidebar>
+
+      <page>
+          <div class="body-header" role="navigation" aria-label="navigation">
+  
+  <ul class="breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+    
+    <li><span class="section-number">5. </span>Configurarea și administrarea serviciilor</li>
+  </ul>
+  
+
+  <ul class="page-nav">
+  <li class="prev">
+    <a href="storage.html"
+       title="previous chapter">← <span class="section-number">4. </span>Gestionarea spațiului de stocare partajat</a>
+  </li>
+  <li class="next">
+    <a href="services-install.html"
+       title="next chapter"><span class="section-number">6. </span>Instalarea aplicațiilor (serviciilor) folosind Docker →</a>
+  </li>
+</ul>
+  
+</div>
+<hr>
+          <div class="content" role="main">
+            
+  <div class="section" id="configurarea-si-administrarea-serviciilor">
+<h1><span class="section-number">5. </span>Configurarea și administrarea serviciilor<a class="headerlink" href="#configurarea-si-administrarea-serviciilor" title="Permalink to this headline">¶</a></h1>
+<p>Scopul serviciilor este să ruleze în continuu și să primească cereri de la aplicații client, cum ar fi un client <code class="docutils literal notranslate"><span class="pre">ssh</span></code> și să răspundă la aceste cereri.
+Serviciile sunt aplicații care rulează în continuu pe stație, spre deosebire de comenzi, cum ar fi <code class="docutils literal notranslate"><span class="pre">find</span></code> sau <code class="docutils literal notranslate"><span class="pre">ls</span></code> care rulează cât timp se execută comanda.
+Deoarece ne dorim să avem majoritatea timpului conectivitate la mașină, sau ne dorim să avem acces la paginile web folosite, serverele care execută comenzi primite de la clienți rulează fără să se oprească.</p>
+<p>Vrem să pornim diversele servicii din sistem care sunt instalate pe propria stație pentru a ne conecta la sistem, pentru a găzdui site-uri web și altele.
+Avem nevoie de o interfață unică, cu o sintaxă minimală, care ne poate permite să gestionăm serviciile pe sistem, cum le pornim, oprim și cum putem să generăm noi propriile servicii.</p>
+<div class="section" id="lucrul-cu-serviciile-in-linux">
+<h2><span class="section-number">5.1. </span>Lucrul cu serviciile în Linux<a class="headerlink" href="#lucrul-cu-serviciile-in-linux" title="Permalink to this headline">¶</a></h2>
+<p>Comanda folosită pentru gestionarea serviciilor este <code class="docutils literal notranslate"><span class="pre">systemctl</span></code>.
+Aceasta se regăsește pe majoritatea distribuțiilor moderne de Linux.</p>
+<div class="section" id="verificarea-starii-unui-serviciu">
+<h3><span class="section-number">5.1.1. </span>Verificarea stării unui serviciu<a class="headerlink" href="#verificarea-starii-unui-serviciu" title="Permalink to this headline">¶</a></h3>
+<p>Atunci când instalăm o aplicație care rulează sub forma unui serviciu vom putea să îi verificăm starea folosind comanda <code class="docutils literal notranslate"><span class="pre">systemctl</span> <span class="pre">status</span></code>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>student@uso:~$ systemctl status ssh
+● ssh.service - OpenBSD Secure Shell server
+     Loaded: loaded (/lib/systemd/system/ssh.service; enabled; vendor preset: enabled)
+     Active: active (running) since Sat 2021-01-09 04:22:11 EET; 1min 17s ago
+       Docs: man:sshd(8)
+             man:sshd_config(5)
+    Process: 639 ExecStartPre=/usr/sbin/sshd -t (code=exited, status=0/SUCCESS)
+   Main PID: 657 (sshd)
+      Tasks: 1 (limit: 4656)
+     Memory: 4.8M
+     CGroup: /system.slice/ssh.service
+             └─657 sshd: /usr/sbin/sshd -D [listener] 0 of 10-100 startups
+
+ian 09 04:22:11 uso systemd[1]: Starting OpenBSD Secure Shell server...
+ian 09 04:22:11 uso sshd[657]: Server listening on 0.0.0.0 port 22.
+ian 09 04:22:11 uso sshd[657]: Server listening on :: port 22.
+ian 09 04:22:11 uso systemd[1]: Started OpenBSD Secure Shell server.
+ian 09 04:23:25 uso sshd[1821]: Accepted password for student from 192.168.56.1 port 33714 ssh2
+ian 09 04:23:25 uso sshd[1821]: pam_unix(sshd:session): session opened for user student by (uid=0)
+</pre></div>
+</div>
+<p>Mai sus am afișat starea serviciului SSH. Observăm că acesta este activ și putem urmări ce procese a generat și mesaje de diagnosticare pe care le afișează.</p>
+<p>Programul systemd se ocupă de pornirea, oprirea și gestionarea serviciilor folosite în sistem pe baza unor fișiere numite fișiere unitate.
+Fișierul care gestionează serviciul SSH este în <code class="docutils literal notranslate"><span class="pre">/lib/systemd/system/ssh.service</span></code> și putem să îl identificăm din rezultatul comenzii <code class="docutils literal notranslate"><span class="pre">systemctl</span> <span class="pre">status</span></code>.</p>
+<p>Atunci când un serviciu este instalat, acesta vine la pachet cu fișierul <code class="docutils literal notranslate"><span class="pre">.service</span></code> cu care acesta va fi gestionat de systemd, după cum putem vedea în rezultatul comenzii de mai jos.</p>
+</div>
+<div class="section" id="exercitiu-afisarea-starii-serviciilor">
+<h3><span class="section-number">5.1.2. </span>Exercițiu: Afișarea stării serviciilor<a class="headerlink" href="#exercitiu-afisarea-starii-serviciilor" title="Permalink to this headline">¶</a></h3>
+<p>Afișați starea serviciului <code class="docutils literal notranslate"><span class="pre">thermald</span></code>, care gestionează senzorii de temperatură ai sistemului.</p>
+</div>
+<div class="section" id="oprirea-unui-serviciu">
+<h3><span class="section-number">5.1.3. </span>Oprirea unui serviciu<a class="headerlink" href="#oprirea-unui-serviciu" title="Permalink to this headline">¶</a></h3>
+<p>Pentru a opri un serviciu vom folosi comanda <code class="docutils literal notranslate"><span class="pre">systemctl</span> <span class="pre">stop</span></code> în felul următor</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>student@uso:~$ sudo netstat -tlpn
+[sudo] password for student:
+Active Internet connections (only servers)
+Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name
+tcp        0      0 127.0.0.53:53           0.0.0.0:*               LISTEN      501/systemd-resolve
+tcp        0      0 0.0.0.0:22              0.0.0.0:*               LISTEN      4425/sshd: /usr/sbi
+tcp        0      0 127.0.0.1:631           0.0.0.0:*               LISTEN      541/cupsd
+tcp6       0      0 :::22                   :::*                    LISTEN      4425/sshd: /usr/sbi
+tcp6       0      0 ::1:631                 :::*                    LISTEN      541/cupsd
+student@uso:~$ sudo systemctl stop ssh
+[sudo] password for student:
+student@uso:~$ sudo systemctl status ssh
+● ssh.service - OpenBSD Secure Shell server
+     Loaded: loaded (/lib/systemd/system/ssh.service; enabled; vendor preset: e&gt;
+     Active: inactive (dead) since Sat 2021-01-09 04:58:28 EET; 9s ago
+       Docs: man:sshd(8)
+             man:sshd_config(5)
+    Process: 640 ExecStartPre=/usr/sbin/sshd -t (code=exited, status=0/SUCCESS)
+    Process: 660 ExecStart=/usr/sbin/sshd -D $SSHD_OPTS (code=exited, status=0/&gt;
+   Main PID: 660 (code=exited, status=0/SUCCESS)
+
+ian 09 04:57:29 uso systemd[1]: Starting OpenBSD Secure Shell server...
+ian 09 04:57:29 uso sshd[660]: Server listening on 0.0.0.0 port 22.
+ian 09 04:57:29 uso sshd[660]: Server listening on :: port 22.
+ian 09 04:57:29 uso systemd[1]: Started OpenBSD Secure Shell server.
+ian 09 04:58:28 uso sshd[660]: Received signal 15; terminating.
+ian 09 04:58:28 uso systemd[1]: Stopping OpenBSD Secure Shell server...
+ian 09 04:58:28 uso systemd[1]: ssh.service: Succeeded.
+ian 09 04:58:28 uso systemd[1]: Stopped OpenBSD Secure Shell server.
+</pre></div>
+</div>
+<p>Pentru a verifica dacă mai funcționează serviciul SSH vom folosi comanda
+<code class="docutils literal notranslate"><span class="pre">netstat</span></code> pentru a verifica dacă mai ascultă serverul SSH pe portul <code class="docutils literal notranslate"><span class="pre">22</span></code>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>student@uso:~$ sudo netstat -tlpn
+Active Internet connections (only servers)
+Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name
+tcp        0      0 127.0.0.53:53           0.0.0.0:*               LISTEN      501/systemd-resolve
+tcp        0      0 127.0.0.1:631           0.0.0.0:*               LISTEN      541/cupsd
+tcp6       0      0 ::1:631                 :::*                    LISTEN      541/cupsd
+</pre></div>
+</div>
+<p>Observăm că nu ascultă niciun program pe portul <code class="docutils literal notranslate"><span class="pre">22</span></code>.</p>
+</div>
+<div class="section" id="recapitulare-afisarea-starii-serviciilor">
+<h3><span class="section-number">5.1.4. </span>Recapitulare: Afișarea stării serviciilor<a class="headerlink" href="#recapitulare-afisarea-starii-serviciilor" title="Permalink to this headline">¶</a></h3>
+<p>Afișați starea serviciului <code class="docutils literal notranslate"><span class="pre">ssh</span></code>.</p>
+</div>
+<div class="section" id="pornirea-unui-serviciu">
+<h3><span class="section-number">5.1.5. </span>Pornirea unui serviciu<a class="headerlink" href="#pornirea-unui-serviciu" title="Permalink to this headline">¶</a></h3>
+<p>Pornirea unei aplicații se face folosind comanda <code class="docutils literal notranslate"><span class="pre">systemctl</span> <span class="pre">start</span></code> în felul
+următor:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>student@uso:~$ systemctl start ssh
+student@uso:~$ systemctl status ssh
+● ssh.service - OpenBSD Secure Shell server
+     Loaded: loaded (/lib/systemd/system/ssh.service; enabled; vendor preset: enabled)
+     Active: active (running) since Sat 2021-01-09 05:05:30 EET; 2min 30s ago
+       Docs: man:sshd(8)
+             man:sshd_config(5)
+    Process: 4408 ExecStartPre=/usr/sbin/sshd -t (code=exited, status=0/SUCCESS)
+   Main PID: 4425 (sshd)
+      Tasks: 1 (limit: 4656)
+     Memory: 3.4M
+     CGroup: /system.slice/ssh.service
+             └─4425 sshd: /usr/sbin/sshd -D [listener] 0 of 10-100 startups
+
+ian 09 05:05:30 uso systemd[1]: Starting OpenBSD Secure Shell server...
+ian 09 05:05:30 uso sshd[4425]: Server listening on 0.0.0.0 port 22.
+ian 09 05:05:30 uso sshd[4425]: Server listening on :: port 22.
+ian 09 05:05:30 uso systemd[1]: Started OpenBSD Secure Shell server.
+ian 09 05:05:54 uso sshd[4477]: Accepted password for student from 192.168.56.1 port 34852 ssh2
+ian 09 05:05:54 uso sshd[4477]: pam_unix(sshd:session): session opened for user student by (uid=0)
+</pre></div>
+</div>
+<p>Dacă serviciul nu pornește cu succes, aceasta va afișa un mesaj de avertizare.</p>
+</div>
+<div class="section" id="repornirea-unui-serviciu">
+<h3><span class="section-number">5.1.6. </span>Repornirea unui serviciu<a class="headerlink" href="#repornirea-unui-serviciu" title="Permalink to this headline">¶</a></h3>
+<p>Pe parcursul rulării serviciilor pe un sistem ne vom dori să schimbăm configurația unui serviciu sau să adăugăm parametri de rulare în plus.
+Majoritatea aplicațiilor citesc fișierele de configurare o singură dată, atunci când sunt lansate, deci orice modificare ulterioară a fișierelor de configurare nu va fi sesizată de serviciu.
+Din acest motiv, avem nevoie să repornim servicii.</p>
+<p>De exemplu, vrem să permitem utilizatorilor să se autentifice ca utilizatorul <code class="docutils literal notranslate"><span class="pre">root</span></code> pe sistemul nostru.
+Acest lucru este dezactivat în mod predefinit de către serviciu din motive de securitate.
+Pentru a face asta, avem nevoie să reconfigurăm serviciul SSH.</p>
+<p>Observăm că inițial nu puteam să ne conectăm la mașina locală ca utilizatorul <code class="docutils literal notranslate"><span class="pre">root</span></code>, cu toate că introduceam parola corectă.
+Odată ce am adăugat opțiunea <code class="docutils literal notranslate"><span class="pre">PermitRootLogin</span> <span class="pre">yes</span></code> în fișierul de configurare al serviciului și am dat restart serviciului, am reușit să ne autentificăm ca utilizatorul <code class="docutils literal notranslate"><span class="pre">root</span></code>.</p>
+<div class="section" id="pornirea-unui-serviciu-la-startup">
+<h4><span class="section-number">5.1.6.1. </span>Pornirea unui serviciu la startup<a class="headerlink" href="#pornirea-unui-serviciu-la-startup" title="Permalink to this headline">¶</a></h4>
+<p>Atunci când configurăm un sistem și vrem să definim servicii care rulează pe el, ne dorim ca serviciile să fie “setup and forget``, să nu fie necesar să le supraveghem și să le monitorizăm prea mult.
+Un mod de a ne ușura lucrul cu serverul este pornirea serviciilor la bootup, ca să nu fie nevoie sa intervenim noi după secvența de pornire a sistemului, ca să le pornim de mână, folosind comanda <code class="docutils literal notranslate"><span class="pre">systemctl</span> <span class="pre">start</span></code></p>
+<p>Putem să vedem dacă un sistem pornește automat la startup din rezultatul comenzii <code class="docutils literal notranslate"><span class="pre">systemctl</span> <span class="pre">status</span></code> pe linia care începe cu <code class="docutils literal notranslate"><span class="pre">Loaded:</span></code>.
+Dacă acesta conține șirul de caractere <code class="docutils literal notranslate"><span class="pre">enabled</span></code>, atunci serviciul pornește la startup, iar dacă aceasta conține șirul <code class="docutils literal notranslate"><span class="pre">disabled</span></code>, atunci serviciul nu va porni la startup.</p>
+<p>Pentru a dezactiva un serviciu la startup vom folosi comanda <code class="docutils literal notranslate"><span class="pre">systemctl</span> <span class="pre">disable</span></code> în felul următor:</p>
+<p>Observăm că pe linia care conține șirul de caractere <code class="docutils literal notranslate"><span class="pre">Loaded</span></code>, mesajul este <code class="docutils literal notranslate"><span class="pre">disabled</span></code>, dar serviciul funcționează în continuare.</p>
+<p>Pentru a activa un serviciu la startup vom folosi comanda <code class="docutils literal notranslate"><span class="pre">systemctl</span> <span class="pre">enable</span></code>:</p>
+<p>Observăm că pe linia care conține șirul de caractere <code class="docutils literal notranslate"><span class="pre">Loaded</span></code>, mesajul s-a schimbat în <code class="docutils literal notranslate"><span class="pre">enabled</span></code>.</p>
+</div>
+</div>
+<div class="section" id="configurarea-unui-serviciu">
+<h3><span class="section-number">5.1.7. </span>Configurarea unui serviciu<a class="headerlink" href="#configurarea-unui-serviciu" title="Permalink to this headline">¶</a></h3>
+<p>În majoritatea cazurilor, serviciile sunt configurate prin fișiere de configurarea.
+Acestea se pot găsi în mai multe locații:</p>
+<ul class="simple">
+<li><p>/etc/default, unde sunt fișiere care permit modificarea opțiunilor de rulare a unei comenzi, ca și cum am adăuga noi opțiuni la rularea unei comenzi.
+Aceste fișiere sunt citite de systemd, înainte să pornească serviciul;</p></li>
+<li><p>/etc/&lt;numele serviciului&gt;, unde se află fișierele de configurare pentru multe servicii instalate.
+Aceste fișiere sunt citite și interpretate de servici.
+De exemplu, pentru configurarea serviciului NTP, există fișierul <code class="docutils literal notranslate"><span class="pre">/etc/ntp.conf</span></code>.</p></li>
+</ul>
+</div>
+<div class="section" id="exercitii-gestiunea-serviciilor">
+<h3><span class="section-number">5.1.8. </span>Exerciții: Gestiunea serviciilor<a class="headerlink" href="#exercitii-gestiunea-serviciilor" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple">
+<li><p>Configurați serviciul SSH astfel încât acesta să permită autentificarea ca utilizatorul <code class="docutils literal notranslate"><span class="pre">root</span></code> folosind numai autentificare bazată pe chei.</p></li>
+<li><dl class="simple">
+<dt>Instalați serviciul <code class="docutils literal notranslate"><span class="pre">vsftpd</span></code>. Acesta este un serviciu de transfer de fișiere.</dt><dd><ol class="arabic simple">
+<li><p>Realizați modificările necesare astfel încât acest serviciu să nu pornească la startup;</p></li>
+<li><p>Dezactivați funcționalitatea bazată pe IPv6 a serviciului Hint: <code class="docutils literal notranslate"><span class="pre">listen_ipv6</span></code>, <code class="docutils literal notranslate"><span class="pre">listen</span></code>.</p></li>
+<li><p>Asigurați-vă că serviciul rulează. Acest serviciu ascultă pe portul <code class="docutils literal notranslate"><span class="pre">21</span></code>.</p></li>
+</ol>
+</dd>
+</dl>
+</li>
+</ol>
+</div>
+</div>
+<div class="section" id="definirea-unui-serviciu-personalizat">
+<h2><span class="section-number">5.2. </span>Definirea unui serviciu personalizat<a class="headerlink" href="#definirea-unui-serviciu-personalizat" title="Permalink to this headline">¶</a></h2>
+<p>Atunci când vrem să ne conectăm la internet printr-un proxy, avem nevoie ca proxy-ul să fie deschis în permanență și să fie gestionat, dacă este pierdută conexiunea cu proxy-ul.
+Putem să facem asta folosind servicii systemd pe care să le gestionăm noi folosind suita de comenzi <code class="docutils literal notranslate"><span class="pre">systemctl</span></code>.</p>
+<p>Noi vom găzdui propriul proxy care va trimite mesaje criptate prin SSH către o altă stație, de unde vor fi trimise mesaje în internet.
+Astfel vom putea trece peste anumite filtre pe locație.</p>
+<p>Un serviciu în systemd se definește printr-un fișier de configurare în directorul <code class="docutils literal notranslate"><span class="pre">/lib/systemd/system/libvirtd.service</span></code>.
+Pentru serviciul nostru vom genera fișierul la calea <code class="docutils literal notranslate"><span class="pre">/lib/systemd/system/libvirtd.service/auto-proxy.service</span></code>.
+Acest fișier va avea următorul conținut:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">Unit</span><span class="p">]</span>
+<span class="n">Description</span><span class="o">=</span><span class="n">Keeps</span> <span class="n">a</span> <span class="n">proxy</span> <span class="n">to</span> <span class="s1">&#39;fep.grid.pub.ro&#39;</span> <span class="nb">open</span>
+<span class="n">After</span><span class="o">=</span><span class="n">network</span><span class="o">-</span><span class="n">online</span><span class="o">.</span><span class="n">target</span> <span class="n">ssh</span><span class="o">.</span><span class="n">service</span>
+
+<span class="p">[</span><span class="n">Service</span><span class="p">]</span>
+<span class="n">User</span><span class="o">=</span><span class="n">student</span>
+<span class="n">ExecStart</span><span class="o">=/</span><span class="n">usr</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">ssh</span> <span class="o">-</span><span class="n">D</span> <span class="mi">1337</span> <span class="o">-</span><span class="n">q</span> <span class="o">-</span><span class="n">C</span> <span class="o">-</span><span class="n">N</span> <span class="o">&lt;</span><span class="n">username</span><span class="o">-</span><span class="n">acs</span><span class="o">&gt;</span><span class="nd">@fep</span><span class="o">.</span><span class="n">grid</span><span class="o">.</span><span class="n">pub</span><span class="o">.</span><span class="n">ro</span>
+<span class="n">ExecStop</span><span class="o">=/</span><span class="n">usr</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">pkill</span> <span class="o">-</span><span class="n">f</span> <span class="s1">&#39;/usr/bin/ssh -D 1337 -q -C -N&#39;</span>
+<span class="n">KillMode</span><span class="o">=</span><span class="n">process</span>
+<span class="n">Type</span><span class="o">=</span><span class="n">simple</span>
+<span class="n">Restart</span><span class="o">=</span><span class="n">always</span>
+<span class="n">RestartSec</span><span class="o">=</span><span class="mi">10</span>
+
+<span class="p">[</span><span class="n">Install</span><span class="p">]</span>
+<span class="n">WantedBy</span><span class="o">=</span><span class="n">multi</span><span class="o">-</span><span class="n">user</span><span class="o">.</span><span class="n">target</span>
+</pre></div>
+</div>
+<p>Acesta este un șablon pe care putem să îl folosim pentru multe tipuri de servicii. Opțiunile relevante pentru înțelegerea formatului sunt:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">ExecStart</span></code>, comanda care se va executa pentru a porni serviciul;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ExecStop</span></code>, comanda care se va executa pentru a opri serviciul</p></li>
+</ul>
+<p>Putem să verificăm dacă a pornit proxy-ul verificând dacă ascultă vreun serviciu pe mașina locală pe portul <code class="docutils literal notranslate"><span class="pre">1337</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>student@uso:~$ sudo netstat -tlpn
+Active Internet connections (only servers)
+Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name
+tcp        0      0 127.0.0.1:1337          0.0.0.0:*               LISTEN      32177/ssh
+tcp        0      0 0.0.0.0:21              0.0.0.0:*               LISTEN      15794/vsftpd
+tcp        0      0 127.0.0.53:53           0.0.0.0:*               LISTEN      7088/systemd-resolv
+tcp        0      0 0.0.0.0:22              0.0.0.0:*               LISTEN      10459/sshd: /usr/sb
+tcp        0      0 127.0.0.1:631           0.0.0.0:*               LISTEN      541/cupsd
+tcp6       0      0 ::1:1337                :::*                    LISTEN      32177/ssh
+tcp6       0      0 :::22                   :::*                    LISTEN      10459/sshd: /usr/sb
+tcp6       0      0 ::1:631                 :::*                    LISTEN      541/cupsd
+</pre></div>
+</div>
+<div class="section" id="exercitiu-definirea-unui-serviciu-personalizat">
+<h3><span class="section-number">5.2.1. </span>Exercițiu: Definirea unui serviciu personalizat<a class="headerlink" href="#exercitiu-definirea-unui-serviciu-personalizat" title="Permalink to this headline">¶</a></h3>
+<p>Realizați configurația necesară astfel încât să creați un tunel deschis permanent de pe stația <code class="docutils literal notranslate"><span class="pre">uso</span></code>, care primește mesaje din portul <code class="docutils literal notranslate"><span class="pre">4242</span></code> al stației de la adresa <code class="docutils literal notranslate"><span class="pre">10.10.10.3</span></code> și le trimite către portul <code class="docutils literal notranslate"><span class="pre">22</span></code> al mașinii locale.</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+          <div class="page-nav">
+            <div class="inner"><ul class="page-nav">
+  <li class="prev">
+    <a href="storage.html"
+       title="previous chapter">← <span class="section-number">4. </span>Gestionarea spațiului de stocare partajat</a>
+  </li>
+  <li class="next">
+    <a href="services-install.html"
+       title="next chapter"><span class="section-number">6. </span>Instalarea aplicațiilor (serviciilor) folosind Docker →</a>
+  </li>
+</ul><div class="footer" role="contentinfo">
+      &#169; Copyright 2020, USO Team.
+    <br>
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.4.3 with <a href="https://github.com/romnnn/sphinx_press_theme">Press Theme</a>.
+</div>
+            </div>
+          </div>
+      </page>
+    </div>
+    
+    
+  </body>
+</html>
