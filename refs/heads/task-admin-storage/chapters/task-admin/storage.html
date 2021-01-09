@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html >
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+      <title>4. Gestionarea spațiului de stocare partajat</title>
+    
+      <link rel="stylesheet" href="../../_static/pygments.css">
+      <link rel="stylesheet" href="../../_static/theme.css">
+      <link rel="stylesheet" href="../../_static/romnnn_sphinx_press_theme.css">
+      
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+
+      <!-- sphinx script_files -->
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/my_actions.js"></script>
+
+      
+      <script src="../../_static/theme-vendors.js"></script>
+      <script src="../../_static/theme.js" defer></script>
+    
+  <link rel="index" title="Index" href="../../genindex.html" />
+  <link rel="search" title="Search" href="../../search.html" />
+  <link rel="next" title="5. Configurarea și administrarea serviciilor" href="services-config.html" />
+  <link rel="prev" title="3. Folosirea stației la distanță" href="usage.html" />
+    <link href="../../_static/my_theme.css" rel="stylesheet" type="text/css">
+
+  </head>
+
+  <body>
+    <div id="app" class="theme-container" :class="pageClasses"><navbar @toggle-sidebar="toggleSidebar">
+  <div class="home-link-container">
+      <router-link to="../../index.html" class="home-link">
+      
+        <span class="site-name">USO Lab Book</span>
+    </router-link>
+  </div>
+
+  <div class="links">
+    <navlinks class="can-hide">
+
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Acomodarea în Linux
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Lucrul cu fișiere
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Dezvoltarea aplicațiilor
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Conectarea la Internet
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Instalarea și utilizarea aplicațiilor
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Îmbunătățirea lucrului în linia de comandă
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link  router-link-active">
+         Planificarea sarcinilor administrative
+      </a>
+    </div>
+  
+
+
+
+  
+    <div class="nav-item">
+      <a href="https://github.com/Sergiu121/uso-lab-book"
+        class="nav-link external">
+          Github <outboundlink/>
+      </a>
+    </div>
+  
+
+    </navlinks>
+  </div>
+</navbar>
+
+      
+      <div class="sidebar-mask" @click="toggleSidebar(false)">
+      </div>
+        <sidebar @toggle-sidebar="toggleSidebar">
+          
+          <navlinks>
+            
+
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Acomodarea în Linux
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Lucrul cu fișiere
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Dezvoltarea aplicațiilor
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Conectarea la Internet
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Instalarea și utilizarea aplicațiilor
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Îmbunătățirea lucrului în linia de comandă
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link  router-link-active">
+         Planificarea sarcinilor administrative
+      </a>
+    </div>
+  
+
+
+
+  
+    <div class="nav-item">
+      <a href="https://github.com/Sergiu121/uso-lab-book"
+        class="nav-link external">
+          Github <outboundlink/>
+      </a>
+    </div>
+  
+
+            
+          </navlinks><div id="searchbox" class="searchbox" role="search">
+  <div class="caption"><span class="caption-text">Search</span>
+    <div class="searchformwrapper">
+      <form autocomplete="off" class="search" action="../../search.html" method="get">
+        <input type="text" name="q" autocomplete="off" />
+        <input type="submit" value="Go" />
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div><div class="sidebar-links" role="navigation" aria-label="main navigation">
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#uso-lab-book">Acomodarea în Linux</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../basic/apps.html" class="reference internal ">Pornirea și oprirea aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../basic/browser.html" class="reference internal ">Folosirea eficientă a browserului web</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../basic/terminal.html" class="reference internal ">Lucrul în terminal</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../basic/workspace.html" class="reference internal ">Lucrul cu workspace-uri</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../basic/cheatsheet.html" class="reference internal ">Cheatsheet</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#uso-lab-book">Lucrul cu fișiere</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../files/paths.html" class="reference internal ">Căi absolute și relative</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../files/files.html" class="reference internal ">Interacțiunea cu fișiere în linia de comandă</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../files/file_editor.html" class="reference internal ">Editor de text</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../files/io_redirection.html" class="reference internal ">Redirectări</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../files/archive.html" class="reference internal ">Arhive</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../files/file_system.html" class="reference internal ">Sistemul de fișiere</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#uso-lab-book">Dezvoltarea aplicațiilor</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../app-dev/git-intro.html" class="reference internal ">Introducere în Git și GitHub</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/git-first-commit.html" class="reference internal ">Primul commit</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/git-more-commits.html" class="reference internal ">Crearea unui nou commit</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/git-contribute.html" class="reference internal ">Contribuirea la un alt repository</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/make-setup.html" class="reference internal ">Pregătirea mediului de lucru</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/make-intro.html" class="reference internal ">Compilarea unui fișier cod sursă C</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/make-multiple.html" class="reference internal ">Compilarea unui program din fișiere multiple</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/make-lib.html" class="reference internal ">Legarea executabilelor folosind biblioteci externe</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/make-debug.html" class="reference internal ">Depanare condițională / configurabilă</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/make-simple-automation.html" class="reference internal ">Introducere în utilitarul Make și fișiere Makefile</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/make-advanced-automation.html" class="reference internal ">Aprofundarea folosirii fișierelor Makefile</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/make-contribute.html" class="reference internal ">Contribuirea la un proiect existent pe GitHub</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/extra.html" class="reference internal ">Exerciții suplimentare</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#uso-lab-book">Conectarea la Internet</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../net/browser.html" class="reference internal ">Folosirea eficientă a browser-ului</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../net/troubleshoot.html" class="reference internal ">Verificarea conectivităţii la reţea</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../net/services.html" class="reference internal ">Servicii şi clienţi de reţea</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../net/extra.html" class="reference internal ">Funcţionalităţi suplimentare de reţelistică</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#uso-lab-book">Instalarea și utilizarea aplicațiilor</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../app-install/start.html" class="reference internal ">Pornirea aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-install/run.html" class="reference internal ">Rularea aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-install/config.html" class="reference internal ">Configurarea aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-install/summary1.html" class="reference internal ">Sumar: Pornirea, rularea și configurarea aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-install/show-config.html" class="reference internal ">Vizualizarea configurației sistemului</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-install/install.html" class="reference internal ">Instalarea și dezinstalarea aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-install/install-non-standard.html" class="reference internal ">Instalarea și dezinstalarea aplicațiilor în mod nestandard</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-install/update.html" class="reference internal ">Actualizarea aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-install/show.html" class="reference internal ">Investigarea aplicațiilor instalate</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-install/summary2.html" class="reference internal ">Sumar: Instalarea, dezinstalarea, investigarea, actualizarea aplicațiilor</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#uso-lab-book">Îmbunătățirea lucrului în linia de comandă</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../improve-cli/improve-terminal.html" class="reference internal ">Îmbunătățirea lucrului în linia de comandă</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../improve-cli/inspect-fs.html" class="reference internal ">Inspectarea sistemului de fișiere</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../improve-cli/inspect-sys.html" class="reference internal ">Inspectarea sistemului</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../improve-cli/inspect-files.html" class="reference internal ">Inspectarea fișierelor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../improve-cli/process-files.html" class="reference internal ">Prelucrarea fișierelor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../improve-cli/improve-shell.html" class="reference internal ">O înțelegere mai bună a shell-ului</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../improve-cli/term-multiplexing.html" class="reference internal ">Multiplexarea terminalului</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#uso-lab-book">Planificarea sarcinilor administrative</a></span>
+      </p>
+      <ul class="current">
+        
+          <li class="toctree-l1 "><a href="workstation.html" class="reference internal ">Folosirea unui workstation remote</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="remote.html" class="reference internal ">Conectarea la workstation</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="usage.html" class="reference internal ">Folosirea stației la distanță</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 current"><a href="#" class="reference internal current">Gestionarea spațiului de stocare partajat</a>
+
+            
+              <ul>
+                
+                  <li class="toctree-l2"><a href="#stocare-partajata-folosind-sshfs" class="reference internal">Stocare partajată folosind SSHFS</a></li>
+                
+                  <li class="toctree-l2"><a href="#stocare-partajata-folosind-aplicatii-online" class="reference internal">Stocare partajată folosind aplicații online</a></li>
+                
+              </ul>
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="services-config.html" class="reference internal ">Configurarea și administrarea serviciilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="services-install.html" class="reference internal ">Instalarea aplicațiilor (serviciilor) folosind Docker</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="monitor.html" class="reference internal ">Monitorizarea sistemului</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="cron.html" class="reference internal ">Programarea rulării acțiunilor</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+</div>
+        </sidebar>
+
+      <page>
+          <div class="body-header" role="navigation" aria-label="navigation">
+  
+  <ul class="breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+    
+    <li><span class="section-number">4. </span>Gestionarea spațiului de stocare partajat</li>
+  </ul>
+  
+
+  <ul class="page-nav">
+  <li class="prev">
+    <a href="usage.html"
+       title="previous chapter">← <span class="section-number">3. </span>Folosirea stației la distanță</a>
+  </li>
+  <li class="next">
+    <a href="services-config.html"
+       title="next chapter"><span class="section-number">5. </span>Configurarea și administrarea serviciilor →</a>
+  </li>
+</ul>
+  
+</div>
+<hr>
+          <div class="content" role="main">
+            
+  <div class="section" id="gestionarea-spatiului-de-stocare-partajat">
+<h1><span class="section-number">4. </span>Gestionarea spațiului de stocare partajat<a class="headerlink" href="#gestionarea-spatiului-de-stocare-partajat" title="Permalink to this headline">¶</a></h1>
+<p>O componentă importantă a mediului de lucru este spațiul de stocare.
+Cu toate că noi vom rula aplicații pe serverul de la distanță, noi avem nevoie de acces la spațiul de stocare al acestuia, deoarece vrem ca într-un final să urmărim rezultatul procesării și eventual să îl analizăm folosind diferite utilitate grafice.
+O altă nevoie pe care o avem este editarea codului la distanță, deoarece majoritatea programatorilor folosesc IDE-uri în mediu grafic, care nu pot rula mereu eficient de la distanță.
+Soluția la această nevoie este să partajăm spațiul de stocare între serverul de la distanță și laptopul sau stația locală de pe care lucrăm.</p>
+<div class="section" id="stocare-partajata-folosind-sshfs">
+<h2><span class="section-number">4.1. </span>Stocare partajată folosind SSHFS<a class="headerlink" href="#stocare-partajata-folosind-sshfs" title="Permalink to this headline">¶</a></h2>
+<p>SSHFS este o soluție de stocare partajată care permite montarea unui sistem de fișiere care nu este legat fizic la stația curent ci se folosește de protocolul SSH pentru a transmite operațiile asupra fișierelor prin rețea către un sistem de fișiere conectat prin rețea.</p>
+<p>Avantajul folosirii SSHFS este că acesta nu necesită descărcarea sistemului de fișiere de la distanță, deci nu duce la duplicarea fișierelor.
+Dezavantajul acestei abordări este faptul că dacă pierdem conexiunea la sistemul de fișiere de la distanță, nu mai avem acces la fișiere.</p>
+<div class="section" id="montarea-temporara-a-unui-sistem-de-fisiere">
+<h3><span class="section-number">4.1.1. </span>Montarea temporară a unui sistem de fișiere<a class="headerlink" href="#montarea-temporara-a-unui-sistem-de-fisiere" title="Permalink to this headline">¶</a></h3>
+<p>Pentru a monta sistemul de fișiere de pe un alt sistem, vom folosi comanda <code class="docutils literal notranslate"><span class="pre">sshfs</span></code></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>root@local:~# ls /mnt/
+root@local:~# sshfs root@10.10.10.2:/ /mnt/
+The authenticity of host &#39;10.10.10.2 (10.10.10.2)&#39; can&#39;t be established.
+ECDSA key fingerprint is SHA256:xV1orHYj4fhkc5HE91sfh8QhaVqke/AEMa8mYI423HY.
+Are you sure you want to continue connecting (yes/no)? yes
+root@10.10.10.2&#39;s password:
+root@local:~# df -h
+Filesystem         Size  Used Avail Use% Mounted on
+overlay             16G   14G  539M  97% /
+tmpfs               64M     0   64M   0% /dev
+tmpfs              2.0G     0  2.0G   0% /sys/fs/cgroup
+/dev/sda5           16G   14G  539M  97% /etc/hosts
+shm                 64M     0   64M   0% /dev/shm
+root@10.10.10.2:/   16G   14G  539M  97% /mnt
+root@local:~# ls /mnt/
+bin  boot  dev  etc  home  lib  lib64  media  mnt  opt  proc  root  run  sbin  srv  sys  tmp  usr  var
+</pre></div>
+</div>
+<p>Comanda de mai sus a montat arborele de fișiere cu rădăcina în directorul <code class="docutils literal notranslate"><span class="pre">/</span></code> de pe sistemul de la adresa IP <code class="docutils literal notranslate"><span class="pre">10.10.10.2</span></code> în directorul <code class="docutils literal notranslate"><span class="pre">/mnt</span></code> de pe stația locală, cu numele <code class="docutils literal notranslate"><span class="pre">local</span></code>, autentificându-se ca utilizatorul <code class="docutils literal notranslate"><span class="pre">root</span></code>.</p>
+<p>Am folosit comanda <code class="docutils literal notranslate"><span class="pre">df</span></code> pentru a afișa informații despre toate sistemele de fișiere montate pe stația locală.</p>
+<div class="admonition-observatie admonition">
+<p class="admonition-title">Observație</p>
+<p>Sintaxa comenzii <code class="docutils literal notranslate"><span class="pre">sshfs</span></code> se aseamănă cu sintaxa comenzii <code class="docutils literal notranslate"><span class="pre">scp</span></code>.</p>
+</div>
+<p>Acest mod te montare al sistemului de fișier este temporară. Atunci când vom opri stația sistemul de fișiere va fi demontat.</p>
+</div>
+<div class="section" id="exercitiu-montarea-temporara-a-unui-sistem-de-fisiere">
+<h3><span class="section-number">4.1.2. </span>Exercițiu: Montarea temporară a unui sistem de fișiere<a class="headerlink" href="#exercitiu-montarea-temporara-a-unui-sistem-de-fisiere" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple">
+<li><p>Montați temporar sistemul de fișiere cu rădăcina în directorul <code class="docutils literal notranslate"><span class="pre">/</span></code> de pe stația <code class="docutils literal notranslate"><span class="pre">10.10.10.4</span></code> în directorul <code class="docutils literal notranslate"><span class="pre">/mnt/vol1</span></code>.</p></li>
+<li><p>Montați temporar sistemul de fișiere cu rădăcina în directorul <code class="docutils literal notranslate"><span class="pre">/home/student</span></code> de pe stația <code class="docutils literal notranslate"><span class="pre">10.10.10.2</span></code> în directorul <code class="docutils literal notranslate"><span class="pre">/mnt/vol2</span></code>.</p></li>
+</ol>
+</div>
+<div class="section" id="montarea-persistenta-a-unui-sistem-de-fisiere">
+<h3><span class="section-number">4.1.3. </span>Montarea persistentă a unui sistem de fișiere<a class="headerlink" href="#montarea-persistenta-a-unui-sistem-de-fisiere" title="Permalink to this headline">¶</a></h3>
+<p>Deoarece nu ne dorim să rulăm comanda <code class="docutils literal notranslate"><span class="pre">sshfs</span></code> atunci când vrem să folosim un sistem de fișiere la distanță, vrem să montăm persistent sistemul de fișiere de la distanța, astfel încât această montare să persiste după oprirea stației locale.</p>
+<p>Ca să montăm sistemul de fișiere persistent avem nevoie să ne copiem cheia ssh pe stația de la distanța, deoarece montarea se va face în mod neinteractiv, deci nu vom avea posibilitatea de a introduce parola. &lt;TODO REF NETWORKING&gt;</p>
+<p>Pentru a monta sistemul de fișiere în mod persistent vom scrie o intrare în fișierul <code class="docutils literal notranslate"><span class="pre">/etc/fstab</span></code> care va conține detalii despre sistemul de fișiere pe care vrem să îl montăm. Pentru a monta sistemul de fișiere <code class="docutils literal notranslate"><span class="pre">/`</span></code> de pe sistemul de la adresa IP <code class="docutils literal notranslate"><span class="pre">10.10.10.2</span></code> în directorul <code class="docutils literal notranslate"><span class="pre">/mnt</span></code> de pe stația locală, autentificându-ne ca utilizatorul <code class="docutils literal notranslate"><span class="pre">root</span></code> vom folosi următoarele comenzi.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">root</span><span class="nd">@local</span><span class="p">:</span><span class="o">~</span><span class="c1"># ssh-keygen</span>
+<span class="p">[</span><span class="o">...</span><span class="p">]</span>
+<span class="n">root</span><span class="nd">@local</span><span class="p">:</span><span class="o">~</span><span class="c1"># ssh-copy-id root@10.10.10.2</span>
+<span class="p">[</span><span class="o">...</span><span class="p">]</span>
+<span class="n">root</span><span class="nd">@local</span><span class="p">:</span><span class="o">~</span><span class="c1"># echo root@10.10.10.2:/  /mnt  fuse.sshfs  defaults  0  0 &gt; /etc/fstab</span>
+<span class="n">root</span><span class="nd">@local</span><span class="p">:</span><span class="o">~</span><span class="c1"># mount -a</span>
+</pre></div>
+</div>
+<p>Am scris în fișierul <code class="docutils literal notranslate"><span class="pre">/etc/fstab</span></code> folosind comanda <code class="docutils literal notranslate"><span class="pre">echo</span></code>, iar pentru a monta sistemul de fișiere am folosit comanda <code class="docutils literal notranslate"><span class="pre">mount</span></code> cu opțiunea <code class="docutils literal notranslate"><span class="pre">-a</span></code> pentru montarea sistemelor de fișiere descrise în fișierul <code class="docutils literal notranslate"><span class="pre">/etc/fstab</span></code>.</p>
+</div>
+<div class="section" id="exercitiu-montarea-persistenta-a-unui-sistem-de-fisiere">
+<h3><span class="section-number">4.1.4. </span>Exercițiu: Montarea persistentă a unui sistem de fișiere<a class="headerlink" href="#exercitiu-montarea-persistenta-a-unui-sistem-de-fisiere" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple">
+<li><p>Montați persistent sistemul de fișiere cu rădăcina în directorul <code class="docutils literal notranslate"><span class="pre">/</span></code> de pe stația <code class="docutils literal notranslate"><span class="pre">10.10.10.4</span></code> în directorul <code class="docutils literal notranslate"><span class="pre">/mnt/vol1</span></code>.</p></li>
+<li><p>Montați persistent sistemul de fișiere cu rădăcina în directorul <code class="docutils literal notranslate"><span class="pre">/home/student</span></code> de pe stația <code class="docutils literal notranslate"><span class="pre">10.10.10.2</span></code> în directorul <code class="docutils literal notranslate"><span class="pre">/mnt/vol2</span></code>.</p></li>
+</ol>
+</div>
+</div>
+<div class="section" id="stocare-partajata-folosind-aplicatii-online">
+<h2><span class="section-number">4.2. </span>Stocare partajată folosind aplicații online<a class="headerlink" href="#stocare-partajata-folosind-aplicatii-online" title="Permalink to this headline">¶</a></h2>
+<p>SSHFS nu este o soluție bună pentru a face backup fișierelor, deoarece existând o singură replică, ai șters un fișier și au dispărut toate replicile.
+Pe lângă asta, dacă ai Internet slab, ai acces greu la fișiere (le vrei și local).
+Și, pe lângă asta, trebuie să ai SSH configurat, care poate necesita tunel etc.</p>
+<p>O alternativă pentru acest serviciu sunt soluții cum ar fi GoogleDrive, Dropbox, ownCloud sau OneDrive, care for stoca o replică a fișierului pe toate calculatoarele autentificate de pe un anumit cont.
+Avantajul aici este că aceste sisteme oferă suport pentru controlul versiunilor pentru a șterge modificarea anterioară.
+Cu dezavantajul că trebuie configurate.
+Și cu dezavantajul că acum informația este duplicată: dublu spațiu ocupat și pot apărea conflicte la modificări.</p>
+<div class="section" id="stocarea-partajata-folosind-dropbox">
+<h3><span class="section-number">4.2.1. </span>Stocarea partajată folosind Dropbox<a class="headerlink" href="#stocarea-partajata-folosind-dropbox" title="Permalink to this headline">¶</a></h3>
+<p>Dropbox este o soluție care se folosește de un server în Internet care stochează fișierele noastre, ca apoi acestea să fie replicate pe fiecare calculator client.</p>
+<p>Este necesar să ne creăm un cont pentru a folosi serviciul Dropbox și să îl activăm.</p>
+<p>Dropbox oferă o aplicație care rulează în linie de comandă pe care o vom descărca pentru a sincroniza sistemul de fișiere de pe serverele Dropbox într-un director local.</p>
+<p>Pentru a descărca aplicația Dropbox, pe care o vom descărca folosind comanda <code class="docutils literal notranslate"><span class="pre">wget</span></code> și o vom instala folosind comanda <code class="docutils literal notranslate"><span class="pre">dpkg</span></code> împreună cu parametrul.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>student@uso:~$ wget https://www.dropbox.com/download?dl=packages/ubuntu/dropbox_2020.03.04_amd64.deb -O dropbox.deb
+[...]
+student@uso:~$ sudo dpkg -i dropbox.deb
+Starting Dropbox...
+Dropbox is the easiest way to share and store your files online. Want to learn more? Head to https://www.dropbox.com/
+
+In order to use Dropbox, you must download the proprietary daemon. [y/n] y
+[...]
+student@uso:~$ dropbox start
+To link this computer to a Dropbox account, visit the following url:
+https://www.dropbox.com/cli_link_nonce?nonce=ffd7d648a2ca2302d1177c0c389e87bd
+</pre></div>
+</div>
+<p>Pentru a instala ultimele componente ale clientului Dropbox este necesar să rulăm comanda <code class="docutils literal notranslate"><span class="pre">dropbox</span> <span class="pre">start</span> <span class="pre">-i</span></code>.
+După ce am ponit aplicația, este necesar să înregistrăm stația online la contul nostru.
+Vom face asta accesând linkul afișat de aplicație.</p>
+</div>
+<div class="section" id="exercitiu-stocarea-partajata-folosind-dropbox">
+<h3><span class="section-number">4.2.2. </span>Exercițiu: Stocarea partajată folosind Dropbox<a class="headerlink" href="#exercitiu-stocarea-partajata-folosind-dropbox" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple">
+<li><p>Conectați-vă la stația <code class="docutils literal notranslate"><span class="pre">dropbox</span></code> și porniți aplicația Dropbox pe aceasta.</p></li>
+</ol>
+<p>#) Scrieți un fișier numit <code class="docutils literal notranslate"><span class="pre">hello.txt</span></code> mesajul <code class="docutils literal notranslate"><span class="pre">Hello</span> <span class="pre">from</span> <span class="pre">remote</span></code> de pe stația <code class="docutils literal notranslate"><span class="pre">dropbox</span></code>.
+Verificați conținutul fișierului de pe stația <code class="docutils literal notranslate"><span class="pre">uso</span></code>.</p>
+</div>
+<div class="section" id="extra-stocarea-partajata-folosind-un-server-privat">
+<h3><span class="section-number">4.2.3. </span>Extra: Stocarea partajată folosind un server privat<a class="headerlink" href="#extra-stocarea-partajata-folosind-un-server-privat" title="Permalink to this headline">¶</a></h3>
+<p>Îi vom pune să instaleze un container cu ownCloud și să îl configureze astfel încât să îl folosească ca o alternativă la Dropbox.</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+          <div class="page-nav">
+            <div class="inner"><ul class="page-nav">
+  <li class="prev">
+    <a href="usage.html"
+       title="previous chapter">← <span class="section-number">3. </span>Folosirea stației la distanță</a>
+  </li>
+  <li class="next">
+    <a href="services-config.html"
+       title="next chapter"><span class="section-number">5. </span>Configurarea și administrarea serviciilor →</a>
+  </li>
+</ul><div class="footer" role="contentinfo">
+      &#169; Copyright 2020, USO Team.
+    <br>
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.4.3 with <a href="https://github.com/romnnn/sphinx_press_theme">Press Theme</a>.
+</div>
+            </div>
+          </div>
+      </page>
+    </div>
+    
+    
+  </body>
+</html>
