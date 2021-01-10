@@ -615,19 +615,13 @@
 <h1><span class="section-number">2. </span>Conectarea la workstation<a class="headerlink" href="#conectarea-la-workstation" title="Permalink to this headline">¶</a></h1>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Pentru a parcurge această secțiune este recomandat să descărcați ultima
-versiune a respository-ului laboratorului. Pentru a descărca ultima versiune
-a repository-ului rulați comanda <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">pull</span></code> în directorul
-<code class="docutils literal notranslate"><span class="pre">~/uso-lab/labs/10-tasks-admin/lab-containers/</span></code>.</p>
-<p>Infrastructura laboratorului este bazată pe containere docker ale căror
-imagini vor fi generate pe propriul calculator. Dacă nu veți deja instalat
-Docker Engine pe sistem, scriptul
-<code class="docutils literal notranslate"><span class="pre">~/uso-lab/labs/10-tasks-admin/lab-containers/lab_prepare.sh</span></code> vă va instala aplicația.</p>
-<p>După ce ați terminat de lucrat vă recomandăm să opriți containerele rulând
-comanda <code class="docutils literal notranslate"><span class="pre">./lab-prepare.sh</span> <span class="pre">delete</span></code> în directorul
-<code class="docutils literal notranslate"><span class="pre">~/uso-lab/labs/10-tasks-admin/lab-containers/</span></code>.</p>
+<p>Pentru a parcurge această secțiune este recomandat să descărcați ultima versiune a respository-ului laboratorului. Pentru a descărca ultima versiune a repository-ului rulați comanda <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">pull</span></code> în directorul <code class="docutils literal notranslate"><span class="pre">~/uso-lab/labs/10-tasks-admin/lab-containers/</span></code>.</p>
+<p>Infrastructura laboratorului este bazată pe containere Docker ale căror imagini vor fi generate pe propriul calculator.
+Dacă nu veți deja instalat Docker Engine pe sistem, scriptul <code class="docutils literal notranslate"><span class="pre">~/uso-lab/labs/10-tasks-admin/lab-containers/lab_prepare.sh</span></code> vă va instala aplicația.</p>
+<p>După ce ați terminat de lucrat, vă recomandăm să opriți containerele rulând comanda <code class="docutils literal notranslate"><span class="pre">./lab-prepare.sh</span> <span class="pre">delete</span></code> în directorul <code class="docutils literal notranslate"><span class="pre">~/uso-lab/labs/10-tasks-admin/lab-containers/</span></code>.</p>
 </div>
-<p>Prima problemă cu care ne vom confrunta este conectarea la stație, deoarece, în majoritatea cazurilor, nu vom lucra în aceeași rețea cu sistemul la distanță și stația nu va avea o adresă IP publică, astfel încât să ne putem conecta direct la sistem folosind un protocol de comunicare la distanță, cum ar fi SSH fără să facem pași extra.</p>
+<p>Prima problemă cu care ne vom confrunta este conectarea la stație, deoarece, în majoritatea cazurilor, nu vom lucra în aceeași rețea cu sistemul la distanță și stația nu va avea o adresă IP publică
+Așadar, nu ne vom putea conecta direct la sistem folosind un protocol de comunicare la distanță, cum ar fi SSH fără să facem pași suplimentari.</p>
 <p>Câteva soluții de conectare la sistem pe care le vom aborda sunt:
 * VPN
 * tunel SSH
@@ -636,12 +630,12 @@ comanda <code class="docutils literal notranslate"><span class="pre">./lab-prepa
 <h2><span class="section-number">2.1. </span>Problema adreselor IP private<a class="headerlink" href="#problema-adreselor-ip-private" title="Permalink to this headline">¶</a></h2>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Pentru rularea acestui demo rulați în directorul <code class="docutils literal notranslate"><span class="pre">~/uso.git/labs/03-user/lab-containers/</span></code> comanda <code class="docutils literal notranslate"><span class="pre">./lab_prepare.sh</span> <span class="pre">install</span> <span class="pre">remote</span></code> și comanda  <code class="docutils literal notranslate"><span class="pre">./lab_prepare.sh</span> <span class="pre">install</span> <span class="pre">local</span></code>
-Pentru a ne conecta la infrastructura pentru această secțiune vom folosi comanda <code class="docutils literal notranslate"><span class="pre">./lab_prepare.sh</span> <span class="pre">connect</span></code> cum parametrul numele mașinii la care vrem să ne conectăm, <code class="docutils literal notranslate"><span class="pre">local</span></code> sau <code class="docutils literal notranslate"><span class="pre">remote</span></code>.</p>
+<p>Pentru rularea acestui demo, rulați în directorul <code class="docutils literal notranslate"><span class="pre">~/uso.git/labs/03-user/lab-containers/</span></code> comanda <code class="docutils literal notranslate"><span class="pre">./lab_prepare.sh</span> <span class="pre">install</span> <span class="pre">remote</span></code> și comanda  <code class="docutils literal notranslate"><span class="pre">./lab_prepare.sh</span> <span class="pre">install</span> <span class="pre">local</span></code>
+Pentru a ne conecta la infrastructura pentru această secțiune, vom folosi comanda <code class="docutils literal notranslate"><span class="pre">./lab_prepare.sh</span> <span class="pre">connect</span></code> având ca parametru numele mașinii la care vrem să ne conectăm, <code class="docutils literal notranslate"><span class="pre">local</span></code> sau <code class="docutils literal notranslate"><span class="pre">remote</span></code>.</p>
 </div>
 <p>Adresele IPv4 au fost contruite pentru a fi identificatori unici în Internet pentru stații.
 Acestea pot să identifice maxim <span class="math notranslate nohighlight">\(2^{32}\)</span> stații în Internet.
-Însă, acum există mai multe dispozitive conectate la Internet decât există adrese IPv4 care se pot asigna pe dispozitive.</p>
+Însă acum există mai multe dispozitive conectate la Internet decât există adrese IPv4 care se pot asigna pe dispozitive.</p>
 <p>Pentru a se rezolva această problemă, au fost alese anumite intervale de adrese IP care pot fi atribuite pe mai multe dispozitive în același timp.
 Astfel, s-a rezolvat problema suprapunerii adreselor IP.
 Dezavantajul este că aceste adrese, nemaifiind unice, nu mai pot să fie accesibile de oriunde din Internet.</p>
@@ -652,19 +646,9 @@ Dezavantajul este că aceste adrese, nemaifiind unice, nu mai pot să fie accesi
 <li><p><code class="docutils literal notranslate"><span class="pre">192.168.0.0</span></code> - <code class="docutils literal notranslate"><span class="pre">192.168.255.255</span></code></p></li>
 </ul>
 <p>Nicio adresă IP din intervalele de mai sunt nu poate fi accesată direct din Internet.</p>
-<p>De exemplu, dacă încercăm să ne conectăm la sistemul <code class="docutils literal notranslate"><span class="pre">remote</span></code> de pe stația <code class="docutils literal notranslate"><span class="pre">local</span></code>, trebuie mai întâi să aflăm adresa IP a stației <code class="docutils literal notranslate"><span class="pre">local</span></code>:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">root</span><span class="nd">@remote</span><span class="p">:</span><span class="o">~</span><span class="c1"># ip a s</span>
-<span class="mi">1</span><span class="p">:</span> <span class="n">lo</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">LOOPBACK</span><span class="p">,</span><span class="n">UP</span><span class="p">,</span><span class="n">LOWER_UP</span><span class="o">&gt;</span> <span class="n">mtu</span> <span class="mi">65536</span> <span class="n">qdisc</span> <span class="n">noqueue</span> <span class="n">state</span> <span class="n">UNKNOWN</span> <span class="n">group</span> <span class="n">default</span> <span class="n">qlen</span> <span class="mi">1000</span>
-    <span class="n">link</span><span class="o">/</span><span class="n">loopback</span> <span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span> <span class="n">brd</span> <span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span>
-    <span class="n">inet</span> <span class="mf">127.0</span><span class="o">.</span><span class="mf">0.1</span><span class="o">/</span><span class="mi">8</span> <span class="n">scope</span> <span class="n">host</span> <span class="n">lo</span>
-       <span class="n">valid_lft</span> <span class="n">forever</span> <span class="n">preferred_lft</span> <span class="n">forever</span>
-<span class="mi">190</span><span class="p">:</span> <span class="n">eth0</span><span class="nd">@if191</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">BROADCAST</span><span class="p">,</span><span class="n">MULTICAST</span><span class="p">,</span><span class="n">UP</span><span class="p">,</span><span class="n">LOWER_UP</span><span class="o">&gt;</span> <span class="n">mtu</span> <span class="mi">1500</span> <span class="n">qdisc</span> <span class="n">noqueue</span> <span class="n">state</span> <span class="n">UP</span> <span class="n">group</span> <span class="n">default</span>
-    <span class="n">link</span><span class="o">/</span><span class="n">ether</span> <span class="mi">02</span><span class="p">:</span><span class="mi">42</span><span class="p">:</span><span class="mi">0</span><span class="n">a</span><span class="p">:</span><span class="mi">0</span><span class="n">a</span><span class="p">:</span><span class="mi">0</span><span class="n">a</span><span class="p">:</span><span class="mi">01</span> <span class="n">brd</span> <span class="n">ff</span><span class="p">:</span><span class="n">ff</span><span class="p">:</span><span class="n">ff</span><span class="p">:</span><span class="n">ff</span><span class="p">:</span><span class="n">ff</span><span class="p">:</span><span class="n">ff</span> <span class="n">link</span><span class="o">-</span><span class="n">netnsid</span> <span class="mi">0</span>
-    <span class="n">inet</span> <span class="mf">10.10</span><span class="o">.</span><span class="mf">10.3</span><span class="o">/</span><span class="mi">24</span> <span class="n">brd</span> <span class="mf">10.10</span><span class="o">.</span><span class="mf">10.255</span> <span class="n">scope</span> <span class="k">global</span> <span class="n">eth0</span>
-       <span class="n">valid_lft</span> <span class="n">forever</span> <span class="n">preferred_lft</span> <span class="n">forever</span>
-</pre></div>
-</div>
-<p>Conform comenzii de mai sus reiese că adresa IP a stației remote este <code class="docutils literal notranslate"><span class="pre">10.10.10.3</span></code>.</p>
+<p>În această subsecțiune vom lucra cu 3 stații care sunt distribuite în felul următor:
+* <code class="docutils literal notranslate"><span class="pre">local</span></code>, reprezintă stația “locală”, adică laptopul de pe care ne-am conecta, dacă ar fi vorba de un scenariu real; are o singură interfață de rețea cu adresa IP <code class="docutils literal notranslate"><span class="pre">10.10.10.3</span></code>;
+* <code class="docutils literal notranslate"><span class="pre">remote</span></code>, reprezintă workstation-ul la care vrem să ne conectăm; are o singură interfață cu adresa IP IP <code class="docutils literal notranslate"><span class="pre">10.11.11.3</span></code>;</p>
 <p>Vom verifica conectivitatea cu stația <code class="docutils literal notranslate"><span class="pre">remote</span></code> de pe stația <code class="docutils literal notranslate"><span class="pre">local</span></code> folosind comanda <code class="docutils literal notranslate"><span class="pre">ping</span></code>:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">root</span><span class="nd">@local</span><span class="p">:</span><span class="o">~</span><span class="c1"># ping -c 2 10.10.10.3</span>
 <span class="n">PING</span> <span class="mf">10.10</span><span class="o">.</span><span class="mf">10.3</span> <span class="p">(</span><span class="mf">10.10</span><span class="o">.</span><span class="mf">10.3</span><span class="p">)</span> <span class="mi">56</span><span class="p">(</span><span class="mi">84</span><span class="p">)</span> <span class="nb">bytes</span> <span class="n">of</span> <span class="n">data</span><span class="o">.</span>
@@ -682,14 +666,13 @@ Dezavantajul este că aceste adrese, nemaifiind unice, nu mai pot să fie accesi
 <span class="n">rtt</span> <span class="nb">min</span><span class="o">/</span><span class="n">avg</span><span class="o">/</span><span class="nb">max</span><span class="o">/</span><span class="n">mdev</span> <span class="o">=</span> <span class="mf">8.588</span><span class="o">/</span><span class="mf">8.806</span><span class="o">/</span><span class="mf">9.024</span><span class="o">/</span><span class="mf">0.218</span> <span class="n">ms</span>
 </pre></div>
 </div>
-<p>Rezultatul comenzii primei rulări a comenzii ping demonstrează faptul că nu avem
-conectivitate între stația <code class="docutils literal notranslate"><span class="pre">local</span></code> și stația <code class="docutils literal notranslate"><span class="pre">remote</span></code>.
-Totuși, am testat și conectivitatea cu o altă adresă IP din Internet, în cazul acesta folosind IP-ul stației <code class="docutils literal notranslate"><span class="pre">fep.grid.pub.ro</span></code>, cu care putem să comunicăm, deci nu este o problemă de conectare la Internet.
+<p>Rezultatul comenzii primei rulări a comenzii <code class="docutils literal notranslate"><span class="pre">ping</span></code> demonstrează faptul că nu avem conectivitate între stația <code class="docutils literal notranslate"><span class="pre">local</span></code> și stația <code class="docutils literal notranslate"><span class="pre">remote</span></code>.
+Totuși, am testat și conectivitatea cu o altă adresă IP din Internet, în cazul acesta folosind adresa IP a stației <code class="docutils literal notranslate"><span class="pre">fep.grid.pub.ro</span></code>, cu care putem să comunicăm, deci nu este o problemă de conectare la Internet.
 Pentru a recapitula funcționalitatea utilitarului <code class="docutils literal notranslate"><span class="pre">ping</span></code>, revizitați capitolul &lt;TODO&gt;</p>
 </div>
 <div class="section" id="conectarea-prin-vpn">
 <h2><span class="section-number">2.2. </span>Conectarea prin VPN<a class="headerlink" href="#conectarea-prin-vpn" title="Permalink to this headline">¶</a></h2>
-<p>Prima soluție pentru conectarea la o stație care folosește o adresă IP privată o reprezintă serviciile de tip VPN (Virtual Private Network).
+<p>Prima soluție pentru conectarea la o stație care folosește o adresă IP privată o reprezintă serviciile de tip VPN (<em>Virtual Private Network</em>).
 Acestea conectează două stații care în mod fizic nu sunt conectate la aceeași rețea &lt;TODO ref capitol rețea&gt;</p>
 <p>Pentru această soluție avem două moduri de organizare: folosind un server public pe care îl setăm noi drept server de VPN, sau folosirea unui serviciu public de VPN cum ar fi Hamachi sau ZeroTier.</p>
 <p>Am folosit ca exemplu serviciile Hamachi sau ZeroTier, deoarece acestea pot fi folosite gratuit și sunt ușor de configurat.</p>
@@ -754,7 +737,7 @@ Opțiunea <code class="docutils literal notranslate"><span class="pre">-i</span>
 </pre></div>
 </div>
 <p>Această comandă generează un identificator unic per stație și stabilește un nickname.
-Rulând comanda <code class="docutils literal notranslate"><span class="pre">hamachi</span></code> vor fi afișate identificatorul, nickname-ul sistemului, adresa IP din VLAN și nickname-ul sistemului.</p>
+Rulând comanda <code class="docutils literal notranslate"><span class="pre">hamachi</span></code> vor fi afișate identificatorul, nickname-ul sistemului, adresa IP din VPN și nickname-ul sistemului.</p>
 </div>
 <div class="section" id="exercitiu-instalare-hamachi">
 <h4><span class="section-number">2.2.1.2. </span>Exercițiu: Instalare Hamachi<a class="headerlink" href="#exercitiu-instalare-hamachi" title="Permalink to this headline">¶</a></h4>
@@ -762,9 +745,12 @@ Rulând comanda <code class="docutils literal notranslate"><span class="pre">ham
 </div>
 <div class="section" id="crearea-unei-retele-private">
 <h4><span class="section-number">2.2.1.3. </span>Crearea unei rețele private<a class="headerlink" href="#crearea-unei-retele-private" title="Permalink to this headline">¶</a></h4>
-<p>Odată ce am instalat Hamachi pe ambele stații pe care vrem să le conectăm, trebuie să creăm o rețea privată prin care acestea două să comunice.</p>
-<p>Vom crea rețeaua virtuală de pe stația <code class="docutils literal notranslate"><span class="pre">remote</span></code>, astfel aceasta va fi administratorul rețelei.
+<p>Odată ce am instalat Hamachi pe ambele stații pe care vrem să le conectăm, trebuie să creăm o rețea virtuală prin care acestea două să comunice
+Această rețea va conecta cele două calculatoare, cu toate că ele nu sunt fizic în aceeași rețea.</p>
+<p>Vom crea rețeaua virtuală de pe stația <code class="docutils literal notranslate"><span class="pre">remote</span></code>.
 Pentru a crea o rețea virtuală folosim comanda <code class="docutils literal notranslate"><span class="pre">hamachi</span> <span class="pre">create</span></code> împreună cu numele rețelei și parola acesteia.
+Stația <code class="docutils literal notranslate"><span class="pre">remote</span></code> va avea drepturi de administrare a rețelei.
+Doar acesta poate să scoată sisteme din rețea, sau să șteargă rețeaua.
 Pentru demo-ul pe care îl urmăriți, folosiți în loc de șirul de caractere <code class="docutils literal notranslate"><span class="pre">nume-prenume</span></code> numele și prenumele vostru.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">root</span><span class="nd">@remote</span><span class="p">:</span><span class="o">~</span><span class="c1"># hamachi create nume-prenume 12345667890</span>
 <span class="n">Creating</span> <span class="n">nume</span><span class="o">-</span><span class="n">prenume</span> <span class="o">..</span> <span class="n">ok</span>
@@ -807,7 +793,7 @@ Conectați stațiile <code class="docutils literal notranslate"><span class="pre
 </div>
 <div class="section" id="folosirea-unui-vpn-privat">
 <h3><span class="section-number">2.2.2. </span>Folosirea unui VPN privat<a class="headerlink" href="#folosirea-unui-vpn-privat" title="Permalink to this headline">¶</a></h3>
-<p>Pentru folosirea unui VPN privat este nevoie să avem o stație în Internet la care să avem acces atât stația locală (cum ar fi laptopul) cât și cea remote (workstationul).
+<p>Pentru folosirea unui VPN privat este nevoie să avem o stație în Internet la care să avem acces atât de la stația locală (cum ar fi laptopul) cât și de la cea de la distanță (workstationul).
 Putem obține acces la astfel de stații cumpărând acces la o mașină virtuală, cum ar fi într-un serviciu de hosting, cum ar fi AWS, DigitalOcean, Microsoft Azure sau Linode.</p>
 <p>Odată ce am obținut o stație cu o adresă IP publică, este nevoie să configurăm un serviciu de VPN.
 Pentru aceasta putem folosi infrastructura pe care am folosit-o deja la laboratorul de rețelistică.
@@ -819,25 +805,25 @@ Aceasta pornește un server OpenVPN pe sistem.
 <h2><span class="section-number">2.3. </span>Conectarea folosind un tunel SSH<a class="headerlink" href="#conectarea-folosind-un-tunel-ssh" title="Permalink to this headline">¶</a></h2>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Pentru rularea acestui demo rulați în directorul <code class="docutils literal notranslate"><span class="pre">~/uso.git/labs/10-task-admin/lab-containers/</span></code> comanda <code class="docutils literal notranslate"><span class="pre">./lab_prepare.sh</span> <span class="pre">install</span> <span class="pre">ssh-server</span></code>.
+<p>Pentru rularea acestui demo, rulați în directorul <code class="docutils literal notranslate"><span class="pre">~/uso.git/labs/10-task-admin/lab-containers/</span></code> comanda <code class="docutils literal notranslate"><span class="pre">./lab_prepare.sh</span> <span class="pre">install</span> <span class="pre">ssh-server</span></code>.
 Pentru a ne conecta la infrastructura pentru această secțiune vom folosi comanda <code class="docutils literal notranslate"><span class="pre">./lab_prepare.sh</span> <span class="pre">connect</span></code> cum parametrul numele mașinii la care vrem să ne conectăm, <code class="docutils literal notranslate"><span class="pre">local</span></code>, <code class="docutils literal notranslate"><span class="pre">remote</span></code> sau <code class="docutils literal notranslate"><span class="pre">ssh-server</span></code>.</p>
 </div>
 <p>Abordările pe care le-am discutat mai sus presupun accesul la un server central și drepturi de administrator din partea utilizatorului pentru instalarea aplicațiilor (cum ar fi Hamachi sau OpenVPN).
 Dacă nu avem acces la un cont de administrator, nu putem să ne conectăm la stația de la distanță.</p>
 <p>O alternativă care nu presupune drepturi administrative sunt tunelele SSH.
 Un tunel SSH reprezintă o conexiune între două stații facilitată de protocolul SSH.
-Astfel, în loc să trimitem comenzi prin SSH către o stație, putem trimite orice tip de mesaj, pentru orice aplicație, nu numai SSH între orice două porturi.</p>
+Astfel, în loc să trimitem comenzi prin SSH către o stație, putem trimite orice tip de mesaj, pentru orice aplicație.</p>
 <p>Dezavantajul acestei abordări este că necesită accesul la un server terț care să fie accesibil de ambele stații.</p>
 <p>&lt;TODO Insert schemă&gt;</p>
 <p>În această subsecțiune vom lucra cu 3 stații care sunt distribuite în felul următor:
-* <code class="docutils literal notranslate"><span class="pre">local</span></code>, reprezintă stația “locală”, adică laptop-ul de pe care ne-am conecta, dacă ar fi vorba de un scenariu real; are o singură interfață de rețea cu adresa IP <code class="docutils literal notranslate"><span class="pre">10.10.10.3</span></code>;
-* <code class="docutils literal notranslate"><span class="pre">remote</span></code>, reprezintă workstation-ul la care vrem să ne conectăm; are o singură interfață cu IP-ul <code class="docutils literal notranslate"><span class="pre">10.11.11.3</span></code>;
-* <code class="docutils literal notranslate"><span class="pre">server</span></code>, reprezintă serverul terț prin care ne vom conecta ca să ajungem la workstation; această stație are două interfețe conectate la ea, cu IP-urile <code class="docutils literal notranslate"><span class="pre">10.10.10.2</span></code> și <code class="docutils literal notranslate"><span class="pre">10.11.11.2</span></code>, dar în realitate aceasta ar avea o singură placă de rețea.</p>
-<p>Stațiile <code class="docutils literal notranslate"><span class="pre">local</span></code> și <code class="docutils literal notranslate"><span class="pre">remote</span></code> nu au conectivitate între ele, dar au conectivitate la stația <code class="docutils literal notranslate"><span class="pre">ssh-server</span></code>, deoarece sunt în aceeași rețea</p>
+* <code class="docutils literal notranslate"><span class="pre">local</span></code>, reprezintă stația “locală”, adică laptopul de pe care ne-am conecta, dacă ar fi vorba de un scenariu real; are o singură interfață de rețea cu adresa IP <code class="docutils literal notranslate"><span class="pre">10.10.10.3</span></code>;
+* <code class="docutils literal notranslate"><span class="pre">remote</span></code>, reprezintă workstationul la care vrem să ne conectăm; are o singură interfață cu adresa IP <code class="docutils literal notranslate"><span class="pre">10.11.11.3</span></code>;
+* <code class="docutils literal notranslate"><span class="pre">ssh-server</span></code>, reprezintă serverul terț prin care ne vom conecta ca să ajungem la workstation; această stație are două interfețe conectate la ea, cu adresele IP <code class="docutils literal notranslate"><span class="pre">10.10.10.2</span></code> și <code class="docutils literal notranslate"><span class="pre">10.11.11.2</span></code>, dar în realitate aceasta ar avea o singură placă de rețea.</p>
+<p>Stațiile <code class="docutils literal notranslate"><span class="pre">local</span></code> și <code class="docutils literal notranslate"><span class="pre">remote</span></code> nu au conectivitate între ele, dar au conectivitate la stația <code class="docutils literal notranslate"><span class="pre">ssh-server</span></code>, deoarece sunt în aceeași rețea.</p>
 <div class="section" id="initializarea-tunelului-ssh">
 <h3><span class="section-number">2.3.1. </span>Inițializarea tunelului SSH<a class="headerlink" href="#initializarea-tunelului-ssh" title="Permalink to this headline">¶</a></h3>
 <p>Primul pas necesar pentru conectarea la o stație prin tunel SSH este inițializarea tunelului.
-Atunci când inițializăm tunelul acesta va deschide portul <code class="docutils literal notranslate"><span class="pre">4242</span></code> pe stația <code class="docutils literal notranslate"><span class="pre">ssh-server</span></code> de la adresa <code class="docutils literal notranslate"><span class="pre">10.11.11.2</span></code> astfel încât mesajele trimise către portul <code class="docutils literal notranslate"><span class="pre">4242</span></code> vor fi trimise către portul <code class="docutils literal notranslate"><span class="pre">22</span></code> de pe stația <code class="docutils literal notranslate"><span class="pre">remote</span></code> , stația de pe care inițializăm tunelul SSH.</p>
+Când inițializăm tunelul acesta va deschide portul <code class="docutils literal notranslate"><span class="pre">4242</span></code> pe stația <code class="docutils literal notranslate"><span class="pre">ssh-server</span></code> de la adresa <code class="docutils literal notranslate"><span class="pre">10.11.11.2</span></code>, astfel încât mesajele trimise către portul <code class="docutils literal notranslate"><span class="pre">4242</span></code> vor fi trimise către portul <code class="docutils literal notranslate"><span class="pre">22</span></code> de pe stația <code class="docutils literal notranslate"><span class="pre">remote</span></code> , stația de pe care inițializăm tunelul SSH.</p>
 <p>Pentru a deschide tunelul vom folosi comanda următoare:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>root@remote:~# ssh -N -R 4242:localhost:22 root@10.10.10.2
 The authenticity of host &#39;10.10.10.2 (10.10.10.2)&#39; can&#39;t be established.
@@ -848,11 +834,11 @@ root@10.10.10.2&#39;s password:
 </pre></div>
 </div>
 <p>Opțiunile comenzii <code class="docutils literal notranslate"><span class="pre">ssh</span></code> folosite sunt următoarele:
-* <code class="docutils literal notranslate"><span class="pre">-N</span></code> este folosită atunci când deschidem tunele pentru a nu deschide shell-uri în care să dăm comenzi;
+* <code class="docutils literal notranslate"><span class="pre">-N</span></code> este folosită atunci când deschidem tunele pentru a nu deschide shelluri în care să dăm comenzi;
 * <code class="docutils literal notranslate"><span class="pre">4242</span></code> este portul pe care vrem să îl deschidă pe stația <code class="docutils literal notranslate"><span class="pre">ssh-server</span></code>;
 * <code class="docutils literal notranslate"><span class="pre">localhost</span></code> este stația către care vor fi trimise mesajele primite pe portul <code class="docutils literal notranslate"><span class="pre">4242</span></code>. În cazul acesta mesajele vor fi trimise către <code class="docutils literal notranslate"><span class="pre">localhost</span></code>, adică stația <code class="docutils literal notranslate"><span class="pre">remote</span></code>, cea de pe care rulăm comanda de tunelare;
 * <code class="docutils literal notranslate"><span class="pre">22</span></code> este portul de pe stația <code class="docutils literal notranslate"><span class="pre">localhost</span></code> către care vrem să fie trimise mesajele primite pe portul <code class="docutils literal notranslate"><span class="pre">4242</span></code> de pe stația <code class="docutils literal notranslate"><span class="pre">ssh-server</span></code>;
-* <code class="docutils literal notranslate"><span class="pre">root&#64;10.10.10.2</span></code>, utilizatorul și IP-ul stației către care vrem să deschidem tunelul; în cazul acesta este IP-ul stației <code class="docutils literal notranslate"><span class="pre">ssh-server</span></code>.</p>
+* <code class="docutils literal notranslate"><span class="pre">root&#64;10.10.10.2</span></code>, utilizatorul și IP-ul stației către care vrem să deschidem tunelul; în cazul acesta este adresa IP a stației <code class="docutils literal notranslate"><span class="pre">ssh-server</span></code>.</p>
 <p>Putem să verificăm că a fost deschis portul <code class="docutils literal notranslate"><span class="pre">4242</span></code> pe stația <code class="docutils literal notranslate"><span class="pre">ssh-server</span></code>
 rulând comanda <code class="docutils literal notranslate"><span class="pre">netstat</span> <span class="pre">-tlpn</span></code>:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">root</span><span class="nd">@ssh</span><span class="o">-</span><span class="n">server</span><span class="p">:</span><span class="o">~</span><span class="c1"># netstat -tlpn</span>
@@ -869,7 +855,7 @@ rulând comanda <code class="docutils literal notranslate"><span class="pre">net
 <div class="section" id="folosirea-tunelului-ssh">
 <h3><span class="section-number">2.3.2. </span>Folosirea tunelului SSH<a class="headerlink" href="#folosirea-tunelului-ssh" title="Permalink to this headline">¶</a></h3>
 <p>Odată creat tunelul, vrem să îl folosim de pe stația <code class="docutils literal notranslate"><span class="pre">local</span></code>, pentru a putea rula comenzi pe stația <code class="docutils literal notranslate"><span class="pre">remote</span></code>.</p>
-<p>Pentru a face asta, trebuie să ne conectăm la stația <code class="docutils literal notranslate"><span class="pre">server</span></code>. Serverul <code class="docutils literal notranslate"><span class="pre">server</span></code> poate fi accesat la adresa <code class="docutils literal notranslate"><span class="pre">10.11.11.2</span></code>.</p>
+<p>Pentru a face acest lucru, trebuie să ne conectăm la stația <code class="docutils literal notranslate"><span class="pre">server</span></code>. Serverul <code class="docutils literal notranslate"><span class="pre">server</span></code> poate fi accesat la adresa <code class="docutils literal notranslate"><span class="pre">10.11.11.2</span></code>.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">root</span><span class="nd">@local</span><span class="p">:</span><span class="o">~</span><span class="c1"># ssh root@10.11.11.2</span>
 <span class="n">root</span><span class="nd">@10</span><span class="o">.</span><span class="mf">11.11</span><span class="o">.</span><span class="mi">2</span><span class="s1">&#39;s password:</span>
 <span class="n">Welcome</span> <span class="n">to</span> <span class="n">Ubuntu</span> <span class="mf">18.04</span><span class="o">.</span><span class="mi">5</span> <span class="n">LTS</span> <span class="p">(</span><span class="n">GNU</span><span class="o">/</span><span class="n">Linux</span> <span class="mf">5.4</span><span class="o">.</span><span class="mi">0</span><span class="o">-</span><span class="mi">52</span><span class="o">-</span><span class="n">generic</span> <span class="n">x86_64</span><span class="p">)</span>
