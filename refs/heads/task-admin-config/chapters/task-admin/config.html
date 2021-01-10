@@ -635,11 +635,23 @@ Vom folosi fișierul <code class="docutils literal notranslate"><span class="pre
 <p>Ne dorim să modificăm shellul predefinit pe care îl folosește sistemul, deoarece fiecare implementare de shell oferă propriile funcționalități.
 De exemplu, <code class="docutils literal notranslate"><span class="pre">csh</span></code>, <code class="docutils literal notranslate"><span class="pre">bash</span></code> și <code class="docutils literal notranslate"><span class="pre">zsh</span></code> fiecare implementează un mecanism de auto-completion diferit, astfel completarea se face în mod diferit atunci când apăsăm tasta <code class="docutils literal notranslate"><span class="pre">TAB</span></code>.</p>
 <p>Pentru a modifica shellul predefinit al unui utilizator folosim comanda <code class="docutils literal notranslate"><span class="pre">usermod</span></code> cu opțiunea <code class="docutils literal notranslate"><span class="pre">-s</span></code> în felul următor:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>student@uso:~$ sudo apt-get install zsh
+[...]
+student@uso:~$ sudo usermod -s /bin/zsh student
+student@uso:~$ su - student
+This is the Z Shell configuration function for new users,
+[...]
+--- Type one of the keys in parentheses --- 2
+/home/student/.zshrc:15: scalar parameter HISTFILE created globally in function zsh-newuser-install
+(eval):1: scalar parameter LS_COLORS created globally in function zsh-newuser-install
+student@uso ~ % echo $SHELL
+/bin/zsh
 </pre></div>
 </div>
 <p>Rulând comanda de mai sus, am modificat shellul predefinit al utilizatorului <code class="docutils literal notranslate"><span class="pre">student</span></code> în <code class="docutils literal notranslate"><span class="pre">/bin/zsh</span></code>.
-Pentru verificare, ne-am autentificat ca utilizatorul student și am afișat valoarea variabilei <code class="docutils literal notranslate"><span class="pre">SHELL</span></code>.</p>
+Pentru verificare, ne-am autentificat ca utilizatorul <code class="docutils literal notranslate"><span class="pre">student</span></code>.
+La prima autentificare <code class="docutils literal notranslate"><span class="pre">zsh</span></code> ne-a întrebat ce fel de configurare vrem, iar noi am folosit opțiunea <code class="docutils literal notranslate"><span class="pre">2</span></code>, pentru generarea automată a unei configurări.
+Am afișat valoarea variabilei <code class="docutils literal notranslate"><span class="pre">SHELL</span></code> pentru a afișa calea către shellul folosit.</p>
 <div class="section" id="exercitiu-modificarea-shellului-predefinit">
 <span id="task-admin-config-shell-change-ex"></span><h4><span class="section-number">3.1.1.1. </span>Exercițiu: Modificarea shellului predefinit:<a class="headerlink" href="#exercitiu-modificarea-shellului-predefinit" title="Permalink to this headline">¶</a></h4>
 <p>Modificați shellul predefinit al utilizatorului <code class="docutils literal notranslate"><span class="pre">student</span></code> cu shellul <code class="docutils literal notranslate"><span class="pre">/bin/bash</span></code>.
@@ -778,6 +790,10 @@ export PS1=&quot;\u@\h:\w-\`parse_git_branch\` &quot;
 </div>
 <p>Pornind un nou shell, vedem că promptul s-a schimbat, acum nu mai este colorat.
 Când schimbăm directorul curent într-un repository Git, în promp va apărea și branch-ul pe care este setată replica repository-ului</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>student@uso:~- cd uso-lab/
+student@uso:~/uso-lab-[master !?] check-language-support ^C
+</pre></div>
+</div>
 </div>
 <div class="section" id="exercitiu-configurarea-promptului">
 <span id="task-admin-config-shell-prompt-ex"></span><h3><span class="section-number">3.1.7. </span>Exercițiu: Configurarea promptului<a class="headerlink" href="#exercitiu-configurarea-promptului" title="Permalink to this headline">¶</a></h3>

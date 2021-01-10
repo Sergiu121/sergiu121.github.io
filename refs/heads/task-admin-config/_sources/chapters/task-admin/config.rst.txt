@@ -38,8 +38,24 @@ Pentru a modifica shellul predefinit al unui utilizator folosim comanda ``usermo
 
 .. code-block::
 
+    student@uso:~$ sudo apt-get install zsh
+    [...]
+    student@uso:~$ sudo usermod -s /bin/zsh student
+    student@uso:~$ su - student
+    This is the Z Shell configuration function for new users,
+    [...]
+    --- Type one of the keys in parentheses --- 2
+    /home/student/.zshrc:15: scalar parameter HISTFILE created globally in function zsh-newuser-install
+    (eval):1: scalar parameter LS_COLORS created globally in function zsh-newuser-install
+    student@uso ~ % echo $SHELL
+    /bin/zsh
+
+
+
 Rulând comanda de mai sus, am modificat shellul predefinit al utilizatorului ``student`` în ``/bin/zsh``.
-Pentru verificare, ne-am autentificat ca utilizatorul student și am afișat valoarea variabilei ``SHELL``.
+Pentru verificare, ne-am autentificat ca utilizatorul ``student``.
+La prima autentificare ``zsh`` ne-a întrebat ce fel de configurare vrem, iar noi am folosit opțiunea ``2``, pentru generarea automată a unei configurări.
+Am afișat valoarea variabilei ``SHELL`` pentru a afișa calea către shellul folosit.
 
 .. _task_admin_config_shell_change_ex:
 
@@ -212,6 +228,7 @@ Pornind un nou shell, vedem că promptul s-a schimbat, acum nu mai este colorat.
 Când schimbăm directorul curent într-un repository Git, în promp va apărea și branch-ul pe care este setată replica repository-ului
 
 .. code-block::
+
     student@uso:~- cd uso-lab/
     student@uso:~/uso-lab-[master !?] check-language-support ^C
 
