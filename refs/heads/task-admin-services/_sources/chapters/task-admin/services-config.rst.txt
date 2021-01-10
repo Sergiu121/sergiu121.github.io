@@ -1,3 +1,5 @@
+.. _task_admin_services_config:
+
 Configurarea și administrarea serviciilor
 =========================================
 
@@ -15,11 +17,15 @@ Vrem să pornim și să configurăm servicii instalate în sistem, precum:
 
 Avem nevoie de o interfață unică, cu o sintaxă minimală, care ne permite să gestionăm serviciile pe sistem, cum le pornim, oprim și cum putem să generăm noi propriile servicii.
 
+.. _task_admin_services_config_usage:
+
 Lucrul cu serviciile în Linux
 -----------------------------
 
 Comanda folosită pentru gestionarea serviciilor este ``systemctl``.
 Aceasta se regăsește pe majoritatea distribuțiilor moderne de Linux.
+
+.. _task_admin_services_config_usage_status:
 
 Verificarea stării unui serviciu
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -58,6 +64,7 @@ Fișierul care gestionează serviciul SSH este ``/lib/systemd/system/ssh.service
 Atunci când un serviciu este instalat, acesta vine la pachet cu fișierul cu extensia ``.service`` cu care acesta va fi gestionat de ``systemd``, după cum putem vedea în rezultatul comenzii de mai jos:
 
 .. code-block::
+
     student@uso:~$ sudo apt install ntp
     [...]
     Setting up ntp (1:4.2.8p12+dfsg-3ubuntu4) ...
@@ -71,10 +78,14 @@ Atunci când un serviciu este instalat, acesta vine la pachet cu fișierul cu ex
     Serviciul ``ntp`` este folosit pentru sincronizarea ceasului cu surse precise de timp din Internet.
     Acesta este un serviciu important pentru buna funcționare a aplicațiilor în Internet, deoarece o configurare a timpului pentru o stație poate duce la o funcționare incorectă a acesteia în comunicare.
 
+.. _task_admin_services_config_usage_status_ex:
+
 Exercițiu: Afișarea stării serviciilor
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Afișați starea serviciului ``thermald``, care gestionează senzorii de temperatură ai sistemului.
+
+.. _task_admin_services_config_usage_stop:
 
 Oprirea unui serviciu
 ^^^^^^^^^^^^^^^^^^^^^
@@ -131,6 +142,8 @@ Recapitulare: Afișarea stării serviciilor
 
 Afișați starea serviciului ``ssh``.
 
+.. _task_admin_services_config_usage_start:
+
 Pornirea unui serviciu
 ^^^^^^^^^^^^^^^^^^^^^^
 
@@ -160,6 +173,8 @@ Pornirea unui serviciu se face folosind comanda ``systemctl start`` în felul ur
     ian 09 05:05:54 uso sshd[4477]: pam_unix(sshd:session): session opened for user student by (uid=0)
 
 Dacă serviciul nu pornește cu succes, aceasta va afișa un mesaj de avertizare.
+
+.. _task_admin_services_config_usage_restart:
 
 Repornirea unui serviciu
 ^^^^^^^^^^^^^^^^^^^^^^^^
@@ -191,6 +206,8 @@ Observăm că inițial nu puteam să ne conectăm la mașina locală ca utilizat
     root@uso:~#
 
 Odată ce am adăugat opțiunea ``PermitRootLogin yes`` în fișierul de configurare al serviciului și am repornit serviciului, am reușit să ne autentificăm ca utilizatorul ``root``.
+
+.. _task_admin_services_config_usage_enable:
 
 Pornirea unui serviciu la startup
 """""""""""""""""""""""""""""""""
@@ -265,6 +282,8 @@ Pentru a activa un serviciu la startup vom folosi comanda ``systemctl enable``:
 
 Observăm că pe linia care conține șirul de caractere ``Loaded``, mesajul s-a schimbat în ``enabled``.
 
+.. _task_admin_services_config_config:
+
 Configurarea unui serviciu
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -277,15 +296,23 @@ Acestea se pot găsi în mai multe locuri:
   Aceste fișiere sunt citite și interpretate de servici.
   De exemplu, pentru configurarea serviciului NTP, există fișierul ``/etc/ntp.conf``, iar pentru configurarea serviciului SSH folosim fișierele din directorul ``/etc/ssh/``.
 
+.. _task_admin_services_config_ex:
+
 Exerciții: Gestiunea serviciilor
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 #) Configurați serviciul SSH pentru a permite autentificarea ca utilizatorul ``root`` folosind numai autentificare bazată pe chei.
+
 #) Instalați serviciul ``vsftpd``. Acesta este un serviciu de transfer de fișiere.
+
     #) Realizați modificările necesare astfel încât acest serviciu să **NU** pornească la startup;
+
     #) Dezactivați funcționalitatea bazată pe IPv6 a serviciului. **Hint**: ``listen_ipv6``, ``listen``.
+
     #) Asigurați-vă că serviciul rulează.
        Acest serviciu ascultă pe portul ``21``.
+
+.. _task_admin_services_config_custom:
 
 Definirea unui serviciu personalizat
 ------------------------------------
@@ -342,6 +369,8 @@ Putem să verificăm dacă a pornit proxy-ul verificând dacă ascultă vreun se
     tcp6       0      0 ::1:1337                :::*                    LISTEN      32177/ssh           
     tcp6       0      0 :::22                   :::*                    LISTEN      10459/sshd: /usr/sb 
     tcp6       0      0 ::1:631                 :::*                    LISTEN      541/cupsd           
+
+.. _task_admin_services_config_custom_ex:
 
 Exercițiu: Definirea unui serviciu personalizat
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
