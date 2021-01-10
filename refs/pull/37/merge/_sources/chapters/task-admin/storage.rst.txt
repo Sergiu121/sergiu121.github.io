@@ -3,32 +3,26 @@ Gestionarea spațiului de stocare partajat
 
 .. note::
 
-    Pentru a parcurge această secțiune este recomandat să descărcați ultima
-    versiune a respository-ului laboratorului. Pentru a descărca ultima versiune
-    a repository-ului rulați comanda ``git pull`` în directorul
-    ``~/uso-lab/labs/10-tasks-admin/lab-containers/``.
+    Pentru a parcurge această secțiune este recomandat să descărcați ultima versiune a respository-ului laboratorului.
+    Pentru a descărca ultima versiune a repository-ului rulați comanda ``git pull`` în directorul ``~/uso-lab/labs/10-tasks-admin/lab-containers/``.
 
-    Infrastructura laboratorului este bazată pe containere docker ale căror
-    imagini vor fi generate pe propriul calculator. Dacă nu veți deja instalat
-    Docker Engine pe sistem, scriptul
-    ``~/uso-lab/labs/10-tasks-admin/lab-containers/lab_prepare.sh`` vă va instala aplicația.
+    Infrastructura laboratorului este bazată pe containere Docker ale căror imagini vor fi generate pe propriul calculator.
+    Dacă nu veți deja instalat Docker Engine pe sistem, scriptul ``~/uso-lab/labs/10-tasks-admin/lab-containers/lab_prepare.sh`` vă va instala aplicația.
 
-    După ce ați terminat de lucrat vă recomandăm să opriți containerele rulând
-    comanda ``./lab-prepare.sh delete`` în directorul
-    ``~/uso-lab/labs/10-tasks-admin/lab-containers/``.
+    După ce ați terminat de lucrat, vă recomandăm să opriți containerele rulând comanda ``./lab-prepare.sh delete`` în directorul ``~/uso-lab/labs/10-tasks-admin/lab-containers/``.
 
 O componentă importantă a mediului de lucru este spațiul de stocare.
 Cu toate că vom rula aplicații pe serverul de la distanță, avem nevoie de acces la spațiul de stocare al acestuia, deoarece vrem ca, într-un final, să urmărim rezultatul procesării și, eventual, să îl analizăm folosind utilitare grafice dedicate.
 O altă nevoie pe care o avem este editarea codului la distanță, deoarece majoritatea programatorilor folosesc IDE-uri în mediu grafic, care nu pot rula mereu eficient de la distanță.
-Soluția la această nevoie este să partajăm spațiul de stocare între serverul ``remote`` și ``local`` de pe care lucrăm.
+Soluția la această nevoie este să partajăm spațiul de stocare între serverul ``remote`` și stația ``local`` de pe care lucrăm.
 
 Stocare partajată folosind SSHFS
 --------------------------------
 
 .. note::
 
-    Pentru rularea acestui demo rulați în directorul ``~/uso.git/labs/03-user/lab-containers/`` comanda ``./lab_prepare.sh install remote``, comanda  ``./lab_prepare.sh install config`` și comanda ``./lab_prepare.sh install ssh-server``.
-    Pentru a ne conecta la infrastructura pentru această secțiune vom folosi comanda ``./lab_prepare.sh connect local``.
+    Pentru rularea acestui demo, rulați în directorul ``~/uso.git/labs/03-user/lab-containers/`` comanda ``./lab_prepare.sh install remote``, comanda  ``./lab_prepare.sh install config`` și comanda ``./lab_prepare.sh install ssh-server``.
+    Pentru a ne conecta la infrastructura pentru această secțiune, vom folosi comanda ``./lab_prepare.sh connect local``.
 
 SSHFS este o soluție de stocare partajată care permite montarea unui sistem de fișiere care nu este legat fizic la stația ``local``, ci se folosește de protocolul SSH pentru a transmite operațiile asupra fișierelor prin rețea către un sistem de fișiere conectat prin rețea.
 
@@ -85,9 +79,9 @@ Montarea persistentă a unui sistem de fișiere
 
 Deoarece nu ne dorim să rulăm comanda ``sshfs`` atunci când vrem să folosim un sistem de fișiere la distanță, vrem să montăm persistent sistemul de fișiere de la distanță, astfel încât această montare să persiste după oprirea stației locale.
 
-Ca să montăm persistent sistemul de fișiere avem nevoie să copiem cheia SSH pe stația de la distanța, deoarece montarea se va face în mod neinteractiv, deci nu vom avea posibilitatea de a introduce parola. <TODO REF NETWORKING>
+Ca să montăm persistent sistemul de fișiere avem nevoie să copiem cheia SSH pe stația de la distanță, deoarece montarea se va face în mod neinteractiv, deci nu vom avea posibilitatea de a introduce parola. <TODO REF NETWORKING>
 
-Pentru a monta persistent sistemul de fișiere vom scrie o intrare în fișierul ``/etc/fstab`` care va conține detalii despre sistemul de fișiere pe care vrem să îl montăm.
+Pentru a monta persistent sistemul de fișiere, vom scrie o intrare în fișierul ``/etc/fstab`` care va conține detalii despre sistemul de fișiere pe care vrem să îl montăm.
 Pentru a monta sistemul de fișiere ``/``` de pe sistemul de la adresa IP ``10.10.10.2`` în directorul ``/mnt`` de pe stația locală, autentificându-ne ca utilizatorul ``root``, vom folosi următoarele comenzi:
 
 .. code-block::
@@ -120,12 +114,12 @@ Exercițiu: Montarea persistentă a unui sistem de fișiere
 Stocare partajată folosind aplicații online
 -------------------------------------------
 
-SSHFS nu este o soluție bună pentru a face backup fișierelor deorece, existând o singură replică, ștergerea locală a unui fișier duce la ștergerea sa și de pe stația remote și, astfel, la pierderea sa.
+SSHFS nu este o soluție bună pentru a face backup fișierelor deoarece, existând o singură replică, ștergerea locală a unui fișier duce la ștergerea sa și de pe stația remote și, astfel, la pierderea sa.
 Pe lângă aceasta, dacă stația locală are conexiune slabă la Internet, accesul la fișiere este greoi și neresponsiv.
 Suplimentar, trebuie configurată o conexiune SSH, care poate necesita la rândul ei existența unui tunel etc.
 
 O alternativă la folosirea SSHFS sunt soluții cum ar fi GoogleDrive, Dropbox, ownCloud sau One Drive.
-Aceste soluții sochează o replică a fișierului pe toate calculatoarele autentificate de pe un anumit cont.
+Aceste soluții stochează o replică a fișierului pe toate calculatoarele autentificate de pe un anumit cont.
 Un alt avantaj al acestora este că oferă suport pentru controlul versiunilor pentru a șterge modificarea anterioară.
 Cu dezavantajul că trebuie configurate și riscul apariției conflictelor la modificări simultane pe noduri diferite.
 Și cu dezavantajul că acum informația este duplicată: dublu spațiu ocupat și pot apărea conflicte la modificări.
@@ -165,7 +159,7 @@ Pentru a descărca aplicația Dropbox, pe care o vom descărca folosind comanda 
 
 Pentru a instala ultimele componente ale clientului Dropbox este necesar să rulăm comanda ``dropbox start -i``.
 După ce am ponit aplicația, este necesar să înregistrăm stația online la contul nostru.
-Vom face asta accesând linkul afișat de aplicație.
+Vom face acest lucru accesând linkul afișat de aplicație.
 
 Exercițiu: Stocarea partajată folosind Dropbox
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

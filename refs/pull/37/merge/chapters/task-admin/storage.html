@@ -612,28 +612,22 @@
 <h1><span class="section-number">4. </span>Gestionarea spațiului de stocare partajat<a class="headerlink" href="#gestionarea-spatiului-de-stocare-partajat" title="Permalink to this headline">¶</a></h1>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Pentru a parcurge această secțiune este recomandat să descărcați ultima
-versiune a respository-ului laboratorului. Pentru a descărca ultima versiune
-a repository-ului rulați comanda <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">pull</span></code> în directorul
-<code class="docutils literal notranslate"><span class="pre">~/uso-lab/labs/10-tasks-admin/lab-containers/</span></code>.</p>
-<p>Infrastructura laboratorului este bazată pe containere docker ale căror
-imagini vor fi generate pe propriul calculator. Dacă nu veți deja instalat
-Docker Engine pe sistem, scriptul
-<code class="docutils literal notranslate"><span class="pre">~/uso-lab/labs/10-tasks-admin/lab-containers/lab_prepare.sh</span></code> vă va instala aplicația.</p>
-<p>După ce ați terminat de lucrat vă recomandăm să opriți containerele rulând
-comanda <code class="docutils literal notranslate"><span class="pre">./lab-prepare.sh</span> <span class="pre">delete</span></code> în directorul
-<code class="docutils literal notranslate"><span class="pre">~/uso-lab/labs/10-tasks-admin/lab-containers/</span></code>.</p>
+<p>Pentru a parcurge această secțiune este recomandat să descărcați ultima versiune a respository-ului laboratorului.
+Pentru a descărca ultima versiune a repository-ului rulați comanda <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">pull</span></code> în directorul <code class="docutils literal notranslate"><span class="pre">~/uso-lab/labs/10-tasks-admin/lab-containers/</span></code>.</p>
+<p>Infrastructura laboratorului este bazată pe containere Docker ale căror imagini vor fi generate pe propriul calculator.
+Dacă nu veți deja instalat Docker Engine pe sistem, scriptul <code class="docutils literal notranslate"><span class="pre">~/uso-lab/labs/10-tasks-admin/lab-containers/lab_prepare.sh</span></code> vă va instala aplicația.</p>
+<p>După ce ați terminat de lucrat, vă recomandăm să opriți containerele rulând comanda <code class="docutils literal notranslate"><span class="pre">./lab-prepare.sh</span> <span class="pre">delete</span></code> în directorul <code class="docutils literal notranslate"><span class="pre">~/uso-lab/labs/10-tasks-admin/lab-containers/</span></code>.</p>
 </div>
 <p>O componentă importantă a mediului de lucru este spațiul de stocare.
 Cu toate că vom rula aplicații pe serverul de la distanță, avem nevoie de acces la spațiul de stocare al acestuia, deoarece vrem ca, într-un final, să urmărim rezultatul procesării și, eventual, să îl analizăm folosind utilitare grafice dedicate.
 O altă nevoie pe care o avem este editarea codului la distanță, deoarece majoritatea programatorilor folosesc IDE-uri în mediu grafic, care nu pot rula mereu eficient de la distanță.
-Soluția la această nevoie este să partajăm spațiul de stocare între serverul <code class="docutils literal notranslate"><span class="pre">remote</span></code> și <code class="docutils literal notranslate"><span class="pre">local</span></code> de pe care lucrăm.</p>
+Soluția la această nevoie este să partajăm spațiul de stocare între serverul <code class="docutils literal notranslate"><span class="pre">remote</span></code> și stația <code class="docutils literal notranslate"><span class="pre">local</span></code> de pe care lucrăm.</p>
 <div class="section" id="stocare-partajata-folosind-sshfs">
 <h2><span class="section-number">4.1. </span>Stocare partajată folosind SSHFS<a class="headerlink" href="#stocare-partajata-folosind-sshfs" title="Permalink to this headline">¶</a></h2>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Pentru rularea acestui demo rulați în directorul <code class="docutils literal notranslate"><span class="pre">~/uso.git/labs/03-user/lab-containers/</span></code> comanda <code class="docutils literal notranslate"><span class="pre">./lab_prepare.sh</span> <span class="pre">install</span> <span class="pre">remote</span></code>, comanda  <code class="docutils literal notranslate"><span class="pre">./lab_prepare.sh</span> <span class="pre">install</span> <span class="pre">config</span></code> și comanda <code class="docutils literal notranslate"><span class="pre">./lab_prepare.sh</span> <span class="pre">install</span> <span class="pre">ssh-server</span></code>.
-Pentru a ne conecta la infrastructura pentru această secțiune vom folosi comanda <code class="docutils literal notranslate"><span class="pre">./lab_prepare.sh</span> <span class="pre">connect</span> <span class="pre">local</span></code>.</p>
+<p>Pentru rularea acestui demo, rulați în directorul <code class="docutils literal notranslate"><span class="pre">~/uso.git/labs/03-user/lab-containers/</span></code> comanda <code class="docutils literal notranslate"><span class="pre">./lab_prepare.sh</span> <span class="pre">install</span> <span class="pre">remote</span></code>, comanda  <code class="docutils literal notranslate"><span class="pre">./lab_prepare.sh</span> <span class="pre">install</span> <span class="pre">config</span></code> și comanda <code class="docutils literal notranslate"><span class="pre">./lab_prepare.sh</span> <span class="pre">install</span> <span class="pre">ssh-server</span></code>.
+Pentru a ne conecta la infrastructura pentru această secțiune, vom folosi comanda <code class="docutils literal notranslate"><span class="pre">./lab_prepare.sh</span> <span class="pre">connect</span> <span class="pre">local</span></code>.</p>
 </div>
 <p>SSHFS este o soluție de stocare partajată care permite montarea unui sistem de fișiere care nu este legat fizic la stația <code class="docutils literal notranslate"><span class="pre">local</span></code>, ci se folosește de protocolul SSH pentru a transmite operațiile asupra fișierelor prin rețea către un sistem de fișiere conectat prin rețea.</p>
 <p>Avantajul folosirii SSHFS este că nu necesită descărcarea sistemului de fișiere de la distanță, deci nu duce la duplicarea fișierelor.
@@ -682,8 +676,8 @@ Atunci când vom opri stația sistemul de fișiere va fi demontat.</p>
 <div class="section" id="montarea-persistenta-a-unui-sistem-de-fisiere">
 <h3><span class="section-number">4.1.3. </span>Montarea persistentă a unui sistem de fișiere<a class="headerlink" href="#montarea-persistenta-a-unui-sistem-de-fisiere" title="Permalink to this headline">¶</a></h3>
 <p>Deoarece nu ne dorim să rulăm comanda <code class="docutils literal notranslate"><span class="pre">sshfs</span></code> atunci când vrem să folosim un sistem de fișiere la distanță, vrem să montăm persistent sistemul de fișiere de la distanță, astfel încât această montare să persiste după oprirea stației locale.</p>
-<p>Ca să montăm persistent sistemul de fișiere avem nevoie să copiem cheia SSH pe stația de la distanța, deoarece montarea se va face în mod neinteractiv, deci nu vom avea posibilitatea de a introduce parola. &lt;TODO REF NETWORKING&gt;</p>
-<p>Pentru a monta persistent sistemul de fișiere vom scrie o intrare în fișierul <code class="docutils literal notranslate"><span class="pre">/etc/fstab</span></code> care va conține detalii despre sistemul de fișiere pe care vrem să îl montăm.
+<p>Ca să montăm persistent sistemul de fișiere avem nevoie să copiem cheia SSH pe stația de la distanță, deoarece montarea se va face în mod neinteractiv, deci nu vom avea posibilitatea de a introduce parola. &lt;TODO REF NETWORKING&gt;</p>
+<p>Pentru a monta persistent sistemul de fișiere, vom scrie o intrare în fișierul <code class="docutils literal notranslate"><span class="pre">/etc/fstab</span></code> care va conține detalii despre sistemul de fișiere pe care vrem să îl montăm.
 Pentru a monta sistemul de fișiere <code class="docutils literal notranslate"><span class="pre">/`</span></code> de pe sistemul de la adresa IP <code class="docutils literal notranslate"><span class="pre">10.10.10.2</span></code> în directorul <code class="docutils literal notranslate"><span class="pre">/mnt</span></code> de pe stația locală, autentificându-ne ca utilizatorul <code class="docutils literal notranslate"><span class="pre">root</span></code>, vom folosi următoarele comenzi:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">root</span><span class="nd">@local</span><span class="p">:</span><span class="o">~</span><span class="c1"># ssh-keygen</span>
 <span class="p">[</span><span class="o">...</span><span class="p">]</span>
@@ -715,11 +709,11 @@ Pentru a monta sistemul de fișiere <code class="docutils literal notranslate"><
 </div>
 <div class="section" id="stocare-partajata-folosind-aplicatii-online">
 <h2><span class="section-number">4.2. </span>Stocare partajată folosind aplicații online<a class="headerlink" href="#stocare-partajata-folosind-aplicatii-online" title="Permalink to this headline">¶</a></h2>
-<p>SSHFS nu este o soluție bună pentru a face backup fișierelor deorece, existând o singură replică, ștergerea locală a unui fișier duce la ștergerea sa și de pe stația remote și, astfel, la pierderea sa.
+<p>SSHFS nu este o soluție bună pentru a face backup fișierelor deoarece, existând o singură replică, ștergerea locală a unui fișier duce la ștergerea sa și de pe stația remote și, astfel, la pierderea sa.
 Pe lângă aceasta, dacă stația locală are conexiune slabă la Internet, accesul la fișiere este greoi și neresponsiv.
 Suplimentar, trebuie configurată o conexiune SSH, care poate necesita la rândul ei existența unui tunel etc.</p>
 <p>O alternativă la folosirea SSHFS sunt soluții cum ar fi GoogleDrive, Dropbox, ownCloud sau One Drive.
-Aceste soluții sochează o replică a fișierului pe toate calculatoarele autentificate de pe un anumit cont.
+Aceste soluții stochează o replică a fișierului pe toate calculatoarele autentificate de pe un anumit cont.
 Un alt avantaj al acestora este că oferă suport pentru controlul versiunilor pentru a șterge modificarea anterioară.
 Cu dezavantajul că trebuie configurate și riscul apariției conflictelor la modificări simultane pe noduri diferite.
 Și cu dezavantajul că acum informația este duplicată: dublu spațiu ocupat și pot apărea conflicte la modificări.</p>
@@ -748,7 +742,7 @@ https://www.dropbox.com/cli_link_nonce?nonce=ffd7d648a2ca2302d1177c0c389e87bd
 </div>
 <p>Pentru a instala ultimele componente ale clientului Dropbox este necesar să rulăm comanda <code class="docutils literal notranslate"><span class="pre">dropbox</span> <span class="pre">start</span> <span class="pre">-i</span></code>.
 După ce am ponit aplicația, este necesar să înregistrăm stația online la contul nostru.
-Vom face asta accesând linkul afișat de aplicație.</p>
+Vom face acest lucru accesând linkul afișat de aplicație.</p>
 </div>
 <div class="section" id="exercitiu-stocarea-partajata-folosind-dropbox">
 <h3><span class="section-number">4.2.2. </span>Exercițiu: Stocarea partajată folosind Dropbox<a class="headerlink" href="#exercitiu-stocarea-partajata-folosind-dropbox" title="Permalink to this headline">¶</a></h3>
