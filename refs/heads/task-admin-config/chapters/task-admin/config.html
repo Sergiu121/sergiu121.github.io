@@ -627,8 +627,8 @@ Au formă de sugestii, nu sunt obligații, pe baza cărora fiecare poate decide 
 <h2><span class="section-number">3.1. </span>Configurarea shellului<a class="headerlink" href="#configurarea-shellului" title="Permalink to this headline">¶</a></h2>
 <p>Primul aspect pe care îl vom modifica la mediul de lucru este shellul în care rulăm comenzi, deoarece acesta este cea mai folosită unealtă.
 Fie că că edităm cod, sau administrăm sisteme, acesta este locul unde rulăm comenzi.</p>
-<p>Modificările la nivelul shellului se fac schimbând variabile de mediu sau rulând comenzi înainte de rularea efectivă a shell-ului.</p>
-<p>Pentru a modifica mediul shellului, trebuie să facem asta într-un fișier de configurare.
+<p>Modificările la nivelul shellului se fac schimbând variabile de mediu sau rulând comenzi înainte de rularea efectivă a shellului.</p>
+<p>Modificarea mediului shellului o realizăm într-un fișier de configurare.
 Vom folosi fișierul <code class="docutils literal notranslate"><span class="pre">~/.profile</span></code>, deoarece acesta este citit și rulat de toate implementările de shell majorore, cum ar fi <code class="docutils literal notranslate"><span class="pre">dash</span></code>, <code class="docutils literal notranslate"><span class="pre">csh</span></code>, <code class="docutils literal notranslate"><span class="pre">bash</span></code> sau <code class="docutils literal notranslate"><span class="pre">zsh</span></code>, astfel oferă intercompatibilitate între shelluri.</p>
 <div class="section" id="modificarea-shellului-predefinit">
 <h3><span class="section-number">3.1.1. </span>Modificarea shellului predefinit<a class="headerlink" href="#modificarea-shellului-predefinit" title="Permalink to this headline">¶</a></h3>
@@ -639,7 +639,7 @@ De exemplu, <code class="docutils literal notranslate"><span class="pre">csh</sp
 </pre></div>
 </div>
 <p>Rulând comanda de mai sus, am modificat shellul predefinit al utilizatorului <code class="docutils literal notranslate"><span class="pre">student</span></code> în <code class="docutils literal notranslate"><span class="pre">/bin/zsh</span></code>.
-Pentru e verifica că s-a efectuat operați corect, ne-am autentificat ca utilizatorul student și am afișat valoarea variabilei <code class="docutils literal notranslate"><span class="pre">SHELL</span></code>.</p>
+Pentru verificare, ne-am autentificat ca utilizatorul student și am afișat valoarea variabilei <code class="docutils literal notranslate"><span class="pre">SHELL</span></code>.</p>
 <div class="section" id="exercitiu-modificarea-shellului-predefinit">
 <h4><span class="section-number">3.1.1.1. </span>Exercițiu: Modificarea shellului predefinit:<a class="headerlink" href="#exercitiu-modificarea-shellului-predefinit" title="Permalink to this headline">¶</a></h4>
 <p>Modificați shellul predefinit al utilizatorului <code class="docutils literal notranslate"><span class="pre">student</span></code> cu shellul <code class="docutils literal notranslate"><span class="pre">/bin/bash</span></code>.
@@ -672,7 +672,7 @@ alias ls=&#39;ls --color=auto&#39;
 </div>
 <p>Am definit aliasul <code class="docutils literal notranslate"><span class="pre">gs</span></code> pentru comanda <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">status</span></code> și am verificat-o în repository-ul <code class="docutils literal notranslate"><span class="pre">uso-lab</span></code>.</p>
 <p>Pentru a verifica ce aliasuri sunt definite, vom folosi comanda <code class="docutils literal notranslate"><span class="pre">alias</span></code> fără parametri.</p>
-<p>Definirea de mai sus a unui alias nu este persistent, ci acesta va fi definit cât timp shellul curent este deschis.
+<p>Definirea de mai sus a unui alias nu este persistentă, ci acesta va fi definit cât timp shellul curent este deschis.
 Pentru a defini un alias persistent, trebuie să îl definim, folosind comanda <code class="docutils literal notranslate"><span class="pre">alias</span></code> într-un fișier de configurare, cum ar fi <code class="docutils literal notranslate"><span class="pre">.profile</span></code>.</p>
 </div>
 <div class="section" id="exercitiu-configurarea-aliasurilor">
@@ -696,17 +696,19 @@ Această modificare va fi valabilă doar pentru utilizatorul <code class="docuti
 </div>
 <div class="section" id="exercitiu-modificarea-dimensiunii-istoricului-de-comenzi">
 <h3><span class="section-number">3.1.5. </span>Exercițiu: Modificarea dimensiunii istoricului de comenzi<a class="headerlink" href="#exercitiu-modificarea-dimensiunii-istoricului-de-comenzi" title="Permalink to this headline">¶</a></h3>
-<p>Modificarea de mai sus nu este suficientă, deoarece această schimbă doar dimensiunea istoricului din shell care sunt salvate, la pornirea shellului, dimensiunea fișierului de istoric este concatenată folosind variabila <code class="docutils literal notranslate"><span class="pre">HISTFILESIZE</span></code>.
+<p>Modificarea de mai sus nu este suficientă, deoarece aceasta schimbă doar dimensiunea istoricului din shell, care este salvat în fișierul de istoric la delogare.
+La pornirea shellului, dimensiunea fișierului de istoric este concatenată folosind variabila <code class="docutils literal notranslate"><span class="pre">HISTFILESIZE</span></code>.
 Valoarea predefinită a acestei variabile este <code class="docutils literal notranslate"><span class="pre">500</span></code>.</p>
 <p>Faceți modificările necesare astfel încât fișierul de istoric să fie concatenat la <code class="docutils literal notranslate"><span class="pre">20000</span></code> de comenzi la pornirea shellului.</p>
 </div>
 <div class="section" id="configurarea-promptului">
 <h3><span class="section-number">3.1.6. </span>Configurarea promptului<a class="headerlink" href="#configurarea-promptului" title="Permalink to this headline">¶</a></h3>
-<p>După cum am învățat în capitolul &lt;TODO&gt;, atunci când am început să lucrăm cu shellul prima oară, promptul este o sursă foarte importantă de informații. Acesta ne poate oferi mai multă informație și ne eliberează din a rula anumite comenzi.
+<p>După cum am învățat în capitolul &lt;TODO&gt;, atunci când am început să lucrăm cu shellul prima oară, promptul este o sursă foarte importantă de informații.
+Acesta ne poate oferi mai multă informație și ne eliberează din a rula anumite comenzi.
 Practic, noi putem obține mai mult informații rulând mai puține comenzi.</p>
 <p>De exemplu, dacă lucrăm foarte des cu repository-uri de Git, vrem să avem un mod cât mai facil de a vedea pe ce branch lucrăm. Această informație poate fi adăugată în prompt.</p>
 <p>Promptul shellului <code class="docutils literal notranslate"><span class="pre">bash</span></code> este setat folosind variabila <code class="docutils literal notranslate"><span class="pre">PS1</span></code>.
-Orice și de caractere va fi scris în variabila <code class="docutils literal notranslate"><span class="pre">PS1</span></code>, va fi afișat înainte de zona în care introducem comenzi
+Orice șir de caractere va fi scris în variabila <code class="docutils literal notranslate"><span class="pre">PS1</span></code>, va fi afișat înainte de zona în care introducem comenzi
 Dacă modificăm variabila <code class="docutils literal notranslate"><span class="pre">PS1</span></code> vom vedea că prompt-ul se modifică:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>student@uso:~$ echo $PS1
 \[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$
@@ -718,14 +720,14 @@ uid=1000(student) gid=1000(student) groups=1000(student),4(adm),24(cdrom),27(sud
 president@white-house:~$
 </pre></div>
 </div>
-<p>După cum observăm în rezultatul primei comenzi rulate mai sus, valoarea variabilei <code class="docutils literal notranslate"><span class="pre">PS1</span></code>  este un șir de caractere complex, dar noi putem să îl supra-scriem folosind.
-Odată suprascrisă variabila promptul se schimbă în valoarea din variabilă.
+<p>După cum observăm în rezultatul primei comenzi rulate mai sus, valoarea variabilei <code class="docutils literal notranslate"><span class="pre">PS1</span></code>  este un șir de caractere complex, dar noi putem să îl suprascriem.
+Odată suprascrisă variabila <code class="docutils literal notranslate"><span class="pre">PS1</span></code>, promptul se schimbă în valoarea din variabilă.
 Totuși, am rulat comenzi de verificare pentru a vedea că utilizatorul cu care suntem logați este în continuare <code class="docutils literal notranslate"><span class="pre">student</span></code> și stația la care suntem conectați este <code class="docutils literal notranslate"><span class="pre">uso</span></code></p>
 <p>Putem să ne generăm propriul prompt complex folosind utilitare online.
 Noi recomandăm EZPrompt &lt;TODO ref&gt;.
 Acest site are funcționalitatea de a genera un prompt modificat.
-Noi vrem să generăm un prompt de forma <code class="docutils literal notranslate"><span class="pre">username&#64;hostname:path_to_current_dir-git_branch</span></code>.
-EZPrompt ne-a generat următoarele comenzi pentru a modifica promptul pe care le vom adăuga la finalul fișierului <code class="docutils literal notranslate"><span class="pre">.profile</span></code>:</p>
+Vrem să generăm un prompt de forma <code class="docutils literal notranslate"><span class="pre">username&#64;hostname:path_to_current_dir-git_branch</span></code>.
+EZPrompt a generat următoarele comenzi pentru a modifica promptul, pe care le vom adăuga la finalul fișierului <code class="docutils literal notranslate"><span class="pre">.profile</span></code>:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span># get current branch in git repo
 function parse_git_branch() {
     BRANCH=`git branch 2&gt; /dev/null | sed -e &#39;/^[^*]/d&#39; -e &#39;s/* \(.*\)/\1/&#39;`

@@ -17,9 +17,9 @@ Configurarea shellului
 Primul aspect pe care îl vom modifica la mediul de lucru este shellul în care rulăm comenzi, deoarece acesta este cea mai folosită unealtă.
 Fie că că edităm cod, sau administrăm sisteme, acesta este locul unde rulăm comenzi.
 
-Modificările la nivelul shellului se fac schimbând variabile de mediu sau rulând comenzi înainte de rularea efectivă a shell-ului.
+Modificările la nivelul shellului se fac schimbând variabile de mediu sau rulând comenzi înainte de rularea efectivă a shellului.
 
-Pentru a modifica mediul shellului, trebuie să facem asta într-un fișier de configurare.
+Modificarea mediului shellului o realizăm într-un fișier de configurare.
 Vom folosi fișierul ``~/.profile``, deoarece acesta este citit și rulat de toate implementările de shell majorore, cum ar fi ``dash``, ``csh``, ``bash`` sau ``zsh``, astfel oferă intercompatibilitate între shelluri.
 
 Modificarea shellului predefinit
@@ -33,7 +33,7 @@ Pentru a modifica shellul predefinit al unui utilizator folosim comanda ``usermo
 .. code-block::
 
 Rulând comanda de mai sus, am modificat shellul predefinit al utilizatorului ``student`` în ``/bin/zsh``.
-Pentru e verifica că s-a efectuat operați corect, ne-am autentificat ca utilizatorul student și am afișat valoarea variabilei ``SHELL``.
+Pentru verificare, ne-am autentificat ca utilizatorul student și am afișat valoarea variabilei ``SHELL``.
 
 Exercițiu: Modificarea shellului predefinit:
 """"""""""""""""""""""""""""""""""""""""""""
@@ -73,7 +73,7 @@ Am definit aliasul ``gs`` pentru comanda ``git status`` și am verificat-o în r
 
 Pentru a verifica ce aliasuri sunt definite, vom folosi comanda ``alias`` fără parametri.
 
-Definirea de mai sus a unui alias nu este persistent, ci acesta va fi definit cât timp shellul curent este deschis.
+Definirea de mai sus a unui alias nu este persistentă, ci acesta va fi definit cât timp shellul curent este deschis.
 Pentru a defini un alias persistent, trebuie să îl definim, folosind comanda ``alias`` într-un fișier de configurare, cum ar fi ``.profile``.
 
 Exercițiu: Configurarea aliasurilor
@@ -101,7 +101,8 @@ Această modificare va fi valabilă doar pentru utilizatorul ``student``.
 Exercițiu: Modificarea dimensiunii istoricului de comenzi
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Modificarea de mai sus nu este suficientă, deoarece această schimbă doar dimensiunea istoricului din shell care sunt salvate, la pornirea shellului, dimensiunea fișierului de istoric este concatenată folosind variabila ``HISTFILESIZE``.
+Modificarea de mai sus nu este suficientă, deoarece aceasta schimbă doar dimensiunea istoricului din shell, care este salvat în fișierul de istoric la delogare.
+La pornirea shellului, dimensiunea fișierului de istoric este concatenată folosind variabila ``HISTFILESIZE``.
 Valoarea predefinită a acestei variabile este ``500``.
 
 Faceți modificările necesare astfel încât fișierul de istoric să fie concatenat la ``20000`` de comenzi la pornirea shellului.
@@ -109,13 +110,14 @@ Faceți modificările necesare astfel încât fișierul de istoric să fie conca
 Configurarea promptului
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-După cum am învățat în capitolul <TODO>, atunci când am început să lucrăm cu shellul prima oară, promptul este o sursă foarte importantă de informații. Acesta ne poate oferi mai multă informație și ne eliberează din a rula anumite comenzi.
+După cum am învățat în capitolul <TODO>, atunci când am început să lucrăm cu shellul prima oară, promptul este o sursă foarte importantă de informații.
+Acesta ne poate oferi mai multă informație și ne eliberează din a rula anumite comenzi.
 Practic, noi putem obține mai mult informații rulând mai puține comenzi.
 
 De exemplu, dacă lucrăm foarte des cu repository-uri de Git, vrem să avem un mod cât mai facil de a vedea pe ce branch lucrăm. Această informație poate fi adăugată în prompt.
 
 Promptul shellului ``bash`` este setat folosind variabila ``PS1``.
-Orice și de caractere va fi scris în variabila ``PS1``, va fi afișat înainte de zona în care introducem comenzi
+Orice șir de caractere va fi scris în variabila ``PS1``, va fi afișat înainte de zona în care introducem comenzi
 Dacă modificăm variabila ``PS1`` vom vedea că prompt-ul se modifică:
 
 .. code-block::
@@ -129,15 +131,15 @@ Dacă modificăm variabila ``PS1`` vom vedea că prompt-ul se modifică:
     uid=1000(student) gid=1000(student) groups=1000(student),4(adm),24(cdrom),27(sudo),30(dip),46(plugdev),120(lpadmin),131(lxd),132(sambashare),997(docker)
     president@white-house:~$ 
 
-După cum observăm în rezultatul primei comenzi rulate mai sus, valoarea variabilei ``PS1``  este un șir de caractere complex, dar noi putem să îl supra-scriem folosind.
-Odată suprascrisă variabila promptul se schimbă în valoarea din variabilă.
+După cum observăm în rezultatul primei comenzi rulate mai sus, valoarea variabilei ``PS1``  este un șir de caractere complex, dar noi putem să îl suprascriem.
+Odată suprascrisă variabila ``PS1``, promptul se schimbă în valoarea din variabilă.
 Totuși, am rulat comenzi de verificare pentru a vedea că utilizatorul cu care suntem logați este în continuare ``student`` și stația la care suntem conectați este ``uso``
 
 Putem să ne generăm propriul prompt complex folosind utilitare online.
 Noi recomandăm EZPrompt <TODO ref>.
 Acest site are funcționalitatea de a genera un prompt modificat.
-Noi vrem să generăm un prompt de forma ``username@hostname:path_to_current_dir-git_branch``.
-EZPrompt ne-a generat următoarele comenzi pentru a modifica promptul pe care le vom adăuga la finalul fișierului ``.profile``:
+Vrem să generăm un prompt de forma ``username@hostname:path_to_current_dir-git_branch``.
+EZPrompt a generat următoarele comenzi pentru a modifica promptul, pe care le vom adăuga la finalul fișierului ``.profile``:
 
 .. code-block::
 
