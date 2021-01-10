@@ -1,3 +1,5 @@
+.. _task_admin_storage:
+
 Gestionarea spațiului de stocare partajat
 =========================================
 
@@ -16,6 +18,8 @@ Cu toate că vom rula aplicații pe serverul de la distanță, avem nevoie de ac
 O altă nevoie pe care o avem este editarea codului la distanță, deoarece majoritatea programatorilor folosesc IDE-uri în mediu grafic, care nu pot rula mereu eficient de la distanță.
 Soluția la această nevoie este să partajăm spațiul de stocare între serverul ``remote`` și stația ``local`` de pe care lucrăm.
 
+.. _task_admin_storage_sshfs:
+
 Stocare partajată folosind SSHFS
 --------------------------------
 
@@ -28,6 +32,8 @@ SSHFS este o soluție de stocare partajată care permite montarea unui sistem de
 
 Avantajul folosirii SSHFS este că nu necesită descărcarea sistemului de fișiere de la distanță, deci nu duce la duplicarea fișierelor.
 Dezavantajul acestei abordări este că dacă pierdem conexiunea la sistemul de fișiere de la distanță, nu mai avem acces la fișiere.
+
+.. _task_admin_storage_sshfs_mount:
 
 Montarea temporară a unui sistem de fișiere
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -68,11 +74,15 @@ Observăm că pe ultima linie apare conexiunea către stația de la adresa ``10.
 Acest mod te montare a sistemului de fișier este temporară.
 Atunci când vom opri stația sistemul de fișiere va fi demontat.
 
+.. _task_admin_storage_sshfs_mount_ex:
+
 Exercițiu: Montarea temporară a unui sistem de fișiere
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 #) Montați temporar sistemul de fișiere cu rădăcina în directorul ``/`` de pe stația ``10.10.10.2`` în directorul ``/mnt/vol1``.
 #) Montați temporar sistemul de fișiere cu rădăcina în directorul ``/home/student`` de pe stația ``10.10.10.2`` în directorul ``/mnt/vol2``.
+
+.. _task_admin_storage_sshfs_fstab:
 
 Montarea persistentă a unui sistem de fișiere
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -105,11 +115,15 @@ Pentru a monta sistemul de fișiere ``/``` de pe sistemul de la adresa IP ``10.1
 
 Am scris în fișierul ``/etc/fstab`` folosind comanda ``echo``, iar pentru a monta sistemul de fișiere am folosit comanda ``mount`` cu opțiunea ``-a`` pentru montarea sistemelor de fișiere descrise în fișierul ``/etc/fstab``.
 
+.. _task_admin_storage_sshfs_fstab_ex:
+
 Exercițiu: Montarea persistentă a unui sistem de fișiere
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 #) Montați persistent sistemul de fișiere cu rădăcina în directorul ``/`` de pe stația ``10.10.10.4`` în directorul ``/mnt/vol1``.
 #) Montați persistent sistemul de fișiere cu rădăcina în directorul ``/home/student`` de pe stația ``10.10.10.2`` în directorul ``/mnt/vol2``.
+
+.. _task_admin_storage_online:
 
 Stocare partajată folosind aplicații online
 -------------------------------------------
@@ -123,6 +137,8 @@ Aceste soluții stochează o replică a fișierului pe toate calculatoarele aute
 Un alt avantaj al acestora este că oferă suport pentru controlul versiunilor pentru a șterge modificarea anterioară.
 Cu dezavantajul că trebuie configurate și riscul apariției conflictelor la modificări simultane pe noduri diferite.
 Și cu dezavantajul că acum informația este duplicată: dublu spațiu ocupat și pot apărea conflicte la modificări.
+
+.. _task_admin_storage_online_dropbox:
 
 Stocarea partajată folosind Dropbox
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -153,13 +169,15 @@ Pentru a descărca aplicația Dropbox, pe care o vom descărca folosind comanda 
     To link this computer to a Dropbox account, visit the following url:
     https://www.dropbox.com/cli_link_nonce?nonce=ffd7d648a2ca2302d1177c0c389e87bd
 
-.. admonition::
+.. admonition:: Observație
 
     Am folosit opțiunea ``-O`` a comenzii ``wget`` pentru a salva fișierul descărcat cu numele ``dropbox.deb``.
 
 Pentru a instala ultimele componente ale clientului Dropbox este necesar să rulăm comanda ``dropbox start -i``.
 După ce am ponit aplicația, este necesar să înregistrăm stația online la contul nostru.
 Vom face acest lucru accesând linkul afișat de aplicație.
+
+.. _task_admin_storage_online_dropbox_ex:
 
 Exercițiu: Stocarea partajată folosind Dropbox
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -170,8 +188,11 @@ Exercițiu: Stocarea partajată folosind Dropbox
     Pentru a ne conecta la infrastructura pentru această secțiune vom folosi comanda ``./lab_prepare.sh connect dropbox``.
 
 #) Conectați-vă la stația ``dropbox`` și porniți aplicația Dropbox pe aceasta.
+
 #) Scrieți un fișier numit ``hello.txt`` mesajul ``Hello from remote`` de pe stația ``dropbox``.
 Verificați conținutul fișierului de pe stația ``uso``.
+
+.. _task_admin_storage_online_private:
 
 Extra: Stocarea partajată folosind un server privat
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
