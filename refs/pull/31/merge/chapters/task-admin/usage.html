@@ -611,11 +611,13 @@
   <div class="section" id="folosirea-statiei-la-distanta">
 <span id="task-admin-usage"></span><h1><span class="section-number">3. </span>Folosirea stației la distanță<a class="headerlink" href="#folosirea-statiei-la-distanta" title="Permalink to this headline">¶</a></h1>
 <p>Odată ce am reușit să realizăm o conexiune persistentă între stația locală și workstationul remote pe care vrem să lucrăm și ne-am configurat mediul de lucru la distanță, vrem să folosim stația.</p>
-<p>Pentru folosirea stației vom presupune următorul flux de lucru:
-* ne conectăm la sistem
-* edităm fișiere sursă sau fișiere de configurare
-* compilăm un program, sau rulăm o aplicație
-* ne deconectăm de la sistem</p>
+<p>Pentru folosirea stației vom presupune următorul flux de lucru:</p>
+<ul class="simple">
+<li><p>ne conectăm la sistem</p></li>
+<li><p>edităm fișiere sursă sau fișiere de configurare</p></li>
+<li><p>compilăm un program, sau rulăm o aplicație</p></li>
+<li><p>ne deconectăm de la sistem</p></li>
+</ul>
 <div class="section" id="folosirea-tmux">
 <span id="task-admin-usage-tmux"></span><h2><span class="section-number">3.1. </span>Folosirea <code class="docutils literal notranslate"><span class="pre">tmux</span></code><a class="headerlink" href="#folosirea-tmux" title="Permalink to this headline">¶</a></h2>
 <p>Spre deosebire de un laptop unde, dacă închidem ecranul și îl băgăm în ghiozdan, acesta intră în hibernare, stația de lucru poate să lucreze în continuare.
@@ -631,20 +633,19 @@ Putem considera fiecare sesiune ca o fereastră a unui browser.
 De regulă nu este nevoie să avem mai multe ferestre de browser, sau de <code class="docutils literal notranslate"><span class="pre">tmux</span></code> pornite, deoarece avem alte moduri de organizare a spațiului de lucru cu care putem să lucrăm mai ușor folosind scurtături.
 În plus, pentru fiecare sesiune de <code class="docutils literal notranslate"><span class="pre">tmux</span></code> ar fi nevoie să pornim un nou client SSH, lucru care, în funție de modul de conectare la stație, adaugă pași în plus.</p>
 <div class="figure align-default">
-<img alt="Pornirea unei sesiun ``tmux``" src="chapters/task-admin/./gifs/tmux-start.gif" />
+<img alt="Pornirea unei sesiun ``tmux``" src="../../_images/tmux-start.gif" />
 </div>
 </div>
 <div class="section" id="detasarea-si-reatasarea-la-o-sesiune-tmux">
 <span id="task-admin-usage-tmux-session"></span><h3><span class="section-number">3.1.2. </span>Detașarea și reatașarea la o sesiune <code class="docutils literal notranslate"><span class="pre">tmux</span></code><a class="headerlink" href="#detasarea-si-reatasarea-la-o-sesiune-tmux" title="Permalink to this headline">¶</a></h3>
 <p>Aplicația <code class="docutils literal notranslate"><span class="pre">tmux</span></code> permite detașarea de la o sesiune folosind combinația de taste <code class="docutils literal notranslate"><span class="pre">Ctrl+v</span> <span class="pre">d</span></code></p>
-<p>&lt;insert gif&gt;</p>
 <div class="admonition-observatie admonition">
 <p class="admonition-title">Observație</p>
 <p>Vom vedea pe parcursul acestei subsecțiuni că toate scurtăturile de taste ale aplicației <code class="docutils literal notranslate"><span class="pre">tmux</span></code> folosesc ca prefix combinația <code class="docutils literal notranslate"><span class="pre">Ctrl+v</span></code>.
 Această combinație este predefinită pe mașina virtuală <code class="docutils literal notranslate"><span class="pre">USO.ova</span></code>, dar pe sistemele obișnuite combinația va fi <code class="docutils literal notranslate"><span class="pre">Ctrl+b</span></code>.</p>
 </div>
 <div class="figure align-default">
-<img alt="Detașarea de la o sesiune ``tmux``" src="chapters/task-admin/./gifs/tmux-dettach.gif" />
+<img alt="Detașarea de la o sesiune ``tmux``" src="../../_images/tmux-dettach.gif" />
 </div>
 <p>Pentru a ne reatașa la o sesiune trebuie să ne dăm seama la care sesiune să ne atașăm.
 Fiecare sesiune <code class="docutils literal notranslate"><span class="pre">tmux</span></code> are asociat un identificator.</p>
@@ -656,7 +657,7 @@ Fiecare sesiune <code class="docutils literal notranslate"><span class="pre">tmu
 <p>În momentul de față există o singură sesiune cu identificatorul <code class="docutils literal notranslate"><span class="pre">0</span></code>.</p>
 <p>Pentru a ne reatașa la sesiune folosim comanda <code class="docutils literal notranslate"><span class="pre">tmux</span> <span class="pre">attach-session</span> <span class="pre">-t</span> <span class="pre">0</span></code>.</p>
 <div class="figure align-default">
-<img alt="Reatașarea la o sesiune ``tmux``" src="chapters/task-admin/./gifs/tmux-attach.gif" />
+<img alt="Reatașarea la o sesiune ``tmux``" src="../../_images/tmux-attach.gif" />
 </div>
 </div>
 <div class="section" id="taburi-in-tmux">
@@ -666,16 +667,15 @@ Fiecare sesiune <code class="docutils literal notranslate"><span class="pre">tmu
 Având fiecare tab cu sarcina sa desemnată păstrăm un istoric mai curat și mai ușor de interpretat.
 Astfel vom reducem numărul de comenzi pe care le rulăm pentru a reporni editorul de text, a schimba directul de lucru etc.</p>
 <p>Pentru a porni un nou tab folosim combinația de taste <code class="docutils literal notranslate"><span class="pre">Ctrl+v</span> <span class="pre">c</span></code>.</p>
-<div class="figure align-default">
-<img alt="Schimbarea taburilor în ``tmux``" src="chapters/task-admin/./gifs/tmux-tabs.gif" />
-</div>
 <div class="admonition-observatie admonition">
 <p class="admonition-title">Observație</p>
-<p>În bara de taburi din terminal a apărut un nou tab cu denumirea `` 1:bash*``.</p>
+<p>În bara de taburi din terminal a apărut un nou tab cu denumirea <code class="docutils literal notranslate"><span class="pre">1:bash*</span></code>.</p>
 </div>
 <p>Fiecare tab are propriul identificator și propriul nume.
-De exemplu, <code class="docutils literal notranslate"><span class="pre">Ctrl+v</span> <span class="pre">1</span></code> ne va plasa pe primul tab, iar <code class="docutils literal notranslate"><span class="pre">Ctrl+v</span> <span class="pre">2``</span></code> ne va plasa pe al doilea tab.</p>
-<p>&lt;insert gif&gt;</p>
+De exemplu, <code class="docutils literal notranslate"><span class="pre">Ctrl+v</span> <span class="pre">1</span></code> ne va plasa pe primul tab, iar <code class="docutils literal notranslate"><span class="pre">Ctrl+v</span> <span class="pre">2</span></code> ne va plasa pe al doilea tab.</p>
+<div class="figure align-default">
+<img alt="Schimbarea taburilor în ``tmux``" src="../../_images/tmux-tabs.gif" />
+</div>
 <div class="admonition-observatie admonition">
 <p class="admonition-title">Observație</p>
 <p>Odată ce se schimbă tabul activ se schimbă și sublinierea tabului activ din bara de taburi.</p>
