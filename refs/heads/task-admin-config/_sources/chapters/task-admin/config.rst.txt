@@ -136,7 +136,7 @@ Odată suprascrisă variabila ``PS1``, promptul se schimbă în valoarea din var
 Totuși, am rulat comenzi de verificare pentru a vedea că utilizatorul cu care suntem logați este în continuare ``student`` și stația la care suntem conectați este ``uso``
 
 Putem să ne generăm propriul prompt complex folosind utilitare online.
-Noi recomandăm EZPrompt <TODO ref>.
+Noi recomandăm `EZPrompt <https://ezprompt.net/>`_ .
 Acest site are funcționalitatea de a genera un prompt modificat.
 Vrem să generăm un prompt de forma ``username@hostname:path_to_current_dir-git_branch``.
 EZPrompt a generat următoarele comenzi pentru a modifica promptul, pe care le vom adăuga la finalul fișierului ``.profile``:
