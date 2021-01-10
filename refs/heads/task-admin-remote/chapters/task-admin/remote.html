@@ -612,10 +612,11 @@
           <div class="content" role="main">
             
   <div class="section" id="conectarea-la-workstation">
-<h1><span class="section-number">2. </span>Conectarea la workstation<a class="headerlink" href="#conectarea-la-workstation" title="Permalink to this headline">¶</a></h1>
+<span id="task-admin-remote"></span><h1><span class="section-number">2. </span>Conectarea la workstation<a class="headerlink" href="#conectarea-la-workstation" title="Permalink to this headline">¶</a></h1>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Pentru a parcurge această secțiune este recomandat să descărcați ultima versiune a respository-ului laboratorului. Pentru a descărca ultima versiune a repository-ului rulați comanda <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">pull</span></code> în directorul <code class="docutils literal notranslate"><span class="pre">~/uso-lab/labs/10-tasks-admin/lab-containers/</span></code>.</p>
+<p>Pentru a parcurge această secțiune este recomandat să descărcați ultima versiune a respository-ului laboratorului.
+Pentru a descărca ultima versiune a repository-ului rulați comanda <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">pull</span></code> în directorul <code class="docutils literal notranslate"><span class="pre">~/uso-lab/labs/10-tasks-admin/lab-containers/</span></code>.</p>
 <p>Infrastructura laboratorului este bazată pe containere Docker ale căror imagini vor fi generate pe propriul calculator.
 Dacă nu veți deja instalat Docker Engine pe sistem, scriptul <code class="docutils literal notranslate"><span class="pre">~/uso-lab/labs/10-tasks-admin/lab-containers/lab_prepare.sh</span></code> vă va instala aplicația.</p>
 <p>După ce ați terminat de lucrat, vă recomandăm să opriți containerele rulând comanda <code class="docutils literal notranslate"><span class="pre">./lab-prepare.sh</span> <span class="pre">delete</span></code> în directorul <code class="docutils literal notranslate"><span class="pre">~/uso-lab/labs/10-tasks-admin/lab-containers/</span></code>.</p>
@@ -627,7 +628,7 @@ Așadar, nu ne vom putea conecta direct la sistem folosind un protocol de comuni
 * tunel SSH
 * DDNS</p>
 <div class="section" id="problema-adreselor-ip-private">
-<h2><span class="section-number">2.1. </span>Problema adreselor IP private<a class="headerlink" href="#problema-adreselor-ip-private" title="Permalink to this headline">¶</a></h2>
+<span id="task-admin-remote-ip"></span><h2><span class="section-number">2.1. </span>Problema adreselor IP private<a class="headerlink" href="#problema-adreselor-ip-private" title="Permalink to this headline">¶</a></h2>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Pentru rularea acestui demo, rulați în directorul <code class="docutils literal notranslate"><span class="pre">~/uso.git/labs/03-user/lab-containers/</span></code> comanda <code class="docutils literal notranslate"><span class="pre">./lab_prepare.sh</span> <span class="pre">install</span> <span class="pre">remote</span></code> și comanda  <code class="docutils literal notranslate"><span class="pre">./lab_prepare.sh</span> <span class="pre">install</span> <span class="pre">local</span></code>
@@ -668,21 +669,21 @@ Dezavantajul este că aceste adrese, nemaifiind unice, nu mai pot să fie accesi
 </div>
 <p>Rezultatul comenzii primei rulări a comenzii <code class="docutils literal notranslate"><span class="pre">ping</span></code> demonstrează faptul că nu avem conectivitate între stația <code class="docutils literal notranslate"><span class="pre">local</span></code> și stația <code class="docutils literal notranslate"><span class="pre">remote</span></code>.
 Totuși, am testat și conectivitatea cu o altă adresă IP din Internet, în cazul acesta folosind adresa IP a stației <code class="docutils literal notranslate"><span class="pre">fep.grid.pub.ro</span></code>, cu care putem să comunicăm, deci nu este o problemă de conectare la Internet.
-Pentru a recapitula funcționalitatea utilitarului <code class="docutils literal notranslate"><span class="pre">ping</span></code>, revizitați capitolul &lt;TODO&gt;</p>
+Pentru a recapitula funcționalitatea utilitarului <code class="docutils literal notranslate"><span class="pre">ping</span></code>, revizitați capitolul &lt;TODO&gt;.</p>
 </div>
 <div class="section" id="conectarea-prin-vpn">
-<h2><span class="section-number">2.2. </span>Conectarea prin VPN<a class="headerlink" href="#conectarea-prin-vpn" title="Permalink to this headline">¶</a></h2>
+<span id="task-admin-remote-vpn"></span><h2><span class="section-number">2.2. </span>Conectarea prin VPN<a class="headerlink" href="#conectarea-prin-vpn" title="Permalink to this headline">¶</a></h2>
 <p>Prima soluție pentru conectarea la o stație care folosește o adresă IP privată o reprezintă serviciile de tip VPN (<em>Virtual Private Network</em>).
-Acestea conectează două stații care în mod fizic nu sunt conectate la aceeași rețea &lt;TODO ref capitol rețea&gt;</p>
-<p>Pentru această soluție avem două moduri de organizare: folosind un server public pe care îl setăm noi drept server de VPN, sau folosirea unui serviciu public de VPN cum ar fi Hamachi sau ZeroTier.</p>
+Acestea conectează două stații care în mod fizic nu sunt conectate la aceeași rețea &lt;TODO ref capitol rețea&gt;.</p>
+<p>Pentru această soluție avem două moduri de organizare: folosind un server public pe care îl setăm noi drept server de VPN, sau folosirea unui serviciu public de VPN cum ar fi Hamachi <a class="footnote-reference brackets" href="#hamachi" id="id1">1</a> sau ZeroTier <a class="footnote-reference brackets" href="#zerotier" id="id2">2</a>.</p>
 <p>Am folosit ca exemplu serviciile Hamachi sau ZeroTier, deoarece acestea pot fi folosite gratuit și sunt ușor de configurat.</p>
 <p>&lt;insert matrice/link cu avantaje și dezavantaje servicii&gt;</p>
 <div class="section" id="folosirea-serviciului-hamachi">
-<h3><span class="section-number">2.2.1. </span>Folosirea serviciului Hamachi<a class="headerlink" href="#folosirea-serviciului-hamachi" title="Permalink to this headline">¶</a></h3>
+<span id="task-admin-remote-vpn-hamachi"></span><h3><span class="section-number">2.2.1. </span>Folosirea serviciului Hamachi<a class="headerlink" href="#folosirea-serviciului-hamachi" title="Permalink to this headline">¶</a></h3>
 <p>Pentru început, recomandăm folosirea serviciului Hamachi, deoarece acesta nu presupune înregistrarea unui cont pentru folosirea aplicație.
 Hamachi vine cu dezavantajul că putem să conectăm maxim cinci stații între ele și viteza conexiunii este mai mică decât dacă am folosi unele servicii plătite, cum ar fi OpenVPN, sau altele.</p>
 <div class="section" id="instalarea-hamachi">
-<h4><span class="section-number">2.2.1.1. </span>Instalarea Hamachi<a class="headerlink" href="#instalarea-hamachi" title="Permalink to this headline">¶</a></h4>
+<span id="task-admin-remote-vpn-hamachi-install"></span><h4><span class="section-number">2.2.1.1. </span>Instalarea Hamachi<a class="headerlink" href="#instalarea-hamachi" title="Permalink to this headline">¶</a></h4>
 <p>Pentru instalarea aplicației Hamachi vom descărca pachetul.
 Nu vom descărca pachetul folosind aplicația <code class="docutils literal notranslate"><span class="pre">apt</span></code>, cum am învățat până acum, deoarece repository-ul de pachete folosit de Ubuntu nu conține pachetul pentru Hamachi.</p>
 <p>Vom folosi comanda <code class="docutils literal notranslate"><span class="pre">wget</span></code> pentru a descărca pachetul:</p>
@@ -740,11 +741,11 @@ Opțiunea <code class="docutils literal notranslate"><span class="pre">-i</span>
 Rulând comanda <code class="docutils literal notranslate"><span class="pre">hamachi</span></code> vor fi afișate identificatorul, nickname-ul sistemului, adresa IP din VPN și nickname-ul sistemului.</p>
 </div>
 <div class="section" id="exercitiu-instalare-hamachi">
-<h4><span class="section-number">2.2.1.2. </span>Exercițiu: Instalare Hamachi<a class="headerlink" href="#exercitiu-instalare-hamachi" title="Permalink to this headline">¶</a></h4>
+<span id="task-admin-remote-vpn-hamachi-install-ex"></span><h4><span class="section-number">2.2.1.2. </span>Exercițiu: Instalare Hamachi<a class="headerlink" href="#exercitiu-instalare-hamachi" title="Permalink to this headline">¶</a></h4>
 <p>Instalați Hamachi pe stația <code class="docutils literal notranslate"><span class="pre">local</span></code>.</p>
 </div>
 <div class="section" id="crearea-unei-retele-private">
-<h4><span class="section-number">2.2.1.3. </span>Crearea unei rețele private<a class="headerlink" href="#crearea-unei-retele-private" title="Permalink to this headline">¶</a></h4>
+<span id="task-admin-remote-vpn-hamachi-create"></span><h4><span class="section-number">2.2.1.3. </span>Crearea unei rețele private<a class="headerlink" href="#crearea-unei-retele-private" title="Permalink to this headline">¶</a></h4>
 <p>Odată ce am instalat Hamachi pe ambele stații pe care vrem să le conectăm, trebuie să creăm o rețea virtuală prin care acestea două să comunice
 Această rețea va conecta cele două calculatoare, cu toate că ele nu sunt fizic în aceeași rețea.</p>
 <p>Vom crea rețeaua virtuală de pe stația <code class="docutils literal notranslate"><span class="pre">remote</span></code>.
@@ -762,7 +763,7 @@ Pentru demo-ul pe care îl urmăriți, folosiți în loc de șirul de caractere 
 Comanda <code class="docutils literal notranslate"><span class="pre">hamachi</span> <span class="pre">list</span></code> afișează toate rețelele din care face parte stația.</p>
 </div>
 <div class="section" id="conectarea-la-o-retea">
-<h4><span class="section-number">2.2.1.4. </span>Conectarea la o rețea<a class="headerlink" href="#conectarea-la-o-retea" title="Permalink to this headline">¶</a></h4>
+<span id="task-admin-remote-vpn-hamachi-connect"></span><h4><span class="section-number">2.2.1.4. </span>Conectarea la o rețea<a class="headerlink" href="#conectarea-la-o-retea" title="Permalink to this headline">¶</a></h4>
 <p>Pentru a conecta stația <code class="docutils literal notranslate"><span class="pre">local</span></code> la rețeaua privată vom folosi comanda <code class="docutils literal notranslate"><span class="pre">hamachi</span> <span class="pre">join</span></code> urmată de numele rețelei la care vom conecta stația și parola rețelei.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">root</span><span class="nd">@local</span><span class="p">:</span><span class="o">~</span><span class="c1"># hamachi join nume-prenume 12345667890</span>
 <span class="n">Joining</span> <span class="n">nume</span><span class="o">-</span><span class="n">prenume</span> <span class="o">..</span> <span class="n">ok</span>
@@ -786,23 +787,22 @@ Adresa IP a stației stației <code class="docutils literal notranslate"><span c
 </div>
 </div>
 <div class="section" id="exercitiu-crearea-si-folosirea-unei-retele-private">
-<h4><span class="section-number">2.2.1.5. </span>Exercițiu: Crearea și folosirea unei rețele private<a class="headerlink" href="#exercitiu-crearea-si-folosirea-unei-retele-private" title="Permalink to this headline">¶</a></h4>
+<span id="task-admin-remote-vpn-hamachi-connect-ex"></span><h4><span class="section-number">2.2.1.5. </span>Exercițiu: Crearea și folosirea unei rețele private<a class="headerlink" href="#exercitiu-crearea-si-folosirea-unei-retele-private" title="Permalink to this headline">¶</a></h4>
 <p>Creați o nouă rețea privată numită <code class="docutils literal notranslate"><span class="pre">prenume-nume</span></code>, cu parola de acces <code class="docutils literal notranslate"><span class="pre">anaaremere</span></code>.
 Conectați stațiile <code class="docutils literal notranslate"><span class="pre">local</span></code> și <code class="docutils literal notranslate"><span class="pre">remote</span></code> la noua rețea.</p>
 </div>
 </div>
 <div class="section" id="folosirea-unui-vpn-privat">
-<h3><span class="section-number">2.2.2. </span>Folosirea unui VPN privat<a class="headerlink" href="#folosirea-unui-vpn-privat" title="Permalink to this headline">¶</a></h3>
+<span id="task-admin-remote-vpn-private"></span><h3><span class="section-number">2.2.2. </span>Folosirea unui VPN privat<a class="headerlink" href="#folosirea-unui-vpn-privat" title="Permalink to this headline">¶</a></h3>
 <p>Pentru folosirea unui VPN privat este nevoie să avem o stație în Internet la care să avem acces atât de la stația locală (cum ar fi laptopul) cât și de la cea de la distanță (workstationul).
 Putem obține acces la astfel de stații cumpărând acces la o mașină virtuală, cum ar fi într-un serviciu de hosting, cum ar fi AWS, DigitalOcean, Microsoft Azure sau Linode.</p>
 <p>Odată ce am obținut o stație cu o adresă IP publică, este nevoie să configurăm un serviciu de VPN.
 Pentru aceasta putem folosi infrastructura pe care am folosit-o deja la laboratorul de rețelistică.
-Aceasta pornește un server OpenVPN pe sistem.
-&lt;TODO ref capitol rețelistică&gt;</p>
+Aceasta pornește un server OpenVPN pe sistem &lt;TODO ref capitol rețelistică&gt;.</p>
 </div>
 </div>
 <div class="section" id="conectarea-folosind-un-tunel-ssh">
-<h2><span class="section-number">2.3. </span>Conectarea folosind un tunel SSH<a class="headerlink" href="#conectarea-folosind-un-tunel-ssh" title="Permalink to this headline">¶</a></h2>
+<span id="task-admin-remote-tunnel"></span><h2><span class="section-number">2.3. </span>Conectarea folosind un tunel SSH<a class="headerlink" href="#conectarea-folosind-un-tunel-ssh" title="Permalink to this headline">¶</a></h2>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Pentru rularea acestui demo, rulați în directorul <code class="docutils literal notranslate"><span class="pre">~/uso.git/labs/10-task-admin/lab-containers/</span></code> comanda <code class="docutils literal notranslate"><span class="pre">./lab_prepare.sh</span> <span class="pre">install</span> <span class="pre">ssh-server</span></code>.
@@ -814,14 +814,13 @@ Dacă nu avem acces la un cont de administrator, nu putem să ne conectăm la st
 Un tunel SSH reprezintă o conexiune între două stații facilitată de protocolul SSH.
 Astfel, în loc să trimitem comenzi prin SSH către o stație, putem trimite orice tip de mesaj, pentru orice aplicație.</p>
 <p>Dezavantajul acestei abordări este că necesită accesul la un server terț care să fie accesibil de ambele stații.</p>
-<p>&lt;TODO Insert schemă&gt;</p>
 <p>În această subsecțiune vom lucra cu 3 stații care sunt distribuite în felul următor:
 * <code class="docutils literal notranslate"><span class="pre">local</span></code>, reprezintă stația “locală”, adică laptopul de pe care ne-am conecta, dacă ar fi vorba de un scenariu real; are o singură interfață de rețea cu adresa IP <code class="docutils literal notranslate"><span class="pre">10.10.10.3</span></code>;
 * <code class="docutils literal notranslate"><span class="pre">remote</span></code>, reprezintă workstationul la care vrem să ne conectăm; are o singură interfață cu adresa IP <code class="docutils literal notranslate"><span class="pre">10.11.11.3</span></code>;
 * <code class="docutils literal notranslate"><span class="pre">ssh-server</span></code>, reprezintă serverul terț prin care ne vom conecta ca să ajungem la workstation; această stație are două interfețe conectate la ea, cu adresele IP <code class="docutils literal notranslate"><span class="pre">10.10.10.2</span></code> și <code class="docutils literal notranslate"><span class="pre">10.11.11.2</span></code>, dar în realitate aceasta ar avea o singură placă de rețea.</p>
 <p>Stațiile <code class="docutils literal notranslate"><span class="pre">local</span></code> și <code class="docutils literal notranslate"><span class="pre">remote</span></code> nu au conectivitate între ele, dar au conectivitate la stația <code class="docutils literal notranslate"><span class="pre">ssh-server</span></code>, deoarece sunt în aceeași rețea.</p>
 <div class="section" id="initializarea-tunelului-ssh">
-<h3><span class="section-number">2.3.1. </span>Inițializarea tunelului SSH<a class="headerlink" href="#initializarea-tunelului-ssh" title="Permalink to this headline">¶</a></h3>
+<span id="task-admin-remote-tunnel-init"></span><h3><span class="section-number">2.3.1. </span>Inițializarea tunelului SSH<a class="headerlink" href="#initializarea-tunelului-ssh" title="Permalink to this headline">¶</a></h3>
 <p>Primul pas necesar pentru conectarea la o stație prin tunel SSH este inițializarea tunelului.
 Când inițializăm tunelul acesta va deschide portul <code class="docutils literal notranslate"><span class="pre">4242</span></code> pe stația <code class="docutils literal notranslate"><span class="pre">ssh-server</span></code> de la adresa <code class="docutils literal notranslate"><span class="pre">10.11.11.2</span></code>, astfel încât mesajele trimise către portul <code class="docutils literal notranslate"><span class="pre">4242</span></code> vor fi trimise către portul <code class="docutils literal notranslate"><span class="pre">22</span></code> de pe stația <code class="docutils literal notranslate"><span class="pre">remote</span></code> , stația de pe care inițializăm tunelul SSH.</p>
 <p>Pentru a deschide tunelul vom folosi comanda următoare:</p>
@@ -850,10 +849,10 @@ rulând comanda <code class="docutils literal notranslate"><span class="pre">net
 <span class="n">tcp6</span>       <span class="mi">0</span>      <span class="mi">0</span> <span class="p">:::</span><span class="mi">22</span>                   <span class="p">:::</span><span class="o">*</span>                    <span class="n">LISTEN</span>      <span class="mi">24</span><span class="o">/</span><span class="n">sshd</span>
 </pre></div>
 </div>
-<p>Cât timp această fereastră rămâne deschisă, tunelul va fi activ. Vom învăța în secțiunea &lt;TODO&gt; cum să rulăm această comandă în afara terminalului și cum să ne asigurăm că tunelul este mereu deschis.</p>
+<p>Cât timp această fereastră rămâne deschisă, tunelul va fi activ. Vom învăța în secțiunea <span class="xref std std-ref">task_admin_services_config_custom</span> cum să rulăm această comandă în afara terminalului și cum să ne asigurăm că tunelul este mereu deschis.</p>
 </div>
 <div class="section" id="folosirea-tunelului-ssh">
-<h3><span class="section-number">2.3.2. </span>Folosirea tunelului SSH<a class="headerlink" href="#folosirea-tunelului-ssh" title="Permalink to this headline">¶</a></h3>
+<span id="task-admin-remote-tunnel-usage"></span><h3><span class="section-number">2.3.2. </span>Folosirea tunelului SSH<a class="headerlink" href="#folosirea-tunelului-ssh" title="Permalink to this headline">¶</a></h3>
 <p>Odată creat tunelul, vrem să îl folosim de pe stația <code class="docutils literal notranslate"><span class="pre">local</span></code>, pentru a putea rula comenzi pe stația <code class="docutils literal notranslate"><span class="pre">remote</span></code>.</p>
 <p>Pentru a face acest lucru, trebuie să ne conectăm la stația <code class="docutils literal notranslate"><span class="pre">server</span></code>. Serverul <code class="docutils literal notranslate"><span class="pre">server</span></code> poate fi accesat la adresa <code class="docutils literal notranslate"><span class="pre">10.11.11.2</span></code>.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">root</span><span class="nd">@local</span><span class="p">:</span><span class="o">~</span><span class="c1"># ssh root@10.11.11.2</span>
@@ -883,8 +882,17 @@ rulând comanda <code class="docutils literal notranslate"><span class="pre">net
 <p>Observăm că promptul s-a schimbat în <code class="docutils literal notranslate"><span class="pre">root&#64;remote:~#</span></code>, deci ne-am conectat la stația <code class="docutils literal notranslate"><span class="pre">remote</span></code>. Portul <code class="docutils literal notranslate"><span class="pre">4242</span></code> este de fapt un tunel, conexiunea a fost trimisă la stația <code class="docutils literal notranslate"><span class="pre">remote</span></code>.</p>
 </div>
 <div class="section" id="exercitiu-crearea-si-folosirea-tunelelor-ssh">
-<h3><span class="section-number">2.3.3. </span>Exercițiu: Crearea și folosirea tunelelor SSH<a class="headerlink" href="#exercitiu-crearea-si-folosirea-tunelelor-ssh" title="Permalink to this headline">¶</a></h3>
+<span id="task-admin-remote-tunnel-usage-ex"></span><h3><span class="section-number">2.3.3. </span>Exercițiu: Crearea și folosirea tunelelor SSH<a class="headerlink" href="#exercitiu-crearea-si-folosirea-tunelelor-ssh" title="Permalink to this headline">¶</a></h3>
 <p>Creați un tunel SSH care să ducă de la stația <code class="docutils literal notranslate"><span class="pre">local</span></code> la <code class="docutils literal notranslate"><span class="pre">ssh-server</span></code> folosind portul 6970 și conectați-vă la stația <code class="docutils literal notranslate"><span class="pre">local</span></code> din stația <code class="docutils literal notranslate"><span class="pre">remote</span></code> folosindu-vă de stația <code class="docutils literal notranslate"><span class="pre">ssh-server</span></code> ca mai sus.</p>
+<p class="rubric">Note de subsol</p>
+<dl class="footnote brackets">
+<dt class="label" id="hamachi"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd><p><a class="reference external" href="https://www.vpn.net/">https://www.vpn.net/</a></p>
+</dd>
+<dt class="label" id="zerotier"><span class="brackets"><a class="fn-backref" href="#id2">2</a></span></dt>
+<dd><p><a class="reference external" href="https://www.zerotier.com/">https://www.zerotier.com/</a></p>
+</dd>
+</dl>
 </div>
 </div>
 </div>
