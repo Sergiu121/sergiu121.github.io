@@ -1,3 +1,5 @@
+.. _task_admin_remote:
+
 Conectarea la workstation
 =========================
 
@@ -19,6 +21,8 @@ Câteva soluții de conectare la sistem pe care le vom aborda sunt:
 * VPN
 * tunel SSH
 * DDNS
+
+.. _task_admin_remote_ip:
 
 Problema adreselor IP private
 -----------------------------
@@ -70,25 +74,60 @@ Vom verifica conectivitatea cu stația ``remote`` de pe stația ``local`` folosi
 
 Rezultatul comenzii primei rulări a comenzii ``ping`` demonstrează faptul că nu avem conectivitate între stația ``local`` și stația ``remote``.
 Totuși, am testat și conectivitatea cu o altă adresă IP din Internet, în cazul acesta folosind adresa IP a stației ``fep.grid.pub.ro``, cu care putem să comunicăm, deci nu este o problemă de conectare la Internet.
-Pentru a recapitula funcționalitatea utilitarului ``ping``, revizitați capitolul <TODO>
+Pentru a recapitula funcționalitatea utilitarului ``ping``, revizitați capitolul <TODO>.
+
+.. _task_admin_remote_vpn:
 
 Conectarea prin VPN
 -------------------
 
 Prima soluție pentru conectarea la o stație care folosește o adresă IP privată o reprezintă serviciile de tip VPN (*Virtual Private Network*).
-Acestea conectează două stații care în mod fizic nu sunt conectate la aceeași rețea <TODO ref capitol rețea>
+Acestea conectează două stații care în mod fizic nu sunt conectate la aceeași rețea <TODO ref capitol rețea>.
 
-Pentru această soluție avem două moduri de organizare: folosind un server public pe care îl setăm noi drept server de VPN, sau folosirea unui serviciu public de VPN cum ar fi Hamachi sau ZeroTier.
+Pentru această soluție avem două moduri de organizare: folosind un server public pe care îl setăm noi drept server de VPN, sau folosirea unui serviciu public de VPN cum ar fi Hamachi `Hamachi <www.vpn.com/>`_ sau `ZeroTier <www.zerotier.com/>`_.
 
 Am folosit ca exemplu serviciile Hamachi sau ZeroTier, deoarece acestea pot fi folosite gratuit și sunt ușor de configurat.
 
 <insert matrice/link cu avantaje și dezavantaje servicii>
+
+.. list-table:: Soluții VPN
+   :widths: 25 25 50
+   :header-rows: 1
+
+   * - Nume soluție
+     - Avantaje
+     - Dezavantaje
+   * - Hamachi
+     - * Ușor de setat
+
+       * Aplicație client disponibilă pe Linux și pe Windows
+
+       * Nu necesită înregistrarea
+     - * Latență mai mare decât alte soluții
+
+       * Soluția gratis nu este optimă pentru un număr mare de calculatoare
+   * - ZeroTier
+     - * Ușor de instalat și setat
+
+       * Permite 50 de stații într-o rețea
+
+     - * Necesită înregistrare pentru folosire
+   * - FreeLAN
+     - * Soluție gratis
+       * Nu limitează numărul de stații dintr-o rețea
+     - * Configurare dificilă
+       * Nu funcționează pe toate stațiile, este nevoie de anumite condiții
+         speciale
+
+.. _task_admin_remote_vpn_hamachi:
 
 Folosirea serviciului Hamachi
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Pentru început, recomandăm folosirea serviciului Hamachi, deoarece acesta nu presupune înregistrarea unui cont pentru folosirea aplicație.
 Hamachi vine cu dezavantajul că putem să conectăm maxim cinci stații între ele și viteza conexiunii este mai mică decât dacă am folosi unele servicii plătite, cum ar fi OpenVPN, sau altele.
+
+.. _task_admin_remote_vpn_hamachi_install:
 
 Instalarea Hamachi
 """"""""""""""""""
@@ -157,10 +196,14 @@ Pentru a ne autentifica la serverele Hamachi, folosim comanda ``hamachi login``:
 Această comandă generează un identificator unic per stație și stabilește un nickname.
 Rulând comanda ``hamachi`` vor fi afișate identificatorul, nickname-ul sistemului, adresa IP din VPN și nickname-ul sistemului.
 
+.. _task_admin_remote_vpn_hamachi_install_ex:
+
 Exercițiu: Instalare Hamachi
 """"""""""""""""""""""""""""
 
 Instalați Hamachi pe stația ``local``.
+
+.. _task_admin_remote_vpn_hamachi_create:
 
 Crearea unei rețele private
 """""""""""""""""""""""""""
@@ -183,6 +226,8 @@ Pentru demo-ul pe care îl urmăriți, folosiți în loc de șirul de caractere 
 
 Am folosit comanda ``hamachi list`` pentru a verifica faptul că a fost creată rețeaua.
 Comanda ``hamachi list`` afișează toate rețelele din care face parte stația.
+
+.. _task_admin_remote_vpn_hamachi_connect:
 
 Conectarea la o rețea
 """""""""""""""""""""
@@ -214,11 +259,15 @@ Pentru a testa conexiunea dintre stațiile ``local`` și ``remote`` vom rula com
     2 packets transmitted, 2 received, 0% packet loss, time 1003ms
     rtt min/avg/max/mdev = 76.592/84.493/92.394/7.901 ms
 
+.. _task_admin_remote_vpn_hamachi_connect_ex:
+
 Exercițiu: Crearea și folosirea unei rețele private
 """""""""""""""""""""""""""""""""""""""""""""""""""
 
 Creați o nouă rețea privată numită ``prenume-nume``, cu parola de acces ``anaaremere``.
 Conectați stațiile ``local`` și ``remote`` la noua rețea.
+
+.. _task_admin_remote_vpn_private:
 
 Folosirea unui VPN privat
 ^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -228,8 +277,9 @@ Putem obține acces la astfel de stații cumpărând acces la o mașină virtual
 
 Odată ce am obținut o stație cu o adresă IP publică, este nevoie să configurăm un serviciu de VPN.
 Pentru aceasta putem folosi infrastructura pe care am folosit-o deja la laboratorul de rețelistică.
-Aceasta pornește un server OpenVPN pe sistem.
-<TODO ref capitol rețelistică>
+Aceasta pornește un server OpenVPN pe sistem <TODO ref capitol rețelistică>.
+
+.. _task_admin_remote_tunnel:
 
 Conectarea folosind un tunel SSH
 --------------------------------
@@ -247,14 +297,14 @@ Astfel, în loc să trimitem comenzi prin SSH către o stație, putem trimite or
 
 Dezavantajul acestei abordări este că necesită accesul la un server terț care să fie accesibil de ambele stații.
 
-<TODO Insert schemă>
-
 În această subsecțiune vom lucra cu 3 stații care sunt distribuite în felul următor:
 * ``local``, reprezintă stația "locală", adică laptopul de pe care ne-am conecta, dacă ar fi vorba de un scenariu real; are o singură interfață de rețea cu adresa IP ``10.10.10.3``;
 * ``remote``, reprezintă workstationul la care vrem să ne conectăm; are o singură interfață cu adresa IP ``10.11.11.3``;
 * ``ssh-server``, reprezintă serverul terț prin care ne vom conecta ca să ajungem la workstation; această stație are două interfețe conectate la ea, cu adresele IP ``10.10.10.2`` și ``10.11.11.2``, dar în realitate aceasta ar avea o singură placă de rețea.
 
 Stațiile ``local`` și ``remote`` nu au conectivitate între ele, dar au conectivitate la stația ``ssh-server``, deoarece sunt în aceeași rețea.
+
+.. _task_admin_remote_tunnel_init:
 
 Inițializarea tunelului SSH
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -293,7 +343,9 @@ rulând comanda ``netstat -tlpn``:
     tcp        0      0 127.0.0.11:42991        0.0.0.0:*               LISTEN      -
     tcp6       0      0 :::22                   :::*                    LISTEN      24/sshd
 
-Cât timp această fereastră rămâne deschisă, tunelul va fi activ. Vom învăța în secțiunea <TODO> cum să rulăm această comandă în afara terminalului și cum să ne asigurăm că tunelul este mereu deschis.
+Cât timp această fereastră rămâne deschisă, tunelul va fi activ. Vom învăța în secțiunea :ref:`task_admin_services_config_custom` cum să rulăm această comandă în afara terminalului și cum să ne asigurăm că tunelul este mereu deschis.
+
+.. _task_admin_remote_tunnel_usage:
 
 Folosirea tunelului SSH
 ^^^^^^^^^^^^^^^^^^^^^^^
@@ -332,6 +384,8 @@ Am folosit opțiunea ``-p`` pentru a ne conecta folosind SSH pe un alt port dec�
 În comanda de mai sus ne-am conectat la stația ``localhost``, adică stația ``ssh-server`` dar, deoarece portul ``4242`` este de fapt un tunel, conexiunea a fost redirectată la stația ``remote``.
 
 Observăm că promptul s-a schimbat în ``root@remote:~#``, deci ne-am conectat la stația ``remote``. Portul ``4242`` este de fapt un tunel, conexiunea a fost trimisă la stația ``remote``.
+
+.. _task_admin_remote_tunnel_usage_ex:
 
 Exercițiu: Crearea și folosirea tunelelor SSH
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
