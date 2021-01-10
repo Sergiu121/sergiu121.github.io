@@ -675,9 +675,62 @@ Pentru a recapitula funcționalitatea utilitarului <code class="docutils literal
 <span id="task-admin-remote-vpn"></span><h2><span class="section-number">2.2. </span>Conectarea prin VPN<a class="headerlink" href="#conectarea-prin-vpn" title="Permalink to this headline">¶</a></h2>
 <p>Prima soluție pentru conectarea la o stație care folosește o adresă IP privată o reprezintă serviciile de tip VPN (<em>Virtual Private Network</em>).
 Acestea conectează două stații care în mod fizic nu sunt conectate la aceeași rețea &lt;TODO ref capitol rețea&gt;.</p>
-<p>Pentru această soluție avem două moduri de organizare: folosind un server public pe care îl setăm noi drept server de VPN, sau folosirea unui serviciu public de VPN cum ar fi Hamachi <a class="footnote-reference brackets" href="#hamachi" id="id1">1</a> sau ZeroTier <a class="footnote-reference brackets" href="#zerotier" id="id2">2</a>.</p>
+<p>Pentru această soluție avem două moduri de organizare: folosind un server public pe care îl setăm noi drept server de VPN, sau folosirea unui serviciu public de VPN cum ar fi Hamachi <a class="reference external" href="www.vpn.com/">Hamachi</a> sau <a class="reference external" href="www.zerotier.com/">ZeroTier</a>.</p>
 <p>Am folosit ca exemplu serviciile Hamachi sau ZeroTier, deoarece acestea pot fi folosite gratuit și sunt ușor de configurat.</p>
 <p>&lt;insert matrice/link cu avantaje și dezavantaje servicii&gt;</p>
+<table class="colwidths-given docutils align-default" id="id1">
+<caption><span class="caption-text">Soluții VPN</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Nume soluție</p></th>
+<th class="head"><p>Avantaje</p></th>
+<th class="head"><p>Dezavantaje</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Hamachi</p></td>
+<td><ul class="simple">
+<li><p>Ușor de setat</p></li>
+<li><p>Aplicație client disponibilă pe Linux și pe Windows</p></li>
+<li><p>Nu necesită înregistrarea</p></li>
+</ul>
+</td>
+<td><ul class="simple">
+<li><p>Latență mai mare decât alte soluții</p></li>
+<li><p>Soluția gratis nu este optimă pentru un număr mare de calculatoare</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><p>ZeroTier</p></td>
+<td><ul class="simple">
+<li><p>Ușor de instalat și setat</p></li>
+<li><p>Permite 50 de stații într-o rețea</p></li>
+</ul>
+</td>
+<td><ul class="simple">
+<li><p>Necesită înregistrare pentru folosire</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><p>FreeLAN</p></td>
+<td><ul class="simple">
+<li><p>Soluție gratis</p></li>
+<li><p>Nu limitează numărul de stații dintr-o rețea</p></li>
+</ul>
+</td>
+<td><ul class="simple">
+<li><p>Configurare dificilă</p></li>
+<li><p>Nu funcționează pe toate stațiile, este nevoie de anumite condiții
+speciale</p></li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
 <div class="section" id="folosirea-serviciului-hamachi">
 <span id="task-admin-remote-vpn-hamachi"></span><h3><span class="section-number">2.2.1. </span>Folosirea serviciului Hamachi<a class="headerlink" href="#folosirea-serviciului-hamachi" title="Permalink to this headline">¶</a></h3>
 <p>Pentru început, recomandăm folosirea serviciului Hamachi, deoarece acesta nu presupune înregistrarea unui cont pentru folosirea aplicație.
@@ -884,15 +937,6 @@ rulând comanda <code class="docutils literal notranslate"><span class="pre">net
 <div class="section" id="exercitiu-crearea-si-folosirea-tunelelor-ssh">
 <span id="task-admin-remote-tunnel-usage-ex"></span><h3><span class="section-number">2.3.3. </span>Exercițiu: Crearea și folosirea tunelelor SSH<a class="headerlink" href="#exercitiu-crearea-si-folosirea-tunelelor-ssh" title="Permalink to this headline">¶</a></h3>
 <p>Creați un tunel SSH care să ducă de la stația <code class="docutils literal notranslate"><span class="pre">local</span></code> la <code class="docutils literal notranslate"><span class="pre">ssh-server</span></code> folosind portul 6970 și conectați-vă la stația <code class="docutils literal notranslate"><span class="pre">local</span></code> din stația <code class="docutils literal notranslate"><span class="pre">remote</span></code> folosindu-vă de stația <code class="docutils literal notranslate"><span class="pre">ssh-server</span></code> ca mai sus.</p>
-<p class="rubric">Note de subsol</p>
-<dl class="footnote brackets">
-<dt class="label" id="hamachi"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
-<dd><p><a class="reference external" href="https://www.vpn.net/">https://www.vpn.net/</a></p>
-</dd>
-<dt class="label" id="zerotier"><span class="brackets"><a class="fn-backref" href="#id2">2</a></span></dt>
-<dd><p><a class="reference external" href="https://www.zerotier.com/">https://www.zerotier.com/</a></p>
-</dd>
-</dl>
 </div>
 </div>
 </div>

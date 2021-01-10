@@ -84,11 +84,40 @@ Conectarea prin VPN
 Prima soluție pentru conectarea la o stație care folosește o adresă IP privată o reprezintă serviciile de tip VPN (*Virtual Private Network*).
 Acestea conectează două stații care în mod fizic nu sunt conectate la aceeași rețea <TODO ref capitol rețea>.
 
-Pentru această soluție avem două moduri de organizare: folosind un server public pe care îl setăm noi drept server de VPN, sau folosirea unui serviciu public de VPN cum ar fi Hamachi [#Hamachi]_ sau ZeroTier [#ZeroTier]_.
+Pentru această soluție avem două moduri de organizare: folosind un server public pe care îl setăm noi drept server de VPN, sau folosirea unui serviciu public de VPN cum ar fi Hamachi `Hamachi <www.vpn.com/>`_ sau `ZeroTier <www.zerotier.com/>`_.
 
 Am folosit ca exemplu serviciile Hamachi sau ZeroTier, deoarece acestea pot fi folosite gratuit și sunt ușor de configurat.
 
 <insert matrice/link cu avantaje și dezavantaje servicii>
+
+.. list-table:: Soluții VPN
+   :widths: 25 25 50
+   :header-rows: 1
+
+   * - Nume soluție
+     - Avantaje
+     - Dezavantaje
+   * - Hamachi
+     - * Ușor de setat
+
+       * Aplicație client disponibilă pe Linux și pe Windows
+
+       * Nu necesită înregistrarea
+     - * Latență mai mare decât alte soluții
+
+       * Soluția gratis nu este optimă pentru un număr mare de calculatoare
+   * - ZeroTier
+     - * Ușor de instalat și setat
+
+       * Permite 50 de stații într-o rețea
+
+     - * Necesită înregistrare pentru folosire
+   * - FreeLAN
+     - * Soluție gratis
+       * Nu limitează numărul de stații dintr-o rețea
+     - * Configurare dificilă
+       * Nu funcționează pe toate stațiile, este nevoie de anumite condiții
+         speciale
 
 .. _task_admin_remote_vpn_hamachi:
 
@@ -362,13 +391,3 @@ Exercițiu: Crearea și folosirea tunelelor SSH
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Creați un tunel SSH care să ducă de la stația ``local`` la ``ssh-server`` folosind portul 6970 și conectați-vă la stația ``local`` din stația ``remote`` folosindu-vă de stația ``ssh-server`` ca mai sus.
-
-.. rubric:: Note de subsol
-
-.. [#Hamachi]
-
-    https://www.vpn.net/
-
-.. [#ZeroTier]
-
-    https://www.zerotier.com/
