@@ -1,11 +1,11 @@
 Configurarea și administrarea serviciilor
 =========================================
 
-Scopul serviciilor este să ruleze în continuu și să primească cereri de la aplicații client, cum ar fi un client ``ssh`` și să răspundă la aceste cereri.
+Scopul serviciilor este să ruleze în continuu și să primească cereri de la aplicații client, cum ar fi un client SSH și să răspundă la aceste cereri.
 Serviciile sunt aplicații care rulează în continuu pe stație, spre deosebire de comenzi, cum ar fi ``find`` sau ``ls`` care rulează cât timp se execută comanda.
 Deoarece ne dorim să avem majoritatea timpului conectivitate la mașină, sau ne dorim să avem acces la paginile web folosite, serverele rulează fără oprire și servesc cereri venite de la clienți.
 Un sever / serviciu este oprit explicit de utilizator prin comenzi specifice sau este oprit la oprirea sistemului.
-Fără o intervenție explicită și fără oprirea sistemului, un serer / serviciu va rula nedefinit.
+Fără o intervenție explicită și fără oprirea sistemului, un server / serviciu va rula nedefinit.
 
 Vrem să pornim și să configurăm servicii instalate în sistem, precum:
 
@@ -13,7 +13,7 @@ Vrem să pornim și să configurăm servicii instalate în sistem, precum:
 * un server SSH, pentru a ne conecta la stație;
 * un serviciu care ține un tunel SSH deschis către stație
 
-Avem nevoie de o interfață unică, cu o sintaxă minimală, care ne poate permite să gestionăm serviciile pe sistem, cum le pornim, oprim și cum putem să generăm noi propriile servicii.
+Avem nevoie de o interfață unică, cu o sintaxă minimală, care ne permite să gestionăm serviciile pe sistem, cum le pornim, oprim și cum putem să generăm noi propriile servicii.
 
 Lucrul cu serviciile în Linux
 -----------------------------
@@ -24,7 +24,7 @@ Aceasta se regăsește pe majoritatea distribuțiilor moderne de Linux.
 Verificarea stării unui serviciu
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Atunci când instalăm o aplicație care rulează sub forma unui serviciu vom putea să îi verificăm starea folosind comanda ``systemctl status``.
+Atunci când instalăm o aplicație care rulează sub forma unui serviciu, vom putea să îi verificăm starea folosind comanda ``systemctl status``.
 
 .. code-block::
 
@@ -55,7 +55,7 @@ Programul ``systemd`` se ocupă de pornirea, oprirea și gestionarea serviciilor
 Fișierul care gestionează serviciul SSH este ``/lib/systemd/system/ssh.service``.
 Îl putem identifica din rezultatul comenzii ``systemctl status``.
 
-Atunci când un serviciu este instalat, acesta vine la pachet cu fișierul ``.service`` cu care acesta va fi gestionat de ``systemd``, după cum putem vedea în rezultatul comenzii de mai jos:
+Atunci când un serviciu este instalat, acesta vine la pachet cu fișierul cu extensia ``.service`` cu care acesta va fi gestionat de ``systemd``, după cum putem vedea în rezultatul comenzii de mai jos:
 
 .. code-block::
     student@uso:~$ sudo apt install ntp
@@ -69,7 +69,7 @@ Atunci când un serviciu este instalat, acesta vine la pachet cu fișierul ``.se
 .. addmonition:: Observație
 
     Serviciul ``ntp`` este folosit pentru sincronizarea ceasului cu surse precise de timp din Internet.
-    Acesta este un serviciu important pentru buna funcționare a aplicațiilor în Internet, deoarece o configurare a timpului pentru o stație poate duce la o funcționare incorectă a acesteia în comunicare cu alte stații.
+    Acesta este un serviciu important pentru buna funcționare a aplicațiilor în Internet, deoarece o configurare a timpului pentru o stație poate duce la o funcționare incorectă a acesteia în comunicare.
 
 Exercițiu: Afișarea stării serviciilor
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -164,7 +164,7 @@ Dacă serviciul nu pornește cu succes, aceasta va afișa un mesaj de avertizare
 Repornirea unui serviciu
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
-Pe parcursul rulării serviciilor pe un sistem vom dori să schimbăm configurația unui serviciu sau să adăugăm parametri de rulare în plus.
+Pe parcursul rulării serviciilor pe un sistem, vom dori să schimbăm configurația unui serviciu sau să adăugăm parametri de rulare în plus.
 Majoritatea aplicațiilor citesc fișierele de configurare o singură dată, atunci când sunt pornite, deci orice modificare ulterioară a fișierelor de configurare nu va fi sesizată de serviciu.
 Din acest motiv, avem nevoie să repornim servicii.
 
@@ -172,12 +172,17 @@ De exemplu, vrem să permitem utilizatorilor să se autentifice ca utilizatorul 
 Acest lucru este dezactivat în mod predefinit de serviciu din motive de securitate.
 Pentru a face acest lucru, avem nevoie să reconfigurăm serviciul SSH.
 
-.. code_block::
+.. code-block::
 
     student@uso:~$ ssh root@localhost
     root@localhost's password: 
     Permission denied, please try again.
     [...]
+
+Observăm că inițial nu puteam să ne conectăm la mașina locală ca utilizatorul ``root``, cu toate că introduceam parola corectă.
+
+.. code-block::
+
     student@uso:~$ sudo su -c 'echo "PermitRootLogin yes" >> /etc/ssh/sshd_config'
     student@uso:~$ systemctl restart ssh
     student@uso:~$ ssh root@localhost
@@ -185,7 +190,6 @@ Pentru a face acest lucru, avem nevoie să reconfigurăm serviciul SSH.
     [...]
     root@uso:~#
 
-Observăm că inițial nu puteam să ne conectăm la mașina locală ca utilizatorul ``root``, cu toate că introduceam parola corectă.
 Odată ce am adăugat opțiunea ``PermitRootLogin yes`` în fișierul de configurare al serviciului și am repornit serviciului, am reușit să ne autentificăm ca utilizatorul ``root``.
 
 Pornirea unui serviciu la startup
@@ -195,11 +199,11 @@ Atunci când configurăm un sistem și vrem să definim servicii care rulează p
 Un mod de a ne ușura lucrul cu serverul este pornirea serviciilor la bootup, ca să nu fie nevoie sa intervenim noi după secvența de pornire a sistemului, ca să le pornim de mână, folosind comanda ``systemctl start``
 
 Putem să vedem dacă un sistem pornește automat la startup din rezultatul comenzii ``systemctl status`` pe linia care începe cu ``Loaded:``.
-Dacă acesta conține șirul de caractere ``enabled``, atunci serviciul pornește la startup, iar dacă aceasta conține șirul ``disabled``, atunci serviciul nu va porni la startup.
+Dacă rezultatul conține șirul de caractere ``enabled``, atunci serviciul pornește la startup, iar dacă aceasta conține șirul ``disabled``, atunci serviciul nu va porni la startup.
 
 Pentru a dezactiva un serviciu la startup vom folosi comanda ``systemctl disable`` în felul următor:
 
-.. code_block::
+.. code-block::
 
     student@uso:~$ sudo systemctl disable ntp
     Synchronizing state of ntp.service with SysV service script with /lib/systemd/systemd-sysv-install.
@@ -231,7 +235,7 @@ Observăm că pe linia care conține șirul de caractere ``Loaded``, mesajul est
 
 Pentru a activa un serviciu la startup vom folosi comanda ``systemctl enable``:
 
-.. code_block::
+.. code-block::
 
     student@uso:~$ sudo systemctl enable ntp
     Synchronizing state of ntp.service with SysV service script with /lib/systemd/systemd-sysv-install.
@@ -264,14 +268,14 @@ Observăm că pe linia care conține șirul de caractere ``Loaded``, mesajul s-a
 Configurarea unui serviciu
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-În majoritatea cazurilor, serviciile sunt configurate prin fișiere de configurarea.
+În majoritatea cazurilor, serviciile sunt configurate prin fișiere de configurare.
 Acestea se pot găsi în mai multe locuri:
 
 * ``/etc/default/``, unde sunt fișiere care permit modificarea opțiunilor de rulare a unei comenzi, ca și cum am adăuga noi opțiuni la rularea unei comenzi.
   Aceste fișiere sunt citite de ``systemd``, înainte să pornească serviciul;
-* directorul ``/etc/nume_serviciu/`` sau fișierul ``/etc/nume_serviciu``, unde se află fișierele de configurare pentru multe servicii instalate.
+* directorul ``/etc/nume_serviciu/`` , unde se află fișierele de configurare sau direct fișierul ``/etc/nume_serviciu``.
   Aceste fișiere sunt citite și interpretate de servici.
-  De exemplu, pentru configurarea serviciului NTP, există fișierul ``/etc/ntp.conf``.
+  De exemplu, pentru configurarea serviciului NTP, există fișierul ``/etc/ntp.conf``, iar pentru configurarea serviciului SSH folosim fișierele din directorul ``/etc/ssh/``.
 
 Exerciții: Gestiunea serviciilor
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -279,17 +283,18 @@ Exerciții: Gestiunea serviciilor
 #) Configurați serviciul SSH pentru a permite autentificarea ca utilizatorul ``root`` folosind numai autentificare bazată pe chei.
 #) Instalați serviciul ``vsftpd``. Acesta este un serviciu de transfer de fișiere.
     #) Realizați modificările necesare astfel încât acest serviciu să **NU** pornească la startup;
-    #) Dezactivați funcționalitatea bazată pe IPv6 a serviciului Hint: ``listen_ipv6``, ``listen``.
-    #) Asigurați-vă că serviciul rulează. Acest serviciu ascultă pe portul ``21``.
+    #) Dezactivați funcționalitatea bazată pe IPv6 a serviciului. **Hint**: ``listen_ipv6``, ``listen``.
+    #) Asigurați-vă că serviciul rulează.
+       Acest serviciu ascultă pe portul ``21``.
 
 Definirea unui serviciu personalizat
 ------------------------------------
 
-Atunci când vrem să ne conectăm la Internet printr-un proxy, avem nevoie ca proxy-ul să fie deschis în permanență și să fie gestionat, dacă este pierdută conexiunea cu proxy-ul.
-Putem să facem asta folosind servicii ``systemd`` pe care să le gestionăm noi folosind suita de comenzi ``systemctl``.
+Atunci când vrem să ne conectăm la Internet printr-un proxy, avem nevoie ca proxy-ul să fie deschis în permanență și să dacă conexiunea este întreruptă, aceasta să fie repornită.
+Putem să facem acest lucru folosind servicii ``systemd`` pe care să le gestionăm noi folosind suita de comenzi ``systemctl``.
 
 Ne propunem să găzduim propriul proxy care va trimite mesaje criptate prin SSH către o altă stație, de unde vor fi trimise mesaje în Internet.
-Astfel vom putea trece peste anumite filtre pe locație.
+Astfel vom putea trece peste anumite filtre care țin cont de poziția geografică.
 
 Un serviciu în ``systemd`` se definește printr-un fișier de configurare în directorul ``/lib/systemd/system/libvirtd.service``.
 Pentru serviciul nostru vom genera fișierul la calea ``/lib/systemd/system/libvirtd.service/auto-proxy.service``.
