@@ -3,8 +3,8 @@
 Configurarea și administrarea serviciilor
 =========================================
 
-Scopul serviciilor este să ruleze în continuu și să primească cereri de la aplicații client, cum ar fi un client SSH și să răspundă la aceste cereri.
-Serviciile sunt aplicații care rulează în continuu pe stație, spre deosebire de comenzi, cum ar fi ``find`` sau ``ls`` care rulează cât timp se execută comanda.
+Scopul serviciilor este să ruleze în continuu și să primească cereri de la aplicații client, cum ar fi un client SSH, și să răspundă la aceste cereri.
+Serviciile sunt aplicații care rulează în continuu pe stație, spre deosebire de comenzi, cum ar fi ``find`` sau ``ls``, care rulează cât timp se execută comanda.
 Deoarece ne dorim să avem majoritatea timpului conectivitate la mașină, sau ne dorim să avem acces la paginile web folosite, serverele rulează fără oprire și servesc cereri venite de la clienți.
 Un sever / serviciu este oprit explicit de utilizator prin comenzi specifice sau este oprit la oprirea sistemului.
 Fără o intervenție explicită și fără oprirea sistemului, un server / serviciu va rula nedefinit.
@@ -12,10 +12,12 @@ Fără o intervenție explicită și fără oprirea sistemului, un server / serv
 Vrem să pornim și să configurăm servicii instalate în sistem, precum:
 
 * un server web;
+
 * un server SSH, pentru a ne conecta la stație;
+
 * un serviciu care ține un tunel SSH deschis către stație
 
-Avem nevoie de o interfață unică, cu o sintaxă minimală, care ne permite să gestionăm serviciile pe sistem, cum le pornim, oprim și cum putem să generăm noi propriile servicii.
+Avem nevoie de o interfață unică, cu o sintaxă minimală, care ne permite să gestionăm serviciile pe sistem, și care ne permite sa generăm noi propriile servicii.
 
 .. _task_admin_services_config_usage:
 
@@ -55,7 +57,7 @@ Atunci când instalăm o aplicație care rulează sub forma unui serviciu, vom p
     ian 09 04:23:25 uso sshd[1821]: pam_unix(sshd:session): session opened for user student by (uid=0)
 
 Mai sus am afișat starea serviciului SSH.
-Observăm că acesta este activ și putem urmări ce procese a generat și mesaje de diagnosticare pe care le afișează.
+Observăm că acesta este activ și putem urmări ce procese a generat și ce mesaje de diagnosticare afișează.
 
 Programul ``systemd`` se ocupă de pornirea, oprirea și gestionarea serviciilor folosite în sistem pe baza unor fișiere numite fișiere unitate.
 Fișierul care gestionează serviciul SSH este ``/lib/systemd/system/ssh.service``.
@@ -90,7 +92,7 @@ Afișați starea serviciului ``thermald``, care gestionează senzorii de tempera
 Oprirea unui serviciu
 ^^^^^^^^^^^^^^^^^^^^^
 
-Pentru a opri un serviciu vom folosi comanda ``systemctl stop`` în felul următor
+Pentru a opri un serviciu vom folosi comanda ``systemctl stop`` în felul următor:
 
 .. code-block::
 
@@ -185,7 +187,6 @@ Din acest motiv, avem nevoie să repornim servicii.
 
 De exemplu, vrem să permitem utilizatorilor să se autentifice ca utilizatorul ``root`` pe sistemul nostru.
 Acest lucru este dezactivat în mod predefinit de serviciu din motive de securitate.
-Pentru a face acest lucru, avem nevoie să reconfigurăm serviciul SSH.
 
 .. code-block::
 
@@ -205,6 +206,7 @@ Observăm că inițial nu puteam să ne conectăm la mașina locală ca utilizat
     [...]
     root@uso:~#
 
+Pentru a face acest lucru, avem nevoie să reconfigurăm serviciul SSH.
 Odată ce am adăugat opțiunea ``PermitRootLogin yes`` în fișierul de configurare al serviciului și am repornit serviciului, am reușit să ne autentificăm ca utilizatorul ``root``.
 
 .. _task_admin_services_config_usage_enable:
@@ -213,7 +215,7 @@ Pornirea unui serviciu la startup
 """""""""""""""""""""""""""""""""
 
 Atunci când configurăm un sistem și vrem să definim servicii care rulează pe el, ne dorim ca serviciile să fie ``setup and forget``, să nu fie necesar să le supraveghem și să le monitorizăm prea mult.
-Un mod de a ne ușura lucrul cu serverul este pornirea serviciilor la bootup, ca să nu fie nevoie sa intervenim noi după secvența de pornire a sistemului, ca să le pornim de mână, folosind comanda ``systemctl start``
+Un mod de a ne ușura lucrul cu serverul este pornirea serviciilor la startup, ca să nu fie nevoie sa intervenim noi după secvența de pornire a sistemului, ca să le pornim de mână, folosind comanda ``systemctl start``
 
 Putem să vedem dacă un sistem pornește automat la startup din rezultatul comenzii ``systemctl status`` pe linia care începe cu ``Loaded:``.
 Dacă rezultatul conține șirul de caractere ``enabled``, atunci serviciul pornește la startup, iar dacă aceasta conține șirul ``disabled``, atunci serviciul nu va porni la startup.
@@ -317,7 +319,7 @@ Exerciții: Gestiunea serviciilor
 Definirea unui serviciu personalizat
 ------------------------------------
 
-Atunci când vrem să ne conectăm la Internet printr-un proxy, avem nevoie ca proxy-ul să fie deschis în permanență și să dacă conexiunea este întreruptă, aceasta să fie repornită.
+Atunci când vrem să ne conectăm la Internet printr-un proxy, avem nevoie ca proxy-ul să fie deschis în permanență și să redeschidă conexiunea în cazul în care aceasta este întreruptă.
 Putem să facem acest lucru folosind servicii ``systemd`` pe care să le gestionăm noi folosind suita de comenzi ``systemctl``.
 
 Ne propunem să găzduim propriul proxy care va trimite mesaje criptate prin SSH către o altă stație, de unde vor fi trimise mesaje în Internet.
