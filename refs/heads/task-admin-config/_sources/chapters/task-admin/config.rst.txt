@@ -1,3 +1,5 @@
+.. _task_admin_config:
+
 Configurarea stației la distanță
 ================================
 
@@ -11,6 +13,8 @@ Aceste modificări au rolul de a reduce acțiunile repetitive pe care le facem s
 Această secțiune cuprinde recomandări de configurare a sistemului de la distanță.
 Au formă de sugestii, nu sunt obligații, pe baza cărora fiecare poate decide pentru configurarea propriului mediu de lucru.
 
+.. _task_admin_config_shell:
+
 Configurarea shellului
 ----------------------
 
@@ -21,6 +25,8 @@ Modificările la nivelul shellului se fac schimbând variabile de mediu sau rul�
 
 Modificarea mediului shellului o realizăm într-un fișier de configurare.
 Vom folosi fișierul ``~/.profile``, deoarece acesta este citit și rulat de toate implementările de shell majorore, cum ar fi ``dash``, ``csh``, ``bash`` sau ``zsh``, astfel oferă intercompatibilitate între shelluri.
+
+.. _task_admin_config_shell_change:
 
 Modificarea shellului predefinit
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -35,11 +41,15 @@ Pentru a modifica shellul predefinit al unui utilizator folosim comanda ``usermo
 Rulând comanda de mai sus, am modificat shellul predefinit al utilizatorului ``student`` în ``/bin/zsh``.
 Pentru verificare, ne-am autentificat ca utilizatorul student și am afișat valoarea variabilei ``SHELL``.
 
+.. _task_admin_config_shell_change_ex:
+
 Exercițiu: Modificarea shellului predefinit:
 """"""""""""""""""""""""""""""""""""""""""""
 
 Modificați shellul predefinit al utilizatorului ``student`` cu shellul ``/bin/bash``.
 Încercați să folosiți funcționalitatea de auto-complete. Ce observați?
+
+.. _task_admin_config_shell_alias:
 
 Configurarea aliasurilor
 ^^^^^^^^^^^^^^^^^^^^^^^^
@@ -76,11 +86,15 @@ Pentru a verifica ce aliasuri sunt definite, vom folosi comanda ``alias`` fără
 Definirea de mai sus a unui alias nu este persistentă, ci acesta va fi definit cât timp shellul curent este deschis.
 Pentru a defini un alias persistent, trebuie să îl definim, folosind comanda ``alias`` într-un fișier de configurare, cum ar fi ``.profile``.
 
+.. _task_admin_config_shell_alias_ex:
+
 Exercițiu: Configurarea aliasurilor
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 #) Configurați aliasul ``gcs`` pentru comanda ``git commit --signnoff``.
 #) Configurați aliasul ``glog`` pentru comanda ``git log --oneline``.
+
+.. _task_admin_config_shell_history:
 
 Modificarea dimensiunii istoricului de comenzi
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -98,6 +112,8 @@ Această modificare va fi valabilă doar pentru utilizatorul ``student``.
 
     student@uso:~$ echo HISTSIZE=20000 >> /home/student/.profile
 
+.. _task_admin_config_shell_history_ex:
+
 Exercițiu: Modificarea dimensiunii istoricului de comenzi
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -106,6 +122,8 @@ La pornirea shellului, dimensiunea fișierului de istoric este concatenată folo
 Valoarea predefinită a acestei variabile este ``500``.
 
 Faceți modificările necesare astfel încât fișierul de istoric să fie concatenat la ``20000`` de comenzi la pornirea shellului.
+
+.. _task_admin_config_shell_prompt:
 
 Configurarea promptului
 ^^^^^^^^^^^^^^^^^^^^^^^
@@ -197,6 +215,8 @@ Când schimbăm directorul curent într-un repository Git, în promp va apărea 
     student@uso:~- cd uso-lab/
     student@uso:~/uso-lab-[master !?] check-language-support ^C
 
+.. _task_admin_config_shell_prompt_ex:
+
 Exercițiu: Configurarea promptului
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -207,16 +227,24 @@ Pentru a rezolva această problemă vrem să avem promptul pe un rând și spaț
 
 Modificați promptul astfel încât comenzile rulate să apară pe următorul rând față de prompt.
 
+.. _task_admin_config_apps:
+
 Configurarea aplicațiilor de bază
 ---------------------------------
 
 După ce am configurat mediul de lucru, vrem să configurăm și aplicațiile pe care le vom folosi.
 
+.. _task_admin_config_git:
+
 Configurarea Git
 ^^^^^^^^^^^^^^^^
 
+.. _task_admin_config_vim:
+
 Configurarea Vim
 ^^^^^^^^^^^^^^^^
+
+.. _task_admin_config_tmux:
 
 Configurarea tmux
 ^^^^^^^^^^^^^^^^^
