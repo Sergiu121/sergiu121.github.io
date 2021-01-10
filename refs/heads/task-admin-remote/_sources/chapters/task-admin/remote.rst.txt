@@ -18,6 +18,7 @@ Prima problemă cu care ne vom confrunta este conectarea la stație, deoarece, �
 Așadar, nu ne vom putea conecta direct la sistem folosind un protocol de comunicare la distanță, cum ar fi SSH fără să facem pași suplimentari.
 
 Câteva soluții de conectare la sistem pe care le vom aborda sunt:
+
 * VPN
 * tunel SSH
 * DDNS
@@ -298,6 +299,7 @@ Astfel, în loc să trimitem comenzi prin SSH către o stație, putem trimite or
 Dezavantajul acestei abordări este că necesită accesul la un server terț care să fie accesibil de ambele stații.
 
 În această subsecțiune vom lucra cu 3 stații care sunt distribuite în felul următor:
+
 * ``local``, reprezintă stația "locală", adică laptopul de pe care ne-am conecta, dacă ar fi vorba de un scenariu real; are o singură interfață de rețea cu adresa IP ``10.10.10.3``;
 * ``remote``, reprezintă workstationul la care vrem să ne conectăm; are o singură interfață cu adresa IP ``10.11.11.3``;
 * ``ssh-server``, reprezintă serverul terț prin care ne vom conecta ca să ajungem la workstation; această stație are două interfețe conectate la ea, cu adresele IP ``10.10.10.2`` și ``10.11.11.2``, dar în realitate aceasta ar avea o singură placă de rețea.
@@ -324,6 +326,7 @@ Pentru a deschide tunelul vom folosi comanda următoare:
     root@10.10.10.2's password:
 
 Opțiunile comenzii ``ssh`` folosite sunt următoarele:
+
 * ``-N`` este folosită atunci când deschidem tunele pentru a nu deschide shelluri în care să dăm comenzi;
 * ``4242`` este portul pe care vrem să îl deschidă pe stația ``ssh-server``;
 * ``localhost`` este stația către care vor fi trimise mesajele primite pe portul ``4242``. În cazul acesta mesajele vor fi trimise către ``localhost``, adică stația ``remote``, cea de pe care rulăm comanda de tunelare;
