@@ -6,10 +6,10 @@ Gestionarea spațiului de stocare partajat
 .. note::
 
     Pentru a parcurge această secțiune este recomandat să descărcați ultima versiune a respository-ului laboratorului.
-    Pentru a descărca ultima versiune a repository-ului rulați comanda ``git pull`` în directorul ``~/uso-lab/labs/10-tasks-admin/lab-containers/``.
+    Pentru a descărca ultima versiune a repository-ului, rulați comanda ``git pull`` în directorul ``~/uso-lab/labs/10-tasks-admin/lab-containers/``.
 
     Infrastructura laboratorului este bazată pe containere Docker ale căror imagini vor fi generate pe propriul calculator.
-    Dacă nu veți deja instalat Docker Engine pe sistem, scriptul ``~/uso-lab/labs/10-tasks-admin/lab-containers/lab_prepare.sh`` vă va instala aplicația.
+    Dacă nu aveți deja instalat Docker Engine pe sistem, scriptul ``~/uso-lab/labs/10-tasks-admin/lab-containers/lab_prepare.sh`` vă va instala aplicația.
 
     După ce ați terminat de lucrat, vă recomandăm să opriți containerele rulând comanda ``./lab-prepare.sh delete`` în directorul ``~/uso-lab/labs/10-tasks-admin/lab-containers/``.
 
@@ -71,8 +71,8 @@ Observăm că pe ultima linie apare conexiunea către stația de la adresa ``10.
 
     Sintaxa comenzii ``sshfs`` se aseamănă cu sintaxa comenzii ``scp``.
 
-Acest mod te montare a sistemului de fișier este temporară.
-Atunci când vom opri stația sistemul de fișiere va fi demontat.
+Acest mod de montare a sistemului de fișiere este temporară.
+Atunci când vom opri stația, sistemul de fișiere va fi demontat.
 
 .. _task_admin_storage_sshfs_mount_ex:
 
@@ -91,7 +91,7 @@ Deoarece nu ne dorim să rulăm comanda ``sshfs`` atunci când vrem să folosim 
 
 Ca să montăm persistent sistemul de fișiere avem nevoie să copiem cheia SSH pe stația de la distanță, deoarece montarea se va face în mod neinteractiv, deci nu vom avea posibilitatea de a introduce parola. <TODO REF NETWORKING>
 
-Pentru a monta persistent sistemul de fișiere, vom scrie o intrare în fișierul ``/etc/fstab`` care va conține detalii despre sistemul de fișiere pe care vrem să îl montăm.
+Pentru a monta persistent sistemul de fișiere, vom scrie o intrare în fișierul ``/etc/fstab``, care va conține detalii despre sistemul de fișiere pe care vrem să îl montăm.
 Pentru a monta sistemul de fișiere ``/``` de pe sistemul de la adresa IP ``10.10.10.2`` în directorul ``/mnt`` de pe stația locală, autentificându-ne ca utilizatorul ``root``, vom folosi următoarele comenzi:
 
 .. code-block::
@@ -100,7 +100,7 @@ Pentru a monta sistemul de fișiere ``/``` de pe sistemul de la adresa IP ``10.1
     [...]
     root@local:~# ssh-copy-id root@10.10.10.2
     [...]
-    root@local:~# echo "root@10.10.10.2:/  /mnt  fuse.sshfs  defaults  0  0" > /etc/fstab
+    root@local:~# echo "root@10.10.10.2:/  /mnt  fuse.sshfs  defaults  0  0" >> /etc/fstab
 
     root@local:~# mount -a
 
@@ -114,6 +114,11 @@ Pentru a monta sistemul de fișiere ``/``` de pe sistemul de la adresa IP ``10.1
     root@10.10.10.2:/   16G   14G  539M  97% /mnt
 
 Am scris în fișierul ``/etc/fstab`` folosind comanda ``echo``, iar pentru a monta sistemul de fișiere am folosit comanda ``mount`` cu opțiunea ``-a`` pentru montarea sistemelor de fișiere descrise în fișierul ``/etc/fstab``.
+
+.. admonition:: Atenție!:
+
+    În mod normal am scrie în fișierul ``/etc/fstab`` folosind un editor de text.
+    Vă recomandăm să nu scrieți în fișiere critice sistemului folosind redirectări, deoarece orice greșeală poate șterge conținutul fișierului.
 
 .. _task_admin_storage_sshfs_fstab_ex:
 
@@ -135,7 +140,7 @@ Suplimentar, trebuie configurată o conexiune SSH, care poate necesita la rându
 O alternativă la folosirea SSHFS sunt soluții cum ar fi GoogleDrive, Dropbox, ownCloud sau One Drive.
 Aceste soluții stochează o replică a fișierului pe toate calculatoarele autentificate de pe un anumit cont.
 Un alt avantaj al acestora este că oferă suport pentru controlul versiunilor pentru a șterge modificarea anterioară.
-Cu dezavantajul că trebuie configurate și riscul apariției conflictelor la modificări simultane pe noduri diferite.
+Cu dezavantajul că trebuie configurate și cu riscul apariției conflictelor la modificări simultane pe noduri diferite.
 Și cu dezavantajul că acum informația este duplicată: dublu spațiu ocupat și pot apărea conflicte la modificări.
 
 .. _task_admin_storage_online_dropbox:
@@ -153,7 +158,7 @@ Este necesară crearea și activarea un cont pentru a folosi serviciul Dropbox.
 
 Dropbox oferă o aplicație care rulează în linie de comandă pe care o vom descărca pentru a sincroniza sistemul de fișiere de pe serverele Dropbox într-un director local.
 
-Pentru a descărca aplicația Dropbox, pe care o vom descărca folosind comanda ``wget`` și o vom instala folosind comanda ``dpkg`` împreună cu parametrul.
+Vom descărca aplicația Dropbox folosind comanda ``wget`` și o vom instala folosind comanda ``dpkg`` împreună cu parametrul ``-i``.
 
 .. code-block::
 
@@ -185,12 +190,14 @@ Exercițiu: Stocarea partajată folosind Dropbox
 .. note::
 
     Pentru rezolvarea acestui exercițiu, rulați în directorul ``~/uso.git/labs/03-user/lab-containers/`` comanda ``./lab_prepare.sh install dropbox``.
-    Pentru a ne conecta la infrastructura pentru această secțiune vom folosi comanda ``./lab_prepare.sh connect dropbox``.
+    Pentru a ne conecta la infrastructura pentru această secțiune, vom folosi comanda ``./lab_prepare.sh connect dropbox``.
+    Aplicația dropbox este deja descărcată, trebuie doar să o porniți.
 
 #) Conectați-vă la stația ``dropbox`` și porniți aplicația Dropbox pe aceasta.
 
-#) Scrieți un fișier numit ``hello.txt`` mesajul ``Hello from remote`` de pe stația ``dropbox``.
-Verificați conținutul fișierului de pe stația ``uso``.
+#) Creați un fișier numit ``hello.txt`` în directorul ``~/Dropbox``, partajat de cele două mașini.
+   Scrieți în fișier mesajul ``Hello from remote`` pe stația ``dropbox``.
+   Verificați că există fișierul ``hello.txt`` în directorul ``~/Dropbox`` pe stația ``uso``.
 
 .. _task_admin_storage_online_private:
 
