@@ -626,7 +626,7 @@ Soluția la această nevoie este să partajăm spațiul de stocare între server
 <span id="task-admin-storage-sshfs"></span><h2><span class="section-number">4.1. </span>Stocare partajată folosind SSHFS<a class="headerlink" href="#stocare-partajata-folosind-sshfs" title="Permalink to this headline">¶</a></h2>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Pentru rularea acestui demo, rulați în directorul <code class="docutils literal notranslate"><span class="pre">~/uso.git/labs/03-user/lab-containers/</span></code> comanda <code class="docutils literal notranslate"><span class="pre">./lab_prepare.sh</span> <span class="pre">install</span> <span class="pre">remote</span></code>, comanda  <code class="docutils literal notranslate"><span class="pre">./lab_prepare.sh</span> <span class="pre">install</span> <span class="pre">config</span></code> și comanda <code class="docutils literal notranslate"><span class="pre">./lab_prepare.sh</span> <span class="pre">install</span> <span class="pre">ssh-server</span></code>.
+<p>Pentru rularea acestui demo, rulați în directorul <code class="docutils literal notranslate"><span class="pre">~/uso.git/labs/03-user/lab-containers/</span></code> comanda <code class="docutils literal notranslate"><span class="pre">./lab_prepare.sh</span> <span class="pre">install</span> <span class="pre">remote</span></code> și comanda <code class="docutils literal notranslate"><span class="pre">./lab_prepare.sh</span> <span class="pre">install</span> <span class="pre">ssh-server</span></code>.
 Pentru a ne conecta la infrastructura pentru această secțiune, vom folosi comanda <code class="docutils literal notranslate"><span class="pre">./lab_prepare.sh</span> <span class="pre">connect</span> <span class="pre">local</span></code>.</p>
 </div>
 <p>SSHFS este o soluție de stocare partajată care permite montarea unui sistem de fișiere care nu este legat fizic la stația <code class="docutils literal notranslate"><span class="pre">local</span></code>, ci se folosește de protocolul SSH pentru a transmite operațiile asupra fișierelor prin rețea către un sistem de fișiere conectat prin rețea.</p>
@@ -637,11 +637,11 @@ Dezavantajul acestei abordări este că dacă pierdem conexiunea la sistemul de 
 <p>Pentru a monta sistemul de fișiere de pe un alt sistem, vom folosi comanda <code class="docutils literal notranslate"><span class="pre">sshfs</span></code></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>root@local:~# ls /mnt/
 
-root@local:~# sshfs root@10.10.10.2:/ /mnt/
-The authenticity of host &#39;10.10.10.2 (10.10.10.2)&#39; can&#39;t be established.
+root@local:~# sshfs root@10.11.11.2:/ /mnt/
+The authenticity of host &#39;10.11.11.2 (10.11.11.2)&#39; can&#39;t be established.
 ECDSA key fingerprint is SHA256:xV1orHYj4fhkc5HE91sfh8QhaVqke/AEMa8mYI423HY.
 Are you sure you want to continue connecting (yes/no)? yes
-root@10.10.10.2&#39;s password:
+root@10.11.11.2&#39;s password:
 
 root@local:~# df -h
 Filesystem         Size  Used Avail Use% Mounted on
@@ -650,15 +650,15 @@ tmpfs               64M     0   64M   0% /dev
 tmpfs              2.0G     0  2.0G   0% /sys/fs/cgroup
 /dev/sda5           16G   14G  539M  97% /etc/hosts
 shm                 64M     0   64M   0% /dev/shm
-root@10.10.10.2:/   16G   14G  539M  97% /mnt
+root@10.11.11.2:/   16G   14G  539M  97% /mnt
 
 root@local:~# ls /mnt/
 bin  boot  dev  etc  home  lib  lib64  media  mnt  opt  proc  root  run  sbin  srv  sys  tmp  usr  var
 </pre></div>
 </div>
-<p>Comanda de mai sus a montat ierarhia de fișiere cu rădăcina în directorul <code class="docutils literal notranslate"><span class="pre">/</span></code> de pe sistemul de la adresa IP <code class="docutils literal notranslate"><span class="pre">10.10.10.2</span></code> în directorul <code class="docutils literal notranslate"><span class="pre">/mnt</span></code> de pe stația locală, cu numele <code class="docutils literal notranslate"><span class="pre">local</span></code>, autentificându-se ca utilizatorul <code class="docutils literal notranslate"><span class="pre">root</span></code>.</p>
+<p>Comanda de mai sus a montat ierarhia de fișiere cu rădăcina în directorul <code class="docutils literal notranslate"><span class="pre">/</span></code> de pe sistemul de la adresa IP <code class="docutils literal notranslate"><span class="pre">10.11.11.2</span></code> în directorul <code class="docutils literal notranslate"><span class="pre">/mnt</span></code> de pe stația locală, cu numele <code class="docutils literal notranslate"><span class="pre">local</span></code>, autentificându-se ca utilizatorul <code class="docutils literal notranslate"><span class="pre">root</span></code>.</p>
 <p>Am folosit comanda <code class="docutils literal notranslate"><span class="pre">df</span></code> pentru a afișa informații despre toate sistemele de fișiere montate pe stația locală.
-Observăm că pe ultima linie apare conexiunea către stația de la adresa <code class="docutils literal notranslate"><span class="pre">10.10.10.2</span></code>.</p>
+Observăm că pe ultima linie apare conexiunea către stația de la adresa <code class="docutils literal notranslate"><span class="pre">10.11.11.2</span></code>.</p>
 <div class="admonition-observatie admonition">
 <p class="admonition-title">Observație</p>
 <p>Sintaxa comenzii <code class="docutils literal notranslate"><span class="pre">sshfs</span></code> se aseamănă cu sintaxa comenzii <code class="docutils literal notranslate"><span class="pre">scp</span></code>.</p>
@@ -669,8 +669,8 @@ Atunci când vom opri stația, sistemul de fișiere va fi demontat.</p>
 <div class="section" id="exercitiu-montarea-temporara-a-unui-sistem-de-fisiere">
 <span id="task-admin-storage-sshfs-mount-ex"></span><h3><span class="section-number">4.1.2. </span>Exercițiu: Montarea temporară a unui sistem de fișiere<a class="headerlink" href="#exercitiu-montarea-temporara-a-unui-sistem-de-fisiere" title="Permalink to this headline">¶</a></h3>
 <ol class="arabic simple">
-<li><p>Montați temporar sistemul de fișiere cu rădăcina în directorul <code class="docutils literal notranslate"><span class="pre">/</span></code> de pe stația <code class="docutils literal notranslate"><span class="pre">10.10.10.2</span></code> în directorul <code class="docutils literal notranslate"><span class="pre">/mnt/vol1</span></code>.</p></li>
-<li><p>Montați temporar sistemul de fișiere cu rădăcina în directorul <code class="docutils literal notranslate"><span class="pre">/home/student</span></code> de pe stația <code class="docutils literal notranslate"><span class="pre">10.10.10.2</span></code> în directorul <code class="docutils literal notranslate"><span class="pre">/mnt/vol2</span></code>.</p></li>
+<li><p>Montați temporar sistemul de fișiere cu rădăcina în directorul <code class="docutils literal notranslate"><span class="pre">/</span></code> de pe stația <code class="docutils literal notranslate"><span class="pre">10.11.11.2</span></code> în directorul <code class="docutils literal notranslate"><span class="pre">/mnt/vol1</span></code>.</p></li>
+<li><p>Montați temporar sistemul de fișiere cu rădăcina în directorul <code class="docutils literal notranslate"><span class="pre">/home/student</span></code> de pe stația <code class="docutils literal notranslate"><span class="pre">10.11.11.2</span></code> în directorul <code class="docutils literal notranslate"><span class="pre">/mnt/vol2</span></code>.</p></li>
 </ol>
 </div>
 <div class="section" id="montarea-persistenta-a-unui-sistem-de-fisiere">
@@ -678,12 +678,12 @@ Atunci când vom opri stația, sistemul de fișiere va fi demontat.</p>
 <p>Deoarece nu ne dorim să rulăm comanda <code class="docutils literal notranslate"><span class="pre">sshfs</span></code> atunci când vrem să folosim un sistem de fișiere la distanță, vrem să montăm persistent sistemul de fișiere de la distanță, astfel încât această montare să persiste după oprirea stației locale.</p>
 <p>Ca să montăm persistent sistemul de fișiere avem nevoie să copiem cheia SSH pe stația de la distanță, deoarece montarea se va face în mod neinteractiv, deci nu vom avea posibilitatea de a introduce parola. &lt;TODO REF NETWORKING&gt;</p>
 <p>Pentru a monta persistent sistemul de fișiere, vom scrie o intrare în fișierul <code class="docutils literal notranslate"><span class="pre">/etc/fstab</span></code>, care va conține detalii despre sistemul de fișiere pe care vrem să îl montăm.
-Pentru a monta sistemul de fișiere <code class="docutils literal notranslate"><span class="pre">/`</span></code> de pe sistemul de la adresa IP <code class="docutils literal notranslate"><span class="pre">10.10.10.2</span></code> în directorul <code class="docutils literal notranslate"><span class="pre">/mnt</span></code> de pe stația locală, autentificându-ne ca utilizatorul <code class="docutils literal notranslate"><span class="pre">root</span></code>, vom folosi următoarele comenzi:</p>
+Pentru a monta sistemul de fișiere <code class="docutils literal notranslate"><span class="pre">/`</span></code> de pe sistemul de la adresa IP <code class="docutils literal notranslate"><span class="pre">10.11.11.2</span></code> în directorul <code class="docutils literal notranslate"><span class="pre">/mnt</span></code> de pe stația locală, autentificându-ne ca utilizatorul <code class="docutils literal notranslate"><span class="pre">root</span></code>, vom folosi următoarele comenzi:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">root</span><span class="nd">@local</span><span class="p">:</span><span class="o">~</span><span class="c1"># ssh-keygen</span>
 <span class="p">[</span><span class="o">...</span><span class="p">]</span>
-<span class="n">root</span><span class="nd">@local</span><span class="p">:</span><span class="o">~</span><span class="c1"># ssh-copy-id root@10.10.10.2</span>
+<span class="n">root</span><span class="nd">@local</span><span class="p">:</span><span class="o">~</span><span class="c1"># ssh-copy-id root@10.11.11.2</span>
 <span class="p">[</span><span class="o">...</span><span class="p">]</span>
-<span class="n">root</span><span class="nd">@local</span><span class="p">:</span><span class="o">~</span><span class="c1"># echo &quot;root@10.10.10.2:/  /mnt  fuse.sshfs  defaults  0  0&quot; &gt;&gt; /etc/fstab</span>
+<span class="n">root</span><span class="nd">@local</span><span class="p">:</span><span class="o">~</span><span class="c1"># echo &quot;root@10.11.11.2:/  /mnt  fuse.sshfs  defaults  0  0&quot; &gt;&gt; /etc/fstab</span>
 
 <span class="n">root</span><span class="nd">@local</span><span class="p">:</span><span class="o">~</span><span class="c1"># mount -a</span>
 
@@ -694,7 +694,7 @@ Pentru a monta sistemul de fișiere <code class="docutils literal notranslate"><
 <span class="n">tmpfs</span>              <span class="mf">2.0</span><span class="n">G</span>     <span class="mi">0</span>  <span class="mf">2.0</span><span class="n">G</span>   <span class="mi">0</span><span class="o">%</span> <span class="o">/</span><span class="n">sys</span><span class="o">/</span><span class="n">fs</span><span class="o">/</span><span class="n">cgroup</span>
 <span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">sda5</span>           <span class="mi">16</span><span class="n">G</span>   <span class="mi">14</span><span class="n">G</span>  <span class="mi">539</span><span class="n">M</span>  <span class="mi">97</span><span class="o">%</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">hosts</span>
 <span class="n">shm</span>                 <span class="mi">64</span><span class="n">M</span>     <span class="mi">0</span>   <span class="mi">64</span><span class="n">M</span>   <span class="mi">0</span><span class="o">%</span> <span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">shm</span>
-<span class="n">root</span><span class="nd">@10</span><span class="o">.</span><span class="mf">10.10</span><span class="o">.</span><span class="mi">2</span><span class="p">:</span><span class="o">/</span>   <span class="mi">16</span><span class="n">G</span>   <span class="mi">14</span><span class="n">G</span>  <span class="mi">539</span><span class="n">M</span>  <span class="mi">97</span><span class="o">%</span> <span class="o">/</span><span class="n">mnt</span>
+<span class="n">root</span><span class="nd">@10</span><span class="o">.</span><span class="mf">11.11</span><span class="o">.</span><span class="mi">2</span><span class="p">:</span><span class="o">/</span>   <span class="mi">16</span><span class="n">G</span>   <span class="mi">14</span><span class="n">G</span>  <span class="mi">539</span><span class="n">M</span>  <span class="mi">97</span><span class="o">%</span> <span class="o">/</span><span class="n">mnt</span>
 </pre></div>
 </div>
 <p>Am scris în fișierul <code class="docutils literal notranslate"><span class="pre">/etc/fstab</span></code> folosind comanda <code class="docutils literal notranslate"><span class="pre">echo</span></code>, iar pentru a monta sistemul de fișiere am folosit comanda <code class="docutils literal notranslate"><span class="pre">mount</span></code> cu opțiunea <code class="docutils literal notranslate"><span class="pre">-a</span></code> pentru montarea sistemelor de fișiere descrise în fișierul <code class="docutils literal notranslate"><span class="pre">/etc/fstab</span></code>.</p>
@@ -707,8 +707,8 @@ Vă recomandăm să nu scrieți în fișiere critice sistemului folosind redirec
 <div class="section" id="exercitiu-montarea-persistenta-a-unui-sistem-de-fisiere">
 <span id="task-admin-storage-sshfs-fstab-ex"></span><h3><span class="section-number">4.1.4. </span>Exercițiu: Montarea persistentă a unui sistem de fișiere<a class="headerlink" href="#exercitiu-montarea-persistenta-a-unui-sistem-de-fisiere" title="Permalink to this headline">¶</a></h3>
 <ol class="arabic simple">
-<li><p>Montați persistent sistemul de fișiere cu rădăcina în directorul <code class="docutils literal notranslate"><span class="pre">/</span></code> de pe stația <code class="docutils literal notranslate"><span class="pre">10.10.10.4</span></code> în directorul <code class="docutils literal notranslate"><span class="pre">/mnt/vol1</span></code>.</p></li>
-<li><p>Montați persistent sistemul de fișiere cu rădăcina în directorul <code class="docutils literal notranslate"><span class="pre">/home/student</span></code> de pe stația <code class="docutils literal notranslate"><span class="pre">10.10.10.2</span></code> în directorul <code class="docutils literal notranslate"><span class="pre">/mnt/vol2</span></code>.</p></li>
+<li><p>Montați persistent sistemul de fișiere cu rădăcina în directorul <code class="docutils literal notranslate"><span class="pre">/</span></code> de pe stația <code class="docutils literal notranslate"><span class="pre">10.11.11.2</span></code> în directorul <code class="docutils literal notranslate"><span class="pre">/mnt/vol1</span></code>.</p></li>
+<li><p>Montați persistent sistemul de fișiere cu rădăcina în directorul <code class="docutils literal notranslate"><span class="pre">/home/student</span></code> de pe stația <code class="docutils literal notranslate"><span class="pre">10.11.11.2</span></code> în directorul <code class="docutils literal notranslate"><span class="pre">/mnt/vol2</span></code>.</p></li>
 </ol>
 </div>
 </div>

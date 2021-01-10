@@ -25,7 +25,7 @@ Stocare partajată folosind SSHFS
 
 .. note::
 
-    Pentru rularea acestui demo, rulați în directorul ``~/uso.git/labs/03-user/lab-containers/`` comanda ``./lab_prepare.sh install remote``, comanda  ``./lab_prepare.sh install config`` și comanda ``./lab_prepare.sh install ssh-server``.
+    Pentru rularea acestui demo, rulați în directorul ``~/uso.git/labs/03-user/lab-containers/`` comanda ``./lab_prepare.sh install remote`` și comanda ``./lab_prepare.sh install ssh-server``.
     Pentru a ne conecta la infrastructura pentru această secțiune, vom folosi comanda ``./lab_prepare.sh connect local``.
 
 SSHFS este o soluție de stocare partajată care permite montarea unui sistem de fișiere care nu este legat fizic la stația ``local``, ci se folosește de protocolul SSH pentru a transmite operațiile asupra fișierelor prin rețea către un sistem de fișiere conectat prin rețea.
@@ -44,11 +44,11 @@ Pentru a monta sistemul de fișiere de pe un alt sistem, vom folosi comanda ``ss
 
     root@local:~# ls /mnt/
 
-    root@local:~# sshfs root@10.10.10.2:/ /mnt/
-    The authenticity of host '10.10.10.2 (10.10.10.2)' can't be established.
+    root@local:~# sshfs root@10.11.11.2:/ /mnt/
+    The authenticity of host '10.11.11.2 (10.11.11.2)' can't be established.
     ECDSA key fingerprint is SHA256:xV1orHYj4fhkc5HE91sfh8QhaVqke/AEMa8mYI423HY.
     Are you sure you want to continue connecting (yes/no)? yes
-    root@10.10.10.2's password:
+    root@10.11.11.2's password:
 
     root@local:~# df -h
     Filesystem         Size  Used Avail Use% Mounted on
@@ -57,15 +57,15 @@ Pentru a monta sistemul de fișiere de pe un alt sistem, vom folosi comanda ``ss
     tmpfs              2.0G     0  2.0G   0% /sys/fs/cgroup
     /dev/sda5           16G   14G  539M  97% /etc/hosts
     shm                 64M     0   64M   0% /dev/shm
-    root@10.10.10.2:/   16G   14G  539M  97% /mnt
+    root@10.11.11.2:/   16G   14G  539M  97% /mnt
 
     root@local:~# ls /mnt/
     bin  boot  dev  etc  home  lib  lib64  media  mnt  opt  proc  root  run  sbin  srv  sys  tmp  usr  var
 
-Comanda de mai sus a montat ierarhia de fișiere cu rădăcina în directorul ``/`` de pe sistemul de la adresa IP ``10.10.10.2`` în directorul ``/mnt`` de pe stația locală, cu numele ``local``, autentificându-se ca utilizatorul ``root``.
+Comanda de mai sus a montat ierarhia de fișiere cu rădăcina în directorul ``/`` de pe sistemul de la adresa IP ``10.11.11.2`` în directorul ``/mnt`` de pe stația locală, cu numele ``local``, autentificându-se ca utilizatorul ``root``.
 
 Am folosit comanda ``df`` pentru a afișa informații despre toate sistemele de fișiere montate pe stația locală.
-Observăm că pe ultima linie apare conexiunea către stația de la adresa ``10.10.10.2``.
+Observăm că pe ultima linie apare conexiunea către stația de la adresa ``10.11.11.2``.
 
 .. admonition:: Observație
 
@@ -79,8 +79,8 @@ Atunci când vom opri stația, sistemul de fișiere va fi demontat.
 Exercițiu: Montarea temporară a unui sistem de fișiere
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-#) Montați temporar sistemul de fișiere cu rădăcina în directorul ``/`` de pe stația ``10.10.10.2`` în directorul ``/mnt/vol1``.
-#) Montați temporar sistemul de fișiere cu rădăcina în directorul ``/home/student`` de pe stația ``10.10.10.2`` în directorul ``/mnt/vol2``.
+#) Montați temporar sistemul de fișiere cu rădăcina în directorul ``/`` de pe stația ``10.11.11.2`` în directorul ``/mnt/vol1``.
+#) Montați temporar sistemul de fișiere cu rădăcina în directorul ``/home/student`` de pe stația ``10.11.11.2`` în directorul ``/mnt/vol2``.
 
 .. _task_admin_storage_sshfs_fstab:
 
@@ -92,15 +92,15 @@ Deoarece nu ne dorim să rulăm comanda ``sshfs`` atunci când vrem să folosim 
 Ca să montăm persistent sistemul de fișiere avem nevoie să copiem cheia SSH pe stația de la distanță, deoarece montarea se va face în mod neinteractiv, deci nu vom avea posibilitatea de a introduce parola. <TODO REF NETWORKING>
 
 Pentru a monta persistent sistemul de fișiere, vom scrie o intrare în fișierul ``/etc/fstab``, care va conține detalii despre sistemul de fișiere pe care vrem să îl montăm.
-Pentru a monta sistemul de fișiere ``/``` de pe sistemul de la adresa IP ``10.10.10.2`` în directorul ``/mnt`` de pe stația locală, autentificându-ne ca utilizatorul ``root``, vom folosi următoarele comenzi:
+Pentru a monta sistemul de fișiere ``/``` de pe sistemul de la adresa IP ``10.11.11.2`` în directorul ``/mnt`` de pe stația locală, autentificându-ne ca utilizatorul ``root``, vom folosi următoarele comenzi:
 
 .. code-block::
 
     root@local:~# ssh-keygen
     [...]
-    root@local:~# ssh-copy-id root@10.10.10.2
+    root@local:~# ssh-copy-id root@10.11.11.2
     [...]
-    root@local:~# echo "root@10.10.10.2:/  /mnt  fuse.sshfs  defaults  0  0" >> /etc/fstab
+    root@local:~# echo "root@10.11.11.2:/  /mnt  fuse.sshfs  defaults  0  0" >> /etc/fstab
 
     root@local:~# mount -a
 
@@ -111,7 +111,7 @@ Pentru a monta sistemul de fișiere ``/``` de pe sistemul de la adresa IP ``10.1
     tmpfs              2.0G     0  2.0G   0% /sys/fs/cgroup
     /dev/sda5           16G   14G  539M  97% /etc/hosts
     shm                 64M     0   64M   0% /dev/shm
-    root@10.10.10.2:/   16G   14G  539M  97% /mnt
+    root@10.11.11.2:/   16G   14G  539M  97% /mnt
 
 Am scris în fișierul ``/etc/fstab`` folosind comanda ``echo``, iar pentru a monta sistemul de fișiere am folosit comanda ``mount`` cu opțiunea ``-a`` pentru montarea sistemelor de fișiere descrise în fișierul ``/etc/fstab``.
 
@@ -125,8 +125,8 @@ Am scris în fișierul ``/etc/fstab`` folosind comanda ``echo``, iar pentru a mo
 Exercițiu: Montarea persistentă a unui sistem de fișiere
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-#) Montați persistent sistemul de fișiere cu rădăcina în directorul ``/`` de pe stația ``10.10.10.4`` în directorul ``/mnt/vol1``.
-#) Montați persistent sistemul de fișiere cu rădăcina în directorul ``/home/student`` de pe stația ``10.10.10.2`` în directorul ``/mnt/vol2``.
+#) Montați persistent sistemul de fișiere cu rădăcina în directorul ``/`` de pe stația ``10.11.11.2`` în directorul ``/mnt/vol1``.
+#) Montați persistent sistemul de fișiere cu rădăcina în directorul ``/home/student`` de pe stația ``10.11.11.2`` în directorul ``/mnt/vol2``.
 
 .. _task_admin_storage_online:
 
