@@ -610,18 +610,25 @@
             
   <div class="section" id="configurarea-si-administrarea-serviciilor">
 <h1><span class="section-number">5. </span>Configurarea și administrarea serviciilor<a class="headerlink" href="#configurarea-si-administrarea-serviciilor" title="Permalink to this headline">¶</a></h1>
-<p>Scopul serviciilor este să ruleze în continuu și să primească cereri de la aplicații client, cum ar fi un client <code class="docutils literal notranslate"><span class="pre">ssh</span></code> și să răspundă la aceste cereri.
+<p>Scopul serviciilor este să ruleze în continuu și să primească cereri de la aplicații client, cum ar fi un client SSH și să răspundă la aceste cereri.
 Serviciile sunt aplicații care rulează în continuu pe stație, spre deosebire de comenzi, cum ar fi <code class="docutils literal notranslate"><span class="pre">find</span></code> sau <code class="docutils literal notranslate"><span class="pre">ls</span></code> care rulează cât timp se execută comanda.
-Deoarece ne dorim să avem majoritatea timpului conectivitate la mașină, sau ne dorim să avem acces la paginile web folosite, serverele care execută comenzi primite de la clienți rulează fără să se oprească.</p>
-<p>Vrem să pornim diversele servicii din sistem care sunt instalate pe propria stație pentru a ne conecta la sistem, pentru a găzdui site-uri web și altele.
-Avem nevoie de o interfață unică, cu o sintaxă minimală, care ne poate permite să gestionăm serviciile pe sistem, cum le pornim, oprim și cum putem să generăm noi propriile servicii.</p>
+Deoarece ne dorim să avem majoritatea timpului conectivitate la mașină, sau ne dorim să avem acces la paginile web folosite, serverele rulează fără oprire și servesc cereri venite de la clienți.
+Un sever / serviciu este oprit explicit de utilizator prin comenzi specifice sau este oprit la oprirea sistemului.
+Fără o intervenție explicită și fără oprirea sistemului, un server / serviciu va rula nedefinit.</p>
+<p>Vrem să pornim și să configurăm servicii instalate în sistem, precum:</p>
+<ul class="simple">
+<li><p>un server web;</p></li>
+<li><p>un server SSH, pentru a ne conecta la stație;</p></li>
+<li><p>un serviciu care ține un tunel SSH deschis către stație</p></li>
+</ul>
+<p>Avem nevoie de o interfață unică, cu o sintaxă minimală, care ne permite să gestionăm serviciile pe sistem, cum le pornim, oprim și cum putem să generăm noi propriile servicii.</p>
 <div class="section" id="lucrul-cu-serviciile-in-linux">
 <h2><span class="section-number">5.1. </span>Lucrul cu serviciile în Linux<a class="headerlink" href="#lucrul-cu-serviciile-in-linux" title="Permalink to this headline">¶</a></h2>
 <p>Comanda folosită pentru gestionarea serviciilor este <code class="docutils literal notranslate"><span class="pre">systemctl</span></code>.
 Aceasta se regăsește pe majoritatea distribuțiilor moderne de Linux.</p>
 <div class="section" id="verificarea-starii-unui-serviciu">
 <h3><span class="section-number">5.1.1. </span>Verificarea stării unui serviciu<a class="headerlink" href="#verificarea-starii-unui-serviciu" title="Permalink to this headline">¶</a></h3>
-<p>Atunci când instalăm o aplicație care rulează sub forma unui serviciu vom putea să îi verificăm starea folosind comanda <code class="docutils literal notranslate"><span class="pre">systemctl</span> <span class="pre">status</span></code>.</p>
+<p>Atunci când instalăm o aplicație care rulează sub forma unui serviciu, vom putea să îi verificăm starea folosind comanda <code class="docutils literal notranslate"><span class="pre">systemctl</span> <span class="pre">status</span></code>.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>student@uso:~$ systemctl status ssh
 ● ssh.service - OpenBSD Secure Shell server
      Loaded: loaded (/lib/systemd/system/ssh.service; enabled; vendor preset: enabled)
@@ -643,10 +650,12 @@ ian 09 04:23:25 uso sshd[1821]: Accepted password for student from 192.168.56.1 
 ian 09 04:23:25 uso sshd[1821]: pam_unix(sshd:session): session opened for user student by (uid=0)
 </pre></div>
 </div>
-<p>Mai sus am afișat starea serviciului SSH. Observăm că acesta este activ și putem urmări ce procese a generat și mesaje de diagnosticare pe care le afișează.</p>
-<p>Programul systemd se ocupă de pornirea, oprirea și gestionarea serviciilor folosite în sistem pe baza unor fișiere numite fișiere unitate.
-Fișierul care gestionează serviciul SSH este în <code class="docutils literal notranslate"><span class="pre">/lib/systemd/system/ssh.service</span></code> și putem să îl identificăm din rezultatul comenzii <code class="docutils literal notranslate"><span class="pre">systemctl</span> <span class="pre">status</span></code>.</p>
-<p>Atunci când un serviciu este instalat, acesta vine la pachet cu fișierul <code class="docutils literal notranslate"><span class="pre">.service</span></code> cu care acesta va fi gestionat de systemd, după cum putem vedea în rezultatul comenzii de mai jos.</p>
+<p>Mai sus am afișat starea serviciului SSH.
+Observăm că acesta este activ și putem urmări ce procese a generat și mesaje de diagnosticare pe care le afișează.</p>
+<p>Programul <code class="docutils literal notranslate"><span class="pre">systemd</span></code> se ocupă de pornirea, oprirea și gestionarea serviciilor folosite în sistem pe baza unor fișiere numite fișiere unitate.
+Fișierul care gestionează serviciul SSH este <code class="docutils literal notranslate"><span class="pre">/lib/systemd/system/ssh.service</span></code>.
+Îl putem identifica din rezultatul comenzii <code class="docutils literal notranslate"><span class="pre">systemctl</span> <span class="pre">status</span></code>.</p>
+<p>Atunci când un serviciu este instalat, acesta vine la pachet cu fișierul cu extensia <code class="docutils literal notranslate"><span class="pre">.service</span></code> cu care acesta va fi gestionat de <code class="docutils literal notranslate"><span class="pre">systemd</span></code>, după cum putem vedea în rezultatul comenzii de mai jos:</p>
 </div>
 <div class="section" id="exercitiu-afisarea-starii-serviciilor">
 <h3><span class="section-number">5.1.2. </span>Exercițiu: Afișarea stării serviciilor<a class="headerlink" href="#exercitiu-afisarea-starii-serviciilor" title="Permalink to this headline">¶</a></h3>
@@ -686,8 +695,7 @@ ian 09 04:58:28 uso systemd[1]: ssh.service: Succeeded.
 ian 09 04:58:28 uso systemd[1]: Stopped OpenBSD Secure Shell server.
 </pre></div>
 </div>
-<p>Pentru a verifica dacă mai funcționează serviciul SSH vom folosi comanda
-<code class="docutils literal notranslate"><span class="pre">netstat</span></code> pentru a verifica dacă mai ascultă serverul SSH pe portul <code class="docutils literal notranslate"><span class="pre">22</span></code>.</p>
+<p>Pentru a verifica dacă mai funcționează serviciul SSH vom folosi comanda <code class="docutils literal notranslate"><span class="pre">netstat</span></code> pentru a verifica dacă mai ascultă serverul SSH pe portul <code class="docutils literal notranslate"><span class="pre">22</span></code>.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>student@uso:~$ sudo netstat -tlpn
 Active Internet connections (only servers)
 Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name
@@ -704,8 +712,7 @@ tcp6       0      0 ::1:631                 :::*                    LISTEN      
 </div>
 <div class="section" id="pornirea-unui-serviciu">
 <h3><span class="section-number">5.1.5. </span>Pornirea unui serviciu<a class="headerlink" href="#pornirea-unui-serviciu" title="Permalink to this headline">¶</a></h3>
-<p>Pornirea unei aplicații se face folosind comanda <code class="docutils literal notranslate"><span class="pre">systemctl</span> <span class="pre">start</span></code> în felul
-următor:</p>
+<p>Pornirea unui serviciu se face folosind comanda <code class="docutils literal notranslate"><span class="pre">systemctl</span> <span class="pre">start</span></code> în felul următor:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>student@uso:~$ systemctl start ssh
 student@uso:~$ systemctl status ssh
 ● ssh.service - OpenBSD Secure Shell server
@@ -732,47 +739,116 @@ ian 09 05:05:54 uso sshd[4477]: pam_unix(sshd:session): session opened for user 
 </div>
 <div class="section" id="repornirea-unui-serviciu">
 <h3><span class="section-number">5.1.6. </span>Repornirea unui serviciu<a class="headerlink" href="#repornirea-unui-serviciu" title="Permalink to this headline">¶</a></h3>
-<p>Pe parcursul rulării serviciilor pe un sistem ne vom dori să schimbăm configurația unui serviciu sau să adăugăm parametri de rulare în plus.
-Majoritatea aplicațiilor citesc fișierele de configurare o singură dată, atunci când sunt lansate, deci orice modificare ulterioară a fișierelor de configurare nu va fi sesizată de serviciu.
+<p>Pe parcursul rulării serviciilor pe un sistem, vom dori să schimbăm configurația unui serviciu sau să adăugăm parametri de rulare în plus.
+Majoritatea aplicațiilor citesc fișierele de configurare o singură dată, atunci când sunt pornite, deci orice modificare ulterioară a fișierelor de configurare nu va fi sesizată de serviciu.
 Din acest motiv, avem nevoie să repornim servicii.</p>
 <p>De exemplu, vrem să permitem utilizatorilor să se autentifice ca utilizatorul <code class="docutils literal notranslate"><span class="pre">root</span></code> pe sistemul nostru.
-Acest lucru este dezactivat în mod predefinit de către serviciu din motive de securitate.
-Pentru a face asta, avem nevoie să reconfigurăm serviciul SSH.</p>
-<p>Observăm că inițial nu puteam să ne conectăm la mașina locală ca utilizatorul <code class="docutils literal notranslate"><span class="pre">root</span></code>, cu toate că introduceam parola corectă.
-Odată ce am adăugat opțiunea <code class="docutils literal notranslate"><span class="pre">PermitRootLogin</span> <span class="pre">yes</span></code> în fișierul de configurare al serviciului și am dat restart serviciului, am reușit să ne autentificăm ca utilizatorul <code class="docutils literal notranslate"><span class="pre">root</span></code>.</p>
+Acest lucru este dezactivat în mod predefinit de serviciu din motive de securitate.
+Pentru a face acest lucru, avem nevoie să reconfigurăm serviciul SSH.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>student@uso:~$ ssh root@localhost
+root@localhost&#39;s password:
+Permission denied, please try again.
+[...]
+</pre></div>
+</div>
+<p>Observăm că inițial nu puteam să ne conectăm la mașina locală ca utilizatorul <code class="docutils literal notranslate"><span class="pre">root</span></code>, cu toate că introduceam parola corectă.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>student@uso:~$ sudo su -c &#39;echo &quot;PermitRootLogin yes&quot; &gt;&gt; /etc/ssh/sshd_config&#39;
+student@uso:~$ systemctl restart ssh
+student@uso:~$ ssh root@localhost
+root@localhost&#39;s password:
+[...]
+root@uso:~#
+</pre></div>
+</div>
+<p>Odată ce am adăugat opțiunea <code class="docutils literal notranslate"><span class="pre">PermitRootLogin</span> <span class="pre">yes</span></code> în fișierul de configurare al serviciului și am repornit serviciului, am reușit să ne autentificăm ca utilizatorul <code class="docutils literal notranslate"><span class="pre">root</span></code>.</p>
 <div class="section" id="pornirea-unui-serviciu-la-startup">
 <h4><span class="section-number">5.1.6.1. </span>Pornirea unui serviciu la startup<a class="headerlink" href="#pornirea-unui-serviciu-la-startup" title="Permalink to this headline">¶</a></h4>
-<p>Atunci când configurăm un sistem și vrem să definim servicii care rulează pe el, ne dorim ca serviciile să fie “setup and forget``, să nu fie necesar să le supraveghem și să le monitorizăm prea mult.
+<p>Atunci când configurăm un sistem și vrem să definim servicii care rulează pe el, ne dorim ca serviciile să fie <code class="docutils literal notranslate"><span class="pre">setup</span> <span class="pre">and</span> <span class="pre">forget</span></code>, să nu fie necesar să le supraveghem și să le monitorizăm prea mult.
 Un mod de a ne ușura lucrul cu serverul este pornirea serviciilor la bootup, ca să nu fie nevoie sa intervenim noi după secvența de pornire a sistemului, ca să le pornim de mână, folosind comanda <code class="docutils literal notranslate"><span class="pre">systemctl</span> <span class="pre">start</span></code></p>
 <p>Putem să vedem dacă un sistem pornește automat la startup din rezultatul comenzii <code class="docutils literal notranslate"><span class="pre">systemctl</span> <span class="pre">status</span></code> pe linia care începe cu <code class="docutils literal notranslate"><span class="pre">Loaded:</span></code>.
-Dacă acesta conține șirul de caractere <code class="docutils literal notranslate"><span class="pre">enabled</span></code>, atunci serviciul pornește la startup, iar dacă aceasta conține șirul <code class="docutils literal notranslate"><span class="pre">disabled</span></code>, atunci serviciul nu va porni la startup.</p>
+Dacă rezultatul conține șirul de caractere <code class="docutils literal notranslate"><span class="pre">enabled</span></code>, atunci serviciul pornește la startup, iar dacă aceasta conține șirul <code class="docutils literal notranslate"><span class="pre">disabled</span></code>, atunci serviciul nu va porni la startup.</p>
 <p>Pentru a dezactiva un serviciu la startup vom folosi comanda <code class="docutils literal notranslate"><span class="pre">systemctl</span> <span class="pre">disable</span></code> în felul următor:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>student@uso:~$ sudo systemctl disable ntp
+Synchronizing state of ntp.service with SysV service script with /lib/systemd/systemd-sysv-install.
+Executing: /lib/systemd/systemd-sysv-install disable ntp
+Removed /etc/systemd/system/multi-user.target.wants/ntp.service.
+student@uso:~$ sudo systemctl status ntp
+    ● ntp.service - Network Time Service
+     Loaded: loaded (/lib/systemd/system/ntp.service; disabled; vendor preset: enabled)
+     Active: active (running) since Sat 2021-01-09 05:18:49 EET; 27min ago
+       Docs: man:ntpd(8)
+   Main PID: 9756 (ntpd)
+      Tasks: 2 (limit: 4656)
+     Memory: 1.3M
+     CGroup: /system.slice/ntp.service
+             └─9756 /usr/sbin/ntpd -p /var/run/ntpd.pid -g -u 127:134
+
+ian 09 05:18:55 uso ntpd[9756]: Soliciting pool server 185.173.16.132
+ian 09 05:24:31 uso ntpd[9756]: kernel reports TIME_ERROR: 0x2041: Clock Unsynchronized
+ian 09 05:28:41 uso ntpd[9756]: 91.189.91.157 local addr 10.0.2.15 -&gt; &lt;null&gt;
+ian 09 05:29:00 uso ntpd[9756]: 85.204.240.2 local addr 10.0.2.15 -&gt; &lt;null&gt;
+ian 09 05:29:04 uso ntpd[9756]: 188.213.49.35 local addr 10.0.2.15 -&gt; &lt;null&gt;
+ian 09 05:29:05 uso ntpd[9756]: 86.124.75.41 local addr 10.0.2.15 -&gt; &lt;null&gt;
+ian 09 05:29:08 uso ntpd[9756]: 85.204.240.1 local addr 10.0.2.15 -&gt; &lt;null&gt;
+ian 09 05:29:09 uso ntpd[9756]: 195.135.194.3 local addr 10.0.2.15 -&gt; &lt;null&gt;
+ian 09 05:29:52 uso ntpd[9756]: 91.189.89.198 local addr 10.0.2.15 -&gt; &lt;null&gt;
+ian 09 05:38:03 uso ntpd[9756]: 93.190.144.28 local addr 10.0.2.15 -&gt; &lt;null&gt;
+</pre></div>
+</div>
 <p>Observăm că pe linia care conține șirul de caractere <code class="docutils literal notranslate"><span class="pre">Loaded</span></code>, mesajul este <code class="docutils literal notranslate"><span class="pre">disabled</span></code>, dar serviciul funcționează în continuare.</p>
 <p>Pentru a activa un serviciu la startup vom folosi comanda <code class="docutils literal notranslate"><span class="pre">systemctl</span> <span class="pre">enable</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>student@uso:~$ sudo systemctl enable ntp
+Synchronizing state of ntp.service with SysV service script with /lib/systemd/systemd-sysv-install.
+Executing: /lib/systemd/systemd-sysv-install enable ntp
+Created symlink /etc/systemd/system/multi-user.target.wants/ntp.service → /lib/systemd/system/ntp.service.
+student@uso:~$ sudo systemctl status ntp
+● ntp.service - Network Time Service
+     Loaded: loaded (/lib/systemd/system/ntp.service; enabled; vendor preset: enabled)
+     Active: active (running) since Sat 2021-01-09 05:18:49 EET; 30min ago
+       Docs: man:ntpd(8)
+   Main PID: 9756 (ntpd)
+      Tasks: 2 (limit: 4656)
+     Memory: 1.3M
+     CGroup: /system.slice/ntp.service
+             └─9756 /usr/sbin/ntpd -p /var/run/ntpd.pid -g -u 127:134
+
+ian 09 05:18:55 uso ntpd[9756]: Soliciting pool server 185.173.16.132
+ian 09 05:24:31 uso ntpd[9756]: kernel reports TIME_ERROR: 0x2041: Clock Unsynchronized
+ian 09 05:28:41 uso ntpd[9756]: 91.189.91.157 local addr 10.0.2.15 -&gt; &lt;null&gt;
+ian 09 05:29:00 uso ntpd[9756]: 85.204.240.2 local addr 10.0.2.15 -&gt; &lt;null&gt;
+ian 09 05:29:04 uso ntpd[9756]: 188.213.49.35 local addr 10.0.2.15 -&gt; &lt;null&gt;
+ian 09 05:29:05 uso ntpd[9756]: 86.124.75.41 local addr 10.0.2.15 -&gt; &lt;null&gt;
+ian 09 05:29:08 uso ntpd[9756]: 85.204.240.1 local addr 10.0.2.15 -&gt; &lt;null&gt;
+ian 09 05:29:09 uso ntpd[9756]: 195.135.194.3 local addr 10.0.2.15 -&gt; &lt;null&gt;
+ian 09 05:29:52 uso ntpd[9756]: 91.189.89.198 local addr 10.0.2.15 -&gt; &lt;null&gt;
+ian 09 05:38:03 uso ntpd[9756]: 93.190.144.28 local addr 10.0.2.15 -&gt; &lt;null&gt;
+</pre></div>
+</div>
 <p>Observăm că pe linia care conține șirul de caractere <code class="docutils literal notranslate"><span class="pre">Loaded</span></code>, mesajul s-a schimbat în <code class="docutils literal notranslate"><span class="pre">enabled</span></code>.</p>
 </div>
 </div>
 <div class="section" id="configurarea-unui-serviciu">
 <h3><span class="section-number">5.1.7. </span>Configurarea unui serviciu<a class="headerlink" href="#configurarea-unui-serviciu" title="Permalink to this headline">¶</a></h3>
-<p>În majoritatea cazurilor, serviciile sunt configurate prin fișiere de configurarea.
-Acestea se pot găsi în mai multe locații:</p>
+<p>În majoritatea cazurilor, serviciile sunt configurate prin fișiere de configurare.
+Acestea se pot găsi în mai multe locuri:</p>
 <ul class="simple">
-<li><p>/etc/default, unde sunt fișiere care permit modificarea opțiunilor de rulare a unei comenzi, ca și cum am adăuga noi opțiuni la rularea unei comenzi.
-Aceste fișiere sunt citite de systemd, înainte să pornească serviciul;</p></li>
-<li><p>/etc/&lt;numele serviciului&gt;, unde se află fișierele de configurare pentru multe servicii instalate.
+<li><p><code class="docutils literal notranslate"><span class="pre">/etc/default/</span></code>, unde sunt fișiere care permit modificarea opțiunilor de rulare a unei comenzi, ca și cum am adăuga noi opțiuni la rularea unei comenzi.
+Aceste fișiere sunt citite de <code class="docutils literal notranslate"><span class="pre">systemd</span></code>, înainte să pornească serviciul;</p></li>
+<li><p>directorul <code class="docutils literal notranslate"><span class="pre">/etc/nume_serviciu/</span></code> , unde se află fișierele de configurare sau direct fișierul <code class="docutils literal notranslate"><span class="pre">/etc/nume_serviciu</span></code>.
 Aceste fișiere sunt citite și interpretate de servici.
-De exemplu, pentru configurarea serviciului NTP, există fișierul <code class="docutils literal notranslate"><span class="pre">/etc/ntp.conf</span></code>.</p></li>
+De exemplu, pentru configurarea serviciului NTP, există fișierul <code class="docutils literal notranslate"><span class="pre">/etc/ntp.conf</span></code>, iar pentru configurarea serviciului SSH folosim fișierele din directorul <code class="docutils literal notranslate"><span class="pre">/etc/ssh/</span></code>.</p></li>
 </ul>
 </div>
 <div class="section" id="exercitii-gestiunea-serviciilor">
 <h3><span class="section-number">5.1.8. </span>Exerciții: Gestiunea serviciilor<a class="headerlink" href="#exercitii-gestiunea-serviciilor" title="Permalink to this headline">¶</a></h3>
 <ol class="arabic simple">
-<li><p>Configurați serviciul SSH astfel încât acesta să permită autentificarea ca utilizatorul <code class="docutils literal notranslate"><span class="pre">root</span></code> folosind numai autentificare bazată pe chei.</p></li>
+<li><p>Configurați serviciul SSH pentru a permite autentificarea ca utilizatorul <code class="docutils literal notranslate"><span class="pre">root</span></code> folosind numai autentificare bazată pe chei.</p></li>
 <li><dl class="simple">
 <dt>Instalați serviciul <code class="docutils literal notranslate"><span class="pre">vsftpd</span></code>. Acesta este un serviciu de transfer de fișiere.</dt><dd><ol class="arabic simple">
-<li><p>Realizați modificările necesare astfel încât acest serviciu să nu pornească la startup;</p></li>
-<li><p>Dezactivați funcționalitatea bazată pe IPv6 a serviciului Hint: <code class="docutils literal notranslate"><span class="pre">listen_ipv6</span></code>, <code class="docutils literal notranslate"><span class="pre">listen</span></code>.</p></li>
-<li><p>Asigurați-vă că serviciul rulează. Acest serviciu ascultă pe portul <code class="docutils literal notranslate"><span class="pre">21</span></code>.</p></li>
+<li><p>Realizați modificările necesare astfel încât acest serviciu să <strong>NU</strong> pornească la startup;</p></li>
+<li><p>Dezactivați funcționalitatea bazată pe IPv6 a serviciului. <strong>Hint</strong>: <code class="docutils literal notranslate"><span class="pre">listen_ipv6</span></code>, <code class="docutils literal notranslate"><span class="pre">listen</span></code>.</p></li>
+<li><p>Asigurați-vă că serviciul rulează.
+Acest serviciu ascultă pe portul <code class="docutils literal notranslate"><span class="pre">21</span></code>.</p></li>
 </ol>
 </dd>
 </dl>
@@ -782,11 +858,11 @@ De exemplu, pentru configurarea serviciului NTP, există fișierul <code class="
 </div>
 <div class="section" id="definirea-unui-serviciu-personalizat">
 <h2><span class="section-number">5.2. </span>Definirea unui serviciu personalizat<a class="headerlink" href="#definirea-unui-serviciu-personalizat" title="Permalink to this headline">¶</a></h2>
-<p>Atunci când vrem să ne conectăm la internet printr-un proxy, avem nevoie ca proxy-ul să fie deschis în permanență și să fie gestionat, dacă este pierdută conexiunea cu proxy-ul.
-Putem să facem asta folosind servicii systemd pe care să le gestionăm noi folosind suita de comenzi <code class="docutils literal notranslate"><span class="pre">systemctl</span></code>.</p>
-<p>Noi vom găzdui propriul proxy care va trimite mesaje criptate prin SSH către o altă stație, de unde vor fi trimise mesaje în internet.
-Astfel vom putea trece peste anumite filtre pe locație.</p>
-<p>Un serviciu în systemd se definește printr-un fișier de configurare în directorul <code class="docutils literal notranslate"><span class="pre">/lib/systemd/system/libvirtd.service</span></code>.
+<p>Atunci când vrem să ne conectăm la Internet printr-un proxy, avem nevoie ca proxy-ul să fie deschis în permanență și să dacă conexiunea este întreruptă, aceasta să fie repornită.
+Putem să facem acest lucru folosind servicii <code class="docutils literal notranslate"><span class="pre">systemd</span></code> pe care să le gestionăm noi folosind suita de comenzi <code class="docutils literal notranslate"><span class="pre">systemctl</span></code>.</p>
+<p>Ne propunem să găzduim propriul proxy care va trimite mesaje criptate prin SSH către o altă stație, de unde vor fi trimise mesaje în Internet.
+Astfel vom putea trece peste anumite filtre care țin cont de poziția geografică.</p>
+<p>Un serviciu în <code class="docutils literal notranslate"><span class="pre">systemd</span></code> se definește printr-un fișier de configurare în directorul <code class="docutils literal notranslate"><span class="pre">/lib/systemd/system/libvirtd.service</span></code>.
 Pentru serviciul nostru vom genera fișierul la calea <code class="docutils literal notranslate"><span class="pre">/lib/systemd/system/libvirtd.service/auto-proxy.service</span></code>.
 Acest fișier va avea următorul conținut:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">Unit</span><span class="p">]</span>
