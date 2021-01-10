@@ -6,22 +6,26 @@ Conectarea la workstation
 .. note::
 
     Pentru a parcurge această secțiune este recomandat să descărcați ultima versiune a respository-ului laboratorului.
-    Pentru a descărca ultima versiune a repository-ului rulați comanda ``git pull`` în directorul ``~/uso-lab/labs/10-tasks-admin/lab-containers/``.
+    Pentru a descărca ultima versiune a repository-ului, rulați comanda ``git pull`` în directorul ``~/uso-lab/labs/10-tasks-admin/lab-containers/``.
 
     Infrastructura laboratorului este bazată pe containere Docker ale căror imagini vor fi generate pe propriul calculator.
-    Dacă nu veți deja instalat Docker Engine pe sistem, scriptul ``~/uso-lab/labs/10-tasks-admin/lab-containers/lab_prepare.sh`` vă va instala aplicația.
+    Dacă nu aveți deja instalat Docker Engine pe sistem, scriptul ``~/uso-lab/labs/10-tasks-admin/lab-containers/lab_prepare.sh`` va instala aplicația.
 
     După ce ați terminat de lucrat, vă recomandăm să opriți containerele rulând comanda ``./lab-prepare.sh delete`` în directorul ``~/uso-lab/labs/10-tasks-admin/lab-containers/``.
 
 
-Prima problemă cu care ne vom confrunta este conectarea la stație, deoarece, în majoritatea cazurilor, nu vom lucra în aceeași rețea cu sistemul la distanță și stația nu va avea o adresă IP publică
+Prima problemă cu care ne vom confrunta este conectarea la stație, deoarece, în majoritatea cazurilor, nu vom lucra în aceeași rețea cu sistemul la distanță și stația nu va avea o adresă IP publică.
 Așadar, nu ne vom putea conecta direct la sistem folosind un protocol de comunicare la distanță, cum ar fi SSH fără să facem pași suplimentari.
 
 Câteva soluții de conectare la sistem pe care le vom aborda sunt:
 
-* VPN
-* tunel SSH
-* DDNS
+* VPN;
+
+* tunel SSH;
+
+* DDNS (Dynamic Domain Name System).
+
+Nu vom aborda soluția bazată pe DDNS, deoarece aceasta presupune că avem o adresă IP publică configurată pe ruterul primit de la furnizorul de Internet, dar acest lucru nu mai este valabil pentru majoritatea stațiilor.
 
 .. _task_admin_remote_ip:
 
@@ -52,7 +56,7 @@ Nicio adresă IP din intervalele de mai sunt nu poate fi accesată direct din In
 
 În această subsecțiune vom lucra cu 3 stații care sunt distribuite în felul următor:
 * ``local``, reprezintă stația "locală", adică laptopul de pe care ne-am conecta, dacă ar fi vorba de un scenariu real; are o singură interfață de rețea cu adresa IP ``10.10.10.3``;
-* ``remote``, reprezintă workstation-ul la care vrem să ne conectăm; are o singură interfață cu adresa IP IP ``10.11.11.3``;
+* ``remote``, reprezintă workstationul la care vrem să ne conectăm; are o singură interfață cu adresa IP ``10.11.11.3``.
 
 Vom verifica conectivitatea cu stația ``remote`` de pe stația ``local`` folosind comanda ``ping``:
 
@@ -74,7 +78,7 @@ Vom verifica conectivitatea cu stația ``remote`` de pe stația ``local`` folosi
     rtt min/avg/max/mdev = 8.588/8.806/9.024/0.218 ms
 
 Rezultatul comenzii primei rulări a comenzii ``ping`` demonstrează faptul că nu avem conectivitate între stația ``local`` și stația ``remote``.
-Totuși, am testat și conectivitatea cu o altă adresă IP din Internet, în cazul acesta folosind adresa IP a stației ``fep.grid.pub.ro``, cu care putem să comunicăm, deci nu este o problemă de conectare la Internet.
+Totuși, am testat și conectivitatea cu o altă adresă IP din Internet, în cazul acesta folosind adresa IP a stației ``fep.grid.pub.ro`` (cu adresa IP 141.85.241.99), cu care putem să comunicăm, deci nu este o problemă de conectare la Internet.
 Pentru a recapitula funcționalitatea utilitarului ``ping``, revizitați capitolul <TODO>.
 
 .. _task_admin_remote_vpn:
@@ -85,11 +89,13 @@ Conectarea prin VPN
 Prima soluție pentru conectarea la o stație care folosește o adresă IP privată o reprezintă serviciile de tip VPN (*Virtual Private Network*).
 Acestea conectează două stații care în mod fizic nu sunt conectate la aceeași rețea <TODO ref capitol rețea>.
 
-Pentru această soluție avem două moduri de organizare: folosind un server public pe care îl setăm noi drept server de VPN, sau folosirea unui serviciu public de VPN cum ar fi Hamachi `Hamachi <www.vpn.com/>`_ sau `ZeroTier <www.zerotier.com/>`_.
+Pentru această soluție avem două moduri de organizare: folosind un server public pe care îl configurăm noi drept server de VPN, sau folosirea unui serviciu public de VPN cum ar fi:
+
+* `Hamachi <www.vpn.com/>`_;
+
+* `ZeroTier <www.zerotier.com/>`_.
 
 Am folosit ca exemplu serviciile Hamachi sau ZeroTier, deoarece acestea pot fi folosite gratuit și sunt ușor de configurat.
-
-<insert matrice/link cu avantaje și dezavantaje servicii>
 
 .. list-table:: Soluții VPN
    :widths: 25 25 50
@@ -125,16 +131,16 @@ Am folosit ca exemplu serviciile Hamachi sau ZeroTier, deoarece acestea pot fi f
 Folosirea serviciului Hamachi
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Pentru început, recomandăm folosirea serviciului Hamachi, deoarece acesta nu presupune înregistrarea unui cont pentru folosirea aplicație.
-Hamachi vine cu dezavantajul că putem să conectăm maxim cinci stații între ele și viteza conexiunii este mai mică decât dacă am folosi unele servicii plătite, cum ar fi OpenVPN, sau altele.
+Pentru început, recomandăm folosirea aplicației Hamachi, deoarece acesta nu presupune înregistrarea unui cont pentru folosirea aplicație.
+Hamachi vine cu dezavantajul că putem să conectăm maxim cinci stații între ele și viteza conexiunii este mai mică decât dacă am folosi unele servicii plătite, cum ar fi OpenVPN.
 
 .. _task_admin_remote_vpn_hamachi_install:
 
 Instalarea Hamachi
 """"""""""""""""""
 
+Nu vom instala pachetul folosind aplicația ``apt``, cum am învățat până acum, deoarece repository-ul de pachete folosit de Ubuntu nu conține pachetul pentru Hamachi.
 Pentru instalarea aplicației Hamachi vom descărca pachetul.
-Nu vom descărca pachetul folosind aplicația ``apt``, cum am învățat până acum, deoarece repository-ul de pachete folosit de Ubuntu nu conține pachetul pentru Hamachi.
 
 Vom folosi comanda ``wget`` pentru a descărca pachetul:
 
@@ -209,13 +215,13 @@ Instalați Hamachi pe stația ``local``.
 Crearea unei rețele private
 """""""""""""""""""""""""""
 
-Odată ce am instalat Hamachi pe ambele stații pe care vrem să le conectăm, trebuie să creăm o rețea virtuală prin care acestea două să comunice
+Odată ce am instalat Hamachi pe ambele stații pe care vrem să le conectăm, trebuie să creăm o rețea virtuală prin care acestea două să comunice.
 Această rețea va conecta cele două calculatoare, cu toate că ele nu sunt fizic în aceeași rețea.
 
 Vom crea rețeaua virtuală de pe stația ``remote``.
 Pentru a crea o rețea virtuală folosim comanda ``hamachi create`` împreună cu numele rețelei și parola acesteia.
 Stația ``remote`` va avea drepturi de administrare a rețelei.
-Doar acesta poate să scoată sisteme din rețea, sau să șteargă rețeaua.
+Doar având drepturi administrative se poate scoate sisteme din rețea, sau se poate șterge rețeaua.
 Pentru demo-ul pe care îl urmăriți, folosiți în loc de șirul de caractere ``nume-prenume`` numele și prenumele vostru.
 
 .. code-block::
@@ -274,7 +280,7 @@ Folosirea unui VPN privat
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Pentru folosirea unui VPN privat este nevoie să avem o stație în Internet la care să avem acces atât de la stația locală (cum ar fi laptopul) cât și de la cea de la distanță (workstationul).
-Putem obține acces la astfel de stații cumpărând acces la o mașină virtuală, cum ar fi într-un serviciu de hosting, cum ar fi AWS, DigitalOcean, Microsoft Azure sau Linode.
+Putem obține acces la astfel de stații cumpărând acces la o mașină virtuală de la un serviciu de hosting, cum ar fi AWS, DigitalOcean, Microsoft Azure sau Linode.
 
 Odată ce am obținut o stație cu o adresă IP publică, este nevoie să configurăm un serviciu de VPN.
 Pentru aceasta putem folosi infrastructura pe care am folosit-o deja la laboratorul de rețelistică.
@@ -287,7 +293,7 @@ Conectarea folosind un tunel SSH
 .. note::
 
     Pentru rularea acestui demo, rulați în directorul ``~/uso.git/labs/10-task-admin/lab-containers/`` comanda ``./lab_prepare.sh install ssh-server``.
-    Pentru a ne conecta la infrastructura pentru această secțiune vom folosi comanda ``./lab_prepare.sh connect`` cum parametrul numele mașinii la care vrem să ne conectăm, ``local``, ``remote`` sau ``ssh-server``.
+    Pentru a ne conecta la infrastructura pentru această secțiune, vom folosi comanda ``./lab_prepare.sh connect`` având ca parametrul numele mașinii la care vrem să ne conectăm, ``local``, ``remote`` sau ``ssh-server``.
 
 Abordările pe care le-am discutat mai sus presupun accesul la un server central și drepturi de administrator din partea utilizatorului pentru instalarea aplicațiilor (cum ar fi Hamachi sau OpenVPN).
 Dacă nu avem acces la un cont de administrator, nu putem să ne conectăm la stația de la distanță.
@@ -331,7 +337,7 @@ Opțiunile comenzii ``ssh`` folosite sunt următoarele:
 * ``4242`` este portul pe care vrem să îl deschidă pe stația ``ssh-server``;
 * ``localhost`` este stația către care vor fi trimise mesajele primite pe portul ``4242``. În cazul acesta mesajele vor fi trimise către ``localhost``, adică stația ``remote``, cea de pe care rulăm comanda de tunelare;
 * ``22`` este portul de pe stația ``localhost`` către care vrem să fie trimise mesajele primite pe portul ``4242`` de pe stația ``ssh-server``;
-* ``root@10.10.10.2``, utilizatorul și IP-ul stației către care vrem să deschidem tunelul; în cazul acesta este adresa IP a stației ``ssh-server``.
+* ``root@10.10.10.2``, utilizatorul și adresa IP a stației către care vrem să deschidem tunelul; în cazul acesta este adresa IP a stației ``ssh-server``.
 
 Putem să verificăm că a fost deschis portul ``4242`` pe stația ``ssh-server``
 rulând comanda ``netstat -tlpn``:
@@ -373,7 +379,7 @@ Pentru a face acest lucru, trebuie să ne conectăm la stația ``server``. Serve
     Last login: Tue Jan  5 23:08:53 2021 from 10.11.11.3
     root@ssh-server:~#
 
-După cum am observat mai sus, în rezultatul comenzii ``netstat``, tunelul SSH care trimite mesaje către stația ``remote`` ascultă pe portul ``4242``.
+După cum am observat mai sus, în rezultatul comenzii ``netstat``, tunelul SSH este deschis pe portul ``4242`` al stației ``ssh-server`` și redirectează mesajele către stația ``remote``.
 
 Pentru a ne conecta la acest port folosind clientul SSH, rulăm următoarea comandă:
 
@@ -386,7 +392,7 @@ Pentru a ne conecta la acest port folosind clientul SSH, rulăm următoarea coma
 Am folosit opțiunea ``-p`` pentru a ne conecta folosind SSH pe un alt port decât portul predefinit (``22``).
 În comanda de mai sus ne-am conectat la stația ``localhost``, adică stația ``ssh-server`` dar, deoarece portul ``4242`` este de fapt un tunel, conexiunea a fost redirectată la stația ``remote``.
 
-Observăm că promptul s-a schimbat în ``root@remote:~#``, deci ne-am conectat la stația ``remote``. Portul ``4242`` este de fapt un tunel, conexiunea a fost trimisă la stația ``remote``.
+Observăm că promptul s-a schimbat în ``root@remote:~#``, deci ne-am conectat la stația ``remote``.
 
 .. _task_admin_remote_tunnel_usage_ex:
 
