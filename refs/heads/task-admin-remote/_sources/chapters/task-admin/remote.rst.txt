@@ -319,6 +319,7 @@ Inițializarea tunelului SSH
 
 Primul pas necesar pentru conectarea la o stație prin tunel SSH este inițializarea tunelului.
 Când inițializăm tunelul acesta va deschide portul ``4242`` pe stația ``ssh-server`` de la adresa ``10.11.11.2``, astfel încât mesajele trimise către portul ``4242`` vor fi trimise către portul ``22`` de pe stația ``remote`` , stația de pe care inițializăm tunelul SSH.
+Vom folosi utilizatorul ``root`` și parola ``root`` pentru a ne conecta.
 
 Pentru a deschide tunelul vom folosi comanda următoare:
 
@@ -339,8 +340,12 @@ Opțiunile comenzii ``ssh`` folosite sunt următoarele:
 * ``22`` este portul de pe stația ``localhost`` către care vrem să fie trimise mesajele primite pe portul ``4242`` de pe stația ``ssh-server``;
 * ``root@10.10.10.2``, utilizatorul și adresa IP a stației către care vrem să deschidem tunelul; în cazul acesta este adresa IP a stației ``ssh-server``.
 
-Putem să verificăm că a fost deschis portul ``4242`` pe stația ``ssh-server``
-rulând comanda ``netstat -tlpn``:
+.. admonition:: Atenție!
+
+    După ce am pornit tunelul, comanda ``ssh`` nu va mai afișa nimic la terminal.
+    Tunelul va rămâne activ cât timp comanda ``ssh`` de mai sus rulează.
+
+Putem să verificăm că a fost deschis portul ``4242`` pe stația ``ssh-server`` rulând comanda ``netstat -tlpn``:
 
 .. code-block::
 
