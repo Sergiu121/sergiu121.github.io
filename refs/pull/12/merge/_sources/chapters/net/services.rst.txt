@@ -543,8 +543,8 @@ Securizarea conexiunii la Internet folosind un VPN
 .. note::
 
     Pentru rularea acestui demo rulați în directorul
-    ``~/uso.git/labs/03-user/lab-containers/`` comanzile ``./lab_prepare.sh install vpn``.
-    Pentru a ne conecta la infrastructura pentru această secțiune vom folosi
+    ``~/uso.git/labs/03-user/lab-containers/`` comanda ``./lab_prepare.sh install vpn``.
+    Pentru a ne conecta la infrastructura necesară acestei secțiuni, vom folosi
     comanda ``./lab_prepare.sh connect openvpn-client1`` pentru stația
     ``openvpn-client1`` și ``./lab_prepare.sh connect openvpn-client2`` pentru a vă
     conecta la stația ``openvpn-client2``.
@@ -632,15 +632,15 @@ Recapitulare - Verificarea conexiunii între două stații
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Testați conectivitatea de pe stația ``openvpn-client1`` cu stația
-``openvpn-client2`` folosind adresele configurate pe interfața ``tun0`` de pe
-ambele sisteme.
+``openvpn-client2``. Folosiți adresele IP configurate pe interfețele ``tun0`` de
+pe fiecare stație.
 
 Modificarea drumului prin care trec datele
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Pentru a verifica că drumul pachetului chiar trece prin VPN, rulăm comanda
+Pentru a valida că datele chiar trec prin VPN, rulăm comanda
 ``traceroute 8.8.8.8`` și observăm că mesajele spre Internet nu trec prin
-interfața eth0, ci trec prin interfața ``tun0``, ajung la serverul VPN
+interfața ``eth0``. Mesajele trec prin interfața ``tun0``, ajung la serverul VPN
 identifiat prin adresa ``192.168.255.1`` în pasul 1, iar abia apoi sunt lansate
 mai departe spre Internet.
 
@@ -665,17 +665,16 @@ mai departe spre Internet.
     15  dns.google (8.8.8.8)  29.710 ms  34.122 ms  30.538 ms
 
 
-Astfel, un pachet care se va îndrepta spre o destinație, poate să depășească
-anumite filtre bazate pe locație, deoarece locația de unde provine pachetul va
+Astfel, datele care se vor îndrepta spre o destinație pot să depășească
+anumite filtre bazate pe locație, deoarece locația de unde provin va
 fi înlocuită de serverul VPN.
 
-Aceasta a fost o demonstrație didactică, dar și în viața de zi cu zi, când ne
-conectăm la un VPN folosim un fișier de configurare, sau scriem noi explicit
-adresa VPN-ului și folosim date de autentificare pentru a intra în rețeaua
-VPN-ului. Chiar dacă nu se întâmplă folosind ``openvpn``, ci alte soluții cum ar
-fi WireGuard [#WireGuard]_ sau Cisco AnyConnect [#AnyConnect]_, principiul este
-același: ne conectăm la un server care asigură conectivitatea între stații care
-în mod normal nu ar fi interconectate.
+Aceasta a fost o demonstrație a modului de lucru folosind ``openvpn`` în linie
+de comandă pentru configurarea unui VPN folosind fișiere de configurare. Aceasta
+nu este singura metodă de conectare la VPN, există implementări diferite, cum ar
+fi WireGuard [#WireGuard]_ sau Cisco AnyConnect[#AnyConnect]_ care oferă același
+serviciu dar implementat în mod diferit, oferind interfață grafică sau un mod
+facil de configurare.
 
 .. rubric:: Notă de subsol
 
