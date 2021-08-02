@@ -19,29 +19,30 @@ Folosit în mod uzual de utilizatori non-tehnici, aceste tipuri de editoare au o
 
 Poate cel mai folosit editor din această categorie este `Microsoft Word`_.
 Scopul acestuia este ușurința în folosință: există multe capabilități (culori, marime font, stil, aranjare în pagină) pentru crearea de conținut, iar opțiunile sunt ușor de găsit și folosit.
-Un alt editor de text este `Notepad++`_. Acesta este mai simplu, cu mai puține opțiuni.
+Acesta este salvat într-un fișier cu format specific.
+Utilizarea acestuia se rezumă doar la documente.
+Un alt editor de text este `Notepad++`_.
+Acesta este mai simplu, cu mai puține opțiuni, ceea ce îl face mai adecvat pentru programare.
 
-Un editor foarte folosit pentru programare este `Sublime`_. Acesta este și editorul grafic recomandat de noi.
-
-Editoarele grafice sunt populare și pentru programare.
-Acestea oferă capabilități diverse pentru a ajuta un programator să scrie cod mai ușor, facil.
-De exemplu:
+Un editor foarte folosit pentru programare este `Sublime`_.
+Acesta este și editorul grafic pe care îl vom folosi în această carte.
+Are opțiuni specifice pentru a ajuta un programator să scrie cod mai ușor, mai facil, ceea ce îl face mai bun decât `Notepad`++`.
+Ele pot oferi următoarele:
 
 * Buton pentru compilare și execuție
 * Auto-indentare (alinierea liniilor de cod)
 * Auto-completare a numelor de funcții și variabile
 * Suport pentru debugging
-* Integrarea cu alte componente: de exemplu editorul Xcode (de la Apple) este integrat cu simulator (iPhone).
+* Integrarea cu alte componente: de exemplu editorul `Xcode`_ (de la Apple) este integrat cu simulator (iPhone). Printr-o singură apăsare de buton, se pornește simulatorul de iPhone și se execută aplicația.
 
-Printr-o singură apăsare de buton, se pornește simulatorul de iPhone și se execută aplicația.
-
-Alte editoare grafice: `Sublime`_, `gedit`_, `Visual Studio`_.
+Alte editoare grafice: `Sublime`_, `gedit`_, `Visual Studio`_, `Xcode`_.
 
 .. _gedit: https://wiki.gnome.org/Apps/Gedit
 .. _Visual Studio: https://visualstudio.microsoft.com/
 .. _Sublime: https://www.sublimetext.com/3
 .. _Microsoft Word: https://www.microsoft.com/en-us/microsoft-365/word>
 .. _Notepad++: https://notepad-plus-plus.org/
+.. _Xcode: https://developer.apple.com/xcode/
 
 
 
@@ -59,31 +60,37 @@ Putem adăuga text foarte intuitiv.
 Am modificat dimensiunea, culoarea, fontul textului foarte ușor.
 Aceasta este puterea unui editor grafic.
 
-Însă, pentru programare nu este deloc util; vom folosi ``sublime``.
+Însă, acest tip de editor grafic nu are opțiuni utile pentru programare.
+În continuare vom folosi ``sublime``.
 
-Deschiderea unui fișier se poate face atât din linia de comandă ``student@uso:~$ subl fișier``
+Deschiderea unui fișier se poate face folosind utilitarul ``subl``:
 
-O listă de comenzi utile găsim `aici`_ le executăm în continuare:
+.. code-block: bash
+
+    student@uso:~$ subl fișier
+
+O listă de comenzi utile pentru editorul Sublime găsim `aici`_.
+În continuare prezentăm cele mai populare dintre ele.
 
 .. _aici: https://www.shortcutfoo.com/app/dojos/sublime-text-3-win/cheatsheet
 
-Folosim combinația de taste ``ctrl+x`` pentru *cut*:
+Folosim combinația de taste ``Ctrl+x`` pentru *cut*:
 
 .. figure:: res/sublime1.gif
 
-Folosim combinația de taste ``ctrl+u`` pentru *undo*, iar pentru a șterge de la cursor până la începutul liniei ``ctrl+k ctrl+backspace``:
+Folosim combinația de taste ``Ctrl+u`` pentru *undo*, iar pentru a șterge de la cursor până la începutul liniei ``Ctrl+k Ctrl+backspace``:
 
 .. figure:: res/sublime2.gif
 
-Indentarea se face cu ``ctrl+[`` și ``ctrl+]``:
+Indentarea se face cu ``Ctrl+[`` și ``Ctrl+]``:
 
 .. figure:: res/sublime3.gif
 
-Duplicăm o linie folosind ``shift+ctrl+d``:
+Duplicăm o linie folosind ``Shift+Ctrl+d``:
 
 .. figure:: res/sublime4.gif
 
-Pentru a compila cod folosim combinația de taste ``ctrl+b``:
+Pentru a compila cod folosim combinația de taste ``Ctrl+b``:
 
 .. figure:: res/sublime5.gif
 
@@ -91,7 +98,7 @@ Pentru a compila cod folosim combinația de taste ``ctrl+b``:
 Exerciții - editor grafic
 """""""""""""""""""""""""
 
-#. * Deschideți fișierul ``Romanian Presidents`` și completați fișierul cu cel puțin 3 președinți ai României.
+#. * Folosind editorul de text `Sublime`, disponibil de VM, deschideți fișierul ``Romanian Presidents`` și completați fișierul cu cel puțin 3 președinți ai României.
    * Salvati fișierul în directorul vostru ``home``.
    * Duplicați textul scris anterior (copiat/lipit) de 5 ori;
    * Indentați fiecare linie o dată;
@@ -99,7 +106,7 @@ Exerciții - editor grafic
 
 #. * Scrieti cod C (similar exemplului de mai sus) pentru a afișa textul ``Make USO Great Again!``;
    * Folositi scurtăturile pentru indentare;
-   * Compilați folosind scurtătura ``ctrl+b``.
+   * Compilați folosind scurtătura ``Ctrl+b``.
 
 Editor în linie de comandă
 --------------------------
@@ -109,7 +116,7 @@ Acestea asigură funcționalitați restrânse de formatare în comparație cu ed
 Nu există butoane fizice; de obicei comenzile se dau prin combinații de taste.
 
 Un alt caz în care folosim editoarele în linie de comandă este lucrul la distanță.
-Atunci când ne conectăm remote la un server și nu avem interfață grafică, utilizarea unui editor în linie de comandă este necesară.
+Atunci când ne conectăm la distanță la un server și nu avem interfață grafică, utilizarea unui editor în linie de comandă este necesară.
 
 Există editoare mai puternice `vim`_, `emacs`_ care permit automatizarea unor sarcini precum cele de mai sus.
 
@@ -124,7 +131,7 @@ Acesta are funcționalități de bază și este ușor de folosit.
 Interacțiunea cu fișiere cu ajutorul editoarelor în linie de comandă
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-În continuare vom folosi ``nano`` pentru a interacționa cu un fișier.
+Pe parcursul acestei cărți vom folosi ``nano`` pentru a interacționa cu un fișier.
 
 .. figure:: res/avengers.gif
 
@@ -132,8 +139,8 @@ Interacțiunea cu fișiere cu ajutorul editoarelor în linie de comandă
 În urma comenzii, s-a creat fișierul dacă acesta nu exista.
 Am adăugat numele a 4 supereroi și am salvat folosind combinația de taste ``Ctrl+x`` după care a apărut întrebarea dacă vrem să salvăm modificările.
 În partea de jos apare optiunea de ``Y``
-es și ``N``
-o.
+(*yes*) și ``N``
+(*no*).
 Apăsând pe tasta ``Y``, ne cere să trecem numele fișierului, după care să confirmăm cu tasta **Enter**.
 
 O listă de comenzi utile găsim la `cheatsheet nano`_.
@@ -149,7 +156,7 @@ O listă de comenzi utile găsim la `cheatsheet nano`_.
 Exerciții - editor în linie de comandă
 """"""""""""""""""""""""""""""""""""""
 
-#. * Deschideți fișierul ``US Presidents`` și completați fișierul cu cel puțin 3 președinți ai Statelor Unite are Americii.
+#. * Folosind editorul în linie de comandă disponibil pe VM (`nano`), deschideți fișierul ``US Presidents`` și completați fișierul cu cel puțin 3 președinți ai Statelor Unite are Americii.
    * Salvati fișierul în directorul vostru ``home``.
    * Duplicați textul scris anterior (copiat/lipit) de 5 ori;
    * Indentați fiecare linie de două ori;
@@ -161,6 +168,6 @@ Exerciții - editor în linie de comandă
    * Adăugați 4 spații la început de fiecare rând;
    * Adăugați caracterul **#** la început de rând pentru liniile 2-8.
 
-#. * Scrieti cod C (similar exemplului de la editor grafic) pentru a afișa textul ``Make USO Great Again!``;
-   * Folositi scurtăturile pentru indentare;
-   * Compilați folosind scurtătura ``ctrl+b``.
+#. * Scrieți cod C (similar exemplului de la editor grafic) pentru a afișa textul ``Make USO Great Again!``;
+   * Folosiți scurtăturile pentru indentare;
+   * Compilați folosind scurtătura ``Ctrl+b``.

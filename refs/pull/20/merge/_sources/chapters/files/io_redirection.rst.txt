@@ -1,13 +1,14 @@
 Redirectări
 ===========
 
-Până acum am dat comenzi în terminal și am urmărit outputul (rezultatul) lor. Outputul este afișat în terminal.
+Până acum am dat comenzi în terminal și am urmărit outputul (rezultatul) lor.
+**Outputul** (*rezultatul*) este afișat în terminal.
 Dacă voiam să salvăm outputul undeva (*de obicei într-un fișier*) trebuia să copiem outputul, să creăm un fișier nou sau să folosim unul deja existent, să îl deschidem, să lipim textul în el și să salvăm modificările.
 Trecerea prin toți acești pași durează și devenim ineficienți în lucrul în terminal.
 
 Interpretorul de comenzi (*shellul*) are opțiunea de a direcționa afișarea rezultatului direct într-un fișier.
 
-Rezultatul unei comenzi este format din două fluxuri de informații: informații de ieșire (*standard output, stdout*) și de eroare (*standard error, stderr*).
+Rezultatul unei comenzi este format din două fluxuri de informații: informații de **ieșire** (*standard output, stdout*) și de **eroare** (*standard error, stderr*).
 Avem opțiunea de a direcționa (*redirecta*) doar ieșirea, doar eroarea sau ambele fluxuri într-un fișier.
 
 Redirectări simple
@@ -36,12 +37,12 @@ Salvăm outputul comenzii ``ls -lh`` de mai sus folosind caracterul ``>``, astfe
 Observăm că acțiunea de mai sus a făcut două lucruri: a creat fișierul ``lista_materii`` și a introdus în conținutul fișierului rezultatul comenzii ``ls -lh``.
 
 Caracterul ``>`` așteaptă un șir de caractere după el care este numele fișierului în care vrem să scriem outputul.
-Șirul este de fapt calea către un fișier.
+Șirul este, de fapt, calea către un fișier.
 Șirul ``lista_materii`` este calea relativă până la fișierul ``lista_materii`` care se află în directorul curent ``/home/student``.
 
 Fișierul ``lista_materii`` nu exista. Prin direcționarea outputului am creat fișierul ``lista_materii``.
 
-Vizualizăm conținutul fișierului lista_materii folosind comanda cat:
+Vizualizăm conținutul fișierului ``lista_materii`` folosind comanda ``cat``:
 
 .. code-block:: bash
 
@@ -50,6 +51,8 @@ Vizualizăm conținutul fișierului lista_materii folosind comanda cat:
     -rw-r--r-- 1 student student 3.0M Aug 19 11:55 RL
     -rw-r--r-- 1 student student 1.0M Aug 19 11:55 EGC
 
+Momentan fișierul ``lista_materii`` nu există pe sistemul vostru.
+Îl vom crea în continuare.
 
 .. note::
     Odată direcționat într-un fișier, fluxul de informații nu mai apare la ecran.
@@ -58,6 +61,7 @@ Folosirea caracterului ``>`` suprascrie conținutul fișierului:
 
 .. code-block:: bash
 
+    student@uso:~$ cd comenzi/mkdir
     student@uso:~/comenzi/mkdir$ cat lista_materii
     cat: lista_materii: No such file or directory
     student@uso:~$ ls -l /usr/ > lista_materii
@@ -74,13 +78,13 @@ Folosirea caracterului ``>`` suprascrie conținutul fișierului:
     drwxr-xr-x 137 root root   4096 Sep  9 14:07 share
     drwxr-xr-x   2 root root   4096 Aug 31  2015 src
 
-Fișierul ``lista_materii`` nu era crea inițial.
+Fișierul ``lista_materii`` nu era creat inițial.
 În urma comenzii ``ls -l /usr/ > lista_materii``, fișierul ``lista_materii`` a fost creat și populat cu ieșirea comenzii ``ls -l /usr/``.
 
 Exerciții - redirectări simple
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-* Folosiți ``tree`` pentru a afișa ierarhia de fișiere pornind de la **/home/student**;
+* Folosiți ``tree`` pentru a afișa ierarhia de fișiere pornind de la ``/home/student``;
 * Folosiți ``tree`` pentru afișarea aceleiași ierarhii, dar de data asta direcționați-o în fișierul ``ierarhie_student``;
 * Inspectați fișierul pentru a demonstra corectitudinea operației.
 
@@ -88,7 +92,7 @@ Redirectări prin anexare
 ------------------------
 
 Putem direcționa rezultatul comenzii, *fără* a suprascrie fișierul.
-Face acest lucru folosim caracterele ``>>``:
+Facem acest lucru folosim caracterele ``>>`` folosind fișierul trecut ``lista_materii``:
 
 .. code-block:: bash
 
@@ -131,10 +135,10 @@ Folosim caracterele ``2>`` pentru a direcționa ieșirea de eroare către un fi�
     student@uso:~$ cat lista_materie
     cat: lista_materie: No such file or directory
 
-Am vrut să afișăm conținutul fișierului *lista_materie*, însă acest fișier nu există.
-Am primit informația *No such file or directory*, și aceasta este afișată *sub formă de eroare*.
+Am vrut să afișăm conținutul fișierului ``lista_materie``, însă acest fișier nu există.
+Am primit informația *No such file or Directory*, și aceasta este afișată sub formă de **eroare**.
 
-Direcționăm conținutul fișierului ``SO2`` în fișierul *materii*:
+Direcționăm conținutul fișierului ``SO2`` în fișierul ``materii``:
 
 .. code-block:: bash
 
@@ -144,7 +148,10 @@ Direcționăm conținutul fișierului ``SO2`` în fișierul *materii*:
 Vedem că dacă folosim direcționarea simplă ``>``, eroarea tot este afișată.
 
 .. note::
-    Chiar dacă comanda de interes eșuează, direcționarea este făcută. În cazul de mai sus, fișierul ``materii`` este creat.
+   Deși comanda cat eșuează, direcționarea este făcută.
+   Fișierul materii a fost creat și este gol.
+
+
 
 .. code-block:: bash
 
@@ -157,9 +164,7 @@ Informațiile de eroare au fost direcționate în fișier.
 
 
 Redirectările de eroare și ieșire pot fi folosite simultan folosind caracterele specifice ``>`` pentru ieșire și ``2>`` pentru eroare.
-Putem folosi sintaxa ``comanda > fișier_ieșire 2> fișier_erori`` pentru a face acest lucru..
-
-Ca să redirectăm și outputul și erorile de la o comandă folosim și ``>`` și ``2>`` ca mai jos:
+Putem folosi sintaxa ``comanda > fișier_ieșire 2> fișier_erori`` pentru a face acest lucru.
 
 .. code-block:: bash
 
@@ -171,10 +176,12 @@ Ca să redirectăm și outputul și erorile de la o comandă folosim și ``>`` �
 În exemplul de mai sus încercăm să afișăm conținutul fișierelor ``ELTH``, ``USO`` și ``SO2``, dar cu fișierul ``SO2`` neexistent.
 Liniile ``ELTH is the b3st`` și ``USO RULLZ`` sunt conținutul fișierelor ``ELTH`` și ``USO``.
 Comanda ``cat`` ne-a arătat conținutul celor 2 fișiere.
-Tot comanda ``cat`` a încercat să afișeze conținutul fișierului ``SO2``, însă el nu există și a afișat eroarea ``Not such file or directory``.
+Tot comanda ``cat`` a încercat să afișeze conținutul fișierului ``SO2``, însă el nu există și a afișat eroarea ``No such file or directory``.
 
 
-În continuare vom face o separare a fluxurilor: direcționăm ieșirea în fișierul ``continut_materii`` și erorile în fișierul ``erori_comenzi``:
+În continuare vom face o separare a fluxurilor: direcționăm ieșirea în fișierul ``continut_materii`` și erorile în fișierul ``erori_comenzi``.
+Ca să redirectăm și outputul și erorile de la o comandă folosim și ``>`` și ``2>`` ca mai jos:
+
 
 .. code-block:: bash
 
@@ -187,3 +194,13 @@ Tot comanda ``cat`` a încercat să afișeze conținutul fișierului ``SO2``, î
 
 Observăm cum după executarea primei comenzi, la ecran nu mai apare nimic; atât ieșirea standard cât și erorile au fost direcționate în fișiere.
 În continuare am verificat conținutul acestor fișiere pentru a demonstra corectitudinea operației.
+
+
+Exerciții
+"""""""""
+
+* Redirectați (simplu) conținutul fișierului de la calea ``/etc/passwd`` într-un fișier cu numele ``utilizatori_si_grupuri``.
+* Redirectare (simplu) fișierul de la calea ``/etc/group`` în același fișier.
+* Repetați cele două operații de redirectare de mai sus folosind redirectare cu anexare.
+* Redirectați conținutul fișierului de la calea ``/etc/shadow`` în fișierul ``parole`` și afișați conținutul fișierului
+
