@@ -2,20 +2,23 @@
 <html >
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
       <title>2. Rularea aplicațiilor</title>
     
       <link rel="stylesheet" href="../../_static/pygments.css">
       <link rel="stylesheet" href="../../_static/theme.css">
-      <link rel="stylesheet" href="../../_static/romnnn_sphinx_press_theme.css">
+      <link rel="stylesheet" href="../../_static/romnn_sphinx_press_theme.css">
+          <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+          <link rel="stylesheet" href="../../_static/css/theme.css " type="text/css" />
       
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
 
       <!-- sphinx script_files -->
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/language_data.js"></script>
         <script src="../../_static/my_actions.js"></script>
 
       
@@ -223,7 +226,7 @@
       </p>
       <ul class="">
         
-          <li class="toctree-l1 "><a href="../files/paths.html" class="reference internal ">Căi absolute și relative</a>
+          <li class="toctree-l1 "><a href="../files/paths.html" class="reference internal ">Căi în ierarhia de fișiere</a>
 
             
           </li>
@@ -253,7 +256,13 @@
           </li>
 
         
-          <li class="toctree-l1 "><a href="../files/file_system.html" class="reference internal ">Sistemul de fișiere</a>
+          <li class="toctree-l1 "><a href="../files/file_system.html" class="reference internal ">Extra - Sistemul de fișiere</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../files/cheatsheet.html" class="reference internal ">Sumar - Cheatsheet</a>
 
             
           </li>
@@ -536,16 +545,15 @@
 <hr>
           <div class="content" role="main">
             
-  <div class="section" id="rularea-aplicatiilor">
+  <section id="rularea-aplicatiilor">
 <span id="app-install-run"></span><h1><span class="section-number">2. </span>Rularea aplicațiilor<a class="headerlink" href="#rularea-aplicatiilor" title="Permalink to this headline">¶</a></h1>
 <p>Pornirea unei aplicații înseamnă că se alocă resursele sistemului (procesor, memorie, dispozitive de intrare/ieșire) pentru a rula aplicația.
 O aplicație care rulează, adică folosește resursele sistemului pentru a executa cod și a prelucra date, se numește <strong>proces</strong>.
 Atunci când pornim o aplicație, se creează un proces; atunci când oprim aplicația, sau când își încheie execuția, ne referim la încheierea execuției procesului.</p>
 <p>Procesul este pornit dintr-un fișier executabil care conține codul (instrucțiunile) și datele aplicației.
-Fișierul executabil mai este numit și <strong>imaginea procesului</strong>.
 Fișierul executabil este un <strong>program</strong>.
 Spunem că procesul este un program aflat în execuție <a class="footnote-reference brackets" href="#load-time-run-time" id="id1">1</a>.</p>
-<div class="section" id="app-instal-run-exec">
+<section id="app-instal-run-exec">
 <span id="identificarea-fisierului-executabil-al-unei-aplicatii"></span><h2><span class="section-number">2.1. </span>Identificarea fișierului executabil al unei aplicații<a class="headerlink" href="#app-instal-run-exec" title="Permalink to this headline">¶</a></h2>
 <p>Fișierul executabil al unei aplicații este încărcat în memoria sistemului și codul este executat; din acest moment spunem că aplicația <strong>rulează</strong>.</p>
 <p>De exemplu aplicația Firefox (browser web) are asociat fișierul executabil <code class="docutils literal notranslate"><span class="pre">/usr/bin/firefox</span></code>; aplicația Vim (editor) are asociat fișierul executabil <code class="docutils literal notranslate"><span class="pre">/usr/bin/vim</span></code>; aplicația LibreOffice (suită office) are asociat fișierul executabil <code class="docutils literal notranslate"><span class="pre">/usr/bin/libreoffice</span></code>.
@@ -559,14 +567,14 @@ student@uso:~$ which libreoffice
 </pre></div>
 </div>
 <p><strong>Exercițiu</strong>: Identificați fișierul executabil al aplicațiilor / utilitarelor Shutter, Gedit, <code class="docutils literal notranslate"><span class="pre">ls</span></code>, <code class="docutils literal notranslate"><span class="pre">df</span></code>.</p>
-</div>
-<div class="section" id="investigarea-proceselor">
+</section>
+<section id="investigarea-proceselor">
 <span id="app-install-run-ps"></span><h2><span class="section-number">2.2. </span>Investigarea proceselor<a class="headerlink" href="#investigarea-proceselor" title="Permalink to this headline">¶</a></h2>
 <p>Un sistem de operare are de obicei mai multe aplicații care rulează, deci mai multe procese.
 Prea multe procese pot duce la o încărcare prea mare a sistemului, încetinind sau împiedicând funcționarea acestuia.
 Anumite procese pot consuma excesiv resurse afectând celelalte procese.
 De aceea, este util să investigăm procesele unui sistem și consumul de resurse al acestora.</p>
-<div class="section" id="listarea-proceselor">
+<section id="listarea-proceselor">
 <h3><span class="section-number">2.2.1. </span>Listarea proceselor<a class="headerlink" href="#listarea-proceselor" title="Permalink to this headline">¶</a></h3>
 <p>La nivel mai degrabă didactic, putem vizualiza lista de procese a unui sistem.
 Utilitarul <code class="docutils literal notranslate"><span class="pre">ps</span></code> afișează procesele curente în sistem (un <em>snapshot</em> al proceselor sistemului).
@@ -597,8 +605,8 @@ La o rulare simplă, utilitarul <code class="docutils literal notranslate"><span
 <span class="o">[</span>...<span class="o">]</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="ierarhia-proceselor">
+</section>
+<section id="ierarhia-proceselor">
 <h3><span class="section-number">2.2.2. </span>Ierarhia proceselor<a class="headerlink" href="#ierarhia-proceselor" title="Permalink to this headline">¶</a></h3>
 <p>Un proces este creat de un alt proces.
 De exemplu, mai sus, procesul <code class="docutils literal notranslate"><span class="pre">ps</span></code> a fost creat dintr-un proces shell (<code class="docutils literal notranslate"><span class="pre">bash</span></code>).
@@ -626,8 +634,8 @@ systemd-+-ModemManager---2*<span class="o">[{</span>ModemManager<span class="o">
 <p>În vârful ierarhiei de procese este procesul numit clasic <code class="docutils literal notranslate"><span class="pre">init</span></code>.
 În listarea de mai sus vedem că procesul din vârful ierarhiei este <code class="docutils literal notranslate"><span class="pre">systemd</span></code>.
 <code class="docutils literal notranslate"><span class="pre">systemd</span></code> <a class="footnote-reference brackets" href="#systemd" id="id2">2</a> este implementarea de <code class="docutils literal notranslate"><span class="pre">init</span></code> prezentă în cea mai mare parte a distribuțiilor Linux curente <a class="footnote-reference brackets" href="#init" id="id3">3</a>.</p>
-</div>
-<div class="section" id="atributele-proceselor">
+</section>
+<section id="atributele-proceselor">
 <h3><span class="section-number">2.2.3. </span>Atributele proceselor<a class="headerlink" href="#atributele-proceselor" title="Permalink to this headline">¶</a></h3>
 <p>Utilitarul <code class="docutils literal notranslate"><span class="pre">ps</span></code> are o afișare tabelară a proceselor, fiecare coloană corespunzând unui atribut al proceselor.
 La o rulare simplă, așa cum am văzut mai sus sunt afișate patru coloane:</p>
@@ -635,9 +643,9 @@ La o rulare simplă, așa cum am văzut mai sus sunt afișate patru coloane:</p>
 <li><p><code class="docutils literal notranslate"><span class="pre">PID</span></code>: reprezentând identificatorul procesului</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">TTY</span></code>: terminalul în care rulează procesul (apare <code class="docutils literal notranslate"><span class="pre">?</span></code> pentru un proces care nu are terminal - în general procesele de tip serviciu, numite și procese daemon nu au terminal)</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">TIME</span></code>: timpul de rulare pe procesor (în ore, minute, secunde)</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">CMD</span></code>: numele imaginii de proces (adică numele executabilului / programului din care a fost creat procesul)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CMD</span></code>: numele comenzii care a pornit procesul (uzual numele executabilului / programului din care a fost creat procesul)</p></li>
 </ul>
-<div class="section" id="identificarea-unui-proces">
+<section id="identificarea-unui-proces">
 <h4><span class="section-number">2.2.3.1. </span>Identificarea unui proces<a class="headerlink" href="#identificarea-unui-proces" title="Permalink to this headline">¶</a></h4>
 <p><code class="docutils literal notranslate"><span class="pre">PID</span></code> (<em>Process Id</em>) este atributul esențial al procesului, un index care identifică procesul la nivelul sistemului.
 Un proces este identificat după PID, nu după numele executabilului (<code class="docutils literal notranslate"><span class="pre">CMD</span></code>).
@@ -655,8 +663,8 @@ Apoi vizualizăm doar procesele create din executabilul <code class="docutils li
 </div>
 <p>Obținem un rezultat precum cel de mai sus.
 Sunt cinci procese, toate create din executabilul <code class="docutils literal notranslate"><span class="pre">bash</span></code>, cu cinci PID-uri diferite: <code class="docutils literal notranslate"><span class="pre">2181</span></code>, <code class="docutils literal notranslate"><span class="pre">2194</span></code>, <code class="docutils literal notranslate"><span class="pre">2205</span></code>, <code class="docutils literal notranslate"><span class="pre">14705</span></code>, <code class="docutils literal notranslate"><span class="pre">14879</span></code>.</p>
-</div>
-<div class="section" id="afisarea-atributelor-unui-proces">
+</section>
+<section id="afisarea-atributelor-unui-proces">
 <h4><span class="section-number">2.2.3.2. </span>Afișarea atributelor unui proces<a class="headerlink" href="#afisarea-atributelor-unui-proces" title="Permalink to this headline">¶</a></h4>
 <p>Un proces are mai mult decât cele patru atribute afișate la o rulare simplă a utilitarului <code class="docutils literal notranslate"><span class="pre">ps</span></code>.
 Pentru a afișa mai multe atribute, folosim opțiunea <code class="docutils literal notranslate"><span class="pre">-f</span></code> (de la <em>full format</em>) sau opțiunea <code class="docutils literal notranslate"><span class="pre">-F</span></code> (de la <em>extra full format</em>), ca mai jos:</p>
@@ -695,10 +703,10 @@ root        <span class="m">11</span>     <span class="m">2</span>  <span class=
 <li><p><code class="docutils literal notranslate"><span class="pre">RSS</span></code>: memoria RAM ocupată (<em>resident set size</em>)</p></li>
 </ul>
 <p>Astfel de atribute sunt utile pentru a vedea care sunt procesele cele mai consumatoare de resurse (de exemplu procesor sau memorie).</p>
-</div>
-</div>
-</div>
-<div class="section" id="monitorizarea-proceselor">
+</section>
+</section>
+</section>
+<section id="monitorizarea-proceselor">
 <span id="app-install-run-mon"></span><h2><span class="section-number">2.3. </span>Monitorizarea proceselor<a class="headerlink" href="#monitorizarea-proceselor" title="Permalink to this headline">¶</a></h2>
 <p>Utilitarul <code class="docutils literal notranslate"><span class="pre">ps</span></code> afișează procesele și atributele acestora la un moment dat, un <em>snapshot</em> al proceselor sistemului.
 De multe ori ne interesează și evoluția în timp a proceselor: schimbarea în consumul de resurse, apariția de noi procese.
@@ -706,7 +714,7 @@ Adică să monitorizăm procesele.
 Monitorizarea proceselor înseamnă obținerea periodică de informații despre procese.</p>
 <p>Evident, un mod simplu de monitorizare este să rulăm utilitarul <code class="docutils literal notranslate"><span class="pre">ps</span></code> periodic.
 Există, însă, utilitare dedicate pentru monitorizare.</p>
-<div class="section" id="monitorizarea-folosind-top">
+<section id="monitorizarea-folosind-top">
 <h3><span class="section-number">2.3.1. </span>Monitorizarea folosind top<a class="headerlink" href="#monitorizarea-folosind-top" title="Permalink to this headline">¶</a></h3>
 <p>Utilitarul <code class="docutils literal notranslate"><span class="pre">top</span></code> este utilitarul de bază de monitorizare a proceselor în lumea Linux.
 Este echivalent Task Manager din Windows.
@@ -716,17 +724,17 @@ Imaginea de mai jos este o fereastră de terminal cu rularea <code class="docuti
 <p><code class="docutils literal notranslate"><span class="pre">top</span></code> afișează informații periodice despre procese <strong>și</strong> despre starea sistemului: consum de procesor, de memorie.
 La fiecare perioadă (implicit <code class="docutils literal notranslate"><span class="pre">2</span></code> secunde) informația afișată este reîmprospătată.</p>
 <p>La fel ca în cazul utilitarului <code class="docutils literal notranslate"><span class="pre">less</span></code>, ieșirea din utilitarul <code class="docutils literal notranslate"><span class="pre">top</span></code> se realizează folosind tasta <code class="docutils literal notranslate"><span class="pre">q</span></code> <a class="footnote-reference brackets" href="#top" id="id5">5</a>.</p>
-</div>
-<div class="section" id="utilitarul-htop">
+</section>
+<section id="utilitarul-htop">
 <h3><span class="section-number">2.3.2. </span>Utilitarul htop<a class="headerlink" href="#utilitarul-htop" title="Permalink to this headline">¶</a></h3>
 <p>Un utilitar similar <code class="docutils literal notranslate"><span class="pre">top</span></code> ceva mai prietenos este utilitarul <code class="docutils literal notranslate"><span class="pre">htop</span></code> <a class="footnote-reference brackets" href="#monitor" id="id6">6</a>.
 La fel ca în cazul <code class="docutils literal notranslate"><span class="pre">top</span></code>, utilitarul <code class="docutils literal notranslate"><span class="pre">htop</span></code> rulează în linia de comandă prin introducerea comenzii <code class="docutils literal notranslate"><span class="pre">htop</span></code> și pornește, în terminal, o fereastră interactivă, ca în imaginea de mai jos:</p>
 <img alt="Utilitarul htop" class="align-center" src="../../_images/htop.png" />
 <p><code class="docutils literal notranslate"><span class="pre">htop</span></code> este, de asemenea, un utilitar interactiv, un sumar al comenzilor ce pot fi folosite fiind prezentat în bara de jos a ferestrei sale.
 De exemplu, așa cum vedem și în imaginea de mai sus, cu ajutorul tastei <code class="docutils literal notranslate"><span class="pre">F6</span></code> putem alege un atribut după care să sortăm procesele.</p>
-</div>
-</div>
-<div class="section" id="oprirea-proceselor-semnale">
+</section>
+</section>
+<section id="oprirea-proceselor-semnale">
 <span id="app-install-run-signal"></span><h2><span class="section-number">2.4. </span>Oprirea proceselor. Semnale<a class="headerlink" href="#oprirea-proceselor-semnale" title="Permalink to this headline">¶</a></h2>
 <p>Odată pornit, un proces rulează și consumă resursele sistemului.
 După ce execută codul din executabilul corespunzător, procesul își încheie execuția și eliberează resursele consumate.
@@ -740,7 +748,7 @@ La fel, anumite programe (de exemplu un browser web) sunt interactive și își 
 <li><p>Utilizatorul sau sistemul de operare decide că un proces nu rulează corespunzător și decide terminarea acestuia.</p></li>
 </ol>
 <p>Ultimul punct din pasul de mai sus, numit și terminarea unui proces (sau, informal, omorârea unui proces) este realizat, în Linux, prin folosirea <strong>semnalelor</strong>.</p>
-<div class="section" id="folosirea-semnalelor-pentru-omorarea-proceselor">
+<section id="folosirea-semnalelor-pentru-omorarea-proceselor">
 <h3><span class="section-number">2.4.1. </span>Folosirea semnalelor pentru omorârea proceselor<a class="headerlink" href="#folosirea-semnalelor-pentru-omorarea-proceselor" title="Permalink to this headline">¶</a></h3>
 <p>Ca să terminăm forțat (omorâm) un proces folosim semnale.
 Un semnal este o notificare trimisă de utilizator sau de sistemul de operare către un proces.
@@ -771,7 +779,7 @@ student@uso:~$
 Terminated
 </pre></div>
 </div>
-<div class="section" id="folosirea-semnalului-sigkill">
+<section id="folosirea-semnalului-sigkill">
 <h4><span class="section-number">2.4.1.1. </span>Folosirea semnalului SIGKILL<a class="headerlink" href="#folosirea-semnalului-sigkill" title="Permalink to this headline">¶</a></h4>
 <p>În anumite situații, folosirea utilitarului <code class="docutils literal notranslate"><span class="pre">kill</span></code> nu duce la omorârea procesului țintă.
 În această situație, vom transmite procesului țintă semnalul <code class="docutils literal notranslate"><span class="pre">SIGKILL</span></code> care este garantat că va omorî procesul.
@@ -791,9 +799,9 @@ Killed
 </pre></div>
 </div>
 <p>Mesajul <code class="docutils literal notranslate"><span class="pre">Killed</span></code> este afișat atunci când un proces primește semnalul <code class="docutils literal notranslate"><span class="pre">SIGKILL</span></code>.</p>
-</div>
-</div>
-<div class="section" id="exercitii-oprirea-proceselor">
+</section>
+</section>
+<section id="exercitii-oprirea-proceselor">
 <h3><span class="section-number">2.4.2. </span>Exerciții: Oprirea proceselor<a class="headerlink" href="#exercitii-oprirea-proceselor" title="Permalink to this headline">¶</a></h3>
 <ol class="arabic">
 <li><p>Porniți în trei terminale diferite trei procese <code class="docutils literal notranslate"><span class="pre">sleep</span></code>.
@@ -811,7 +819,7 @@ Porniți o aplicație <code class="docutils literal notranslate"><span class="pr
 Porniți o aplicație <code class="docutils literal notranslate"><span class="pre">transmission-gtk</span></code>.
 Omorâți aceste procese folosind utilitarul <code class="docutils literal notranslate"><span class="pre">kill</span></code>.</p></li>
 </ol>
-<div class="section" id="exercitiu-proces-abuziv">
+<section id="exercitiu-proces-abuziv">
 <h4><span class="section-number">2.4.2.1. </span>Exercițiu: Proces abuziv<a class="headerlink" href="#exercitiu-proces-abuziv" title="Permalink to this headline">¶</a></h4>
 <p>Folosiți scriptul <code class="docutils literal notranslate"><span class="pre">cpu_hog</span></code> din directorul de suport, pentru a porni un proces care consumă mult procesor. Îl porniți folosind o comandă de forma:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ ./cpu_hog
@@ -853,10 +861,10 @@ De aceea, utilitarele de monitorizare a sistemului (și a proceselor) sunt diver
 </ul>
 </dd>
 </dl>
-</div>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
+</section>
 
 
           </div>
@@ -873,7 +881,7 @@ De aceea, utilitarele de monitorizare a sistemului (și a proceselor) sunt diver
 </ul><div class="footer" role="contentinfo">
       &#169; Copyright 2020, USO Team.
     <br>
-    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.2.1 with <a href="https://github.com/romnnn/sphinx_press_theme">Press Theme</a>.
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.1.2 with <a href="https://github.com/romnn/sphinx_press_theme">Press Theme</a>.
 </div>
             </div>
           </div>

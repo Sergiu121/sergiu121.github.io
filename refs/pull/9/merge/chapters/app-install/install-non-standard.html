@@ -2,20 +2,23 @@
 <html >
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
       <title>7. Alternative la instalarea și dezinstalarea aplicațiilor</title>
     
       <link rel="stylesheet" href="../../_static/pygments.css">
       <link rel="stylesheet" href="../../_static/theme.css">
-      <link rel="stylesheet" href="../../_static/romnnn_sphinx_press_theme.css">
+      <link rel="stylesheet" href="../../_static/romnn_sphinx_press_theme.css">
+          <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+          <link rel="stylesheet" href="../../_static/css/theme.css " type="text/css" />
       
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
 
       <!-- sphinx script_files -->
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/language_data.js"></script>
         <script src="../../_static/my_actions.js"></script>
 
       
@@ -223,7 +226,7 @@
       </p>
       <ul class="">
         
-          <li class="toctree-l1 "><a href="../files/paths.html" class="reference internal ">Căi absolute și relative</a>
+          <li class="toctree-l1 "><a href="../files/paths.html" class="reference internal ">Căi în ierarhia de fișiere</a>
 
             
           </li>
@@ -253,7 +256,13 @@
           </li>
 
         
-          <li class="toctree-l1 "><a href="../files/file_system.html" class="reference internal ">Sistemul de fișiere</a>
+          <li class="toctree-l1 "><a href="../files/file_system.html" class="reference internal ">Extra - Sistemul de fișiere</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../files/cheatsheet.html" class="reference internal ">Sumar - Cheatsheet</a>
 
             
           </li>
@@ -538,7 +547,7 @@
 <hr>
           <div class="content" role="main">
             
-  <div class="section" id="alternative-la-instalarea-si-dezinstalarea-aplicatiilor">
+  <section id="alternative-la-instalarea-si-dezinstalarea-aplicatiilor">
 <span id="app-install-non-standard"></span><h1><span class="section-number">7. </span>Alternative la instalarea și dezinstalarea aplicațiilor<a class="headerlink" href="#alternative-la-instalarea-si-dezinstalarea-aplicatiilor" title="Permalink to this headline">¶</a></h1>
 <p>Așa cum am văzut în secțiunea <a class="reference internal" href="install.html#app-install-install-uninstall"><span class="std std-ref">Instalarea și dezinstalarea aplicațiilor</span></a>, distribuțiile Linux dispun de un sistem de gestiune a pachetelor software (<em>(software) package management system</em>).
 Acesta oferă unul sau mai multe depozite de pachete (<em>repository</em>) și utilitare specializate pentru gestiunea acestora (precum <code class="docutils literal notranslate"><span class="pre">apt</span></code> pe distribuțiile bazate pe Debian).
@@ -563,11 +572,11 @@ De aceea, din punctul de vedere al ușurinței instalării, dezinstalării și g
 Sistemele alternative de gestiune a pachetelor oferă o interfață similară cu sistemele de gestiune a pachetelor specifice distribuției fără dezavantajele acestora.
 Sisteme alternative sunt <a class="reference external" href="https://snapcraft.io/">Snap</a>, <a class="reference external" href="https://www.flatpak.org/">Flatpak</a>, <a class="reference external" href="https://appimage.org/">AppImage</a>.
 Aici vom folosi Snap; interfața de folosire este, însă, similară pentru Flatpak și AppImage <a class="footnote-reference brackets" href="#snap-flatpak-appimage" id="id1">1</a>; mai mult, este apropiată de utilitare de gestiune a pachetelor (precum <code class="docutils literal notranslate"><span class="pre">apt</span></code>).</p>
-<div class="section" id="instalarea-folosind-snap">
+<section id="instalarea-folosind-snap">
 <h2><span class="section-number">7.1. </span>Instalarea folosind Snap<a class="headerlink" href="#instalarea-folosind-snap" title="Permalink to this headline">¶</a></h2>
 <p>Utilitarul <code class="docutils literal notranslate"><span class="pre">pdftk</span></code>, pentru gestiunea fișierelor PDF, nu se găsește în depozitul distribuției Ubuntu.
 Dar se găsește în repository-ul Snap.</p>
-<div class="section" id="instalarea-folosind-interfata-grafica">
+<section id="instalarea-folosind-interfata-grafica">
 <h3><span class="section-number">7.1.1. </span>Instalarea folosind interfața grafică<a class="headerlink" href="#instalarea-folosind-interfata-grafica" title="Permalink to this headline">¶</a></h3>
 <p>În Ubuntu, instalarea pachetelor Snap poate fi făcută din interfața grafică folosind aplicația Ubuntu Software (GNOME Software) la fel ca în cazul pachetelor standard Ubuntu, cum am văzut în secțiunea <a class="reference internal" href="install.html#app-install-install-uninstall-gui"><span class="std std-ref">Gestiunea pachetelor din interfața grafică</span></a>.
 La fel ca în cazul pachetelor standard Ubuntu, căutăm numele aplicației și ajungem în fereastra de instalare.
@@ -575,8 +584,8 @@ La fel ca în cazul pachetelor standard Ubuntu, căutăm numele aplicației și 
 <a class="reference internal image-reference" href="../../_images/ubuntu-software-pdftk.png"><img alt="pdftk în Ubuntu Software" class="align-center" src="../../_images/ubuntu-software-pdftk.png" style="width: 600px;" /></a>
 <p>Observăm, în fereastră de instalare, că pachetul se găsește în depozitul Snap (<code class="docutils literal notranslate"><span class="pre">Snap</span> <span class="pre">Store</span></code>) <a class="footnote-reference brackets" href="#snap-and-standard" id="id2">2</a>.
 Observăm că pachetul este proprietar (<em>proprietary</em>), adică nu este open source, motiv probabil pentru care nu se găsește în depozitul standard Ubuntu.</p>
-</div>
-<div class="section" id="instalarea-folosind-interfata-in-linia-de-comanda">
+</section>
+<section id="instalarea-folosind-interfata-in-linia-de-comanda">
 <h3><span class="section-number">7.1.2. </span>Instalarea folosind interfața în linia de comandă<a class="headerlink" href="#instalarea-folosind-interfata-in-linia-de-comanda" title="Permalink to this headline">¶</a></h3>
 <p>Similar utilitarului <code class="docutils literal notranslate"><span class="pre">apt</span></code>, Snap oferă utilitarul <code class="docutils literal notranslate"><span class="pre">snap</span></code> pentru instalarea, dezinstalarea și gestiunea pachetelor în linia de comandă.
 Astfel, pentru a instala pachetul <code class="docutils literal notranslate"><span class="pre">pdftk</span></code> folosim comanda:</p>
@@ -595,9 +604,9 @@ SYNOPSIS
 <span class="o">[</span>...<span class="o">]</span>
 </pre></div>
 </div>
-</div>
-</div>
-<div class="section" id="cautarea-unui-pachet-snap">
+</section>
+</section>
+<section id="cautarea-unui-pachet-snap">
 <h2><span class="section-number">7.2. </span>Căutarea unui pachet Snap<a class="headerlink" href="#cautarea-unui-pachet-snap" title="Permalink to this headline">¶</a></h2>
 <p>Atunci când căutăm un anumit pachet Snap, avem două opțiuni:</p>
 <ol class="arabic">
@@ -617,10 +626,10 @@ fakecam         <span class="m">2</span>.0.0                   diddledan   -    
 Am obținut pachetul <code class="docutils literal notranslate"><span class="pre">skype</span></code> și alte pachete apropiate.</p>
 </li>
 </ol>
-</div>
-<div class="section" id="gestiunea-pachetelor-snap">
+</section>
+<section id="gestiunea-pachetelor-snap">
 <h2><span class="section-number">7.3. </span>Gestiunea pachetelor Snap<a class="headerlink" href="#gestiunea-pachetelor-snap" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="listarea-pachetelor-snap">
+<section id="listarea-pachetelor-snap">
 <h3><span class="section-number">7.3.1. </span>Listarea pachetelor Snap<a class="headerlink" href="#listarea-pachetelor-snap" title="Permalink to this headline">¶</a></h3>
 <p>Pentru a valida instalarea pachetelor Snap, listăm pachetele instalate folosind comanda:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ snap list
@@ -649,8 +658,8 @@ contact:   https://github.com/ramboxapp/community-edition/issues
 <span class="o">[</span>...<span class="o">]</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="dezinstalarea-unui-pachet-snap">
+</section>
+<section id="dezinstalarea-unui-pachet-snap">
 <h3><span class="section-number">7.3.2. </span>Dezinstalarea unui pachet Snap<a class="headerlink" href="#dezinstalarea-unui-pachet-snap" title="Permalink to this headline">¶</a></h3>
 <p>Pentru a dezinstala un pachet Snap, folosim o comandă de forma:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ sudo snap remove pdftk
@@ -659,9 +668,9 @@ pdftk removed
 </pre></div>
 </div>
 <p>În comanda de mai sus, am dezinstalat aplicația <code class="docutils literal notranslate"><span class="pre">pdftk</span></code>.</p>
-</div>
-</div>
-<div class="section" id="exercitii-instalare-folosind-snap">
+</section>
+</section>
+<section id="exercitii-instalare-folosind-snap">
 <h2><span class="section-number">7.4. </span>Exerciții: Instalare folosind Snap<a class="headerlink" href="#exercitii-instalare-folosind-snap" title="Permalink to this headline">¶</a></h2>
 <p>Folosiți Snap pentru a instala aplicațiile:</p>
 <ul class="simple">
@@ -674,12 +683,12 @@ pdftk removed
 Porniți aplicațiile din interfața grafică.</p>
 <p>Dezinstalați aplicația Spotify.
 Verificați că aplicația nu mai este instalată.</p>
-</div>
-<div class="section" id="instalarea-manuala-a-unei-aplicatii">
+</section>
+<section id="instalarea-manuala-a-unei-aplicatii">
 <h2><span class="section-number">7.5. </span>Instalarea manuală a unei aplicații<a class="headerlink" href="#instalarea-manuala-a-unei-aplicatii" title="Permalink to this headline">¶</a></h2>
 <p>Uneori pachetele nu se găsesc nici în depozitul standard de pachete al distribuției, nici într-un repository Snap (sau Flatpak sau AppImage).
 În acest caz trebuie să recurgem la instalarea manuală a acestora.</p>
-<div class="section" id="instalarea-unui-pachet-standard-de-la-furnizor">
+<section id="instalarea-unui-pachet-standard-de-la-furnizor">
 <h3><span class="section-number">7.5.1. </span>Instalarea unui pachet standard de la furnizor<a class="headerlink" href="#instalarea-unui-pachet-standard-de-la-furnizor" title="Permalink to this headline">¶</a></h3>
 <p>Un pachet se poate instala direct de la furnizorul aplicației.
 În mod tipic, furnizorul are un pachet în formatul distribuției (<code class="docutils literal notranslate"><span class="pre">.deb</span></code> sau <code class="docutils literal notranslate"><span class="pre">.rpm</span></code>) care poate fi descărcat și instalat.</p>
@@ -695,8 +704,8 @@ Pachetul poate fi instalat în momentul descărcării folosind opțiunea <code c
 <p>Comanda de mai sus duce la instalarea pachetului <code class="docutils literal notranslate"><span class="pre">teams</span></code>, presupunând că fișierul format <code class="docutils literal notranslate"><span class="pre">.deb</span></code> se găsește în directorul <code class="docutils literal notranslate"><span class="pre">~/Downloads</span></code>.</p>
 <p>În urma instalării din interfața grafică sau interfața în linia de comandă, aplicația Teams este acum disponibilă și poate fi pornită.
 Comanda corespunzătoare este <code class="docutils literal notranslate"><span class="pre">teams</span></code>.</p>
-</div>
-<div class="section" id="instalarea-din-arhiva-executabil">
+</section>
+<section id="instalarea-din-arhiva-executabil">
 <h3><span class="section-number">7.5.2. </span>Instalarea din arhivă / executabil<a class="headerlink" href="#instalarea-din-arhiva-executabil" title="Permalink to this headline">¶</a></h3>
 <p>Alteori producătorul aplicației nu oferă un pachet în formatul distribuției.
 Formatul oferit este al unei arhive sau al unui executabil sau al unui script de instalare.
@@ -762,9 +771,9 @@ Utilizatorul poate opta pentru unul dintre cele două pachetet.
 <dd><p>Vom prezenta mai multe despre permisiuni pe fișiere, inclusiv permisiuni de execuție, în capitolul despre utilizatori.</p>
 </dd>
 </dl>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
 
           </div>
@@ -781,7 +790,7 @@ Utilizatorul poate opta pentru unul dintre cele două pachetet.
 </ul><div class="footer" role="contentinfo">
       &#169; Copyright 2020, USO Team.
     <br>
-    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.2.1 with <a href="https://github.com/romnnn/sphinx_press_theme">Press Theme</a>.
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.1.2 with <a href="https://github.com/romnn/sphinx_press_theme">Press Theme</a>.
 </div>
             </div>
           </div>
