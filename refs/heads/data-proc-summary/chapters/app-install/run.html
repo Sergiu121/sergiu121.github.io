@@ -1,0 +1,958 @@
+<!DOCTYPE html>
+<html >
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+      <title>2. Rularea aplicațiilor</title>
+    
+      <link rel="stylesheet" href="../../_static/pygments.css">
+      <link rel="stylesheet" href="../../_static/theme.css">
+      <link rel="stylesheet" href="../../_static/romnn_sphinx_press_theme.css">
+          <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+          <link rel="stylesheet" href="../../_static/css/theme.css " type="text/css" />
+      
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+
+      <!-- sphinx script_files -->
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/my_actions.js"></script>
+
+      
+      <script src="../../_static/theme-vendors.js"></script>
+      <script src="../../_static/theme.js" defer></script>
+    
+  <link rel="index" title="Index" href="../../genindex.html" />
+  <link rel="search" title="Search" href="../../search.html" />
+  <link rel="next" title="3. Configurarea rulării aplicațiilor" href="config.html" />
+  <link rel="prev" title="1. Pornirea și oprirea aplicațiilor" href="start.html" />
+    <link href="../../_static/my_theme.css" rel="stylesheet" type="text/css">
+
+  </head>
+
+  <body>
+    <div id="app" class="theme-container" :class="pageClasses"><navbar @toggle-sidebar="toggleSidebar">
+  <div class="home-link-container">
+      <router-link to="../../index.html" class="home-link">
+      
+        <span class="site-name">USO Lab Book</span>
+    </router-link>
+  </div>
+
+  <div class="links">
+    <navlinks class="can-hide">
+
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Acomodarea în Linux
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Lucrul cu fișiere
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Dezvoltarea aplicațiilor
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Conectarea la Internet
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link  router-link-active">
+         Instalarea și utilizarea aplicațiilor
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Îmbunătățirea lucrului în linia de comandă
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Prelucrarea datelor
+      </a>
+    </div>
+  
+
+
+
+  
+    <div class="nav-item">
+      <a href="https://github.com/Sergiu121/uso-lab-book"
+        class="nav-link external">
+          Github <outboundlink/>
+      </a>
+    </div>
+  
+
+    </navlinks>
+  </div>
+</navbar>
+
+      
+      <div class="sidebar-mask" @click="toggleSidebar(false)">
+      </div>
+        <sidebar @toggle-sidebar="toggleSidebar">
+          
+          <navlinks>
+            
+
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Acomodarea în Linux
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Lucrul cu fișiere
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Dezvoltarea aplicațiilor
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Conectarea la Internet
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link  router-link-active">
+         Instalarea și utilizarea aplicațiilor
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Îmbunătățirea lucrului în linia de comandă
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Prelucrarea datelor
+      </a>
+    </div>
+  
+
+
+
+  
+    <div class="nav-item">
+      <a href="https://github.com/Sergiu121/uso-lab-book"
+        class="nav-link external">
+          Github <outboundlink/>
+      </a>
+    </div>
+  
+
+            
+          </navlinks><div id="searchbox" class="searchbox" role="search">
+  <div class="caption"><span class="caption-text">Search</span>
+    <div class="searchformwrapper">
+      <form autocomplete="off" class="search" action="../../search.html" method="get">
+        <input type="text" name="q" autocomplete="off" />
+        <input type="submit" value="Go" />
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div><div class="sidebar-links" role="navigation" aria-label="main navigation">
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#uso-lab-book">Acomodarea în Linux</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../basic/apps.html" class="reference internal ">Pornirea și oprirea aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../basic/browser.html" class="reference internal ">Folosirea eficientă a browserului web</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../basic/terminal.html" class="reference internal ">Lucrul în terminal</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../basic/workspace.html" class="reference internal ">Lucrul cu workspace-uri</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../basic/cheatsheet.html" class="reference internal ">Cheatsheet</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#uso-lab-book">Lucrul cu fișiere</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../files/paths.html" class="reference internal ">Căi în ierarhia de fișiere</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../files/files.html" class="reference internal ">Interacțiunea cu fișiere în linia de comandă</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../files/file_editor.html" class="reference internal ">Editor de text</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../files/io_redirection.html" class="reference internal ">Redirectări</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../files/archive.html" class="reference internal ">Arhive</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../files/file_system.html" class="reference internal ">Extra - Sistemul de fișiere</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../files/cheatsheet.html" class="reference internal ">Sumar - Cheatsheet</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#uso-lab-book">Dezvoltarea aplicațiilor</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../app-dev/git-intro.html" class="reference internal ">Introducere în Git și GitHub</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/git-first-commit.html" class="reference internal ">Primul commit</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/git-more-commits.html" class="reference internal ">Crearea unui nou commit</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/git-contribute.html" class="reference internal ">Contribuirea la un alt repository</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/make-setup.html" class="reference internal ">Pregătirea mediului de lucru</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/make-intro.html" class="reference internal ">Compilarea unui fișier cod sursă C</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/make-multiple.html" class="reference internal ">Compilarea unui program din fișiere multiple</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/make-lib.html" class="reference internal ">Legarea executabilelor folosind biblioteci externe</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/make-debug.html" class="reference internal ">Depanare condițională / configurabilă</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/make-simple-automation.html" class="reference internal ">Introducere în utilitarul Make și fișiere Makefile</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/make-advanced-automation.html" class="reference internal ">Aprofundarea folosirii fișierelor Makefile</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/make-contribute.html" class="reference internal ">Contribuirea la un proiect existent pe GitHub</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/extra.html" class="reference internal ">Exerciții suplimentare</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#uso-lab-book">Conectarea la Internet</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../net/browser.html" class="reference internal ">Folosirea eficientă a browser-ului</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../net/troubleshoot.html" class="reference internal ">Verificarea conectivităţii la reţea</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../net/services.html" class="reference internal ">Servicii şi clienţi de reţea</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../net/extra.html" class="reference internal ">Funcţionalităţi suplimentare de reţelistică</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#uso-lab-book">Instalarea și utilizarea aplicațiilor</a></span>
+      </p>
+      <ul class="current">
+        
+          <li class="toctree-l1 "><a href="start.html" class="reference internal ">Pornirea și oprirea aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 current"><a href="#" class="reference internal current">Rularea aplicațiilor</a>
+
+            
+              <ul>
+                
+                  <li class="toctree-l2"><a href="#app-instal-run-exec" class="reference internal">Identificarea fișierului executabil al unei aplicații</a></li>
+                
+                  <li class="toctree-l2"><a href="#investigarea-proceselor" class="reference internal">Investigarea proceselor</a></li>
+                
+                  <li class="toctree-l2"><a href="#monitorizarea-proceselor" class="reference internal">Monitorizarea proceselor</a></li>
+                
+                  <li class="toctree-l2"><a href="#oprirea-proceselor-semnale" class="reference internal">Oprirea proceselor. Semnale</a></li>
+                
+              </ul>
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="config.html" class="reference internal ">Configurarea rulării aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="summary1.html" class="reference internal ">Exerciții: Pornirea, rularea și configurarea aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="show-config.html" class="reference internal ">Vizualizarea configurației sistemului</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="install.html" class="reference internal ">Instalarea și dezinstalarea aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="install-non-standard.html" class="reference internal ">Alternative la instalarea și dezinstalarea aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="show.html" class="reference internal ">Investigarea aplicațiilor instalate</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="summary2.html" class="reference internal ">Exerciții: Instalarea și gestiunea aplicațiilor</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#uso-lab-book">Îmbunătățirea lucrului în linia de comandă</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../improve-cli/improve-terminal.html" class="reference internal ">Îmbunătățirea lucrului în linia de comandă</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../improve-cli/inspect-fs.html" class="reference internal ">Inspectarea sistemului de fișiere</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../improve-cli/inspect-sys.html" class="reference internal ">Inspectarea sistemului</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../improve-cli/inspect-files.html" class="reference internal ">Inspectarea fișierelor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../improve-cli/process-files.html" class="reference internal ">Prelucrarea fișierelor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../improve-cli/improve-shell.html" class="reference internal ">O înțelegere mai bună a shell-ului</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../improve-cli/term-multiplexing.html" class="reference internal ">Multiplexarea terminalului</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#uso-lab-book">Prelucrarea datelor</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../data-proc/data.html" class="reference internal ">Date structurate</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../data-proc/view.html" class="reference internal ">Vizualizare și conversie</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../data-proc/select.html" class="reference internal ">Selectare și (re)formatare. Expresii regulate</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../data-proc/python.html" class="reference internal ">Introducere în Python</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../data-proc/process.html" class="reference internal ">Sortare, agregare și alte prelucrări</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../data-proc/summary.html" class="reference internal ">Sumar de comenzi și secvențe de cod</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../data-proc/tasks.html" class="reference internal ">Exerciții de prelucrare a datelor</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+</div>
+        </sidebar>
+
+      <page>
+          <div class="body-header" role="navigation" aria-label="navigation">
+  
+  <ul class="breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+    
+    <li><span class="section-number">2. </span>Rularea aplicațiilor</li>
+  </ul>
+  
+
+  <ul class="page-nav">
+  <li class="prev">
+    <a href="start.html"
+       title="previous chapter">← <span class="section-number">1. </span>Pornirea și oprirea aplicațiilor</a>
+  </li>
+  <li class="next">
+    <a href="config.html"
+       title="next chapter"><span class="section-number">3. </span>Configurarea rulării aplicațiilor →</a>
+  </li>
+</ul>
+  
+</div>
+<hr>
+          <div class="content" role="main">
+            
+  <section id="rularea-aplicatiilor">
+<span id="app-install-run"></span><h1><span class="section-number">2. </span>Rularea aplicațiilor<a class="headerlink" href="#rularea-aplicatiilor" title="Permalink to this headline">¶</a></h1>
+<p>Pornirea unei aplicații înseamnă că se alocă resursele sistemului (procesor, memorie, dispozitive de intrare/ieșire) pentru a rula aplicația.
+O aplicație care rulează, adică folosește resursele sistemului pentru a executa cod și a prelucra date, se numește <strong>proces</strong>.
+Atunci când pornim o aplicație, se creează un proces; atunci când oprim aplicația, sau când își încheie execuția, ne referim la încheierea execuției procesului.</p>
+<p>Procesul este pornit dintr-un fișier executabil care conține codul (instrucțiunile) și datele aplicației.
+Fișierul executabil este un <strong>program</strong>.
+Spunem că procesul este un program aflat în execuție <a class="footnote-reference brackets" href="#load-time-run-time" id="id1">1</a>.</p>
+<section id="app-instal-run-exec">
+<span id="identificarea-fisierului-executabil-al-unei-aplicatii"></span><h2><span class="section-number">2.1. </span>Identificarea fișierului executabil al unei aplicații<a class="headerlink" href="#app-instal-run-exec" title="Permalink to this headline">¶</a></h2>
+<p>Fișierul executabil al unei aplicații este încărcat în memoria sistemului și codul este executat; din acest moment spunem că aplicația <strong>rulează</strong>.</p>
+<p>De exemplu aplicația Firefox (browser web) are asociat fișierul executabil <code class="docutils literal notranslate"><span class="pre">/usr/bin/firefox</span></code>; aplicația Vim (editor) are asociat fișierul executabil <code class="docutils literal notranslate"><span class="pre">/usr/bin/vim</span></code>; aplicația LibreOffice (suită office) are asociat fișierul executabil <code class="docutils literal notranslate"><span class="pre">/usr/bin/libreoffice</span></code>.
+Putem identifica fișierul executabil al unei aplicații folosind comanda <code class="docutils literal notranslate"><span class="pre">which</span></code>, urmată de comanda pentru pornirea aplicației ca mai jos:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ which firefox
+/usr/bin/firefox
+student@uso:~$ which vim
+/usr/bin/vim
+student@uso:~$ which libreoffice
+/usr/bin/libreoffice
+</pre></div>
+</div>
+<p><strong>Exercițiu</strong>: Identificați fișierul executabil al aplicațiilor / utilitarelor Shutter, Gedit, <code class="docutils literal notranslate"><span class="pre">ls</span></code>, <code class="docutils literal notranslate"><span class="pre">df</span></code>.</p>
+</section>
+<section id="investigarea-proceselor">
+<span id="app-install-run-ps"></span><h2><span class="section-number">2.2. </span>Investigarea proceselor<a class="headerlink" href="#investigarea-proceselor" title="Permalink to this headline">¶</a></h2>
+<p>Un sistem de operare are de obicei mai multe aplicații care rulează, deci mai multe procese.
+Prea multe procese pot duce la o încărcare prea mare a sistemului, încetinind sau împiedicând funcționarea acestuia.
+Anumite procese pot consuma excesiv resurse afectând celelalte procese.
+De aceea, este util să investigăm procesele unui sistem și consumul de resurse al acestora.</p>
+<section id="listarea-proceselor">
+<h3><span class="section-number">2.2.1. </span>Listarea proceselor<a class="headerlink" href="#listarea-proceselor" title="Permalink to this headline">¶</a></h3>
+<p>La nivel mai degrabă didactic, putem vizualiza lista de procese a unui sistem.
+Utilitarul <code class="docutils literal notranslate"><span class="pre">ps</span></code> afișează procesele curente în sistem (un <em>snapshot</em> al proceselor sistemului).
+La o rulare simplă, utilitarul <code class="docutils literal notranslate"><span class="pre">ps</span></code> afișează procesele din terminalul curent:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ ps
+  PID TTY          TIME CMD
+<span class="m">14897</span> pts/4    <span class="m">00</span>:00:00 bash
+<span class="m">14910</span> pts/4    <span class="m">00</span>:00:00 ps
+</pre></div>
+</div>
+<p>În terminalul curent (indicat de coloana <code class="docutils literal notranslate"><span class="pre">TTY</span></code> din afișare, adică terminalul <code class="docutils literal notranslate"><span class="pre">pts/4</span></code>) sunt două procese:</p>
+<ol class="arabic simple">
+<li><p>procesul shell (<code class="docutils literal notranslate"><span class="pre">bash</span></code>) în care rulăm comenzi care creează noi procese;</p></li>
+<li><p>procesul de listare (<code class="docutils literal notranslate"><span class="pre">ps</span></code>) pe care tocmai l-am lansat prin comanda <code class="docutils literal notranslate"><span class="pre">ps</span></code>; practic se afișează pe sine</p></li>
+</ol>
+<p>Pentru a afișa toate procesele sistemului folosim opțiunea <code class="docutils literal notranslate"><span class="pre">-e</span></code> (pentru <em>everything</em>) a utilitarului <code class="docutils literal notranslate"><span class="pre">ps</span></code> ca în comanda de mai jos:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ ps -e
+  PID TTY          TIME CMD
+    <span class="m">1</span> ?        <span class="m">00</span>:00:19 systemd
+    <span class="m">2</span> ?        <span class="m">00</span>:00:00 kthreadd
+    <span class="m">4</span> ?        <span class="m">00</span>:00:00 kworker/0:0H
+    <span class="m">6</span> ?        <span class="m">00</span>:00:00 mm_percpu_wq
+    <span class="m">7</span> ?        <span class="m">00</span>:00:09 ksoftirqd/0
+    <span class="m">8</span> ?        <span class="m">00</span>:00:06 rcu_sched
+    <span class="m">9</span> ?        <span class="m">00</span>:00:00 rcu_bh
+   <span class="m">10</span> ?        <span class="m">00</span>:00:00 migration/0
+   <span class="m">11</span> ?        <span class="m">00</span>:00:00 watchdog/0
+<span class="o">[</span>...<span class="o">]</span>
+</pre></div>
+</div>
+</section>
+<section id="ierarhia-proceselor">
+<h3><span class="section-number">2.2.2. </span>Ierarhia proceselor<a class="headerlink" href="#ierarhia-proceselor" title="Permalink to this headline">¶</a></h3>
+<p>Un proces este creat de un alt proces.
+De exemplu, mai sus, procesul <code class="docutils literal notranslate"><span class="pre">ps</span></code> a fost creat dintr-un proces shell (<code class="docutils literal notranslate"><span class="pre">bash</span></code>).
+Procesul shell a fost, la rândul său, creat de un alt proces.
+Un proces are un proces părinte; un proces poate avea mai multe procese copil.
+Procesele sunt, așadar, parte dintr-o ierarhie.</p>
+<p>Pentru a vizualiza ierarhia de procese, folosim utilitarul <code class="docutils literal notranslate"><span class="pre">pstree</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ pstree
+systemd-+-ModemManager---2*<span class="o">[{</span>ModemManager<span class="o">}]</span>
+        <span class="p">|</span>-NetworkManager-+-2*<span class="o">[</span>dhclient<span class="o">]</span>
+        <span class="p">|</span>                <span class="sb">`</span>-2*<span class="o">[{</span>NetworkManager<span class="o">}]</span>
+        <span class="o">[</span>...<span class="o">]</span>
+        <span class="p">|</span>-acpid
+        <span class="p">|</span>-avahi-daemon---avahi-daemon
+        <span class="p">|</span>-boltd---2*<span class="o">[{</span>boltd<span class="o">}]</span>
+        <span class="p">|</span>-colord---2*<span class="o">[{</span>colord<span class="o">}]</span>
+        <span class="p">|</span>-cron
+        <span class="o">[</span>...<span class="o">]</span>
+        <span class="p">|</span>-systemd-+-<span class="o">(</span>sd-pam<span class="o">)</span>
+        <span class="p">|</span>         <span class="p">|</span>-gnome-terminal--+-bash
+        <span class="p">|</span>         <span class="p">|</span>                 <span class="sb">`</span>-3*<span class="o">[{</span>gnome-terminal-<span class="o">}]</span>
+        <span class="o">[</span>...<span class="o">]</span>
+</pre></div>
+</div>
+<p>În vârful ierarhiei de procese este procesul numit clasic <code class="docutils literal notranslate"><span class="pre">init</span></code>.
+În listarea de mai sus vedem că procesul din vârful ierarhiei este <code class="docutils literal notranslate"><span class="pre">systemd</span></code>.
+<code class="docutils literal notranslate"><span class="pre">systemd</span></code> <a class="footnote-reference brackets" href="#systemd" id="id2">2</a> este implementarea de <code class="docutils literal notranslate"><span class="pre">init</span></code> prezentă în cea mai mare parte a distribuțiilor Linux curente <a class="footnote-reference brackets" href="#init" id="id3">3</a>.</p>
+</section>
+<section id="atributele-proceselor">
+<h3><span class="section-number">2.2.3. </span>Atributele proceselor<a class="headerlink" href="#atributele-proceselor" title="Permalink to this headline">¶</a></h3>
+<p>Utilitarul <code class="docutils literal notranslate"><span class="pre">ps</span></code> are o afișare tabelară a proceselor, fiecare coloană corespunzând unui atribut al proceselor.
+La o rulare simplă, așa cum am văzut mai sus sunt afișate patru coloane:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">PID</span></code>: reprezentând identificatorul procesului</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">TTY</span></code>: terminalul în care rulează procesul (apare <code class="docutils literal notranslate"><span class="pre">?</span></code> pentru un proces care nu are terminal - în general procesele de tip serviciu, numite și procese daemon nu au terminal)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">TIME</span></code>: timpul de rulare pe procesor (în ore, minute, secunde)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CMD</span></code>: numele comenzii care a pornit procesul (uzual numele executabilului / programului din care a fost creat procesul)</p></li>
+</ul>
+<section id="identificarea-unui-proces">
+<h4><span class="section-number">2.2.3.1. </span>Identificarea unui proces<a class="headerlink" href="#identificarea-unui-proces" title="Permalink to this headline">¶</a></h4>
+<p><code class="docutils literal notranslate"><span class="pre">PID</span></code> (<em>Process Id</em>) este atributul esențial al procesului, un index care identifică procesul la nivelul sistemului.
+Un proces este identificat după PID, nu după numele executabilului (<code class="docutils literal notranslate"><span class="pre">CMD</span></code>).
+Putem avea mai multe procese create din același executabil, fiecare proces având PID-ul său <a class="footnote-reference brackets" href="#process" id="id4">4</a>.</p>
+<p>Pentru a verifica existența mai multor procese, o să creăm mai multe procese shell.
+Pentru început, deschidem mai multe sesiuni de terminal, folosind, de exemplu, <code class="docutils literal notranslate"><span class="pre">Alt+F2</span></code> în mediul grafic și introducând comanda <code class="docutils literal notranslate"><span class="pre">gnome-terminal</span></code> în promptul creat.
+Apoi vizualizăm doar procesele create din executabilul <code class="docutils literal notranslate"><span class="pre">bash</span></code> rulând comanda:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ ps -e <span class="p">|</span> grep bash
+ <span class="m">2181</span> pts/1    <span class="m">00</span>:00:00 bash
+ <span class="m">2194</span> pts/2    <span class="m">00</span>:00:00 bash
+ <span class="m">2205</span> pts/3    <span class="m">00</span>:00:00 bash
+<span class="m">14750</span> pts/0    <span class="m">00</span>:00:00 bash
+<span class="m">14897</span> pts/4    <span class="m">00</span>:00:00 bash
+</pre></div>
+</div>
+<p>Obținem un rezultat precum cel de mai sus.
+Sunt cinci procese, toate create din executabilul <code class="docutils literal notranslate"><span class="pre">bash</span></code>, cu cinci PID-uri diferite: <code class="docutils literal notranslate"><span class="pre">2181</span></code>, <code class="docutils literal notranslate"><span class="pre">2194</span></code>, <code class="docutils literal notranslate"><span class="pre">2205</span></code>, <code class="docutils literal notranslate"><span class="pre">14705</span></code>, <code class="docutils literal notranslate"><span class="pre">14879</span></code>.</p>
+</section>
+<section id="afisarea-atributelor-unui-proces">
+<h4><span class="section-number">2.2.3.2. </span>Afișarea atributelor unui proces<a class="headerlink" href="#afisarea-atributelor-unui-proces" title="Permalink to this headline">¶</a></h4>
+<p>Un proces are mai mult decât cele patru atribute afișate la o rulare simplă a utilitarului <code class="docutils literal notranslate"><span class="pre">ps</span></code>.
+Pentru a afișa mai multe atribute, folosim opțiunea <code class="docutils literal notranslate"><span class="pre">-f</span></code> (de la <em>full format</em>) sau opțiunea <code class="docutils literal notranslate"><span class="pre">-F</span></code> (de la <em>extra full format</em>), ca mai jos:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ ps -f
+UID        PID  PPID  C STIME TTY          TIME CMD
+student  <span class="m">14897</span> <span class="m">14896</span>  <span class="m">0</span> <span class="m">17</span>:12 pts/4    <span class="m">00</span>:00:00 -bash
+student  <span class="m">15026</span> <span class="m">14897</span>  <span class="m">0</span> <span class="m">17</span>:46 pts/4    <span class="m">00</span>:00:00 ps -f
+
+student@uso:~$ ps -F
+UID        PID  PPID  C    SZ   RSS PSR STIME TTY          TIME CMD
+student  <span class="m">14897</span> <span class="m">14896</span>  <span class="m">0</span>  <span class="m">6056</span>  <span class="m">5136</span>   <span class="m">0</span> <span class="m">17</span>:12 pts/4    <span class="m">00</span>:00:00 -bash
+student  <span class="m">15027</span> <span class="m">14897</span>  <span class="m">0</span>  <span class="m">9728</span>  <span class="m">3340</span>   <span class="m">0</span> <span class="m">17</span>:46 pts/4    <span class="m">00</span>:00:00 ps -F
+</pre></div>
+</div>
+<p>Desigur, putem să combinăm aceste opțiuni cu opțiunea <code class="docutils literal notranslate"><span class="pre">-e</span></code> de afișare a tuturor proceselor:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ ps -ef
+UID        PID  PPID  C STIME TTY          TIME CMD
+root         <span class="m">1</span>     <span class="m">0</span>  <span class="m">0</span> Aug18 ?        <span class="m">00</span>:00:19 /lib/systemd/systemd --system --deserialize <span class="m">39</span>
+root         <span class="m">2</span>     <span class="m">0</span>  <span class="m">0</span> Aug18 ?        <span class="m">00</span>:00:00 <span class="o">[</span>kthreadd<span class="o">]</span>
+root         <span class="m">4</span>     <span class="m">2</span>  <span class="m">0</span> Aug18 ?        <span class="m">00</span>:00:00 <span class="o">[</span>kworker/0:0H<span class="o">]</span>
+root         <span class="m">6</span>     <span class="m">2</span>  <span class="m">0</span> Aug18 ?        <span class="m">00</span>:00:00 <span class="o">[</span>mm_percpu_wq<span class="o">]</span>
+root         <span class="m">7</span>     <span class="m">2</span>  <span class="m">0</span> Aug18 ?        <span class="m">00</span>:00:09 <span class="o">[</span>ksoftirqd/0<span class="o">]</span>
+root         <span class="m">8</span>     <span class="m">2</span>  <span class="m">0</span> Aug18 ?        <span class="m">00</span>:00:06 <span class="o">[</span>rcu_sched<span class="o">]</span>
+root         <span class="m">9</span>     <span class="m">2</span>  <span class="m">0</span> Aug18 ?        <span class="m">00</span>:00:00 <span class="o">[</span>rcu_bh<span class="o">]</span>
+root        <span class="m">10</span>     <span class="m">2</span>  <span class="m">0</span> Aug18 ?        <span class="m">00</span>:00:00 <span class="o">[</span>migration/0<span class="o">]</span>
+root        <span class="m">11</span>     <span class="m">2</span>  <span class="m">0</span> Aug18 ?        <span class="m">00</span>:00:00 <span class="o">[</span>watchdog/0<span class="o">]</span>
+<span class="o">[</span>...<span class="o">]</span>
+</pre></div>
+</div>
+<p>Opțiunile <code class="docutils literal notranslate"><span class="pre">-f</span></code> și <code class="docutils literal notranslate"><span class="pre">-F</span></code> afișează și alte atribute ale procesului, precum:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">UID</span></code>: numele utilizatorului care deține procesul</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PPID</span></code>: identificatorul procesului părinte</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">C</span></code>: procentul de procesor ocupat</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">STIME</span></code>: timpul de pornire (<em>start time</em>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">RSS</span></code>: memoria RAM ocupată (<em>resident set size</em>)</p></li>
+</ul>
+<p>Astfel de atribute sunt utile pentru a vedea care sunt procesele cele mai consumatoare de resurse (de exemplu procesor sau memorie).</p>
+</section>
+</section>
+</section>
+<section id="monitorizarea-proceselor">
+<span id="app-install-run-mon"></span><h2><span class="section-number">2.3. </span>Monitorizarea proceselor<a class="headerlink" href="#monitorizarea-proceselor" title="Permalink to this headline">¶</a></h2>
+<p>Utilitarul <code class="docutils literal notranslate"><span class="pre">ps</span></code> afișează procesele și atributele acestora la un moment dat, un <em>snapshot</em> al proceselor sistemului.
+De multe ori ne interesează și evoluția în timp a proceselor: schimbarea în consumul de resurse, apariția de noi procese.
+Adică să monitorizăm procesele.
+Monitorizarea proceselor înseamnă obținerea periodică de informații despre procese.</p>
+<p>Evident, un mod simplu de monitorizare este să rulăm utilitarul <code class="docutils literal notranslate"><span class="pre">ps</span></code> periodic.
+Există, însă, utilitare dedicate pentru monitorizare.</p>
+<section id="monitorizarea-folosind-top">
+<h3><span class="section-number">2.3.1. </span>Monitorizarea folosind top<a class="headerlink" href="#monitorizarea-folosind-top" title="Permalink to this headline">¶</a></h3>
+<p>Utilitarul <code class="docutils literal notranslate"><span class="pre">top</span></code> este utilitarul de bază de monitorizare a proceselor în lumea Linux.
+Este echivalent Task Manager din Windows.
+Rularea <code class="docutils literal notranslate"><span class="pre">top</span></code> duce la afișarea, în terminal, a proceselor sistemului și reîmprospătarea informației periodic (implicit <code class="docutils literal notranslate"><span class="pre">2</span></code> secunde).
+Imaginea de mai jos este o fereastră de terminal cu rularea <code class="docutils literal notranslate"><span class="pre">top</span></code>:</p>
+<img alt="Utilitarul top" class="align-center" src="../../_images/top.png" />
+<p><code class="docutils literal notranslate"><span class="pre">top</span></code> afișează informații periodice despre procese <strong>și</strong> despre starea sistemului: consum de procesor, de memorie.
+La fiecare perioadă (implicit <code class="docutils literal notranslate"><span class="pre">2</span></code> secunde) informația afișată este reîmprospătată.</p>
+<p>La fel ca în cazul utilitarului <code class="docutils literal notranslate"><span class="pre">less</span></code>, ieșirea din utilitarul <code class="docutils literal notranslate"><span class="pre">top</span></code> se realizează folosind tasta <code class="docutils literal notranslate"><span class="pre">q</span></code> <a class="footnote-reference brackets" href="#top" id="id5">5</a>.</p>
+</section>
+<section id="utilitarul-htop">
+<h3><span class="section-number">2.3.2. </span>Utilitarul htop<a class="headerlink" href="#utilitarul-htop" title="Permalink to this headline">¶</a></h3>
+<p>Un utilitar similar <code class="docutils literal notranslate"><span class="pre">top</span></code> ceva mai prietenos este utilitarul <code class="docutils literal notranslate"><span class="pre">htop</span></code> <a class="footnote-reference brackets" href="#monitor" id="id6">6</a>.
+La fel ca în cazul <code class="docutils literal notranslate"><span class="pre">top</span></code>, utilitarul <code class="docutils literal notranslate"><span class="pre">htop</span></code> rulează în linia de comandă prin introducerea comenzii <code class="docutils literal notranslate"><span class="pre">htop</span></code> și pornește, în terminal, o fereastră interactivă, ca în imaginea de mai jos:</p>
+<img alt="Utilitarul htop" class="align-center" src="../../_images/htop.png" />
+<p><code class="docutils literal notranslate"><span class="pre">htop</span></code> este, de asemenea, un utilitar interactiv, un sumar al comenzilor ce pot fi folosite fiind prezentat în bara de jos a ferestrei sale.
+De exemplu, așa cum vedem și în imaginea de mai sus, cu ajutorul tastei <code class="docutils literal notranslate"><span class="pre">F6</span></code> putem alege un atribut după care să sortăm procesele.</p>
+</section>
+</section>
+<section id="oprirea-proceselor-semnale">
+<span id="app-install-run-signal"></span><h2><span class="section-number">2.4. </span>Oprirea proceselor. Semnale<a class="headerlink" href="#oprirea-proceselor-semnale" title="Permalink to this headline">¶</a></h2>
+<p>Odată pornit, un proces rulează și consumă resursele sistemului.
+După ce execută codul din executabilul corespunzător, procesul își încheie execuția și eliberează resursele consumate.
+Dar anumite programe (de exemplu serverele) nu au un punct de oprire, ci rulează într-o buclă, teoretic la infinit.
+La fel, anumite programe (de exemplu un browser web) sunt interactive și își încheie execuția doar la acțiunea explicită a utilizatorului.</p>
+<p>Deosebim astfel între următoarele tipuri de oprire a unui proces:</p>
+<ol class="arabic simple">
+<li><p>Procesul ajunge la sfârșitul codului programului și își încheie execuția.</p></li>
+<li><p>Un comportament neașteptat sau o eroare în funcționarea programului cauzează încheierea execuției acestuia (<em>crash</em>).</p></li>
+<li><p>Utilizatorul execută o acțiune interactivă care trimite comanda de încheiere a execuției procesului: de exemplu folosirea tastei <code class="docutils literal notranslate"><span class="pre">q</span></code> pentru a încheia un proces <code class="docutils literal notranslate"><span class="pre">top</span></code> sau folosirea butonului <code class="docutils literal notranslate"><span class="pre">x</span></code> dintr-o aplicație grafică pentru a încheia execuția acesteia.</p></li>
+<li><p>Utilizatorul sau sistemul de operare decide că un proces nu rulează corespunzător și decide terminarea acestuia.</p></li>
+</ol>
+<p>Ultimul punct din pasul de mai sus, numit și terminarea unui proces (sau, informal, omorârea unui proces) este realizat, în Linux, prin folosirea <strong>semnalelor</strong>.</p>
+<section id="folosirea-semnalelor-pentru-omorarea-proceselor">
+<h3><span class="section-number">2.4.1. </span>Folosirea semnalelor pentru omorârea proceselor<a class="headerlink" href="#folosirea-semnalelor-pentru-omorarea-proceselor" title="Permalink to this headline">¶</a></h3>
+<p>Ca să terminăm forțat (omorâm) un proces folosim semnale.
+Un semnal este o notificare trimisă de utilizator sau de sistemul de operare către un proces.
+Nu este obligatoriu ca un semnal să omoare procesul care îl primește, dar este cel mai des întâlnit comportament, și principala utilizare a semnalelor.</p>
+<p>Ca să trimitem un semnal unui proces trebuie să știm PID-ul acestuia și folosim utilitarul <code class="docutils literal notranslate"><span class="pre">kill</span></code> urmat de PID-ul procesului.
+Adică, dacă pornim într-un terminal un proces <code class="docutils literal notranslate"><span class="pre">sleep</span></code> folosind comanda de mai jos:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ sleep <span class="m">60</span>
+</pre></div>
+</div>
+<p>în alt terminal vom afla PID-ul său (folosind <code class="docutils literal notranslate"><span class="pre">pidof</span></code>):</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ pidof sleep
+<span class="m">9486</span>
+</pre></div>
+</div>
+<p>și apoi îl vom omorî (folosind <code class="docutils literal notranslate"><span class="pre">kill</span></code>):</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ <span class="nb">kill</span> <span class="m">9486</span>
+</pre></div>
+</div>
+<p>Comanda <code class="docutils literal notranslate"><span class="pre">kill</span></code> primește ca argument PID-ul procesului de omorât, adică <code class="docutils literal notranslate"><span class="pre">9486</span></code>.</p>
+<p>Verificăm din nou dacă există un proces <code class="docutils literal notranslate"><span class="pre">sleep</span></code> folosind <code class="docutils literal notranslate"><span class="pre">pidof</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ pidof sleep
+student@uso:~$
+</pre></div>
+</div>
+<p>Vedem din output că nu mai există procesul <code class="docutils literal notranslate"><span class="pre">sleep</span></code>, deci a fost omorât.</p>
+<p>În terminalul inițial, în care am rulat comanda <code class="docutils literal notranslate"><span class="pre">sleep</span></code>, apare un mesaj care indică omorârea procesului:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ sleep <span class="m">60</span>
+Terminated
+</pre></div>
+</div>
+<section id="folosirea-semnalului-sigkill">
+<h4><span class="section-number">2.4.1.1. </span>Folosirea semnalului SIGKILL<a class="headerlink" href="#folosirea-semnalului-sigkill" title="Permalink to this headline">¶</a></h4>
+<p>În anumite situații, folosirea utilitarului <code class="docutils literal notranslate"><span class="pre">kill</span></code> nu duce la omorârea procesului țintă.
+În această situație, vom transmite procesului țintă semnalul <code class="docutils literal notranslate"><span class="pre">SIGKILL</span></code> care este garantat că va omorî procesul.
+Adică, amuzant spus, <code class="docutils literal notranslate"><span class="pre">SIGKILL</span></code> este o bombă nucleară, un glonț care trece prin vesta anti-glonț, cianură de potasiu.
+Astfel, dacă pornim pe un terminal un proces <code class="docutils literal notranslate"><span class="pre">sleep</span></code> la fel ca mai sus, în alt terminal vom omorî procesul folosind semnalul <code class="docutils literal notranslate"><span class="pre">SIGKILL</span></code> ca mai jos:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ pidof sleep
+<span class="m">9834</span>
+student@uso:~$ <span class="nb">kill</span> -KILL <span class="m">9834</span>
+student@uso:~$ pidof sleep
+student@uso:~$
+</pre></div>
+</div>
+<p>Secvența de comenzi este similară secvenței anterioare cu excepția folosirii opțiunii <code class="docutils literal notranslate"><span class="pre">-KILL</span></code> la comanda <code class="docutils literal notranslate"><span class="pre">kill</span></code> care înseamnă trimiterea semnalului <code class="docutils literal notranslate"><span class="pre">SIGKILL</span></code>.</p>
+<p>Efectul este similar dar, pe terminalul în care am rulat comanda <code class="docutils literal notranslate"><span class="pre">sleep</span></code>, apare un mesaj de forma:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ sleep <span class="m">60</span>
+Killed
+</pre></div>
+</div>
+<p>Mesajul <code class="docutils literal notranslate"><span class="pre">Killed</span></code> este afișat atunci când un proces primește semnalul <code class="docutils literal notranslate"><span class="pre">SIGKILL</span></code>.</p>
+</section>
+</section>
+<section id="exercitii-oprirea-proceselor">
+<h3><span class="section-number">2.4.2. </span>Exerciții: Oprirea proceselor<a class="headerlink" href="#exercitii-oprirea-proceselor" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic">
+<li><p>Porniți în trei terminale diferite trei procese <code class="docutils literal notranslate"><span class="pre">sleep</span></code>.
+Omorâți-le pe toate cu o singură comandă.</p></li>
+<li><p>PID-ul shellului curent poate fi aflat folosind comanda</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ <span class="nb">echo</span> <span class="nv">$$</span>
+<span class="m">9477</span>
+</pre></div>
+</div>
+<p>Omorâți shellul curent.</p>
+</li>
+<li><p>Porniți o aplicație <code class="docutils literal notranslate"><span class="pre">shutter</span></code>.
+Porniți o aplicație <code class="docutils literal notranslate"><span class="pre">libreoffice</span></code>.
+Porniți o aplicație <code class="docutils literal notranslate"><span class="pre">firefox</span></code>.
+Porniți o aplicație <code class="docutils literal notranslate"><span class="pre">transmission-gtk</span></code>.
+Omorâți aceste procese folosind utilitarul <code class="docutils literal notranslate"><span class="pre">kill</span></code>.</p></li>
+</ol>
+<section id="exercitiu-proces-abuziv">
+<h4><span class="section-number">2.4.2.1. </span>Exercițiu: Proces abuziv<a class="headerlink" href="#exercitiu-proces-abuziv" title="Permalink to this headline">¶</a></h4>
+<p>Folosiți scriptul <code class="docutils literal notranslate"><span class="pre">cpu_hog</span></code> din directorul de suport, pentru a porni un proces care consumă mult procesor. Îl porniți folosind o comandă de forma:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ ./cpu_hog
+</pre></div>
+</div>
+<p>Scriptul <code class="docutils literal notranslate"><span class="pre">cpu_hog</span></code> pornește un proces care execută o buclă infinită.</p>
+<p>Observați, cu ajutorul comenzii <code class="docutils literal notranslate"><span class="pre">top</span></code>, că procesorul este încărcat.
+Identificați procesul cel mai consumator de resurse și omorâți-l.
+Observați, cu ajutorul comenzii <code class="docutils literal notranslate"><span class="pre">top</span></code>, că acum procesorul nu mai este încărcat.</p>
+<p class="rubric">Note de subsol</p>
+<dl class="footnote brackets">
+<dt class="label" id="load-time-run-time"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd><p>Momentul creării unui proces dintr-un fișier executabil, prin încărcarea codului și datelor fișierului executabil în memorie, se numește <strong>load-time</strong>.
+Rularea procesului și folosirea resurselor sistemului se numește <strong>run-time</strong>.</p>
+</dd>
+<dt class="label" id="systemd"><span class="brackets"><a class="fn-backref" href="#id2">2</a></span></dt>
+<dd><p><a class="reference external" href="https://freedesktop.org/wiki/Software/systemd/">https://freedesktop.org/wiki/Software/systemd/</a></p>
+</dd>
+<dt class="label" id="init"><span class="brackets"><a class="fn-backref" href="#id3">3</a></span></dt>
+<dd><p>Procesul <code class="docutils literal notranslate"><span class="pre">init</span></code> va exista în permanență în vârful ierarhiei de procese, indiferent de faptul că se va numi <code class="docutils literal notranslate"><span class="pre">systemd</span></code>, <code class="docutils literal notranslate"><span class="pre">init</span></code>, <code class="docutils literal notranslate"><span class="pre">upstart</span></code> sau altfel.</p>
+</dd>
+<dt class="label" id="process"><span class="brackets"><a class="fn-backref" href="#id4">4</a></span></dt>
+<dd><p>Este impropriu să spunem “procesul bash”; corect este “un proces creat din programul / executabilul bash” sau “procesul cu PID-ul XY”.
+Cu toate acestea vom folosi în general expresia “procesul bash” pentru că reiese din context despre ce proces este vorba.</p>
+</dd>
+<dt class="label" id="top"><span class="brackets"><a class="fn-backref" href="#id5">5</a></span></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">top</span></code> este un utilitar interactiv.
+Adică în timpul rulării sale utilizatorul poate interacționa cu procesele sau poate modifica informațiile afișate.
+De exemplu, folosirea tastei <code class="docutils literal notranslate"><span class="pre">M</span></code> într-o rulare <code class="docutils literal notranslate"><span class="pre">top</span></code> afișează procesele sortate după consumul de memorie.
+Un sumar al comenzilor interactive din <code class="docutils literal notranslate"><span class="pre">top</span></code> se obține folosind tasta <code class="docutils literal notranslate"><span class="pre">?</span></code>.</p>
+</dd>
+<dt class="label" id="monitor"><span class="brackets"><a class="fn-backref" href="#id6">6</a></span></dt>
+<dd><p>Monitorizarea proceselor este o activitate foarte importantă în administrarea unui sistem de calcul.
+Un proces care, intenționat sau nu, consumă abuziv resursele sistemului va duce la o proastă funcționare sau chiar la blocarea sistemului.
+De aceea, utilitarele de monitorizare a sistemului (și a proceselor) sunt diverse. Amintim:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">iotop</span></code>: utilitar pentru monitorizarea consumului de I/O al proceselor</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sysstat</span></code>: o suită de utilitare pentru monitorizarea sistemului (procese, memorie, I/O, rețea)</p></li>
+</ul>
+</dd>
+</dl>
+</section>
+</section>
+</section>
+</section>
+
+
+          </div>
+          <div class="page-nav">
+            <div class="inner"><ul class="page-nav">
+  <li class="prev">
+    <a href="start.html"
+       title="previous chapter">← <span class="section-number">1. </span>Pornirea și oprirea aplicațiilor</a>
+  </li>
+  <li class="next">
+    <a href="config.html"
+       title="next chapter"><span class="section-number">3. </span>Configurarea rulării aplicațiilor →</a>
+  </li>
+</ul><div class="footer" role="contentinfo">
+      &#169; Copyright 2020, USO Team.
+    <br>
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.1.2 with <a href="https://github.com/romnn/sphinx_press_theme">Press Theme</a>.
+</div>
+            </div>
+          </div>
+      </page>
+    </div>
+    
+    
+  </body>
+</html>
