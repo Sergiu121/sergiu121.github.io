@@ -2,20 +2,23 @@
 <html >
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
       <title>2. Compilarea unui fișier cod sursă C</title>
     
       <link rel="stylesheet" href="../../_static/pygments.css">
       <link rel="stylesheet" href="../../_static/theme.css">
-      <link rel="stylesheet" href="../../_static/romnnn_sphinx_press_theme.css">
+      <link rel="stylesheet" href="../../_static/romnn_sphinx_press_theme.css">
+          <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+          <link rel="stylesheet" href="../../_static/css/theme.css " type="text/css" />
       
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
 
       <!-- sphinx script_files -->
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/language_data.js"></script>
         <script src="../../_static/my_actions.js"></script>
 
       
@@ -223,7 +226,7 @@
       </p>
       <ul class="">
         
-          <li class="toctree-l1 "><a href="../files/paths.html" class="reference internal ">Căi absolute și relative</a>
+          <li class="toctree-l1 "><a href="../files/paths.html" class="reference internal ">Căi în ierarhia de fișiere</a>
 
             
           </li>
@@ -253,7 +256,13 @@
           </li>
 
         
-          <li class="toctree-l1 "><a href="../files/file_system.html" class="reference internal ">Sistemul de fișiere</a>
+          <li class="toctree-l1 "><a href="../files/file_system.html" class="reference internal ">Extra - Sistemul de fișiere</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../files/cheatsheet.html" class="reference internal ">Sumar - Cheatsheet</a>
 
             
           </li>
@@ -388,7 +397,7 @@
       </p>
       <ul class="">
         
-          <li class="toctree-l1 "><a href="../app-install/start.html" class="reference internal ">Pornirea aplicațiilor</a>
+          <li class="toctree-l1 "><a href="../app-install/start.html" class="reference internal ">Pornirea și oprirea aplicațiilor</a>
 
             
           </li>
@@ -400,13 +409,13 @@
           </li>
 
         
-          <li class="toctree-l1 "><a href="../app-install/config.html" class="reference internal ">Configurarea aplicațiilor</a>
+          <li class="toctree-l1 "><a href="../app-install/config.html" class="reference internal ">Configurarea rulării aplicațiilor</a>
 
             
           </li>
 
         
-          <li class="toctree-l1 "><a href="../app-install/summary1.html" class="reference internal ">Sumar: Pornirea, rularea și configurarea aplicațiilor</a>
+          <li class="toctree-l1 "><a href="../app-install/summary1.html" class="reference internal ">Exerciții: Pornirea, rularea și configurarea aplicațiilor</a>
 
             
           </li>
@@ -424,13 +433,7 @@
           </li>
 
         
-          <li class="toctree-l1 "><a href="../app-install/install-non-standard.html" class="reference internal ">Instalarea și dezinstalarea aplicațiilor în mod nestandard</a>
-
-            
-          </li>
-
-        
-          <li class="toctree-l1 "><a href="../app-install/update.html" class="reference internal ">Actualizarea aplicațiilor</a>
+          <li class="toctree-l1 "><a href="../app-install/install-non-standard.html" class="reference internal ">Alternative la instalarea și dezinstalarea aplicațiilor</a>
 
             
           </li>
@@ -442,7 +445,7 @@
           </li>
 
         
-          <li class="toctree-l1 "><a href="../app-install/summary2.html" class="reference internal ">Sumar: Instalarea, dezinstalarea, investigarea, actualizarea aplicațiilor</a>
+          <li class="toctree-l1 "><a href="../app-install/summary2.html" class="reference internal ">Exerciții: Instalarea și gestiunea aplicațiilor</a>
 
             
           </li>
@@ -530,12 +533,12 @@
 <hr>
           <div class="content" role="main">
             
-  <div class="section" id="compilarea-unui-fisier-cod-sursa-c">
+  <section id="compilarea-unui-fisier-cod-sursa-c">
 <span id="app-dev-compile-source-file"></span><h1><span class="section-number">2. </span>Compilarea unui fișier cod sursă C<a class="headerlink" href="#compilarea-unui-fisier-cod-sursa-c" title="Permalink to this headline">¶</a></h1>
 <p>În această secțiune urmărim să învățăm pașii pentru a compila un program, adică a-l aduce de la cod sursă la executabil.
 Pentru aceasta vom crea un program care verifică dacă un număr citit de la tastatură este prim sau nu.
 Vom scrie într-un nou fișier programul care implementează algoritmul, vom compila codul sursă folosind <a class="reference external" href="https://gcc.gnu.org">compilatorul GCC</a> și vom testa că programul funcționează.</p>
-<div class="section" id="crearea-unui-fisier-cod-sursa">
+<section id="crearea-unui-fisier-cod-sursa">
 <span id="app-dev-create-source-file"></span><h2><span class="section-number">2.1. </span>Crearea unui fișier cod sursă<a class="headerlink" href="#crearea-unui-fisier-cod-sursa" title="Permalink to this headline">¶</a></h2>
 <p>Creăm un fișier nou cu numele <code class="docutils literal notranslate"><span class="pre">is-prime.c</span></code> cu implementarea algoritmului de verificare.
 Copiem codul sursă de mai jos și îl lipim în nano ca în imaginea de mai jos:</p>
@@ -571,12 +574,12 @@ Copiem codul sursă de mai jos și îl lipim în nano ca în imaginea de mai jos
 <span class="p">}</span>
 </pre></div>
 </div>
-<div class="figure align-default">
+<figure class="align-default">
 <img alt="Crearea unui fișier ``is-prime.c`` cu algoritmul asociat" src="../../_images/create-is-prime.gif" />
-</div>
+</figure>
 <p>Mai multe detalii despre folosirea editorului de text <code class="docutils literal notranslate"><span class="pre">nano</span></code> găsim în capitolul <em>Lucrul cu fișiere</em>.</p>
-</div>
-<div class="section" id="compilarea-codului-sursa-in-executabilul-a-out">
+</section>
+<section id="compilarea-codului-sursa-in-executabilul-a-out">
 <span id="app-dev-compile-aout"></span><h2><span class="section-number">2.2. </span>Compilarea codului sursă în executabilul <code class="docutils literal notranslate"><span class="pre">a.out</span></code><a class="headerlink" href="#compilarea-codului-sursa-in-executabilul-a-out" title="Permalink to this headline">¶</a></h2>
 <p>Avem fișierul cod sursă <code class="docutils literal notranslate"><span class="pre">is-prime.c</span></code> și vrem să obținem un program pe care să-l rulăm pe sistemul nostru.
 Pentru aceasta, trebuie să compilăm fișierul <code class="docutils literal notranslate"><span class="pre">is-prime.c</span></code>.
@@ -606,8 +609,8 @@ Please gimme a number: <span class="m">13</span>
 </pre></div>
 </div>
 <p>Programul funcționează: citește un număr de la tastatură și afișează dacă acesta este prim sau nu.</p>
-</div>
-<div class="section" id="compilarea-codului-sursa-intr-un-executabil-cu-nume-diferit">
+</section>
+<section id="compilarea-codului-sursa-intr-un-executabil-cu-nume-diferit">
 <span id="app-dev-compile-custom"></span><h2><span class="section-number">2.3. </span>Compilarea codului sursă într-un executabil cu nume diferit<a class="headerlink" href="#compilarea-codului-sursa-intr-un-executabil-cu-nume-diferit" title="Permalink to this headline">¶</a></h2>
 <p>Numele <code class="docutils literal notranslate"><span class="pre">a.out</span></code> este implicit, deci toate programele compilate cu GCC se vor numi <code class="docutils literal notranslate"><span class="pre">a.out</span></code>.
 Putem configura un nume diferit pentru executabilul obținut.</p>
@@ -632,8 +635,8 @@ Please gimme a number: <span class="m">13</span>
 </div>
 <p>Vedem că, deși au nume diferit, programele <code class="docutils literal notranslate"><span class="pre">a.out</span></code> și <code class="docutils literal notranslate"><span class="pre">is-prime</span></code> au același comportament.
 Acest lucru este normal deoarece ele sunt 2 fișiere executabile obținute din același fișier cod sursă obținute folosind același compilator: GCC.</p>
-</div>
-<div class="section" id="exercitii">
+</section>
+<section id="exercitii">
 <span id="app-dev-make-intro-ex"></span><h2><span class="section-number">2.4. </span>Exerciții<a class="headerlink" href="#exercitii" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic">
 <li><p>Creați un fișier cu numele <code class="docutils literal notranslate"><span class="pre">is-palindrome.c</span></code> care să conțină următorul conținut:</p>
@@ -675,8 +678,8 @@ Verificați funcționalitatea programului.</p></li>
 <li><p>Compilați fișierul <code class="docutils literal notranslate"><span class="pre">is-palindrome.c</span></code> într-un executabil cu numele <code class="docutils literal notranslate"><span class="pre">is-palindrome</span></code> folosind <code class="docutils literal notranslate"><span class="pre">gcc</span></code>.
 Verificați funcționalitatea programului.</p></li>
 </ol>
-</div>
-</div>
+</section>
+</section>
 
 
           </div>
@@ -693,7 +696,7 @@ Verificați funcționalitatea programului.</p></li>
 </ul><div class="footer" role="contentinfo">
       &#169; Copyright 2020, USO Team.
     <br>
-    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.3.0 with <a href="https://github.com/romnnn/sphinx_press_theme">Press Theme</a>.
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.1.2 with <a href="https://github.com/romnn/sphinx_press_theme">Press Theme</a>.
 </div>
             </div>
           </div>

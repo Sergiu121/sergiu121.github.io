@@ -2,20 +2,23 @@
 <html >
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
       <title>10. Crearea unui Pull Request (PR) pe GitHub</title>
     
       <link rel="stylesheet" href="../../_static/pygments.css">
       <link rel="stylesheet" href="../../_static/theme.css">
-      <link rel="stylesheet" href="../../_static/romnnn_sphinx_press_theme.css">
+      <link rel="stylesheet" href="../../_static/romnn_sphinx_press_theme.css">
+          <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+          <link rel="stylesheet" href="../../_static/css/theme.css " type="text/css" />
       
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
 
       <!-- sphinx script_files -->
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/language_data.js"></script>
         <script src="../../_static/my_actions.js"></script>
 
       
@@ -223,7 +226,7 @@
       </p>
       <ul class="">
         
-          <li class="toctree-l1 "><a href="../files/paths.html" class="reference internal ">Căi absolute și relative</a>
+          <li class="toctree-l1 "><a href="../files/paths.html" class="reference internal ">Căi în ierarhia de fișiere</a>
 
             
           </li>
@@ -253,7 +256,13 @@
           </li>
 
         
-          <li class="toctree-l1 "><a href="../files/file_system.html" class="reference internal ">Sistemul de fișiere</a>
+          <li class="toctree-l1 "><a href="../files/file_system.html" class="reference internal ">Extra - Sistemul de fișiere</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../files/cheatsheet.html" class="reference internal ">Sumar - Cheatsheet</a>
 
             
           </li>
@@ -396,7 +405,7 @@
       </p>
       <ul class="">
         
-          <li class="toctree-l1 "><a href="../app-install/start.html" class="reference internal ">Pornirea aplicațiilor</a>
+          <li class="toctree-l1 "><a href="../app-install/start.html" class="reference internal ">Pornirea și oprirea aplicațiilor</a>
 
             
           </li>
@@ -408,13 +417,13 @@
           </li>
 
         
-          <li class="toctree-l1 "><a href="../app-install/config.html" class="reference internal ">Configurarea aplicațiilor</a>
+          <li class="toctree-l1 "><a href="../app-install/config.html" class="reference internal ">Configurarea rulării aplicațiilor</a>
 
             
           </li>
 
         
-          <li class="toctree-l1 "><a href="../app-install/summary1.html" class="reference internal ">Sumar: Pornirea, rularea și configurarea aplicațiilor</a>
+          <li class="toctree-l1 "><a href="../app-install/summary1.html" class="reference internal ">Exerciții: Pornirea, rularea și configurarea aplicațiilor</a>
 
             
           </li>
@@ -432,13 +441,7 @@
           </li>
 
         
-          <li class="toctree-l1 "><a href="../app-install/install-non-standard.html" class="reference internal ">Instalarea și dezinstalarea aplicațiilor în mod nestandard</a>
-
-            
-          </li>
-
-        
-          <li class="toctree-l1 "><a href="../app-install/update.html" class="reference internal ">Actualizarea aplicațiilor</a>
+          <li class="toctree-l1 "><a href="../app-install/install-non-standard.html" class="reference internal ">Alternative la instalarea și dezinstalarea aplicațiilor</a>
 
             
           </li>
@@ -450,7 +453,7 @@
           </li>
 
         
-          <li class="toctree-l1 "><a href="../app-install/summary2.html" class="reference internal ">Sumar: Instalarea, dezinstalarea, investigarea, actualizarea aplicațiilor</a>
+          <li class="toctree-l1 "><a href="../app-install/summary2.html" class="reference internal ">Exerciții: Instalarea și gestiunea aplicațiilor</a>
 
             
           </li>
@@ -538,7 +541,7 @@
 <hr>
           <div class="content" role="main">
             
-  <div class="section" id="crearea-unui-pull-request-pr-pe-github">
+  <section id="crearea-unui-pull-request-pr-pe-github">
 <span id="app-dev-pr"></span><h1><span class="section-number">10. </span>Crearea unui Pull Request (PR) pe GitHub<a class="headerlink" href="#crearea-unui-pull-request-pr-pe-github" title="Permalink to this headline">¶</a></h1>
 <p>În momentul în care vrem să adăugăm o funcționalitate nouă unui proiect software pe GitHub este recomandat să o facem printr-un <strong>Pull Request</strong>, prescurtat <strong>PR</strong>.
 Un <strong>Pull Request</strong> este o cerere de modificare a repository-ului.
@@ -558,7 +561,7 @@ De obicei acel branch este <strong>master</strong>.
 <li><p>Recenzia codului sursă se face ușor pe un Pull Request. Vom vedea în secțiunea <a class="reference internal" href="#app-dev-pr-reviewers"><span class="std std-ref">Recenzii și recenzenți</span></a> cum adăugăm recenzenți.</p></li>
 </ol>
 </div>
-<div class="section" id="pasi-pull-request">
+<section id="pasi-pull-request">
 <span id="app-dev-pr-steps"></span><h2><span class="section-number">10.1. </span>Pași Pull Request<a class="headerlink" href="#pasi-pull-request" title="Permalink to this headline">¶</a></h2>
 <p>Ca să avem o contribuție prin Pull Request, în mod uzual se urmează pașii:</p>
 <ol class="arabic simple">
@@ -570,8 +573,8 @@ De obicei acel branch este <strong>master</strong>.
 <li><p>După un număr dat de iterații, PR-ul va fi definitivat. Atunci maintainerul va integra branch-ul în <strong>master</strong> (operația <strong>merge</strong>).</p></li>
 </ol>
 <p>În următoarele subsecțiuni vom implementa algoritmul Bubble Sort și vom modifica repository-ul <code class="docutils literal notranslate"><span class="pre">array-sorting-algorithms</span></code> prin intermediul unui <strong>Pull Request</strong>.</p>
-</div>
-<div class="section" id="crearea-unui-branch-nou">
+</section>
+<section id="crearea-unui-branch-nou">
 <span id="app-dev-pr-create-branch"></span><h2><span class="section-number">10.2. </span>Crearea unui branch nou<a class="headerlink" href="#crearea-unui-branch-nou" title="Permalink to this headline">¶</a></h2>
 <p>Pentru a putea deschide un Pull Request, trebuie să lucrăm pe un branch diferit față de cel în care vrem să integrăm schimbările.
 Vom lucra pe un nou branch, diferit de branch-ul <strong>master</strong>.</p>
@@ -603,12 +606,12 @@ Date:   Mon Sep <span class="m">28</span> <span class="m">02</span>:29:00 <span 
 </pre></div>
 </div>
 <p>Vedem același istoric de commituri și prin intermediul interfeței grafice GitHub ca în imaginea de mai jos:</p>
-<div class="figure align-default">
+<figure class="align-default">
 <img alt="Vizualizarea tuturor commiturilor pe GitHub" src="../../_images/GitHub-view-commits-GitHub.gif" />
-</div>
+</figure>
 <p>În următoarea secțiune vom face încă un commit.</p>
-</div>
-<div class="section" id="crearea-unui-commit-pe-branch-ul-nou-creat">
+</section>
+<section id="crearea-unui-commit-pe-branch-ul-nou-creat">
 <span id="app-dev-create-new-commit-on-branch"></span><h2><span class="section-number">10.3. </span>Crearea unui commit pe branch-ul nou creat<a class="headerlink" href="#crearea-unui-commit-pe-branch-ul-nou-creat" title="Permalink to this headline">¶</a></h2>
 <p>Vom actualiza fișierul <code class="docutils literal notranslate"><span class="pre">bubble-sort.c</span></code> cu implementarea algoritmului ales.
 Modificăm fișierul <code class="docutils literal notranslate"><span class="pre">bubble-sort.c</span></code> astfel încât conținutul său să fie următorul:</p>
@@ -743,16 +746,16 @@ To https://github.com/lizababu/array-sorting-algorithms.git
 <p>Linkul <code class="docutils literal notranslate"><span class="pre">https://github.com/{username}/array-sorting-algorithms/pull/new/bubble-sort-implementation</span></code> este link la <strong>Pull Request</strong>.</p>
 <p>În loc de <code class="docutils literal notranslate"><span class="pre">{username}</span></code> veți avea username-ul vostru de pe GitHub.
 Pentru autorul acestui capitol este <code class="docutils literal notranslate"><span class="pre">lizababu</span></code>.</p>
-</div>
-<div class="section" id="crearea-pull-requestului">
+</section>
+<section id="crearea-pull-requestului">
 <span id="app-dev-create-pr"></span><h2><span class="section-number">10.4. </span>Crearea Pull Requestului<a class="headerlink" href="#crearea-pull-requestului" title="Permalink to this headline">¶</a></h2>
 <p>Accesăm linkul PR-ului: <strong>https://github.com/{username}/array-sorting-algorithms/pull/new/bubble-sort-implementation</strong></p>
 <p>În acest moment s-a deschis o nouă pagină care arată că în imaginea de mai jos.</p>
-<div class="figure align-default">
+<figure class="align-default">
 <a class="reference internal image-reference" href="../../_images/GitHub-create-PR.png"><img alt="Open Pull Request (PR)" src="../../_images/GitHub-create-PR.png" style="width: 1294.2px; height: 603.0px;" /></a>
-</div>
+</figure>
 <p>Mai jos explicăm semnificația celor mai importante componente prezente în imagine.</p>
-<div class="section" id="descrierea-pull-requestului">
+<section id="descrierea-pull-requestului">
 <span id="app-dev-pr-description"></span><h3><span class="section-number">10.4.1. </span>Descrierea Pull Requestului<a class="headerlink" href="#descrierea-pull-requestului" title="Permalink to this headline">¶</a></h3>
 <p>În imaginea de mai jos vedem o parte a interfeței GitHub în care putem lăsa un comentariu în care să descriem (chiar și mai în detaliu decât într-un mesaj de commit) ce schimbări am făcut.</p>
 <p>În cazul nostru, comentariul poate conține detalii despre implementarea algoritmului.
@@ -761,34 +764,34 @@ O descriere potrivită poate fi:</p>
 <span class="n">The</span> <span class="n">program</span> <span class="n">sorts</span> <span class="n">an</span> <span class="n">integer</span> <span class="n">array</span> <span class="ow">in</span> <span class="n">ascending</span> <span class="n">order</span><span class="o">.</span>
 </pre></div>
 </div>
-<div class="figure align-default">
+<figure class="align-default">
 <img alt="Descrierea PR-ului" src="../../_images/GitHub-create-PR-description.gif" />
-</div>
-</div>
-<div class="section" id="configurarea-branch-ului-in-care-vom-integra-pr-ul">
+</figure>
+</section>
+<section id="configurarea-branch-ului-in-care-vom-integra-pr-ul">
 <span id="app-dev-pr-config"></span><h3><span class="section-number">10.4.2. </span>Configurarea branch-ului în care vom integra PR-ul<a class="headerlink" href="#configurarea-branch-ului-in-care-vom-integra-pr-ul" title="Permalink to this headline">¶</a></h3>
 <p>Ca să finalizăm PR-ul, modificările din acesta trebuie să fie adăugate într-un branch, cel mai adesea în branch-ul <strong>master</strong> <a class="footnote-reference brackets" href="#base-branch" id="id2">2</a>.</p>
 <p>În acest tutorial vom folosi branch-ul <code class="docutils literal notranslate"><span class="pre">master</span></code> ca în imaginea de mai jos:</p>
-<div class="figure align-default">
+<figure class="align-default">
 <a class="reference internal image-reference" href="../../_images/GitHub-create-PR-base-branch.png"><img alt="Setarea branch-ului în care se va integra PR-ul" src="../../_images/GitHub-create-PR-base-branch.png" style="width: 1276.2px; height: 569.7px;" /></a>
-</div>
+</figure>
 <p>Acum creăm <strong>Pull Requestul</strong> apăsând pe butonul <code class="docutils literal notranslate"><span class="pre">Create</span> <span class="pre">pull</span> <span class="pre">request</span></code> ca în imaginea de mai jos:</p>
-<div class="figure align-default">
+<figure class="align-default">
 <a class="reference internal image-reference" href="../../_images/GitHub-create-PR-press-button.png"><img alt="Crearea unui PR" src="../../_images/GitHub-create-PR-press-button.png" style="width: 1276.2px; height: 569.7px;" /></a>
-</div>
-</div>
-<div class="section" id="recenzii-si-recenzenti">
+</figure>
+</section>
+<section id="recenzii-si-recenzenti">
 <span id="app-dev-pr-reviewers"></span><h3><span class="section-number">10.4.3. </span>Recenzii și recenzenți<a class="headerlink" href="#recenzii-si-recenzenti" title="Permalink to this headline">¶</a></h3>
 <p>Folosirea PR-urilor ne aduce un beneficiu important: putem primi feedback pe modificările aduse.
 Din interfața grafică GitHub putem adăuga recenzenți care să dea feedback pe modificări.
 Recenzenții fac parte din colaboratorii proiectului.</p>
-<div class="figure align-default">
+<figure class="align-default">
 <a class="reference internal image-reference" href="../../_images/GitHub-review.png"><img alt="Secțiunea de adăugat recenzenți la PR" src="../../_images/GitHub-review.png" style="width: 1295.1000000000001px; height: 666.0px;" /></a>
-</div>
+</figure>
 <p>În acest tutorial nu vom adăuga recenzenți la PR-ul creat.</p>
-</div>
-</div>
-<div class="section" id="integrarea-pr-ului">
+</section>
+</section>
+<section id="integrarea-pr-ului">
 <span id="app-dev-pr-integration"></span><h2><span class="section-number">10.5. </span>Integrarea PR-ului<a class="headerlink" href="#integrarea-pr-ului" title="Permalink to this headline">¶</a></h2>
 <p>După mai multe runde de feedback și aplicarea acestuia, PR-ul va fi gata de integrat în branch-ul <strong>master</strong>.</p>
 <div class="admonition note">
@@ -797,9 +800,9 @@ Recenzenții fac parte din colaboratorii proiectului.</p>
 </div>
 <p>Acum vom face operația <strong>merge</strong> a PR-ului.
 Apăsăm mai întâi butonul <code class="docutils literal notranslate"><span class="pre">Merge</span> <span class="pre">pull</span> <span class="pre">request</span></code> după care butonul <code class="docutils literal notranslate"><span class="pre">Confirm</span> <span class="pre">merge</span></code> ca în imaginea de mai jos.</p>
-<div class="figure align-default">
+<figure class="align-default">
 <img alt="Operația merge. Închiderea PR-ului" src="../../_images/GitHub-create-PR.gif" />
-</div>
+</figure>
 <p>Am făcut operația <strong>merge</strong> în repository-ul remote (<em>origin</em>).
 Avem pe branch-ul <strong>master</strong> implementarea algoritmului Bubble Sort.
 Actualizăm și repository-ul local folosind comanda <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">pull</span></code>:</p>
@@ -820,13 +823,13 @@ bubble-sort.c <span class="p">|</span> <span class="m">53</span> +++++++++++++++
 <span class="m">2</span> files changed, <span class="m">55</span> insertions<span class="o">(</span>+<span class="o">)</span>, <span class="m">5</span> deletions<span class="o">(</span>-<span class="o">)</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="stergerea-branch-ului-in-urma-integrarii-in-branch-ul-master">
+</section>
+<section id="stergerea-branch-ului-in-urma-integrarii-in-branch-ul-master">
 <span id="app-dev-pr-delete-branch"></span><h2><span class="section-number">10.6. </span>Ștergerea branch-ului în urma integrării în branch-ul master<a class="headerlink" href="#stergerea-branch-ului-in-urma-integrarii-in-branch-ul-master" title="Permalink to this headline">¶</a></h2>
 <p>Odată făcută operația <code class="docutils literal notranslate"><span class="pre">merge</span></code>, putem șterge branch-ul pe care am lucrat apăsând pe butonul <code class="docutils literal notranslate"><span class="pre">Delete</span> <span class="pre">branch</span></code>.</p>
-<div class="figure align-default">
+<figure class="align-default">
 <img alt="Ștergerea branch-ului **bubble-sort-implementation** remote (*origin*)" src="../../_images/GitHub-delete-origin-branch.gif" />
-</div>
+</figure>
 <p>Această operație va șterge branch-ul doar pe GitHub.
 Ca să ștergem branch-ul <strong>bubble-sort-implementation</strong> și din repository-ul local folosim comanda <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">branch</span> <span class="pre">-d</span></code>:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/array-sorting-algorithms$ git branch -d bubble-sort-implementation
@@ -837,8 +840,8 @@ student@uso:~/array-sorting-algorithms$ git branch
 </div>
 <p>În final am ajuns să integrăm modificările de pe branch-ul <strong>bubble-sort-implementation</strong> în branch-ul <strong>master</strong> prin intermediul unui <strong>Pull Request</strong>.
 Am șters branch-ul <strong>bubble-sort-implementation</strong>.</p>
-</div>
-<div class="section" id="exercitiu-crearea-unui-pr">
+</section>
+<section id="exercitiu-crearea-unui-pr">
 <span id="app-dev-pr-ex"></span><h2><span class="section-number">10.7. </span>Exercițiu - Crearea unui PR<a class="headerlink" href="#exercitiu-crearea-unui-pr" title="Permalink to this headline">¶</a></h2>
 <p>Veți folosi repository-ul <code class="docutils literal notranslate"><span class="pre">array-sorting-algorithms</span></code> pentru rezolvarea acestui exercțiu.</p>
 <p>Creați un <strong>Pull Request</strong> urmând pașii descriși mai sus în care să adăugați algoritmul de sortare Radix Sort.
@@ -931,8 +934,8 @@ De această dată veți modifica fișierul <code class="docutils literal notrans
 <li><p>Dați un mesaj de commit și o descriere potrivită PR-ului vostru.</p></li>
 <li><p>Verificați pe tot parcursul dezvoltării starea repository-ului (<code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">status</span></code>) și istoricul de commituri (<code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">log</span></code>).</p></li>
 </ol>
-</div>
-<div class="section" id="bune-practici">
+</section>
+<section id="bune-practici">
 <span id="app-dev-pr-good-practices"></span><h2><span class="section-number">10.8. </span>Bune practici<a class="headerlink" href="#bune-practici" title="Permalink to this headline">¶</a></h2>
 <p>Alternativa la a crea un <strong>Pull Request</strong> ar fi să lucrăm direct pe branch-ul <strong>master</strong>.</p>
 <p>Așa cum am menționat și în secțiunile anterioare, este <strong>BAD-PRACTICE</strong> să lucrăm direct pe branch-ul <strong>master</strong> din mai multe motive:</p>
@@ -956,8 +959,8 @@ Mult mai simplu este să se realizeze întreaga etapă de feedback, numită <str
 Vor fi afișate toate branch-urile din acest repository și vom putea alege în ce branch să integrăm PR-ul.</p>
 </dd>
 </dl>
-</div>
-</div>
+</section>
+</section>
 
 
           </div>
@@ -974,7 +977,7 @@ Vor fi afișate toate branch-urile din acest repository și vom putea alege în 
 </ul><div class="footer" role="contentinfo">
       &#169; Copyright 2020, USO Team.
     <br>
-    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.3.0 with <a href="https://github.com/romnnn/sphinx_press_theme">Press Theme</a>.
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.1.2 with <a href="https://github.com/romnn/sphinx_press_theme">Press Theme</a>.
 </div>
             </div>
           </div>

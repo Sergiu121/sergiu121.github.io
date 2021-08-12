@@ -2,20 +2,23 @@
 <html >
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
       <title>3. Compilarea unui program din fișiere multiple</title>
     
       <link rel="stylesheet" href="../../_static/pygments.css">
       <link rel="stylesheet" href="../../_static/theme.css">
-      <link rel="stylesheet" href="../../_static/romnnn_sphinx_press_theme.css">
+      <link rel="stylesheet" href="../../_static/romnn_sphinx_press_theme.css">
+          <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+          <link rel="stylesheet" href="../../_static/css/theme.css " type="text/css" />
       
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
 
       <!-- sphinx script_files -->
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/language_data.js"></script>
         <script src="../../_static/my_actions.js"></script>
 
       
@@ -223,7 +226,7 @@
       </p>
       <ul class="">
         
-          <li class="toctree-l1 "><a href="../files/paths.html" class="reference internal ">Căi absolute și relative</a>
+          <li class="toctree-l1 "><a href="../files/paths.html" class="reference internal ">Căi în ierarhia de fișiere</a>
 
             
           </li>
@@ -253,7 +256,13 @@
           </li>
 
         
-          <li class="toctree-l1 "><a href="../files/file_system.html" class="reference internal ">Sistemul de fișiere</a>
+          <li class="toctree-l1 "><a href="../files/file_system.html" class="reference internal ">Extra - Sistemul de fișiere</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../files/cheatsheet.html" class="reference internal ">Sumar - Cheatsheet</a>
 
             
           </li>
@@ -388,7 +397,7 @@
       </p>
       <ul class="">
         
-          <li class="toctree-l1 "><a href="../app-install/start.html" class="reference internal ">Pornirea aplicațiilor</a>
+          <li class="toctree-l1 "><a href="../app-install/start.html" class="reference internal ">Pornirea și oprirea aplicațiilor</a>
 
             
           </li>
@@ -400,13 +409,13 @@
           </li>
 
         
-          <li class="toctree-l1 "><a href="../app-install/config.html" class="reference internal ">Configurarea aplicațiilor</a>
+          <li class="toctree-l1 "><a href="../app-install/config.html" class="reference internal ">Configurarea rulării aplicațiilor</a>
 
             
           </li>
 
         
-          <li class="toctree-l1 "><a href="../app-install/summary1.html" class="reference internal ">Sumar: Pornirea, rularea și configurarea aplicațiilor</a>
+          <li class="toctree-l1 "><a href="../app-install/summary1.html" class="reference internal ">Exerciții: Pornirea, rularea și configurarea aplicațiilor</a>
 
             
           </li>
@@ -424,13 +433,7 @@
           </li>
 
         
-          <li class="toctree-l1 "><a href="../app-install/install-non-standard.html" class="reference internal ">Instalarea și dezinstalarea aplicațiilor în mod nestandard</a>
-
-            
-          </li>
-
-        
-          <li class="toctree-l1 "><a href="../app-install/update.html" class="reference internal ">Actualizarea aplicațiilor</a>
+          <li class="toctree-l1 "><a href="../app-install/install-non-standard.html" class="reference internal ">Alternative la instalarea și dezinstalarea aplicațiilor</a>
 
             
           </li>
@@ -442,7 +445,7 @@
           </li>
 
         
-          <li class="toctree-l1 "><a href="../app-install/summary2.html" class="reference internal ">Sumar: Instalarea, dezinstalarea, investigarea, actualizarea aplicațiilor</a>
+          <li class="toctree-l1 "><a href="../app-install/summary2.html" class="reference internal ">Exerciții: Instalarea și gestiunea aplicațiilor</a>
 
             
           </li>
@@ -530,12 +533,12 @@
 <hr>
           <div class="content" role="main">
             
-  <div class="section" id="compilarea-unui-program-din-fisiere-multiple">
+  <section id="compilarea-unui-program-din-fisiere-multiple">
 <span id="app-dev-compile-multiple-files"></span><h1><span class="section-number">3. </span>Compilarea unui program din fișiere multiple<a class="headerlink" href="#compilarea-unui-program-din-fisiere-multiple" title="Permalink to this headline">¶</a></h1>
 <p>În secțiunea anterioară, <a class="reference internal" href="make-intro.html#app-dev-compile-source-file"><span class="std std-ref">Compilarea unui fișier cod sursă C</span></a>, am creat și am compilat un sigur fișier cod sursă C, <code class="docutils literal notranslate"><span class="pre">is-prime.c</span></code>.</p>
 <p>În această secțiune vom compila un program pornind de la mai multe fișiere cod sursă și fișiere header.
 Mai exact, vom crea un program care afișează factorialul și inversul unui număr întreg.</p>
-<div class="section" id="inspectarea-fisierelor">
+<section id="inspectarea-fisierelor">
 <span id="app-dev-inspect-files"></span><h2><span class="section-number">3.1. </span>Inspectarea fișierelor<a class="headerlink" href="#inspectarea-fisierelor" title="Permalink to this headline">¶</a></h2>
 <p>Afișăm conținutul directorului <code class="docutils literal notranslate"><span class="pre">support/compile-multiple</span></code>, folosind comanda <code class="docutils literal notranslate"><span class="pre">ls</span></code>:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ ls support/compile-multiple
@@ -546,8 +549,8 @@ algorithms.c  algorithms.h  main.c
 <p><code class="docutils literal notranslate"><span class="pre">algorithms.h</span></code> este fișier <em>header</em> (cu extensia <code class="docutils literal notranslate"><span class="pre">.h</span></code>), conține <strong>declarația</strong> (<em>antetul</em>) funcției <code class="docutils literal notranslate"><span class="pre">factorial</span></code>:  <code class="docutils literal notranslate"><span class="pre">unsigned</span> <span class="pre">factorial(int</span> <span class="pre">n);</span></code>.</p>
 <p><code class="docutils literal notranslate"><span class="pre">algorithms.c</span></code> este fișier cod sursă și conține <strong>definiția</strong> (<em>implementarea</em>) funcției <code class="docutils literal notranslate"><span class="pre">factorial</span></code>.</p>
 <p><strong>Exercițiu:</strong> Verificați conținutul fișierelor <code class="docutils literal notranslate"><span class="pre">main.c</span></code>, <code class="docutils literal notranslate"><span class="pre">algorithms.c</span></code> și <code class="docutils literal notranslate"><span class="pre">algorithms.h</span></code> folosind comanda <code class="docutils literal notranslate"><span class="pre">cat</span></code>, pagerul <code class="docutils literal notranslate"><span class="pre">less</span></code> sau editorul <code class="docutils literal notranslate"><span class="pre">nano</span></code>.</p>
-</div>
-<div class="section" id="compilarea-programului-din-surse-multiple">
+</section>
+<section id="compilarea-programului-din-surse-multiple">
 <span id="app-dev-compile-multiple-sources"></span><h2><span class="section-number">3.2. </span>Compilarea programului din surse multiple<a class="headerlink" href="#compilarea-programului-din-surse-multiple" title="Permalink to this headline">¶</a></h2>
 <p>Ne plasăm în directorul <code class="docutils literal notranslate"><span class="pre">support/compile-multiple</span></code> folosind comanda <code class="docutils literal notranslate"><span class="pre">cd</span></code>:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ <span class="nb">cd</span> support/compile-multiple
@@ -578,8 +581,8 @@ algorithms.c  algorithms.h  main.c
 </pre></div>
 </div>
 <p>Vom reface executabilul <code class="docutils literal notranslate"><span class="pre">algorithms</span></code> în secțiunea <a class="reference internal" href="#app-dev-object-files"><span class="std std-ref">Fișiere obiect</span></a>.</p>
-</div>
-<div class="section" id="fisiere-obiect">
+</section>
+<section id="fisiere-obiect">
 <span id="app-dev-object-files"></span><h2><span class="section-number">3.3. </span>Fișiere obiect<a class="headerlink" href="#fisiere-obiect" title="Permalink to this headline">¶</a></h2>
 <p>Ca să evităm recompilarea fișierelor cod sursă care nu au fost modifcate, putem să <em>descompunem</em> etapa de compilare în 2 părți:</p>
 <ol class="arabic simple">
@@ -597,7 +600,7 @@ Fiecare fișier obiect depinde de fișierul cod sursă asociat (<code class="doc
 Atunci când vom modifica fișierul <code class="docutils literal notranslate"><span class="pre">main.c</span></code>, vom regenera doar fișierul obiect <code class="docutils literal notranslate"><span class="pre">main.o</span></code>.
 Nu este nevoie să regenerăm fișierul <code class="docutils literal notranslate"><span class="pre">algorithms.o</span></code> pentru că <code class="docutils literal notranslate"><span class="pre">algorithms.c</span></code> nu a fost modificat.</p>
 <p>În subsecțiunile următoare vom compila fișierele sursă, <code class="docutils literal notranslate"><span class="pre">main.c</span></code> și <code class="docutils literal notranslate"><span class="pre">algorithms.c</span></code>, în fișiere obiect și le vom lega astfel încât, în final, vom obține executabilul <code class="docutils literal notranslate"><span class="pre">algorithms</span></code>.</p>
-<div class="section" id="compilarea-fisierelor-cod-sursa-in-fisiere-obiect">
+<section id="compilarea-fisierelor-cod-sursa-in-fisiere-obiect">
 <span id="app-dev-compile-to-object-files"></span><h3><span class="section-number">3.3.1. </span>Compilarea fișierelor cod sursă în fișiere obiect<a class="headerlink" href="#compilarea-fisierelor-cod-sursa-in-fisiere-obiect" title="Permalink to this headline">¶</a></h3>
 <p>În această subsecțiune vom trece prin pasul <code class="docutils literal notranslate"><span class="pre">1</span></code> din diagrama din secțiunea <a class="reference internal" href="#app-dev-object-files"><span class="std std-ref">Fișiere obiect</span></a>, adică pașii de <em>compilare</em>.</p>
 <p>Compilăm fișierul <code class="docutils literal notranslate"><span class="pre">main.c</span></code> într-un fișier obiect <code class="docutils literal notranslate"><span class="pre">main.o</span></code> folosind opțiunea <code class="docutils literal notranslate"><span class="pre">-c</span></code> a comenzii <code class="docutils literal notranslate"><span class="pre">gcc</span></code>:</p>
@@ -614,8 +617,8 @@ algorithms.c  algorithms.h  algorithms.o  main.c  main.o
 </pre></div>
 </div>
 <p>Acum avem 2 fișiere obiect, <code class="docutils literal notranslate"><span class="pre">main.o</span></code> și <code class="docutils literal notranslate"><span class="pre">algorithms.o</span></code>, pe care urmează să le legăm și să formăm executabilul <code class="docutils literal notranslate"><span class="pre">algorithms</span></code>.</p>
-</div>
-<div class="section" id="legarea-fisierelor-obiect-intr-un-fisier-executabil">
+</section>
+<section id="legarea-fisierelor-obiect-intr-un-fisier-executabil">
 <span id="app-dev-link-object-files"></span><h3><span class="section-number">3.3.2. </span>Legarea fișierelor obiect într-un fișier executabil<a class="headerlink" href="#legarea-fisierelor-obiect-intr-un-fisier-executabil" title="Permalink to this headline">¶</a></h3>
 <p>În această subsecțiune vom trece prin pasul <code class="docutils literal notranslate"><span class="pre">2</span></code> din diagrama din secțiunea <a class="reference internal" href="#app-dev-object-files"><span class="std std-ref">Fișiere obiect</span></a>, adică pasul de <em>legare</em>.</p>
 <p>Acum că avem 2 fișiere obiect, trebuie să le legăm pentru a obține executabilul final.
@@ -641,17 +644,17 @@ algorithms.c  algorithms.h  algorithms.o    main.c  main.o
 <p>Plecând de la 2 fișiere obiect, <code class="docutils literal notranslate"><span class="pre">main.o</span></code> și <code class="docutils literal notranslate"><span class="pre">algorithms.o</span></code>, am obținut același executabil <code class="docutils literal notranslate"><span class="pre">algorithms</span></code>.</p>
 <p>Știind cum compilăm individual 2 fișiere cod sursă, vedem în secțiunea următoare, <a class="reference internal" href="#app-dev-modify-recompile"><span class="std std-ref">Modificarea fișierelor sursă și recompilarea lor</span></a>, beneficiile compilării incrementale.
 Recompilăm <em>doar</em> fișierele care au fost modificate de la ultima compilare și refacem executabilul prin legarea fișierelor obiect vechi (nemodificate de la ultima compilare) cu cele noi (recompilate după modificarea fișierelor cod sursă).</p>
-</div>
-<div class="section" id="modificarea-fisierelor-sursa-si-recompilarea-lor">
+</section>
+<section id="modificarea-fisierelor-sursa-si-recompilarea-lor">
 <span id="app-dev-modify-recompile"></span><h3><span class="section-number">3.3.3. </span>Modificarea fișierelor sursă și recompilarea lor<a class="headerlink" href="#modificarea-fisierelor-sursa-si-recompilarea-lor" title="Permalink to this headline">¶</a></h3>
 <p>În continuare, vedem care sunt avantajele compilării incrementale, în care unele operații de compilare nu au loc.</p>
 <p>Modificăm fișierul <code class="docutils literal notranslate"><span class="pre">main.c</span></code>, îl recompilăm într-un fișier obiect <code class="docutils literal notranslate"><span class="pre">main.o</span></code>.
 Fișierul <code class="docutils literal notranslate"><span class="pre">algorithms.o</span></code> rămâne nemodificat.
 Legăm noul fișier <code class="docutils literal notranslate"><span class="pre">main.o</span></code> cu vechiul fișier <code class="docutils literal notranslate"><span class="pre">algorithms.o</span></code> pentru a obține un nou executabil <code class="docutils literal notranslate"><span class="pre">algorithms</span></code>.</p>
 <p>Adăugăm linia <code class="docutils literal notranslate"><span class="pre">printf(&quot;%d!</span> <span class="pre">=</span> <span class="pre">%u\n&quot;,</span> <span class="pre">n</span> <span class="pre">+</span> <span class="pre">1,</span> <span class="pre">factorial(n</span> <span class="pre">+</span> <span class="pre">1));</span></code> în fișierul <code class="docutils literal notranslate"><span class="pre">main.c</span></code>, ca în imaginea de mai jos:</p>
-<div class="figure align-default">
+<figure class="align-default">
 <img alt="Modificarea fișierului ``main.c``" src="../../_images/modify-main.gif" />
-</div>
+</figure>
 <p>Compilăm fișierul <code class="docutils literal notranslate"><span class="pre">main.c</span></code> într-un fișier obiect <code class="docutils literal notranslate"><span class="pre">main.o</span></code> folosind <code class="docutils literal notranslate"><span class="pre">gcc</span></code>:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/support/compile-multiple$ gcc -c main.c
 student@uso:~/support/compile-multiple$ ls
@@ -674,9 +677,9 @@ gimme number and i&#39;ll give you factorial: 10
 </div>
 <p>Am văzut în această secțiune cum compilăm eficient un program din mai multe fișiere cod sursă.
 Concret, am compilat fișierele <code class="docutils literal notranslate"><span class="pre">main.c</span></code> și <code class="docutils literal notranslate"><span class="pre">algorithms.c</span></code>, independent unul față de celălalt, în fișierele obiect <code class="docutils literal notranslate"><span class="pre">main.o</span></code> și <code class="docutils literal notranslate"><span class="pre">algorithms.o</span></code>, le-am legat, și am creat executabilul <code class="docutils literal notranslate"><span class="pre">algorithms</span></code>.</p>
-</div>
-</div>
-<div class="section" id="exercitii">
+</section>
+</section>
+<section id="exercitii">
 <span id="app-dev-make-multiple-ex"></span><h2><span class="section-number">3.4. </span>Exerciții<a class="headerlink" href="#exercitii" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic simple">
 <li><p>Mergeți în directorul <code class="docutils literal notranslate"><span class="pre">~/support/compile-multiple-ex</span></code>.</p></li>
@@ -693,8 +696,8 @@ Concret, am compilat fișierele <code class="docutils literal notranslate"><span
 <a class="reference external" href="https://ubuntuforums.org/showthread.php?t=650461">https://ubuntuforums.org/showthread.php?t=650461</a></p>
 </dd>
 </dl>
-</div>
-</div>
+</section>
+</section>
 
 
           </div>
@@ -711,7 +714,7 @@ Concret, am compilat fișierele <code class="docutils literal notranslate"><span
 </ul><div class="footer" role="contentinfo">
       &#169; Copyright 2020, USO Team.
     <br>
-    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.3.0 with <a href="https://github.com/romnnn/sphinx_press_theme">Press Theme</a>.
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.1.2 with <a href="https://github.com/romnn/sphinx_press_theme">Press Theme</a>.
 </div>
             </div>
           </div>

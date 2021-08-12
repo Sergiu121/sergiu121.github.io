@@ -2,20 +2,23 @@
 <html >
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
       <title>9. Lucrul pe branch-uri</title>
     
       <link rel="stylesheet" href="../../_static/pygments.css">
       <link rel="stylesheet" href="../../_static/theme.css">
-      <link rel="stylesheet" href="../../_static/romnnn_sphinx_press_theme.css">
+      <link rel="stylesheet" href="../../_static/romnn_sphinx_press_theme.css">
+          <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+          <link rel="stylesheet" href="../../_static/css/theme.css " type="text/css" />
       
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
 
       <!-- sphinx script_files -->
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/language_data.js"></script>
         <script src="../../_static/my_actions.js"></script>
 
       
@@ -223,7 +226,7 @@
       </p>
       <ul class="">
         
-          <li class="toctree-l1 "><a href="../files/paths.html" class="reference internal ">Căi absolute și relative</a>
+          <li class="toctree-l1 "><a href="../files/paths.html" class="reference internal ">Căi în ierarhia de fișiere</a>
 
             
           </li>
@@ -253,7 +256,13 @@
           </li>
 
         
-          <li class="toctree-l1 "><a href="../files/file_system.html" class="reference internal ">Sistemul de fișiere</a>
+          <li class="toctree-l1 "><a href="../files/file_system.html" class="reference internal ">Extra - Sistemul de fișiere</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../files/cheatsheet.html" class="reference internal ">Sumar - Cheatsheet</a>
 
             
           </li>
@@ -392,7 +401,7 @@
       </p>
       <ul class="">
         
-          <li class="toctree-l1 "><a href="../app-install/start.html" class="reference internal ">Pornirea aplicațiilor</a>
+          <li class="toctree-l1 "><a href="../app-install/start.html" class="reference internal ">Pornirea și oprirea aplicațiilor</a>
 
             
           </li>
@@ -404,13 +413,13 @@
           </li>
 
         
-          <li class="toctree-l1 "><a href="../app-install/config.html" class="reference internal ">Configurarea aplicațiilor</a>
+          <li class="toctree-l1 "><a href="../app-install/config.html" class="reference internal ">Configurarea rulării aplicațiilor</a>
 
             
           </li>
 
         
-          <li class="toctree-l1 "><a href="../app-install/summary1.html" class="reference internal ">Sumar: Pornirea, rularea și configurarea aplicațiilor</a>
+          <li class="toctree-l1 "><a href="../app-install/summary1.html" class="reference internal ">Exerciții: Pornirea, rularea și configurarea aplicațiilor</a>
 
             
           </li>
@@ -428,13 +437,7 @@
           </li>
 
         
-          <li class="toctree-l1 "><a href="../app-install/install-non-standard.html" class="reference internal ">Instalarea și dezinstalarea aplicațiilor în mod nestandard</a>
-
-            
-          </li>
-
-        
-          <li class="toctree-l1 "><a href="../app-install/update.html" class="reference internal ">Actualizarea aplicațiilor</a>
+          <li class="toctree-l1 "><a href="../app-install/install-non-standard.html" class="reference internal ">Alternative la instalarea și dezinstalarea aplicațiilor</a>
 
             
           </li>
@@ -446,7 +449,7 @@
           </li>
 
         
-          <li class="toctree-l1 "><a href="../app-install/summary2.html" class="reference internal ">Sumar: Instalarea, dezinstalarea, investigarea, actualizarea aplicațiilor</a>
+          <li class="toctree-l1 "><a href="../app-install/summary2.html" class="reference internal ">Exerciții: Instalarea și gestiunea aplicațiilor</a>
 
             
           </li>
@@ -534,7 +537,7 @@
 <hr>
           <div class="content" role="main">
             
-  <div class="section" id="lucrul-pe-branch-uri">
+  <section id="lucrul-pe-branch-uri">
 <span id="app-dev-branches"></span><h1><span class="section-number">9. </span>Lucrul pe branch-uri<a class="headerlink" href="#lucrul-pe-branch-uri" title="Permalink to this headline">¶</a></h1>
 <p>Un dezvoltator vrea să lucreze la o funcționalitate nouă, care poate destabiliza proiectul.
 Pentru aceasta creează <strong>o ramură de dezvoltare nouă</strong> (<em>branch</em>) pe care face commituri noi.
@@ -581,17 +584,17 @@ Date:   Thu Sep <span class="m">24</span> <span class="m">09</span>:09:51 <span 
 </pre></div>
 </div>
 <p>O reprezentare vizuală a istoricului commiturilor este:</p>
-<div class="figure align-default">
+<figure class="align-default">
 <a class="reference internal image-reference" href="../../_images/GitHub-commit-history.png"><img alt="Reprezentarea vizuală a istoricului de commituri" src="../../_images/GitHub-commit-history.png" style="width: 550.8000000000001px; height: 189.0px;" /></a>
-</div>
+</figure>
 <p><strong>Root-commitul</strong> este primul commit din istoric (<em>b2a590a8637f1eab96e557334dbd4be14bf95833</em>, <em>b2a590a</em>) <a class="footnote-reference brackets" href="#hash" id="id1">1</a>.
 Toate celelalte commituri vin în continuarea acestuia.
 Spre exemplu, al doilea commit (<em>f65a7fbe8bbe1b36ba5c8e16607456a879bfb6fa</em>, <em>f65a7fb</em>) a avut la bază primul commit (<em>b2a590a</em>).
 Modificările au fost făcute peste commitul <em>b2a590a</em>.</p>
 <p>Crearea unui commit nou pe un <em>alt</em> branch va modifica istoricul ca în imaginea de mai jos:</p>
-<div class="figure align-default">
+<figure class="align-default">
 <a class="reference internal image-reference" href="../../_images/GitHub-commit-history.gif"><img alt="Reprezentarea vizuală a istoricului de commituri" src="../../_images/GitHub-commit-history.gif" style="width: 612.0px; height: 210.0px;" /></a>
-</div>
+</figure>
 <p>În acest moment, pe repository-ul nostru aveți un singur branch - <strong>master</strong>.
 În continuare vom lucra la proiectul nostru <code class="docutils literal notranslate"><span class="pre">array-sorting-algorithms</span></code>, dar vom face schimbări de pe alte branch-uri.</p>
 <p>În următoarea secțiune vom adăuga un fișier <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code> proiectului și vom adăuga implementarea pentru agloritmul Merge Sort.</p>
@@ -600,7 +603,7 @@ Modificările au fost făcute peste commitul <em>b2a590a</em>.</p>
 <p>În general adăugăm fișierul <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code> la un proiect de pe branch-ul master.</p>
 <p>În secțiunea <a class="reference internal" href="#app-dev-add-gitignore"><span class="std std-ref">Adăugarea unui fișier .gitignore repository-ului</span></a> îl vom adăuga de pe un alt branch pe care îl numim <code class="docutils literal notranslate"><span class="pre">add-gitignore</span></code> ca să ne obișnuim să folosim branch-uri.</p>
 </div>
-<div class="section" id="adaugarea-unui-fisier-gitignore-repository-ului">
+<section id="adaugarea-unui-fisier-gitignore-repository-ului">
 <span id="app-dev-add-gitignore"></span><h2><span class="section-number">9.1. </span>Adăugarea unui fișier .gitignore repository-ului<a class="headerlink" href="#adaugarea-unui-fisier-gitignore-repository-ului" title="Permalink to this headline">¶</a></h2>
 <p>De acum încolo, vom face toate modificările de pe un nou branch, diferit de branch-ul <strong>master</strong> <a class="footnote-reference brackets" href="#good-practice" id="id2">2</a>.</p>
 <p>În această subsecțiune vom crea un nou branch numit <code class="docutils literal notranslate"><span class="pre">add-gitignore</span></code>.
@@ -688,8 +691,8 @@ Odată cu publicarea commitului pe GitHub, a fost creat și branch-ul <code clas
 Din grabă sau neatenție, putem face operații incorecte și este mai ușor să le remediem pe loc decât mai târziu.
 Spre exemplu, după crearea unui commit, verificăm <strong>statusul repository-ului</strong> și <strong>istoricul de commituri</strong>.</p>
 </div>
-</div>
-<div class="section" id="operatia-merge-dintre-un-branch-secundar-si-master">
+</section>
+<section id="operatia-merge-dintre-un-branch-secundar-si-master">
 <span id="app-dev-merge"></span><h2><span class="section-number">9.2. </span>Operația <strong>merge</strong> dintre un branch secundar și master<a class="headerlink" href="#operatia-merge-dintre-un-branch-secundar-si-master" title="Permalink to this headline">¶</a></h2>
 <p>În secțiunea <a class="reference internal" href="#app-dev-add-gitignore"><span class="std std-ref">Adăugarea unui fișier .gitignore repository-ului</span></a> de mai sus am creat un commit pe branch-ul <strong>add-gitignore</strong>.</p>
 <div class="admonition note">
@@ -758,11 +761,11 @@ To https://github.com/lizababu/array-sorting-algorithms
 </pre></div>
 </div>
 <p>Vedem commitul și pe GitHub ca în imaginea de mai jos pe branch-ul <strong>master</strong>:</p>
-<div class="figure align-default">
+<figure class="align-default">
 <a class="reference internal image-reference" href="../../_images/GitHub-publish-merge.png"><img alt="Vizualizarea commitului merge din interfața GitHub" src="../../_images/GitHub-publish-merge.png" style="width: 956.7px; height: 546.3000000000001px;" /></a>
-</div>
-</div>
-<div class="section" id="stergerea-unui-branch">
+</figure>
+</section>
+<section id="stergerea-unui-branch">
 <span id="app-dev-delete-branch"></span><h2><span class="section-number">9.3. </span>Ștergerea unui branch<a class="headerlink" href="#stergerea-unui-branch" title="Permalink to this headline">¶</a></h2>
 <p>După ce terminăm lucrul pe un branch, îl ștergem.
 Vom folosi noi ramuri de dezvoltare (<em>branch-uri</em>) pentru alte funcționalități, deci nu vom mai avea nevoie de branch-urile vechi.</p>
@@ -790,11 +793,11 @@ To https://github.com/lizababu/array-sorting-algorithms.git
 </pre></div>
 </div>
 <p>Vedem și din interfața GitHub că nu mai există branch-ul <strong>add-gitignore</strong> ca în imaginea de mai jos:</p>
-<div class="figure align-default">
+<figure class="align-default">
 <a class="reference internal image-reference" href="../../_images/GitHub-delete-branch-add-gitignore.png"><img alt="Vizualizarea branch-urilor din interfața GitHub" src="../../_images/GitHub-delete-branch-add-gitignore.png" style="width: 948.6px; height: 531.9px;" /></a>
-</div>
-</div>
-<div class="section" id="modificarea-fisierului-gitignore">
+</figure>
+</section>
+<section id="modificarea-fisierului-gitignore">
 <span id="app-dev-another-merge"></span><h2><span class="section-number">9.4. </span>Modificarea fișierului .gitignore<a class="headerlink" href="#modificarea-fisierului-gitignore" title="Permalink to this headline">¶</a></h2>
 <p>În această subsecțiune vom relua pașii prezentați în subsecțiunile anterioare.
 Vom lucra în continuare pe branch-uri.
@@ -904,11 +907,11 @@ To https://github.com/lizababu/array-sorting-algorithms.git
 </pre></div>
 </div>
 <p>Vedem și din interfața GitHub că nu mai există branch-ul <strong>update-gitignore</strong> ca în imaginea de mai jos:</p>
-<div class="figure align-default">
+<figure class="align-default">
 <a class="reference internal image-reference" href="../../_images/GitHub-delete-branch-update-gitignore.png"><img alt="Vizualizarea branch-urilor din interfața GitHub" src="../../_images/GitHub-delete-branch-update-gitignore.png" style="width: 956.7px; height: 546.3000000000001px;" /></a>
-</div>
-</div>
-<div class="section" id="exercitii">
+</figure>
+</section>
+<section id="exercitii">
 <span id="app-dev-branches-ex"></span><h2><span class="section-number">9.5. </span>Exerciții<a class="headerlink" href="#exercitii" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic">
 <li><p>Creați un branch cu numele <code class="docutils literal notranslate"><span class="pre">merge-sort-implementation</span></code>.</p></li>
@@ -1011,8 +1014,8 @@ To https://github.com/lizababu/array-sorting-algorithms.git
 <li><p>Efectuați operația <strong>merge</strong> între branch-ul <strong>master</strong> și <strong>merge-sort-implementation</strong>.</p></li>
 <li><p>Ștergeți branch-ul <strong>merge-sort-implementation</strong>.</p></li>
 </ol>
-</div>
-<div class="section" id="bune-practici">
+</section>
+<section id="bune-practici">
 <span id="app-dev-branches-good-practices"></span><h2><span class="section-number">9.6. </span>Bune practici<a class="headerlink" href="#bune-practici" title="Permalink to this headline">¶</a></h2>
 <p>Atunci când contribuim la un proiect putem să lucrăm fie pe branch-ul <strong>master</strong>, fie pe un alt branch.
 Este considerat <strong>BAD PRACTICE</strong> să lucrăm pe branch-ul <strong>master</strong> din mai multe motive:</p>
@@ -1035,8 +1038,8 @@ De exemplu, pentru commitul cu ID-ul <em>b2a590a8637f1eab96e557334dbd4be14bf9583
 Branch-ul trebuie să aibă un nume sugestiv pentru ca ceilalți să poată înțelege rapid ce schimbări se fac pe el.</p>
 </dd>
 </dl>
-</div>
-</div>
+</section>
+</section>
 
 
           </div>
@@ -1053,7 +1056,7 @@ Branch-ul trebuie să aibă un nume sugestiv pentru ca ceilalți să poată în�
 </ul><div class="footer" role="contentinfo">
       &#169; Copyright 2020, USO Team.
     <br>
-    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.3.0 with <a href="https://github.com/romnnn/sphinx_press_theme">Press Theme</a>.
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.1.2 with <a href="https://github.com/romnn/sphinx_press_theme">Press Theme</a>.
 </div>
             </div>
           </div>

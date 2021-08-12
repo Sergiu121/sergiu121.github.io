@@ -2,20 +2,23 @@
 <html >
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
       <title>6. Aprofundarea folosirii fișierelor Makefile</title>
     
       <link rel="stylesheet" href="../../_static/pygments.css">
       <link rel="stylesheet" href="../../_static/theme.css">
-      <link rel="stylesheet" href="../../_static/romnnn_sphinx_press_theme.css">
+      <link rel="stylesheet" href="../../_static/romnn_sphinx_press_theme.css">
+          <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+          <link rel="stylesheet" href="../../_static/css/theme.css " type="text/css" />
       
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
 
       <!-- sphinx script_files -->
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/language_data.js"></script>
         <script src="../../_static/my_actions.js"></script>
 
       
@@ -223,7 +226,7 @@
       </p>
       <ul class="">
         
-          <li class="toctree-l1 "><a href="../files/paths.html" class="reference internal ">Căi absolute și relative</a>
+          <li class="toctree-l1 "><a href="../files/paths.html" class="reference internal ">Căi în ierarhia de fișiere</a>
 
             
           </li>
@@ -253,7 +256,13 @@
           </li>
 
         
-          <li class="toctree-l1 "><a href="../files/file_system.html" class="reference internal ">Sistemul de fișiere</a>
+          <li class="toctree-l1 "><a href="../files/file_system.html" class="reference internal ">Extra - Sistemul de fișiere</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../files/cheatsheet.html" class="reference internal ">Sumar - Cheatsheet</a>
 
             
           </li>
@@ -305,9 +314,7 @@
                 
                   <li class="toctree-l2"><a href="#adaugarea-dependentelor-pentru-fiecare-regula-existenta" class="reference internal">Adăugarea dependențelor pentru fiecare regulă existentă</a></li>
                 
-                  <li class="toctree-l2"><a href="#folosirea-de-variabile-in-fisiere-makefile" class="reference internal">Folosirea de variabile în fișiere Makefile</a></li>
-                
-                  <li class="toctree-l2"><a href="#regula-phony" class="reference internal">Regula .PHONY</a></li>
+                  <li class="toctree-l2"><a href="#targetul-phony" class="reference internal">Targetul .PHONY</a></li>
                 
               </ul>
             
@@ -386,7 +393,7 @@
       </p>
       <ul class="">
         
-          <li class="toctree-l1 "><a href="../app-install/start.html" class="reference internal ">Pornirea aplicațiilor</a>
+          <li class="toctree-l1 "><a href="../app-install/start.html" class="reference internal ">Pornirea și oprirea aplicațiilor</a>
 
             
           </li>
@@ -398,13 +405,13 @@
           </li>
 
         
-          <li class="toctree-l1 "><a href="../app-install/config.html" class="reference internal ">Configurarea aplicațiilor</a>
+          <li class="toctree-l1 "><a href="../app-install/config.html" class="reference internal ">Configurarea rulării aplicațiilor</a>
 
             
           </li>
 
         
-          <li class="toctree-l1 "><a href="../app-install/summary1.html" class="reference internal ">Sumar: Pornirea, rularea și configurarea aplicațiilor</a>
+          <li class="toctree-l1 "><a href="../app-install/summary1.html" class="reference internal ">Exerciții: Pornirea, rularea și configurarea aplicațiilor</a>
 
             
           </li>
@@ -422,13 +429,7 @@
           </li>
 
         
-          <li class="toctree-l1 "><a href="../app-install/install-non-standard.html" class="reference internal ">Instalarea și dezinstalarea aplicațiilor în mod nestandard</a>
-
-            
-          </li>
-
-        
-          <li class="toctree-l1 "><a href="../app-install/update.html" class="reference internal ">Actualizarea aplicațiilor</a>
+          <li class="toctree-l1 "><a href="../app-install/install-non-standard.html" class="reference internal ">Alternative la instalarea și dezinstalarea aplicațiilor</a>
 
             
           </li>
@@ -440,7 +441,7 @@
           </li>
 
         
-          <li class="toctree-l1 "><a href="../app-install/summary2.html" class="reference internal ">Sumar: Instalarea, dezinstalarea, investigarea, actualizarea aplicațiilor</a>
+          <li class="toctree-l1 "><a href="../app-install/summary2.html" class="reference internal ">Exerciții: Instalarea și gestiunea aplicațiilor</a>
 
             
           </li>
@@ -528,35 +529,22 @@
 <hr>
           <div class="content" role="main">
             
-  <div class="section" id="aprofundarea-folosirii-fisierelor-makefile">
-<h1><span class="section-number">6. </span>Aprofundarea folosirii fișierelor Makefile<a class="headerlink" href="#aprofundarea-folosirii-fisierelor-makefile" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="adaugarea-dependentelor-pentru-fiecare-regula-existenta">
-<h2><span class="section-number">6.1. </span>Adăugarea dependențelor pentru fiecare regulă existentă<a class="headerlink" href="#adaugarea-dependentelor-pentru-fiecare-regula-existenta" title="Permalink to this headline">¶</a></h2>
+  <section id="aprofundarea-folosirii-fisierelor-makefile">
+<span id="app-dev-advanced-makefile"></span><h1><span class="section-number">6. </span>Aprofundarea folosirii fișierelor Makefile<a class="headerlink" href="#aprofundarea-folosirii-fisierelor-makefile" title="Permalink to this headline">¶</a></h1>
+<section id="adaugarea-dependentelor-pentru-fiecare-regula-existenta">
+<span id="app-dev-dependency-makefile"></span><h2><span class="section-number">6.1. </span>Adăugarea dependențelor pentru fiecare regulă existentă<a class="headerlink" href="#adaugarea-dependentelor-pentru-fiecare-regula-existenta" title="Permalink to this headline">¶</a></h2>
 <p>Adăugarea dependențelor pentru regulile deja existente.</p>
-</div>
-<div class="section" id="folosirea-de-variabile-in-fisiere-makefile">
-<h2><span class="section-number">6.2. </span>Folosirea de variabile în fișiere Makefile<a class="headerlink" href="#folosirea-de-variabile-in-fisiere-makefile" title="Permalink to this headline">¶</a></h2>
-<p>Introducerea variabilelor. De adăugat și ceva despre variabile de debug și specificarea arhitecturii la bonus/best practice</p>
-<div class="section" id="variabile-pentru-compilator">
-<h3><span class="section-number">6.2.1. </span>Variabile pentru compilator<a class="headerlink" href="#variabile-pentru-compilator" title="Permalink to this headline">¶</a></h3>
-</div>
-<div class="section" id="variabile-pentru-linker">
-<h3><span class="section-number">6.2.2. </span>Variabile pentru linker<a class="headerlink" href="#variabile-pentru-linker" title="Permalink to this headline">¶</a></h3>
-</div>
-<div class="section" id="modificarea-fisierului-makefile-folosind-variabile">
-<h3><span class="section-number">6.2.3. </span>Modificarea fișierului Makefile folosind variabile<a class="headerlink" href="#modificarea-fisierului-makefile-folosind-variabile" title="Permalink to this headline">¶</a></h3>
-</div>
-</div>
-<div class="section" id="regula-phony">
-<h2><span class="section-number">6.3. </span>Regula .PHONY<a class="headerlink" href="#regula-phony" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="necesitatea-folosirii-targetului-phony">
-<h3><span class="section-number">6.3.1. </span>Necesitatea folosirii targetului .PHONY<a class="headerlink" href="#necesitatea-folosirii-targetului-phony" title="Permalink to this headline">¶</a></h3>
-</div>
-<div class="section" id="adaugarea-targetului-phony">
-<h3><span class="section-number">6.3.2. </span>Adăugarea targetului .PHONY<a class="headerlink" href="#adaugarea-targetului-phony" title="Permalink to this headline">¶</a></h3>
-</div>
-</div>
-</div>
+</section>
+<section id="targetul-phony">
+<span id="app-dev-phony-makefile"></span><h2><span class="section-number">6.2. </span>Targetul <cite>.PHONY</cite><a class="headerlink" href="#targetul-phony" title="Permalink to this headline">¶</a></h2>
+<section id="necesitatea-folosirii-targetului-phony">
+<span id="app-dev-understand-using-phony-makefile"></span><h3><span class="section-number">6.2.1. </span>Necesitatea folosirii targetului <cite>.PHONY</cite><a class="headerlink" href="#necesitatea-folosirii-targetului-phony" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="adaugarea-targetului-phony">
+<span id="app-dev-add-phony-makefile"></span><h3><span class="section-number">6.2.2. </span>Adăugarea targetului <cite>.PHONY</cite><a class="headerlink" href="#adaugarea-targetului-phony" title="Permalink to this headline">¶</a></h3>
+</section>
+</section>
+</section>
 
 
           </div>
@@ -573,7 +561,7 @@
 </ul><div class="footer" role="contentinfo">
       &#169; Copyright 2020, USO Team.
     <br>
-    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.3.0 with <a href="https://github.com/romnnn/sphinx_press_theme">Press Theme</a>.
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.1.2 with <a href="https://github.com/romnn/sphinx_press_theme">Press Theme</a>.
 </div>
             </div>
           </div>
