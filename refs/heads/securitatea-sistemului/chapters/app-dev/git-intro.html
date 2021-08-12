@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html >
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+      <title>7. Introducere în Git și GitHub</title>
+    
+      <link rel="stylesheet" href="../../_static/pygments.css">
+      <link rel="stylesheet" href="../../_static/theme.css">
+      <link rel="stylesheet" href="../../_static/romnn_sphinx_press_theme.css">
+          <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+          <link rel="stylesheet" href="../../_static/css/theme.css " type="text/css" />
+      
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+
+      <!-- sphinx script_files -->
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/my_actions.js"></script>
+
+      
+      <script src="../../_static/theme-vendors.js"></script>
+      <script src="../../_static/theme.js" defer></script>
+    
+  <link rel="index" title="Index" href="../../genindex.html" />
+  <link rel="search" title="Search" href="../../search.html" />
+  <link rel="next" title="8. Primele commituri" href="git-first-commits.html" />
+  <link rel="prev" title="6. Aprofundarea folosirii fișierelor Makefile" href="make-advanced-automation.html" />
+    <link href="../../_static/my_theme.css" rel="stylesheet" type="text/css">
+
+  </head>
+
+  <body>
+    <div id="app" class="theme-container" :class="pageClasses"><navbar @toggle-sidebar="toggleSidebar">
+  <div class="home-link-container">
+      <router-link to="../../index.html" class="home-link">
+      
+        <span class="site-name">USO Lab Book</span>
+    </router-link>
+  </div>
+
+  <div class="links">
+    <navlinks class="can-hide">
+
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Acomodarea în Linux
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Lucrul cu fișiere
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link  router-link-active">
+         Dezvoltarea aplicațiilor
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Conectarea la Internet
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Instalarea și utilizarea aplicațiilor
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Îmbunătățirea lucrului în linia de comandă
+      </a>
+    </div>
+  
+
+
+
+  
+    <div class="nav-item">
+      <a href="https://github.com/Sergiu121/uso-lab-book"
+        class="nav-link external">
+          Github <outboundlink/>
+      </a>
+    </div>
+  
+
+    </navlinks>
+  </div>
+</navbar>
+
+      
+      <div class="sidebar-mask" @click="toggleSidebar(false)">
+      </div>
+        <sidebar @toggle-sidebar="toggleSidebar">
+          
+          <navlinks>
+            
+
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Acomodarea în Linux
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Lucrul cu fișiere
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link  router-link-active">
+         Dezvoltarea aplicațiilor
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Conectarea la Internet
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Instalarea și utilizarea aplicațiilor
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Îmbunătățirea lucrului în linia de comandă
+      </a>
+    </div>
+  
+
+
+
+  
+    <div class="nav-item">
+      <a href="https://github.com/Sergiu121/uso-lab-book"
+        class="nav-link external">
+          Github <outboundlink/>
+      </a>
+    </div>
+  
+
+            
+          </navlinks><div id="searchbox" class="searchbox" role="search">
+  <div class="caption"><span class="caption-text">Search</span>
+    <div class="searchformwrapper">
+      <form autocomplete="off" class="search" action="../../search.html" method="get">
+        <input type="text" name="q" autocomplete="off" />
+        <input type="submit" value="Go" />
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div><div class="sidebar-links" role="navigation" aria-label="main navigation">
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#uso-lab-book">Acomodarea în Linux</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../basic/apps.html" class="reference internal ">Pornirea și oprirea aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../basic/browser.html" class="reference internal ">Folosirea eficientă a browserului web</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../basic/terminal.html" class="reference internal ">Lucrul în terminal</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../basic/workspace.html" class="reference internal ">Lucrul cu workspace-uri</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../basic/cheatsheet.html" class="reference internal ">Cheatsheet</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#uso-lab-book">Lucrul cu fișiere</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../files/paths.html" class="reference internal ">Căi în ierarhia de fișiere</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../files/files.html" class="reference internal ">Interacțiunea cu fișiere în linia de comandă</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../files/file_editor.html" class="reference internal ">Editor de text</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../files/io_redirection.html" class="reference internal ">Redirectări</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../files/archive.html" class="reference internal ">Arhive</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../files/file_system.html" class="reference internal ">Extra - Sistemul de fișiere</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../files/cheatsheet.html" class="reference internal ">Sumar - Cheatsheet</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#uso-lab-book">Dezvoltarea aplicațiilor</a></span>
+      </p>
+      <ul class="current">
+        
+          <li class="toctree-l1 "><a href="intro.html" class="reference internal ">Introducere</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="make-intro.html" class="reference internal ">Compilarea unui fișier cod sursă C</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="make-multiple.html" class="reference internal ">Compilarea unui program din fișiere multiple</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="make-lib.html" class="reference internal ">Legarea executabilelor folosind biblioteci externe</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="make-simple-automation.html" class="reference internal ">Introducere în utilitarul Make și fișiere Makefile</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="make-advanced-automation.html" class="reference internal ">Aprofundarea folosirii fișierelor Makefile</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 current"><a href="#" class="reference internal current">Introducere în Git și GitHub</a>
+
+            
+              <ul>
+                
+                  <li class="toctree-l2"><a href="#crearea-unui-cont-pe-github-daca-nu-aveti-deja" class="reference internal">Crearea unui cont pe GitHub (dacă nu aveți deja)</a></li>
+                
+                  <li class="toctree-l2"><a href="#pregatirea-initiala-a-mediului-git" class="reference internal">Pregătirea inițială a mediului Git</a></li>
+                
+                  <li class="toctree-l2"><a href="#crearea-primului-repository" class="reference internal">Crearea primului repository</a></li>
+                
+              </ul>
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="git-first-commits.html" class="reference internal ">Primele commituri</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="git-branches.html" class="reference internal ">Lucrul pe branch-uri</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="git-first-pull-request.html" class="reference internal ">Crearea unui Pull Request (PR) pe GitHub</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="extra.html" class="reference internal ">Exerciții suplimentare</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#uso-lab-book">Conectarea la Internet</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../net/browser.html" class="reference internal ">Folosirea eficientă a browser-ului</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../net/troubleshoot.html" class="reference internal ">Verificarea conectivităţii la reţea</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../net/services.html" class="reference internal ">Servicii şi clienţi de reţea</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../net/extra.html" class="reference internal ">Funcţionalităţi suplimentare de reţelistică</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#uso-lab-book">Instalarea și utilizarea aplicațiilor</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../app-install/start.html" class="reference internal ">Pornirea și oprirea aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-install/run.html" class="reference internal ">Rularea aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-install/config.html" class="reference internal ">Configurarea rulării aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-install/summary1.html" class="reference internal ">Exerciții: Pornirea, rularea și configurarea aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-install/show-config.html" class="reference internal ">Vizualizarea configurației sistemului</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-install/install.html" class="reference internal ">Instalarea și dezinstalarea aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-install/install-non-standard.html" class="reference internal ">Alternative la instalarea și dezinstalarea aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-install/show.html" class="reference internal ">Investigarea aplicațiilor instalate</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-install/summary2.html" class="reference internal ">Exerciții: Instalarea și gestiunea aplicațiilor</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#uso-lab-book">Îmbunătățirea lucrului în linia de comandă</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../improve-cli/improve-terminal.html" class="reference internal ">Îmbunătățirea lucrului în linia de comandă</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../improve-cli/inspect-fs.html" class="reference internal ">Inspectarea sistemului de fișiere</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../improve-cli/inspect-sys.html" class="reference internal ">Inspectarea sistemului</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../improve-cli/inspect-files.html" class="reference internal ">Inspectarea fișierelor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../improve-cli/process-files.html" class="reference internal ">Prelucrarea fișierelor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../improve-cli/improve-shell.html" class="reference internal ">O înțelegere mai bună a shell-ului</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../improve-cli/term-multiplexing.html" class="reference internal ">Multiplexarea terminalului</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+</div>
+        </sidebar>
+
+      <page>
+          <div class="body-header" role="navigation" aria-label="navigation">
+  
+  <ul class="breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+    
+    <li><span class="section-number">7. </span>Introducere în Git și GitHub</li>
+  </ul>
+  
+
+  <ul class="page-nav">
+  <li class="prev">
+    <a href="make-advanced-automation.html"
+       title="previous chapter">← <span class="section-number">6. </span>Aprofundarea folosirii fișierelor Makefile</a>
+  </li>
+  <li class="next">
+    <a href="git-first-commits.html"
+       title="next chapter"><span class="section-number">8. </span>Primele commituri →</a>
+  </li>
+</ul>
+  
+</div>
+<hr>
+          <div class="content" role="main">
+            
+  <section id="introducere-in-git-si-github">
+<span id="app-dev-git-intro"></span><h1><span class="section-number">7. </span>Introducere în Git și GitHub<a class="headerlink" href="#introducere-in-git-si-github" title="Permalink to this headline">¶</a></h1>
+<p>Vor fi cazuri când vom <em>strica</em> o versiune a codului și vom avea nevoie să revenim la o versiune corectă, caz în care un istoric de versiuni ne-ar fi de folos.
+Vom putea să lucrăm la un proiect de pe un alt sistem, în afară de al nostru, sau vom vrea să cerem feedback pe codul scris de noi.</p>
+<p>Când vorbim despre un proiect software vrem să avem dezvoltatori, oameni care să lucreze împreună cu noi la proiect.
+Dezvoltatorii au nevoie de acces la codul sursă al proiectului software la care lucrăm.
+După ce le dăm acces, vrem ca fiecare dezvoltator să știe la ce a lucrat și la ce lucrează ceilalți; ca să nu se suprapună, ca să ajute și ca să ofere feedback.</p>
+<p>Pentru a putea rezolva problemele de sincronizare între doi sau mai mulți colegi de echipă care lucrează la același proiect, ne ajută să avem un <strong>sistem de versionare a codului</strong>, adică să avem un istoric de modificări.
+Fiecare modificare înseamnă o nouă versiune a proiectului; avem astfel o listă de versiuni gestionată de sistemul de versionare a codului.
+Pe lângă rezolvarea problemelor de sincronizare, versionarea codului aduce și alte avantaje cum ar fi revenirea la o versiune mai veche a proiectului, găsirea rapidă a autorului unei secvențe de cod sau, pur și simplu, organizarea unui proiect.</p>
+<p><strong>Git</strong> este un sistem de management și versionare a codului sursă care permite lucrul eficient la un proiect software.</p>
+<p><a class="reference external" href="http://www.github.com/">GitHub</a> este o platformă online, bazată pe Git, pe care dezvoltatorii o pot folosi pentru a stoca și versiona codul lor sursă.
+Git este utilitarul folosit, iar GitHub este serverul și aplicația web pe care rulează acesta, locul în care păstrăm repository-ul remote.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Similar cu GitHub există și alte platforme precum <a class="reference external" href="https://bitbucket.org">Bitbucket</a> sau <a class="reference external" href="https://about.gitlab.com">GitLab</a>.
+Comenzile pe care le vom studia se aplică pentru toate platformele care folosesc <strong>Git</strong>, doar interfața grafică diferă.</p>
+<p>În această carte vom folosi GitHub ca suport.
+În mare parte, acesta nu diferă foarte mult de alte platforme.</p>
+</div>
+<section id="crearea-unui-cont-pe-github-daca-nu-aveti-deja">
+<span id="app-dev-create-github-account"></span><h2><span class="section-number">7.1. </span>Crearea unui cont pe GitHub (dacă nu aveți deja)<a class="headerlink" href="#crearea-unui-cont-pe-github-daca-nu-aveti-deja" title="Permalink to this headline">¶</a></h2>
+<p>Înainte de toate, ne asigurăm că avem cont pe GitHub.
+Dacă aveți deja un cont pe GitHub, puteți trece la subsecțiunea următoare: <a class="reference internal" href="#app-dev-git-setup"><span class="std std-ref">Pregătirea inițială a mediului Git</span></a>.</p>
+<p>Dacă nu aveți cont, intrați pe <a class="reference external" href="http://www.github.com/">GitHub</a>.
+Pagina de pornire va arăta similar cu cea din imaginea de mai jos.</p>
+<figure class="align-default">
+<a class="reference internal image-reference" href="../../_images/GitHub-init-page.png"><img alt="Pagina principală GitHub" src="../../_images/GitHub-init-page.png" style="width: 1008.0px; height: 550.8px;" /></a>
+</figure>
+<p>Introduceți un nume de utilizator (<em>username</em>), adresa voastră de e-mail și o parolă sigură pentru cont.
+Pentru validarea contului, accesați-vă căsuța de e-mail.
+Acolo veți găsi un e-mail în care vi se explică cum se poate valida noul cont creat.
+Verificați și căsuța <strong>spam</strong> în caz că nu ați primit nimic în inbox.</p>
+<div class="admonition-github-student-pack admonition">
+<p class="admonition-title"><strong>GitHub Student Pack</strong></p>
+<p>GitHub oferă studenților numeroase beneficii care în mod normal sunt contra cost (plătite).
+Găsiți mai multe detalii pe <a class="reference external" href="https://education.github.com/pack">site-ul oficial</a>.</p>
+</div>
+</section>
+<section id="pregatirea-initiala-a-mediului-git">
+<span id="app-dev-git-setup"></span><h2><span class="section-number">7.2. </span>Pregătirea inițială a mediului Git<a class="headerlink" href="#pregatirea-initiala-a-mediului-git" title="Permalink to this headline">¶</a></h2>
+<p>Ca să utilizăm Git, facem în primă fază niște pași de configurare. Adică vom configura numele și e-mail-ul nostru, ca mai jos:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ git config --global user.name <span class="s2">&quot;Prenume Nume&quot;</span>
+student@uso:~$ git config --global user.email <span class="s2">&quot;adresa_de_email@example.com&quot;</span>
+</pre></div>
+</div>
+<p>În listingul de mai sus “Prenume Nume” și “<a class="reference external" href="mailto:adresa_de_email&#37;&#52;&#48;example&#46;com">adresa_de_email<span>&#64;</span>example<span>&#46;</span>com</a>” sunt placeholdere.
+Le înlocuiți cu datele voastre.
+De exemplu, pentru autorul acestei secțiuni, comenzile rulate sunt:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ git config --global user.name <span class="s2">&quot;Liza Babu&quot;</span>
+student@uso:~$ git config --global user.email <span class="s2">&quot;lizababu@example.com&quot;</span>
+</pre></div>
+</div>
+</section>
+<section id="crearea-primului-repository">
+<span id="app-dev-create-first-repo"></span><h2><span class="section-number">7.3. </span>Crearea primului repository<a class="headerlink" href="#crearea-primului-repository" title="Permalink to this headline">¶</a></h2>
+<p>Pentru a lucra la un proiect software, creăm un <strong>repository software</strong>.
+Vom crea unul pe GitHub, unul local, după care le vom interconecta.</p>
+<div class="admonition-repository-software admonition">
+<p class="admonition-title"><strong>Repository software</strong></p>
+<p>Proiectul este stocat într-un <strong>repository software</strong>.
+Repository-ul conține fișierele proiectului: codul sursă, fișiere de configurare.
+De obicei acesta vine însoțit și de un fișier <strong>README.md</strong> în care se găsesc informații despre proiect: care este scopul proiectului, cum se compilează, pe ce platforme rulează.</p>
+<p>Repository-urile sunt de două tipuri: <strong>locale</strong> și <strong>remote</strong>.
+Acestea pot fi interconectate și să refere de fapt același proiect.
+Repository-ul local este cel pe care îl avem la noi pe calculator, pe când cel remote este unul stocat pe un server (în cazul nostru <strong>GitHub</strong>).
+Este doar o diferență de perspectivă între cele două, ele nu diferă din punct de vedere tehnic.
+De obicei, într-un proiect Git / GitHub există un repository central (remote) și mai multe repository-uri secundare (locale), câte unul pentru fiecare dezvoltator din echipa proiectului.</p>
+<p>Printre cele mai importante operații cu un repository sunt: <strong>init</strong>, <strong>fork</strong>, <strong>clone</strong>.
+Vom detalia aceste operații când le vom folosi în acest capitol.</p>
+</div>
+<section id="crearea-unui-repository-gol-pe-github">
+<span id="app-dev-create-github-repo"></span><h3><span class="section-number">7.3.1. </span>Crearea unui repository gol pe GitHub<a class="headerlink" href="#crearea-unui-repository-gol-pe-github" title="Permalink to this headline">¶</a></h3>
+<p>Ne autentificăm pe GitHub.
+Urmărim pașii prezentați în imaginea de mai jos și explicați imediat după.</p>
+<figure class="align-default">
+<img alt="Crearea unui repository nou pe GitHub" src="../../_images/GitHub-create-repo.gif" />
+</figure>
+<ol class="arabic simple">
+<li><p>Apăsăm pe săgeată din meniul din dreapta sus și vedem ceva similar cu imaginea de mai sus.</p></li>
+<li><p>Apăsăm pe <code class="docutils literal notranslate"><span class="pre">Your</span> <span class="pre">profile</span></code> pentru a merge pe profilul nostru.
+Aici este locul în care vom putea vedea contribuțiile noastre pe GitHub.
+În partea de sus a ecranului vom vedea un meniu orizonatal care conține 4 opțiuni: <code class="docutils literal notranslate"><span class="pre">Overview</span></code>, <code class="docutils literal notranslate"><span class="pre">Repositories</span></code>, <code class="docutils literal notranslate"><span class="pre">Projects</span></code> și <code class="docutils literal notranslate"><span class="pre">Packages</span></code>.</p></li>
+<li><p>Apăsăm pe <code class="docutils literal notranslate"><span class="pre">Repositories</span></code>.
+Acum vom vedea întreaga listă de repository-uri pe care le avem. Pentru a crea unul nou, apăsăm pe butonul verde din dreapta sus pe care scrie <code class="docutils literal notranslate"><span class="pre">New</span></code>.</p></li>
+<li><p>Acum este momentul în care vom da un nume proiectului nostru, o descriere succintă a acestuia și vom putea decide dacă să fie <strong>public</strong> (vizibil tuturor utilizatorilor) sau <strong>privat</strong> (vizibil doar pentru noi și eventualii colaboratori ai proiectului).
+Ne va apărea un formular similar cu cel din imaginea de mai sus.
+Pentru acest tutorial vom crea un repository <strong>public</strong>.
+Este indicat ca numele repository-ului să descrie bine proiectul, în cazul nostru <code class="docutils literal notranslate"><span class="pre">array-sorting-algorithms</span></code>.
+Descrierea proiectului este opțională, dar e recomandat să o adăugăm pentru a fi ușor de înțeles pentru cei care vor ajunge la proiectul nostru.</p></li>
+<li><p>Apăsăm pe <code class="docutils literal notranslate"><span class="pre">Create</span> <span class="pre">repository</span></code>.
+Vor apărea câteva instrucțiuni pentru crearea unui repository local nou și conectarea celui nou cu cel remote.
+Acest lucru este acoperit în secțiunile următoare.</p></li>
+</ol>
+<p>Acum avem un repository creat remote, pe GitHub, numit <code class="docutils literal notranslate"><span class="pre">array-sorting-algorithms</span></code>.</p>
+</section>
+<section id="crearea-unui-repository-gol-local">
+<span id="app-dev-create-local-repo"></span><h3><span class="section-number">7.3.2. </span>Crearea unui repository gol local<a class="headerlink" href="#crearea-unui-repository-gol-local" title="Permalink to this headline">¶</a></h3>
+<p>Creăm un director din ierarhia de fișiere în care vom inițializa repository-ul Git.</p>
+<p>În acest tutorial creăm directorul <code class="docutils literal notranslate"><span class="pre">array-sorting-algorithms</span></code> în directorul home (adică <code class="docutils literal notranslate"><span class="pre">/home/student</span></code> sau <code class="docutils literal notranslate"><span class="pre">~</span></code>), folosind comenzile de mai jos:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ <span class="nb">pwd</span>
+/home/student
+student@uso:~$ mkdir array-sorting-algorithms
+student@uso:~$ <span class="nb">cd</span> array-sorting-algorithms
+student@uso:~/array-sorting-algorithms$ git init
+Initialized empty Git repository in /home/student/array-sorting-algorithms/.git/
+student@uso:~/array-sorting-algorithms$ ls -a
+./    ../   .git/
+</pre></div>
+</div>
+<p>Mai sus am inițializat repository-ul local prin comanda <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">init</span></code>, dată în directorul ales (<code class="docutils literal notranslate"><span class="pre">array-sorting-algorithms</span></code>) din directorul home al utilizatorului student (<code class="docutils literal notranslate"><span class="pre">/home/student</span></code>).</p>
+<p>Acum avem un repository creat local, numit <code class="docutils literal notranslate"><span class="pre">array-sorting-algorithms</span></code>.</p>
+<div class="admonition-init admonition">
+<p class="admonition-title"><strong>Init</strong></p>
+<p>Operația <strong>init</strong> este una locală și are rolul de a inițializa un repository gol, local.
+Inițializarea repository-ului local înseamnă crearea, în directorul ales, a mediului pentru a putea lucra la un proiect software versionat Git.
+Această operare duce la crearea unui director numit <code class="docutils literal notranslate"><span class="pre">.git</span></code> în care se vor ține ulterior date suplimentare despre repository, numite <strong>metadatele</strong> repository-ului.</p>
+<p>Am folosit opțiunea <code class="docutils literal notranslate"><span class="pre">-a</span></code> (<code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-a</span></code>) pentru a afișa și fișierele și directoarele ascunse.
+Directorul <code class="docutils literal notranslate"><span class="pre">.git</span></code> este un director ascuns.</p>
+</div>
+</section>
+<section id="conectarea-celor-doua-repository-uri">
+<span id="app-dev-connect-repos"></span><h3><span class="section-number">7.3.3. </span>Conectarea celor două repository-uri<a class="headerlink" href="#conectarea-celor-doua-repository-uri" title="Permalink to this headline">¶</a></h3>
+<p>Am creat până în acest moment un repository local și unul remote.
+Trebuie să le interconectăm pentru a lucra cu ele.</p>
+<p>În cazul în care suntem mai mulți membri în echipă, fiecare membru va conecta repository-ul său local, la repository-ul remote.
+Pentru conectarea celor două repository-uri folosim comanda de mai jos, dată în directorul unde este repository-ul local Git (în cazul nostru <code class="docutils literal notranslate"><span class="pre">/home/student/array-sorting-algorithms</span></code>):</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/array-sorting-algorithms$ git remote add origin https://github.com/<span class="o">{</span>username<span class="o">}</span>/array-sorting-algorithms.git
+</pre></div>
+</div>
+<p>În comanda de mai sus <code class="docutils literal notranslate"><span class="pre">{username}</span></code> este numele utilizatorului nostru de pe GitHub.
+De exemplu, pentru autorul acestui capitol, <code class="docutils literal notranslate"><span class="pre">{username}</span></code> se înlocuiește cu <code class="docutils literal notranslate"><span class="pre">lizababu</span></code>.</p>
+<p>Conectarea celor două repository-uri înseamnă setarea repository-ului <code class="docutils literal notranslate"><span class="pre">origin</span></code>, adică repository-ului remote la care se conectează cel local.</p>
+<p>Imaginea de mai jos arată cum arată cum se contectează repository-urile <strong>remote</strong> și <strong>local</strong>.
+Sincronizarea lor se face prin intermediul operațiilor <strong>push</strong> și <strong>pull</strong> care sunt prezentate pe parcursul secțiunii <a class="reference internal" href="git-first-commits.html#app-dev-first-commits"><span class="std std-ref">Primele commituri</span></a>.</p>
+<figure class="align-default">
+<a class="reference internal image-reference" href="../../_images/GitHub-remote-local-repos.gif"><img alt="Conectarea repository-ului local cu cel remote" src="../../_images/GitHub-remote-local-repos.gif" style="width: 501.0px; height: 337.0px;" /></a>
+</figure>
+</section>
+</section>
+</section>
+
+
+          </div>
+          <div class="page-nav">
+            <div class="inner"><ul class="page-nav">
+  <li class="prev">
+    <a href="make-advanced-automation.html"
+       title="previous chapter">← <span class="section-number">6. </span>Aprofundarea folosirii fișierelor Makefile</a>
+  </li>
+  <li class="next">
+    <a href="git-first-commits.html"
+       title="next chapter"><span class="section-number">8. </span>Primele commituri →</a>
+  </li>
+</ul><div class="footer" role="contentinfo">
+      &#169; Copyright 2020, USO Team.
+    <br>
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.1.2 with <a href="https://github.com/romnn/sphinx_press_theme">Press Theme</a>.
+</div>
+            </div>
+          </div>
+      </page>
+    </div>
+    
+    
+  </body>
+</html>
