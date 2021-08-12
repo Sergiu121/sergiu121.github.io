@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html >
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+      <title>4. Redirectări</title>
+    
+      <link rel="stylesheet" href="../../_static/pygments.css">
+      <link rel="stylesheet" href="../../_static/theme.css">
+      <link rel="stylesheet" href="../../_static/romnn_sphinx_press_theme.css">
+          <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+          <link rel="stylesheet" href="../../_static/css/theme.css " type="text/css" />
+      
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+
+      <!-- sphinx script_files -->
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/my_actions.js"></script>
+
+      
+      <script src="../../_static/theme-vendors.js"></script>
+      <script src="../../_static/theme.js" defer></script>
+    
+  <link rel="index" title="Index" href="../../genindex.html" />
+  <link rel="search" title="Search" href="../../search.html" />
+  <link rel="next" title="5. Arhive" href="archive.html" />
+  <link rel="prev" title="3. Editor de text" href="file_editor.html" />
+    <link href="../../_static/my_theme.css" rel="stylesheet" type="text/css">
+
+  </head>
+
+  <body>
+    <div id="app" class="theme-container" :class="pageClasses"><navbar @toggle-sidebar="toggleSidebar">
+  <div class="home-link-container">
+      <router-link to="../../index.html" class="home-link">
+      
+        <span class="site-name">USO Lab Book</span>
+    </router-link>
+  </div>
+
+  <div class="links">
+    <navlinks class="can-hide">
+
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Acomodarea în Linux
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link  router-link-active">
+         Lucrul cu fișiere
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Dezvoltarea aplicațiilor
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Conectarea la Internet
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Instalarea și utilizarea aplicațiilor
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Îmbunătățirea lucrului în linia de comandă
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Automatizarea în linia de comandă
+      </a>
+    </div>
+  
+
+
+
+  
+    <div class="nav-item">
+      <a href="https://github.com/Sergiu121/uso-lab-book"
+        class="nav-link external">
+          Github <outboundlink/>
+      </a>
+    </div>
+  
+
+    </navlinks>
+  </div>
+</navbar>
+
+      
+      <div class="sidebar-mask" @click="toggleSidebar(false)">
+      </div>
+        <sidebar @toggle-sidebar="toggleSidebar">
+          
+          <navlinks>
+            
+
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Acomodarea în Linux
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link  router-link-active">
+         Lucrul cu fișiere
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Dezvoltarea aplicațiilor
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Conectarea la Internet
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Instalarea și utilizarea aplicațiilor
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Îmbunătățirea lucrului în linia de comandă
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Automatizarea în linia de comandă
+      </a>
+    </div>
+  
+
+
+
+  
+    <div class="nav-item">
+      <a href="https://github.com/Sergiu121/uso-lab-book"
+        class="nav-link external">
+          Github <outboundlink/>
+      </a>
+    </div>
+  
+
+            
+          </navlinks><div id="searchbox" class="searchbox" role="search">
+  <div class="caption"><span class="caption-text">Search</span>
+    <div class="searchformwrapper">
+      <form autocomplete="off" class="search" action="../../search.html" method="get">
+        <input type="text" name="q" autocomplete="off" />
+        <input type="submit" value="Go" />
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div><div class="sidebar-links" role="navigation" aria-label="main navigation">
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#uso-lab-book">Acomodarea în Linux</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../basic/apps.html" class="reference internal ">Pornirea și oprirea aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../basic/browser.html" class="reference internal ">Folosirea eficientă a browserului web</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../basic/terminal.html" class="reference internal ">Lucrul în terminal</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../basic/workspace.html" class="reference internal ">Lucrul cu workspace-uri</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../basic/cheatsheet.html" class="reference internal ">Cheatsheet</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#uso-lab-book">Lucrul cu fișiere</a></span>
+      </p>
+      <ul class="current">
+        
+          <li class="toctree-l1 "><a href="paths.html" class="reference internal ">Căi în ierarhia de fișiere</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="files.html" class="reference internal ">Interacțiunea cu fișiere în linia de comandă</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="file_editor.html" class="reference internal ">Editor de text</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 current"><a href="#" class="reference internal current">Redirectări</a>
+
+            
+              <ul>
+                
+                  <li class="toctree-l2"><a href="#redirectari-simple" class="reference internal">Redirectări simple</a></li>
+                
+                  <li class="toctree-l2"><a href="#redirectari-prin-anexare" class="reference internal">Redirectări prin anexare</a></li>
+                
+                  <li class="toctree-l2"><a href="#redirectari-de-eroare" class="reference internal">Redirectări de eroare</a></li>
+                
+              </ul>
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="archive.html" class="reference internal ">Arhive</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="file_system.html" class="reference internal ">Extra - Sistemul de fișiere</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="cheatsheet.html" class="reference internal ">Sumar - Cheatsheet</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#uso-lab-book">Dezvoltarea aplicațiilor</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../app-dev/intro.html" class="reference internal ">Introducere</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/make-intro.html" class="reference internal ">Compilarea unui fișier cod sursă C</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/make-multiple.html" class="reference internal ">Compilarea unui program din fișiere multiple</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/make-lib.html" class="reference internal ">Legarea executabilelor folosind biblioteci externe</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/make-simple-automation.html" class="reference internal ">Introducere în utilitarul Make și fișiere Makefile</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/make-advanced-automation.html" class="reference internal ">Aprofundarea folosirii fișierelor Makefile</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/git-intro.html" class="reference internal ">Introducere în Git și GitHub</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/git-first-commits.html" class="reference internal ">Primele commituri</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/git-branches.html" class="reference internal ">Lucrul pe branch-uri</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/git-first-pull-request.html" class="reference internal ">Crearea unui Pull Request (PR) pe GitHub</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/extra.html" class="reference internal ">Exerciții suplimentare</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#uso-lab-book">Conectarea la Internet</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../net/browser.html" class="reference internal ">Folosirea eficientă a browser-ului</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../net/troubleshoot.html" class="reference internal ">Verificarea conectivităţii la reţea</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../net/services.html" class="reference internal ">Servicii şi clienţi de reţea</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../net/extra.html" class="reference internal ">Funcţionalităţi suplimentare de reţelistică</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#uso-lab-book">Instalarea și utilizarea aplicațiilor</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../app-install/start.html" class="reference internal ">Pornirea și oprirea aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-install/run.html" class="reference internal ">Rularea aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-install/config.html" class="reference internal ">Configurarea rulării aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-install/summary1.html" class="reference internal ">Exerciții: Pornirea, rularea și configurarea aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-install/show-config.html" class="reference internal ">Vizualizarea configurației sistemului</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-install/install.html" class="reference internal ">Instalarea și dezinstalarea aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-install/install-non-standard.html" class="reference internal ">Alternative la instalarea și dezinstalarea aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-install/show.html" class="reference internal ">Investigarea aplicațiilor instalate</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-install/summary2.html" class="reference internal ">Exerciții: Instalarea și gestiunea aplicațiilor</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#uso-lab-book">Îmbunătățirea lucrului în linia de comandă</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../improve-cli/improve-terminal.html" class="reference internal ">Îmbunătățirea lucrului în linia de comandă</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../improve-cli/inspect-fs.html" class="reference internal ">Inspectarea sistemului de fișiere</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../improve-cli/inspect-sys.html" class="reference internal ">Inspectarea sistemului</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../improve-cli/inspect-files.html" class="reference internal ">Inspectarea fișierelor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../improve-cli/process-files.html" class="reference internal ">Prelucrarea fișierelor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../improve-cli/improve-shell.html" class="reference internal ">O înțelegere mai bună a shell-ului</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../improve-cli/term-multiplexing.html" class="reference internal ">Multiplexarea terminalului</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#uso-lab-book">Automatizarea în linia de comandă</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../cli-automation/intro.html" class="reference internal ">Perspective pentru automatizare</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../cli-automation/regex.html" class="reference internal "><no title></a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../cli-automation/scripting-intro.html" class="reference internal "><no title></a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../cli-automation/scripting-advanced.html" class="reference internal "><no title></a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+</div>
+        </sidebar>
+
+      <page>
+          <div class="body-header" role="navigation" aria-label="navigation">
+  
+  <ul class="breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+    
+    <li><span class="section-number">4. </span>Redirectări</li>
+  </ul>
+  
+
+  <ul class="page-nav">
+  <li class="prev">
+    <a href="file_editor.html"
+       title="previous chapter">← <span class="section-number">3. </span>Editor de text</a>
+  </li>
+  <li class="next">
+    <a href="archive.html"
+       title="next chapter"><span class="section-number">5. </span>Arhive →</a>
+  </li>
+</ul>
+  
+</div>
+<hr>
+          <div class="content" role="main">
+            
+  <section id="redirectari">
+<h1><span class="section-number">4. </span>Redirectări<a class="headerlink" href="#redirectari" title="Permalink to this headline">¶</a></h1>
+<p>Până acum am dat comenzi în terminal și am urmărit outputul (rezultatul) lor.
+<strong>Outputul</strong> (<em>rezultatul</em>) este afișat în terminal.
+Dacă voiam să salvăm outputul undeva (<em>de obicei într-un fișier</em>) trebuia să copiem outputul, să creăm un fișier nou sau să folosim unul deja existent, să îl deschidem, să lipim textul în el și să salvăm modificările.
+Trecerea prin toți acești pași durează și devenim ineficienți în lucrul în terminal.</p>
+<p>Interpretorul de comenzi (<em>shellul</em>) are opțiunea de a direcționa afișarea rezultatului direct într-un fișier.</p>
+<p>Rezultatul unei comenzi este format din două fluxuri de informații: informații de <strong>ieșire</strong> (<em>standard output, stdout</em>) și de <strong>eroare</strong> (<em>standard error, stderr</em>).
+Avem opțiunea de a direcționa (<em>redirecta</em>) doar ieșirea, doar eroarea sau ambele fluxuri într-un fișier.</p>
+<section id="redirectari-simple">
+<h2><span class="section-number">4.1. </span>Redirectări simple<a class="headerlink" href="#redirectari-simple" title="Permalink to this headline">¶</a></h2>
+<p>În directorul <code class="docutils literal notranslate"><span class="pre">/home/student</span></code> (<code class="docutils literal notranslate"><span class="pre">~</span></code>) avem mai multe fișiere, câte unul pentru fiecare materie.
+Afișăm fișierele folosind comanda <code class="docutils literal notranslate"><span class="pre">ls</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ ls -lh
+total <span class="m">9</span>.0M
+-rw-r--r-- <span class="m">1</span> student student <span class="m">5</span>.0M Aug <span class="m">19</span> <span class="m">11</span>:55 USO
+-rw-r--r-- <span class="m">1</span> student student <span class="m">3</span>.0M Aug <span class="m">19</span> <span class="m">11</span>:55 RL
+-rw-r--r-- <span class="m">1</span> student student <span class="m">1</span>.0M Aug <span class="m">19</span> <span class="m">11</span>:55 EGC
+</pre></div>
+</div>
+<p>Salvăm outputul comenzii <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-lh</span></code> de mai sus folosind caracterul <code class="docutils literal notranslate"><span class="pre">&gt;</span></code>, astfel:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ ls -lh &gt; lista_materii
+student@uso:~$ ls
+USO RL EGC lista_materii
+</pre></div>
+</div>
+<p>Observăm că acțiunea de mai sus a făcut două lucruri: a creat fișierul <code class="docutils literal notranslate"><span class="pre">lista_materii</span></code> și a introdus în conținutul fișierului rezultatul comenzii <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-lh</span></code>.</p>
+<p>Caracterul <code class="docutils literal notranslate"><span class="pre">&gt;</span></code> așteaptă un șir de caractere după el care este numele fișierului în care vrem să scriem outputul.
+Șirul este, de fapt, calea către un fișier.
+Șirul <code class="docutils literal notranslate"><span class="pre">lista_materii</span></code> este calea relativă până la fișierul <code class="docutils literal notranslate"><span class="pre">lista_materii</span></code> care se află în directorul curent <code class="docutils literal notranslate"><span class="pre">/home/student</span></code>.</p>
+<p>Fișierul <code class="docutils literal notranslate"><span class="pre">lista_materii</span></code> nu exista. Prin direcționarea outputului am creat fișierul <code class="docutils literal notranslate"><span class="pre">lista_materii</span></code>.</p>
+<p>Vizualizăm conținutul fișierului <code class="docutils literal notranslate"><span class="pre">lista_materii</span></code> folosind comanda <code class="docutils literal notranslate"><span class="pre">cat</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ cat lista_materii
+-rw-r--r-- <span class="m">1</span> student student <span class="m">5</span>.0M Aug <span class="m">19</span> <span class="m">11</span>:55 USO
+-rw-r--r-- <span class="m">1</span> student student <span class="m">3</span>.0M Aug <span class="m">19</span> <span class="m">11</span>:55 RL
+-rw-r--r-- <span class="m">1</span> student student <span class="m">1</span>.0M Aug <span class="m">19</span> <span class="m">11</span>:55 EGC
+</pre></div>
+</div>
+<p>Momentan fișierul <code class="docutils literal notranslate"><span class="pre">lista_materii</span></code> nu există pe sistemul vostru.
+Îl vom crea în continuare.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Odată direcționat într-un fișier, fluxul de informații nu mai apare la ecran.</p>
+</div>
+<p>Folosirea caracterului <code class="docutils literal notranslate"><span class="pre">&gt;</span></code> suprascrie conținutul fișierului:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ <span class="nb">cd</span> comenzi/mkdir
+student@uso:~/comenzi/mkdir$ cat lista_materii
+cat: lista_materii: No such file or directory
+student@uso:~$ ls -l /usr/ &gt; lista_materii
+student@uso:~$ cat lista_materii
+total <span class="m">72</span>
+drwxr-xr-x   <span class="m">2</span> root root  <span class="m">32768</span> Sep  <span class="m">9</span> <span class="m">14</span>:07 bin
+drwxr-xr-x   <span class="m">2</span> root root   <span class="m">4096</span> Aug <span class="m">31</span>  <span class="m">2015</span> games
+drwxr-xr-x  <span class="m">34</span> root root   <span class="m">4096</span> Sep  <span class="m">9</span> <span class="m">14</span>:06 include
+drwxr-xr-x  <span class="m">74</span> root root   <span class="m">4096</span> Sep  <span class="m">9</span> <span class="m">14</span>:07 lib
+drwxr-xr-x   <span class="m">3</span> root root   <span class="m">4096</span> Nov <span class="m">21</span>  <span class="m">2015</span> lib64
+drwxr-xr-x   <span class="m">3</span> root root   <span class="m">4096</span> Nov <span class="m">21</span>  <span class="m">2015</span> libx32
+drwxrwsr-x  <span class="m">10</span> root staff  <span class="m">4096</span> Nov <span class="m">21</span>  <span class="m">2015</span> <span class="nb">local</span>
+drwxr-xr-x   <span class="m">2</span> root root   <span class="m">4096</span> Sep  <span class="m">9</span> <span class="m">14</span>:07 sbin
+drwxr-xr-x <span class="m">137</span> root root   <span class="m">4096</span> Sep  <span class="m">9</span> <span class="m">14</span>:07 share
+drwxr-xr-x   <span class="m">2</span> root root   <span class="m">4096</span> Aug <span class="m">31</span>  <span class="m">2015</span> src
+</pre></div>
+</div>
+<p>Fișierul <code class="docutils literal notranslate"><span class="pre">lista_materii</span></code> nu era creat inițial.
+În urma comenzii <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-l</span> <span class="pre">/usr/</span> <span class="pre">&gt;</span> <span class="pre">lista_materii</span></code>, fișierul <code class="docutils literal notranslate"><span class="pre">lista_materii</span></code> a fost creat și populat cu ieșirea comenzii <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-l</span> <span class="pre">/usr/</span></code>.</p>
+<section id="exercitii-redirectari-simple">
+<h3><span class="section-number">4.1.1. </span>Exerciții - redirectări simple<a class="headerlink" href="#exercitii-redirectari-simple" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Folosiți <code class="docutils literal notranslate"><span class="pre">tree</span></code> pentru a afișa ierarhia de fișiere pornind de la <code class="docutils literal notranslate"><span class="pre">/home/student</span></code>;</p></li>
+<li><p>Folosiți <code class="docutils literal notranslate"><span class="pre">tree</span></code> pentru afișarea aceleiași ierarhii, dar de data asta direcționați-o în fișierul <code class="docutils literal notranslate"><span class="pre">ierarhie_student</span></code>;</p></li>
+<li><p>Inspectați fișierul pentru a demonstra corectitudinea operației.</p></li>
+</ul>
+</section>
+</section>
+<section id="redirectari-prin-anexare">
+<h2><span class="section-number">4.2. </span>Redirectări prin anexare<a class="headerlink" href="#redirectari-prin-anexare" title="Permalink to this headline">¶</a></h2>
+<p>Putem direcționa rezultatul comenzii, <em>fără</em> a suprascrie fișierul.
+Facem acest lucru folosim caracterele <code class="docutils literal notranslate"><span class="pre">&gt;&gt;</span></code> folosind fișierul trecut <code class="docutils literal notranslate"><span class="pre">lista_materii</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ ls &gt;&gt; lista_materii
+student@uso:~$ ls
+USO RL EGC lista_materii
+student@uso:~$ cat lista_materii
+-rw-r--r-- <span class="m">1</span> student student <span class="m">5</span>.0M Aug <span class="m">19</span> <span class="m">11</span>:55 USO
+-rw-r--r-- <span class="m">1</span> student student <span class="m">3</span>.0M Aug <span class="m">19</span> <span class="m">11</span>:55 RL
+-rw-r--r-- <span class="m">1</span> student student <span class="m">1</span>.0M Aug <span class="m">19</span> <span class="m">11</span>:55 EGC
+USO RL EGC lista_materii
+</pre></div>
+</div>
+<p>Acum avem în fișierul <code class="docutils literal notranslate"><span class="pre">lista_materii</span></code>, pe lângă conținutul vechi, și outputul comenzii <code class="docutils literal notranslate"><span class="pre">ls</span></code>.</p>
+<section id="exercitii-directionari-prin-anexare">
+<h3><span class="section-number">4.2.1. </span>Exerciții - direcționări prin anexare<a class="headerlink" href="#exercitii-directionari-prin-anexare" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple">
+<li><ul class="simple">
+<li><p>Folosiți <code class="docutils literal notranslate"><span class="pre">tree</span></code> pentru a afișa ierarhia de fișiere pornind de la <code class="docutils literal notranslate"><span class="pre">/tmp</span></code>;</p></li>
+<li><p>Folosiți <code class="docutils literal notranslate"><span class="pre">tree</span></code> pentru a afișa aceeași ierarhie, dar de data asta direcționați-o prin anexare la fișierul <code class="docutils literal notranslate"><span class="pre">ierarhie_student</span></code> creat anterior;</p></li>
+<li><p>Afisați conținutul fișierului <code class="docutils literal notranslate"><span class="pre">ierarhie_student</span></code> folosind comanda <code class="docutils literal notranslate"><span class="pre">cat</span></code>.</p></li>
+</ul>
+</li>
+<li><ul class="simple">
+<li><p>Folosiți <code class="docutils literal notranslate"><span class="pre">tree</span></code> pentru a afișa ierarhia de fișiere pornind de la <code class="docutils literal notranslate"><span class="pre">/usr</span></code>;</p></li>
+<li><p>Repetați comanda anterioara, dar de data asta direcționați-o <em>fără</em> anexare la fișierul <code class="docutils literal notranslate"><span class="pre">ierarhie_student</span></code> folosit anterior;</p></li>
+<li><p>Afisați conținutul fișierului <code class="docutils literal notranslate"><span class="pre">ierarhie_student</span></code> folosind comanda <code class="docutils literal notranslate"><span class="pre">cat</span></code>.
+Mai exista conținutul inițial al fișierului?</p></li>
+</ul>
+</li>
+</ol>
+</section>
+</section>
+<section id="redirectari-de-eroare">
+<h2><span class="section-number">4.3. </span>Redirectări de eroare<a class="headerlink" href="#redirectari-de-eroare" title="Permalink to this headline">¶</a></h2>
+<p>Atunci când direcționăm ieșirea unei comenzi folosind <code class="docutils literal notranslate"><span class="pre">&gt;</span></code> sau <code class="docutils literal notranslate"><span class="pre">&gt;&gt;</span></code>, ne referim <em>doar</em> la ieșirea standard, nu și la erori.</p>
+<p>Folosim caracterele <code class="docutils literal notranslate"><span class="pre">2&gt;</span></code> pentru a direcționa ieșirea de eroare către un fișier:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ ls
+USO RL EGC lista_materii
+student@uso:~$ cat lista_materie
+cat: lista_materie: No such file or directory
+</pre></div>
+</div>
+<p>Am vrut să afișăm conținutul fișierului <code class="docutils literal notranslate"><span class="pre">lista_materie</span></code>, însă acest fișier nu există.
+Am primit informația <em>No such file or Directory</em>, și aceasta este afișată sub formă de <strong>eroare</strong>.</p>
+<p>Direcționăm conținutul fișierului <code class="docutils literal notranslate"><span class="pre">SO2</span></code> în fișierul <code class="docutils literal notranslate"><span class="pre">materii</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ cat SO2 &gt; materii
+cat: SO2: No such file or directory
+</pre></div>
+</div>
+<p>Vedem că dacă folosim direcționarea simplă <code class="docutils literal notranslate"><span class="pre">&gt;</span></code>, eroarea tot este afișată.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Deși comanda cat eșuează, direcționarea este făcută.
+Fișierul materii a fost creat și este gol.</p>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ cat SO2 <span class="m">2</span>&gt; materii
+student@uso:~$ cat materii
+cat: SO2: No such file or directory
+</pre></div>
+</div>
+<p>Observăm că nu am primit eroare la prima comandă unde am încercat să afișăm conținutul unui fișier inexistent.
+Informațiile de eroare au fost direcționate în fișier.</p>
+<p>Redirectările de eroare și ieșire pot fi folosite simultan folosind caracterele specifice <code class="docutils literal notranslate"><span class="pre">&gt;</span></code> pentru ieșire și <code class="docutils literal notranslate"><span class="pre">2&gt;</span></code> pentru eroare.
+Putem folosi sintaxa <code class="docutils literal notranslate"><span class="pre">comanda</span> <span class="pre">&gt;</span> <span class="pre">fișier_ieșire</span> <span class="pre">2&gt;</span> <span class="pre">fișier_erori</span></code> pentru a face acest lucru.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ cat ELTH USO SO2
+ELTH is the b3st
+USO RULLZ
+cat: SO2: No such file or directory
+</pre></div>
+</div>
+<p>În exemplul de mai sus încercăm să afișăm conținutul fișierelor <code class="docutils literal notranslate"><span class="pre">ELTH</span></code>, <code class="docutils literal notranslate"><span class="pre">USO</span></code> și <code class="docutils literal notranslate"><span class="pre">SO2</span></code>, dar cu fișierul <code class="docutils literal notranslate"><span class="pre">SO2</span></code> neexistent.
+Liniile <code class="docutils literal notranslate"><span class="pre">ELTH</span> <span class="pre">is</span> <span class="pre">the</span> <span class="pre">b3st</span></code> și <code class="docutils literal notranslate"><span class="pre">USO</span> <span class="pre">RULLZ</span></code> sunt conținutul fișierelor <code class="docutils literal notranslate"><span class="pre">ELTH</span></code> și <code class="docutils literal notranslate"><span class="pre">USO</span></code>.
+Comanda <code class="docutils literal notranslate"><span class="pre">cat</span></code> ne-a arătat conținutul celor 2 fișiere.
+Tot comanda <code class="docutils literal notranslate"><span class="pre">cat</span></code> a încercat să afișeze conținutul fișierului <code class="docutils literal notranslate"><span class="pre">SO2</span></code>, însă el nu există și a afișat eroarea <code class="docutils literal notranslate"><span class="pre">No</span> <span class="pre">such</span> <span class="pre">file</span> <span class="pre">or</span> <span class="pre">directory</span></code>.</p>
+<p>În continuare vom face o separare a fluxurilor: direcționăm ieșirea în fișierul <code class="docutils literal notranslate"><span class="pre">continut_materii</span></code> și erorile în fișierul <code class="docutils literal notranslate"><span class="pre">erori_comenzi</span></code>.
+Ca să redirectăm și outputul și erorile de la o comandă folosim și <code class="docutils literal notranslate"><span class="pre">&gt;</span></code> și <code class="docutils literal notranslate"><span class="pre">2&gt;</span></code> ca mai jos:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ cat ELTH USO SO2 &gt; continut_materii <span class="m">2</span>&gt; erori_comenzi
+student@uso:~$ cat continut_materii
+USO is the b3st
+USO RULLZ
+student@uso:~$ cat erori_comenzi
+cat: SO2: No such file or directory
+</pre></div>
+</div>
+<p>Observăm cum după executarea primei comenzi, la ecran nu mai apare nimic; atât ieșirea standard cât și erorile au fost direcționate în fișiere.
+În continuare am verificat conținutul acestor fișiere pentru a demonstra corectitudinea operației.</p>
+<ul class="simple">
+<li><p>Redirectați (simplu) conținutul fișierului de la calea <code class="docutils literal notranslate"><span class="pre">/etc/passwd</span></code> într-un fișier cu numele <code class="docutils literal notranslate"><span class="pre">utilizatori_si_grupuri</span></code>.</p></li>
+<li><p>Redirectare (simplu) fișierul de la calea <code class="docutils literal notranslate"><span class="pre">/etc/group</span></code> în același fișier.</p></li>
+<li><p>Repetați cele două operații de redirectare de mai sus folosind redirectare cu anexare.</p></li>
+<li><p>Redirectați conținutul fișierului de la calea <code class="docutils literal notranslate"><span class="pre">/etc/shadow</span></code> în fișierul <code class="docutils literal notranslate"><span class="pre">parole</span></code> și afișați conținutul fișierului</p></li>
+</ul>
+</section>
+</section>
+
+
+          </div>
+          <div class="page-nav">
+            <div class="inner"><ul class="page-nav">
+  <li class="prev">
+    <a href="file_editor.html"
+       title="previous chapter">← <span class="section-number">3. </span>Editor de text</a>
+  </li>
+  <li class="next">
+    <a href="archive.html"
+       title="next chapter"><span class="section-number">5. </span>Arhive →</a>
+  </li>
+</ul><div class="footer" role="contentinfo">
+      &#169; Copyright 2020, USO Team.
+    <br>
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.1.2 with <a href="https://github.com/romnn/sphinx_press_theme">Press Theme</a>.
+</div>
+            </div>
+          </div>
+      </page>
+    </div>
+    
+    
+  </body>
+</html>
