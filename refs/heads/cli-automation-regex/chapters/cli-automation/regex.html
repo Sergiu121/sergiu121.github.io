@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html >
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+      <title>1. Expresii regulate și egrep</title>
+    
+      <link rel="stylesheet" href="../../_static/pygments.css">
+      <link rel="stylesheet" href="../../_static/theme.css">
+      <link rel="stylesheet" href="../../_static/romnn_sphinx_press_theme.css">
+          <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+          <link rel="stylesheet" href="../../_static/css/theme.css " type="text/css" />
+      
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+
+      <!-- sphinx script_files -->
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/my_actions.js"></script>
+
+      
+      <script src="../../_static/theme-vendors.js"></script>
+      <script src="../../_static/theme.js" defer></script>
+    
+  <link rel="index" title="Index" href="../../genindex.html" />
+  <link rel="search" title="Search" href="../../search.html" />
+  <link rel="next" title="&lt;no title&gt;" href="scripting-intro.html" />
+  <link rel="prev" title="&lt;no title&gt;" href="intro.html" />
+    <link href="../../_static/my_theme.css" rel="stylesheet" type="text/css">
+
+  </head>
+
+  <body>
+    <div id="app" class="theme-container" :class="pageClasses"><navbar @toggle-sidebar="toggleSidebar">
+  <div class="home-link-container">
+      <router-link to="../../index.html" class="home-link">
+      
+        <span class="site-name">USO Lab Book</span>
+    </router-link>
+  </div>
+
+  <div class="links">
+    <navlinks class="can-hide">
+
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Acomodarea în Linux
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Lucrul cu fișiere
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Dezvoltarea aplicațiilor
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Conectarea la Internet
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Instalarea și utilizarea aplicațiilor
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Îmbunătățirea lucrului în linia de comandă
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link  router-link-active">
+         Automatizarea în linia de comandă
+      </a>
+    </div>
+  
+
+
+
+  
+    <div class="nav-item">
+      <a href="https://github.com/Sergiu121/uso-lab-book"
+        class="nav-link external">
+          Github <outboundlink/>
+      </a>
+    </div>
+  
+
+    </navlinks>
+  </div>
+</navbar>
+
+      
+      <div class="sidebar-mask" @click="toggleSidebar(false)">
+      </div>
+        <sidebar @toggle-sidebar="toggleSidebar">
+          
+          <navlinks>
+            
+
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Acomodarea în Linux
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Lucrul cu fișiere
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Dezvoltarea aplicațiilor
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Conectarea la Internet
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Instalarea și utilizarea aplicațiilor
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Îmbunătățirea lucrului în linia de comandă
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link  router-link-active">
+         Automatizarea în linia de comandă
+      </a>
+    </div>
+  
+
+
+
+  
+    <div class="nav-item">
+      <a href="https://github.com/Sergiu121/uso-lab-book"
+        class="nav-link external">
+          Github <outboundlink/>
+      </a>
+    </div>
+  
+
+            
+          </navlinks><div id="searchbox" class="searchbox" role="search">
+  <div class="caption"><span class="caption-text">Search</span>
+    <div class="searchformwrapper">
+      <form autocomplete="off" class="search" action="../../search.html" method="get">
+        <input type="text" name="q" autocomplete="off" />
+        <input type="submit" value="Go" />
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div><div class="sidebar-links" role="navigation" aria-label="main navigation">
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#uso-lab-book">Acomodarea în Linux</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../basic/apps.html" class="reference internal ">Pornirea și oprirea aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../basic/browser.html" class="reference internal ">Folosirea eficientă a browserului web</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../basic/terminal.html" class="reference internal ">Lucrul în terminal</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../basic/workspace.html" class="reference internal ">Lucrul cu workspace-uri</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../basic/cheatsheet.html" class="reference internal ">Cheatsheet</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#uso-lab-book">Lucrul cu fișiere</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../files/paths.html" class="reference internal ">Căi în ierarhia de fișiere</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../files/files.html" class="reference internal ">Interacțiunea cu fișiere în linia de comandă</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../files/file_editor.html" class="reference internal ">Editor de text</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../files/io_redirection.html" class="reference internal ">Redirectări</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../files/archive.html" class="reference internal ">Arhive</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../files/file_system.html" class="reference internal ">Extra - Sistemul de fișiere</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../files/cheatsheet.html" class="reference internal ">Sumar - Cheatsheet</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#uso-lab-book">Dezvoltarea aplicațiilor</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../app-dev/intro.html" class="reference internal ">Introducere</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/make-intro.html" class="reference internal ">Compilarea unui fișier cod sursă C</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/make-multiple.html" class="reference internal ">Compilarea unui program din fișiere multiple</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/make-lib.html" class="reference internal ">Legarea executabilelor folosind biblioteci externe</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/make-simple-automation.html" class="reference internal ">Introducere în utilitarul Make și fișiere Makefile</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/make-advanced-automation.html" class="reference internal ">Aprofundarea folosirii fișierelor Makefile</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/git-intro.html" class="reference internal ">Introducere în Git și GitHub</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/git-first-commits.html" class="reference internal ">Primele commituri</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/git-branches.html" class="reference internal ">Lucrul pe branch-uri</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/git-first-pull-request.html" class="reference internal ">Crearea unui Pull Request (PR) pe GitHub</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/extra.html" class="reference internal ">Exerciții suplimentare</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#uso-lab-book">Conectarea la Internet</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../net/browser.html" class="reference internal ">Folosirea eficientă a browser-ului</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../net/troubleshoot.html" class="reference internal ">Verificarea conectivităţii la reţea</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../net/services.html" class="reference internal ">Servicii şi clienţi de reţea</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../net/extra.html" class="reference internal ">Funcţionalităţi suplimentare de reţelistică</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#uso-lab-book">Instalarea și utilizarea aplicațiilor</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../app-install/start.html" class="reference internal ">Pornirea și oprirea aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-install/run.html" class="reference internal ">Rularea aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-install/config.html" class="reference internal ">Configurarea rulării aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-install/summary1.html" class="reference internal ">Exerciții: Pornirea, rularea și configurarea aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-install/show-config.html" class="reference internal ">Vizualizarea configurației sistemului</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-install/install.html" class="reference internal ">Instalarea și dezinstalarea aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-install/install-non-standard.html" class="reference internal ">Alternative la instalarea și dezinstalarea aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-install/show.html" class="reference internal ">Investigarea aplicațiilor instalate</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-install/summary2.html" class="reference internal ">Exerciții: Instalarea și gestiunea aplicațiilor</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#uso-lab-book">Îmbunătățirea lucrului în linia de comandă</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../improve-cli/improve-terminal.html" class="reference internal ">Îmbunătățirea lucrului în linia de comandă</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../improve-cli/inspect-fs.html" class="reference internal ">Inspectarea sistemului de fișiere</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../improve-cli/inspect-sys.html" class="reference internal ">Inspectarea sistemului</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../improve-cli/inspect-files.html" class="reference internal ">Inspectarea fișierelor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../improve-cli/process-files.html" class="reference internal ">Prelucrarea fișierelor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../improve-cli/improve-shell.html" class="reference internal ">O înțelegere mai bună a shell-ului</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../improve-cli/term-multiplexing.html" class="reference internal ">Multiplexarea terminalului</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#uso-lab-book">Automatizarea în linia de comandă</a></span>
+      </p>
+      <ul class="current">
+        
+          <li class="toctree-l1 "><a href="intro.html" class="reference internal "><no title></a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 current"><a href="#" class="reference internal current">Expresii regulate și egrep</a>
+
+            
+              <ul>
+                
+                  <li class="toctree-l2"><a href="#expresii-regulate" class="reference internal">Expresii regulate</a></li>
+                
+              </ul>
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="scripting-intro.html" class="reference internal "><no title></a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="scripting-advanced.html" class="reference internal "><no title></a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+</div>
+        </sidebar>
+
+      <page>
+          <div class="body-header" role="navigation" aria-label="navigation">
+  
+  <ul class="breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+    
+    <li><span class="section-number">1. </span>Expresii regulate și <cite>egrep</cite></li>
+  </ul>
+  
+
+  <ul class="page-nav">
+  <li class="prev">
+    <a href="intro.html"
+       title="previous chapter">← &lt;no title&gt;</a>
+  </li>
+  <li class="next">
+    <a href="scripting-intro.html"
+       title="next chapter">&lt;no title&gt; →</a>
+  </li>
+</ul>
+  
+</div>
+<hr>
+          <div class="content" role="main">
+            
+  <section id="expresii-regulate-si-egrep">
+<h1><span class="section-number">1. </span>Expresii regulate și <cite>egrep</cite><a class="headerlink" href="#expresii-regulate-si-egrep" title="Permalink to this headline">¶</a></h1>
+<section id="expresii-regulate">
+<h2><span class="section-number">1.1. </span>Expresii regulate<a class="headerlink" href="#expresii-regulate" title="Permalink to this headline">¶</a></h2>
+<section id="cautarea-unei-expresii-regulate">
+<h3><span class="section-number">1.1.1. </span>Căutarea unei expresii regulate<a class="headerlink" href="#cautarea-unei-expresii-regulate" title="Permalink to this headline">¶</a></h3>
+<p>În exemplele de până acum, patternul folosit era un cuvânt sau șir de caractere.
+Folosind o expresie regulată, putem să căutăm după șiruri de caractere care se potrivesc cu descrierea dată în expresia regulată.</p>
+<p>Ca și în cazul globbing, avem un set de caractere speciale în cazul expresiilor regulate.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Expresiile regulate sunt diferite de globbing.
+Mare atenție să nu faceți confuzie între cele două.
+Vom vedea diferențele în continuare.</p>
+</div>
+<p>Pentru a căuta folosind o expresie regulată putem să folosim opțiunea <code class="docutils literal notranslate"><span class="pre">-E</span></code> a utilitarului <code class="docutils literal notranslate"><span class="pre">grep</span></code>, sau forma prescurtată <code class="docutils literal notranslate"><span class="pre">egrep</span></code>.</p>
+<p>Scrieți într-un fișier numit <code class="docutils literal notranslate"><span class="pre">demo-regex.txt</span></code> textul de mai jos:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Ana
+Ama
+Ioana
+a
+aa
+aaa
+aaabbb
+Ana are mere
+Ana mere are
+USO RUL3Z
+</pre></div>
+</div>
+<p>Vom folosi fișierul <code class="docutils literal notranslate"><span class="pre">demo-regex.txt</span></code> în exemplele următoare.
+Textul din fișier este un exemplu didactic.
+Este scris în așa fel încât să putem exemplifica mai multe lucruri într-un mod ușor de urmărit.</p>
+<section id="caracterul-special">
+<h4><span class="section-number">1.1.1.1. </span>Caracterul special <code class="docutils literal notranslate"><span class="pre">.</span></code><a class="headerlink" href="#caracterul-special" title="Permalink to this headline">¶</a></h4>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Caracterul <code class="docutils literal notranslate"><span class="pre">.</span></code> reprezintă un caracter special în cadrul unei expresii regulate.
+Nu îl confundați cu directorul curent (reprezentat tot de caracterul <code class="docutils literal notranslate"><span class="pre">.</span></code>) în contextul navigării sistemului de fișiere.</p>
+</div>
+<p>În cadrul unei expresii regulate, caracterul <code class="docutils literal notranslate"><span class="pre">.</span></code> poate fi înlocuit cu orice caracter.</p>
+<p>Rulăm comanda din exemplul de mai jos:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ egrep <span class="s2">&quot;a.a&quot;</span> demo-regex.txt
+Ioana
+aaa
+aaabbb
+Ana are mere
+</pre></div>
+</div>
+<p>Citim expresia regulată de mai sus în următorul mod: șirul <code class="docutils literal notranslate"><span class="pre">a</span></code>, urmat de orice caracter, urmat de șirul <code class="docutils literal notranslate"><span class="pre">a</span></code>.
+Astfel, observăm cum caracterul <code class="docutils literal notranslate"><span class="pre">.</span></code> a înlocuit, pe rând, caracterele <code class="docutils literal notranslate"><span class="pre">n</span></code>, <code class="docutils literal notranslate"><span class="pre">a</span></code>, <code class="docutils literal notranslate"><span class="pre">a</span></code> și `` `` (space).</p>
+</section>
+<section id="id1">
+<h4><span class="section-number">1.1.1.2. </span>Caracterul special <code class="docutils literal notranslate"><span class="pre">+</span></code><a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h4>
+<p>În cadrul unei expresii regulate, caracterul <code class="docutils literal notranslate"><span class="pre">+</span></code> urmează întotdeauna un caracter sau o expresie și spune că expresia sau caracterul din stânga lui apare cel puțin o dată în patternul căutat.</p>
+<p>Rulăm comanda din exemplul de mai jos:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ egrep <span class="s2">&quot;aa+&quot;</span> demo-regex.txt
+aa
+aaa
+aaabbb
+</pre></div>
+</div>
+<p>Citim expresia regulată de mai sus în următorul mod: șirul <code class="docutils literal notranslate"><span class="pre">a</span></code>, urmat de caracterul <code class="docutils literal notranslate"><span class="pre">a</span></code> cel puțin o dată.
+Astfel, observăm cum expresia a înlocuit orice șir care conținea cel puțin două apariții ale caracterului <code class="docutils literal notranslate"><span class="pre">a</span></code>.</p>
+<p>Pentru a specifica numărul de apariții pentru o expresie, aceasta trebuie încadrată între paranteze rotunde <code class="docutils literal notranslate"><span class="pre">(EXP)+</span></code>, ca în exemplul de mai jos:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ egrep <span class="s2">&quot;(ab)+&quot;</span> demo-regex.txt
+aaabbb
+</pre></div>
+</div>
+<p>Citim expresia regulată de mai sus în următorul mod: șirul <code class="docutils literal notranslate"><span class="pre">ab</span></code> trebuie să apară cel puțin o dată.</p>
+</section>
+<section id="id2">
+<h4><span class="section-number">1.1.1.3. </span>Caracterul special <code class="docutils literal notranslate"><span class="pre">*</span></code><a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h4>
+<p>În cadrul unei expresii regulate, caracterul <code class="docutils literal notranslate"><span class="pre">*</span></code> urmează întotdeauna un caracter sau o expresie și spune că expresia sau caracterul din stânga lui apare de oricâte ori, sau poate lipsi cu totul.</p>
+<p>Rulăm comanda din exemplul de mai jos:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ egrep <span class="s2">&quot;ab*&quot;</span> demo-regex.txt
+Ana
+Ama
+Ioana
+a
+aa
+aaa
+aaabbb
+Ana are mere
+Ana mere are
+</pre></div>
+</div>
+<p>Citim expresia regulată de mai sus în următorul mod: șirul <code class="docutils literal notranslate"><span class="pre">a</span></code>, urmat de caracterul <code class="docutils literal notranslate"><span class="pre">b</span></code> de oricâte ori.
+Astfel, observăm cum expresia a înlocuit orice șir care conținea cel puțin o apariție a caracterului <code class="docutils literal notranslate"><span class="pre">a</span></code>.</p>
+</section>
+<section id="id3">
+<h4><span class="section-number">1.1.1.4. </span>Caracterul special <code class="docutils literal notranslate"><span class="pre">?</span></code><a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h4>
+<p>În cadrul unei expresii regulate, caracterul <code class="docutils literal notranslate"><span class="pre">?</span></code> urmează întotdeauna un caracter sau o expresie și spune că expresia sau caracterul din stânga lui apare cel mult o dată.</p>
+<p>Rulăm comanda din exemplul de mai jos:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ egrep <span class="s2">&quot;a?&quot;</span> demo-regex.txt
+Ana
+Ama
+Ioana
+a
+aa
+aaa
+aaabbb
+Ana are mere
+Ana mere are
+USO RUL3Z
+</pre></div>
+</div>
+<p>Citim expresia regulată de mai sus în următorul mod: șirul <code class="docutils literal notranslate"><span class="pre">a</span></code> apare cel mult o dată.
+Astfel, observăm cum expresia a înlocuit orice șir care conținea cel mult o apariție a caracterului <code class="docutils literal notranslate"><span class="pre">a</span></code>; textul “USO RUL3Z” respectă regula întrucât nu conține niciun caracter <code class="docutils literal notranslate"><span class="pre">a</span></code>.</p>
+</section>
+<section id="id4">
+<h4><span class="section-number">1.1.1.5. </span>Caracterul special <code class="docutils literal notranslate"><span class="pre">|</span></code><a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h4>
+<p>În cadrul unei expresii regulate, caracterul <code class="docutils literal notranslate"><span class="pre">|</span></code> separă două expresii și spune că poate să se potrivească expresia din stânga sau din dreapta lui.</p>
+<p>Rulăm comenzile din exemplul de mai jos:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ egrep <span class="s2">&quot;Ana|Ama&quot;</span> demo-regex.txt
+Ana
+Ama
+Ana are mere
+Ana mere are
+student@uso:~$ egrep <span class="s2">&quot;(Ana)|(Ama)&quot;</span> demo-regex.txt
+Ana
+Ama
+Ana are mere
+Ana mere are
+</pre></div>
+</div>
+<p>Citim expresia regulată de mai sus în următorul mod: șirul <code class="docutils literal notranslate"><span class="pre">Ana</span></code> <strong>sau</strong> șirul <code class="docutils literal notranslate"><span class="pre">Ama</span></code>.
+Astfel, observăm cum expresia a înlocuit orice șir care conținea fie <code class="docutils literal notranslate"><span class="pre">Ana</span></code>, fie <code class="docutils literal notranslate"><span class="pre">Ama</span></code>.
+Mai observăm că cele două comenzi sunt echivalente.</p>
+</section>
+<section id="sintaxa-speciala">
+<h4><span class="section-number">1.1.1.6. </span>Sintaxa specială <code class="docutils literal notranslate"><span class="pre">[]</span></code><a class="headerlink" href="#sintaxa-speciala" title="Permalink to this headline">¶</a></h4>
+<p>În cadrul unei expresii regulate, folosim sintaxa <code class="docutils literal notranslate"><span class="pre">[]</span></code> pentru a defini o listă de caractere care pot fi folosite în înlocuire.
+Această sintaxă înlocuiește exact un caracter din lista oferită.
+Ca și pentru globbing, sintaxa <code class="docutils literal notranslate"><span class="pre">[]</span></code> nu ne limitează la a oferi enumarații de caractere, și accepta și intervale, cum observăm în exemplul de mai jos:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ egrep <span class="s2">&quot;A[a-z]a&quot;</span> demo-regex.txt
+Ana
+Ama
+Ana are mere
+Ana mere are
+</pre></div>
+</div>
+<p>Citim expresia regulată de mai sus în următorul mod: șirul <code class="docutils literal notranslate"><span class="pre">A</span></code>, urmat de un caracter din intervalul <code class="docutils literal notranslate"><span class="pre">a-z</span></code>, urmat de caracterul a.
+Astfel, observăm cum expresia a înlocuit șirurile <code class="docutils literal notranslate"><span class="pre">Ana</span></code> și <code class="docutils literal notranslate"><span class="pre">Ama</span></code>.</p>
+</section>
+<section id="exercitii">
+<h4><span class="section-number">1.1.1.7. </span>Exerciții<a class="headerlink" href="#exercitii" title="Permalink to this headline">¶</a></h4>
+<p>TODO</p>
+</section>
+</section>
+</section>
+</section>
+
+
+          </div>
+          <div class="page-nav">
+            <div class="inner"><ul class="page-nav">
+  <li class="prev">
+    <a href="intro.html"
+       title="previous chapter">← &lt;no title&gt;</a>
+  </li>
+  <li class="next">
+    <a href="scripting-intro.html"
+       title="next chapter">&lt;no title&gt; →</a>
+  </li>
+</ul><div class="footer" role="contentinfo">
+      &#169; Copyright 2020, USO Team.
+    <br>
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.1.2 with <a href="https://github.com/romnn/sphinx_press_theme">Press Theme</a>.
+</div>
+            </div>
+          </div>
+      </page>
+    </div>
+    
+    
+  </body>
+</html>
