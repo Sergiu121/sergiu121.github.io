@@ -1,0 +1,1036 @@
+<!DOCTYPE html>
+<html >
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+      <title>10. Crearea unui Pull Request (PR) pe GitHub</title>
+    
+      <link rel="stylesheet" href="../../_static/pygments.css">
+      <link rel="stylesheet" href="../../_static/theme.css">
+      <link rel="stylesheet" href="../../_static/romnn_sphinx_press_theme.css">
+          <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+          <link rel="stylesheet" href="../../_static/css/theme.css " type="text/css" />
+      
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+
+      <!-- sphinx script_files -->
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/my_actions.js"></script>
+
+      
+      <script src="../../_static/theme-vendors.js"></script>
+      <script src="../../_static/theme.js" defer></script>
+    
+  <link rel="index" title="Index" href="../../genindex.html" />
+  <link rel="search" title="Search" href="../../search.html" />
+  <link rel="next" title="11. Exerciții suplimentare" href="extra.html" />
+  <link rel="prev" title="9. Lucrul pe branch-uri" href="git-branches.html" />
+    <link href="../../_static/my_theme.css" rel="stylesheet" type="text/css">
+
+  </head>
+
+  <body>
+    <div id="app" class="theme-container" :class="pageClasses"><navbar @toggle-sidebar="toggleSidebar">
+  <div class="home-link-container">
+      <router-link to="../../index.html" class="home-link">
+      
+        <span class="site-name">USO Lab Book</span>
+    </router-link>
+  </div>
+
+  <div class="links">
+    <navlinks class="can-hide">
+
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Acomodarea în Linux
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Lucrul cu fișiere
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link  router-link-active">
+         Dezvoltarea aplicațiilor
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Conectarea la Internet
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Instalarea și utilizarea aplicațiilor
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Îmbunătățirea lucrului în linia de comandă
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Automatizarea în linia de comandă
+      </a>
+    </div>
+  
+
+
+
+  
+    <div class="nav-item">
+      <a href="https://github.com/Sergiu121/uso-lab-book"
+        class="nav-link external">
+          Github <outboundlink/>
+      </a>
+    </div>
+  
+
+    </navlinks>
+  </div>
+</navbar>
+
+      
+      <div class="sidebar-mask" @click="toggleSidebar(false)">
+      </div>
+        <sidebar @toggle-sidebar="toggleSidebar">
+          
+          <navlinks>
+            
+
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Acomodarea în Linux
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Lucrul cu fișiere
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link  router-link-active">
+         Dezvoltarea aplicațiilor
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Conectarea la Internet
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Instalarea și utilizarea aplicațiilor
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Îmbunătățirea lucrului în linia de comandă
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Automatizarea în linia de comandă
+      </a>
+    </div>
+  
+
+
+
+  
+    <div class="nav-item">
+      <a href="https://github.com/Sergiu121/uso-lab-book"
+        class="nav-link external">
+          Github <outboundlink/>
+      </a>
+    </div>
+  
+
+            
+          </navlinks><div id="searchbox" class="searchbox" role="search">
+  <div class="caption"><span class="caption-text">Search</span>
+    <div class="searchformwrapper">
+      <form autocomplete="off" class="search" action="../../search.html" method="get">
+        <input type="text" name="q" autocomplete="off" />
+        <input type="submit" value="Go" />
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div><div class="sidebar-links" role="navigation" aria-label="main navigation">
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#uso-lab-book">Acomodarea în Linux</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../basic/apps.html" class="reference internal ">Pornirea și oprirea aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../basic/browser.html" class="reference internal ">Folosirea eficientă a browserului web</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../basic/terminal.html" class="reference internal ">Lucrul în terminal</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../basic/workspace.html" class="reference internal ">Lucrul cu workspace-uri</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../basic/cheatsheet.html" class="reference internal ">Cheatsheet</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#uso-lab-book">Lucrul cu fișiere</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../files/paths.html" class="reference internal ">Căi în ierarhia de fișiere</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../files/files.html" class="reference internal ">Interacțiunea cu fișiere în linia de comandă</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../files/file_editor.html" class="reference internal ">Editor de text</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../files/io_redirection.html" class="reference internal ">Redirectări</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../files/archive.html" class="reference internal ">Arhive</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../files/file_system.html" class="reference internal ">Extra - Sistemul de fișiere</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../files/cheatsheet.html" class="reference internal ">Sumar - Cheatsheet</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#uso-lab-book">Dezvoltarea aplicațiilor</a></span>
+      </p>
+      <ul class="current">
+        
+          <li class="toctree-l1 "><a href="intro.html" class="reference internal ">Introducere</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="make-intro.html" class="reference internal ">Compilarea unui fișier cod sursă C</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="make-multiple.html" class="reference internal ">Compilarea unui program din fișiere multiple</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="make-lib.html" class="reference internal ">Legarea executabilelor folosind biblioteci externe</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="make-simple-automation.html" class="reference internal ">Introducere în utilitarul Make și fișiere Makefile</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="make-advanced-automation.html" class="reference internal ">Aprofundarea folosirii fișierelor Makefile</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="git-intro.html" class="reference internal ">Introducere în Git și GitHub</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="git-first-commits.html" class="reference internal ">Primele commituri</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="git-branches.html" class="reference internal ">Lucrul pe branch-uri</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 current"><a href="#" class="reference internal current">Crearea unui Pull Request (PR) pe GitHub</a>
+
+            
+              <ul>
+                
+                  <li class="toctree-l2"><a href="#pasi-pull-request" class="reference internal">Pași Pull Request</a></li>
+                
+                  <li class="toctree-l2"><a href="#crearea-unui-branch-nou" class="reference internal">Crearea unui branch nou</a></li>
+                
+                  <li class="toctree-l2"><a href="#crearea-unui-commit-pe-branch-ul-nou-creat" class="reference internal">Crearea unui commit pe branch-ul nou creat</a></li>
+                
+                  <li class="toctree-l2"><a href="#crearea-pull-requestului" class="reference internal">Crearea Pull Requestului</a></li>
+                
+                  <li class="toctree-l2"><a href="#integrarea-pr-ului" class="reference internal">Integrarea PR-ului</a></li>
+                
+                  <li class="toctree-l2"><a href="#stergerea-branch-ului-in-urma-integrarii-in-branch-ul-master" class="reference internal">Ștergerea branch-ului în urma integrării în branch-ul master</a></li>
+                
+                  <li class="toctree-l2"><a href="#exercitiu-crearea-unui-pr" class="reference internal">Exercițiu - Crearea unui PR</a></li>
+                
+                  <li class="toctree-l2"><a href="#bune-practici" class="reference internal">Bune practici</a></li>
+                
+              </ul>
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="extra.html" class="reference internal ">Exerciții suplimentare</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#uso-lab-book">Conectarea la Internet</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../net/browser.html" class="reference internal ">Folosirea eficientă a browser-ului</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../net/troubleshoot.html" class="reference internal ">Verificarea conectivităţii la reţea</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../net/services.html" class="reference internal ">Servicii şi clienţi de reţea</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../net/extra.html" class="reference internal ">Funcţionalităţi suplimentare de reţelistică</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#uso-lab-book">Instalarea și utilizarea aplicațiilor</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../app-install/start.html" class="reference internal ">Pornirea și oprirea aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-install/run.html" class="reference internal ">Rularea aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-install/config.html" class="reference internal ">Configurarea rulării aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-install/summary1.html" class="reference internal ">Exerciții: Pornirea, rularea și configurarea aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-install/show-config.html" class="reference internal ">Vizualizarea configurației sistemului</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-install/install.html" class="reference internal ">Instalarea și dezinstalarea aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-install/install-non-standard.html" class="reference internal ">Alternative la instalarea și dezinstalarea aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-install/show.html" class="reference internal ">Investigarea aplicațiilor instalate</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-install/summary2.html" class="reference internal ">Exerciții: Instalarea și gestiunea aplicațiilor</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#uso-lab-book">Îmbunătățirea lucrului în linia de comandă</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../improve-cli/improve-terminal.html" class="reference internal ">Îmbunătățirea lucrului în linia de comandă</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../improve-cli/inspect-fs.html" class="reference internal ">Inspectarea sistemului de fișiere</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../improve-cli/inspect-sys.html" class="reference internal ">Inspectarea sistemului</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../improve-cli/inspect-files.html" class="reference internal ">Inspectarea fișierelor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../improve-cli/process-files.html" class="reference internal ">Prelucrarea fișierelor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../improve-cli/improve-shell.html" class="reference internal ">O înțelegere mai bună a shell-ului</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../improve-cli/term-multiplexing.html" class="reference internal ">Multiplexarea terminalului</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#uso-lab-book">Automatizarea în linia de comandă</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../cli-automation/intro.html" class="reference internal "><no title></a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../cli-automation/regex.html" class="reference internal "><no title></a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../cli-automation/scripting-intro.html" class="reference internal "><no title></a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../cli-automation/scripting-advanced.html" class="reference internal "><no title></a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+</div>
+        </sidebar>
+
+      <page>
+          <div class="body-header" role="navigation" aria-label="navigation">
+  
+  <ul class="breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+    
+    <li><span class="section-number">10. </span>Crearea unui Pull Request (PR) pe GitHub</li>
+  </ul>
+  
+
+  <ul class="page-nav">
+  <li class="prev">
+    <a href="git-branches.html"
+       title="previous chapter">← <span class="section-number">9. </span>Lucrul pe branch-uri</a>
+  </li>
+  <li class="next">
+    <a href="extra.html"
+       title="next chapter"><span class="section-number">11. </span>Exerciții suplimentare →</a>
+  </li>
+</ul>
+  
+</div>
+<hr>
+          <div class="content" role="main">
+            
+  <section id="crearea-unui-pull-request-pr-pe-github">
+<span id="app-dev-pr"></span><h1><span class="section-number">10. </span>Crearea unui Pull Request (PR) pe GitHub<a class="headerlink" href="#crearea-unui-pull-request-pr-pe-github" title="Permalink to this headline">¶</a></h1>
+<p>În momentul în care vrem să adăugăm o funcționalitate nouă unui proiect software pe GitHub este recomandat să o facem printr-un <strong>Pull Request</strong>, prescurtat <strong>PR</strong>.
+Un <strong>Pull Request</strong> este o cerere de modificare a repository-ului.
+Alți colaboratori ai proiectului vor recenza modificările și vor aproba, vor sugera schimbări sau vor respinge această cerere.
+În momentul în care un Pull Request este aprobat, schimbările propuse în Pull Request pot fi integrate în proiect, adică se va putea face merge între codul sursă curent și noile modificări.</p>
+<p>Practic, un Pull Request este o interfață GitHub de contribuit la proiecte software, interfață bazată pe lucrul cu branch-uri Git.</p>
+<p>Spunem că deschidem un Pull Request care urmează să fie integrat într-un anumit branch.
+De obicei acel branch este <strong>master</strong>.
+În acest tutorial vom deschide un Pull Request care urmează să fie integrat în branch-ul <strong>master</strong>.</p>
+<p>În secțiunea <a class="reference internal" href="git-branches.html#app-dev-branches"><span class="std std-ref">Lucrul pe branch-uri</span></a> am adus modificările de pe branch-ul <strong>add-gitignore</strong> pe branch-ul <strong>master</strong> prin operația <strong>merge</strong>.
+În această secțiune vom integra schimbările prin intermediul unui <strong>Pull Request</strong> <a class="footnote-reference brackets" href="#pull-request" id="id1">1</a> urmând pașii din subsecțiunea <a class="reference internal" href="#app-dev-pr-steps"><span class="std std-ref">Pași Pull Request</span></a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Folosirea unui <strong>Pull Request</strong> în loc de a efectua o operație <strong>merge</strong> vine cu mai multe beneficii:</p>
+<ol class="arabic simple">
+<li><p>În general, schimbările nu pot fi integrate fără ca PR-ul să fie aprobat. Aprobarea vine în mod normal de la un alt coleg de echipă.</p></li>
+<li><p>Recenzia codului sursă se face ușor pe un Pull Request. Vom vedea în secțiunea <a class="reference internal" href="#app-dev-pr-reviewers"><span class="std std-ref">Recenzii și recenzenți</span></a> cum adăugăm recenzenți.</p></li>
+</ol>
+</div>
+<section id="pasi-pull-request">
+<span id="app-dev-pr-steps"></span><h2><span class="section-number">10.1. </span>Pași Pull Request<a class="headerlink" href="#pasi-pull-request" title="Permalink to this headline">¶</a></h2>
+<p>Ca să avem o contribuție prin Pull Request, în mod uzual se urmează pașii:</p>
+<ol class="arabic simple">
+<li><p>Creăm un fork sau o clonă a repository-ului. Noi vom folosi în continuare repository-ul <strong>array-sorting-algorithms</strong>.</p></li>
+<li><p>Creăm un branch nou.</p></li>
+<li><p>Creăm un commit (sau mai multe) pe noul branch și îl publicăm pe GitHub.</p></li>
+<li><p>Creăm un PR în interfața GitHub.</p></li>
+<li><p>Ulterior, un maintainer al repository-ului va recenza PR-ul. Dacă e nevoie de modificări, vom face actualizări pe care le vom adăuga (prin operația <strong>push</strong>) din nou în branch-ul nou creat, PR-ul fiind actualizat.</p></li>
+<li><p>După un număr dat de iterații, PR-ul va fi definitivat. Atunci maintainerul va integra branch-ul în <strong>master</strong> (operația <strong>merge</strong>).</p></li>
+</ol>
+<p>În următoarele subsecțiuni vom implementa algoritmul Bubble Sort și vom modifica repository-ul <code class="docutils literal notranslate"><span class="pre">array-sorting-algorithms</span></code> prin intermediul unui <strong>Pull Request</strong>.</p>
+</section>
+<section id="crearea-unui-branch-nou">
+<span id="app-dev-pr-create-branch"></span><h2><span class="section-number">10.2. </span>Crearea unui branch nou<a class="headerlink" href="#crearea-unui-branch-nou" title="Permalink to this headline">¶</a></h2>
+<p>Pentru a putea deschide un Pull Request, trebuie să lucrăm pe un branch diferit față de cel în care vrem să integrăm schimbările.
+Vom lucra pe un nou branch, diferit de branch-ul <strong>master</strong>.</p>
+<p>Creăm un branch numit <strong>bubble-sort-implementation</strong> folosind comanda <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">branch</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/array-sorting-algorithms$ git branch
+*  master
+student@uso:~/array-sorting-algorithms$ git branch bubble-sort-implementation
+student@uso:~/array-sorting-algorithms$ git checkout bubble-sort-implementation
+Switched to a new branch <span class="s1">&#39;bubble-sort-implementation&#39;</span>
+student@uso:~/array-sorting-algorithms$ git branch
+* bubble-sort-implementation
+master
+</pre></div>
+</div>
+<p>Până la acest moment am făcut deja o serie de commituri în repository-ul nostru.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/array-sorting-algorithms$ git log
+commit 6d5189fd7095a19a6ad9bddb8c95491b37d9e828 <span class="o">(</span>HEAD -&gt; bubble-sort-implementation, origin/master, master<span class="o">)</span>
+Author: Liza Babu &lt;lizababu@example.com&gt;
+Date:   Mon Sep <span class="m">28</span> <span class="m">11</span>:47:36 <span class="m">2020</span> -0700
+
+        Update .gitignore content
+
+commit 988b188d2c6422a3162d1da25653f4682f7df6db
+Author: Liza Babu &lt;lizababu@example.com&gt;
+Date:   Mon Sep <span class="m">28</span> <span class="m">02</span>:29:00 <span class="m">2020</span> -0700
+
+        Add .gitignore file
+<span class="o">(</span>...<span class="o">)</span>
+</pre></div>
+</div>
+<p>Vedem același istoric de commituri și prin intermediul interfeței grafice GitHub ca în imaginea de mai jos:</p>
+<figure class="align-default">
+<img alt="Vizualizarea tuturor commiturilor pe GitHub" src="../../_images/GitHub-view-commits-GitHub.gif" />
+</figure>
+<p>În următoarea secțiune vom face încă un commit.</p>
+</section>
+<section id="crearea-unui-commit-pe-branch-ul-nou-creat">
+<span id="app-dev-create-new-commit-on-branch"></span><h2><span class="section-number">10.3. </span>Crearea unui commit pe branch-ul nou creat<a class="headerlink" href="#crearea-unui-commit-pe-branch-ul-nou-creat" title="Permalink to this headline">¶</a></h2>
+<p>Vom actualiza fișierul <code class="docutils literal notranslate"><span class="pre">bubble-sort.c</span></code> cu implementarea algoritmului ales.
+Modificăm fișierul <code class="docutils literal notranslate"><span class="pre">bubble-sort.c</span></code> astfel încât conținutul său să fie următorul:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+
+<span class="cp">#define MAX_LEN 100</span>
+
+<span class="k">static</span> <span class="kt">void</span> <span class="nf">swap</span><span class="p">(</span><span class="kt">int</span> <span class="o">*</span><span class="n">x</span><span class="p">,</span> <span class="kt">int</span> <span class="o">*</span><span class="n">y</span><span class="p">)</span>
+<span class="p">{</span>
+        <span class="kt">int</span> <span class="n">tmp</span> <span class="o">=</span> <span class="o">*</span><span class="n">x</span><span class="p">;</span>
+        <span class="o">*</span><span class="n">x</span> <span class="o">=</span> <span class="o">*</span><span class="n">y</span><span class="p">;</span>
+        <span class="o">*</span><span class="n">y</span> <span class="o">=</span> <span class="n">tmp</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">static</span> <span class="kt">void</span> <span class="nf">bubble_sort</span><span class="p">(</span><span class="kt">int</span> <span class="o">*</span><span class="n">array</span><span class="p">,</span> <span class="kt">int</span> <span class="n">len</span><span class="p">)</span>
+<span class="p">{</span>
+        <span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">;</span>
+
+        <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">len</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+                <span class="k">for</span> <span class="p">(</span><span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">len</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span>
+                        <span class="k">if</span> <span class="p">(</span><span class="n">array</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">array</span><span class="p">[</span><span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">])</span>
+                                <span class="n">swap</span><span class="p">(</span><span class="o">&amp;</span><span class="n">array</span><span class="p">[</span><span class="n">j</span><span class="p">],</span> <span class="o">&amp;</span><span class="n">array</span><span class="p">[</span><span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]);</span>
+<span class="p">}</span>
+
+<span class="k">static</span> <span class="kt">void</span> <span class="nf">print_array</span><span class="p">(</span><span class="kt">int</span> <span class="o">*</span><span class="n">array</span><span class="p">,</span> <span class="kt">int</span> <span class="n">len</span><span class="p">)</span>
+<span class="p">{</span>
+        <span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
+
+        <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">len</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d &quot;</span><span class="p">,</span> <span class="n">array</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+        <span class="p">}</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+        <span class="kt">int</span> <span class="n">array</span><span class="p">[</span><span class="n">MAX_LEN</span><span class="p">],</span> <span class="n">len</span><span class="p">,</span> <span class="n">i</span><span class="p">;</span>
+
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;What&#39;s the length of the array? Maximum lenght is %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">MAX_LEN</span><span class="p">);</span>
+        <span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">len</span><span class="p">);</span>
+
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Gimme the %d elements</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">len</span><span class="p">);</span>
+        <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">len</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">array</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+        <span class="p">}</span>
+
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Nonsorted array: &quot;</span><span class="p">);</span>
+        <span class="n">print_array</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="n">len</span><span class="p">);</span>
+
+        <span class="n">bubble_sort</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="n">len</span><span class="p">);</span>
+
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Sorted array: &quot;</span><span class="p">);</span>
+        <span class="n">print_array</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="n">len</span><span class="p">);</span>
+
+        <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Algoritmul de mai sus sortează crescător un vector de numere întregi citit de la tastatură.
+Vrem să precizăm acest lucru și în fișierul <code class="docutils literal notranslate"><span class="pre">README.md</span></code>.</p>
+<p>Modificăm fișierul <code class="docutils literal notranslate"><span class="pre">README.md</span></code> ca să aibă conținutul de mai jos:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Sorting Algorithm for Integer Arrays</span>
+
+<span class="n">We</span> <span class="n">implement</span> <span class="mi">3</span> <span class="n">sorting</span> <span class="n">algorithms</span> <span class="k">for</span> <span class="n">integer</span> <span class="n">arrays</span><span class="o">.</span>
+
+<span class="c1">## Bubble Sort</span>
+
+<span class="n">The</span> <span class="n">Bubble</span> <span class="n">Sort</span> <span class="n">algorithm</span> <span class="n">sorts</span> <span class="n">the</span> <span class="n">array</span> <span class="ow">in</span> <span class="n">ascending</span> <span class="n">order</span><span class="o">.</span>
+
+<span class="n">The</span> <span class="n">algorithm</span> <span class="ow">is</span> <span class="n">implemented</span> <span class="ow">in</span> <span class="n">C</span><span class="o">.</span>
+</pre></div>
+</div>
+<p>Creăm un <strong>commit</strong> cu schimbările făcute.
+Adăugăm întâi modificările în zona de lucru (<em>staging area</em>) folosind comanda <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">add</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/array-sorting-algorithms$ git status
+On branch bubble-sort-implementation
+Changes not staged <span class="k">for</span> commit:
+<span class="o">(</span>use <span class="s2">&quot;git add &lt;file&gt;...&quot;</span> to update what will be committed<span class="o">)</span>
+<span class="o">(</span>use <span class="s2">&quot;git checkout -- &lt;file&gt;...&quot;</span> to discard changes in working directory<span class="o">)</span>
+
+        modified:   README.md
+        modified:   bubble-sort.c
+
+no changes added to commit <span class="o">(</span>use <span class="s2">&quot;git add&quot;</span> and/or <span class="s2">&quot;git commit -a&quot;</span><span class="o">)</span>
+student@uso:~/array-sorting-algorithms$ git add README.md
+student@uso:~/array-sorting-algorithms$ git add bubble-sort.c
+student@uso:~/array-sorting-algorithms$ git status
+On branch bubble-sort-implementation
+Changes to be committed:
+<span class="o">(</span>use <span class="s2">&quot;git reset HEAD &lt;file&gt;...&quot;</span> to unstage<span class="o">)</span>
+
+        modified:   README.md
+        modified:   bubble-sort.c
+</pre></div>
+</div>
+<p>Creăm un commit cu modificările din staging area:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/array-sorting-algorithms$ git commit -m <span class="s2">&quot;Add Bubble Sort implementation, update README accordingly&quot;</span>
+<span class="o">[</span>bubble-sort-implementation d400958<span class="o">]</span> Add Bubble Sort implementation, update README accordingly
+<span class="m">2</span> files changed, <span class="m">61</span> insertions<span class="o">(</span>+<span class="o">)</span>, <span class="m">11</span> deletions<span class="o">(</span>-<span class="o">)</span>
+rewrite bubble-sort.c <span class="o">(</span><span class="m">82</span>%<span class="o">)</span>
+
+student@uso:~/array-sorting-algorithms$ git log
+commit d400958efb8a49cd9b6050fc03783b218891d165 <span class="o">(</span>HEAD -&gt; bubble-sort-implementation<span class="o">)</span>
+Author: Liza Babu &lt;lizababu@example.com&gt;
+Date:   Tue Sep <span class="m">29</span> <span class="m">01</span>:59:27 <span class="m">2020</span> -0700
+
+        Add Bubble Sort implementation, update README accordingly
+
+commit 6d5189fd7095a19a6ad9bddb8c95491b37d9e828 <span class="o">(</span>origin/master, master<span class="o">)</span>
+Author: Liza Babu &lt;lizababu@example.com&gt;
+Date:   Mon Sep <span class="m">28</span> <span class="m">11</span>:47:36 <span class="m">2020</span> -0700
+
+        Update .gitignore content
+</pre></div>
+</div>
+<p>Acum ultimul commit din istoric pe branch-ul <strong>bubble-sort-implementation</strong> este <em>d400958efb8a49cd9b6050fc03783b218891d165</em>.</p>
+<p>Publicăm commitul în repository-ul origin folosind comanda <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">push</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/array-sorting-algorithms$ git push origin bubble-sort-implementation
+Counting objects: <span class="m">4</span>, <span class="k">done</span>.
+Delta compression using up to <span class="m">2</span> threads.
+Compressing objects: <span class="m">100</span>% <span class="o">(</span><span class="m">4</span>/4<span class="o">)</span>, <span class="k">done</span>.
+Writing objects: <span class="m">100</span>% <span class="o">(</span><span class="m">4</span>/4<span class="o">)</span>, <span class="m">924</span> bytes <span class="p">|</span> <span class="m">924</span>.00 KiB/s, <span class="k">done</span>.
+Total <span class="m">4</span> <span class="o">(</span>delta <span class="m">0</span><span class="o">)</span>, reused <span class="m">0</span> <span class="o">(</span>delta <span class="m">0</span><span class="o">)</span>
+remote:
+remote: Create a pull request <span class="k">for</span> <span class="s1">&#39;bubble-sort-implementation&#39;</span> on GitHub by visiting:
+remote:      https://github.com/lizababu/array-sorting-algorithms/pull/new/bubble-sort-implementation
+remote:
+To https://github.com/lizababu/array-sorting-algorithms.git
+* <span class="o">[</span>new branch<span class="o">]</span>      bubble-sort-implementation -&gt; bubble-sort-implementation
+</pre></div>
+</div>
+<p>Linkul <code class="docutils literal notranslate"><span class="pre">https://github.com/{username}/array-sorting-algorithms/pull/new/bubble-sort-implementation</span></code> este link la <strong>Pull Request</strong>.</p>
+<p>În loc de <code class="docutils literal notranslate"><span class="pre">{username}</span></code> veți avea username-ul vostru de pe GitHub.
+Pentru autorul acestui capitol este <code class="docutils literal notranslate"><span class="pre">lizababu</span></code>.</p>
+</section>
+<section id="crearea-pull-requestului">
+<span id="app-dev-create-pr"></span><h2><span class="section-number">10.4. </span>Crearea Pull Requestului<a class="headerlink" href="#crearea-pull-requestului" title="Permalink to this headline">¶</a></h2>
+<p>Accesăm linkul PR-ului: <strong>https://github.com/{username}/array-sorting-algorithms/pull/new/bubble-sort-implementation</strong></p>
+<p>În acest moment s-a deschis o nouă pagină care arată că în imaginea de mai jos.</p>
+<figure class="align-default">
+<a class="reference internal image-reference" href="../../_images/GitHub-create-PR.png"><img alt="Open Pull Request (PR)" src="../../_images/GitHub-create-PR.png" style="width: 1294.2px; height: 603.0px;" /></a>
+</figure>
+<p>Mai jos explicăm semnificația celor mai importante componente prezente în imagine.</p>
+<section id="descrierea-pull-requestului">
+<span id="app-dev-pr-description"></span><h3><span class="section-number">10.4.1. </span>Descrierea Pull Requestului<a class="headerlink" href="#descrierea-pull-requestului" title="Permalink to this headline">¶</a></h3>
+<p>În imaginea de mai jos vedem o parte a interfeței GitHub în care putem lăsa un comentariu în care să descriem (chiar și mai în detaliu decât într-un mesaj de commit) ce schimbări am făcut.</p>
+<p>În cazul nostru, comentariul poate conține detalii despre implementarea algoritmului.
+O descriere potrivită poate fi:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">I</span> <span class="n">implemented</span> <span class="n">a</span> <span class="n">non</span><span class="o">-</span><span class="n">optimized</span> <span class="n">Bubble</span> <span class="n">Sort</span> <span class="n">algorithm</span> <span class="ow">in</span> <span class="n">C</span><span class="o">.</span>
+<span class="n">The</span> <span class="n">program</span> <span class="n">sorts</span> <span class="n">an</span> <span class="n">integer</span> <span class="n">array</span> <span class="ow">in</span> <span class="n">ascending</span> <span class="n">order</span><span class="o">.</span>
+</pre></div>
+</div>
+<figure class="align-default">
+<img alt="Descrierea PR-ului" src="../../_images/GitHub-create-PR-description.gif" />
+</figure>
+</section>
+<section id="configurarea-branch-ului-in-care-vom-integra-pr-ul">
+<span id="app-dev-pr-config"></span><h3><span class="section-number">10.4.2. </span>Configurarea branch-ului în care vom integra PR-ul<a class="headerlink" href="#configurarea-branch-ului-in-care-vom-integra-pr-ul" title="Permalink to this headline">¶</a></h3>
+<p>Ca să finalizăm PR-ul, modificările din acesta trebuie să fie adăugate într-un branch, cel mai adesea în branch-ul <strong>master</strong> <a class="footnote-reference brackets" href="#base-branch" id="id2">2</a>.</p>
+<p>În acest tutorial vom folosi branch-ul <code class="docutils literal notranslate"><span class="pre">master</span></code> ca în imaginea de mai jos:</p>
+<figure class="align-default">
+<a class="reference internal image-reference" href="../../_images/GitHub-create-PR-base-branch.png"><img alt="Setarea branch-ului în care se va integra PR-ul" src="../../_images/GitHub-create-PR-base-branch.png" style="width: 1276.2px; height: 569.7px;" /></a>
+</figure>
+<p>Acum creăm <strong>Pull Requestul</strong> apăsând pe butonul <code class="docutils literal notranslate"><span class="pre">Create</span> <span class="pre">pull</span> <span class="pre">request</span></code> ca în imaginea de mai jos:</p>
+<figure class="align-default">
+<a class="reference internal image-reference" href="../../_images/GitHub-create-PR-press-button.png"><img alt="Crearea unui PR" src="../../_images/GitHub-create-PR-press-button.png" style="width: 1276.2px; height: 569.7px;" /></a>
+</figure>
+</section>
+<section id="recenzii-si-recenzenti">
+<span id="app-dev-pr-reviewers"></span><h3><span class="section-number">10.4.3. </span>Recenzii și recenzenți<a class="headerlink" href="#recenzii-si-recenzenti" title="Permalink to this headline">¶</a></h3>
+<p>Folosirea PR-urilor ne aduce un beneficiu important: putem primi feedback pe modificările aduse.
+Din interfața grafică GitHub putem adăuga recenzenți care să dea feedback pe modificări.
+Recenzenții fac parte din colaboratorii proiectului.</p>
+<figure class="align-default">
+<a class="reference internal image-reference" href="../../_images/GitHub-review.png"><img alt="Secțiunea de adăugat recenzenți la PR" src="../../_images/GitHub-review.png" style="width: 1295.1000000000001px; height: 666.0px;" /></a>
+</figure>
+<p>În acest tutorial nu vom adăuga recenzenți la PR-ul creat.</p>
+</section>
+</section>
+<section id="integrarea-pr-ului">
+<span id="app-dev-pr-integration"></span><h2><span class="section-number">10.5. </span>Integrarea PR-ului<a class="headerlink" href="#integrarea-pr-ului" title="Permalink to this headline">¶</a></h2>
+<p>După mai multe runde de feedback și aplicarea acestuia, PR-ul va fi gata de integrat în branch-ul <strong>master</strong>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Acest scenariu <em>ping-pong</em> se va repeta până când voi, împreună cu recenzenții, ajungeți la concluzia că schimbările pot fi integrate.</p>
+</div>
+<p>Acum vom face operația <strong>merge</strong> a PR-ului.
+Apăsăm mai întâi butonul <code class="docutils literal notranslate"><span class="pre">Merge</span> <span class="pre">pull</span> <span class="pre">request</span></code> după care butonul <code class="docutils literal notranslate"><span class="pre">Confirm</span> <span class="pre">merge</span></code> ca în imaginea de mai jos.</p>
+<figure class="align-default">
+<img alt="Operația merge. Închiderea PR-ului" src="../../_images/GitHub-create-PR.gif" />
+</figure>
+<p>Am făcut operația <strong>merge</strong> în repository-ul remote (<em>origin</em>).
+Avem pe branch-ul <strong>master</strong> implementarea algoritmului Bubble Sort.
+Actualizăm și repository-ul local folosind comanda <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">pull</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/array-sorting-algorithms$ git checkout master
+Switched to branch <span class="s1">&#39;master&#39;</span>
+student@uso:~/array-sorting-algorithms$ git pull origin master
+remote: Enumerating objects: <span class="m">1</span>, <span class="k">done</span>.
+remote: Counting objects: <span class="m">100</span>% <span class="o">(</span><span class="m">1</span>/1<span class="o">)</span>, <span class="k">done</span>.
+remote: Total <span class="m">1</span> <span class="o">(</span>delta <span class="m">0</span><span class="o">)</span>, reused <span class="m">0</span> <span class="o">(</span>delta <span class="m">0</span><span class="o">)</span>, pack-reused <span class="m">0</span>
+Unpacking objects: <span class="m">100</span>% <span class="o">(</span><span class="m">1</span>/1<span class="o">)</span>, <span class="k">done</span>.
+From https://github.com/lizababu/array-sorting-algorithms
+* branch            master     -&gt; FETCH_HEAD
+6d5189f..95c59cd  master     -&gt; origin/master
+Updating 6d5189f..95c59cd
+Fast-forward
+README.md     <span class="p">|</span>  <span class="m">7</span> +++++++
+bubble-sort.c <span class="p">|</span> <span class="m">53</span> ++++++++++++++++++++++++++++++++++++++++++++++++-----
+<span class="m">2</span> files changed, <span class="m">55</span> insertions<span class="o">(</span>+<span class="o">)</span>, <span class="m">5</span> deletions<span class="o">(</span>-<span class="o">)</span>
+</pre></div>
+</div>
+</section>
+<section id="stergerea-branch-ului-in-urma-integrarii-in-branch-ul-master">
+<span id="app-dev-pr-delete-branch"></span><h2><span class="section-number">10.6. </span>Ștergerea branch-ului în urma integrării în branch-ul master<a class="headerlink" href="#stergerea-branch-ului-in-urma-integrarii-in-branch-ul-master" title="Permalink to this headline">¶</a></h2>
+<p>Odată făcută operația <code class="docutils literal notranslate"><span class="pre">merge</span></code>, putem șterge branch-ul pe care am lucrat apăsând pe butonul <code class="docutils literal notranslate"><span class="pre">Delete</span> <span class="pre">branch</span></code>.</p>
+<figure class="align-default">
+<img alt="Ștergerea branch-ului **bubble-sort-implementation** remote (*origin*)" src="../../_images/GitHub-delete-origin-branch.gif" />
+</figure>
+<p>Această operație va șterge branch-ul doar pe GitHub.
+Ca să ștergem branch-ul <strong>bubble-sort-implementation</strong> și din repository-ul local folosim comanda <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">branch</span> <span class="pre">-d</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/array-sorting-algorithms$ git branch -d bubble-sort-implementation
+Deleted branch bubble-sort-implementation <span class="o">(</span>was d400958<span class="o">)</span>.
+student@uso:~/array-sorting-algorithms$ git branch
+* master
+</pre></div>
+</div>
+<p>În final am ajuns să integrăm modificările de pe branch-ul <strong>bubble-sort-implementation</strong> în branch-ul <strong>master</strong> prin intermediul unui <strong>Pull Request</strong>.
+Am șters branch-ul <strong>bubble-sort-implementation</strong>.</p>
+</section>
+<section id="exercitiu-crearea-unui-pr">
+<span id="app-dev-pr-ex"></span><h2><span class="section-number">10.7. </span>Exercițiu - Crearea unui PR<a class="headerlink" href="#exercitiu-crearea-unui-pr" title="Permalink to this headline">¶</a></h2>
+<p>Veți folosi repository-ul <code class="docutils literal notranslate"><span class="pre">array-sorting-algorithms</span></code> pentru rezolvarea acestui exercțiu.</p>
+<p>Creați un <strong>Pull Request</strong> urmând pașii descriși mai sus în care să adăugați algoritmul de sortare Radix Sort.
+De această dată veți modifica fișierul <code class="docutils literal notranslate"><span class="pre">radix-sort.c</span></code> cu următorul conținut:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+
+<span class="cp">#define MAX_LEN 100</span>
+
+<span class="k">static</span> <span class="kt">int</span> <span class="nf">get_max</span><span class="p">(</span><span class="kt">int</span> <span class="n">array</span><span class="p">[],</span> <span class="kt">int</span> <span class="n">n</span><span class="p">)</span>
+<span class="p">{</span>
+        <span class="kt">int</span> <span class="n">max</span> <span class="o">=</span> <span class="n">array</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">array</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">max</span><span class="p">)</span>
+                        <span class="n">max</span> <span class="o">=</span> <span class="n">array</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+        <span class="k">return</span> <span class="n">max</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">static</span> <span class="kt">void</span> <span class="nf">count_sort</span><span class="p">(</span><span class="kt">int</span> <span class="n">array</span><span class="p">[],</span> <span class="kt">int</span> <span class="n">n</span><span class="p">,</span> <span class="kt">int</span> <span class="n">exp</span><span class="p">)</span>
+<span class="p">{</span>
+        <span class="kt">int</span> <span class="n">output</span><span class="p">[</span><span class="n">n</span><span class="p">];</span>
+        <span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="n">count</span><span class="p">[</span><span class="mi">10</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">};</span>
+
+        <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">count</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">count</span><span class="p">[(</span><span class="n">array</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">/</span> <span class="n">exp</span><span class="p">)</span> <span class="o">%</span> <span class="mi">10</span><span class="p">]</span><span class="o">++</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">count</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+=</span> <span class="n">count</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">];</span>
+        <span class="p">}</span>
+
+        <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">--</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">output</span><span class="p">[</span><span class="n">count</span><span class="p">[(</span><span class="n">array</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">/</span> <span class="n">exp</span><span class="p">)</span> <span class="o">%</span> <span class="mi">10</span><span class="p">]</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">array</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+                <span class="n">count</span><span class="p">[(</span><span class="n">array</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">/</span> <span class="n">exp</span><span class="p">)</span> <span class="o">%</span> <span class="mi">10</span><span class="p">]</span><span class="o">--</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+                <span class="n">array</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">output</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+<span class="p">}</span>
+
+<span class="k">static</span> <span class="kt">void</span> <span class="nf">sort</span><span class="p">(</span><span class="kt">int</span> <span class="n">array</span><span class="p">[],</span> <span class="kt">int</span> <span class="n">n</span><span class="p">)</span>
+<span class="p">{</span>
+        <span class="kt">int</span> <span class="n">m</span> <span class="o">=</span> <span class="n">get_max</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="n">n</span><span class="p">);</span>
+
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">exp</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">m</span> <span class="o">/</span> <span class="n">exp</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">;</span> <span class="n">exp</span> <span class="o">*=</span> <span class="mi">10</span><span class="p">)</span>
+                <span class="n">count_sort</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">exp</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="k">static</span> <span class="kt">void</span> <span class="nf">print_array</span><span class="p">(</span><span class="kt">int</span> <span class="o">*</span><span class="n">array</span><span class="p">,</span> <span class="kt">int</span> <span class="n">len</span><span class="p">)</span>
+<span class="p">{</span>
+        <span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
+
+        <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">len</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d &quot;</span><span class="p">,</span> <span class="n">array</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+        <span class="p">}</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+        <span class="kt">int</span> <span class="n">array</span><span class="p">[</span><span class="n">MAX_LEN</span><span class="p">],</span> <span class="n">len</span><span class="p">,</span> <span class="n">i</span><span class="p">;</span>
+
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;What&#39;s the length of the array? Maximum lenght is %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">MAX_LEN</span><span class="p">);</span>
+        <span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">len</span><span class="p">);</span>
+
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Gimme the %d elements</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">len</span><span class="p">);</span>
+        <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">len</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">array</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+        <span class="p">}</span>
+
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Nonsorted array: &quot;</span><span class="p">);</span>
+        <span class="n">print_array</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="n">len</span><span class="p">);</span>
+
+        <span class="n">sort</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="n">len</span><span class="p">);</span>
+
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Sorted array: &quot;</span><span class="p">);</span>
+        <span class="n">print_array</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="n">len</span><span class="p">);</span>
+
+        <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Pe parcursul creării acestui Pull Request țineți cont de următoarele:</p>
+<ol class="arabic simple">
+<li><p>Alegeți nume relevant pentru branch-ul pe care îl veți crea.</p></li>
+<li><p>Adăugați o secțiune în <code class="docutils literal notranslate"><span class="pre">README.md</span></code> în care să descrieți algoritmul pe care l-ați implementat (<em>Radix Sort</em>).</p></li>
+<li><p>Dați un mesaj de commit și o descriere potrivită PR-ului vostru.</p></li>
+<li><p>Verificați pe tot parcursul dezvoltării starea repository-ului (<code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">status</span></code>) și istoricul de commituri (<code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">log</span></code>).</p></li>
+</ol>
+</section>
+<section id="bune-practici">
+<span id="app-dev-pr-good-practices"></span><h2><span class="section-number">10.8. </span>Bune practici<a class="headerlink" href="#bune-practici" title="Permalink to this headline">¶</a></h2>
+<p>Alternativa la a crea un <strong>Pull Request</strong> ar fi să lucrăm direct pe branch-ul <strong>master</strong>.</p>
+<p>Așa cum am menționat și în secțiunile anterioare, este <strong>BAD-PRACTICE</strong> să lucrăm direct pe branch-ul <strong>master</strong> din mai multe motive:</p>
+<ol class="arabic simple">
+<li><p>Pe branch-ul <strong>master</strong> se ține întotdeauna o versiune de cod funcțională.
+Astfel, lucrul pe acest branch ar însemna să facem commituri doar atunci când o funcționalitate este finalizată.
+Altfel pe branch-ul <strong>master</strong> vom avea o bucată de cod neterminată care poate să afecteze întreg proiectul.</p></li>
+<li><p>Lucrul pe un singur branch nu oferă posibilitatea de a da feedback pe schimbările făcute pe repository.
+Dacă nu avem posibilitatea să oferim feedback unui coleg prin intermediul GitHub, atunci vom avea nevoie să comunicăm pe un alt mediu observațiile noastre, iar ei vor trebui să creeze un nou commit pentru rezolvarea problemelor.
+Mult mai simplu este să se realizeze întreaga etapă de feedback, numită <strong>code review</strong>, înainte ca schimbările să apară pe <strong>master</strong>.</p></li>
+<li><p>În unele situații nici nu vom avea drepturi să scriem pe branch-ul <strong>master</strong>, astfel devenind obligatoriu lucrul pe un alt branch și integrarea codului în branch-ul <strong>master</strong> printr-un <strong>Pull Request</strong>.</p></li>
+</ol>
+<p class="rubric">Note de subsol</p>
+<dl class="footnote brackets">
+<dt class="label" id="pull-request"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd><p><a class="reference external" href="https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/about-pull-requests">https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/about-pull-requests</a></p>
+<p><a class="reference external" href="https://www.atlassian.com/git/tutorials/making-a-pull-request">https://www.atlassian.com/git/tutorials/making-a-pull-request</a></p>
+</dd>
+<dt class="label" id="base-branch"><span class="brackets"><a class="fn-backref" href="#id2">2</a></span></dt>
+<dd><p>Putem schimba acest branch prin apăsarea butonului <code class="docutils literal notranslate"><span class="pre">base:</span> <span class="pre">master</span></code>.
+Vor fi afișate toate branch-urile din acest repository și vom putea alege în ce branch să integrăm PR-ul.</p>
+</dd>
+</dl>
+</section>
+</section>
+
+
+          </div>
+          <div class="page-nav">
+            <div class="inner"><ul class="page-nav">
+  <li class="prev">
+    <a href="git-branches.html"
+       title="previous chapter">← <span class="section-number">9. </span>Lucrul pe branch-uri</a>
+  </li>
+  <li class="next">
+    <a href="extra.html"
+       title="next chapter"><span class="section-number">11. </span>Exerciții suplimentare →</a>
+  </li>
+</ul><div class="footer" role="contentinfo">
+      &#169; Copyright 2020, USO Team.
+    <br>
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.1.2 with <a href="https://github.com/romnn/sphinx_press_theme">Press Theme</a>.
+</div>
+            </div>
+          </div>
+      </page>
+    </div>
+    
+    
+  </body>
+</html>

@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html >
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+      <title>8. Investigarea aplicațiilor instalate</title>
+    
+      <link rel="stylesheet" href="../../_static/pygments.css">
+      <link rel="stylesheet" href="../../_static/theme.css">
+      <link rel="stylesheet" href="../../_static/romnn_sphinx_press_theme.css">
+          <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+          <link rel="stylesheet" href="../../_static/css/theme.css " type="text/css" />
+      
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+
+      <!-- sphinx script_files -->
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/my_actions.js"></script>
+
+      
+      <script src="../../_static/theme-vendors.js"></script>
+      <script src="../../_static/theme.js" defer></script>
+    
+  <link rel="index" title="Index" href="../../genindex.html" />
+  <link rel="search" title="Search" href="../../search.html" />
+  <link rel="next" title="9. Exerciții: Instalarea și gestiunea aplicațiilor" href="summary2.html" />
+  <link rel="prev" title="7. Alternative la instalarea și dezinstalarea aplicațiilor" href="install-non-standard.html" />
+    <link href="../../_static/my_theme.css" rel="stylesheet" type="text/css">
+
+  </head>
+
+  <body>
+    <div id="app" class="theme-container" :class="pageClasses"><navbar @toggle-sidebar="toggleSidebar">
+  <div class="home-link-container">
+      <router-link to="../../index.html" class="home-link">
+      
+        <span class="site-name">USO Lab Book</span>
+    </router-link>
+  </div>
+
+  <div class="links">
+    <navlinks class="can-hide">
+
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Acomodarea în Linux
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Lucrul cu fișiere
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Dezvoltarea aplicațiilor
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Conectarea la Internet
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link  router-link-active">
+         Instalarea și utilizarea aplicațiilor
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Îmbunătățirea lucrului în linia de comandă
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Automatizarea în linia de comandă
+      </a>
+    </div>
+  
+
+
+
+  
+    <div class="nav-item">
+      <a href="https://github.com/Sergiu121/uso-lab-book"
+        class="nav-link external">
+          Github <outboundlink/>
+      </a>
+    </div>
+  
+
+    </navlinks>
+  </div>
+</navbar>
+
+      
+      <div class="sidebar-mask" @click="toggleSidebar(false)">
+      </div>
+        <sidebar @toggle-sidebar="toggleSidebar">
+          
+          <navlinks>
+            
+
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Acomodarea în Linux
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Lucrul cu fișiere
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Dezvoltarea aplicațiilor
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Conectarea la Internet
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link  router-link-active">
+         Instalarea și utilizarea aplicațiilor
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Îmbunătățirea lucrului în linia de comandă
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Automatizarea în linia de comandă
+      </a>
+    </div>
+  
+
+
+
+  
+    <div class="nav-item">
+      <a href="https://github.com/Sergiu121/uso-lab-book"
+        class="nav-link external">
+          Github <outboundlink/>
+      </a>
+    </div>
+  
+
+            
+          </navlinks><div id="searchbox" class="searchbox" role="search">
+  <div class="caption"><span class="caption-text">Search</span>
+    <div class="searchformwrapper">
+      <form autocomplete="off" class="search" action="../../search.html" method="get">
+        <input type="text" name="q" autocomplete="off" />
+        <input type="submit" value="Go" />
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div><div class="sidebar-links" role="navigation" aria-label="main navigation">
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#uso-lab-book">Acomodarea în Linux</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../basic/apps.html" class="reference internal ">Pornirea și oprirea aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../basic/browser.html" class="reference internal ">Folosirea eficientă a browserului web</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../basic/terminal.html" class="reference internal ">Lucrul în terminal</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../basic/workspace.html" class="reference internal ">Lucrul cu workspace-uri</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../basic/cheatsheet.html" class="reference internal ">Cheatsheet</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#uso-lab-book">Lucrul cu fișiere</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../files/paths.html" class="reference internal ">Căi în ierarhia de fișiere</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../files/files.html" class="reference internal ">Interacțiunea cu fișiere în linia de comandă</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../files/file_editor.html" class="reference internal ">Editor de text</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../files/io_redirection.html" class="reference internal ">Redirectări</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../files/archive.html" class="reference internal ">Arhive</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../files/file_system.html" class="reference internal ">Extra - Sistemul de fișiere</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../files/cheatsheet.html" class="reference internal ">Sumar - Cheatsheet</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#uso-lab-book">Dezvoltarea aplicațiilor</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../app-dev/intro.html" class="reference internal ">Introducere</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/make-intro.html" class="reference internal ">Compilarea unui fișier cod sursă C</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/make-multiple.html" class="reference internal ">Compilarea unui program din fișiere multiple</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/make-lib.html" class="reference internal ">Legarea executabilelor folosind biblioteci externe</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/make-simple-automation.html" class="reference internal ">Introducere în utilitarul Make și fișiere Makefile</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/make-advanced-automation.html" class="reference internal ">Aprofundarea folosirii fișierelor Makefile</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/git-intro.html" class="reference internal ">Introducere în Git și GitHub</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/git-first-commits.html" class="reference internal ">Primele commituri</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/git-branches.html" class="reference internal ">Lucrul pe branch-uri</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/git-first-pull-request.html" class="reference internal ">Crearea unui Pull Request (PR) pe GitHub</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/extra.html" class="reference internal ">Exerciții suplimentare</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#uso-lab-book">Conectarea la Internet</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../net/browser.html" class="reference internal ">Folosirea eficientă a browser-ului</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../net/troubleshoot.html" class="reference internal ">Verificarea conectivităţii la reţea</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../net/services.html" class="reference internal ">Servicii şi clienţi de reţea</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../net/extra.html" class="reference internal ">Funcţionalităţi suplimentare de reţelistică</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#uso-lab-book">Instalarea și utilizarea aplicațiilor</a></span>
+      </p>
+      <ul class="current">
+        
+          <li class="toctree-l1 "><a href="start.html" class="reference internal ">Pornirea și oprirea aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="run.html" class="reference internal ">Rularea aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="config.html" class="reference internal ">Configurarea rulării aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="summary1.html" class="reference internal ">Exerciții: Pornirea, rularea și configurarea aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="show-config.html" class="reference internal ">Vizualizarea configurației sistemului</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="install.html" class="reference internal ">Instalarea și dezinstalarea aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="install-non-standard.html" class="reference internal ">Alternative la instalarea și dezinstalarea aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 current"><a href="#" class="reference internal current">Investigarea aplicațiilor instalate</a>
+
+            
+              <ul>
+                
+                  <li class="toctree-l2"><a href="#listarea-aplicatiilor-instalate" class="reference internal">Listarea aplicațiilor instalate</a></li>
+                
+                  <li class="toctree-l2"><a href="#metadatele-unei-aplicatii-instalate" class="reference internal">Metadatele unei aplicații instalate</a></li>
+                
+              </ul>
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="summary2.html" class="reference internal ">Exerciții: Instalarea și gestiunea aplicațiilor</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#uso-lab-book">Îmbunătățirea lucrului în linia de comandă</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../improve-cli/improve-terminal.html" class="reference internal ">Îmbunătățirea lucrului în linia de comandă</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../improve-cli/inspect-fs.html" class="reference internal ">Inspectarea sistemului de fișiere</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../improve-cli/inspect-sys.html" class="reference internal ">Inspectarea sistemului</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../improve-cli/inspect-files.html" class="reference internal ">Inspectarea fișierelor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../improve-cli/process-files.html" class="reference internal ">Prelucrarea fișierelor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../improve-cli/improve-shell.html" class="reference internal ">O înțelegere mai bună a shell-ului</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../improve-cli/term-multiplexing.html" class="reference internal ">Multiplexarea terminalului</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#uso-lab-book">Automatizarea în linia de comandă</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../cli-automation/intro.html" class="reference internal "><no title></a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../cli-automation/regex.html" class="reference internal "><no title></a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../cli-automation/scripting-intro.html" class="reference internal "><no title></a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../cli-automation/scripting-advanced.html" class="reference internal "><no title></a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+</div>
+        </sidebar>
+
+      <page>
+          <div class="body-header" role="navigation" aria-label="navigation">
+  
+  <ul class="breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+    
+    <li><span class="section-number">8. </span>Investigarea aplicațiilor instalate</li>
+  </ul>
+  
+
+  <ul class="page-nav">
+  <li class="prev">
+    <a href="install-non-standard.html"
+       title="previous chapter">← <span class="section-number">7. </span>Alternative la instalarea și dezinstalarea aplicațiilor</a>
+  </li>
+  <li class="next">
+    <a href="summary2.html"
+       title="next chapter"><span class="section-number">9. </span>Exerciții: Instalarea și gestiunea aplicațiilor →</a>
+  </li>
+</ul>
+  
+</div>
+<hr>
+          <div class="content" role="main">
+            
+  <section id="investigarea-aplicatiilor-instalate">
+<span id="app-install-app-list"></span><h1><span class="section-number">8. </span>Investigarea aplicațiilor instalate<a class="headerlink" href="#investigarea-aplicatiilor-instalate" title="Permalink to this headline">¶</a></h1>
+<p>Având acces la un sistem de calcul, suntem interesați de ce aplicații rulează pe acesta și de versiunile acestor aplicații.
+Acest lucru ne va ajuta să ne dăm seama ce aplicații să (mai) instalăm, sau dacă e nevoie de o actualizare a versiunilor.</p>
+<section id="listarea-aplicatiilor-instalate">
+<h2><span class="section-number">8.1. </span>Listarea aplicațiilor instalate<a class="headerlink" href="#listarea-aplicatiilor-instalate" title="Permalink to this headline">¶</a></h2>
+<p>Atunci când afișăm aplicațiile instalate, vedem dacă o aplicație este absentă din sistem; sau vedem care aplicații sunt instalate, pentru a replica instalarea pe un al sistem.</p>
+<p>Dacă folosim <code class="docutils literal notranslate"><span class="pre">apt</span></code> pentru gestiunea pachetelor, folosim comanda de mai jos pentru afișarea pachetelor instalate:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ dpkg -l <span class="s1">&#39;*&#39;</span> <span class="p">|</span> grep ^ii
+ii  accountsservice                            <span class="m">0</span>.6.45-1ubuntu1                                  amd64        query and manipulate user account information
+ii  acl                                        <span class="m">2</span>.2.52-3build1                                   amd64        Access control list utilities
+ii  acpi-support                               <span class="m">0</span>.142                                            amd64        scripts <span class="k">for</span> handling many ACPI events
+ii  acpid                                      <span class="m">1</span>:2.0.28-1ubuntu1                                amd64        Advanced Configuration and Power Interface event daemon
+ii  adduser                                    <span class="m">3</span>.116ubuntu1                                     all          add and remove users and groups
+ii  adium-theme-ubuntu                         <span class="m">0</span>.3.4-0ubuntu4                                   all          Adium message style <span class="k">for</span> Ubuntu
+ii  adwaita-icon-theme                         <span class="m">3</span>.28.0-1ubuntu1                                  all          default icon theme of GNOME <span class="o">(</span>small subset<span class="o">)</span>
+ii  aisleriot                                  <span class="m">1</span>:3.22.5-1                                       amd64        GNOME solitaire card game collection
+ii  alacarte                                   <span class="m">3</span>.11.91-3                                        all          easy GNOME menu editing tool
+ii  alsa-base                                  <span class="m">1</span>.0.25+dfsg-0ubuntu5                             all          ALSA driver configuration files
+<span class="o">[</span>...<span class="o">]</span>
+</pre></div>
+</div>
+<p>Afișarea pachetelor o facem folosind comanda <code class="docutils literal notranslate"><span class="pre">dpkg</span> <span class="pre">-l</span> <span class="pre">'*'</span></code>.
+Această comandă afișează toate pachetele.
+Ca să afișăm doar pachetele instalate, filtrăm rezultatul cu ajutorul comenzii <code class="docutils literal notranslate"><span class="pre">grep</span> <span class="pre">^ii</span></code>.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Același lucru îl putem obține folosind comanda <code class="docutils literal notranslate"><span class="pre">apt</span> <span class="pre">list</span></code> ca mai jos.
+Doar că e o comandă mai nouă, marcată în manual ca <code class="docutils literal notranslate"><span class="pre">work-in-progress</span></code>; motiv pentru care, pe moment, preferăm folosirea comenzii <code class="docutils literal notranslate"><span class="pre">dpkg</span> <span class="pre">-l</span></code> ca mai sus.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ apt list --installed
+Listing...
+accountsservice/bionic,now <span class="m">0</span>.6.45-1ubuntu1 amd64 <span class="o">[</span>installed<span class="o">]</span>
+acl/bionic,now <span class="m">2</span>.2.52-3build1 amd64 <span class="o">[</span>installed<span class="o">]</span>
+acpi-support/bionic,now <span class="m">0</span>.142 amd64 <span class="o">[</span>installed<span class="o">]</span>
+acpid/bionic,now <span class="m">1</span>:2.0.28-1ubuntu1 amd64 <span class="o">[</span>installed<span class="o">]</span>
+adduser/bionic,bionic,now <span class="m">3</span>.116ubuntu1 all <span class="o">[</span>installed<span class="o">]</span>
+adium-theme-ubuntu/bionic,bionic,now <span class="m">0</span>.3.4-0ubuntu4 all <span class="o">[</span>installed<span class="o">]</span>
+adwaita-icon-theme/bionic,bionic,now <span class="m">3</span>.28.0-1ubuntu1 all <span class="o">[</span>installed<span class="o">]</span>
+aisleriot/bionic,now <span class="m">1</span>:3.22.5-1 amd64 <span class="o">[</span>installed<span class="o">]</span>
+alacarte/bionic,bionic,now <span class="m">3</span>.11.91-3 all <span class="o">[</span>installed,automatic<span class="o">]</span>
+<span class="o">[</span>...<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<p>Pentru afișarea pachetelor Snap instalate, folosim comanda:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ snap list
+Name                  Version                     Rev   Tracking         Publisher   Notes
+core                  <span class="m">16</span>-2.46.1                   <span class="m">9993</span>  latest/stable    canonical✓  core
+core18                <span class="m">20200724</span>                    <span class="m">1885</span>  latest/stable    canonical✓  base
+gnome-3-26-1604       <span class="m">3</span>.26.0.20200529             <span class="m">100</span>   latest/stable/…  canonical✓  -
+gnome-3-28-1804       <span class="m">3</span>.28.0-17-gde3d74c.de3d74c  <span class="m">128</span>   latest/stable    canonical✓  -
+gnome-3-34-1804       <span class="m">0</span>+git.3009fc7               <span class="m">36</span>    latest/stable    canonical✓  -
+gnome-calculator      <span class="m">3</span>.38.0+git7.c840c69c        <span class="m">826</span>   latest/stable/…  canonical✓  -
+gnome-characters      v3.34.0+git9.eeab5f2        <span class="m">570</span>   latest/stable/…  canonical✓  -
+gnome-logs            <span class="m">3</span>.34.0                      <span class="m">100</span>   latest/stable/…  canonical✓  -
+gnome-system-monitor  <span class="m">3</span>.36.0-12-g35f88a56d7       <span class="m">148</span>   latest/stable/…  canonical✓  -
+gtk-common-themes     <span class="m">0</span>.1-36-gc75f853             <span class="m">1506</span>  latest/stable/…  canonical✓  -
+<span class="o">[</span>...<span class="o">]</span>
+</pre></div>
+</div>
+<p>Atât în cazul pachetelor <code class="docutils literal notranslate"><span class="pre">apt</span></code> cât și în cazul pachetelor Snap, atunci când pachetele sunt afișate, se afișează și versiunea fiecărui pachet.</p>
+</section>
+<section id="metadatele-unei-aplicatii-instalate">
+<h2><span class="section-number">8.2. </span>Metadatele unei aplicații instalate<a class="headerlink" href="#metadatele-unei-aplicatii-instalate" title="Permalink to this headline">¶</a></h2>
+<p>Când avem o aplicație instalată sau când dorim să o instalăm, ne interesează să știm informații despre acea aplicație: descriere, versiune, pachete de care depinde, ce fișiere sunt conținute, cât spațiu ocupă după instalare, aplicații similare.
+Sistemul de gestiune a pachetelor ne oferă comenzi pentru acest lucru.</p>
+<p>Astfel, pentru <code class="docutils literal notranslate"><span class="pre">apt</span></code> și Snap, avem comenzile de mai jos pentru fiecare tip de informație dorită:</p>
+<ul>
+<li><p>Pentru afișarea descrierii, versiunii, pachetelor dependente folosim comenzile, respectiv <code class="docutils literal notranslate"><span class="pre">apt</span> <span class="pre">show</span></code> și <code class="docutils literal notranslate"><span class="pre">snap</span> <span class="pre">info</span></code>, urmate de numele pachetelui:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ apt show firefox
+Package: firefox
+Version: <span class="m">81</span>.0+build2-0ubuntu0.18.04.1
+Priority: optional
+Section: web
+Origin: Ubuntu
+Maintainer: Ubuntu Mozilla Team &lt;ubuntu-mozillateam@lists.ubuntu.com&gt;
+Bugs: https://bugs.launchpad.net/ubuntu/+filebug
+Installed-Size: <span class="m">216</span> MB
+Provides: gnome-www-browser, iceweasel, www-browser
+Depends: lsb-release, libatk1.0-0 <span class="o">(</span>&gt;<span class="o">=</span> <span class="m">1</span>.12.4<span class="o">)</span>, libc6 <span class="o">(</span>&gt;<span class="o">=</span> <span class="m">2</span>.27<span class="o">)</span>, libcairo-gobject2 <span class="o">(</span>&gt;<span class="o">=</span> <span class="m">1</span>.10.0<span class="o">)</span>, libcairo2 <span class="o">(</span>&gt;<span class="o">=</span> <span class="m">1</span>.10.0<span class="o">)</span>, libdbus-1-3 <span class="o">(</span>&gt;<span class="o">=</span> <span class="m">1</span>.9.14<span class="o">)</span>, libdbus-glib-1-2 <span class="o">(</span>&gt;<span class="o">=</span> <span class="m">0</span>.78<span class="o">)</span>, libfontconfig1 <span class="o">(</span>&gt;<span class="o">=</span> <span class="m">2</span>.12<span class="o">)</span>, libfreetype6 <span class="o">(</span>&gt;<span class="o">=</span> <span class="m">2</span>.3.5<span class="o">)</span>, libgcc1 <span class="o">(</span>&gt;<span class="o">=</span> <span class="m">1</span>:3.3<span class="o">)</span>, libgdk-pixbuf2.0-0 <span class="o">(</span>&gt;<span class="o">=</span> <span class="m">2</span>.22.0<span class="o">)</span>, libglib2.0-0 <span class="o">(</span>&gt;<span class="o">=</span> <span class="m">2</span>.37.3<span class="o">)</span>, libgtk-3-0 <span class="o">(</span>&gt;<span class="o">=</span> <span class="m">3</span>.4<span class="o">)</span>, libpango-1.0-0 <span class="o">(</span>&gt;<span class="o">=</span> <span class="m">1</span>.22.0<span class="o">)</span>, libpangocairo-1.0-0 <span class="o">(</span>&gt;<span class="o">=</span> <span class="m">1</span>.14.0<span class="o">)</span>, libpangoft2-1.0-0 <span class="o">(</span>&gt;<span class="o">=</span> <span class="m">1</span>.14.0<span class="o">)</span>, libstdc++6 <span class="o">(</span>&gt;<span class="o">=</span> <span class="m">6</span><span class="o">)</span>, libx11-6, libx11-xcb1, libxcb-shm0, libxcb1, libxcomposite1 <span class="o">(</span>&gt;<span class="o">=</span> <span class="m">1</span>:0.3-1<span class="o">)</span>, libxcursor1 <span class="o">(</span>&gt;&gt; <span class="m">1</span>.1.2<span class="o">)</span>, libxdamage1 <span class="o">(</span>&gt;<span class="o">=</span> <span class="m">1</span>:1.1<span class="o">)</span>, libxext6, libxfixes3, libxi6, libxrender1, libxt6
+Recommends: xul-ext-ubufox, libcanberra0, libdbusmenu-glib4, libdbusmenu-gtk3-4
+Suggests: fonts-lyx
+Replaces: kubuntu-firefox-installer
+Task: ubuntu-desktop, kubuntu-desktop, kubuntu-full, xubuntu-desktop, lubuntu-gtk-desktop, lubuntu-desktop, ubuntustudio-desktop, ubuntukylin-desktop, ubuntu-mate-core, ubuntu-mate-desktop
+Xul-Appid: <span class="o">{</span>ec8030f7-c20a-464f-9b0e-13a3a9e97384<span class="o">}</span>
+Supported: 5y
+Download-Size: <span class="m">55</span>.9 MB
+APT-Manual-Installed: yes
+APT-Sources: http://ro.archive.ubuntu.com/ubuntu bionic-updates/main amd64 Packages
+Description: Safe and easy web browser from Mozilla
+ Firefox delivers safe, easy web browsing. A familiar user interface,
+ enhanced security features including protection from online identity theft,
+ and integrated search <span class="nb">let</span> you get the most out of the web.
+
+N: There is <span class="m">1</span> additional record. Please use the <span class="s1">&#39;-a&#39;</span> switch to see it
+
+
+student@uso:~$ snap info pdftk
+name:      pdftk
+summary:   command-line tool <span class="k">for</span> working with PDF files
+publisher: Scott Moser <span class="o">(</span>smoser<span class="o">)</span>
+store-url: https://snapcraft.io/pdftk
+contact:   smoser@brickies.net
+license:   <span class="nb">unset</span>
+description: <span class="p">|</span>
+  pdftk is a command-line tool <span class="k">for</span> working with PDF files. It is commonly
+  used <span class="k">for</span> client-side scripting or server-side processing of PDF files.
+
+  This snap is an unmodified Ubuntu <span class="m">16</span>.04 binary package that is
+  re-packaged as a snap.
+
+  More info at https://www.pdflabs.com/tools/pdftk-server/ .
+
+  If you have issues with the snap, please feel free to file them at
+   https://github.com/smoser/pdftk/issues
+snap-id: LTZvYybwMaNBk5uA3k1lN6ycmsAZq82i
+channels:
+  latest/stable:    <span class="m">2</span>.02-4 <span class="m">2018</span>-09-05  <span class="o">(</span><span class="m">9</span><span class="o">)</span> 18MB -
+  latest/candidate: <span class="m">2</span>.02-4 <span class="m">2020</span>-06-11 <span class="o">(</span><span class="m">23</span><span class="o">)</span> 18MB -
+  latest/beta:      <span class="m">2</span>.02-4 <span class="m">2018</span>-09-05  <span class="o">(</span><span class="m">9</span><span class="o">)</span> 18MB -
+  latest/edge:      <span class="m">2</span>.02-4 <span class="m">2020</span>-06-11 <span class="o">(</span><span class="m">23</span><span class="o">)</span> 18MB -
+</pre></div>
+</div>
+<p>Mai sus, am afișat informații despre pachetul <code class="docutils literal notranslate"><span class="pre">firefox</span></code> instalabil cu <code class="docutils literal notranslate"><span class="pre">apt</span></code>, respectiv pachetul <code class="docutils literal notranslate"><span class="pre">pdftk</span></code> instalabil cu Snap.
+Pachetele afișate nu trebuie să fie instalate; putem folosi comenzile <code class="docutils literal notranslate"><span class="pre">apt</span> <span class="pre">show</span></code>, respectiv <code class="docutils literal notranslate"><span class="pre">snap</span> <span class="pre">info</span></code> fără a fi nevoie să instalăm pachetele.</p>
+</li>
+<li><p>Pentru afișarea conținutului unui pachet instalat, folosim comenzile, respectiv, <code class="docutils literal notranslate"><span class="pre">dpkg</span> <span class="pre">-L</span></code>, sau comanda de afișare a directorului ce conține fișierele Snap:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ dpkg -L nmap
+/.
+/usr
+/usr/bin
+/usr/bin/ncat
+/usr/bin/nmap
+/usr/bin/nping
+/usr/share
+/usr/share/doc
+/usr/share/doc/nmap
+/usr/share/doc/nmap/3rd-party-licenses.txt.gz
+<span class="o">[</span>...<span class="o">]</span>
+
+student@uso:~$ tree /snap/pdftk/
+/snap/pdftk/
+<span class="p">|</span>-- <span class="m">9</span>
+<span class="p">|</span>   <span class="p">|</span>-- command-pdftk.wrapper
+<span class="p">|</span>   <span class="p">|</span>-- lib
+<span class="p">|</span>   <span class="p">|</span>   <span class="sb">`</span>-- x86_64-linux-gnu
+<span class="p">|</span>   <span class="p">|</span>       <span class="p">|</span>-- ld-2.23.so
+<span class="p">|</span>   <span class="p">|</span>       <span class="p">|</span>-- ld-linux-x86-64.so.2 -&gt; ld-2.23.so
+<span class="p">|</span>   <span class="p">|</span>       <span class="p">|</span>-- libanl-2.23.so
+<span class="p">|</span>   <span class="p">|</span>       <span class="p">|</span>-- libanl.so.1 -&gt; libanl-2.23.so
+<span class="p">|</span>   <span class="p">|</span>       <span class="p">|</span>-- libBrokenLocale-2.23.so
+<span class="o">[</span>...<span class="o">]</span>
+</pre></div>
+</div>
+<p>Mai sus, am afișat conținutul pachetului <code class="docutils literal notranslate"><span class="pre">nmap</span></code>, instalat folosind <code class="docutils literal notranslate"><span class="pre">apt</span></code>, respectiv conținutul pachetului <code class="docutils literal notranslate"><span class="pre">pdftk</span></code>, instalat folosind Snap.
+Pentru pachetul <code class="docutils literal notranslate"><span class="pre">pdftk</span></code> (Snap) nu există comandă de instalare; urmărim conținutul directorului unde este instalat pachetul folosind Snap, adică <code class="docutils literal notranslate"><span class="pre">/snap/pdftk/</span></code>.</p>
+</li>
+<li><p>Pentru a replica instalarea pe un alt sistem, ne interesează să știm ce pachet conține un anumit fișier.
+Adică știm fișierul dorit, dar ne interesează ce pachet îl conține.</p>
+<p>În Snap, această informație se obține ușor: conținutul unui pachet este în directorul <code class="docutils literal notranslate"><span class="pre">/snap/&lt;nume_pachet&gt;/</span></code>; având calea completă către un fișier, identificăm pachetul din numele subdirectorului din cale.</p>
+<p>În <code class="docutils literal notranslate"><span class="pre">apt</span></code>, folosim comanda <code class="docutils literal notranslate"><span class="pre">dpkg</span> <span class="pre">-S</span></code> urmată de numele fișierului:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ dpkg -S /bin/ls
+coreutils: /bin/ls
+student@uso:~$ dpkg -S /usr/include/stdio.h
+libc6-dev:amd64: /usr/include/stdio.h
+student@uso:~$ dpkg -S /etc/NetworkManager/NetworkManager.conf
+network-manager: /etc/NetworkManager/NetworkManager.conf
+</pre></div>
+</div>
+<p>Mai sus am identificat, respectiv, pachetele care conțin fișierele <code class="docutils literal notranslate"><span class="pre">/bin/ls</span></code>, <code class="docutils literal notranslate"><span class="pre">/usr/include/stdio.h</span></code> și <code class="docutils literal notranslate"><span class="pre">/etc/NetworkManager/NetworkManager.conf</span></code>.
+Adică pachetele <code class="docutils literal notranslate"><span class="pre">coreutils</span></code>, <code class="docutils literal notranslate"><span class="pre">libc6-dev:amd64</span></code> și <code class="docutils literal notranslate"><span class="pre">network-manager</span></code>.</p>
+</li>
+</ul>
+<section id="exercitii">
+<h3><span class="section-number">8.2.1. </span>Exerciții<a class="headerlink" href="#exercitii" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple">
+<li><p>Afișați versiunea, descrierea, dependențele și dimensiunea pachetelor <code class="docutils literal notranslate"><span class="pre">hevea</span></code>, <code class="docutils literal notranslate"><span class="pre">imagemagick</span></code>, <code class="docutils literal notranslate"><span class="pre">ffmpeg</span></code>, <code class="docutils literal notranslate"><span class="pre">vlc</span></code>.
+Sunt pachete <code class="docutils literal notranslate"><span class="pre">apt</span></code>.</p></li>
+<li><p>Afișați versiunea, descrierea și dimensiunea pachetelor <code class="docutils literal notranslate"><span class="pre">rambox</span></code>, <code class="docutils literal notranslate"><span class="pre">android-studio</span></code>, <code class="docutils literal notranslate"><span class="pre">warzone2100</span></code>.
+Sunt pachete Snap.</p></li>
+<li><p>Afișați conținutul pachetelor <code class="docutils literal notranslate"><span class="pre">libreoffice-core</span></code>, <code class="docutils literal notranslate"><span class="pre">firefox</span></code>, <code class="docutils literal notranslate"><span class="pre">shutter</span></code>.
+Sunt pachete <code class="docutils literal notranslate"><span class="pre">apt</span></code>.</p></li>
+<li><p>Afișați pachetele <code class="docutils literal notranslate"><span class="pre">apt</span></code> care conțin, respectiv, fișierele <code class="docutils literal notranslate"><span class="pre">/bin/ps</span></code>, <code class="docutils literal notranslate"><span class="pre">/etc/hdparm.conf</span></code>, <code class="docutils literal notranslate"><span class="pre">/usr/share/pixmaps/gvim.svg</span></code>.</p></li>
+</ol>
+</section>
+</section>
+</section>
+
+
+          </div>
+          <div class="page-nav">
+            <div class="inner"><ul class="page-nav">
+  <li class="prev">
+    <a href="install-non-standard.html"
+       title="previous chapter">← <span class="section-number">7. </span>Alternative la instalarea și dezinstalarea aplicațiilor</a>
+  </li>
+  <li class="next">
+    <a href="summary2.html"
+       title="next chapter"><span class="section-number">9. </span>Exerciții: Instalarea și gestiunea aplicațiilor →</a>
+  </li>
+</ul><div class="footer" role="contentinfo">
+      &#169; Copyright 2020, USO Team.
+    <br>
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.1.2 with <a href="https://github.com/romnn/sphinx_press_theme">Press Theme</a>.
+</div>
+            </div>
+          </div>
+      </page>
+    </div>
+    
+    
+  </body>
+</html>
