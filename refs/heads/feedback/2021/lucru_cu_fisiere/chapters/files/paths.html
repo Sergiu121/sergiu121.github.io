@@ -539,7 +539,7 @@
             
   <section id="cai-in-ierarhia-de-fisiere">
 <span id="files-paths-in-fs"></span><h1><span class="section-number">1. </span>Căi în ierarhia de fișiere<a class="headerlink" href="#cai-in-ierarhia-de-fisiere" title="Permalink to this headline">¶</a></h1>
-<p>Atunci când folosim un terminal este important să știm unde ne aflăm în ierarhie.
+<p>Atunci când folosim un terminal, este important să știm unde ne aflăm în ierarhie.
 Dacă vrem să jucăm un joc, știm că vrem să ajungem în directorul <code class="docutils literal notranslate"><span class="pre">Games</span></code>, unde avem jocul preferat, <code class="docutils literal notranslate"><span class="pre">Warcraft3</span></code>.
 Pentru a ajunge în directorul <code class="docutils literal notranslate"><span class="pre">Games</span></code>, trebuie să știm unde suntem și apoi să navigăm în sistemul de fișiere până acolo.</p>
 <p><strong>O ierarhie de fișiere și directoare</strong> este o structură de organizare a acestora.
@@ -663,7 +663,7 @@ Voi veți avea alt rezultat, conform fișierelor și directoarelor de pe sistemu
 <p>Pornim de la următoarea analogie: Avem patru puncte pe o dreaptă: A, B, C și D.
 Pentru a ajunge de la A la D, <strong>trebuie</strong> să trecem prin B și C.
 Astfel, avem următoarele segmente: AB, BC, CD.</p>
-<p>Similar, pentru sistemul de fișiere, pornim de la directorul rădăcină (<code class="docutils literal notranslate"><span class="pre">/</span></code>) și să coborâm în jos pe arbore.</p>
+<p>Similar, pentru sistemul de fișiere, pornim de la directorul rădăcină (<code class="docutils literal notranslate"><span class="pre">/</span></code>) și coborâm pe arbore.</p>
 <p>Lista de directoare intermediare de la rădăcina ierarhiei de fișiere (<code class="docutils literal notranslate"><span class="pre">/</span></code>) până la un anumit fișier sau director se numeste <strong>cale</strong>.</p>
 <p><em>Calea curentă</em> este pozitia noastră în sistemul de fișiere.</p>
 <p>În lina de comandă afișăm calea până la directorul în care ne aflăm (<em>calea curentă</em>) folosind comanda <code class="docutils literal notranslate"><span class="pre">pwd</span></code> (<em>print working directory</em>) :</p>
@@ -730,7 +730,7 @@ drwxr-xr-x <span class="m">2</span> student student <span class="m">4096</span> 
 drwxr-xr-x <span class="m">2</span> student student <span class="m">4096</span> Sep <span class="m">29</span> <span class="m">19</span>:21 GameOfThrones
 </pre></div>
 </div>
-<p>În exemplul de mai sus, ne aflăm la calea <code class="docutils literal notranslate"><span class="pre">/home/student</span></code> și am coborât în jos în ierarhia de fișiere către directorul <code class="docutils literal notranslate"><span class="pre">comenzi</span></code>, apoi directorul <code class="docutils literal notranslate"><span class="pre">mkdir</span></code>.</p>
+<p>În exemplul de mai sus, ne aflăm la calea <code class="docutils literal notranslate"><span class="pre">/home/student</span></code> și am coborât în ierarhia de fișiere către directorul <code class="docutils literal notranslate"><span class="pre">comenzi</span></code>, apoi directorul <code class="docutils literal notranslate"><span class="pre">mkdir</span></code>.</p>
 <p>Același rezultat îl obținem folosind calea absolută:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ ls -l /home/student/comenzi/mkdir/
 total <span class="m">8</span>
@@ -794,7 +794,7 @@ Această comandă poate fi folosită oriunde ne-am afla deoarece este o <em>cale
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>La fel ca toate comenzile de lucru cu sistemul de fișiere, comanda <code class="docutils literal notranslate"><span class="pre">cd</span></code> primește ca parametru o cale. Aceasta poate fi atât <em>relativă</em> cât și <em>absolută</em>.</p>
+<p>La fel ca toate comenzile de lucru cu sistemul de fișiere, comanda <code class="docutils literal notranslate"><span class="pre">cd</span></code> primește ca parametru o cale. Aceasta poate fi atât <em>relativă</em>, cât și <em>absolută</em>.</p>
 </div>
 <p>Schimbăm calea curentă în <code class="docutils literal notranslate"><span class="pre">/home/student</span></code>, folosind <code class="docutils literal notranslate"><span class="pre">cd</span></code>:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:/usr$ <span class="nb">cd</span> /home/student
@@ -828,7 +828,7 @@ student@uso:/usr/bin$ <span class="nb">pwd</span>
 Dacă știm unde ne aflăm, ne putem orienta către destinație.
 Știm unde ne aflăm folosind comanda <code class="docutils literal notranslate"><span class="pre">pwd</span></code>; ne deplasăm în altă parte folosind comanda <code class="docutils literal notranslate"><span class="pre">cd</span></code>.</p>
 </div>
-<p>Observăm cum am urcat în ierarhie folosind <code class="docutils literal notranslate"><span class="pre">..</span></code> până la <code class="docutils literal notranslate"><span class="pre">/</span></code> (<em>directorul rădăcină</em>) iar apoi am coborât spre <code class="docutils literal notranslate"><span class="pre">usr</span></code> și apoi <code class="docutils literal notranslate"><span class="pre">bin</span></code>.</p>
+<p>Observăm cum am urcat în ierarhie folosind <code class="docutils literal notranslate"><span class="pre">..</span></code> până la <code class="docutils literal notranslate"><span class="pre">/</span></code> (<em>directorul rădăcină</em>), apoi am coborât spre <code class="docutils literal notranslate"><span class="pre">usr</span></code> și apoi <code class="docutils literal notranslate"><span class="pre">bin</span></code>.</p>
 <p>În exemplul de mai jos, comanda de mai sus nu este valabilă:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/comenzi$ <span class="nb">pwd</span>
 /home/student/comenzi
