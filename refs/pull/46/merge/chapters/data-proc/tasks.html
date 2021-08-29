@@ -565,7 +565,21 @@
             
               <ul>
                 
-                  <li class="toctree-l2"><a href="#exercitii-de-prelucrare-a-datelor" class="reference internal">Exerciții de prelucrare a datelor</a></li>
+                  <li class="toctree-l2"><a href="#tutorial-analiza-cursului-valutar-usd-eur" class="reference internal">Tutorial: Analiza cursului valutar USD-EUR</a></li>
+                
+                  <li class="toctree-l2"><a href="#prelucrari-in-catalog" class="reference internal">Prelucrări în catalog</a></li>
+                
+                  <li class="toctree-l2"><a href="#github-ranking" class="reference internal">GitHub Ranking</a></li>
+                
+                  <li class="toctree-l2"><a href="#istoric-bitcoin" class="reference internal">Istoric Bitcoin</a></li>
+                
+                  <li class="toctree-l2"><a href="#datahub-io" class="reference internal">datahub.io</a></li>
+                
+                  <li class="toctree-l2"><a href="#testssl-sh" class="reference internal">testssl.sh</a></li>
+                
+                  <li class="toctree-l2"><a href="#apeluri-de-sistem" class="reference internal">Apeluri de sistem</a></li>
+                
+                  <li class="toctree-l2"><a href="#bonus-prelucrare-interactiva-in-vim" class="reference internal">Bonus: Prelucrare interactivă în Vim</a></li>
                 
               </ul>
             
@@ -601,16 +615,456 @@
             
   <section id="exercitii-de-prelucrare-a-datelor">
 <span id="data-proc-tasks"></span><h1><span class="section-number">7. </span>Exerciții de prelucrare a datelor<a class="headerlink" href="#exercitii-de-prelucrare-a-datelor" title="Permalink to this headline">¶</a></h1>
-<p>Tutorial: Analiza evoluției cursului valutar USD-EUR: <a class="reference external" href="https://data.humdata.org/dataset/ecb-fx-rates">https://data.humdata.org/dataset/ecb-fx-rates</a></p>
-<p>Avem un catalog în format .xls pe care realizăm diferite prelucrări, precum cele din cursul de automatizarea sarcinilor. Acest lucru se face în Google Docs sau LibreOffice, în format interactiv.
-Apoi pentru cataloage din mai mulți ani, care necesită folosirea scriptingului.</p>
-<p>Să extragă ultima versiune de fișier CSV de GitHub ranking și să facă un script care afișează top 10 repository-uri pentru un limbaj primit ca argument. Le dăm scheletul în Bash și Python și folosesc ce doresc ei.</p>
-<p>Prelucrare pe istoricul Bitcoin (<a class="reference external" href="https://tokendatabase.com/">https://tokendatabase.com/</a>): când a fost topul Bitcoin, în ce zile a crescut cel mai mult.
-<strong>Bonus</strong>: Cei care pot și vor, să facă un grafic pe baza prelucrării.</p>
-<p>Să intre pe datahub.io (<a class="reference external" href="https://datahub.io/">https://datahub.io/</a>) să caute un tip de informație care îi interesează, să facă o prelucrare care îi interesează.</p>
-<p>Avem informații în format .JSON extrase folosind testssl.sh. Mai multe site-uri interogate legat de capacitățile TLS/SSL. Apoi făcut prelucrări pe toate aceste informații format JSON.</p>
-<p>Avem fișiere în format CSV și format JSON legate de apeluri de sistem (dintr-un proiect Unikraft). Dorim să extragem informații din aceste fișiere.</p>
-<p><strong>Bonus</strong>: Ceva cu prelucrare interactivă în Vim (substituții cu regex, recording)</p>
+<p>Exercițiile de mai jos sunt aplicații practice ale noțiunilor și competențelor de prelucrare a datelor.
+Fișierele de suport pentru exerciții se găsesc în directorul <code class="docutils literal notranslate"><span class="pre">support/tasks/</span></code> din directorul acestui capitol:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ <span class="nb">cd</span> uso-lab-book/chapters/data-proc/support/tasks/
+
+student@uso:~/.../data-proc/support/tasks$ ls -F
+<span class="m">01</span>-exchange/  <span class="m">02</span>-gradebook/  <span class="m">03</span>-github/  <span class="m">04</span>-bitcoin/  <span class="m">05</span>-datahub/  <span class="m">06</span>-testssl/  <span class="m">07</span>-syscall/  <span class="m">08</span>-vim/
+</pre></div>
+</div>
+<section id="tutorial-analiza-cursului-valutar-usd-eur">
+<span id="data-proc-tasks-01-exchange"></span><h2><span class="section-number">7.1. </span>Tutorial: Analiza cursului valutar USD-EUR<a class="headerlink" href="#tutorial-analiza-cursului-valutar-usd-eur" title="Permalink to this headline">¶</a></h2>
+<p>Ne propunem să analizăm cursul valutar USD-EUR, prezentat la adresa <a class="reference external" href="https://data.humdata.org/dataset/ecb-fx-rates">https://data.humdata.org/dataset/ecb-fx-rates</a>.</p>
+<p>Lucrăm în subdirectorul <code class="docutils literal notranslate"><span class="pre">01-exchange/</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/.../data-proc/support/tasks$ <span class="nb">cd</span> <span class="m">01</span>-exchange/
+
+student@uso:~/.../support/tasks/01-exchange$ ls -F
+process_exchange.py*
+</pre></div>
+</div>
+<p>Pentru început, descărcăm fișierul CSV care cuprinde cursul valutar, folosind o comandă precum:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/.../support/tasks/01-exchange$ wget https://proxy.hxlstandard.org/data/e6e27d/download/ECB_FX_USD-quote.csv
+<span class="o">[</span>...<span class="o">]</span>
+<span class="m">2021</span>-08-28 <span class="m">12</span>:11:38 <span class="o">(</span><span class="m">3</span>.24 MB/s<span class="o">)</span> - ‘ECB_FX_USD-quote.csv’ saved <span class="o">[</span><span class="m">3138594</span>/3138594<span class="o">]</span>
+</pre></div>
+</div>
+<p>Fișierul <code class="docutils literal notranslate"><span class="pre">ECB_FX_USD-quote.csv</span></code> conține data și evaluarea valorii unui dolar (<code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">USD</span></code>) pentru fiecare dintre celelalte monede.
+Astfel, pentru data de <code class="docutils literal notranslate"><span class="pre">2021-08-27</span></code>, valoarea <code class="docutils literal notranslate"><span class="pre">0.8502678343678259</span></code> de pe a doua coloană (EUR) înseamnă că <code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">USD</span></code> valorează <code class="docutils literal notranslate"><span class="pre">0.85...</span> <span class="pre">EUR</span></code>.</p>
+<p>Ne dorim să aflăm următoarele informații:</p>
+<ol class="arabic simple">
+<li><p>Care a fost cea mai mică valoare a cursului (adică atunci când EUR a fost cel mai valoros față de dolar).</p></li>
+<li><p>Care a fost cea mai mare valoare a cursului (adică atunci când EUR a fost cel mai valoros față de dolar).</p></li>
+<li><p>Care a fost cea mai mare scădere a cursului între două zile consecutive.</p></li>
+<li><p>Care a fost cea mai mare creștere a cursului între două zile consecutive.</p></li>
+<li><p>Care a fost cel mai lung interval de scădere consecutivă a cursului.</p></li>
+<li><p>Care a fost cel mai lung interval de creștere consecutivă a cursului.</p></li>
+</ol>
+<p>Pentru primele două informații, putem folosi one-linere:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/.../support/tasks/01-exchange$ &lt; ECB_FX_USD-quote.csv tail -n +3 <span class="p">|</span> cut -d <span class="s1">&#39;,&#39;</span> -f <span class="m">1</span>,2 <span class="p">|</span> sort -t <span class="s1">&#39;,&#39;</span> -k 2n <span class="p">|</span> head -1
+<span class="m">2008</span>-07-15,0.6253908692933083
+student@uso:~/.../support/tasks/01-exchange$ &lt; ECB_FX_USD-quote.csv tail -n +3 <span class="p">|</span> cut -d <span class="s1">&#39;,&#39;</span> -f <span class="m">1</span>,2 <span class="p">|</span> sort -t <span class="s1">&#39;,&#39;</span> -k 2rn <span class="p">|</span> head -1
+<span class="m">2000</span>-10-26,1.2118274357731458
+</pre></div>
+</div>
+<p>Cea mai mică valoare a cursului este <code class="docutils literal notranslate"><span class="pre">0.625...</span></code>, în data de <code class="docutils literal notranslate"><span class="pre">2008-07-15</span></code>, iar cea mai mare valoare a cursului a fost <code class="docutils literal notranslate"><span class="pre">1.211...</span></code> în data de <code class="docutils literal notranslate"><span class="pre">2000-10-26</span></code>.</p>
+<p>În cazul celor două one-linere, am folosit comenzile următoare (cu rolul aferent):</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;</span> <span class="pre">ECB_FX_USD-quote.csv</span></code>: redirectează conținutul fișierului către comanda următoare</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tail</span> <span class="pre">-n</span> <span class="pre">+3</span></code>: afișează de la a 3-a linie, eliminând astfel antetul din tabelul din fișier</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cut</span> <span class="pre">-d</span> <span class="pre">','</span> <span class="pre">-f</span> <span class="pre">1,2</span></code>: afișează doar primele două coloane: data și cursul USD-EUR</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sort</span> <span class="pre">-t</span> <span class="pre">','</span> <span class="pre">-k</span> <span class="pre">2n</span></code>: sortează numeric după a doua coloană, folosind separatorul virgulă</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sort</span> <span class="pre">-t</span> <span class="pre">','</span> <span class="pre">-k</span> <span class="pre">2nr</span></code>: sortează numeric inversat după a doua coloană, folosind separatorul virgulă</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">head</span> <span class="pre">-1</span></code>: afișează prima intrare, adică ceea ce căutam</p></li>
+</ul>
+<p>Pentru celalte informații, devine complicat să folosim one-linere sau shell.
+Așa că vom folosi un script Python: <code class="docutils literal notranslate"><span class="pre">process_exchange.py</span></code>.
+În acest script Python vom integra aflarea tuturor informațiile, inclusiv cele două informații pe care le-am aflat cu one-linere.
+Rulăm scriptul Python și aflăm toate informațiile:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/.../support/tasks/01-exchange$ ./process_exchange.py
+Highest exchange rate: <span class="m">1</span>.2118274357731458 <span class="o">(</span>on <span class="m">2000</span>-10-26<span class="o">)</span>
+Lowest exchange rate: <span class="m">0</span>.6253908692933083 <span class="o">(</span>on <span class="m">2008</span>-07-15<span class="o">)</span>
+Largest increase of exchange rate: <span class="m">0</span>.033178396113141106 <span class="o">(</span>on <span class="m">2008</span>-12-19<span class="o">)</span>
+Largest decrease of exchange rate: -0.04829874914157539 <span class="o">(</span>on <span class="m">2000</span>-09-22<span class="o">)</span>
+Largest period of exchange rage increase: <span class="m">10</span> days starting from <span class="m">2015</span>-02-25
+Largest period of exchange rage decrease: <span class="m">10</span> days starting from <span class="m">2006</span>-11-21
+</pre></div>
+</div>
+<p>Prezentăm câteva secvențe din scriptul <code class="docutils literal notranslate"><span class="pre">process_exchange.py</span></code>:</p>
+<ul>
+<li><p>Variabila globală <code class="docutils literal notranslate"><span class="pre">data</span></code> reține datele citite într-o listă de perechi de forma <code class="docutils literal notranslate"><span class="pre">(date,</span> <span class="pre">value)</span></code>.
+Variabila globală <code class="docutils literal notranslate"><span class="pre">diff_data</span></code> reține diferențele între valorile dintre date / zile consecutive într-o listă de perechi de forma <code class="docutils literal notranslate"><span class="pre">(data,</span> <span class="pre">diff</span></code>).</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Data is read in list of tuples (pairs), i.e. (2020-02-21, 0.73).</span>
+<span class="c1"># Date is the first item of the tuple / pair.</span>
+<span class="c1"># Exchange rate is the next item in the tuple / pair.</span>
+<span class="n">data</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="c1"># Store differential values in list of tuples (pairs), i.e. (2020-02-21, 0.012).</span>
+<span class="c1"># This means that on 2020-02-21 there was an increase of 0.012 of the exchange rate</span>
+<span class="c1"># compared to the previous day (2020-02-20).</span>
+<span class="n">diff_data</span> <span class="o">=</span> <span class="p">[]</span>
+</pre></div>
+</div>
+</li>
+<li><p>Funcțiile de afișare sortează o listă de perechi după valoare:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">sorted_data</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+<span class="p">[</span><span class="o">..</span><span class="p">]</span>
+<span class="n">sorted_data</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">diff_data</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+</pre></div>
+</div>
+</li>
+<li><p>Datele sunt citite din fișierul CSV (folosind pachetul CSV din Python <a class="footnote-reference brackets" href="#python-csv" id="id1">1</a>) în variabila <code class="docutils literal notranslate"><span class="pre">data</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">FILENAME</span><span class="p">,</span> <span class="s1">&#39;rt&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">csvfile</span><span class="p">:</span>
+    <span class="n">reader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">reader</span><span class="p">(</span><span class="n">csvfile</span><span class="p">)</span>
+    <span class="c1"># Read header.</span>
+    <span class="n">header</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">reader</span><span class="p">)</span>
+    <span class="n">date_idx</span> <span class="o">=</span> <span class="n">header</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s1">&#39;Date&#39;</span><span class="p">)</span>
+    <span class="n">currency_idx</span> <span class="o">=</span> <span class="n">header</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">CURRENCY</span><span class="p">)</span>
+    <span class="c1"># Skip comment line.</span>
+    <span class="nb">next</span><span class="p">(</span><span class="n">reader</span><span class="p">)</span>
+    <span class="c1"># Read contents.</span>
+    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">reader</span><span class="p">:</span>
+        <span class="n">data</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">row</span><span class="p">[</span><span class="n">date_idx</span><span class="p">],</span> <span class="nb">float</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="n">currency_idx</span><span class="p">])))</span>
+</pre></div>
+</div>
+</li>
+<li><p>Diferențele sunt calculate în variabila <code class="docutils literal notranslate"><span class="pre">diff_data</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Compute differential data.</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+    <span class="n">cur_date</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">cur_value</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">prev_value</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">diff_data</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">cur_date</span><span class="p">,</span> <span class="n">cur_value</span> <span class="o">-</span> <span class="n">prev_value</span><span class="p">))</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</section>
+<section id="prelucrari-in-catalog">
+<span id="data-proc-tasks-02-register"></span><h2><span class="section-number">7.2. </span>Prelucrări în catalog<a class="headerlink" href="#prelucrari-in-catalog" title="Permalink to this headline">¶</a></h2>
+<p>Ne interesează prelucrarea datelor din cataloage de note.
+Cataloagele sunt în format <code class="docutils literal notranslate"><span class="pre">.xlsx</span></code>.
+Veți realiza prelucrare interactivă în LibreOffice sau Google Spreadsheets.
+Și veți realiza o prelucrare neinteractivă (scriptată), care să realizeze automat prelucrarea pe mai multe fișiere.</p>
+<p>Lucrați în subdirectorul <code class="docutils literal notranslate"><span class="pre">02-gradebook/</span></code>.
+Directorul conține patru fișiere <code class="docutils literal notranslate"><span class="pre">.xlsx</span></code> reprezentând cataloagele din patru ani universitari diferiți:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/.../data-proc/support/tasks$ <span class="nb">cd</span> <span class="m">02</span>-gradebook/
+
+student@uso:~/.../support/tasks/02-gradebook$ ls -F
+ process_gradebook.py*   process_gradebook.sh*  <span class="s1">&#39;SO 2014-2015 - Catalog.xlsx&#39;</span>  <span class="s1">&#39;SO 2015-2016 - Catalog.xlsx&#39;</span>  <span class="s1">&#39;SO 2016-2017 - Catalog.xlsx&#39;</span>  <span class="s1">&#39;SO 2017-2018 - Catalog.xlsx&#39;</span>
+</pre></div>
+</div>
+<p>Realizați, în LibreOffice sau, online, în Google Spreadsheets, următoarele prelucrări (în mod interactiv) pe fișierul <code class="docutils literal notranslate"><span class="pre">SO</span> <span class="pre">2014-2015</span> <span class="pre">-</span> <span class="pre">Catalog.xlsx</span></code>:</p>
+<ol class="arabic simple">
+<li><p>Sortați notele, descrescător, în funcție de coloana <code class="docutils literal notranslate"><span class="pre">Punctaj</span> <span class="pre">final</span></code>.</p></li>
+<li><p>Obțineți media notelor pentru mai multe coloane:</p>
+<ul class="simple">
+<li><p>coloana <code class="docutils literal notranslate"><span class="pre">Notă</span> <span class="pre">finală</span></code></p></li>
+<li><p>coloana <code class="docutils literal notranslate"><span class="pre">Punctaj</span> <span class="pre">final</span></code></p></li>
+<li><p>coloana <code class="docutils literal notranslate"><span class="pre">Notă</span> <span class="pre">curs</span></code></p></li>
+<li><p>coloana <code class="docutils literal notranslate"><span class="pre">Examen</span> <span class="pre">final</span></code></p></li>
+<li><p>coloana <code class="docutils literal notranslate"><span class="pre">Notă</span> <span class="pre">lucrări</span></code></p></li>
+<li><p>coloana <code class="docutils literal notranslate"><span class="pre">Notă</span> <span class="pre">teme</span></code></p></li>
+</ul>
+</li>
+<li><p>Calculați câte note finale (coloana <code class="docutils literal notranslate"><span class="pre">Notă</span> <span class="pre">finală</span></code>) sunt <code class="docutils literal notranslate"><span class="pre">10</span></code>, câte note sunt <code class="docutils literal notranslate"><span class="pre">4</span></code> și câte sunt fără notă.</p></li>
+</ol>
+<p>Realizați aceleași prelucrări ca mai sus automat, folosind scripting.
+Pentru aceasta va trebui să convertiți fișierele din format <code class="docutils literal notranslate"><span class="pre">.xlsx</span></code> în format <code class="docutils literal notranslate"><span class="pre">.csv</span></code>.
+Realizați acest lucru cu o comandă de forma:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/.../support/tasks/02-gradebook$ libreoffice --headless --convert-to csv SO<span class="se">\ </span><span class="m">2014</span>-2015<span class="se">\ </span>-<span class="se">\ </span>Catalog.xlsx
+student@uso:~/.../support/tasks/02-gradebook$ ls
+student@uso:~/.../support/tasks/02-gradebook$ ls -F
+ process_gradebook.py*  <span class="s1">&#39;SO 2014-2015 - Catalog.csv&#39;</span>   <span class="s1">&#39;SO 2015-2016 - Catalog.xlsx&#39;</span>  <span class="s1">&#39;SO 2017-2018 - Catalog.xlsx&#39;</span>
+ process_gradebook.sh*  <span class="s1">&#39;SO 2014-2015 - Catalog.xlsx&#39;</span>  <span class="s1">&#39;SO 2016-2017 - Catalog.xlsx&#39;</span>
+</pre></div>
+</div>
+<p>În urma comenzii de conversie se generează un fișier CSV (în cazul acesta <code class="docutils literal notranslate"><span class="pre">SO</span> <span class="pre">2014-2015</span> <span class="pre">-</span> <span class="pre">Catalog.csv</span></code>.
+Fișierul format CSV trebuie curățat: trebuie șterse primele linii (capul de tabel) și ultimele linii (informații vide).</p>
+<p>Porniți, la alegere, de la scheletul de script Bash <code class="docutils literal notranslate"><span class="pre">process_gradebook.sh</span></code> sau de la scheletul de script Python <code class="docutils literal notranslate"><span class="pre">process_gradebook.py</span></code>.
+Urmăriți comentariile marcate cu <code class="docutils literal notranslate"><span class="pre">TODO</span></code> în cadrul scheletelor de script.</p>
+<p>La o rezolvare corectă, rezultatul rulării scriptului va fi:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/.../support/tasks/02-gradebook$ ./process_gradebook.py SO<span class="se">\ </span><span class="m">2014</span>-2015<span class="se">\ </span>-<span class="se">\ </span>Catalog.csv <span class="p">|</span> tail -8
+Average <span class="o">(</span>Notă finală<span class="o">)</span>: <span class="m">6</span>.82
+Average <span class="o">(</span>Punctaj final<span class="o">)</span>: <span class="m">6</span>.02
+Average <span class="o">(</span>Notă curs<span class="o">)</span>: <span class="m">5</span>.11
+Average <span class="o">(</span>Examen final<span class="o">)</span>: <span class="m">5</span>.34
+Average <span class="o">(</span>Notă lucrări<span class="o">)</span>: <span class="m">5</span>.84
+Average <span class="o">(</span>Notă teme<span class="o">)</span>: <span class="m">5</span>.30
+Number of items <span class="o">(</span>Notă finală<span class="o">)</span> with value of <span class="m">10</span>: <span class="m">17</span>
+Number of items <span class="o">(</span>Notă finală<span class="o">)</span> with value of <span class="m">4</span> or nothing: <span class="m">23</span>
+student@uso:~/.../support/tasks/02-gradebook$ ./process_gradebook.py SO<span class="se">\ </span><span class="m">2015</span>-2016<span class="se">\ </span>-<span class="se">\ </span>Catalog.csv <span class="p">|</span> tail -8
+Average <span class="o">(</span>Notă finală<span class="o">)</span>: <span class="m">7</span>.04
+Average <span class="o">(</span>Punctaj final<span class="o">)</span>: <span class="m">6</span>.07
+Average <span class="o">(</span>Notă curs<span class="o">)</span>: <span class="m">5</span>.15
+Average <span class="o">(</span>Examen final<span class="o">)</span>: <span class="m">5</span>.75
+Average <span class="o">(</span>Notă lucrări<span class="o">)</span>: <span class="m">5</span>.77
+Average <span class="o">(</span>Notă teme<span class="o">)</span>: <span class="m">5</span>.41
+Number of items <span class="o">(</span>Notă finală<span class="o">)</span> with value of <span class="m">10</span>: <span class="m">23</span>
+Number of items <span class="o">(</span>Notă finală<span class="o">)</span> with value of <span class="m">4</span> or nothing: <span class="m">32</span>
+student@uso:~/.../support/tasks/02-gradebook$ ./process_gradebook.py SO<span class="se">\ </span><span class="m">2016</span>-2017<span class="se">\ </span>-<span class="se">\ </span>Catalog.csv <span class="p">|</span> tail -8
+Average <span class="o">(</span>Notă finală<span class="o">)</span>: <span class="m">6</span>.36
+Average <span class="o">(</span>Punctaj final<span class="o">)</span>: <span class="m">5</span>.83
+Average <span class="o">(</span>Notă curs<span class="o">)</span>: <span class="m">4</span>.88
+Average <span class="o">(</span>Examen final<span class="o">)</span>: <span class="m">4</span>.86
+Average <span class="o">(</span>Notă lucrări<span class="o">)</span>: <span class="m">5</span>.45
+Average <span class="o">(</span>Notă teme<span class="o">)</span>: <span class="m">5</span>.03
+Number of items <span class="o">(</span>Notă finală<span class="o">)</span> with value of <span class="m">10</span>: <span class="m">14</span>
+Number of items <span class="o">(</span>Notă finală<span class="o">)</span> with value of <span class="m">4</span> or nothing: <span class="m">24</span>
+student@uso:~/.../support/tasks/02-gradebook$ ./process_gradebook.py SO<span class="se">\ </span><span class="m">2017</span>-2018<span class="se">\ </span>-<span class="se">\ </span>Catalog.csv <span class="p">|</span> tail -8
+Average <span class="o">(</span>Notă finală<span class="o">)</span>: <span class="m">6</span>.94
+Average <span class="o">(</span>Punctaj final<span class="o">)</span>: <span class="m">6</span>.30
+Average <span class="o">(</span>Notă curs<span class="o">)</span>: <span class="m">5</span>.56
+Average <span class="o">(</span>Examen final<span class="o">)</span>: <span class="m">6</span>.14
+Average <span class="o">(</span>Notă lucrări<span class="o">)</span>: <span class="m">5</span>.32
+Average <span class="o">(</span>Notă teme<span class="o">)</span>: <span class="m">6</span>.51
+Number of items <span class="o">(</span>Notă finală<span class="o">)</span> with value of <span class="m">10</span>: <span class="m">21</span>
+Number of items <span class="o">(</span>Notă finală<span class="o">)</span> with value of <span class="m">4</span> or nothing: <span class="m">25</span>
+</pre></div>
+</div>
+</section>
+<section id="github-ranking">
+<span id="data-proc-tasks-03-github"></span><h2><span class="section-number">7.3. </span>GitHub Ranking<a class="headerlink" href="#github-ranking" title="Permalink to this headline">¶</a></h2>
+<p>Ne interesează să analizăm cele mai urmărite repository-uri de pe GitHub, disponibile în <a class="reference external" href="https://github.com/EvanLi/Github-Ranking/tree/master/Data">repository-ul GitHub-Ranking</a>.</p>
+<p>Lucrați în subdirectorul <code class="docutils literal notranslate"><span class="pre">03-github/</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/.../data-proc/support/tasks$ <span class="nb">cd</span> <span class="m">03</span>-github/
+
+student@uso:~/.../support/tasks/03-github$ ls -F
+top10lang.py*  top10lang.sh*
+</pre></div>
+</div>
+<p>Descărcați un fișier CSV din din <a class="reference external" href="https://github.com/EvanLi/Github-Ranking/tree/master/Data">repository-ul GitHub-Ranking</a>.
+Dați click pe fișier și apoi pe butonul <code class="docutils literal notranslate"><span class="pre">Raw</span></code> ca să obțineți varianta primară a fișierului.
+URL-ul corect începe cu <code class="docutils literal notranslate"><span class="pre">https://raw.github.com/...</span></code>.</p>
+<p>Odată fișierul descărcat, obțineți top 10 repository-uri pentru un limbaj de programare primit ca argument în linia de comandă.
+Porniți, la alegere, de la scheletul de script Bash <code class="docutils literal notranslate"><span class="pre">top10lang.sh</span></code> sau de la scheletul de script Python <code class="docutils literal notranslate"><span class="pre">top10lang.py</span></code>.
+Urmăriți comentariile marcate cu <code class="docutils literal notranslate"><span class="pre">TODO</span></code> în cadrul scheletelor de script.</p>
+<p>La o rezolvare corectă, rezultatul rulării scriptului va fi:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/.../support/tasks/03-github$ ./top10lang.sh github-ranking-2021-08-24.csv C
+<span class="m">1</span>,C,linux,116734,38510,C,https://github.com/torvalds/linux,torvalds,0,2021-08-23T17:02:25Z,Linux kernel <span class="nb">source</span> tree
+<span class="m">2</span>,C,netdata,55684,5004,C,https://github.com/netdata/netdata,netdata,232,2021-08-24T00:33:27Z,<span class="s2">&quot;Real-time performance monitoring, done right! https://www.netdata.cloud&quot;</span>
+<span class="m">3</span>,C,scrcpy,53385,5538,C,https://github.com/Genymobile/scrcpy,Genymobile,826,2021-08-17T14:12:23Z,Display and control your Android device
+<span class="m">4</span>,C,redis,50696,19868,C,https://github.com/redis/redis,redis,1598,2021-08-23T18:01:08Z,<span class="s2">&quot;Redis is an in-memory database that persists on disk. The data model is key-value, but many different kind of values are supported: Strings, Lists, Sets, Sorted Sets, Hashes, Streams, HyperLogLogs, Bitmaps.&quot;</span>
+<span class="m">5</span>,C,git,39062,22056,C,https://github.com/git/git,git,0,2021-08-23T21:38:30Z,Git Source Code Mirror - This is a publish-only repository and all pull requests are ignored. Please follow Documentation/SubmittingPatches procedure <span class="k">for</span> any of your improvements.
+<span class="m">6</span>,C,php-src,31178,6791,C,https://github.com/php/php-src,php,0,2021-08-23T21:20:41Z,The PHP Interpreter
+<span class="m">7</span>,C,obs-studio,30412,5107,C,https://github.com/obsproject/obs-studio,obsproject,411,2021-08-24T02:08:36Z,OBS Studio - Free and open <span class="nb">source</span> software <span class="k">for</span> live streaming and screen recording
+<span class="m">8</span>,C,wrk,29970,2467,C,https://github.com/wg/wrk,wg,100,2021-07-28T11:06:07Z,Modern HTTP benchmarking tool
+<span class="m">9</span>,C,ijkplayer,29289,7602,C,https://github.com/bilibili/ijkplayer,bilibili,2607,2021-07-23T16:15:29Z,<span class="s2">&quot;Android/iOS video player based on FFmpeg n3.4, with MediaCodec, VideoToolbox support.&quot;</span>
+<span class="m">10</span>,C,FFmpeg,25866,8621,C,https://github.com/FFmpeg/FFmpeg,FFmpeg,0,2021-08-23T23:15:23Z,Mirror of https://git.ffmpeg.org/ffmpeg.git
+
+student@uso:~/.../support/tasks/03-github$ ./top10lang.sh github-ranking-2021-08-24.csv Python
+<span class="m">1</span>,Python,public-apis,152482,17285,Python,https://github.com/public-apis/public-apis,public-apis,5,2021-08-23T19:18:24Z,A collective list of free APIs
+<span class="m">2</span>,Python,system-design-primer,141941,26142,Python,https://github.com/donnemartin/system-design-primer,donnemartin,118,2021-08-23T22:32:48Z,Learn how to design large-scale systems. Prep <span class="k">for</span> the system design interview.  Includes Anki flashcards.
+<span class="m">3</span>,Python,Python,114883,31176,Python,https://github.com/TheAlgorithms/Python,TheAlgorithms,6,2021-08-24T02:20:08Z,All Algorithms implemented in Python
+<span class="m">4</span>,Python,Python-100-Days,107367,42475,Python,https://github.com/jackfrued/Python-100-Days,jackfrued,422,2021-08-12T02:21:24Z,Python - 100天从新手到大师
+<span class="m">5</span>,Python,awesome-python,101958,19714,Python,https://github.com/vinta/awesome-python,vinta,4,2021-08-04T14:18:43Z,<span class="s2">&quot;A curated list of awesome Python frameworks, libraries, software and resources&quot;</span>
+<span class="m">6</span>,Python,youtube-dl,99205,5752,Python,https://github.com/ytdl-org/youtube-dl,ytdl-org,3736,2021-08-23T17:02:29Z,Command-line program to download videos from YouTube.com and other video sites
+<span class="m">7</span>,Python,models,70998,44682,Python,https://github.com/tensorflow/models,tensorflow,1060,2021-08-23T23:05:45Z,Models and examples built with TensorFlow
+<span class="m">8</span>,Python,thefuck,63633,2963,Python,https://github.com/nvbn/thefuck,nvbn,174,2021-08-17T13:41:54Z,Magnificent app which corrects your previous console command.
+<span class="m">9</span>,Python,flask,56392,14549,Python,https://github.com/pallets/flask,pallets,17,2021-08-15T09:21:19Z,The Python micro framework <span class="k">for</span> building web applications.
+<span class="m">10</span>,Python,keras,52199,18796,Python,https://github.com/keras-team/keras,keras-team,371,2021-08-24T01:51:56Z,Deep Learning <span class="k">for</span> humans
+</pre></div>
+</div>
+</section>
+<section id="istoric-bitcoin">
+<span id="data-proc-tasks-04-bitcoin"></span><h2><span class="section-number">7.4. </span>Istoric Bitcoin<a class="headerlink" href="#istoric-bitcoin" title="Permalink to this headline">¶</a></h2>
+<p>Ne interesează să analizăm istoricul Bitcoin disponibil pe <a class="reference external" href="https://tokendatabase.com/">Token Database</a>.</p>
+<p>Lucrați în subdirectorul <code class="docutils literal notranslate"><span class="pre">04-bicoin/</span></code>.
+În acest subdirector există descărcat în prealabil un fișier CSV (<cite>btc-assets-vwap5.csv</cite>) de la <a class="reference external" href="https://tokendatabase.com/">Token Database</a>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/.../data-proc/support/tasks$ <span class="nb">cd</span> <span class="m">04</span>-bitcoin/
+
+student@uso:~/.../support/tasks/03-github$ ls -F
+btc-assets-vwap5.csv
+</pre></div>
+</div>
+<p>La fel ca în cazul <a class="reference internal" href="#data-proc-tasks-01-exchange"><span class="std std-ref">Tutorial: Analiza cursului valutar USD-EUR</span></a>, ne dorim să aflăm următoarele informații:</p>
+<ol class="arabic simple">
+<li><p>Care a fost cea mai mică valoare a deschiderii (<em>open</em>).</p></li>
+<li><p>Care a fost cea mai mare valoare a deschiderii.</p></li>
+<li><p>Care a fost cea mai mare scădere a deschiderii între două zile consecutive.</p></li>
+<li><p>Care a fost cea mai mare creștere a deschiderii între două zile consecutive.</p></li>
+<li><p>Care a fost cel mai lung interval de scădere consecutivă a deschiderii.</p></li>
+<li><p>Care a fost cel mai lung interval de creștere consecutivă a deschiderii.</p></li>
+</ol>
+<p>Creați a copie a scriptului <code class="docutils literal notranslate"><span class="pre">../01-exchange/process_exchange.py</span></code> și actualizați-o pentru cerințele curente.</p>
+<p>La o rezolvare corectă, rezultatul rulării scriptului va fi:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ python process_bitcoin.py
+Highest exchange rate: <span class="m">63375</span>.2371077903 <span class="o">(</span>on <span class="m">2021</span>-04-14T00:00:00<span class="o">)</span>
+Lowest exchange rate: <span class="m">3389</span>.01136388369 <span class="o">(</span>on <span class="m">2019</span>-02-08T00:00:00<span class="o">)</span>
+Largest increase of exchange rate: <span class="m">7661</span>.562806823698 <span class="o">(</span>on <span class="m">2021</span>-02-09T00:00:00<span class="o">)</span>
+Largest decrease of exchange rate: -6257.173214731105 <span class="o">(</span>on <span class="m">2021</span>-05-13T00:00:00<span class="o">)</span>
+Largest period of Bitcoin opening increase: <span class="m">9</span> days starting from <span class="m">2020</span>-12-11T00:00:00
+Largest period of Bitcoin opening decrease: <span class="m">7</span> days starting from <span class="m">2019</span>-11-03T00:00:00
+</pre></div>
+</div>
+<section id="bonus-graficul-evolutiei">
+<h3><span class="section-number">7.4.1. </span>Bonus: Graficul evoluției<a class="headerlink" href="#bonus-graficul-evolutiei" title="Permalink to this headline">¶</a></h3>
+<p>Realizați un grafic al evoluției deschiderii pentru Bitcoin.
+Puteți folosi Matplotlib <a class="footnote-reference brackets" href="#matplotlib" id="id2">2</a>.
+Vedeți <a class="reference external" href="https://moonbooks.org/Articles/How-to-create-a-simple-scatter-plot-using-matplotlib-/">tutorialul de la Moonbooks</a> sau <a class="reference external" href="https://matplotlib.org/stable/tutorials/introductory/pyplot.html#sphx-glr-tutorials-introductory-pyplot-py">tutorialul Pyplot de la Matplotlib</a></p>
+</section>
+</section>
+<section id="datahub-io">
+<span id="data-proc-tasks-05-github"></span><h2><span class="section-number">7.5. </span>datahub.io<a class="headerlink" href="#datahub-io" title="Permalink to this headline">¶</a></h2>
+<p>Folosiți-vă de cunoștințele de până acum și alegeți un set de date care vă interesează și realizați prelucrări cu acest set.
+Accesați <a class="reference external" href="https://datahub.io/">datahub.io</a> și căutați un set de informații de interes.
+Aveți de ales din informații demografice, sportive, economice, geografice etc.</p>
+<p>Lucrați în subdirectorul <code class="docutils literal notranslate"><span class="pre">05-datahub/</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/.../data-proc/support/tasks$ <span class="nb">cd</span> <span class="m">05</span>-datahub/
+student@uso:~/.../support/tasks/05-datahub$
+</pre></div>
+</div>
+</section>
+<section id="testssl-sh">
+<span id="data-proc-tasks-06-testssl"></span><h2><span class="section-number">7.6. </span>testssl.sh<a class="headerlink" href="#testssl-sh" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference internal" href="#testssl-sh">testssl.sh</a> este un utilitar care investighează configurația TLS/SSL a unui server.
+În urma unei investigații, utilitarul creează un fișier de jurnalizare în format JSON.</p>
+<p>Lucrați în subdirectorul <code class="docutils literal notranslate"><span class="pre">06-testssl/</span></code>.
+În acest subdirector se găsesc patru fișiere JSON obținute în urma investigației cu <code class="docutils literal notranslate"><span class="pre">testssl.sh</span></code> și un schelet de script Python pentru prelucrarea acestora:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/.../data-proc/support/tasks$ <span class="nb">cd</span> <span class="m">06</span>-testssl/
+
+student@uso:~/.../support/tasks/06-testssl$ ls -F
+balarama.lt.json  mage2.pro.json  process_testssl.py*  www.click2sell.eu.json  www.llri.lt.json
+</pre></div>
+</div>
+<p>Realizați modificări în scheletul de script <code class="docutils literal notranslate"><span class="pre">process_testssl.py</span></code> astfel încât:</p>
+<ol class="arabic simple">
+<li><p>Să afișați și evaluarea de ansamblu (<code class="docutils literal notranslate"><span class="pre">overall_grade</span></code>) din fișierele JSON.</p></li>
+<li><p>Să afișați vulnerabilitățile serverului, adică acele intrări de tipul vulnerabilitate pentru care câmpul <code class="docutils literal notranslate"><span class="pre">severity</span></code> <strong>NU</strong> are valoarea <code class="docutils literal notranslate"><span class="pre">OK</span></code>.</p></li>
+</ol>
+<p>Urmăriți comentariile marcate cu <code class="docutils literal notranslate"><span class="pre">TODO</span></code> în cadrul scheletului de script.</p>
+<p>La o rezolvare corectă, rezultatul rulării scriptului va fi:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/.../support/tasks/06-testssl$ ./process_testssl.py balarama.lt.json
+final_score: <span class="m">94</span>, overall_grade: B
+
+Vulnerabilities:
+
+BREACH <span class="o">(</span>CVE-2013-3587<span class="o">)</span> - MEDIUM
+DROWN_hint <span class="o">(</span>CVE-2016-0800 CVE-2016-0703<span class="o">)</span> - INFO
+LOGJAM-common_primes <span class="o">(</span>CVE-2015-4000<span class="o">)</span> - INFO
+BEAST_CBC_TLS1 <span class="o">(</span>CVE-2011-3389<span class="o">)</span> - MEDIUM
+BEAST <span class="o">(</span>CVE-2011-3389<span class="o">)</span> - LOW
+LUCKY13 <span class="o">(</span>CVE-2013-0169<span class="o">)</span> - LOW
+student@uso:~/.../support/tasks/06-testssl$ ./process_testssl.py mage2.pro.json
+final_score: <span class="m">91</span>, overall_grade: B
+
+Vulnerabilities:
+
+BREACH <span class="o">(</span>CVE-2013-3587<span class="o">)</span> - MEDIUM
+DROWN_hint <span class="o">(</span>CVE-2016-0800 CVE-2016-0703<span class="o">)</span> - INFO
+BEAST_CBC_TLS1 <span class="o">(</span>CVE-2011-3389<span class="o">)</span> - MEDIUM
+BEAST <span class="o">(</span>CVE-2011-3389<span class="o">)</span> - LOW
+LUCKY13 <span class="o">(</span>CVE-2013-0169<span class="o">)</span> - LOW
+student@uso:~/.../support/tasks/06-testssl$ ./process_testssl.py www.click2sell.eu.json
+final_score: <span class="m">92</span>, overall_grade: B
+
+Vulnerabilities:
+
+BREACH <span class="o">(</span>CVE-2013-3587<span class="o">)</span> - MEDIUM
+DROWN_hint <span class="o">(</span>CVE-2016-0800 CVE-2016-0703<span class="o">)</span> - INFO
+LUCKY13 <span class="o">(</span>CVE-2013-0169<span class="o">)</span> - LOW
+student@uso:~/.../support/tasks/06-testssl$ ./process_testssl.py www.llri.lt.json
+final_score: <span class="m">91</span>, overall_grade: B
+
+Vulnerabilities:
+
+BREACH <span class="o">(</span>CVE-2013-3587<span class="o">)</span> - MEDIUM
+DROWN_hint <span class="o">(</span>CVE-2016-0800 CVE-2016-0703<span class="o">)</span> - INFO
+LOGJAM-common_primes <span class="o">(</span>CVE-2015-4000<span class="o">)</span> - INFO
+BEAST_CBC_TLS1 <span class="o">(</span>CVE-2011-3389<span class="o">)</span> - MEDIUM
+BEAST <span class="o">(</span>CVE-2011-3389<span class="o">)</span> - LOW
+LUCKY13 <span class="o">(</span>CVE-2013-0169<span class="o">)</span> - LOW
+</pre></div>
+</div>
+</section>
+<section id="apeluri-de-sistem">
+<span id="data-proc-tasks-07-syscall"></span><h2><span class="section-number">7.7. </span>Apeluri de sistem<a class="headerlink" href="#apeluri-de-sistem" title="Permalink to this headline">¶</a></h2>
+<p>Avem colectate două fișiere în fomat CSV cu informații legate de apeluri de sistem (din cadrul proiectului <a class="reference external" href="https://www.unikraft.org/">Unikraft</a>).
+Lucrați în subdirectorul <code class="docutils literal notranslate"><span class="pre">07-syscall/</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/.../data-proc/support/tasks$ <span class="nb">cd</span> <span class="m">07</span>-syscall/
+
+student@uso:~/.../support/tasks/07-syscall$ ls -F
+process_syscalls.py*  process_syscalls.sh*  syscall-status.csv  syscall-use.csv
+</pre></div>
+</div>
+<p>Fișierul <code class="docutils literal notranslate"><span class="pre">syscall-use.csv</span></code> conține două coloane:</p>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">syscall</span></code>: numele apelului de sistem</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">num_apps</span></code>: numărul de aplicații care folosesc acel apel de sistem (maxim 30)</p></li>
+</ol>
+<p>Fișierul <code class="docutils literal notranslate"><span class="pre">syscall-status.csv</span></code> conține informații despre implementarea curentă a apelurilor de sistem în trei coloane:</p>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">syscall_id</span></code>: identificatorul apelului de sistem</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">syscall_name</span></code>: numele apelului de sistem</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">status</span></code>: starea implementării apelului de sistem</p></li>
+</ol>
+<p>Realizați o asociere între cele două fișiere astfel încât să obțineți, unificat, o afișare de tip CSV care să conțină coloanele <code class="docutils literal notranslate"><span class="pre">syscall_id</span></code>, <code class="docutils literal notranslate"><span class="pre">syscall_name</span></code>, <code class="docutils literal notranslate"><span class="pre">status</span></code> și <code class="docutils literal notranslate"><span class="pre">num_apps</span></code>.</p>
+<p>Apoi din acea afișare, să afișați, în ordinea numărului de aplicații care folosesc acel apel de sistem (de la cele mai multe la cele mai puține), acele apeluri de sistem a căror stare <strong>NU</strong> este <code class="docutils literal notranslate"><span class="pre">okay</span></code>.</p>
+<p>Scriptul Bash <code class="docutils literal notranslate"><span class="pre">process_syscalls.sh</span></code> conține deja rezolvarea.
+Este ineficient, apelând <code class="docutils literal notranslate"><span class="pre">grep</span></code> (adică ducând la crearea unui proces nou) de mai multe ori.
+Acest lucru arată limitările folosirii Bash pentru prelucrării mai complexe.</p>
+<p>O rezolvare mai eficientă, mai extensibilă și mai ușor de înțeles se poate realiza în Python.
+Porniți sau de la scheletul de script Python <code class="docutils literal notranslate"><span class="pre">process_syscalls.py</span></code> și rezolvați cerințele.
+Urmăriți comentariile marcate cu <code class="docutils literal notranslate"><span class="pre">TODO</span></code> în cadrul scheletului de script.</p>
+<p>La o rezolvare corectă, rezultatul rulării scriptului va fi:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/.../support/tasks/07-syscall$ ./process_syscalls.py
+<span class="o">[</span>...<span class="o">]</span>
+<span class="m">158</span>,arch_prctl,broken,30
+<span class="m">12</span>,brk,incomplete/restricted,30
+<span class="m">59</span>,execve,registration missing,30
+<span class="m">13</span>,rt_sigaction,incomplete/restricted,29
+<span class="m">257</span>,openat,registration missing,29
+<span class="m">60</span>,exit,incomplete/restricted,28
+<span class="m">72</span>,fcntl,registration missing,28
+<span class="m">14</span>,rt_sigprocmask,incomplete/restricted,27
+<span class="m">231</span>,exit_group,incomplete/restricted,26
+<span class="m">218</span>,set_tid_address,,25
+</pre></div>
+</div>
+</section>
+<section id="bonus-prelucrare-interactiva-in-vim">
+<span id="data-proc-tasks-08-vim"></span><h2><span class="section-number">7.8. </span>Bonus: Prelucrare interactivă în Vim<a class="headerlink" href="#bonus-prelucrare-interactiva-in-vim" title="Permalink to this headline">¶</a></h2>
+<p>Vim oferă suport în automatizarea (interactivă) folosind macro-uri pentru înregistrarea acțiunilor (<em>recording</em>) <a class="footnote-reference brackets" href="#vimrecord" id="id4">3</a>.
+Această funcționalitate este prezentată în tutorialul <a class="reference external" href="https://www.thegeekstuff.com/2009/01/vi-and-vim-macro-tutorial-how-to-record-and-play/">Vi and Vim Macro Tutorial</a>.</p>
+<p>Lucrați în subdirectorul <code class="docutils literal notranslate"><span class="pre">08-vim/</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/.../data-proc/support/tasks$ <span class="nb">cd</span> <span class="m">08</span>-vim/
+student@uso:~/.../support/tasks/08-vim$ ls
+contact.reference.csv  email.reference.txt  names.txt
+</pre></div>
+</div>
+<p>Realizați o copie a fișierului <code class="docutils literal notranslate"><span class="pre">names.txt</span></code> numită <code class="docutils literal notranslate"><span class="pre">contact.csv</span></code>.
+Folosiți funcționalitatea Vim de <em>recording</em> pentru a edita fișierul <code class="docutils literal notranslate"><span class="pre">contact.csv</span></code> pentru a ajunge la conținutul fișierului <code class="docutils literal notranslate"><span class="pre">contact.reference.csv</span></code>.</p>
+<p>Realizați o copie a fișierului <code class="docutils literal notranslate"><span class="pre">contact.csv</span></code> numită <code class="docutils literal notranslate"><span class="pre">email.txt</span></code>.
+Folosiți funcționalitatea Vim de <em>recording</em> pentru a edita fișierul <code class="docutils literal notranslate"><span class="pre">email.txt</span></code> pentru a ajunge la conținutul fișierului <code class="docutils literal notranslate"><span class="pre">email.reference.txt</span></code>.</p>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>Folosiți-vă de următoarele comenzi în Vim:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">dd</span></code>: decupează (<em>cut</em>) linia curentă</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">p</span></code>: lipește (<em>paste</em>) textul decupat</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">qa</span></code>: se pornește înregistrarea în macro-ul <code class="docutils literal notranslate"><span class="pre">a</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">q</span></code>: se oprește înregistrarea macro-ului curent</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&#64;a</span></code>: executarea înregistrării din macro-ul <code class="docutils literal notranslate"><span class="pre">a</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">0</span></code>: plasare la începutul liniei</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">$</span></code>: plasare la sfârșitul liniei</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">f&lt;character&gt;</span></code>: deplasează până la prima apariție ulterioară a caracterului <code class="docutils literal notranslate"><span class="pre">&lt;character&gt;</span></code> (cursorul este plasat pe caracter)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">F&lt;character&gt;</span></code>: deplasează înapoi până la prima apariție anterioară a caracterului <code class="docutils literal notranslate"><span class="pre">&lt;character&gt;</span></code> (cursorul este plasat pe caracter)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">df&lt;character&gt;</span></code>: decupează (<em>cut</em>) până la prima apariție ulterioară a caracterului <code class="docutils literal notranslate"><span class="pre">&lt;character&gt;</span></code> (cursorul este plasat pe caracter)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">d&lt;position&gt;</span></code>: în general, decupează până la o construcție de tip poziție</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">h</span></code>, <code class="docutils literal notranslate"><span class="pre">j</span></code>, <code class="docutils literal notranslate"><span class="pre">k</span></code>, <code class="docutils literal notranslate"><span class="pre">l</span></code>: deplasare un caracter la stânga, o linie jos, o linie sus, un caracter la dreapta</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">i</span></code>: trecere în modul inserare din modul ecran, cursorul este sub caracterul curent</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">a</span></code>: trecere în modul inserare din modul ecran, cursorul este sub următorul caracter</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">A</span></code>: trecere în modul inserare din modul ecran, cursorul este la sfârșitul liniei</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ESC</span></code>: trecere în modul ecran din modul inserare</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">x</span></code>: ștergerea caracterului de sub cursor (în modul ecran)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">J</span></code>: alăturarea (<em>join</em>) liniei următoare la linia curentă</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">gu$</span></code>: transformă majusculele în minuscule până la sfârșitul liniei</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">gu&lt;position&gt;</span></code>: în general, transformă majusculele în minuscule până la o construcție de tip poziție</p></li>
+</ul>
+</div>
+<p class="rubric">Note de subsol</p>
+<dl class="footnote brackets">
+<dt class="label" id="python-csv"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd><p><a class="reference external" href="https://docs.python.org/3/library/csv.html">https://docs.python.org/3/library/csv.html</a></p>
+</dd>
+<dt class="label" id="matplotlib"><span class="brackets"><a class="fn-backref" href="#id2">2</a></span></dt>
+<dd><p><a class="reference external" href="https://matplotlib.org/stable/index.html">https://matplotlib.org/stable/index.html</a></p>
+</dd>
+<dt class="label" id="vimrecord"><span class="brackets"><a class="fn-backref" href="#id4">3</a></span></dt>
+<dd><p><a class="reference external" href="http://vimdoc.sourceforge.net/htmldoc/repeat.html#recording">http://vimdoc.sourceforge.net/htmldoc/repeat.html#recording</a></p>
+</dd>
+</dl>
+</section>
 </section>
 
 
