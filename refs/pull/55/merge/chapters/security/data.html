@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-      <title>&lt;no title&gt;</title>
+      <title>Securitatea datelor</title>
     
       <link rel="stylesheet" href="../../_static/pygments.css">
       <link rel="stylesheet" href="../../_static/theme.css">
@@ -500,7 +500,7 @@
   <ul class="breadcrumbs">
     <li><a href="../../index.html">Docs</a> &raquo;</li>
     
-    <li>&lt;no title&gt;</li>
+    <li>Securitatea datelor</li>
   </ul>
   
 
@@ -511,7 +511,165 @@
 <hr>
           <div class="content" role="main">
             
-  <p>TODO</p>
+  <section id="securitatea-datelor">
+<h1>Securitatea datelor<a class="headerlink" href="#securitatea-datelor" title="Permalink to this headline">¶</a></h1>
+<section id="securitatea-in-sistemul-de-fisiere">
+<h2>Securitatea în sistemul de fișiere<a class="headerlink" href="#securitatea-in-sistemul-de-fisiere" title="Permalink to this headline">¶</a></h2>
+<p>Pentru accesul corect la fișiere, sistemele de operare moderne permit configurarea de <strong>permisiuni de acces</strong> (<em>access permissions</em> sau <em>access rights</em>).
+Așa cum am precizat mai sus, în cazul acestor permisiuni, utilizatorii și procesele lor sunt subiecții, iar fișierele sunt obiectele.
+În forma simplă, permisiunile pe fișiere și directoare sunt de citire, scriere și execuție, așa cum am indicat în Secțiunea <strong>TODO Secțiune</strong>.</p>
+<p>Pentru a afișa permisiunile fișierelor folosim utilitarul <em>ls</em> cu opțiunea <em>-l</em>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso-demo:~/securitate/stocks$ ls -l
+ total <span class="m">24</span>
+ drwxr-xr-x <span class="m">2</span> student student <span class="m">4096</span> Aug <span class="m">26</span> <span class="m">12</span>:57 Amazon
+ drwxr-xr-x <span class="m">2</span> student student <span class="m">4096</span> Aug <span class="m">26</span> <span class="m">12</span>:57 Apple
+ drwxr-xr-x <span class="m">2</span> student student <span class="m">4096</span> Aug <span class="m">26</span> <span class="m">12</span>:57 Facebook
+ drwxr-xr-x <span class="m">2</span> student student <span class="m">4096</span> Aug <span class="m">26</span> <span class="m">12</span>:57 Google
+ -rw-r--r-- <span class="m">1</span> student student   <span class="m">37</span> Aug <span class="m">26</span> <span class="m">14</span>:30 NASDAQ
+ drwxr-xr-x <span class="m">2</span> student student <span class="m">4096</span> Aug <span class="m">26</span> <span class="m">12</span>:58 Netflix
+</pre></div>
+</div>
+<p>Pentru fiecare linie asociată unui fișier observăm primul caracter (<em>d</em> - director sau <em>-</em> fișier simplu) după care nouă caractere de tipul <em>r (read)</em>, <em>w (write)</em>, <em>x (execute)</em>.
+Pentru lipsa permisiunii respective avem caracterul <em>-</em>.
+Ne aducem aminte din capitolul <strong>TODO Sectiune</strong> că primele trei caractere se referă la utilizator, următoarele trei la grup, iar ultimele trei la restul utilizatorilor din sistem.</p>
+<p>Coloanele trei și patru de mai sus reprezintă utilizatorul și grupul ce dețin fișierul.
+Acestea pot fi schimbate cu ajutorul utilitarului <em>chown</em>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso-demo:~/securitate/stocks$ chown Amazon:Amazon Amazon
+chown: changing ownership of <span class="s1">&#39;Amazon&#39;</span>: Operation not permitted
+student@uso-demo:~/securitate/stocks$ sudo chown Amazon:Amazon Amazon
+student@uso-demo:~/securitate/stocks$ ls -l
+total <span class="m">24</span>
+drwxr-xr-x <span class="m">2</span> Amazon  Amazon  <span class="m">4096</span> Aug <span class="m">26</span> <span class="m">12</span>:57 Amazon
+drwxr-xr-x <span class="m">2</span> student student <span class="m">4096</span> Aug <span class="m">26</span> <span class="m">12</span>:57 Apple
+drwxr-xr-x <span class="m">2</span> student student <span class="m">4096</span> Aug <span class="m">26</span> <span class="m">12</span>:57 Facebook
+drwxr-xr-x <span class="m">2</span> student student <span class="m">4096</span> Aug <span class="m">26</span> <span class="m">12</span>:57 Google
+-rw-r--r-- <span class="m">1</span> student student   <span class="m">37</span> Aug <span class="m">26</span> <span class="m">14</span>:30 NASDAQ
+drwxr-xr-x <span class="m">2</span> student student <span class="m">4096</span> Aug <span class="m">26</span> <span class="m">12</span>:58 Netflix
+</pre></div>
+</div>
+<p>Observăm că pentru a schimba deținătorul unui fișier este nevoie de permisiuni de <em>root</em> (am primit eroare din partea sistemului).
+Pentru asta, am folosit utilitarul <em>sudo</em> împreună cu comanda <em>chown</em>.
+Parametrii folosiți sunt <em>utilizator:grup</em> și fișierul <code class="docutils literal notranslate"><span class="pre">Amazon</span></code>.</p>
+<blockquote>
+<div><p>Pentru a modifica permisiunile, folosim utilitarul <em>chmod</em>:</p>
+</div></blockquote>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso-demo:~/securitate/stocks$ sudo chmod -r Amazon/
+student@uso-demo:~/securitate/stocks$ ls -l
+total <span class="m">24</span>
+d-wx--x--x <span class="m">2</span> Amazon  Amazon  <span class="m">4096</span> Aug <span class="m">26</span> <span class="m">12</span>:57 Amazon
+drwxr-xr-x <span class="m">2</span> student student <span class="m">4096</span> Aug <span class="m">26</span> <span class="m">12</span>:57 Apple
+drwxr-xr-x <span class="m">2</span> student student <span class="m">4096</span> Aug <span class="m">26</span> <span class="m">12</span>:57 Facebook
+drwxr-xr-x <span class="m">2</span> student student <span class="m">4096</span> Aug <span class="m">26</span> <span class="m">12</span>:57 Google
+-rw-r--r-- <span class="m">1</span> student student   <span class="m">37</span> Aug <span class="m">26</span> <span class="m">14</span>:30 NASDAQ
+drwxr-xr-x <span class="m">2</span> student student <span class="m">4096</span> Aug <span class="m">26</span> <span class="m">12</span>:58 Netflix
+</pre></div>
+</div>
+<p>Observăm că pentru a scoate permisiunile de citire folosim parametrul  <em>-r</em>, după care fisierul/directorul țintă.
+Pentru mai multe detalii de manipulare a permisiunilor, parcurgeți capitolul <strong>TODO PERMISIUNI</strong>.</p>
+<p><strong>TODO - Să vorbesc și despre chroot? Parcă e puțin cam mult</strong></p>
+<section id="exercitii-sistemul-de-fisiere">
+<h3>Exerciții - sistemul de fișiere<a class="headerlink" href="#exercitii-sistemul-de-fisiere" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple">
+<li><p>Modificați permisiunile fișierului <code class="docutils literal notranslate"><span class="pre">Google</span></code> astfel încât doar utilizatorul ce deține fișierul (<em>owner</em>) să aibă drepturi de citire (<em>read</em>).</p></li>
+<li><p>Modificați permisiunile fișierului <code class="docutils literal notranslate"><span class="pre">Netflix</span></code> astfel încât doar grupul ce deține fișierul (<em>owner</em>) să aibă drepturi de execuție (<em>execute</em>).</p></li>
+<li><p>Modificați permisiunile fișierului <code class="docutils literal notranslate"><span class="pre">Amazon</span></code> astfel încât toți utilizatorii să aibă drepturi de scriere (<em>write</em>).</p></li>
+</ol>
+</section>
+</section>
+<section id="confidentialitatea-datelor">
+<h2>Confidențialitatea datelor<a class="headerlink" href="#confidentialitatea-datelor" title="Permalink to this headline">¶</a></h2>
+<p>Sistemele și dispozitivele moderne au legătură aproape permanentă la Internet și transferă informații între ele.
+În această situație, permisiunile pe fișiere în sistemul local sunt nerelevante pentru un atacator care poate să captureze datele când sunt transferate.
+De aceea avem nevoie de moduri de a ascunde aceste date astfel încât, chiar capturate, să nu fie citite de un atacator, adică să păstrăm <em>confidențialitatea datelor</em>. <em>Confidențialitatea datelor</em> este asigurată, în general, prin <em>criptare</em>.
+De asemenea, folosim <em>permisiunile de acces</em> împreună cu <em>criptarea</em> pentru a avea o formă de <em>securitate în adâncime</em>.</p>
+<p>Folosind utilitarul <code class="docutils literal notranslate"><span class="pre">openssl</span></code> putem să criptăm conținutul unui fișier:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso-demo:~/securitate/stocks/Apple$ <span class="nb">echo</span> -n <span class="s2">&quot;Your password is safe with your iOS&quot;</span> &gt; motto.txt
+student@uso-demo:~/securitate/stocks/Apple$ openssl aes-256-cbc -in motto.txt -out motto.enc -pass pass:<span class="s2">&quot;Apple security is better than yours&quot;</span>
+student@uso-demo:~/securitate/stocks/Apple$ ls
+motto.enc  motto.txt
+</pre></div>
+</div>
+<p>Am creat fișierul <code class="docutils literal notranslate"><span class="pre">motto.txt</span></code> și l-am criptat folosind un algoritm de criptare AES cu o cheie pe 256 biți (<code class="docutils literal notranslate"><span class="pre">aes-256-cbc</span></code>).
+Fișierul dat de <code class="docutils literal notranslate"><span class="pre">-in</span></code> este cel de intrare, necriptat, iar cel dat de <code class="docutils literal notranslate"><span class="pre">-out</span></code> este rezultatul criptării.
+Am folosit parametrul <code class="docutils literal notranslate"><span class="pre">-pass</span></code> pentru a introduce din linia de comandă parola de criptare.</p>
+<p>Verificăm fișierul criptat <code class="docutils literal notranslate"><span class="pre">motto.enc</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso-demo:~/securitate/stocks/Apple$ xxd motto.enc
+<span class="m">0000000</span>: <span class="m">5361</span> 6c74 <span class="m">6564</span> 5f5f <span class="m">2562</span> 0ad0 cc5c <span class="m">7969</span>  Salted__%b...<span class="se">\y</span>i
+<span class="m">0000010</span>: <span class="m">5215</span> 6e86 796c <span class="m">6949</span> ac43 c9f6 056d f8a2  R.n.yliI.C...m..
+<span class="m">0000020</span>: c2cf 8d57 ce81 6c19 f40d 6ffe e108 <span class="m">5668</span>  ...W..l...o...Vh
+<span class="m">0000030</span>: 640f a92a db41 56f6 dbde d898 29f5 0bf6  d..*.AV.....<span class="o">)</span>...
+</pre></div>
+</div>
+<p>Utilizând parametrul <code class="docutils literal notranslate"><span class="pre">-d</span></code> putem decripta fișierul <code class="docutils literal notranslate"><span class="pre">motto.enc</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso-demo:~/securitate/stocks/Apple$ openssl aes-256-cbc -d -in motto.enc -out decrypted_motto.txt -pass pass:<span class="s2">&quot;Apple security is better than yours&quot;</span>
+student@uso-demo:~/securitate/stocks/Apple$ ls
+decrypted_motto.txt  motto.enc  motto.txt
+student@uso-demo:~/securitate/stocks/Apple$ cat decrypted_motto.txt
+Your password is safe with your iOSstudent@uso-demo:~/securitate/stocks/Apple$
+</pre></div>
+</div>
+<p>Am folosit parametrul <code class="docutils literal notranslate"><span class="pre">-d</span></code> pentru criptare, <code class="docutils literal notranslate"><span class="pre">-in</span></code> pentru a oferi fișierul criptat și <code class="docutils literal notranslate"><span class="pre">-out</span></code> pentru rezultat.
+Observăm că textul decriptat este identic cu cel original.</p>
+<section id="exercitii-confidentialitatea-datelor">
+<h3>Exerciții - confidentialitatea datelor<a class="headerlink" href="#exercitii-confidentialitatea-datelor" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple">
+<li><p>Criptați propoziția următoare folosind algoritmul <em>aes-256-cbc</em>: <em>My password is better than yours!</em>;</p></li>
+<li><p>Decriptați fișierul obținut.</p></li>
+</ol>
+</section>
+</section>
+<section id="integritatea-datelor">
+<h2>Integritatea datelor<a class="headerlink" href="#integritatea-datelor" title="Permalink to this headline">¶</a></h2>
+<p>Un atacator poate urmări să citească datele, sau, în cazul în care acestea sunt criptate, poate decide să le modifice.
+Chiar și în absența atacatorului, datele pot fi corupte de defecte hardware ale dispozitivelor de stocare sau a celor de rețea.
+De aceea este necesar ca, în cazul transferului datelor, să asigurăm integritatea acestora.
+Integritatea datelor se realizează în general cu algoritmi de hashing.
+Un algoritm de hashing generează un rezumat de mici dimensiuni pentru un mesaj de intrare.
+Un fișier oricât de mare va avea un rezumat de doar câteva zeci de octeți, numit <strong>sumă de control</strong> (<em>checksum</em>).</p>
+<p>Procedura uzuală de verificare a integrității datelor este urmatoarea:</p>
+<figure class="align-default">
+<img alt="../../_images/hash.png" src="../../_images/hash.png" />
+</figure>
+<p>Exemple de algoritmi de hashing: md5 (utilitar <code class="docutils literal notranslate"><span class="pre">md5sum</span></code>), SHA-1 (utilitar <code class="docutils literal notranslate"><span class="pre">sha1sum</span></code>), SHA-256 (utilitarul <code class="docutils literal notranslate"><span class="pre">sha256sum</span></code>).
+În continuare vom folosim utilitarul <code class="docutils literal notranslate"><span class="pre">md5sum</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso-demo:~/securitate/stocks$ <span class="nb">echo</span> <span class="s2">&quot;FAANG is the place to be&quot;</span> <span class="p">|</span> md5sum
+ffe3ae3af537e5dd8999c86e54ac513e  -
+student@uso-demo:~/securitate/stocks$ <span class="nb">echo</span> <span class="s2">&quot;FAANG is the place to be!&quot;</span> <span class="p">|</span> md5sum
+95a4cb03ec3f1b2f31048ff913cc4b6a  -
+</pre></div>
+</div>
+<p>Observăm că <em>ffe3ae3af537e5dd8999c86e54ac513e</em> este suma de control pentru <em>FAANG is the place to be</em>.
+Mai mult, observăm că la introducerea unui nou caracter <strong>!</strong>, suma de control este complet diferită.</p>
+<p>Obținem suma de control pentru fișierul <code class="docutils literal notranslate"><span class="pre">NASDAQ</span></code> folosind utilitarul <code class="docutils literal notranslate"><span class="pre">sha256</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso-demo:~/securitate/stocks$ cat NASDAQ
+Facebook
+Apple
+Amazon
+Netflix
+Google
+student@uso-demo:~/securitate/stocks$ sha256sum NASDAQ
+05b3438dbc3530b185d1c005aaceab6043dc2e006b6b4fe1d1f40cc5a6588068  NASDAQ
+</pre></div>
+</div>
+<p>Un exemplu de utilizare a sumei de control este cazul în care descărcăm un fișier.
+Spre exemplu, dacă descărcăm <a class="reference external" href="https://download.virtualbox.org/virtualbox/6.1.26/virtualbox-6.1_6.1.26-145957~Ubuntu~eoan_amd64.deb">VirtualBox pentru Ubuntu 16.04</a>, putem verifica integritatea fișierului descărcat folosind sume control:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso-demo:~/securitate/stocks$ md5sum ~/virtualbox-6.1_6.1.26-145957~Ubuntu~bionic_amd64.deb
+223d915605c9001665f2b7469464bb0e  /home/student/virtualbox-6.1_6.1.26-145957~Ubuntu~bionic_amd64.deb
+</pre></div>
+</div>
+<p>Cei de la VirtualBox ne oferă un <a class="reference external" href="https://www.virtualbox.org/download/hashes/6.1.26/MD5SUMS">fișier cu sumele de control</a> pentru fișierele oferite.</p>
+<section id="exercitii-integritatea-datelor">
+<h3>Exerciții - integritatea datelor<a class="headerlink" href="#exercitii-integritatea-datelor" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple">
+<li><p>Creați suma de control pentru: “Facebook Amazon Apple Netflix Google (FAANG)”;</p></li>
+<li><p>Modificați un caracter din șirul de mai sus și refaceți suma de control;</p></li>
+<li><p>Creați suma de control pentru un fișier din sistemul de fișiere (poate fi creat de voi);</p></li>
+<li><p>Modificați un caracter din acel fișier și refaceți suma de control. Este identică?</p></li>
+<li><p>Descărcați de pe platforma <a class="reference external" href="https://www.virtualbox.org/wiki/Linux_Downloads">VirtualBox</a> o versiune de utilitar. Faceți suma de control și comparați cu ce oferă cei de la VirtualBox.</p></li>
+</ol>
+</section>
+</section>
+</section>
 
 
           </div>
