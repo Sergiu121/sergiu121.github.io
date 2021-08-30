@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-      <title>Securitatea Accesului. Autentificare</title>
+      <title>1. Securitatea Accesului. Autentificare</title>
     
       <link rel="stylesheet" href="../../_static/pygments.css">
       <link rel="stylesheet" href="../../_static/theme.css">
@@ -27,6 +27,7 @@
     
   <link rel="index" title="Index" href="../../genindex.html" />
   <link rel="search" title="Search" href="../../search.html" />
+  <link rel="prev" title="7. Multiplexarea terminalului" href="../improve-cli/term-multiplexing.html" />
     <link href="../../_static/my_theme.css" rel="stylesheet" type="text/css">
 
   </head>
@@ -88,7 +89,7 @@
   
     <div class="nav-item">
       <a href="../../index.html#uso-lab-book"
-         class="nav-link ">
+         class="nav-link  router-link-active">
          Investigarea securității sistemului
       </a>
     </div>
@@ -162,7 +163,7 @@
   
     <div class="nav-item">
       <a href="../../index.html#uso-lab-book"
-         class="nav-link ">
+         class="nav-link  router-link-active">
          Investigarea securității sistemului
       </a>
     </div>
@@ -509,7 +510,19 @@
       <p class="caption">
         <span class="caption-text"><a href="../../index.html#uso-lab-book">Investigarea securității sistemului</a></span>
       </p>
-      <ul class="">
+      <ul class="current">
+        
+          <li class="toctree-l1 current"><a href="#" class="reference internal current">Securitatea Accesului. Autentificare</a>
+
+            
+              <ul>
+                
+                  <li class="toctree-l2"><a href="#securitatea-accesului-autentificare" class="reference internal">Securitatea Accesului. Autentificare</a></li>
+                
+              </ul>
+            
+          </li>
+
         
       </ul>
     </div>
@@ -523,11 +536,15 @@
   <ul class="breadcrumbs">
     <li><a href="../../index.html">Docs</a> &raquo;</li>
     
-    <li>Securitatea Accesului. Autentificare</li>
+    <li><span class="section-number">1. </span>Securitatea Accesului. Autentificare</li>
   </ul>
   
 
   <ul class="page-nav">
+  <li class="prev">
+    <a href="../improve-cli/term-multiplexing.html"
+       title="previous chapter">← <span class="section-number">7. </span>Multiplexarea terminalului</a>
+  </li>
 </ul>
   
 </div>
@@ -535,12 +552,45 @@
           <div class="content" role="main">
             
   <section id="securitatea-accesului-autentificare">
-<h1>Securitatea Accesului. Autentificare<a class="headerlink" href="#securitatea-accesului-autentificare" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">1. </span>Securitatea Accesului. Autentificare<a class="headerlink" href="#securitatea-accesului-autentificare" title="Permalink to this headline">¶</a></h1>
 <p>Autentificarea presupune transmiterea unor informații de autentificare compuse uzual dintr-un nume de utilizator (<em>username</em>) și un element de autentificare (<em>authentication token</em>), adesea o parolă.</p>
 <p>Pentru sporirea nivelului de securitate în cazul autentificării putem folosi autentificare de tip multi-factor (<em>multi-factor authentication</em>).
 Forma uzuală este <em>two-factor authentication</em> (2FA).
 În acest caz sunt folosite mai multe moduri de autentificare: o parolă și o parolă de tip one-time sau o parolă și un identificator biometric.</p>
 <p>În Linux informațiile despre utilizatori sunt reținute în fișierul <code class="docutils literal notranslate"><span class="pre">/etc/passwd</span></code> care este citibil de către toți utilizatorii.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso-demo:~/securitate/stocks$ cat /etc/passwd
+root:x:0:0:root:/root:/bin/bash
+daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin
+bin:x:2:2:bin:/bin:/usr/sbin/nologin
+sys:x:3:3:sys:/dev:/usr/sbin/nologin
+sync:x:4:65534:sync:/bin:/bin/sync
+games:x:5:60:games:/usr/games:/usr/sbin/nologin
+man:x:6:12:man:/var/cache/man:/usr/sbin/nologin
+lp:x:7:7:lp:/var/spool/lpd:/usr/sbin/nologin
+mail:x:8:8:mail:/var/mail:/usr/sbin/nologin
+news:x:9:9:news:/var/spool/news:/usr/sbin/nologin
+uucp:x:10:10:uucp:/var/spool/uucp:/usr/sbin/nologin
+proxy:x:13:13:proxy:/bin:/usr/sbin/nologin
+www-data:x:33:33:www-data:/var/www:/usr/sbin/nologin
+backup:x:34:34:backup:/var/backups:/usr/sbin/nologin
+list:x:38:38:Mailing List Manager:/var/list:/usr/sbin/nologin
+irc:x:39:39:ircd:/var/run/ircd:/usr/sbin/nologin
+gnats:x:41:41:Gnats Bug-Reporting System <span class="o">(</span>admin<span class="o">)</span>:/var/lib/gnats:/usr/sbin/nologin
+nobody:x:65534:65534:nobody:/nonexistent:/usr/sbin/nologin
+systemd-timesync:x:100:103:systemd Time Synchronization,,,:/run/systemd:/bin/false
+systemd-network:x:101:104:systemd Network Management,,,:/run/systemd/netif:/bin/false
+systemd-resolve:x:102:105:systemd Resolver,,,:/run/systemd/resolve:/bin/false
+systemd-bus-proxy:x:103:106:systemd Bus Proxy,,,:/run/systemd:/bin/false
+Debian-exim:x:104:109::/var/spool/exim4:/bin/false
+messagebus:x:105:110::/var/run/dbus:/bin/false
+statd:x:106:65534::/var/lib/nfs:/bin/false
+avahi-autoipd:x:107:113:Avahi autoip daemon,,,:/var/lib/avahi-autoipd:/bin/false
+sshd:x:108:65534::/var/run/sshd:/usr/sbin/nologin
+student:x:1000:1000:Student User,,,:/home/student:/bin/bash
+avahi:x:109:115:Avahi mDNS daemon,,,:/var/run/avahi-daemon:/bin/false
+Amazon:x:1001:1001::/home/Amazon:/bin/sh
+</pre></div>
+</div>
 <p>Observăm utilizatorii <code class="docutils literal notranslate"><span class="pre">root</span></code>, <code class="docutils literal notranslate"><span class="pre">student</span></code>, <code class="docutils literal notranslate"><span class="pre">Amazon</span></code>.</p>
 <p>Informațiile despre parole sunt reținute în fișierul <code class="docutils literal notranslate"><span class="pre">/etc/shadow</span></code> care este citibil doar de procese privilegiate.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso-demo:~/securitate/stocks$ sudo cat /etc/shadow
@@ -639,6 +689,10 @@ Pentru aceasta este util să apelăm la <strong>generatoare de parole</strong>.<
           </div>
           <div class="page-nav">
             <div class="inner"><ul class="page-nav">
+  <li class="prev">
+    <a href="../improve-cli/term-multiplexing.html"
+       title="previous chapter">← <span class="section-number">7. </span>Multiplexarea terminalului</a>
+  </li>
 </ul><div class="footer" role="contentinfo">
       &#169; Copyright 2020, USO Team.
     <br>
