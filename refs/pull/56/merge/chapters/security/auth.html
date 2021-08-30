@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-      <title>&lt;no title&gt;</title>
+      <title>Securitatea Accesului. Autentificare</title>
     
       <link rel="stylesheet" href="../../_static/pygments.css">
       <link rel="stylesheet" href="../../_static/theme.css">
@@ -86,6 +86,13 @@
       </a>
     </div>
   
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Investigarea securității sistemului
+      </a>
+    </div>
+  
 
 
 
@@ -150,6 +157,13 @@
       <a href="../../index.html#uso-lab-book"
          class="nav-link ">
          Îmbunătățirea lucrului în linia de comandă
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Investigarea securității sistemului
       </a>
     </div>
   
@@ -350,19 +364,19 @@
       </p>
       <ul class="">
         
-          <li class="toctree-l1 "><a href="../net/browser.html" class="reference internal ">Folosirea eficientă a browser-ului</a>
+          <li class="toctree-l1 "><a href="../net/browser.html" class="reference internal ">Folosirea eficientă a browserului</a>
 
             
           </li>
 
         
-          <li class="toctree-l1 "><a href="../net/troubleshoot.html" class="reference internal ">Verificarea conectivităţii la reţea</a>
+          <li class="toctree-l1 "><a href="../net/connection.html" class="reference internal ">Conectarea la rețea și la Internet</a>
 
             
           </li>
 
         
-          <li class="toctree-l1 "><a href="../net/services.html" class="reference internal ">Servicii şi clienţi de reţea</a>
+          <li class="toctree-l1 "><a href="../net/services.html" class="reference internal ">Servicii și clienți de rețea</a>
 
             
           </li>
@@ -491,6 +505,15 @@
       </ul>
     </div>
   
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#uso-lab-book">Investigarea securității sistemului</a></span>
+      </p>
+      <ul class="">
+        
+      </ul>
+    </div>
+  
 </div>
         </sidebar>
 
@@ -500,7 +523,7 @@
   <ul class="breadcrumbs">
     <li><a href="../../index.html">Docs</a> &raquo;</li>
     
-    <li>&lt;no title&gt;</li>
+    <li>Securitatea Accesului. Autentificare</li>
   </ul>
   
 
@@ -511,7 +534,106 @@
 <hr>
           <div class="content" role="main">
             
-  <p>TODO</p>
+  <section id="securitatea-accesului-autentificare">
+<h1>Securitatea Accesului. Autentificare<a class="headerlink" href="#securitatea-accesului-autentificare" title="Permalink to this headline">¶</a></h1>
+<p>Autentificarea presupune transmiterea unor informații de autentificare compuse uzual dintr-un nume de utilizator (<em>username</em>) și un element de autentificare (<em>authentication token</em>), adesea o parolă.</p>
+<p>Pentru sporirea nivelului de securitate în cazul autentificării putem folosi autentificare de tip multi-factor (<em>multi-factor authentication</em>).
+Forma uzuală este <em>two-factor authentication</em> (2FA).
+În acest caz sunt folosite mai multe moduri de autentificare: o parolă și o parolă de tip one-time sau o parolă și un identificator biometric.</p>
+<p>În Linux informațiile despre utilizatori sunt reținute în fișierul <code class="docutils literal notranslate"><span class="pre">/etc/passwd</span></code> care este citibil de către toți utilizatorii.</p>
+<p>Observăm utilizatorii <code class="docutils literal notranslate"><span class="pre">root</span></code>, <code class="docutils literal notranslate"><span class="pre">student</span></code>, <code class="docutils literal notranslate"><span class="pre">Amazon</span></code>.</p>
+<p>Informațiile despre parole sunt reținute în fișierul <code class="docutils literal notranslate"><span class="pre">/etc/shadow</span></code> care este citibil doar de procese privilegiate.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso-demo:~/securitate/stocks$ sudo cat /etc/shadow
+root:<span class="nv">$6$8</span>esr1Ey5<span class="nv">$giBB2WfjBlEp2COdj</span>.HO1J0vHA8Tm/n15.yA2d81GkgDnlezY84tCSK5uOWby/IuZYupYfIanj0ernAiPueoi/:16760:0:99999:7:::
+daemon:*:16760:0:99999:7:::
+bin:*:16760:0:99999:7:::
+sys:*:16760:0:99999:7:::
+sync:*:16760:0:99999:7:::
+games:*:16760:0:99999:7:::
+man:*:16760:0:99999:7:::
+lp:*:16760:0:99999:7:::
+mail:*:16760:0:99999:7:::
+news:*:16760:0:99999:7:::
+uucp:*:16760:0:99999:7:::
+proxy:*:16760:0:99999:7:::
+www-data:*:16760:0:99999:7:::
+backup:*:16760:0:99999:7:::
+list:*:16760:0:99999:7:::
+irc:*:16760:0:99999:7:::
+gnats:*:16760:0:99999:7:::
+nobody:*:16760:0:99999:7:::
+systemd-timesync:*:16760:0:99999:7:::
+systemd-network:*:16760:0:99999:7:::
+systemd-resolve:*:16760:0:99999:7:::
+systemd-bus-proxy:*:16760:0:99999:7:::
+Debian-exim:!:16760:0:99999:7:::
+messagebus:*:16760:0:99999:7:::
+statd:*:16760:0:99999:7:::
+avahi-autoipd:*:16760:0:99999:7:::
+sshd:*:16760:0:99999:7:::
+student:<span class="nv">$6</span>$/Ajn.K.P<span class="nv">$KhLPgGusAakWEohMH</span>.ejVz9Y2TDu9fJ3x.OD3pl3audmCWElLFYT5loZK7trAlt3JbgbAAsJUWo/D2xGjyHBO0:16760:0:99999:7:::
+avahi:*:16760:0:99999:7:::
+Amazon:<span class="nv">$6$nlimOUzV$YmDo8EIcQ3KqGWt</span>/6r4GRwxGfIBtpbd0kAT3tpYHVMYybhCTe6ZxB40GjPcZX3pVPANbkDwQKLlTPrnPc.7un.:18865:0:99999:7:::
+</pre></div>
+</div>
+<p>Observăm că în fișierul <code class="docutils literal notranslate"><span class="pre">/etc/shadow</span></code> parolele sunt reținute ca rezumat, nu în format plaintext.</p>
+<p>Pentru generale de parole folosim utilitarul <code class="docutils literal notranslate"><span class="pre">pwgen</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso-demo:~/securitate/stocks$ pwgen
+kiloo3Th uPh2goh5 Xae2xah9 ixu0fiaY Sai7oowa ohCh7aid nohBah8n Xiedae2f
+yoh6GaeJ IoPhae9f ooX6oquu Uangu7sh miu4ohC5 IeLah6Ea chieP3ra eir4Aevo
+lacoch5U AiN6Aing Phie4hae Cho3beeT MahGh0to Daegoo4O Thee5Eis Maisai2e
+aiZuph6o teeN2yu7 cheiLee0 Queong2D iXoh2bei Xonee5ae thah2Iey chieD4wi
+unahMah3 axahH5qu gaeh0Rok Lae1aemo aeSoo0es Soh9iek6 Cheifoh1 an8oog2I
+vaeG7duK Piechis1 ooGhoPh3 aeNgee4l pheuLa1v IzaiD0Ah gauju5Je Thiex4oo
+eeTh5equ Cohc8lee aizo4ieT CeeV9nee Uequ0ahf ung6ahR9 xiNah3ai AVea6Ohc
+rae9Yof8 Azah5aa6 WoodeK7j yohQuoo0 Ool1Uque aijoRoo4 sainoi7I ux4Ees1A
+Sho5Foo0 riosha8I heexoo4F Saegh6ov OoZei8Ia UoL5AeWe raiz0ieR FolaP9ja
+eix4aT6s noojohB2 aib2Iep8 OWee4Yau ohh8Yei1 aphee5Ai aiD5Ooxi iedoo0Ph
+oohi4Aih ohr4ahFu doh5caiL Hi7Ail4k aeluTh4v eeCahch4 we6yiaTh zerae0oN
+up5eshuR ee7Eigiy Vo4cieco otooY4iT ri6Phei1 choF1tie aithin2R Cee1Oi2a
+wo6die5E iN5LieC5 aL2Iefeo eing1OhK eezuph8I TiWaa1Oo Va3sui8A miepu5Ie
+Ja6eg5je Caiquei2 Dei7oix6 aey2Aece daeg3Eir Zau4ih6u Iemee7ie ooShohk5
+ora6Ohh9 aiSh3ahf tai7sohH ieyaiF6k raeg9See debael5U Fie2eic2 sohNam7v
+IeT3vi4o Eer6Daen fa9eePh1 Aemaim7j Geda8ahs EeguP9ov naChieS2 ooch7aLe
+raeg9Iex Geez8ofo UoCh8oot ohSho4oh aqu0zieV wooCha7i paoS4woo eigh0Eiw
+fei7Gee2 jaifaV5n eigh7AGh eey8Zaeb yaiH3Iec eiMo9ooB Vie3riwo gah4Eeyi
+Rif5keeT Poo2aeji soh5ad6W kaS5cee1 oyeePai5 ooSha9wo beaBew5x eiGh7iqu
+iiBae8du aeGheuf9 aeZ5cahM Ize9ki7i uuPh6Doo ai8chooR Ohr6sohh eeRo0zie
+</pre></div>
+</div>
+<p>Observăm că am generat 160 parole a câte 8 caractere fiecare.</p>
+<p>În continuare generăm 2 parole a câte 17 caractere fiecare:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso-demo:~/securitate/stocks$ pwgen <span class="m">17</span> <span class="m">2</span>
+if5aerai1uc2giuJ1 maiTeiwahm9loo0li
+</pre></div>
+</div>
+<p>Primul parametru se referă la numărul de caractere pentru fiecare parolă și al doilea se referă la numărul de parole generate.</p>
+<p>Putem complica parolele pentru a fi mai sigure, folosind parametrul <code class="docutils literal notranslate"><span class="pre">-sync</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso-demo:~/securitate/stocks$ pwgen -c <span class="m">17</span> <span class="m">2</span>
+yephaet5Heeh0IeYi choh2OuThu0ieGh0j
+student@uso-demo:~/securitate/stocks$ pwgen -nc <span class="m">17</span> <span class="m">2</span>
+aexohHochie0fum6g nahF6hiet9ie0tuTe
+student@uso-demo:~/securitate/stocks$ pwgen -ync <span class="m">17</span> <span class="m">2</span>
+aesahfa3eiDo~thee ahSh%ie2agh/uagux
+student@uso-demo:~/securitate/stocks$ pwgen -sync <span class="m">17</span> <span class="m">2</span>
+vultw<span class="s2">&quot;&quot;</span>8nkOj8H<span class="o">)</span>u# nh&lt;afGZt<span class="o">(</span><span class="c1">#ag58-UW</span>
+</pre></div>
+</div>
+<p>Astfel, <code class="docutils literal notranslate"><span class="pre">-c</span></code> adaugă măcar o literă mare în parolă, <code class="docutils literal notranslate"><span class="pre">-n</span></code> adaugă cel puțin o cifră, <code class="docutils literal notranslate"><span class="pre">-y</span></code> un caracter special, iar <code class="docutils literal notranslate"><span class="pre">-s</span></code> adaugă complexitate parolelor.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>O parolă precum <strong>Tr0oub4dor&amp;3</strong> este mai greu de reținut și mai ușor de spart decât passphrase-ul <strong>horse battery staple</strong>.</p>
+<p>Parolele sa conțină un set de caractere cât mai larg, să nu fie doar litere mici.
+Ideal, parolele ar trebui să aibă minim 16 caractere, să conțină litere mari, cifre, semne de punctuație.</p>
+</div>
+<p>Ținând cont de numărul mare de parole folosite, trebuie să fie generate parole sau passphrase-uri diferite și greu de ghicit.
+Pentru aceasta este util să apelăm la <strong>generatoare de parole</strong>.</p>
+<p>Browserele web moderne au integrate generatoare de parole care vor completa automat câmpurile din formularele web de creare de conturi și parole:</p>
+<figure class="align-default">
+<img alt="chapters/security/res/pass_manager.png" src="chapters/security/res/pass_manager.png" />
+</figure>
+<p>Pentru gestiunea și stocarea parolelor este recomandată folosirea unui <strong>manager de parole</strong> (<em>password manager</em> ).</p>
+</section>
 
 
           </div>
