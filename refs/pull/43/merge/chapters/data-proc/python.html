@@ -548,7 +548,11 @@
             
               <ul>
                 
+                  <li class="toctree-l2"><a href="#sintaxa-python" class="reference internal">Sintaxa Python</a></li>
+                
                   <li class="toctree-l2"><a href="#exemple-simple-in-python" class="reference internal">Exemple simple în Python</a></li>
+                
+                  <li class="toctree-l2"><a href="#structuri-de-date-in-python" class="reference internal">Structuri de date în Python</a></li>
                 
                   <li class="toctree-l2"><a href="#exemple-de-prelucrare-in-python" class="reference internal">Exemple de prelucrare în Python</a></li>
                 
@@ -610,32 +614,594 @@
             
   <section id="introducere-in-python">
 <span id="data-proc-python"></span><h1><span class="section-number">4. </span>Introducere în Python<a class="headerlink" href="#introducere-in-python" title="Permalink to this headline">¶</a></h1>
-<p>limbaj simplu, folosit pentru eficiență în dezvoltare, portabil, multe biblioteci</p>
-<p>prelucrarea datelor</p>
-<p>sintaxă Python:</p>
-<ul class="simple">
-<li><p>similară C</p></li>
-<li><p>indentare cu spații</p></li>
-<li><p>suport nativ pentru lucru cu șiruri is lucrul cu liste</p></li>
-<li><p>nu există tipuri de date</p></li>
+<p>Python <a class="footnote-reference brackets" href="#python" id="id1">1</a> este unul dintre cele mai folosite limbaje de programare.
+Avantajele sale sunt simplitatea sintaxei, portabilitatea pe diferite platforme și dezvoltarea rapidă prin prezența a numeroase biblioteci.
+Fiind un limbaj interpretat, Python nu este un limbaj care excelează la capitolul viteză.
+Acolo unde însă nu este critică viteza de rulare sau resursele consumate, Python este o opțiune foarte bună.
+O astfel de opțiune este partea de prelucrare a datelor.
+Python este unul dintre limbajele cele mai folosite pentru prelucrarea datelor și în ceea de numim “știința datelor” (<em>Data Science</em>)
+Utilitatea Python în zona de prelucrare a datelor este conferită de sintaxa sa facilă, suport în prelucrarea șirurilor și prezența structurilor și a operațiilor pentru date de tot felul.</p>
+<p>Cea mai recentă versiune de Python, cu sintaxă corespunzătoare este Python3.
+Există mici diferențe între Python3 și versiunea anterioară, Python2.
+În această carte folosim și recomandăm Python3.</p>
+<section id="sintaxa-python">
+<span id="data-proc-python-syntax"></span><h2><span class="section-number">4.1. </span>Sintaxa Python<a class="headerlink" href="#sintaxa-python" title="Permalink to this headline">¶</a></h2>
+<p>Python are o sintaxă care seamănă cu limbajul C, dar este simplificată.
+Definițiile de variabile și de funcții, instrucțiunile de bază, apelurile de funcții sunt similare cu cele ale limbajului C.</p>
+<p>Particularitățile sintaxei Python sunt:</p>
+<ul>
+<li><p>Nu există acolade pentru blocuri de cod.
+Un nou bloc de cod este definit prin indentare.
+În exemplul de mai jos:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">value</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+    <span class="n">item</span> <span class="o">=</span> <span class="mi">20</span>
+    <span class="n">weight</span> <span class="o">=</span> <span class="mi">10</span>
+</pre></div>
+</div>
+<p>variabila <code class="docutils literal notranslate"><span class="pre">item</span></code> va avea valoarea <code class="docutils literal notranslate"><span class="pre">20</span></code>, iar variabila <code class="docutils literal notranslate"><span class="pre">weight</span></code> va avea valoarea <code class="docutils literal notranslate"><span class="pre">10</span></code> dacă variabila <code class="docutils literal notranslate"><span class="pre">value</span></code> are valoarea <code class="docutils literal notranslate"><span class="pre">1</span></code>.</p>
+<p>Altfel, în exemplul de mai jos:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">value</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+    <span class="n">item</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="n">weight</span> <span class="o">=</span> <span class="mi">10</span>
+</pre></div>
+</div>
+<p>doar variabila <code class="docutils literal notranslate"><span class="pre">item</span></code> va avea valoarea <code class="docutils literal notranslate"><span class="pre">20</span></code> dacă variabila <code class="docutils literal notranslate"><span class="pre">value</span></code> are valoarea <code class="docutils literal notranslate"><span class="pre">1</span></code>.
+Variabila <code class="docutils literal notranslate"><span class="pre">weight</span></code> va avea mereu valoarea <code class="docutils literal notranslate"><span class="pre">10</span></code>.</p>
+</li>
+<li><p>Un bloc de cod începe prin finalizarea sintaxei cu <code class="docutils literal notranslate"><span class="pre">:</span></code> (două puncte, <em>colon</em>).
+Blocurile <code class="docutils literal notranslate"><span class="pre">if</span></code>, <code class="docutils literal notranslate"><span class="pre">for</span></code>, clasele sau funcțiile se încheie cu <code class="docutils literal notranslate"><span class="pre">:</span></code>.</p></li>
+<li><p>Funcțiile se definesc cu ajutorul cuvântului cheie <code class="docutils literal notranslate"><span class="pre">def</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">print_message</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Hi, &quot;</span> <span class="o">+</span> <span class="n">name</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p>O linie de cod se încheie prin <code class="docutils literal notranslate"><span class="pre">Enter</span></code>.
+Nu există finalizare folosind <code class="docutils literal notranslate"><span class="pre">;</span></code> (punct și virgulă, <em>semi-colon</em>), ca în C.</p></li>
+<li><p>Operatorul <code class="docutils literal notranslate"><span class="pre">+</span></code> poate fi folosit pentru a concatena șiruri.</p></li>
+<li><p>Există suport nativ pentru liste, dicționare.
+În exemplul de mai jos, <code class="docutils literal notranslate"><span class="pre">my_list</span></code> este o listă și <code class="docutils literal notranslate"><span class="pre">my_dict</span></code> este dicționar.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">my_list</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;give&quot;</span><span class="p">,</span> <span class="s2">&quot;me&quot;</span><span class="p">,</span> <span class="s2">&quot;banners&quot;</span><span class="p">]</span>
+<span class="n">my_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;John&#39;</span><span class="p">,</span> <span class="s1">&#39;surname&#39;</span><span class="p">:</span> <span class="s1">&#39;Wick&#39;</span><span class="p">,</span> <span class="s1">&#39;style&#39;</span><span class="p">:</span> <span class="s1">&#39;italian&#39;</span><span class="p">,</span> <span class="s1">&#39;buttons&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">}</span>
+</pre></div>
+</div>
+</li>
+<li><p>Nu există tipuri în declararea variabile.
+Tipul variabilelor este detectat dinamic la rulare.</p></li>
 </ul>
-<p>folosire pylint pentru verificarea stilului</p>
+</section>
 <section id="exemple-simple-in-python">
-<span id="data-proc-python-simple-examples"></span><h2><span class="section-number">4.1. </span>Exemple simple în Python<a class="headerlink" href="#exemple-simple-in-python" title="Permalink to this headline">¶</a></h2>
-<p>hello world</p>
-<p>sum-n</p>
-<p>sum-n cu argumente</p>
-<p>afișare fișier</p>
-<p>afișare număr de linii fișier</p>
-<p>afișare linii fișier în ordine inversă</p>
+<span id="data-proc-python-simple-examples"></span><h2><span class="section-number">4.2. </span>Exemple simple în Python<a class="headerlink" href="#exemple-simple-in-python" title="Permalink to this headline">¶</a></h2>
+<p>Să urmărim câteva exemple simple pentru acomodare cu sintaxa Python.
+Fișierele de suport se găsesc în directorul <code class="docutils literal notranslate"><span class="pre">support/python/</span></code> din directorul acestui capitol:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ <span class="nb">cd</span> uso-lab-book/chapters/data-proc/support/python/
+
+student@uso:~/.../data-proc/support/python$ ls -F
+TODO
+</pre></div>
+</div>
+<section id="hello">
+<h3><span class="section-number">4.2.1. </span>hello<a class="headerlink" href="#hello" title="Permalink to this headline">¶</a></h3>
+<p>Fișierul <code class="docutils literal notranslate"><span class="pre">hello.py</span></code> afișează mesajul <em>Hello, World!</em>.
+Este un fișier simplu, cu un apel al funcției <code class="docutils literal notranslate"><span class="pre">print()</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python3</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;Hello, World!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Prima linie, de tip <em>shebang</em> indică interpretorul folosit.
+Se va căuta în mediul de lucru (<em>environment</em>) interpretorul Python3.</p>
+<p>Pentru rularea scriptului, invocăm interpretorul Python:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/.../data-proc/support/python$ python hello.py
+Hello, World!
+</pre></div>
+</div>
+<p>Putem verifica versiunea interpretorului:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/.../data-proc/support/python$ python --version
+Python <span class="m">3</span>.6.9
+</pre></div>
+</div>
+<p>Este recomandat ca, atunci când dezvoltăm cod Python, să facem o verificare a stilului codului.
+Pentru aceasta folosim utilitarul <code class="docutils literal notranslate"><span class="pre">pycodestyle</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/.../data-proc/support/python$ pycodestyle hello.py
+student@uso:~/.../data-proc/support/python$
+</pre></div>
+</div>
+<p>Dacă nu sunt probleme de stil ale codului, nu se va afișa nimic.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Dacă nu este prezent pe sistem, utilitarul <code class="docutils literal notranslate"><span class="pre">pycodestyle</span></code> poate fi instalat folosind comanda:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ pip install --user pycodestyle
+</pre></div>
+</div>
+</div>
+</section>
+<section id="hello-main">
+<h3><span class="section-number">4.2.2. </span>hello_main<a class="headerlink" href="#hello-main" title="Permalink to this headline">¶</a></h3>
+<p>Fișierul <code class="docutils literal notranslate"><span class="pre">hello_main.py</span></code> afișează mesajul <em>Hello, World!</em> definind funcția <code class="docutils literal notranslate"><span class="pre">main()</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Hello, World!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Funcția <code class="docutils literal notranslate"><span class="pre">main()</span></code> este apelată printr-o construcție specifică limbajului Python:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Această construcție este utilă în cazul folosirii sistemului de module în Python.
+Un modul poate fi apelat direct (caz în care numele său este <code class="docutils literal notranslate"><span class="pre">__main__</span></code>) sau poate fi importat de alt modul.
+Această construcție duce la invocarea funcției <code class="docutils literal notranslate"><span class="pre">main</span></code> doar când modulul curent Python (<code class="docutils literal notranslate"><span class="pre">hello_main.py</span></code>) este apelat direct:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/.../data-proc/support/python$ python hello_main.py
+Hello, World!
+</pre></div>
+</div>
+<p>Tot în acest fișier am adăugat o construcție de tipul Docstring <a class="footnote-reference brackets" href="#docstring" id="id2">2</a>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Simple stupid program: print &quot;Hello, World!&quot; at standard output.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+</pre></div>
+</div>
+<p>Se recomandă plasarea construcțiilor de tipul Docstring la începutul fiecărui modul Python, la începutul fiecărei clase și la începutul fiecărei funcții.
+Rolul lor este de a documenta respectiva componentă.</p>
+</section>
+<section id="sum-n">
+<h3><span class="section-number">4.2.3. </span>sum_n<a class="headerlink" href="#sum-n" title="Permalink to this headline">¶</a></h3>
+<p>Fișierul <code class="docutils literal notranslate"><span class="pre">sum100.py</span></code> afișează suma primelor <code class="docutils literal notranslate"><span class="pre">100</span></code> de numere naturale:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/.../data-proc/support/python$ python sum100.py
+sum<span class="o">(</span><span class="m">1</span>,100<span class="o">)</span>: <span class="m">5050</span>
+</pre></div>
+</div>
+<p>Pentru a parcurge numerele de la <code class="docutils literal notranslate"><span class="pre">1</span></code> la <code class="docutils literal notranslate"><span class="pre">100</span></code> folosim construcția <code class="docutils literal notranslate"><span class="pre">range()</span></code> <a class="footnote-reference brackets" href="#range" id="id3">3</a> din Python:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">101</span><span class="p">):</span>
+    <span class="nb">sum</span> <span class="o">+=</span> <span class="n">i</span>
+</pre></div>
+</div>
+<p>Construcția <code class="docutils literal notranslate"><span class="pre">range()</span></code> primește 2 argumente: elementul de start inclusiv (începem de la <code class="docutils literal notranslate"><span class="pre">1</span></code>) și elementul de oprire exclusiv (ne oprim exclusiv la <code class="docutils literal notranslate"><span class="pre">101</span></code>).</p>
+<p>Ca de obicei, verificăm stilul programului:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/.../data-proc/support/python$ pycodestyle sum100.py
+student@uso:~/.../data-proc/support/python$
+</pre></div>
+</div>
+</section>
+<section id="sum-n-arg">
+<h3><span class="section-number">4.2.4. </span>sum_n_arg<a class="headerlink" href="#sum-n-arg" title="Permalink to this headline">¶</a></h3>
+<p>În fișierul <code class="docutils literal notranslate"><span class="pre">sum100.py</span></code> nu avem configurabilă limita pentru care se face suma (<em>hard-coded</em>).
+Preferăm să trimitem limita (numărul de elemente pentru care se face suma) ca argument în linia de comandă.
+Facem acest lucru în fișierul <code class="docutils literal notranslate"><span class="pre">sum_n_arg.py</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/.../data-proc/support/python$ python sum_n_arg.py <span class="m">10</span>
+sum<span class="o">(</span><span class="m">1</span>,10<span class="o">)</span>: <span class="m">55</span>
+student@uso:~/.../data-proc/support/python$ python sum_n_arg.py <span class="m">100</span>
+sum<span class="o">(</span><span class="m">1</span>,100<span class="o">)</span>: <span class="m">5050</span>
+student@uso:~/.../data-proc/support/python$ python sum_n_arg.py <span class="m">1000</span>
+sum<span class="o">(</span><span class="m">1</span>,1000<span class="o">)</span>: <span class="m">500500</span>
+</pre></div>
+</div>
+<p>Accesul la argumentele în lini de comandă se realizează prin intermediul listei <code class="docutils literal notranslate"><span class="pre">sys.argv</span></code>.
+Fiecare element din listă este un argument: <code class="docutils literal notranslate"><span class="pre">sys.argv[0]</span></code> este numele programului iar <code class="docutils literal notranslate"><span class="pre">sys.argv[1]</span></code> este argumentul efectiv.
+Folosirea argumentele necesită importarea modulului <code class="docutils literal notranslate"><span class="pre">sys</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="p">[</span><span class="o">...</span><span class="p">]</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="n">usage</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Dacă numărul de argumente în linia de comanandă (lungimea listei – <code class="docutils literal notranslate"><span class="pre">len(sys.argv)</span></code>) nu este <code class="docutils literal notranslate"><span class="pre">2</span></code>, atunci este apelată funcția <code class="docutils literal notranslate"><span class="pre">usage()</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">usage</span><span class="p">(</span><span class="n">argv0</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Usage: {} &lt;num&gt;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">argv0</span><span class="p">),</span> <span class="nb">file</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">stderr</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Funcția <code class="docutils literal notranslate"><span class="pre">usage()</span></code> primește ca argument numele programului și afișează un mesaj de ajutor pentru utilizator.
+Funcția poate inițializa parametrul <code class="docutils literal notranslate"><span class="pre">file</span></code> la valoarea <code class="docutils literal notranslate"><span class="pre">sys.stderr</span></code> pentru a afișa mesajul la ieșirea de eroare standard (<em>standard error</em>).
+Altfel, în mod implicit, mesajul este afișat la ieșirea standard (<em>standard output</em>).</p>
+<p>Pentru formatarea mesajelor folosim metoda <code class="docutils literal notranslate"><span class="pre">format()</span></code> specifică șirurilor <a class="footnote-reference brackets" href="#format" id="id4">4</a>.
+Astfel, putem folosi construcții de tipul <code class="docutils literal notranslate"><span class="pre">{}</span></code> pentru a preciza locuri în care vor fi expandate argumente ale metodei <code class="docutils literal notranslate"><span class="pre">format()</span></code>.
+Folosim <code class="docutils literal notranslate"><span class="pre">format()</span></code> și în afișarea sumei numerelor:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="s2">&quot;sum(1,{}): {}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="nb">sum</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Argumentul primit (<code class="docutils literal notranslate"><span class="pre">sys.argv[1]</span></code>) este interpretat ca șir.
+Pentru a-l converti la întreg, folosim funcționalitatea Python de conversie, folosind <code class="docutils literal notranslate"><span class="pre">int()</span></code> <a class="footnote-reference brackets" href="#int" id="id5">5</a>.
+Această conversie poate genera excepții, dacă șirul nu poate fi convertit.
+De aceea verificăm generarea unei excepții <a class="footnote-reference brackets" href="#exceptions" id="id6">6</a> printr-un block <code class="docutils literal notranslate"><span class="pre">try</span> <span class="pre">...</span> <span class="pre">except</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Argument is not an integer.&quot;</span><span class="p">,</span> <span class="nb">file</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">stderr</span><span class="p">)</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Ca de obicei, verificăm stilul programului:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/.../data-proc/support/python$ pycodestyle sum_n_arg.py
+student@uso:~/.../data-proc/support/python$
+</pre></div>
+</div>
+</section>
+<section id="cat">
+<h3><span class="section-number">4.2.5. </span>cat<a class="headerlink" href="#cat" title="Permalink to this headline">¶</a></h3>
+<p>Fișierul <code class="docutils literal notranslate"><span class="pre">cat.py</span></code> afișează conținutul unui fișier primit ca argument și un mesaj de ajutor dacă nu este transmis un argument:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/.../data-proc/support/python$ python cat.py
+Usage: cat.py &lt;file&gt;
+student@uso:~/.../data-proc/support/python$ python cat.py sum_n_arg.py
+<span class="c1">#!/usr/bin/env python</span>
+
+import sys
+
+
+def usage<span class="o">(</span>argv0<span class="o">)</span>:
+    print<span class="o">(</span><span class="s2">&quot;Usage: {} &lt;num&gt;&quot;</span>.format<span class="o">(</span>argv0<span class="o">)</span>, <span class="nv">file</span><span class="o">=</span>sys.stderr<span class="o">)</span>
+<span class="o">[</span>...<span class="o">]</span>
+</pre></div>
+</div>
+<p>Secvența care realizează citirea și afișarea fișierului este:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">fname</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">lines</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">l</span><span class="o">.</span><span class="n">rstrip</span><span class="p">())</span>
+</pre></div>
+</div>
+<p>Folosirea cuvântului cheie <code class="docutils literal notranslate"><span class="pre">with</span></code> duce la deschiderea unui bloc de lucru cu fișierul.
+<code class="docutils literal notranslate"><span class="pre">f</span></code> este handle-ul fișierului ce va fi închis automat la finalul blocului <code class="docutils literal notranslate"><span class="pre">with</span></code>.
+Se obține lista de linii din fișier folosind <code class="docutils literal notranslate"><span class="pre">f.readlines()</span></code> și apoi este parcursă folosind <code class="docutils literal notranslate"><span class="pre">for</span></code>.
+Pentru fiecare linie sunt eliminate spațiile albe (caracterele <code class="docutils literal notranslate"><span class="pre">newline</span></code>) de la finalul fiecărei linii, folosind metoda <code class="docutils literal notranslate"><span class="pre">rstrip()</span></code> a șirului (de la <code class="docutils literal notranslate"><span class="pre">right</span> <span class="pre">side</span> <span class="pre">strip</span></code>).</p>
+<p>Ca de obicei, verificăm stilul programului:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/.../data-proc/support/python$ pycodestyle cat.py
+student@uso:~/.../data-proc/support/python$
+</pre></div>
+</div>
+</section>
+<section id="num-lines">
+<h3><span class="section-number">4.2.6. </span>num_lines<a class="headerlink" href="#num-lines" title="Permalink to this headline">¶</a></h3>
+<p>Fișierul <code class="docutils literal notranslate"><span class="pre">num_lines.py</span></code> afișează numărul de linii ale unui fișier primit ca argument:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/.../data-proc/support/python$ python num_lines.py num_lines.py
+Number of lines in num_lines.py is <span class="m">32</span>.
+student@uso:~/.../data-proc/support/python$ python num_lines.py cat.py
+Number of lines in cat.py is <span class="m">32</span>.
+student@uso:~/.../data-proc/support/python$ python num_lines.py sum_n_arg.py
+Number of lines in sum_n_arg.py is <span class="m">29</span>.
+</pre></div>
+</div>
+<p>Conținutul său este similar cu cel al fișierului <code class="docutils literal notranslate"><span class="pre">cat.py</span></code>.
+Partea care diferă este cea care contorizează numărul de linii, folosind funcția <code class="docutils literal notranslate"><span class="pre">len()</span></code> pe lista de linii citită din fișier:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">num</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">lines</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;Number of lines in {} is {}.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="n">num</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Ca de obicei, verificăm stilul programului:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/.../data-proc/support/python$ pycodestyle num_lines.py
+student@uso:~/.../data-proc/support/python$
+</pre></div>
+</div>
+</section>
+<section id="tac">
+<h3><span class="section-number">4.2.7. </span>tac<a class="headerlink" href="#tac" title="Permalink to this headline">¶</a></h3>
+<p>Fișierul <code class="docutils literal notranslate"><span class="pre">tac.py</span></code> afișează în linie inversă liniile unui fișier primit ca argument:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/.../data-proc/support/python$ python tac.py num_lines.py
+    main<span class="o">()</span>
+<span class="k">if</span> <span class="nv">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span>:
+
+
+        print<span class="o">(</span><span class="s2">&quot;Number of lines in {} is {}.&quot;</span>.format<span class="o">(</span>fname, num<span class="o">))</span>
+<span class="o">[</span>...<span class="o">]</span>
+</pre></div>
+</div>
+<p>Conținutul său este similar cu cel al fișierului <code class="docutils literal notranslate"><span class="pre">cat.py</span></code>.
+Partea care diferă este cea care obține liniile fișierului, în linie inversă, folosindu-se de sintaxa Python <code class="docutils literal notranslate"><span class="pre">[::-1]</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">lines</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readlines</span><span class="p">()[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Ca de obicei, verificăm stilul programului:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/.../data-proc/support/python$ pycodestyle tac.py
+student@uso:~/.../data-proc/support/python$
+</pre></div>
+</div>
+</section>
+</section>
+<section id="structuri-de-date-in-python">
+<span id="data-proc-python-data-structures"></span><h2><span class="section-number">4.3. </span>Structuri de date în Python<a class="headerlink" href="#structuri-de-date-in-python" title="Permalink to this headline">¶</a></h2>
+<p>Python este un limbaj puternic și util în zona de prelucrare a datelor datorat structurilor de date <a class="footnote-reference brackets" href="#data-structures" id="id7">7</a> pe care le oferă și a operațiilor facile cu acestea.
+În Python putem ușor lucra cu șiruri, liste, tupluri, dicționare.</p>
+<p>Mai jos arătăm exemple de declarare și folosire a structurilor de date Python.
+Pentru aceasta folosim consola interactivă Python, prin rularea comenzii <code class="docutils literal notranslate"><span class="pre">python</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/.../data-proc/support/python$ python
+<span class="o">[</span>...<span class="o">]</span>
+Type <span class="s2">&quot;help&quot;</span>, <span class="s2">&quot;copyright&quot;</span>, <span class="s2">&quot;credits&quot;</span> or <span class="s2">&quot;license&quot;</span> <span class="k">for</span> more information.
+&gt;&gt;&gt;
+</pre></div>
+</div>
+<p>Promptul <code class="docutils literal notranslate"><span class="pre">&gt;&gt;&gt;</span></code> este locul unde putem introduce instrucțiuni Python.</p>
+<section id="siruri">
+<h3><span class="section-number">4.3.1. </span>Șiruri<a class="headerlink" href="#siruri" title="Permalink to this headline">¶</a></h3>
+<p>Șirurile sunt un tip de date specific în Python.</p>
+<p>Șirurile pot fi concatenate folosind operatorul <code class="docutils literal notranslate"><span class="pre">+</span></code>.
+Se pot obține subșiruri prin indexarea lor, ca în exemplele de mai jos, rulate în consola Python:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt; <span class="nv">my_str</span> <span class="o">=</span> <span class="s2">&quot;this is the way&quot;</span>
+&gt;&gt;&gt; my_str
+this is the way
+&gt;&gt;&gt; my_str<span class="o">[</span><span class="m">0</span><span class="o">]</span>
+t
+&gt;&gt;&gt; my_str<span class="o">[</span><span class="m">0</span>:2<span class="o">]</span>
+th
+&gt;&gt;&gt; my_str<span class="o">[</span><span class="m">2</span>:3<span class="o">]</span>
+i
+&gt;&gt;&gt; my_str<span class="o">[</span><span class="m">5</span>:7<span class="o">]</span>
+is
+&gt;&gt;&gt; <span class="nv">full</span> <span class="o">=</span> my_str<span class="o">[</span><span class="m">12</span>:<span class="o">]</span> + <span class="s2">&quot;.org&quot;</span>
+&gt;&gt;&gt; full
+way.org
+&gt;&gt;&gt; full<span class="o">[</span>:-4<span class="o">]</span>
+way
+&gt;&gt;&gt; full<span class="o">[</span>::-1<span class="o">]</span>
+gro.yaw
+</pre></div>
+</div>
+<p>Avem mai multe construcții pentru a obține secvențe de șiruri:</p>
+<ul class="simple">
+<li><p>Un index numeric obține caracterul de la acea poziție.
+Indexul poate fi negativ caz în care se contorizează de la coadă la cap.</p></li>
+<li><p>O secvența de tipul <code class="docutils literal notranslate"><span class="pre">[x:y]</span></code> selectează subșirul de la poziția <code class="docutils literal notranslate"><span class="pre">x</span></code> până la poziția <code class="docutils literal notranslate"><span class="pre">y-1</span></code>.
+Indexurile pot fi negative.</p></li>
+<li><p>O secvență de tipul <code class="docutils literal notranslate"><span class="pre">[x:]</span></code> selectează subșirul de la poziția <code class="docutils literal notranslate"><span class="pre">x</span></code> până la sfârșit, în vreme ce o secvență de forma <code class="docutils literal notranslate"><span class="pre">[:y]</span></code> selectează subșirul de la început până la poziția <code class="docutils literal notranslate"><span class="pre">y</span></code>.
+Indexurile pot fi negative.</p></li>
+<li><p>O secvență de tipul <code class="docutils literal notranslate"><span class="pre">[x:y:z]</span></code> selectează cu pasul <code class="docutils literal notranslate"><span class="pre">z</span></code>.
+Dacă <code class="docutils literal notranslate"><span class="pre">z</span></code> este <code class="docutils literal notranslate"><span class="pre">-1</span></code> selectează de la coadă la cap, furnizând astfel, o inversare a unui șir sau subșir.</p></li>
+</ul>
+<p>În mod implicit, șirurile sunt imutabile, adică nu pot fi modificate.
+Un șir nou se creează de la zero folosind, eventual, părți din alte șir.
+Astfel, dacă urmărim să modificăm direct un șir, vom obține eroare:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt; full<span class="o">[</span><span class="m">0</span><span class="o">]</span> <span class="o">=</span> <span class="s1">&#39;b&#39;</span>
+Traceback <span class="o">(</span>most recent call last<span class="o">)</span>:
+  File <span class="s2">&quot;&lt;stdin&gt;&quot;</span>, line <span class="m">1</span>, in &lt;module&gt;
+TypeError: <span class="s1">&#39;str&#39;</span> object does not support item assignment
+</pre></div>
+</div>
+<p>Lungimea unui șir se obține folosind funcția <code class="docutils literal notranslate"><span class="pre">len()</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt; len<span class="o">(</span>full<span class="o">)</span>
+<span class="m">7</span>
+&gt;&gt;&gt; len<span class="o">(</span>full<span class="o">[</span><span class="m">0</span><span class="o">])</span>
+<span class="m">1</span>
+&gt;&gt;&gt; len<span class="o">(</span>full<span class="o">[</span><span class="m">0</span>:2<span class="o">])</span>
+<span class="m">2</span>
+</pre></div>
+</div>
+<p>Elementele (caracterele) unui șir pot fi parcurse într-o buclă <code class="docutils literal notranslate"><span class="pre">for</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt; <span class="k">for</span> c in full:
+...     print<span class="o">(</span><span class="s2">&quot;char: &#39;{}&#39;, ascii: {} (0x{:02x})&quot;</span>.format<span class="o">(</span>c, ord<span class="o">(</span>c<span class="o">)</span>, ord<span class="o">(</span>c<span class="o">)))</span>
+...
+char: <span class="s1">&#39;w&#39;</span>, ascii: <span class="m">119</span> <span class="o">(</span>0x77<span class="o">)</span>
+char: <span class="s1">&#39;a&#39;</span>, ascii: <span class="m">97</span> <span class="o">(</span>0x61<span class="o">)</span>
+char: <span class="s1">&#39;y&#39;</span>, ascii: <span class="m">121</span> <span class="o">(</span>0x79<span class="o">)</span>
+char: <span class="s1">&#39;.&#39;</span>, ascii: <span class="m">46</span> <span class="o">(</span>0x2e<span class="o">)</span>
+char: <span class="s1">&#39;o&#39;</span>, ascii: <span class="m">111</span> <span class="o">(</span>0x6f<span class="o">)</span>
+char: <span class="s1">&#39;r&#39;</span>, ascii: <span class="m">114</span> <span class="o">(</span>0x72<span class="o">)</span>
+char: <span class="s1">&#39;g&#39;</span>, ascii: <span class="m">103</span> <span class="o">(</span>0x67<span class="o">)</span>
+</pre></div>
+</div>
+<p>Funcția <code class="docutils literal notranslate"><span class="pre">ord()</span></code> afișează valoarea ASCII numerică aferentă unui caracter.</p>
+<p>Șirurile pot fi împărțite în subșiruri pe baza unui caracter separator, folosin metoda <code class="docutils literal notranslate"><span class="pre">split()</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt; my_str.split<span class="o">(</span><span class="s1">&#39; &#39;</span><span class="o">)</span>
+<span class="o">[</span><span class="s1">&#39;this&#39;</span>, <span class="s1">&#39;is&#39;</span>, <span class="s1">&#39;the&#39;</span>, <span class="s1">&#39;way&#39;</span><span class="o">]</span>
+</pre></div>
+</div>
+<p>Rezultatul este o listă de subșiruri.</p>
+</section>
+<section id="tupluri">
+<h3><span class="section-number">4.3.2. </span>Tupluri<a class="headerlink" href="#tupluri" title="Permalink to this headline">¶</a></h3>
+<p>În Python variabilele pot fi grupate în tupluri, similar unei structuri de date simple, cu mai multe câmpuri:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt; <span class="nv">student</span> <span class="o">=</span> <span class="o">(</span><span class="s1">&#39;John&#39;</span>, <span class="s1">&#39;Smith&#39;</span>, <span class="s1">&#39;john.smith@example.com&#39;</span><span class="o">)</span>
+</pre></div>
+</div>
+<p>Similar șirurilor, tuplurile sunt imutabile.
+Nu le putem modifica dar putem extrage elemente sau secvențe de elemente:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt; print<span class="o">(</span>student<span class="o">[</span><span class="m">0</span><span class="o">])</span>
+John
+&gt;&gt;&gt; print<span class="o">(</span>student<span class="o">[</span><span class="m">1</span><span class="o">])</span>
+Smith
+&gt;&gt;&gt; print<span class="o">(</span>student<span class="o">[</span><span class="m">0</span>:2<span class="o">])</span>
+<span class="o">(</span><span class="s1">&#39;John&#39;</span>, <span class="s1">&#39;Smith&#39;</span><span class="o">)</span>
+&gt;&gt;&gt; <span class="k">for</span> f in student:
+...     print<span class="o">(</span>f<span class="o">)</span>
+...
+John
+Smith
+john.smith@example.com
+</pre></div>
+</div>
+<p>Putem converti un tuplu la o listă folosind funcția <code class="docutils literal notranslate"><span class="pre">list()</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt; <span class="nv">student_as_list</span> <span class="o">=</span> list<span class="o">(</span>student<span class="o">)</span>
+&gt;&gt;&gt; student_as_list
+<span class="o">[</span><span class="s1">&#39;John&#39;</span>, <span class="s1">&#39;Smith&#39;</span>, <span class="s1">&#39;john.smith@example.com&#39;</span><span class="o">]</span>
+</pre></div>
+</div>
+<p>Tuplurile și listele, prezentate mai jos, sunt destul de similare, cu diferența că listele sunt mutabile (pot fi modificate) și că există un număr mai mare de metode built-in pentru liste <a class="footnote-reference brackets" href="#list-vs-tuple" id="id8">8</a>.</p>
+</section>
+<section id="liste">
+<h3><span class="section-number">4.3.3. </span>Liste<a class="headerlink" href="#liste" title="Permalink to this headline">¶</a></h3>
+<p>Listele sunt, în general, o secvență de element de același tip.
+Putem avea liste de întregi, liste de șiruri, liste de tupluri sau liste de liste.
+Totuși, deși nu este ceva obișnuit, listele pot avea și elemente de tipuri diferite.</p>
+<p>Operațiile uzuale pe șiruri și tupluri sunt prezente și pe liste:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt; <span class="nv">food</span> <span class="o">=</span> <span class="o">[</span><span class="s1">&#39;pizza&#39;</span>, <span class="s1">&#39;pasta&#39;</span>, <span class="s1">&#39;lasagna&#39;</span>, <span class="s1">&#39;risotto&#39;</span>, <span class="s1">&#39;rigatoni&#39;</span><span class="o">]</span>
+&gt;&gt;&gt; len<span class="o">(</span>food<span class="o">)</span>
+<span class="m">5</span>
+&gt;&gt;&gt; food<span class="o">[</span><span class="m">0</span><span class="o">]</span>
+<span class="s1">&#39;pizza&#39;</span>
+&gt;&gt;&gt; food<span class="o">[</span><span class="m">0</span>:2<span class="o">]</span>
+<span class="o">[</span><span class="s1">&#39;pizza&#39;</span>, <span class="s1">&#39;pasta&#39;</span><span class="o">]</span>
+&gt;&gt;&gt; food<span class="o">[</span>::-1<span class="o">]</span>
+<span class="o">[</span><span class="s1">&#39;rigatoni&#39;</span>, <span class="s1">&#39;risotto&#39;</span>, <span class="s1">&#39;lasagna&#39;</span>, <span class="s1">&#39;pasta&#39;</span>, <span class="s1">&#39;pizza&#39;</span><span class="o">]</span>
+</pre></div>
+</div>
+<p>Spre deosebire de șiruri și tupluri, listele sunt mutabile.
+Putem modifica elemente din listă sau putem adăuga sau șterge elemente:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt; food
+<span class="o">[</span><span class="s1">&#39;pizza&#39;</span>, <span class="s1">&#39;pasta&#39;</span>, <span class="s1">&#39;bruschetti&#39;</span>, <span class="s1">&#39;risotto&#39;</span>, <span class="s1">&#39;rigatoni&#39;</span><span class="o">]</span>
+&gt;&gt;&gt; food.append<span class="o">(</span><span class="s1">&#39;caprese&#39;</span><span class="o">)</span>
+&gt;&gt;&gt; food
+<span class="o">[</span><span class="s1">&#39;pizza&#39;</span>, <span class="s1">&#39;pasta&#39;</span>, <span class="s1">&#39;bruschetti&#39;</span>, <span class="s1">&#39;risotto&#39;</span>, <span class="s1">&#39;rigatoni&#39;</span>, <span class="s1">&#39;caprese&#39;</span><span class="o">]</span>
+&gt;&gt;&gt; food.insert<span class="o">(</span><span class="m">2</span>, <span class="s1">&#39;gelato&#39;</span><span class="o">)</span>
+&gt;&gt;&gt; food
+<span class="o">[</span><span class="s1">&#39;pizza&#39;</span>, <span class="s1">&#39;pasta&#39;</span>, <span class="s1">&#39;gelato&#39;</span>, <span class="s1">&#39;bruschetti&#39;</span>, <span class="s1">&#39;risotto&#39;</span>, <span class="s1">&#39;rigatoni&#39;</span>, <span class="s1">&#39;caprese&#39;</span><span class="o">]</span>
+</pre></div>
+</div>
+<p>Listele pot fi sortate:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt; food
+<span class="o">[</span><span class="s1">&#39;pizza&#39;</span>, <span class="s1">&#39;pasta&#39;</span>, <span class="s1">&#39;gelato&#39;</span>, <span class="s1">&#39;bruschetti&#39;</span>, <span class="s1">&#39;risotto&#39;</span>, <span class="s1">&#39;rigatoni&#39;</span>, <span class="s1">&#39;caprese&#39;</span><span class="o">]</span>
+&gt;&gt;&gt; sorted<span class="o">(</span>food<span class="o">)</span>
+<span class="o">[</span><span class="s1">&#39;bruschetti&#39;</span>, <span class="s1">&#39;caprese&#39;</span>, <span class="s1">&#39;gelato&#39;</span>, <span class="s1">&#39;pasta&#39;</span>, <span class="s1">&#39;pizza&#39;</span>, <span class="s1">&#39;rigatoni&#39;</span>, <span class="s1">&#39;risotto&#39;</span><span class="o">]</span>
+&gt;&gt;&gt; sorted<span class="o">(</span>food, <span class="nv">reverse</span><span class="o">=</span>True<span class="o">)</span>
+<span class="o">[</span><span class="s1">&#39;risotto&#39;</span>, <span class="s1">&#39;rigatoni&#39;</span>, <span class="s1">&#39;pizza&#39;</span>, <span class="s1">&#39;pasta&#39;</span>, <span class="s1">&#39;gelato&#39;</span>, <span class="s1">&#39;caprese&#39;</span>, <span class="s1">&#39;bruschetti&#39;</span><span class="o">]</span>
+&gt;&gt;&gt; food.sort<span class="o">()</span>
+&gt;&gt;&gt; food
+<span class="o">[</span><span class="s1">&#39;bruschetti&#39;</span>, <span class="s1">&#39;caprese&#39;</span>, <span class="s1">&#39;gelato&#39;</span>, <span class="s1">&#39;pasta&#39;</span>, <span class="s1">&#39;pizza&#39;</span>, <span class="s1">&#39;rigatoni&#39;</span>, <span class="s1">&#39;risotto&#39;</span><span class="o">]</span>
+&gt;&gt;&gt; food.reverse<span class="o">()</span>
+&gt;&gt;&gt; food
+<span class="o">[</span><span class="s1">&#39;risotto&#39;</span>, <span class="s1">&#39;rigatoni&#39;</span>, <span class="s1">&#39;pizza&#39;</span>, <span class="s1">&#39;pasta&#39;</span>, <span class="s1">&#39;gelato&#39;</span>, <span class="s1">&#39;caprese&#39;</span>, <span class="s1">&#39;bruschetti&#39;</span><span class="o">]</span>
+</pre></div>
+</div>
+<p>Funcția <code class="docutils literal notranslate"><span class="pre">sorted()</span></code> întoarce o listă sortată.
+Folosind argumentul <code class="docutils literal notranslate"><span class="pre">reverse=True</span></code> sortarea poate fi inversată.</p>
+<p>Funcția internă <code class="docutils literal notranslate"><span class="pre">sort()</span></code> sortează lista <em>in-place</em>, adică se modifică lista.
+În mod similar, funcție internă <code class="docutils literal notranslate"><span class="pre">reverse()</span></code> inversează lista <em>in-place</em>.</p>
+<p>Ca și celelalte structuri, listele pot fi parcurse folosind <code class="docutils literal notranslate"><span class="pre">for</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt; <span class="k">for</span> f in food:
+...     print<span class="o">(</span>f<span class="o">)</span>
+...
+risotto
+rigatoni
+pizza
+pasta
+gelato
+caprese
+bruschetti
+</pre></div>
+</div>
+<section id="list-comprehension">
+<h4><span class="section-number">4.3.3.1. </span>List Comprehension<a class="headerlink" href="#list-comprehension" title="Permalink to this headline">¶</a></h4>
+<p>Un mod rapid de a crea liste este folosind funcționalitatea de <em>list comprehension</em> <a class="footnote-reference brackets" href="#id12" id="id9">9</a>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt; <span class="nv">sq_list</span> <span class="o">=</span> <span class="o">[</span>x**2 <span class="k">for</span> x in range<span class="o">(</span><span class="m">10</span><span class="o">)]</span>
+&gt;&gt;&gt; sq_list
+<span class="o">[</span><span class="m">0</span>, <span class="m">1</span>, <span class="m">4</span>, <span class="m">9</span>, <span class="m">16</span>, <span class="m">25</span>, <span class="m">36</span>, <span class="m">49</span>, <span class="m">64</span>, <span class="m">81</span><span class="o">]</span>
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt; <span class="nv">select_food</span> <span class="o">=</span> <span class="o">[</span>f <span class="k">for</span> f in food <span class="k">if</span> <span class="s1">&#39;r&#39;</span> in f<span class="o">]</span>
+&gt;&gt;&gt; select_food
+<span class="o">[</span><span class="s1">&#39;risotto&#39;</span>, <span class="s1">&#39;rigatoni&#39;</span>, <span class="s1">&#39;caprese&#39;</span>, <span class="s1">&#39;bruschetti&#39;</span><span class="o">]</span>
+</pre></div>
+</div>
+<p><em>List comprehension</em> este o metodă rapidă și compactă de a crea liste din elemente existente.</p>
+</section>
+</section>
+<section id="dictionare">
+<h3><span class="section-number">4.3.4. </span>Dicționare<a class="headerlink" href="#dictionare" title="Permalink to this headline">¶</a></h3>
+<p>Dicționarele sunt o structură asociativă: asociază o valoare (<em>value</em>) la o cheie (<em>key</em>).
+Elementele unui dicționar sunt așadar perechi cheie-valoare (<em>key-value</em>).
+Indexarea unui dicționar (accesul la un element) este realizată prin cheie (<em>key</em>) nu printr-un index numeric cum este cazul șirurilor, tuplurilor sau listelor:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt; <span class="nv">preferences</span> <span class="o">=</span> <span class="o">{</span><span class="s1">&#39;food&#39;</span>: <span class="s1">&#39;houmous&#39;</span>, <span class="s1">&#39;car&#39;</span>: <span class="s1">&#39;audi&#39;</span>, <span class="s1">&#39;film&#39;</span>: <span class="s1">&#39;interstellar&#39;</span>, <span class="s1">&#39;place&#39;</span>: <span class="s1">&#39;istanbul&#39;</span><span class="o">}</span>
+&gt;&gt;&gt; preferences<span class="o">[</span><span class="s1">&#39;food&#39;</span><span class="o">]</span>
+<span class="s1">&#39;houmous&#39;</span>
+&gt;&gt;&gt; preferences<span class="o">[</span><span class="s1">&#39;place&#39;</span><span class="o">]</span>
+<span class="s1">&#39;istanbul&#39;</span>
+&gt;&gt;&gt; preferences<span class="o">[</span><span class="s1">&#39;place&#39;</span><span class="o">]</span> <span class="o">=</span> <span class="s1">&#39;rome&#39;</span>
+&gt;&gt;&gt; preferences
+<span class="o">{</span><span class="s1">&#39;food&#39;</span>: <span class="s1">&#39;houmous&#39;</span>, <span class="s1">&#39;car&#39;</span>: <span class="s1">&#39;audi&#39;</span>, <span class="s1">&#39;film&#39;</span>: <span class="s1">&#39;interstellar&#39;</span>, <span class="s1">&#39;place&#39;</span>: <span class="s1">&#39;rome&#39;</span><span class="o">}</span>
+</pre></div>
+</div>
+<p>La fel ca listele, dicționarele sunt mutabile: putem înlocui un element dintr-un dicționar, cum am înlocuit în secvența de comenzi de mai sus valoarea pentru cheia <code class="docutils literal notranslate"><span class="pre">place</span></code>.</p>
+<p>La parcurgerea implicită a unui dicționar, se vor obține cheile.
+Altfel, putem folosi metoda internă <code class="docutils literal notranslate"><span class="pre">items()</span></code> pentru a parcurge simultan cheile și valorile:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt; <span class="k">for</span> k in preferences:
+...     print<span class="o">(</span><span class="s2">&quot;k: {}, v: {}&quot;</span>.format<span class="o">(</span>k, preferences<span class="o">[</span>k<span class="o">]))</span>
+...
+k: food, v: houmous
+k: car, v: audi
+k: film, v: interstellar
+k: place, v: rome
+&gt;&gt;&gt; <span class="k">for</span> k, v in preferences.items<span class="o">()</span>:
+...     print<span class="o">(</span><span class="s2">&quot;k: {}, v: {}&quot;</span>.format<span class="o">(</span>k, v<span class="o">))</span>
+...
+k: food, v: houmous
+k: car, v: audi
+k: film, v: interstellar
+k: place, v: rome
+</pre></div>
+</div>
+<p>Valorile unui dicționar pot fi convertite într-o listă.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt; <span class="nv">l</span> <span class="o">=</span> list<span class="o">(</span>preferences<span class="o">)</span>
+&gt;&gt;&gt; l
+<span class="o">[</span><span class="s1">&#39;food&#39;</span>, <span class="s1">&#39;car&#39;</span>, <span class="s1">&#39;film&#39;</span>, <span class="s1">&#39;place&#39;</span><span class="o">]</span>
+</pre></div>
+</div>
+<p>Sortarea unui dicționar se aplică pe cheile sale:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt; sorted<span class="o">(</span>preferences<span class="o">)</span>
+<span class="o">[</span><span class="s1">&#39;car&#39;</span>, <span class="s1">&#39;film&#39;</span>, <span class="s1">&#39;food&#39;</span>, <span class="s1">&#39;place&#39;</span><span class="o">]</span>
+&gt;&gt;&gt; dict<span class="o">(</span>sorted<span class="o">(</span>preferences.items<span class="o">()))</span>
+<span class="o">{</span><span class="s1">&#39;car&#39;</span>: <span class="s1">&#39;audi&#39;</span>, <span class="s1">&#39;film&#39;</span>: <span class="s1">&#39;interstellar&#39;</span>, <span class="s1">&#39;food&#39;</span>: <span class="s1">&#39;houmous&#39;</span>, <span class="s1">&#39;place&#39;</span>: <span class="s1">&#39;rome&#39;</span><span class="o">}</span>
+</pre></div>
+</div>
+<p>Pentru sortarea după valori, va trebui să apelăm la expresii Lambda <a class="footnote-reference brackets" href="#lambda-expressions" id="id10">11</a>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt; sorted<span class="o">(</span>preferences.items<span class="o">()</span>, <span class="nv">key</span><span class="o">=</span>lambda item: item<span class="o">[</span><span class="m">1</span><span class="o">])</span>
+<span class="o">[(</span><span class="s1">&#39;car&#39;</span>, <span class="s1">&#39;audi&#39;</span><span class="o">)</span>, <span class="o">(</span><span class="s1">&#39;food&#39;</span>, <span class="s1">&#39;houmous&#39;</span><span class="o">)</span>, <span class="o">(</span><span class="s1">&#39;film&#39;</span>, <span class="s1">&#39;interstellar&#39;</span><span class="o">)</span>, <span class="o">(</span><span class="s1">&#39;place&#39;</span>, <span class="s1">&#39;rome&#39;</span><span class="o">)]</span>
+&gt;&gt;&gt; dict<span class="o">(</span>sorted<span class="o">(</span>preferences.items<span class="o">()</span>, <span class="nv">key</span><span class="o">=</span>lambda item: item<span class="o">[</span><span class="m">1</span><span class="o">]))</span>
+<span class="o">{</span><span class="s1">&#39;car&#39;</span>: <span class="s1">&#39;audi&#39;</span>, <span class="s1">&#39;food&#39;</span>: <span class="s1">&#39;houmous&#39;</span>, <span class="s1">&#39;film&#39;</span>: <span class="s1">&#39;interstellar&#39;</span>, <span class="s1">&#39;place&#39;</span>: <span class="s1">&#39;rome&#39;</span><span class="o">}</span>
+</pre></div>
+</div>
+<p>Contrucția <code class="docutils literal notranslate"><span class="pre">item[1]</span></code> este echivalentul valorii, în vreme ce <code class="docutils literal notranslate"><span class="pre">item[0]`</span></code> ar fi echivalentul cheii.</p>
+</section>
+<section id="sumar">
+<h3><span class="section-number">4.3.5. </span>Sumar<a class="headerlink" href="#sumar" title="Permalink to this headline">¶</a></h3>
+<p>Python dispune de mai multe tipuri de date: șiruri, liste, tupluri, dicționare.
+În prelucrarea datelor (adesea de tip șir) putem folosi liste, tupluri sau dicționare.
+Fiecare tip de date are avantaje și dezavantaje.
+Alegerea între aceste tipuri de date ține de formatul datelor și de operațiile de care avem nevoie pentru acestea.
+Este posibil să combinăm aceste tipuri de date și să avem liste de tupluri, dicționare de liste etc.
+Pentru cazuri de utilizare mai complexe, se poate ajunge la folosirea claselor <a class="footnote-reference brackets" href="#class" id="id11">10</a> ca tipuri de date mai complexe.</p>
+</section>
 </section>
 <section id="exemple-de-prelucrare-in-python">
-<span id="data-proc-python-proc-examples"></span><h2><span class="section-number">4.2. </span>Exemple de prelucrare în Python<a class="headerlink" href="#exemple-de-prelucrare-in-python" title="Permalink to this headline">¶</a></h2>
+<span id="data-proc-python-proc-examples"></span><h2><span class="section-number">4.4. </span>Exemple de prelucrare în Python<a class="headerlink" href="#exemple-de-prelucrare-in-python" title="Permalink to this headline">¶</a></h2>
 <p>exemplele din secțiunea precedentă în Python</p>
 </section>
 <section id="exercitii">
-<span id="data-proc-python-tasks"></span><h2><span class="section-number">4.3. </span>Exerciții<a class="headerlink" href="#exercitii" title="Permalink to this headline">¶</a></h2>
+<span id="data-proc-python-tasks"></span><h2><span class="section-number">4.5. </span>Exerciții<a class="headerlink" href="#exercitii" title="Permalink to this headline">¶</a></h2>
 <p>exercițiile din secțiunea precedentă în Python</p>
+<p class="rubric">Note de subsol</p>
+<dl class="footnote brackets">
+<dt class="label" id="python"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd><p><a class="reference external" href="https://www.python.org/">https://www.python.org/</a></p>
+</dd>
+<dt class="label" id="docstring"><span class="brackets"><a class="fn-backref" href="#id2">2</a></span></dt>
+<dd><p><a class="reference external" href="https://www.python.org/dev/peps/pep-0257/">https://www.python.org/dev/peps/pep-0257/</a></p>
+</dd>
+<dt class="label" id="range"><span class="brackets"><a class="fn-backref" href="#id3">3</a></span></dt>
+<dd><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#func-range">https://docs.python.org/3/library/functions.html#func-range</a></p>
+</dd>
+<dt class="label" id="format"><span class="brackets"><a class="fn-backref" href="#id4">4</a></span></dt>
+<dd><p><a class="reference external" href="https://pyformat.info/">https://pyformat.info/</a></p>
+</dd>
+<dt class="label" id="int"><span class="brackets"><a class="fn-backref" href="#id5">5</a></span></dt>
+<dd><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int">https://docs.python.org/3/library/functions.html#int</a></p>
+</dd>
+<dt class="label" id="exceptions"><span class="brackets"><a class="fn-backref" href="#id6">6</a></span></dt>
+<dd><p><a class="reference external" href="https://docs.python.org/3/tutorial/errors.html">https://docs.python.org/3/tutorial/errors.html</a></p>
+</dd>
+<dt class="label" id="data-structures"><span class="brackets"><a class="fn-backref" href="#id7">7</a></span></dt>
+<dd><p><a class="reference external" href="https://docs.python.org/3/tutorial/datastructures.html">https://docs.python.org/3/tutorial/datastructures.html</a></p>
+</dd>
+<dt class="label" id="list-vs-tuple"><span class="brackets"><a class="fn-backref" href="#id8">8</a></span></dt>
+<dd><p><a class="reference external" href="https://www.upgrad.com/blog/list-vs-tuple/">https://www.upgrad.com/blog/list-vs-tuple/</a></p>
+</dd>
+<dt class="label" id="id12"><span class="brackets"><a class="fn-backref" href="#id9">9</a></span></dt>
+<dd><p><a class="reference external" href="https://docs.python.org/3/tutorial/datastructures.html#list-comprehensions">https://docs.python.org/3/tutorial/datastructures.html#list-comprehensions</a></p>
+</dd>
+<dt class="label" id="class"><span class="brackets"><a class="fn-backref" href="#id11">10</a></span></dt>
+<dd><p><a class="reference external" href="https://docs.python.org/3/tutorial/classes.html">https://docs.python.org/3/tutorial/classes.html</a></p>
+</dd>
+<dt class="label" id="lambda-expressions"><span class="brackets"><a class="fn-backref" href="#id10">11</a></span></dt>
+<dd><p><a class="reference external" href="https://docs.python.org/3/tutorial/controlflow.html#lambda-expressions">https://docs.python.org/3/tutorial/controlflow.html#lambda-expressions</a></p>
+</dd>
+</dl>
 </section>
 </section>
 
@@ -654,7 +1220,7 @@
 </ul><div class="footer" role="contentinfo">
       &#169; Copyright 2020, USO Team.
     <br>
-    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.1.2 with <a href="https://github.com/romnn/sphinx_press_theme">Press Theme</a>.
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.2.0 with <a href="https://github.com/romnn/sphinx_press_theme">Press Theme</a>.
 </div>
             </div>
           </div>
