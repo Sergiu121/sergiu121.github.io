@@ -2,16 +2,20 @@
 <html >
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
       <title>4. Gestionarea spațiului de stocare partajat</title>
     
       <link rel="stylesheet" href="../../_static/pygments.css">
       <link rel="stylesheet" href="../../_static/theme.css">
-      <link rel="stylesheet" href="../../_static/romnnn_sphinx_press_theme.css">
+      <link rel="stylesheet" href="../../_static/romnn_sphinx_press_theme.css">
+          <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+          <link rel="stylesheet" href="../../_static/css/theme.css " type="text/css" />
       
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
 
       <!-- sphinx script_files -->
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/doctools.js"></script>
@@ -608,32 +612,32 @@
 <hr>
           <div class="content" role="main">
             
-  <div class="section" id="gestionarea-spatiului-de-stocare-partajat">
+  <section id="gestionarea-spatiului-de-stocare-partajat">
 <h1><span class="section-number">4. </span>Gestionarea spațiului de stocare partajat<a class="headerlink" href="#gestionarea-spatiului-de-stocare-partajat" title="Permalink to this headline">¶</a></h1>
 <p>O componentă importantă a mediului de lucru este spațiul de stocare.
 Cu toate că noi vom rula aplicații pe serverul de la distanță, noi avem nevoie de acces la spațiul de stocare al acestuia, deoarece vrem ca într-un final să urmărim rezultatul procesării și eventual să îl analizăm folosind diferite utilitate grafice, cum ar fi aplicații de monitorizare, aplicații de generare de grafice.
 O altă nevoie pe care o avem, dacă suntem programatori este editarea codului la distanță, deoarece majoritatea programatorilor folosesc IDE-uri în mediu grafic, care nu pot rula mereu eficient de la distanță.
 Soluția la această nevoie este să partajăm spațiul de stocare între serverul de la distanță și laptopul sau stația locală de pe care lucrăm.</p>
-<div class="section" id="stocare-partajata-folosind-sshfs">
+<section id="stocare-partajata-folosind-sshfs">
 <h2><span class="section-number">4.1. </span>Stocare partajată folosind SSHFS<a class="headerlink" href="#stocare-partajata-folosind-sshfs" title="Permalink to this headline">¶</a></h2>
 <p>Le vom face tutorial despre cum să monteze un sistem de fișiere folosind SSHFS și le vom explica că acest mod de lucru nu duce la duplicarea fișierelor.</p>
-</div>
-<div class="section" id="stocare-partajata-folosind-aplicatii-online">
+</section>
+<section id="stocare-partajata-folosind-aplicatii-online">
 <h2><span class="section-number">4.2. </span>Stocare partajată folosind aplicații online<a class="headerlink" href="#stocare-partajata-folosind-aplicatii-online" title="Permalink to this headline">¶</a></h2>
 <p>SSHFS nu este o soluție bună pentru a face backup fișierelor, deoarece existând o singură replică, ai șters un fișier și au dispărut toate replicile.Pe lângă asta, dacă ai Internet slab, ai acces greu la fișiere (le vrei și local). Și, pe lângă asta, trebuie să ai SSH configurat, care poate necesita tunel etc.</p>
 <p>O alternativă pentru acest serviciu sunt soluții cum ar fi GoogleDrive, Dropbox, ownCloud sau OneDrive, care for stoca o replică a fișierului pe toate calculatoarele autentificate de pe un anumit cont.
 Avantajul aici este că aceste sisteme oferă suport pentru controlul versiunilor pentru a șterge modificarea anterioară. Cu dezavantajul că trebuie configurate. Și cu dezavantajul că acum informația este duplicată: dublu spațiu ocupat și pot apărea conflicte la modificări.</p>
-<div class="section" id="stocarea-partajata-folosind-dropbox">
+<section id="stocarea-partajata-folosind-dropbox">
 <h3><span class="section-number">4.2.1. </span>Stocarea partajată folosind Dropbox<a class="headerlink" href="#stocarea-partajata-folosind-dropbox" title="Permalink to this headline">¶</a></h3>
 <p>Dropbox este o soluție care se folosește de un server în Internet care stochează fișierele noastre, ca apoi acestea să fie replicate pe fiecare calculator client.</p>
 <p>Îi vom pune să instaleze Dropbox pentru a sincroniza fișierele de pe workstation și mașina locală.</p>
-</div>
-<div class="section" id="extra-stocarea-partajata-folosind-un-server-privat">
+</section>
+<section id="extra-stocarea-partajata-folosind-un-server-privat">
 <h3><span class="section-number">4.2.2. </span>Extra: Stocarea partajată folosind un server privat<a class="headerlink" href="#extra-stocarea-partajata-folosind-un-server-privat" title="Permalink to this headline">¶</a></h3>
 <p>Îi vom pune să instaleze un container cu ownCloud și să îl configureze astfel încât să îl folosească ca o alternativă la Dropbox.</p>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
 
           </div>
@@ -650,7 +654,7 @@ Avantajul aici este că aceste sisteme oferă suport pentru controlul versiunilo
 </ul><div class="footer" role="contentinfo">
       &#169; Copyright 2020, USO Team.
     <br>
-    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.4.3 with <a href="https://github.com/romnnn/sphinx_press_theme">Press Theme</a>.
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.3.0 with <a href="https://github.com/romnn/sphinx_press_theme">Press Theme</a>.
 </div>
             </div>
           </div>
