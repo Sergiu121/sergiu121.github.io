@@ -1,0 +1,204 @@
+.. _users_perms_privileged_access:
+
+Accesul privilegiat
+===================
+
+În sistemul de operare există acțiuni critice (*critical / sensitive actions*): configurarea rețelei, instalarea de aplicații, adăugarea de noi conturi de utilizatori, configurarea serviciilor sistemului.
+Aceste acțiuni afectează funcționarea sistemului de operare și pot cauza probleme (de funcționare, de securitate) la o utilizare necorespunzătoare;
+de exemplu, configurarea greșită a rețelei poate duce la lipsa de conectivitate la Internet;
+adăugarea unui cont nou poate permite accesul unor persoane nedorite la nivelul sistemului;
+instalarea unei aplicații poate duce la rularea de malware la nivelul sistemului.
+De aceea aceste acțiuni pot fi realizate doar într-un **mod privilegiat**.
+
+Modul privilegiat este activat cel mai adesea prin accesarea unui **cont de utilizator privilegiat**.
+Spunem, așadar, că pe un sistem avem conturi de utilizator obișnuite (*regular users*) și conturi de utilizator privilegiat (*privileged user*).
+Utilizatorul privilegiat se mai numește **administrator**, **admin** sau **superuser**.
+În Linux, utilizatorul privilegiat se numește **root**.
+
+Un utilizator obișnuit nu poate realiza acțiuni critice, doar utilizatorul privilegiat.
+De aceea, va trebui să accesăm utilizatorul privilegiat pentru realizarea acțiunilor critice.
+
+.. _users_perms_privileged_account:
+
+Folosirea ``sudo``
+------------------
+
+Accesarea contului privilegiat se realizează cel mai simplu, în Linux, cu ajutorul comenzii ``sudo``.
+De exemplu, dacă dorim să instalăm o aplicație din contul obișnuit, vom primi eroare:
+
+.. code-block:: bash
+
+    student@uso:~$ apt install nmap
+    E: Could not open lock file /var/lib/dpkg/lock-frontend - open (13: Permission denied)
+    E: Unable to acquire the dpkg frontend lock (/var/lib/dpkg/lock-frontend), are you root?
+
+Această acțiune va reuși, însă, dacă prefixăm comanda cu ``sudo``:
+
+.. code-block:: bash
+
+    student@uso:~$ sudo apt install nmap
+    Reading package lists... Done
+    Building dependency tree
+    Reading state information... Done
+    nmap is already the newest version (7.60-1ubuntu5).
+    0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+
+.. important::
+
+    Contul privilegiat (**root**) accesat prin intermediul comenzii ``sudo`` are putere deplină asupra sistemului.
+    Poate realiza toate acțiunile posibile (critice sau necritice).
+    De aceea, este riscantă accesarea acestui cont: o comandă rulată greșit poate duce la probleme grave la nivelul sistemului.
+
+    O comandă celebră, destinată începătorilor, este ``sudo rm -rf /``.
+    În mod amuzant se spune că această comandă citește e-mailuri foarte rapid (*read mail really fast*).
+    În realitate comanda șterge întregul sistem de fișiere, de la rădăcină (``/``), făcând sistemul nefuncțional și cu date pierdute.
+
+    De aceea, contul privilegiat trebuie accesat cât mai rar, **doar atunci când este nevoie**.
+    În mod implicit, un utilizator se autentifică în sistem cu un cont neprivilegiat (de exemplu ``student``), urmând să acceseze contul privilegiat (**root**) doar la nevoie.
+
+Exercițiu de access
+^^^^^^^^^^^^^^^^^^^
+
+Realizați următoarele acțiuni din contul de utilizator obișnuit ``student`` și vedeți care are nevoie de acces privilegiat.
+Explicați de ce unele au nevoie de acces privilegiat.
+
+* ``touch /home/student/a.txt``
+* ``apt install strace``
+* ``ip address show``
+* ``cat /etc/passwd``
+* ``cat /etc/shadow``
+* ``touch /etc/test.conf``
+* ``touch /tmp/my.data``
+* ``service ssh restart``
+* ``dmesg``
+* ``dmesg -c``
+
+Erori de permisiuni și alte erori
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+O confuzie frecventă apare între erorile de permisiuni și erorile de altă natură.
+De exemplu, atunci când afișăm conținutul unui fișier, putem avea următoarele situații:
+
+.. code-block:: bash
+
+    student@uso:~$ cat /var/log/boot.log
+    cat: /var/log/boot.log: Permission denied
+
+    student@uso:~$ cat /var/log/kill/them/all.log
+    cat: /var/log/kill/them/all.log: No such file or directory
+
+Prima comandă afișează o eroare de permisiune (*Permission denied*).
+A doua afișează o eroare de sistem de fișiere: fișierul care se dorește afișat nu există (*No such file or directory*).
+
+Doar erorile de permisiune sunt "rezolvabile" folosind contul privilegiat, care are acces complet în sistem.
+Celelalte tipuri de erori nu sunt rezolvate astfel, trebuie găsită sursa problemei.
+Astfel că, dacă prefixăm cele două comenzi de mai sus cu ``sudo``, pentru folosirea contului privilegiat, vom obține:
+
+.. code-block:: bash
+
+    student@uso:~$ sudo head /var/log/boot.log
+    [  OK  ] Started Show Plymouth Boot Screen.
+    [  OK  ] Started Forward Password Requests to Plymouth Directory Watch.
+    [  OK  ] Reached target Local Encrypted Volumes.
+    [...]
+    student@uso:~$ sudo cat /var/log/kill/them/all.log
+    cat: /var/log/kill/them/all.log: No such file or directory
+
+Observăm că prima comandă, care afișase eroare de permisiune, funcționează acum.
+În vreme ce a doua comandă, care afișase eroare de sistem de fișiere, nu își schimbă comportamentul: afișează în continuare aceeași eroare.
+
+Exercițiu
+"""""""""
+
+Rulați următoarele comenzi fără ``sudo``.
+Aceste comenzi vor afișa mesaje de eroare.
+Fără a folosi ``sudo``, stabiliți care comenzi generează erori de permisiuni (rezolvabile cu ``sudo``) și alte tipuri de erori (nerezolvabile folosind ``sudo``).
+Apoi rulați folosind ``sudo`` pentru a confirma presupunerile.
+
+* ``apt install sports-illustrated``
+* ``ip address show ether114``
+* ``kill $(pidof chainsaw)``
+* ``netcat -l -p 700``
+* ``chown student:student /home/student``
+* ``chown student:student /home/search/and/destroy``
+* ``userdel hariseldon``
+
+În cazul comenzilor care afișează alte tipuri de erori, presupunând rezolvarea lor, este posibil, în continuare să fie nevoie de ``sudo``.
+Care dintre comenzile de mai sus intră în această categorie?
+
+Redirectare folosind sudo
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Fie o situație în care dorim să scriem informație într-un fișier.
+Să presupunem că dorim să scriem informația *All for the empire* in fișierul ``/home/student/zealot.txt``.
+Avem două opțiuni:
+
+#. Edităm fișierul folosind ``nano /home/student/zealot.txt``, scriem informația *All for the empire** și apoi salvăm.
+#. Folosim comanda ``echo "All for the empire" > /home/student/zealot.txt``.
+
+Ambele opțiuni vor funcționa, utilizatorul curent ``student`` (neprivilegiat) având permisiuni de editare / creare.
+
+Dacă alegem un fișier la care utilizatorul curent nu are acces, intuiția ar fi să prefixăm comenzile de mai sus ``sudo``.
+Adică, în cazul fișierului ``/etc/zealot.txt``, am realiza acțiunile:
+
+#. Edităm fișierul folosind ``sudo nano /etc/zealot.txt``, scriem informația *All for the empire* și apoi salvăm.
+#. Folosim comanda ``sudo echo "All for the empire" > /etc/zealot.txt``.
+
+Prima comandă (folosirea editorului) funcționează.
+A doua comandă însă nu funcționează.
+
+A doua comandă nu funcționează pentru că doar comanda ``echo`` rulează în modul privilegiat.
+Redirectarea (dată de operatorul ``>``) este realizată de proces shell, care aparține utilizatorului neprivilegiat ``student``.
+Adică se deschide, cu ajutorul redirectării, fișierul ``/etc/zealot.txt`` cu permisiunile utilizatorului ``student``;
+pentru că fișierul este deschis de un utilizator neprivilegiat, acțiunea eșuează.
+
+Sunt două soluții:
+
+#. Folosirea unui proces shell privilegiat.
+#. Folosirea unei comenzi prefixată de comanda ``sudo``, comandă care să deschidă fișierul ``/etc/zealot.txt`` fără redirectare.
+   În felul acesta fișierul va fi deschis în modul privilegiat.
+
+Pentru prima variantă, folosim comenzile:
+
+.. code-block:: bash
+
+    student@uso:~$ sudo su
+    root@uso:/home/student# echo "All for the empire" > /etc/zealot.txt
+
+În această situație, a doua comandă este rulată cu permisiunile contului privilegiat (``root``).
+
+Pentru a doua variantă, putem folosi comanda ``tee`` care primește ca argument un fișier în care scrie informație.
+Prefixarea cu ``sudo`` va duce la rularea comenzii ``tee`` în mod privilegiat, adică și la deschiderea fișierului ``/etc/zealot.txt`` în mod privilegiat.
+Comanda folosită este:
+
+.. code-block:: bash
+
+    student@uso:~$ echo "All for the empire" | sudo tee /etc/zealot.txt
+    All for the empire
+
+Comanda ``tee`` are ca efect scrierea informației în fișierul primit ca argument **și** la ieșirea standard.
+Din acest motiv mesajul ``All for the empire`` apare **și** în fișierul ``/etc/zealot.txt`` **și** la ieșirea standard.
+
+.. note:: Comanda ``tee`` în modul append
+
+    În forma implicită de mai sus, comanda ``tee`` suprascrie conținutul fișierului primit ca argument.
+    Dacă dorim să adăugăm conținut în fișier (*append*), folosim opțiunea ``-a`` a comenzii ``tee``:
+
+    .. code-block:: bash
+
+        student@uso:~$ echo "All for the empire" | sudo tee -a /etc/zealot.txt
+
+Shell privilegiat
+^^^^^^^^^^^^^^^^^
+
+despre ``sudo bash`` și ``sudo su``
+
+Identificarea utilizatorului
+----------------------------
+
+user id, ``whoami``, ``id``
+
+Schimbarea utilizatorului
+-------------------------
+
+Folosirea ``su``, explicația pentru ``sudo su``, ce parolă cere fiecare
