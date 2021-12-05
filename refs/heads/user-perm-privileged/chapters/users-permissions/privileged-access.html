@@ -1,0 +1,958 @@
+<!DOCTYPE html>
+<html >
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+      <title>1. Accesul privilegiat</title>
+    
+      <link rel="stylesheet" href="../../_static/pygments.css">
+      <link rel="stylesheet" href="../../_static/theme.css">
+      <link rel="stylesheet" href="../../_static/romnn_sphinx_press_theme.css">
+          <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+          <link rel="stylesheet" href="../../_static/css/theme.css " type="text/css" />
+      
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+
+      <!-- sphinx script_files -->
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/my_actions.js"></script>
+
+      
+      <script src="../../_static/theme-vendors.js"></script>
+      <script src="../../_static/theme.js" defer></script>
+    
+  <link rel="index" title="Index" href="../../genindex.html" />
+  <link rel="search" title="Search" href="../../search.html" />
+  <link rel="next" title="2. Permisiuni în sistemul de fișiere" href="permissions.html" />
+  <link rel="prev" title="7. Multiplexarea terminalului" href="../improve-cli/term-multiplexing.html" />
+    <link href="../../_static/my_theme.css" rel="stylesheet" type="text/css">
+
+  </head>
+
+  <body>
+    <div id="app" class="theme-container" :class="pageClasses"><navbar @toggle-sidebar="toggleSidebar">
+  <div class="home-link-container">
+      <router-link to="../../index.html" class="home-link">
+      
+        <span class="site-name">USO Lab Book</span>
+    </router-link>
+  </div>
+
+  <div class="links">
+    <navlinks class="can-hide">
+
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Acomodarea în Linux
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Lucrul cu fișiere
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Dezvoltarea aplicațiilor
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Conectarea la Internet
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Instalarea și utilizarea aplicațiilor
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Îmbunătățirea lucrului în linia de comandă
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link  router-link-active">
+         Utilizatori și permisiuni
+      </a>
+    </div>
+  
+
+
+
+  
+    <div class="nav-item">
+      <a href="https://github.com/Sergiu121/uso-lab-book"
+        class="nav-link external">
+          Github <outboundlink/>
+      </a>
+    </div>
+  
+
+    </navlinks>
+  </div>
+</navbar>
+
+      
+      <div class="sidebar-mask" @click="toggleSidebar(false)">
+      </div>
+        <sidebar @toggle-sidebar="toggleSidebar">
+          
+          <navlinks>
+            
+
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Acomodarea în Linux
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Lucrul cu fișiere
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Dezvoltarea aplicațiilor
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Conectarea la Internet
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Instalarea și utilizarea aplicațiilor
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Îmbunătățirea lucrului în linia de comandă
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link  router-link-active">
+         Utilizatori și permisiuni
+      </a>
+    </div>
+  
+
+
+
+  
+    <div class="nav-item">
+      <a href="https://github.com/Sergiu121/uso-lab-book"
+        class="nav-link external">
+          Github <outboundlink/>
+      </a>
+    </div>
+  
+
+            
+          </navlinks><div id="searchbox" class="searchbox" role="search">
+  <div class="caption"><span class="caption-text">Search</span>
+    <div class="searchformwrapper">
+      <form autocomplete="off" class="search" action="../../search.html" method="get">
+        <input type="text" name="q" autocomplete="off" />
+        <input type="submit" value="Go" />
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div><div class="sidebar-links" role="navigation" aria-label="main navigation">
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#uso-lab-book">Acomodarea în Linux</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../basic/apps.html" class="reference internal ">Pornirea și oprirea aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../basic/browser.html" class="reference internal ">Folosirea eficientă a browserului web</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../basic/terminal.html" class="reference internal ">Lucrul în terminal</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../basic/workspace.html" class="reference internal ">Lucrul cu workspace-uri</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../basic/cheatsheet.html" class="reference internal ">Cheatsheet</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#uso-lab-book">Lucrul cu fișiere</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../files/paths.html" class="reference internal ">Căi în ierarhia de fișiere</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../files/files.html" class="reference internal ">Interacțiunea cu fișiere în linia de comandă</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../files/file_editor.html" class="reference internal ">Editor de text</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../files/io_redirection.html" class="reference internal ">Redirectări</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../files/archive.html" class="reference internal ">Arhive</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../files/file_system.html" class="reference internal ">Extra - Sistemul de fișiere</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../files/cheatsheet.html" class="reference internal ">Sumar - Cheatsheet</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#uso-lab-book">Dezvoltarea aplicațiilor</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../app-dev/intro.html" class="reference internal ">Introducere</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/make-intro.html" class="reference internal ">Compilarea unui fișier cod sursă C</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/make-multiple.html" class="reference internal ">Compilarea unui program din fișiere multiple</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/make-lib.html" class="reference internal ">Legarea executabilelor folosind biblioteci externe</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/make-simple-automation.html" class="reference internal ">Introducere în utilitarul Make și fișiere Makefile</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/make-advanced-automation.html" class="reference internal ">Aprofundarea folosirii fișierelor Makefile</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/git-intro.html" class="reference internal ">Introducere în Git și GitHub</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/git-first-commits.html" class="reference internal ">Primele commituri</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/git-branches.html" class="reference internal ">Lucrul pe branch-uri</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/git-first-pull-request.html" class="reference internal ">Crearea unui Pull Request (PR) pe GitHub</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/extra.html" class="reference internal ">Exerciții suplimentare</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#uso-lab-book">Conectarea la Internet</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../net/browser.html" class="reference internal ">Folosirea eficientă a browser-ului</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../net/troubleshoot.html" class="reference internal ">Verificarea conectivităţii la reţea</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../net/services.html" class="reference internal ">Servicii şi clienţi de reţea</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../net/extra.html" class="reference internal ">Funcţionalităţi suplimentare de reţelistică</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#uso-lab-book">Instalarea și utilizarea aplicațiilor</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../app-install/start.html" class="reference internal ">Pornirea și oprirea aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-install/run.html" class="reference internal ">Rularea aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-install/config.html" class="reference internal ">Configurarea rulării aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-install/summary1.html" class="reference internal ">Exerciții: Pornirea, rularea și configurarea aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-install/show-config.html" class="reference internal ">Vizualizarea configurației sistemului</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-install/install.html" class="reference internal ">Instalarea și dezinstalarea aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-install/install-non-standard.html" class="reference internal ">Alternative la instalarea și dezinstalarea aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-install/show.html" class="reference internal ">Investigarea aplicațiilor instalate</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-install/summary2.html" class="reference internal ">Exerciții: Instalarea și gestiunea aplicațiilor</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#uso-lab-book">Îmbunătățirea lucrului în linia de comandă</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../improve-cli/improve-terminal.html" class="reference internal ">Îmbunătățirea lucrului în linia de comandă</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../improve-cli/inspect-fs.html" class="reference internal ">Inspectarea sistemului de fișiere</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../improve-cli/inspect-sys.html" class="reference internal ">Inspectarea sistemului</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../improve-cli/inspect-files.html" class="reference internal ">Inspectarea fișierelor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../improve-cli/process-files.html" class="reference internal ">Prelucrarea fișierelor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../improve-cli/improve-shell.html" class="reference internal ">O înțelegere mai bună a shell-ului</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../improve-cli/term-multiplexing.html" class="reference internal ">Multiplexarea terminalului</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#uso-lab-book">Utilizatori și permisiuni</a></span>
+      </p>
+      <ul class="current">
+        
+          <li class="toctree-l1 current"><a href="#" class="reference internal current">Accesul privilegiat</a>
+
+            
+              <ul>
+                
+                  <li class="toctree-l2"><a href="#folosirea-sudo" class="reference internal">Folosirea sudo</a></li>
+                
+                  <li class="toctree-l2"><a href="#users-perms-privileged-id" class="reference internal">Identificarea utilizatorului</a></li>
+                
+                  <li class="toctree-l2"><a href="#schimbarea-utilizatorului" class="reference internal">Schimbarea utilizatorului</a></li>
+                
+              </ul>
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="permissions.html" class="reference internal ">Permisiuni în sistemul de fișiere</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="groups.html" class="reference internal ">Gruparea utilizatorilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="advanced.html" class="reference internal ">Cazuri avansate</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+</div>
+        </sidebar>
+
+      <page>
+          <div class="body-header" role="navigation" aria-label="navigation">
+  
+  <ul class="breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+    
+    <li><span class="section-number">1. </span>Accesul privilegiat</li>
+  </ul>
+  
+
+  <ul class="page-nav">
+  <li class="prev">
+    <a href="../improve-cli/term-multiplexing.html"
+       title="previous chapter">← <span class="section-number">7. </span>Multiplexarea terminalului</a>
+  </li>
+  <li class="next">
+    <a href="permissions.html"
+       title="next chapter"><span class="section-number">2. </span>Permisiuni în sistemul de fișiere →</a>
+  </li>
+</ul>
+  
+</div>
+<hr>
+          <div class="content" role="main">
+            
+  <section id="accesul-privilegiat">
+<span id="users-perms-privileged-access"></span><h1><span class="section-number">1. </span>Accesul privilegiat<a class="headerlink" href="#accesul-privilegiat" title="Permalink to this headline">¶</a></h1>
+<p>În sistemul de operare există acțiuni critice (<em>critical / sensitive actions</em>): configurarea rețelei, instalarea de aplicații, adăugarea de noi conturi de utilizatori, configurarea serviciilor sistemului.
+Aceste acțiuni afectează funcționarea sistemului de operare și pot cauza probleme (de funcționare, de securitate) la o utilizare necorespunzătoare;
+de exemplu, configurarea greșită a rețelei poate duce la lipsa de conectivitate la Internet;
+adăugarea unui cont nou poate permite accesul unor persoane nedorite la nivelul sistemului;
+instalarea unei aplicații poate duce la rularea de malware la nivelul sistemului.
+De aceea aceste acțiuni pot fi realizate doar într-un <strong>mod privilegiat</strong>.</p>
+<p>Modul privilegiat este activat cel mai adesea prin accesarea unui <strong>cont de utilizator privilegiat</strong>.
+Spunem, așadar, că pe un sistem avem conturi de utilizator obișnuite (<em>regular users</em>) și conturi de utilizator privilegiat (<em>privileged user</em>).
+Utilizatorul privilegiat se mai numește <strong>administrator</strong>, <strong>admin</strong> sau <strong>superuser</strong>.
+În Linux, utilizatorul privilegiat se numește <strong>root</strong>.</p>
+<p>Un utilizator obișnuit nu poate realiza acțiuni critice;
+doar utilizatorul privilegiat poate.
+De aceea, va trebui să accesăm utilizatorul privilegiat pentru realizarea acțiunilor critice.</p>
+<section id="folosirea-sudo">
+<span id="users-perms-privileged-sudo"></span><h2><span class="section-number">1.1. </span>Folosirea <code class="docutils literal notranslate"><span class="pre">sudo</span></code><a class="headerlink" href="#folosirea-sudo" title="Permalink to this headline">¶</a></h2>
+<p>Accesarea contului privilegiat se realizează cel mai simplu, în Linux, cu ajutorul comenzii <code class="docutils literal notranslate"><span class="pre">sudo</span></code>.
+De exemplu, dacă dorim să instalăm o aplicație din contul obișnuit, vom primi eroare:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ apt install nmap
+E: Could not open lock file /var/lib/dpkg/lock-frontend - open <span class="o">(</span><span class="m">13</span>: Permission denied<span class="o">)</span>
+E: Unable to acquire the dpkg frontend lock <span class="o">(</span>/var/lib/dpkg/lock-frontend<span class="o">)</span>, are you root?
+</pre></div>
+</div>
+<p>Această acțiune va reuși, însă, dacă prefixăm comanda cu <code class="docutils literal notranslate"><span class="pre">sudo</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ sudo apt install nmap
+Reading package lists... Done
+Building dependency tree
+Reading state information... Done
+nmap is already the newest version <span class="o">(</span><span class="m">7</span>.60-1ubuntu5<span class="o">)</span>.
+<span class="m">0</span> upgraded, <span class="m">0</span> newly installed, <span class="m">0</span> to remove and <span class="m">0</span> not upgraded.
+</pre></div>
+</div>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Contul privilegiat (<strong>root</strong>) accesat prin intermediul comenzii <code class="docutils literal notranslate"><span class="pre">sudo</span></code> are putere deplină asupra sistemului.
+Poate realiza toate acțiunile posibile (critice sau necritice).
+De aceea, este riscantă accesarea acestui cont: o comandă rulată greșit poate duce la probleme grave la nivelul sistemului.</p>
+<p>O comandă celebră, destinată începătorilor, este <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">rm</span> <span class="pre">-rf</span> <span class="pre">/</span></code>.
+În mod amuzant, se spune că această comandă citește e-mailuri foarte rapid (<em>read mail really fast</em>).
+În realitate comanda șterge întregul sistem de fișiere, de la rădăcină (<code class="docutils literal notranslate"><span class="pre">/</span></code>), făcând sistemul nefuncțional și ducând la pierderea datelor.</p>
+<p>De aceea, contul privilegiat trebuie accesat cât mai rar, <strong>doar atunci când este nevoie</strong>.
+În mod implicit, un utilizator se autentifică în sistem cu un cont neprivilegiat (de exemplu <code class="docutils literal notranslate"><span class="pre">student</span></code>), urmând să acceseze contul privilegiat (<strong>root</strong>) doar la nevoie.</p>
+</div>
+<section id="exercitiu-de-access">
+<h3><span class="section-number">1.1.1. </span>Exercițiu de access<a class="headerlink" href="#exercitiu-de-access" title="Permalink to this headline">¶</a></h3>
+<p>Realizați următoarele acțiuni din contul de utilizator obișnuit <code class="docutils literal notranslate"><span class="pre">student</span></code> și vedeți care are nevoie de acces privilegiat.
+Explicați de ce unele au nevoie de acces privilegiat.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">touch</span> <span class="pre">/home/student/a.txt</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">apt</span> <span class="pre">install</span> <span class="pre">strace</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ip</span> <span class="pre">address</span> <span class="pre">show</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cat</span> <span class="pre">/etc/passwd</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cat</span> <span class="pre">/etc/shadow</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">touch</span> <span class="pre">/etc/test.conf</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">touch</span> <span class="pre">/tmp/my.data</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">service</span> <span class="pre">ssh</span> <span class="pre">restart</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dmesg</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dmesg</span> <span class="pre">-c</span></code></p></li>
+</ul>
+</section>
+<section id="erori-de-permisiuni-si-alte-erori">
+<h3><span class="section-number">1.1.2. </span>Erori de permisiuni și alte erori<a class="headerlink" href="#erori-de-permisiuni-si-alte-erori" title="Permalink to this headline">¶</a></h3>
+<p>O confuzie frecventă apare între erorile de permisiuni și erorile de altă natură.
+De exemplu, atunci când afișăm conținutul unui fișier, putem avea următoarele situații:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ cat /var/log/boot.log
+cat: /var/log/boot.log: Permission denied
+
+student@uso:~$ cat /var/log/kill/them/all.log
+cat: /var/log/kill/them/all.log: No such file or directory
+</pre></div>
+</div>
+<p>Prima comandă afișează o eroare de permisiune (<em>Permission denied</em>).
+A doua afișează o eroare de sistem de fișiere: fișierul care se dorește afișat nu există (<em>No such file or directory</em>).</p>
+<p>Doar erorile de permisiune sunt “rezolvabile” folosind contul privilegiat, care are acces complet în sistem.
+Celelalte tipuri de erori nu sunt rezolvate astfel, trebuie găsită sursa problemei.
+Astfel că, dacă prefixăm cele două comenzi de mai sus cu <code class="docutils literal notranslate"><span class="pre">sudo</span></code>, pentru folosirea contului privilegiat, vom obține:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ sudo cat /var/log/boot.log
+<span class="o">[</span>  OK  <span class="o">]</span> Started Show Plymouth Boot Screen.
+<span class="o">[</span>  OK  <span class="o">]</span> Started Forward Password Requests to Plymouth Directory Watch.
+<span class="o">[</span>  OK  <span class="o">]</span> Reached target Local Encrypted Volumes.
+<span class="o">[</span>...<span class="o">]</span>
+student@uso:~$ sudo cat /var/log/kill/them/all.log
+cat: /var/log/kill/them/all.log: No such file or directory
+</pre></div>
+</div>
+<p>Observăm că prima comandă, care afișase eroare de permisiune, funcționează acum.
+În vreme ce a doua comandă, care afișase eroare de sistem de fișiere, nu își schimbă comportamentul: afișează în continuare aceeași eroare.</p>
+<section id="exercitiu">
+<h4><span class="section-number">1.1.2.1. </span>Exercițiu<a class="headerlink" href="#exercitiu" title="Permalink to this headline">¶</a></h4>
+<p>Rulați următoarele comenzi fără <code class="docutils literal notranslate"><span class="pre">sudo</span></code>.
+Aceste comenzi vor afișa mesaje de eroare.
+Fără a folosi <code class="docutils literal notranslate"><span class="pre">sudo</span></code>, stabiliți care comenzi generează erori de permisiuni (rezolvabile cu <code class="docutils literal notranslate"><span class="pre">sudo</span></code>) și alte tipuri de erori (nerezolvabile folosind <code class="docutils literal notranslate"><span class="pre">sudo</span></code>).
+Apoi rulați folosind <code class="docutils literal notranslate"><span class="pre">sudo</span></code> pentru a confirma presupunerile.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">apt</span> <span class="pre">install</span> <span class="pre">sports-illustrated</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ip</span> <span class="pre">address</span> <span class="pre">show</span> <span class="pre">ether114</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">kill</span> <span class="pre">$(pidof</span> <span class="pre">chainsaw)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">netcat</span> <span class="pre">-l</span> <span class="pre">-p</span> <span class="pre">700</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">chown</span> <span class="pre">student:student</span> <span class="pre">/home/student</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">chown</span> <span class="pre">student:student</span> <span class="pre">/home/search/and/destroy</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">userdel</span> <span class="pre">hariseldon</span></code></p></li>
+</ul>
+<p>În cazul comenzilor care afișează alte tipuri de erori, presupunând rezolvarea lor, este posibil, în continuare să fie nevoie de <code class="docutils literal notranslate"><span class="pre">sudo</span></code>.
+Care dintre comenzile de mai sus intră în această categorie?</p>
+</section>
+</section>
+<section id="redirectare-folosind-sudo">
+<h3><span class="section-number">1.1.3. </span>Redirectare folosind sudo<a class="headerlink" href="#redirectare-folosind-sudo" title="Permalink to this headline">¶</a></h3>
+<p>Fie o situație în care dorim să scriem informație într-un fișier.
+Să presupunem că dorim să scriem informația <em>All for the empire</em> în fișierul <code class="docutils literal notranslate"><span class="pre">/home/student/zealot.txt</span></code>.
+Avem două opțiuni:</p>
+<ol class="arabic simple">
+<li><p>Edităm fișierul folosind <code class="docutils literal notranslate"><span class="pre">nano</span> <span class="pre">/home/student/zealot.txt</span></code>, scriem informația <em>All for the empire*</em> și apoi salvăm.</p></li>
+<li><p>Folosim comanda <code class="docutils literal notranslate"><span class="pre">echo</span> <span class="pre">&quot;All</span> <span class="pre">for</span> <span class="pre">the</span> <span class="pre">empire&quot;</span> <span class="pre">&gt;</span> <span class="pre">/home/student/zealot.txt</span></code>.</p></li>
+</ol>
+<p>Ambele opțiuni vor funcționa, utilizatorul curent <code class="docutils literal notranslate"><span class="pre">student</span></code> (neprivilegiat) având permisiuni de editare / creare.</p>
+<p>Dacă alegem un fișier la care utilizatorul curent nu are acces, intuiția ar fi să prefixăm comenzile de mai sus <code class="docutils literal notranslate"><span class="pre">sudo</span></code>.
+Adică, în cazul fișierului <code class="docutils literal notranslate"><span class="pre">/etc/zealot.txt</span></code>, am realiza acțiunile:</p>
+<ol class="arabic simple">
+<li><p>Edităm fișierul folosind <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">nano</span> <span class="pre">/etc/zealot.txt</span></code>, scriem informația <em>All for the empire</em> și apoi salvăm.</p></li>
+<li><p>Folosim comanda <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">echo</span> <span class="pre">&quot;All</span> <span class="pre">for</span> <span class="pre">the</span> <span class="pre">empire&quot;</span> <span class="pre">&gt;</span> <span class="pre">/etc/zealot.txt</span></code>.</p></li>
+</ol>
+<p>Prima comandă (folosirea editorului) funcționează.
+A doua comandă însă nu funcționează.</p>
+<p>A doua comandă nu funcționează pentru că doar comanda <code class="docutils literal notranslate"><span class="pre">echo</span></code> rulează în modul privilegiat.
+Redirectarea (dată de operatorul <code class="docutils literal notranslate"><span class="pre">&gt;</span></code>) este realizată de proces shell, care aparține utilizatorului neprivilegiat <code class="docutils literal notranslate"><span class="pre">student</span></code>.
+Adică se deschide, cu ajutorul redirectării, fișierul <code class="docutils literal notranslate"><span class="pre">/etc/zealot.txt</span></code> cu permisiunile utilizatorului <code class="docutils literal notranslate"><span class="pre">student</span></code>;
+pentru că fișierul este deschis de un utilizator neprivilegiat, acțiunea eșuează.</p>
+<p>Sunt două soluții:</p>
+<ol class="arabic simple">
+<li><p>Folosirea unui proces shell privilegiat.</p></li>
+<li><p>Folosirea unei comenzi prefixată de comanda <code class="docutils literal notranslate"><span class="pre">sudo</span></code>, comandă care să deschidă fișierul <code class="docutils literal notranslate"><span class="pre">/etc/zealot.txt</span></code> fără redirectare.
+În felul acesta fișierul va fi deschis în modul privilegiat.</p></li>
+</ol>
+<p>Pentru prima variantă, folosim comenzile:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ sudo su
+root@uso:/home/student# <span class="nb">echo</span> <span class="s2">&quot;All for the empire&quot;</span> &gt; /etc/zealot.txt
+</pre></div>
+</div>
+<p>În această situație, a doua comandă este rulată cu permisiunile contului privilegiat (<code class="docutils literal notranslate"><span class="pre">root</span></code>).</p>
+<p>Pentru a doua variantă, putem folosi comanda <code class="docutils literal notranslate"><span class="pre">tee</span></code> care primește ca argument un fișier în care scrie informație.
+Prefixarea cu <code class="docutils literal notranslate"><span class="pre">sudo</span></code> va duce la rularea comenzii <code class="docutils literal notranslate"><span class="pre">tee</span></code> în mod privilegiat, adică și la deschiderea fișierului <code class="docutils literal notranslate"><span class="pre">/etc/zealot.txt</span></code> în mod privilegiat.
+Comanda folosită este:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ <span class="nb">echo</span> <span class="s2">&quot;All for the empire&quot;</span> <span class="p">|</span> sudo tee /etc/zealot.txt
+All <span class="k">for</span> the empire
+</pre></div>
+</div>
+<p>Comanda <code class="docutils literal notranslate"><span class="pre">tee</span></code> are ca efect scrierea informației în fișierul primit ca argument <strong>și</strong> la ieșirea standard.
+Din acest motiv mesajul <code class="docutils literal notranslate"><span class="pre">All</span> <span class="pre">for</span> <span class="pre">the</span> <span class="pre">empire</span></code> apare <strong>și</strong> în fișierul <code class="docutils literal notranslate"><span class="pre">/etc/zealot.txt</span></code> <strong>și</strong> la ieșirea standard.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Comanda <code class="docutils literal notranslate"><span class="pre">tee</span></code> în modul append</p>
+<p>În forma implicită de mai sus, comanda <code class="docutils literal notranslate"><span class="pre">tee</span></code> suprascrie conținutul fișierului primit ca argument.
+Dacă dorim să adăugăm conținut în fișier (<em>append</em>), folosim opțiunea <code class="docutils literal notranslate"><span class="pre">-a</span></code> a comenzii <code class="docutils literal notranslate"><span class="pre">tee</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ <span class="nb">echo</span> <span class="s2">&quot;All for the empire&quot;</span> <span class="p">|</span> sudo tee -a /etc/zealot.txt
+</pre></div>
+</div>
+</div>
+</section>
+<section id="shell-privilegiat">
+<h3><span class="section-number">1.1.4. </span>Shell privilegiat<a class="headerlink" href="#shell-privilegiat" title="Permalink to this headline">¶</a></h3>
+<p>Adesea dorim realizarea mai multor acțiuni critice, în forma rulării mai multor comenzi.
+Pentru aceasta, cel mai simplu este să folosim un proces shell care rulează în mod privilegiat.</p>
+<p>Așa cum am văzut mai sus, folosim comanda <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">su</span></code> pentru obținerea unui shell privilegiat:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>student@uso:~$ sudo su
+root@uso:/home/student#
+</pre></div>
+</div>
+<p>Promptul ne indică prezența shellului privilegiat:</p>
+<ul class="simple">
+<li><p>utilizatorul este <code class="docutils literal notranslate"><span class="pre">root</span></code>, utilizatorul privilegiat</p></li>
+<li><p>promptul se încheie în caracterul <code class="docutils literal notranslate"><span class="pre">#</span></code> (<em>diez</em>), caracter care denotă, prin convenție, un shell privilegiat</p></li>
+</ul>
+<p>Un alt mod de a obține un shell de root este cu ajutorul comenzii <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">bash</span></code>, cu aceleași efecte ca mai sus:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>student@uso:~$ sudo bash
+root@uso:/home/student#
+</pre></div>
+</div>
+<p>Ambele comenzi (<code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">su</span></code>, respectiv <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">bash</span></code>), duc la rularea unor comenzi în mod privilegiat: comanda <code class="docutils literal notranslate"><span class="pre">su</span></code> este rulată privilegiat, comanda <code class="docutils literal notranslate"><span class="pre">bash</span></code> este rulată privilegiat.
+Efectul este crearea unui proces shell Bash care rulează privilegiat;
+și, deci, un shell în cadrul căruia putem rula comenzi în mod privilegiat.</p>
+<p>Pentru a închide procesul shell care rulează în mod privilegiat folosim comenzile uzuale de închidere a shellului: <code class="docutils literal notranslate"><span class="pre">exit</span></code>, <code class="docutils literal notranslate"><span class="pre">logout</span></code> sau combinația de taste <code class="docutils literal notranslate"><span class="pre">Ctrl+d</span></code>.
+După încheierea procesului shell privilegiat, vom reveni în procesul shell inițial.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Vom prezenta mai multe despre procese și utilizatori în secțiunea <span class="xref std std-ref">users_perms_processes</span>.</p>
+<p>Vom prezenta detalii despre comanda <code class="docutils literal notranslate"><span class="pre">su</span></code> în secțiunea <a class="reference internal" href="#users-perms-privileged-su"><span class="std std-ref">Schimbarea utilizatorului</span></a>.</p>
+</div>
+</section>
+<section id="id1">
+<h3><span class="section-number">1.1.5. </span>Exercițiu<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple">
+<li><p>Folosiți, pe rând, comenzile <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">su</span></code> și <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">bash</span></code> pentru a obține un shell privilegiat.
+Apoi folosiți comanda <code class="docutils literal notranslate"><span class="pre">exit</span></code> sau comanda <code class="docutils literal notranslate"><span class="pre">logout</span></code> sau combinația de taste <code class="docutils literal notranslate"><span class="pre">Ctrl+d</span></code> pentru a închide shellul curent.</p></li>
+<li><p>Folosiți comanda <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">su</span></code> pentru a obține un shell privilegiat.
+În noul shell privilegiat folosiți comanda <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">su</span></code> pentru a obține un nou shell privilegiat.
+Folosiți două instanțe de comenzi de închidere a shellului (<code class="docutils literal notranslate"><span class="pre">exit</span></code> sau <code class="docutils literal notranslate"><span class="pre">logout</span></code> sau <code class="docutils literal notranslate"><span class="pre">Ctrl+d</span></code>) pentru a reveni la shellul inițial (neprivilegiat).</p></li>
+</ol>
+</section>
+</section>
+<section id="users-perms-privileged-id">
+<span id="identificarea-utilizatorului"></span><h2><span class="section-number">1.2. </span>Identificarea utilizatorului<a class="headerlink" href="#users-perms-privileged-id" title="Permalink to this headline">¶</a></h2>
+<p>Promptul shellului este configurabil și poate să nu ofere informații despre utilizatorul curent.
+Pentru siguranță, folosim comenzi dedicate pentru identificarea utilizatorului curent.</p>
+<section id="whoami">
+<h3><span class="section-number">1.2.1. </span>whoami<a class="headerlink" href="#whoami" title="Permalink to this headline">¶</a></h3>
+<p>Cea mai directă comandă, pentru afișarea numelui utilizatorului curent (<em>username</em>) este comanda <code class="docutils literal notranslate"><span class="pre">whoami</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ whoami
+student
+student@uso:~$ sudo whoami
+root
+</pre></div>
+</div>
+<p>Rularea comenzii <code class="docutils literal notranslate"><span class="pre">whoami</span></code> duce la afișarea utilizatorului curent (<code class="docutils literal notranslate"><span class="pre">student</span></code>).
+Prefixarea comenzii cu <code class="docutils literal notranslate"><span class="pre">sudo</span></code> duce la afișarea numelui utilizatorului privilegiat (<code class="docutils literal notranslate"><span class="pre">root</span></code>).</p>
+</section>
+<section id="id">
+<h3><span class="section-number">1.2.2. </span>id<a class="headerlink" href="#id" title="Permalink to this headline">¶</a></h3>
+<p>O comandă care permite afișarea de informații despre utilizatori este comanda <code class="docutils literal notranslate"><span class="pre">id</span></code>.
+O utilizare simplă a comenzii afișează informații extinse despre utilizatorul curent:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ id
+<span class="nv">uid</span><span class="o">=</span><span class="m">1000</span><span class="o">(</span>student<span class="o">)</span> <span class="nv">gid</span><span class="o">=</span><span class="m">1000</span><span class="o">(</span>razvan<span class="o">)</span> <span class="nv">groups</span><span class="o">=</span><span class="m">1000</span><span class="o">(</span>student<span class="o">)</span>,4<span class="o">(</span>adm<span class="o">)</span>,24<span class="o">(</span>cdrom<span class="o">)</span>,27<span class="o">(</span>sudo<span class="o">)</span>,30<span class="o">(</span>dip<span class="o">)</span>,46<span class="o">(</span>plugdev<span class="o">)</span>,116<span class="o">(</span>lpadmin<span class="o">)</span>,126<span class="o">(</span>sambashare<span class="o">)</span>,128<span class="o">(</span>kvm<span class="o">)</span>,130<span class="o">(</span>docker<span class="o">)</span>
+</pre></div>
+</div>
+<p>Pentru utilizatorul curent se afișează:</p>
+<ul class="simple">
+<li><p>identificatorul utilizatorului (<em>user id</em>, <code class="docutils literal notranslate"><span class="pre">uid</span></code>), o valoare numerică, aici <code class="docutils literal notranslate"><span class="pre">1000</span></code></p></li>
+<li><p>numele utilizatorului (<em>username</em>), șirul pe care îl folosim, aici <code class="docutils literal notranslate"><span class="pre">student</span></code></p></li>
+<li><p>identificatorul grupului utilizatorului (<em>group id</em>, <code class="docutils literal notranslate"><span class="pre">gid</span></code>) și numele grupului (<em>group name</em>), aici <code class="docutils literal notranslate"><span class="pre">1000</span></code> și <code class="docutils literal notranslate"><span class="pre">student</span></code> (poate fi considerată o coincidență egalitatea cu identificatorul utilizatorului și numele utilizatorului)</p></li>
+<li><p>alte grupuri din care face parte utilizatorul (<em>groups</em>)</p></li>
+</ul>
+<p>Vom prezenta succint partea de grupuri în secțiunea TODO.</p>
+<p>Relevante în acest moment sunt informațiile legate de identificatorul și de numele utilizatorului.
+Identificatorul utilizatorului (<strong>UID</strong>) este folosit de sistemul de operare pentru verificarea permisiunilor.
+Numele utilizatorului este folosit de noi, oamenii, care reținem mai ușor șiruri / nume în loc de numere.
+Similar se întâmplă și pentru procese: sistemul de operare le identifică după un număr numit <strong>PID</strong> (<em>process identifier</em>).</p>
+<p>Orice utilizator are un identificator (pentru sistemul de operare) și un nume (pentru oameni).
+De obicei, primul utilizator obișnuit (neprivilegiat) de pe un sistem Linux are identificatorul <code class="docutils literal notranslate"><span class="pre">1000</span></code>;
+este cazul utilizatorului <code class="docutils literal notranslate"><span class="pre">student</span></code> de mai sus.</p>
+<p>Putem folosi comanda <code class="docutils literal notranslate"><span class="pre">id</span></code> pentru a afișa informații și despre alți utilizatori ai sistemului, de exemplu despre utilizatorul privilegiat (<code class="docutils literal notranslate"><span class="pre">root</span></code>):</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>razvan@uso:~$ id root
+<span class="nv">uid</span><span class="o">=</span><span class="m">0</span><span class="o">(</span>root<span class="o">)</span> <span class="nv">gid</span><span class="o">=</span><span class="m">0</span><span class="o">(</span>root<span class="o">)</span> <span class="nv">groups</span><span class="o">=</span><span class="m">0</span><span class="o">(</span>root<span class="o">)</span>
+
+razvan@uso:~$ id -u root
+<span class="m">0</span>
+
+razvan@uso:~$ id -un <span class="m">0</span>
+root
+</pre></div>
+</div>
+<p>În prima comandă rulată am afișat informații despre utilizatorul <code class="docutils literal notranslate"><span class="pre">root</span></code>.
+Utilizatorul are UID-ul <code class="docutils literal notranslate"><span class="pre">0</span></code>;
+acesta este modul în care este recunoscut de sistemul de operare.
+Practic, numele <code class="docutils literal notranslate"><span class="pre">root</span></code> este o convenție;
+ceea ce oferă privilegii unui proces este prezența UID-ului <code class="docutils literal notranslate"><span class="pre">0</span></code> ca atribut al procesului.</p>
+<p>Putem afișa doar UID-ul unui utilizator prin folosirea opțiunii <code class="docutils literal notranslate"><span class="pre">-u</span></code> a comenzii <code class="docutils literal notranslate"><span class="pre">id</span></code>, ca în a doua comandă de mai sus.
+La fel putem afișa doar numele corespunzător unui UID prin folosirea opțiunii <code class="docutils literal notranslate"><span class="pre">-un</span></code>, ca în a treia comanda de mai sus.</p>
+</section>
+<section id="exercitii">
+<h3><span class="section-number">1.2.3. </span>Exerciții<a class="headerlink" href="#exercitii" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic">
+<li><p>Obțineți un shell privilegiat.
+Folosiți comenzile <code class="docutils literal notranslate"><span class="pre">whoami</span></code> și <code class="docutils literal notranslate"><span class="pre">id</span></code> pentru a afișa informații despre utilizatorul curent (<code class="docutils literal notranslate"><span class="pre">root</span></code>).</p>
+<p>Folosiți comanda <code class="docutils literal notranslate"><span class="pre">id</span></code> pentru a afișa identificatorul utilizatorului <code class="docutils literal notranslate"><span class="pre">student</span></code>.</p>
+</li>
+<li><p>Dintr-un shell de orice fel (privilegiat sau neprivilegiat), afișați:</p>
+<ul class="simple">
+<li><p>UID-ul utilizatorului <code class="docutils literal notranslate"><span class="pre">daemon</span></code>.</p></li>
+<li><p>UID-ul utilizatorului <code class="docutils literal notranslate"><span class="pre">syslog</span></code>.</p></li>
+<li><p>Numele utilizatorului cu UID-ul <code class="docutils literal notranslate"><span class="pre">100</span></code>.</p></li>
+<li><p>Numele utilizatorului cu UID-ul <code class="docutils literal notranslate"><span class="pre">2</span></code>.</p></li>
+</ul>
+<p>Acești utilizatori sunt utilizatori de sistem (<em>system users</em>), neinteractivi - adică nu sunt utilizatori cu care ne putem autentifica în sistem.
+Vom discuta succint despre aceștia în secțiunea TODO.</p>
+</li>
+</ol>
+</section>
+</section>
+<section id="schimbarea-utilizatorului">
+<span id="users-perms-privileged-su"></span><h2><span class="section-number">1.3. </span>Schimbarea utilizatorului<a class="headerlink" href="#schimbarea-utilizatorului" title="Permalink to this headline">¶</a></h2>
+<p>Mai sus am folosit comanda <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">su</span></code> pentru a obține un proces shell privilegiat.
+Comanda duce, de fapt, la rularea privilegiată a comenzii <code class="docutils literal notranslate"><span class="pre">su</span></code>.</p>
+<p>Comanda <code class="docutils literal notranslate"><span class="pre">su</span></code> este folosită pentru schimbarea utilizatorului.
+În forma sa simplă (fără argumente) schimbă utilizatorul în utilizatorul privilegiat (<code class="docutils literal notranslate"><span class="pre">root</span></code>).
+Schimbarea unui utilizator va cere parola utilizatorului schimbat.
+Astfel, în cazul comenzii de mai jos, se va cere parola contului <code class="docutils literal notranslate"><span class="pre">root</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ su
+Password:
+su: Authentication failure
+</pre></div>
+</div>
+<p>Întrucât nu știm parola contului <code class="docutils literal notranslate"><span class="pre">root</span></code>, am apăsat <code class="docutils literal notranslate"><span class="pre">Enter</span></code> și a fost afișat mesaj de eroare de autentificare.</p>
+<p>Comanda <code class="docutils literal notranslate"><span class="pre">su</span></code> poate fi folosită pentru a schimba utilizatorul în cel al cărui nume a fost primit ca argument.
+De exemplu, comanda de mai jos ar avea ca efect schimbarea utilizatorului curent în utilizatorul <code class="docutils literal notranslate"><span class="pre">daemon</span></code>.
+Din nou, necunoscând parola, nu vom reuși autentificarea:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ su daemon
+Password:
+su: Authentication failure
+</pre></div>
+</div>
+<p>Atunci când prefixăm comanda <code class="docutils literal notranslate"><span class="pre">su</span></code> de comanda <code class="docutils literal notranslate"><span class="pre">sudo</span></code> se rulează <code class="docutils literal notranslate"><span class="pre">su</span></code> în mod privilegiat și nu mai este necesară parola contului <code class="docutils literal notranslate"><span class="pre">root</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ sudo su
+root@uso:/home/student#
+</pre></div>
+</div>
+<p>O opțiune frecventă a comenzii <code class="docutils literal notranslate"><span class="pre">su</span></code> este <code class="docutils literal notranslate"><span class="pre">-</span></code> (semnul minus sau cratimă).
+Această opțiune duce la crearea unui mediu de lucru specific unui utilizator care se autentifică (<em>login</em>).
+Cel mai vizibil efect este schimbarea directorului curent în directorul home al utilizatorului către care dorim schimbarea.
+De aceea, în comanda de mai jos, noul director este directorul home al utilizatorului privilegiat (<code class="docutils literal notranslate"><span class="pre">root</span></code>), adică <code class="docutils literal notranslate"><span class="pre">/root/</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>razvan@uso:~$ sudo su -
+root@uso:~# <span class="nb">pwd</span>
+/root
+</pre></div>
+</div>
+<section id="sudo-su-si-parole">
+<h3><span class="section-number">1.3.1. </span>sudo, su și parole<a class="headerlink" href="#sudo-su-si-parole" title="Permalink to this headline">¶</a></h3>
+<p>Se poate întâmpla ca în cazul folosirii <code class="docutils literal notranslate"><span class="pre">sudo</span></code> să fie solicitată o parolă.
+Este vorba de parola utilizatorului curent, cel care rulează comanda <code class="docutils literal notranslate"><span class="pre">sudo</span></code>.
+Pentru siguranță, este nevoie de confirmarea parolei utilizatorului pentru a realiza acțiunea presupus critică prefixată de comanda <code class="docutils literal notranslate"><span class="pre">sudo</span></code>.
+Solicitarea sau nu a parolei utilizatorului curent la rularea comenzii <code class="docutils literal notranslate"><span class="pre">sudo</span></code>, ține de configurarea acesteia, așa cum vom preciza în secțiunea TODO.</p>
+<p>Sumarizând:</p>
+<ul class="simple">
+<li><p>Rularea comenzii <code class="docutils literal notranslate"><span class="pre">su</span></code> duce la solicitarea parolei contului de utilizator către care dorim schimbarea.</p></li>
+<li><p>Rularea comenzii <code class="docutils literal notranslate"><span class="pre">sudo</span></code> (urmată de altă comandă) <strong>poate duce</strong> (depinde de configurație) la solicitarea parolei contului utilizatorului curent.</p></li>
+</ul>
+</section>
+<section id="id2">
+<h3><span class="section-number">1.3.2. </span>Exerciții<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic">
+<li><p>Obțineți un shell privilegiat.
+În shellul privilegiat, folosiți comanda <code class="docutils literal notranslate"><span class="pre">su</span></code> pentru a schimba utilizatorul în <code class="docutils literal notranslate"><span class="pre">student</span></code>.
+Închideți shellul utilizatorului <code class="docutils literal notranslate"><span class="pre">student</span></code>.
+Apoi închideți și shellul privilegiat.
+Ați revenit la punctul inițial.</p></li>
+<li><p>Obțineți un shell privilegiat.
+În shellul privilegiat, folosiți comanda <code class="docutils literal notranslate"><span class="pre">su</span></code> pentru a schimba utilizatorul în <code class="docutils literal notranslate"><span class="pre">student</span></code> inclusiv mediul de login: directorul să fie <code class="docutils literal notranslate"><span class="pre">/home/student/</span></code>.
+Închideți shellul utilizatorului <code class="docutils literal notranslate"><span class="pre">student</span></code>.
+Apoi închideți și shellul privilegiat.
+Ați revenit la punctul inițial.</p></li>
+<li><p>Obțineți un shell privilegiat.
+În shellul privilegiat, folosiți comanda <code class="docutils literal notranslate"><span class="pre">su</span></code> pentru a schimba utilizatorul în <code class="docutils literal notranslate"><span class="pre">daemon</span></code>.
+Primiți eroare.</p>
+<p>Încercați să schimbați utilizatorul în <code class="docutils literal notranslate"><span class="pre">bin</span></code>.
+La fel, primiți eroare.</p>
+<p>Aceste erori să întâmplă întrucât utilizatorii <code class="docutils literal notranslate"><span class="pre">daemon</span></code> și <code class="docutils literal notranslate"><span class="pre">bin</span></code> sunt utilizatori de sistem (<em>system users</em>) care nu sunt gândiți să fie utilizatori interactivi: adică se ne putem autentifica în sistem ca acei utilizatori și să rulăm procese shell (interactive).
+Vom discuta succint despre utilizatorii de sistem în secțiunea TODO.</p>
+</li>
+</ol>
+</section>
+</section>
+</section>
+
+
+          </div>
+          <div class="page-nav">
+            <div class="inner"><ul class="page-nav">
+  <li class="prev">
+    <a href="../improve-cli/term-multiplexing.html"
+       title="previous chapter">← <span class="section-number">7. </span>Multiplexarea terminalului</a>
+  </li>
+  <li class="next">
+    <a href="permissions.html"
+       title="next chapter"><span class="section-number">2. </span>Permisiuni în sistemul de fișiere →</a>
+  </li>
+</ul><div class="footer" role="contentinfo">
+      &#169; Copyright 2020, USO Team.
+    <br>
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.3.1 with <a href="https://github.com/romnn/sphinx_press_theme">Press Theme</a>.
+</div>
+            </div>
+          </div>
+      </page>
+    </div>
+    
+    
+  </body>
+</html>
