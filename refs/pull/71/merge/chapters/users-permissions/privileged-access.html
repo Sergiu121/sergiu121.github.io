@@ -520,7 +520,7 @@
                 
                   <li class="toctree-l2"><a href="#folosirea-sudo" class="reference internal">Folosirea sudo</a></li>
                 
-                  <li class="toctree-l2"><a href="#identificarea-utilizatorului" class="reference internal">Identificarea utilizatorului</a></li>
+                  <li class="toctree-l2"><a href="#users-perms-privileged-id" class="reference internal">Identificarea utilizatorului</a></li>
                 
                   <li class="toctree-l2"><a href="#schimbarea-utilizatorului" class="reference internal">Schimbarea utilizatorului</a></li>
                 
@@ -590,10 +590,11 @@ De aceea aceste acțiuni pot fi realizate doar într-un <strong>mod privilegiat<
 Spunem, așadar, că pe un sistem avem conturi de utilizator obișnuite (<em>regular users</em>) și conturi de utilizator privilegiat (<em>privileged user</em>).
 Utilizatorul privilegiat se mai numește <strong>administrator</strong>, <strong>admin</strong> sau <strong>superuser</strong>.
 În Linux, utilizatorul privilegiat se numește <strong>root</strong>.</p>
-<p>Un utilizator obișnuit nu poate realiza acțiuni critice, doar utilizatorul privilegiat.
+<p>Un utilizator obișnuit nu poate realiza acțiuni critice;
+doar utilizatorul privilegiat poate.
 De aceea, va trebui să accesăm utilizatorul privilegiat pentru realizarea acțiunilor critice.</p>
 <section id="folosirea-sudo">
-<span id="users-perms-privileged-account"></span><h2><span class="section-number">1.1. </span>Folosirea <code class="docutils literal notranslate"><span class="pre">sudo</span></code><a class="headerlink" href="#folosirea-sudo" title="Permalink to this headline">¶</a></h2>
+<span id="users-perms-privileged-sudo"></span><h2><span class="section-number">1.1. </span>Folosirea <code class="docutils literal notranslate"><span class="pre">sudo</span></code><a class="headerlink" href="#folosirea-sudo" title="Permalink to this headline">¶</a></h2>
 <p>Accesarea contului privilegiat se realizează cel mai simplu, în Linux, cu ajutorul comenzii <code class="docutils literal notranslate"><span class="pre">sudo</span></code>.
 De exemplu, dacă dorim să instalăm o aplicație din contul obișnuit, vom primi eroare:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ apt install nmap
@@ -616,13 +617,13 @@ nmap is already the newest version <span class="o">(</span><span class="m">7</sp
 Poate realiza toate acțiunile posibile (critice sau necritice).
 De aceea, este riscantă accesarea acestui cont: o comandă rulată greșit poate duce la probleme grave la nivelul sistemului.</p>
 <p>O comandă celebră, destinată începătorilor, este <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">rm</span> <span class="pre">-rf</span> <span class="pre">/</span></code>.
-În mod amuzant se spune că această comandă citește e-mailuri foarte rapid (<em>read mail really fast</em>).
-În realitate comanda șterge întregul sistem de fișiere, de la rădăcină (<code class="docutils literal notranslate"><span class="pre">/</span></code>), făcând sistemul nefuncțional și cu date pierdute.</p>
+În mod amuzant, se spune că această comandă citește e-mailuri foarte rapid (<em>read mail really fast</em>).
+În realitate comanda șterge întregul sistem de fișiere, de la rădăcină (<code class="docutils literal notranslate"><span class="pre">/</span></code>), făcând sistemul nefuncțional și ducând la pierderea datelor.</p>
 <p>De aceea, contul privilegiat trebuie accesat cât mai rar, <strong>doar atunci când este nevoie</strong>.
 În mod implicit, un utilizator se autentifică în sistem cu un cont neprivilegiat (de exemplu <code class="docutils literal notranslate"><span class="pre">student</span></code>), urmând să acceseze contul privilegiat (<strong>root</strong>) doar la nevoie.</p>
 </div>
-<section id="exercitiu-de-access">
-<h3><span class="section-number">1.1.1. </span>Exercițiu de access<a class="headerlink" href="#exercitiu-de-access" title="Permalink to this headline">¶</a></h3>
+<section id="exercitiu-actiuni-privilegiate">
+<h3><span class="section-number">1.1.1. </span>Exercițiu: Acțiuni privilegiate<a class="headerlink" href="#exercitiu-actiuni-privilegiate" title="Permalink to this headline">¶</a></h3>
 <p>Realizați următoarele acțiuni din contul de utilizator obișnuit <code class="docutils literal notranslate"><span class="pre">student</span></code> și vedeți care are nevoie de acces privilegiat.
 Explicați de ce unele au nevoie de acces privilegiat.</p>
 <ul class="simple">
@@ -654,7 +655,7 @@ A doua afișează o eroare de sistem de fișiere: fișierul care se dorește afi
 <p>Doar erorile de permisiune sunt “rezolvabile” folosind contul privilegiat, care are acces complet în sistem.
 Celelalte tipuri de erori nu sunt rezolvate astfel, trebuie găsită sursa problemei.
 Astfel că, dacă prefixăm cele două comenzi de mai sus cu <code class="docutils literal notranslate"><span class="pre">sudo</span></code>, pentru folosirea contului privilegiat, vom obține:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ sudo head /var/log/boot.log
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ sudo cat /var/log/boot.log
 <span class="o">[</span>  OK  <span class="o">]</span> Started Show Plymouth Boot Screen.
 <span class="o">[</span>  OK  <span class="o">]</span> Started Forward Password Requests to Plymouth Directory Watch.
 <span class="o">[</span>  OK  <span class="o">]</span> Reached target Local Encrypted Volumes.
@@ -665,8 +666,8 @@ cat: /var/log/kill/them/all.log: No such file or directory
 </div>
 <p>Observăm că prima comandă, care afișase eroare de permisiune, funcționează acum.
 În vreme ce a doua comandă, care afișase eroare de sistem de fișiere, nu își schimbă comportamentul: afișează în continuare aceeași eroare.</p>
-<section id="exercitiu">
-<h4><span class="section-number">1.1.2.1. </span>Exercițiu<a class="headerlink" href="#exercitiu" title="Permalink to this headline">¶</a></h4>
+<section id="exercitiu-erori-de-permisiune-si-erori-de-alte-tipuri">
+<h4><span class="section-number">1.1.2.1. </span>Exercițiu: Erori de permisiune și erori de alte tipuri<a class="headerlink" href="#exercitiu-erori-de-permisiune-si-erori-de-alte-tipuri" title="Permalink to this headline">¶</a></h4>
 <p>Rulați următoarele comenzi fără <code class="docutils literal notranslate"><span class="pre">sudo</span></code>.
 Aceste comenzi vor afișa mesaje de eroare.
 Fără a folosi <code class="docutils literal notranslate"><span class="pre">sudo</span></code>, stabiliți care comenzi generează erori de permisiuni (rezolvabile cu <code class="docutils literal notranslate"><span class="pre">sudo</span></code>) și alte tipuri de erori (nerezolvabile folosind <code class="docutils literal notranslate"><span class="pre">sudo</span></code>).
@@ -687,7 +688,7 @@ Care dintre comenzile de mai sus intră în această categorie?</p>
 <section id="redirectare-folosind-sudo">
 <h3><span class="section-number">1.1.3. </span>Redirectare folosind sudo<a class="headerlink" href="#redirectare-folosind-sudo" title="Permalink to this headline">¶</a></h3>
 <p>Fie o situație în care dorim să scriem informație într-un fișier.
-Să presupunem că dorim să scriem informația <em>All for the empire</em> in fișierul <code class="docutils literal notranslate"><span class="pre">/home/student/zealot.txt</span></code>.
+Să presupunem că dorim să scriem informația <em>All for the empire</em> în fișierul <code class="docutils literal notranslate"><span class="pre">/home/student/zealot.txt</span></code>.
 Avem două opțiuni:</p>
 <ol class="arabic simple">
 <li><p>Edităm fișierul folosind <code class="docutils literal notranslate"><span class="pre">nano</span> <span class="pre">/home/student/zealot.txt</span></code>, scriem informația <em>All for the empire*</em> și apoi salvăm.</p></li>
@@ -739,16 +740,200 @@ Dacă dorim să adăugăm conținut în fișier (<em>append</em>), folosim opți
 </section>
 <section id="shell-privilegiat">
 <h3><span class="section-number">1.1.4. </span>Shell privilegiat<a class="headerlink" href="#shell-privilegiat" title="Permalink to this headline">¶</a></h3>
-<p>despre <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">bash</span></code> și <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">su</span></code></p>
+<p>Adesea dorim realizarea mai multor acțiuni critice, în forma rulării mai multor comenzi.
+Pentru aceasta, cel mai simplu este să folosim un proces shell care rulează în mod privilegiat.</p>
+<p>Așa cum am văzut mai sus, folosim comanda <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">su</span></code> pentru obținerea unui shell privilegiat:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>student@uso:~$ sudo su
+root@uso:/home/student#
+</pre></div>
+</div>
+<p>Promptul ne indică prezența shellului privilegiat:</p>
+<ul class="simple">
+<li><p>utilizatorul este <code class="docutils literal notranslate"><span class="pre">root</span></code>, utilizatorul privilegiat</p></li>
+<li><p>promptul se încheie în caracterul <code class="docutils literal notranslate"><span class="pre">#</span></code> (<em>diez</em>), caracter care denotă, prin convenție, un shell privilegiat</p></li>
+</ul>
+<p>Același efect poate fi obținut prin rularea comenzii <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">su</span> <span class="pre">root</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>student@uso:~$ sudo su root
+root@uso:/home/student#
+</pre></div>
+</div>
+<p>Fiind mai mult de tastat, preferăm folosirea comenzii <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">su</span></code> în loc de <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">su</span> <span class="pre">root</span></code>.</p>
+<p>Un alt mod de a obține un shell de root este cu ajutorul comenzii <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">bash</span></code>, cu aceleași efecte ca mai sus:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>student@uso:~$ sudo bash
+root@uso:/home/student#
+</pre></div>
+</div>
+<p>Ambele comenzi (<code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">su</span></code>, respectiv <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">bash</span></code>), duc la rularea unor comenzi în mod privilegiat: comanda <code class="docutils literal notranslate"><span class="pre">su</span></code> este rulată privilegiat, comanda <code class="docutils literal notranslate"><span class="pre">bash</span></code> este rulată privilegiat.
+Efectul este crearea unui proces shell Bash care rulează privilegiat;
+și, deci, un shell în cadrul căruia putem rula comenzi în mod privilegiat.</p>
+<p>Pentru a închide procesul shell care rulează în mod privilegiat folosim comenzile uzuale de închidere a shellului: <code class="docutils literal notranslate"><span class="pre">exit</span></code>, <code class="docutils literal notranslate"><span class="pre">logout</span></code> sau combinația de taste <code class="docutils literal notranslate"><span class="pre">Ctrl+d</span></code>.
+După încheierea procesului shell privilegiat, vom reveni în procesul shell inițial.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Vom prezenta mai multe despre procese și utilizatori în secțiunea <span class="xref std std-ref">users_perms_processes</span>.</p>
+<p>Vom prezenta detalii despre comanda <code class="docutils literal notranslate"><span class="pre">su</span></code> în secțiunea <a class="reference internal" href="#users-perms-privileged-su"><span class="std std-ref">Schimbarea utilizatorului</span></a>.</p>
+</div>
+</section>
+<section id="exercitii-shell-privilegiat">
+<h3><span class="section-number">1.1.5. </span>Exerciții: Shell privilegiat<a class="headerlink" href="#exercitii-shell-privilegiat" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple">
+<li><p>Folosiți, pe rând, comenzile <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">su</span></code> și <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">bash</span></code> pentru a obține un shell privilegiat.
+Apoi folosiți comanda <code class="docutils literal notranslate"><span class="pre">exit</span></code> sau comanda <code class="docutils literal notranslate"><span class="pre">logout</span></code> sau combinația de taste <code class="docutils literal notranslate"><span class="pre">Ctrl+d</span></code> pentru a închide shellul curent.</p></li>
+<li><p>Folosiți comanda <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">su</span></code> pentru a obține un shell privilegiat.
+În noul shell privilegiat folosiți comanda <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">su</span></code> pentru a obține un nou shell privilegiat.
+Folosiți două instanțe de comenzi de închidere a shellului (<code class="docutils literal notranslate"><span class="pre">exit</span></code> sau <code class="docutils literal notranslate"><span class="pre">logout</span></code> sau <code class="docutils literal notranslate"><span class="pre">Ctrl+d</span></code>) pentru a reveni la shellul inițial (neprivilegiat).</p></li>
+</ol>
 </section>
 </section>
-<section id="identificarea-utilizatorului">
-<h2><span class="section-number">1.2. </span>Identificarea utilizatorului<a class="headerlink" href="#identificarea-utilizatorului" title="Permalink to this headline">¶</a></h2>
-<p>user id, <code class="docutils literal notranslate"><span class="pre">whoami</span></code>, <code class="docutils literal notranslate"><span class="pre">id</span></code></p>
+<section id="users-perms-privileged-id">
+<span id="identificarea-utilizatorului"></span><h2><span class="section-number">1.2. </span>Identificarea utilizatorului<a class="headerlink" href="#users-perms-privileged-id" title="Permalink to this headline">¶</a></h2>
+<p>Promptul shellului este configurabil și poate să nu ofere informații despre utilizatorul curent.
+Pentru siguranță, folosim comenzi dedicate pentru identificarea utilizatorului curent.</p>
+<section id="whoami">
+<h3><span class="section-number">1.2.1. </span>whoami<a class="headerlink" href="#whoami" title="Permalink to this headline">¶</a></h3>
+<p>Cea mai directă comandă, pentru afișarea numelui utilizatorului curent (<em>username</em>) este comanda <code class="docutils literal notranslate"><span class="pre">whoami</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ whoami
+student
+student@uso:~$ sudo whoami
+root
+</pre></div>
+</div>
+<p>Rularea comenzii <code class="docutils literal notranslate"><span class="pre">whoami</span></code> duce la afișarea utilizatorului curent (<code class="docutils literal notranslate"><span class="pre">student</span></code>).
+Prefixarea comenzii cu <code class="docutils literal notranslate"><span class="pre">sudo</span></code> duce la afișarea numelui utilizatorului privilegiat (<code class="docutils literal notranslate"><span class="pre">root</span></code>).</p>
+</section>
+<section id="id">
+<h3><span class="section-number">1.2.2. </span>id<a class="headerlink" href="#id" title="Permalink to this headline">¶</a></h3>
+<p>O comandă care permite afișarea de informații despre utilizatori este comanda <code class="docutils literal notranslate"><span class="pre">id</span></code>.
+O utilizare simplă a comenzii afișează informații extinse despre utilizatorul curent:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ id
+<span class="nv">uid</span><span class="o">=</span><span class="m">1000</span><span class="o">(</span>student<span class="o">)</span> <span class="nv">gid</span><span class="o">=</span><span class="m">1000</span><span class="o">(</span>razvan<span class="o">)</span> <span class="nv">groups</span><span class="o">=</span><span class="m">1000</span><span class="o">(</span>student<span class="o">)</span>,4<span class="o">(</span>adm<span class="o">)</span>,24<span class="o">(</span>cdrom<span class="o">)</span>,27<span class="o">(</span>sudo<span class="o">)</span>,30<span class="o">(</span>dip<span class="o">)</span>,46<span class="o">(</span>plugdev<span class="o">)</span>,116<span class="o">(</span>lpadmin<span class="o">)</span>,126<span class="o">(</span>sambashare<span class="o">)</span>,128<span class="o">(</span>kvm<span class="o">)</span>,130<span class="o">(</span>docker<span class="o">)</span>
+</pre></div>
+</div>
+<p>Pentru utilizatorul curent se afișează:</p>
+<ul class="simple">
+<li><p>identificatorul utilizatorului (<em>user id</em>, <code class="docutils literal notranslate"><span class="pre">uid</span></code>), o valoare numerică, aici <code class="docutils literal notranslate"><span class="pre">1000</span></code></p></li>
+<li><p>numele utilizatorului (<em>username</em>), șirul pe care îl folosim, aici <code class="docutils literal notranslate"><span class="pre">student</span></code></p></li>
+<li><p>identificatorul grupului utilizatorului (<em>group id</em>, <code class="docutils literal notranslate"><span class="pre">gid</span></code>) și numele grupului (<em>group name</em>), aici <code class="docutils literal notranslate"><span class="pre">1000</span></code> și <code class="docutils literal notranslate"><span class="pre">student</span></code> (poate fi considerată o coincidență egalitatea cu identificatorul utilizatorului și numele utilizatorului)</p></li>
+<li><p>alte grupuri din care face parte utilizatorul (<em>groups</em>)</p></li>
+</ul>
+<p>Vom prezenta succint partea de grupuri în secțiunea TODO.</p>
+<p>Relevante în acest moment sunt informațiile legate de identificatorul și de numele utilizatorului.
+Identificatorul utilizatorului (<strong>UID</strong>) este folosit de sistemul de operare pentru verificarea permisiunilor.
+Numele utilizatorului este folosit de noi, oamenii, care reținem mai ușor șiruri / nume în loc de numere.
+Similar se întâmplă și pentru procese: sistemul de operare le identifică după un număr numit <strong>PID</strong> (<em>process identifier</em>).</p>
+<p>Orice utilizator are un identificator (pentru sistemul de operare) și un nume (pentru oameni).
+De obicei, primul utilizator obișnuit (neprivilegiat) de pe un sistem Linux are identificatorul <code class="docutils literal notranslate"><span class="pre">1000</span></code>;
+este cazul utilizatorului <code class="docutils literal notranslate"><span class="pre">student</span></code> de mai sus.</p>
+<p>Putem folosi comanda <code class="docutils literal notranslate"><span class="pre">id</span></code> pentru a afișa informații și despre alți utilizatori ai sistemului, de exemplu despre utilizatorul privilegiat (<code class="docutils literal notranslate"><span class="pre">root</span></code>):</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>razvan@uso:~$ id root
+<span class="nv">uid</span><span class="o">=</span><span class="m">0</span><span class="o">(</span>root<span class="o">)</span> <span class="nv">gid</span><span class="o">=</span><span class="m">0</span><span class="o">(</span>root<span class="o">)</span> <span class="nv">groups</span><span class="o">=</span><span class="m">0</span><span class="o">(</span>root<span class="o">)</span>
+
+razvan@uso:~$ id -u root
+<span class="m">0</span>
+
+razvan@uso:~$ id -un <span class="m">0</span>
+root
+</pre></div>
+</div>
+<p>În prima comandă rulată am afișat informații despre utilizatorul <code class="docutils literal notranslate"><span class="pre">root</span></code>.
+Utilizatorul are UID-ul <code class="docutils literal notranslate"><span class="pre">0</span></code>;
+acesta este modul în care este recunoscut de sistemul de operare.
+Practic, numele <code class="docutils literal notranslate"><span class="pre">root</span></code> este o convenție;
+ceea ce oferă privilegii unui proces este prezența UID-ului <code class="docutils literal notranslate"><span class="pre">0</span></code> ca atribut al procesului.</p>
+<p>Putem afișa doar UID-ul unui utilizator prin folosirea opțiunii <code class="docutils literal notranslate"><span class="pre">-u</span></code> a comenzii <code class="docutils literal notranslate"><span class="pre">id</span></code>, ca în a doua comandă de mai sus.
+La fel putem afișa doar numele corespunzător unui UID prin folosirea opțiunii <code class="docutils literal notranslate"><span class="pre">-un</span></code>, ca în a treia comanda de mai sus.</p>
+</section>
+<section id="exercitii-identificarea-utilizatorilor">
+<h3><span class="section-number">1.2.3. </span>Exerciții: Identificarea utilizatorilor<a class="headerlink" href="#exercitii-identificarea-utilizatorilor" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic">
+<li><p>Obțineți un shell privilegiat.
+Folosiți comenzile <code class="docutils literal notranslate"><span class="pre">whoami</span></code> și <code class="docutils literal notranslate"><span class="pre">id</span></code> pentru a afișa informații despre utilizatorul curent (<code class="docutils literal notranslate"><span class="pre">root</span></code>).</p>
+<p>Folosiți comanda <code class="docutils literal notranslate"><span class="pre">id</span></code> pentru a afișa identificatorul utilizatorului <code class="docutils literal notranslate"><span class="pre">student</span></code>.</p>
+</li>
+<li><p>Dintr-un shell de orice fel (privilegiat sau neprivilegiat), afișați:</p>
+<ul class="simple">
+<li><p>UID-ul utilizatorului <code class="docutils literal notranslate"><span class="pre">daemon</span></code>.</p></li>
+<li><p>UID-ul utilizatorului <code class="docutils literal notranslate"><span class="pre">syslog</span></code>.</p></li>
+<li><p>Numele utilizatorului cu UID-ul <code class="docutils literal notranslate"><span class="pre">100</span></code>.</p></li>
+<li><p>Numele utilizatorului cu UID-ul <code class="docutils literal notranslate"><span class="pre">2</span></code>.</p></li>
+</ul>
+<p>Acești utilizatori sunt utilizatori de sistem (<em>system users</em>), neinteractivi - adică nu sunt utilizatori cu care ne putem autentifica în sistem.
+Vom discuta succint despre aceștia în secțiunea TODO.</p>
+</li>
+</ol>
+</section>
 </section>
 <section id="schimbarea-utilizatorului">
-<h2><span class="section-number">1.3. </span>Schimbarea utilizatorului<a class="headerlink" href="#schimbarea-utilizatorului" title="Permalink to this headline">¶</a></h2>
-<p>Folosirea <code class="docutils literal notranslate"><span class="pre">su</span></code>, explicația pentru <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">su</span></code>, ce parolă cere fiecare</p>
+<span id="users-perms-privileged-su"></span><h2><span class="section-number">1.3. </span>Schimbarea utilizatorului<a class="headerlink" href="#schimbarea-utilizatorului" title="Permalink to this headline">¶</a></h2>
+<p>Mai sus am folosit comanda <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">su</span></code> pentru a obține un proces shell privilegiat.
+Comanda duce, de fapt, la rularea privilegiată a comenzii <code class="docutils literal notranslate"><span class="pre">su</span></code>.</p>
+<p>Comanda <code class="docutils literal notranslate"><span class="pre">su</span></code> este folosită pentru schimbarea utilizatorului.
+În forma sa simplă (fără argumente) schimbă utilizatorul în utilizatorul privilegiat (<code class="docutils literal notranslate"><span class="pre">root</span></code>).
+Schimbarea unui utilizator va cere parola utilizatorului schimbat.
+Astfel, în cazul comenzii de mai jos, se va cere parola contului <code class="docutils literal notranslate"><span class="pre">root</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ su
+Password:
+su: Authentication failure
+</pre></div>
+</div>
+<p>Întrucât nu știm parola contului <code class="docutils literal notranslate"><span class="pre">root</span></code>, am apăsat <code class="docutils literal notranslate"><span class="pre">Enter</span></code> și a fost afișat mesaj de eroare de autentificare.</p>
+<p>Comanda <code class="docutils literal notranslate"><span class="pre">su</span></code> poate fi folosită pentru a schimba utilizatorul în cel al cărui nume a fost primit ca argument.
+De exemplu, comanda de mai jos ar avea ca efect schimbarea utilizatorului curent în utilizatorul <code class="docutils literal notranslate"><span class="pre">daemon</span></code>.
+Din nou, necunoscând parola, nu vom reuși autentificarea:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ su daemon
+Password:
+su: Authentication failure
+</pre></div>
+</div>
+<p>Atunci când prefixăm comanda <code class="docutils literal notranslate"><span class="pre">su</span></code> de comanda <code class="docutils literal notranslate"><span class="pre">sudo</span></code> se rulează <code class="docutils literal notranslate"><span class="pre">su</span></code> în mod privilegiat și nu mai este necesară parola contului <code class="docutils literal notranslate"><span class="pre">root</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ sudo su
+root@uso:/home/student#
+</pre></div>
+</div>
+<p>O opțiune frecventă a comenzii <code class="docutils literal notranslate"><span class="pre">su</span></code> este <code class="docutils literal notranslate"><span class="pre">-</span></code> (semnul minus sau cratimă).
+Această opțiune duce la crearea unui mediu de lucru specific unui utilizator care se autentifică (<em>login</em>).
+Cel mai vizibil efect este schimbarea directorului curent în directorul home al utilizatorului către care dorim schimbarea.
+De aceea, în comanda de mai jos, noul director este directorul home al utilizatorului privilegiat (<code class="docutils literal notranslate"><span class="pre">root</span></code>), adică <code class="docutils literal notranslate"><span class="pre">/root/</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>razvan@uso:~$ sudo su -
+root@uso:~# <span class="nb">pwd</span>
+/root
+</pre></div>
+</div>
+<section id="sudo-su-si-parole">
+<h3><span class="section-number">1.3.1. </span>sudo, su și parole<a class="headerlink" href="#sudo-su-si-parole" title="Permalink to this headline">¶</a></h3>
+<p>Se poate întâmpla ca în cazul folosirii <code class="docutils literal notranslate"><span class="pre">sudo</span></code> să fie solicitată o parolă.
+Este vorba de parola utilizatorului curent, cel care rulează comanda <code class="docutils literal notranslate"><span class="pre">sudo</span></code>.
+Pentru siguranță, este nevoie de confirmarea parolei utilizatorului pentru a realiza acțiunea presupus critică prefixată de comanda <code class="docutils literal notranslate"><span class="pre">sudo</span></code>.
+Solicitarea sau nu a parolei utilizatorului curent la rularea comenzii <code class="docutils literal notranslate"><span class="pre">sudo</span></code>, ține de configurarea acesteia, așa cum vom preciza în secțiunea TODO.</p>
+<p>Sumarizând:</p>
+<ul class="simple">
+<li><p>Rularea comenzii <code class="docutils literal notranslate"><span class="pre">su</span></code> duce la solicitarea parolei contului de utilizator către care dorim schimbarea.</p></li>
+<li><p>Rularea comenzii <code class="docutils literal notranslate"><span class="pre">sudo</span></code> (urmată de altă comandă) <strong>poate duce</strong> (depinde de configurație) la solicitarea parolei contului utilizatorului curent.</p></li>
+</ul>
+</section>
+<section id="exercitii-folosirea-su">
+<h3><span class="section-number">1.3.2. </span>Exerciții: Folosirea su<a class="headerlink" href="#exercitii-folosirea-su" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic">
+<li><p>Obțineți un shell privilegiat.
+În shellul privilegiat, folosiți comanda <code class="docutils literal notranslate"><span class="pre">su</span></code> pentru a schimba utilizatorul în <code class="docutils literal notranslate"><span class="pre">student</span></code>.
+Închideți shellul utilizatorului <code class="docutils literal notranslate"><span class="pre">student</span></code>.
+Apoi închideți și shellul privilegiat.
+Ați revenit la punctul inițial.</p></li>
+<li><p>Obțineți un shell privilegiat.
+În shellul privilegiat, folosiți comanda <code class="docutils literal notranslate"><span class="pre">su</span></code> pentru a schimba utilizatorul în <code class="docutils literal notranslate"><span class="pre">student</span></code> inclusiv mediul de login: directorul să fie <code class="docutils literal notranslate"><span class="pre">/home/student/</span></code>.
+Închideți shellul utilizatorului <code class="docutils literal notranslate"><span class="pre">student</span></code>.
+Apoi închideți și shellul privilegiat.
+Ați revenit la punctul inițial.</p></li>
+<li><p>Obțineți un shell privilegiat.
+În shellul privilegiat, folosiți comanda <code class="docutils literal notranslate"><span class="pre">su</span></code> pentru a schimba utilizatorul în <code class="docutils literal notranslate"><span class="pre">daemon</span></code>.
+Primiți eroare.</p>
+<p>Încercați să schimbați utilizatorul în <code class="docutils literal notranslate"><span class="pre">bin</span></code>.
+La fel, primiți eroare.</p>
+<p>Aceste erori să întâmplă întrucât utilizatorii <code class="docutils literal notranslate"><span class="pre">daemon</span></code> și <code class="docutils literal notranslate"><span class="pre">bin</span></code> sunt utilizatori de sistem (<em>system users</em>) care nu sunt gândiți să fie utilizatori interactivi: adică se ne putem autentifica în sistem ca acei utilizatori și să rulăm procese shell (interactive).
+Vom discuta succint despre utilizatorii de sistem în secțiunea TODO.</p>
+</li>
+</ol>
+</section>
 </section>
 </section>
 
