@@ -57,8 +57,8 @@ Această acțiune va reuși, însă, dacă prefixăm comanda cu ``sudo``:
     De aceea, contul privilegiat trebuie accesat cât mai rar, **doar atunci când este nevoie**.
     În mod implicit, un utilizator se autentifică în sistem cu un cont neprivilegiat (de exemplu ``student``), urmând să acceseze contul privilegiat (**root**) doar la nevoie.
 
-Exercițiu de access
-^^^^^^^^^^^^^^^^^^^
+Exercițiu: Acțiuni privilegiate
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Realizați următoarele acțiuni din contul de utilizator obișnuit ``student`` și vedeți care are nevoie de acces privilegiat.
 Explicați de ce unele au nevoie de acces privilegiat.
@@ -108,8 +108,8 @@ Astfel că, dacă prefixăm cele două comenzi de mai sus cu ``sudo``, pentru fo
 Observăm că prima comandă, care afișase eroare de permisiune, funcționează acum.
 În vreme ce a doua comandă, care afișase eroare de sistem de fișiere, nu își schimbă comportamentul: afișează în continuare aceeași eroare.
 
-Exercițiu
-"""""""""
+Exercițiu: Erori de permisiune și erori de alte tipuri
+""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 Rulați următoarele comenzi fără ``sudo``.
 Aceste comenzi vor afișa mesaje de eroare.
@@ -207,6 +207,15 @@ Promptul ne indică prezența shellului privilegiat:
 * utilizatorul este ``root``, utilizatorul privilegiat
 * promptul se încheie în caracterul ``#`` (*diez*), caracter care denotă, prin convenție, un shell privilegiat
 
+Același efect poate fi obținut prin rularea comenzii ``sudo su root``:
+
+.. code-block::
+
+    student@uso:~$ sudo su root
+    root@uso:/home/student#
+
+Fiind mai mult de tastat, preferăm folosirea comenzii ``sudo su`` în loc de ``sudo su root``.
+
 Un alt mod de a obține un shell de root este cu ajutorul comenzii ``sudo bash``, cu aceleași efecte ca mai sus:
 
 .. code-block::
@@ -227,8 +236,8 @@ După încheierea procesului shell privilegiat, vom reveni în procesul shell in
 
     Vom prezenta detalii despre comanda ``su`` în secțiunea :ref:`users_perms_privileged_su`.
 
-Exercițiu
-^^^^^^^^^
+Exerciții: Shell privilegiat
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 #. Folosiți, pe rând, comenzile ``sudo su`` și ``sudo bash`` pentru a obține un shell privilegiat.
    Apoi folosiți comanda ``exit`` sau comanda ``logout`` sau combinația de taste ``Ctrl+d`` pentru a închide shellul curent.
@@ -311,8 +320,8 @@ ceea ce oferă privilegii unui proces este prezența UID-ului ``0`` ca atribut a
 Putem afișa doar UID-ul unui utilizator prin folosirea opțiunii ``-u`` a comenzii ``id``, ca în a doua comandă de mai sus.
 La fel putem afișa doar numele corespunzător unui UID prin folosirea opțiunii ``-un``, ca în a treia comanda de mai sus.
 
-Exerciții
-^^^^^^^^^
+Exerciții: Identificarea utilizatorilor
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 #. Obțineți un shell privilegiat.
    Folosiți comenzile ``whoami`` și ``id`` pentru a afișa informații despre utilizatorul curent (``root``).
@@ -391,8 +400,8 @@ Sumarizând:
 * Rularea comenzii ``su`` duce la solicitarea parolei contului de utilizator către care dorim schimbarea.
 * Rularea comenzii ``sudo`` (urmată de altă comandă) **poate duce** (depinde de configurație) la solicitarea parolei contului utilizatorului curent.
 
-Exerciții
-^^^^^^^^^
+Exerciții: Folosirea su
+^^^^^^^^^^^^^^^^^^^^^^^
 
 #. Obțineți un shell privilegiat.
    În shellul privilegiat, folosiți comanda ``su`` pentru a schimba utilizatorul în ``student``.
