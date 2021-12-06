@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html >
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+      <title>2. Utilizatori și procese</title>
+    
+      <link rel="stylesheet" href="../../_static/pygments.css">
+      <link rel="stylesheet" href="../../_static/theme.css">
+      <link rel="stylesheet" href="../../_static/romnn_sphinx_press_theme.css">
+          <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+          <link rel="stylesheet" href="../../_static/css/theme.css " type="text/css" />
+      
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+
+      <!-- sphinx script_files -->
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/my_actions.js"></script>
+
+      
+      <script src="../../_static/theme-vendors.js"></script>
+      <script src="../../_static/theme.js" defer></script>
+    
+  <link rel="index" title="Index" href="../../genindex.html" />
+  <link rel="search" title="Search" href="../../search.html" />
+  <link rel="next" title="3. Permisiuni în sistemul de fișiere" href="permissions.html" />
+  <link rel="prev" title="1. Accesul privilegiat" href="privileged-access.html" />
+    <link href="../../_static/my_theme.css" rel="stylesheet" type="text/css">
+
+  </head>
+
+  <body>
+    <div id="app" class="theme-container" :class="pageClasses"><navbar @toggle-sidebar="toggleSidebar">
+  <div class="home-link-container">
+      <router-link to="../../index.html" class="home-link">
+      
+        <span class="site-name">USO Lab Book</span>
+    </router-link>
+  </div>
+
+  <div class="links">
+    <navlinks class="can-hide">
+
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Acomodarea în Linux
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Lucrul cu fișiere
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Dezvoltarea aplicațiilor
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Conectarea la Internet
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Instalarea și utilizarea aplicațiilor
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Îmbunătățirea lucrului în linia de comandă
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link  router-link-active">
+         Utilizatori și permisiuni
+      </a>
+    </div>
+  
+
+
+
+  
+    <div class="nav-item">
+      <a href="https://github.com/Sergiu121/uso-lab-book"
+        class="nav-link external">
+          Github <outboundlink/>
+      </a>
+    </div>
+  
+
+    </navlinks>
+  </div>
+</navbar>
+
+      
+      <div class="sidebar-mask" @click="toggleSidebar(false)">
+      </div>
+        <sidebar @toggle-sidebar="toggleSidebar">
+          
+          <navlinks>
+            
+
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Acomodarea în Linux
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Lucrul cu fișiere
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Dezvoltarea aplicațiilor
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Conectarea la Internet
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Instalarea și utilizarea aplicațiilor
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Îmbunătățirea lucrului în linia de comandă
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link  router-link-active">
+         Utilizatori și permisiuni
+      </a>
+    </div>
+  
+
+
+
+  
+    <div class="nav-item">
+      <a href="https://github.com/Sergiu121/uso-lab-book"
+        class="nav-link external">
+          Github <outboundlink/>
+      </a>
+    </div>
+  
+
+            
+          </navlinks><div id="searchbox" class="searchbox" role="search">
+  <div class="caption"><span class="caption-text">Search</span>
+    <div class="searchformwrapper">
+      <form autocomplete="off" class="search" action="../../search.html" method="get">
+        <input type="text" name="q" autocomplete="off" />
+        <input type="submit" value="Go" />
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div><div class="sidebar-links" role="navigation" aria-label="main navigation">
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#uso-lab-book">Acomodarea în Linux</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../basic/apps.html" class="reference internal ">Pornirea și oprirea aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../basic/browser.html" class="reference internal ">Folosirea eficientă a browserului web</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../basic/terminal.html" class="reference internal ">Lucrul în terminal</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../basic/workspace.html" class="reference internal ">Lucrul cu workspace-uri</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../basic/cheatsheet.html" class="reference internal ">Cheatsheet</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#uso-lab-book">Lucrul cu fișiere</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../files/paths.html" class="reference internal ">Căi în ierarhia de fișiere</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../files/files.html" class="reference internal ">Interacțiunea cu fișiere în linia de comandă</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../files/file_editor.html" class="reference internal ">Editor de text</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../files/io_redirection.html" class="reference internal ">Redirectări</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../files/archive.html" class="reference internal ">Arhive</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../files/file_system.html" class="reference internal ">Extra - Sistemul de fișiere</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../files/cheatsheet.html" class="reference internal ">Sumar - Cheatsheet</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#uso-lab-book">Dezvoltarea aplicațiilor</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../app-dev/intro.html" class="reference internal ">Introducere</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/make-intro.html" class="reference internal ">Compilarea unui fișier cod sursă C</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/make-multiple.html" class="reference internal ">Compilarea unui program din fișiere multiple</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/make-lib.html" class="reference internal ">Legarea executabilelor folosind biblioteci externe</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/make-simple-automation.html" class="reference internal ">Introducere în utilitarul Make și fișiere Makefile</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/make-advanced-automation.html" class="reference internal ">Aprofundarea folosirii fișierelor Makefile</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/git-intro.html" class="reference internal ">Introducere în Git și GitHub</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/git-first-commits.html" class="reference internal ">Primele commituri</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/git-branches.html" class="reference internal ">Lucrul pe branch-uri</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/git-first-pull-request.html" class="reference internal ">Crearea unui Pull Request (PR) pe GitHub</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/extra.html" class="reference internal ">Exerciții suplimentare</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#uso-lab-book">Conectarea la Internet</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../net/browser.html" class="reference internal ">Folosirea eficientă a browser-ului</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../net/troubleshoot.html" class="reference internal ">Verificarea conectivităţii la reţea</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../net/services.html" class="reference internal ">Servicii şi clienţi de reţea</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../net/extra.html" class="reference internal ">Funcţionalităţi suplimentare de reţelistică</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#uso-lab-book">Instalarea și utilizarea aplicațiilor</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../app-install/start.html" class="reference internal ">Pornirea și oprirea aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-install/run.html" class="reference internal ">Rularea aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-install/config.html" class="reference internal ">Configurarea rulării aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-install/summary1.html" class="reference internal ">Exerciții: Pornirea, rularea și configurarea aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-install/show-config.html" class="reference internal ">Vizualizarea configurației sistemului</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-install/install.html" class="reference internal ">Instalarea și dezinstalarea aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-install/install-non-standard.html" class="reference internal ">Alternative la instalarea și dezinstalarea aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-install/show.html" class="reference internal ">Investigarea aplicațiilor instalate</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-install/summary2.html" class="reference internal ">Exerciții: Instalarea și gestiunea aplicațiilor</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#uso-lab-book">Îmbunătățirea lucrului în linia de comandă</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../improve-cli/improve-terminal.html" class="reference internal ">Îmbunătățirea lucrului în linia de comandă</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../improve-cli/inspect-fs.html" class="reference internal ">Inspectarea sistemului de fișiere</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../improve-cli/inspect-sys.html" class="reference internal ">Inspectarea sistemului</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../improve-cli/inspect-files.html" class="reference internal ">Inspectarea fișierelor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../improve-cli/process-files.html" class="reference internal ">Prelucrarea fișierelor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../improve-cli/improve-shell.html" class="reference internal ">O înțelegere mai bună a shell-ului</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../improve-cli/term-multiplexing.html" class="reference internal ">Multiplexarea terminalului</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#uso-lab-book">Utilizatori și permisiuni</a></span>
+      </p>
+      <ul class="current">
+        
+          <li class="toctree-l1 "><a href="privileged-access.html" class="reference internal ">Accesul privilegiat</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 current"><a href="#" class="reference internal current">Utilizatori și procese</a>
+
+            
+              <ul>
+                
+                  <li class="toctree-l2"><a href="#autentificarea-utilizatorilor" class="reference internal">Autentificarea utilizatorilor</a></li>
+                
+                  <li class="toctree-l2"><a href="#vizualizarea-si-gestiunea-informatiilor-despre-utilizatori" class="reference internal">Vizualizarea șî gestiunea informațiilor despre utilizatori</a></li>
+                
+                  <li class="toctree-l2"><a href="#vizualizarea-proceselor" class="reference internal">Vizualizarea proceselor</a></li>
+                
+              </ul>
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="permissions.html" class="reference internal ">Permisiuni în sistemul de fișiere</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="groups.html" class="reference internal ">Gruparea utilizatorilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="advanced.html" class="reference internal ">Cazuri avansate</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+</div>
+        </sidebar>
+
+      <page>
+          <div class="body-header" role="navigation" aria-label="navigation">
+  
+  <ul class="breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+    
+    <li><span class="section-number">2. </span>Utilizatori și procese</li>
+  </ul>
+  
+
+  <ul class="page-nav">
+  <li class="prev">
+    <a href="privileged-access.html"
+       title="previous chapter">← <span class="section-number">1. </span>Accesul privilegiat</a>
+  </li>
+  <li class="next">
+    <a href="permissions.html"
+       title="next chapter"><span class="section-number">3. </span>Permisiuni în sistemul de fișiere →</a>
+  </li>
+</ul>
+  
+</div>
+<hr>
+          <div class="content" role="main">
+            
+  <section id="utilizatori-si-procese">
+<span id="users-perms-processes"></span><h1><span class="section-number">2. </span>Utilizatori și procese<a class="headerlink" href="#utilizatori-si-procese" title="Permalink to this headline">¶</a></h1>
+<p>Acțiunile unui cont de utilizator în cadrul sistemului de operare sunt realizate de procesele deținute de acel utilizator.
+Un cont de utilizator nu există ca entitate de sine stătătoare, ci este un atribut al unui proces.</p>
+<p>Așa cum am indicat și în secțiunea <span class="xref std std-ref">users_perms_privileged_id</span>, un cont utilizator este identificat de un număr (<strong>UID</strong>);
+numele este folosit doar de oameni pentru identificarea facilă;
+sistemul de operare este preocupat doar de număr / UID.
+Un proces aparține unui cont utilizator dacă acel proces are atributul UID corespunzător acelui cont de utilizator.
+Ceea ce înseamnă că, în momentul creării, un proces primește un UID.
+Spunem, informal, că acel utilizator deține acel proces.</p>
+<p>Un caz particular sunt procesele shell, procese interactive.
+Spunem, informa, că un utilizator poate rula comenzi sau că are acces în sistem, atunci când există un shell cu UID-ul acelui cont de utilizator.
+Cel mai adesea, shellul este primul proces care aparține unui utilizator.
+Apoi shellul creează alte procese aparținând acelui utilizator.
+Shellul este cel mai adesea creat la autentificarea utilizatorului.</p>
+<section id="autentificarea-utilizatorilor">
+<span id="users-perms-processes-auth"></span><h2><span class="section-number">2.1. </span>Autentificarea utilizatorilor<a class="headerlink" href="#autentificarea-utilizatorilor" title="Permalink to this headline">¶</a></h2>
+<p>Autentificarea unui utilizator (<em>login</em>, <em>authentication</em>) în sistem presupune următoarea secvență de pași:</p>
+<ol class="arabic simple">
+<li><p>Furnizarea unor elemente de autentificare (numite și credențiale - <em>login credentials</em>), în mod tipic un <strong>nume de utilizator</strong> (<em>username</em>) și o <strong>parolă</strong> (<em>password</em>)</p></li>
+<li><p>Verificarea credențialelor de sistemul de operare</p></li>
+<li><p>În cazul verificării cu succes, crearea unui proces cu UID-ul utilizatorului astfel autentific, cel mai adesea un proces shell</p></li>
+</ol>
+<section id="furnizarea-credentialelor">
+<h3><span class="section-number">2.1.1. </span>Furnizarea credențialelor<a class="headerlink" href="#furnizarea-credentialelor" title="Permalink to this headline">¶</a></h3>
+<p>Primul pas se realizează într-o interfața de autentificare (grafică sau în linia de comandă).
+Se furnizează un prompt unde utilizatorul transmite credențialele.</p>
+<p>Un mod de a simula acest prompt în linia de comandă este cu ajutorul comenzii <code class="docutils literal notranslate"><span class="pre">login</span></code>, comandă care este apelată în momentul autentificării CLI:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ sudo login
+uso login: student
+Password:
+student@uso:~$
+</pre></div>
+</div>
+<p>Avem creat astfel, un nou proces shell.
+E o abordare strict didactică, având acum un shell creat dintr-un shell existent, pentru același utilizator.</p>
+<p>Comanda <code class="docutils literal notranslate"><span class="pre">login</span></code> poate fi folosită și transmițând ca argument numele de utilizator:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ sudo login student
+Password:
+student@uso:~$
+</pre></div>
+</div>
+<p>Pentru a închide shellul nou creat folosim comanda <code class="docutils literal notranslate"><span class="pre">exit</span></code> sau comanda <code class="docutils literal notranslate"><span class="pre">logout</span></code> sau combinația de taste <code class="docutils literal notranslate"><span class="pre">Ctrld+d</span></code>.</p>
+<p>Este nevoie de folosirea <code class="docutils literal notranslate"><span class="pre">sudo</span></code> în fața comenzii <code class="docutils literal notranslate"><span class="pre">login</span></code> pentru că această comandă este privilegiată: are acces la baza de date autentificare, folosită în pasul de verificare a credențialelor.</p>
+</section>
+<section id="verificarea-credentialelor">
+<h3><span class="section-number">2.1.2. </span>Verificarea credențialelor<a class="headerlink" href="#verificarea-credentialelor" title="Permalink to this headline">¶</a></h3>
+<p>Verificarea credențialelor este realizată de interfața de autentificare, în general printr-un proces de autentificare, precum <code class="docutils literal notranslate"><span class="pre">login</span></code>.
+Acest proces citește credențialele și apoi le validează cu o bază de date de autentificare (<em>authentication database</em>) disponibilă în sistem.
+Această baza de date de autentificare este o resursă critică a sistemului; accesul la această bază de date, chiar și de citire, este considerat o acțiune critică ce poate fi realizată doar privilegiat.
+De aceea, comanda <code class="docutils literal notranslate"><span class="pre">login</span></code> trebuie rulată în mod privilegiat și trebuie prefixată de <code class="docutils literal notranslate"><span class="pre">sudo</span></code>.</p>
+<p>Baza de date de autentificare este o resursă critică pentru că reține credențialele tuturor utilizatorilor disponibili în sistem.
+Faza de verificare presupune compararea credențialelor furnizate cu cele din baza de date de autentificare.
+Dacă aceasta nu s-ar realiza privilegiat, orice utilizator ar putea avea acces la credențialele celorlalți utilizatori (posibil inclusiv <code class="docutils literal notranslate"><span class="pre">root</span></code>);
+ceea ce ar fi o problemă de securitate în sistem.</p>
+<p>În Linux, baza de date de autentificare este în mod tipic fișierul <code class="docutils literal notranslate"><span class="pre">/etc/shadow</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>razvan@uso:~$ ls -l /etc/shadow
+-rw-r----- <span class="m">1</span> root shadow <span class="m">1334</span> Jul  <span class="m">2</span>  <span class="m">2020</span> /etc/shadow
+</pre></div>
+</div>
+<p>Observăm că acest fișier poate fi accesat doar de utilizatorul <code class="docutils literal notranslate"><span class="pre">root</span></code> și de grupul <code class="docutils literal notranslate"><span class="pre">shadow</span></code>.
+Vom discuta despre permisiuni de acces și grupuri în secțiunile următoare.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Conturi de utilizator fără parolă</p>
+<p>Anumite conturi de utilizator pot să nu aibă parolă.
+Ceea ce înseamnă că acele conturi nu pot fi accesate în acest mod: autentificare cu parolă.
+Pot fi însă autentificate în alte moduri, cum ar fi schimbarea utilizatorului.</p>
+</div>
+</section>
+<section id="crearea-unui-proces">
+<h3><span class="section-number">2.1.3. </span>Crearea unui proces<a class="headerlink" href="#crearea-unui-proces" title="Permalink to this headline">¶</a></h3>
+<p>Ulterior autentificării, se creează un prim proces care are UID-ul utilizatorului autentificat.
+Acest prim proces este configurabil, cel mai adesea este shellul (grafic sau CLI - depinzând de modul de autentificare).</p>
+<p>În cazul autentificării în linia de comandă, procesul creat este descris în fișierul <code class="docutils literal notranslate"><span class="pre">/etc/passwd</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ grep student /etc/passwd
+student:x:1000:1000:Student User,,,:/home/student:/bin/bash
+</pre></div>
+</div>
+<p>Acest fișier conține informații despre un utilizator: numele de utilizator, UID-ul său, directorul home și primul proces pornit în cazul autentificării (adesea shellul).
+În cazul utilizatorul <code class="docutils literal notranslate"><span class="pre">student</span></code>, conform așteptărilor, primul proces este creat din executabilul <code class="docutils literal notranslate"><span class="pre">/bin/bash</span></code>, corespunzător shellului Bash.</p>
+<p>După autentificare există un proces în sistem care aparține unui cont de utilizator.
+Dacă acest proces este shellul, spunem adesea că, un utilizator are acces în sistem.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Anumite conturi de utilizator (<code class="docutils literal notranslate"><span class="pre">daemon</span></code>, <code class="docutils literal notranslate"><span class="pre">bin</span></code> etc.) au configurat în fișierul <code class="docutils literal notranslate"><span class="pre">/etc/passwd</span></code> ca executabil pentru pornirea primului proces <code class="docutils literal notranslate"><span class="pre">/bin/false</span></code> sau <code class="docutils literal notranslate"><span class="pre">/usr/sbin/nologin</span></code>.
+Acest lucru înseamnă că aceste conturi de utilizator nu pot fi accesate prin autentificare.
+Ci doar prin crearea, în moduri specifice, a unor procese cu UID-ul acelor utilizatori.
+Nu intrăm în detalii aici despre aceste moduri.</p>
+</div>
+</section>
+</section>
+<section id="vizualizarea-si-gestiunea-informatiilor-despre-utilizatori">
+<span id="users-perms-processes-view-manage"></span><h2><span class="section-number">2.2. </span>Vizualizarea șî gestiunea informațiilor despre utilizatori<a class="headerlink" href="#vizualizarea-si-gestiunea-informatiilor-despre-utilizatori" title="Permalink to this headline">¶</a></h2>
+<p>În Linux, fișierul <code class="docutils literal notranslate"><span class="pre">/etc/passwd</span></code> reține informațiile despre conturile de utilizatori.
+Fișierul <code class="docutils literal notranslate"><span class="pre">/etc/shadow</span></code> reține credențialele (parolele) despre conturile de utilizatori.</p>
+<p>Fișierul <code class="docutils literal notranslate"><span class="pre">/etc/passwd</span></code> nu este critic și poate fi citit de oricine.
+Fișierul <code class="docutils literal notranslate"><span class="pre">/etc/shadow</span></code> este critic și poate fi citit doar de utilizatorul privilegiat.
+În continuare, fișierul <code class="docutils literal notranslate"><span class="pre">/etc/passwd</span></code> poate fi modificat doar de utilizatorul privilegiat: acțiunea de citire este necritică, dar cea de scriere este critică.</p>
+<p>În mod obișnuit, principiile de securitate într-un sistem de operare, relativ la accesarea informațiilor despre conturile de utilizatori, sunt:</p>
+<ul class="simple">
+<li><p>Un utilizator neprivilegiat (obișnuit) poate să vizualizeze informațiile proprii, mai puțin parola.</p></li>
+<li><p>Un utilizator neprivilegiat (obișnuit) poate să modifice informațiile proprii, inclusiv parola.</p></li>
+<li><p>Un utilizator neprivilegiat (obișnuit) poate să vizualizeze informațiile altor utilizatori, mai puțin parola.</p></li>
+<li><p>Un utilizator neprivilegiat (obișnuit) <strong>NU</strong> poate să modifice informațiile altor utilizatori.</p></li>
+<li><p>Un utilizator (de orice tip) <strong>NU</strong> poate vizualiza parolele <em>plain-text</em> ale utilizatorilor.
+Parolele sunt ținute criptat.</p></li>
+<li><p>Un utilizator privilegiat poate să modifice orice informație a altor utilizatori, inclusiv parola.</p></li>
+</ul>
+<section id="vizualizare">
+<h3><span class="section-number">2.2.1. </span>Vizualizare<a class="headerlink" href="#vizualizare" title="Permalink to this headline">¶</a></h3>
+<p>Așa cum am precizat în secțiunea <span class="xref std std-ref">users_perm_privileged_id</span>, un utilizator poate folosi comenzile <code class="docutils literal notranslate"><span class="pre">whoami</span></code> și <code class="docutils literal notranslate"><span class="pre">id</span></code> pentru a afișa informații despre sine sau alți utilizatori.
+Un alt mod este de a parcurge direct conținutul fișierului <code class="docutils literal notranslate"><span class="pre">/etc/passwd</span></code>, fișier care este consultat și de aceste comenzi.
+Un mod mai simplu este folosirea comenzii <code class="docutils literal notranslate"><span class="pre">finger</span></code> care afișează informații detaliate:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ finger student
+Login: student                              Name: Student User
+Directory: /home/student                    Shell: /bin/bash
+</pre></div>
+</div>
+</section>
+<section id="gestiune">
+<h3><span class="section-number">2.2.2. </span>Gestiune<a class="headerlink" href="#gestiune" title="Permalink to this headline">¶</a></h3>
+<p>Un utilizator își poate modifica 3 informații:</p>
+<ul class="simple">
+<li><p>Shellul de login, folosind comanda <code class="docutils literal notranslate"><span class="pre">chsh</span></code></p></li>
+<li><p>Informațiile legate de nume, folosind comanda <code class="docutils literal notranslate"><span class="pre">chfn</span></code></p></li>
+<li><p>Parola, folosind comanda <code class="docutils literal notranslate"><span class="pre">passwd</span></code></p></li>
+</ul>
+<p>Nu insistăm pe primele două, doar pe modificarea parolei.
+Un utilizator își poate schimba parola prin simpla invocare a comenzii <code class="docutils literal notranslate"><span class="pre">passwd</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ passwd
+Changing password <span class="k">for</span> student.
+<span class="o">(</span>current<span class="o">)</span> UNIX password:
+Enter new UNIX password:
+Retype new UNIX password:
+passwd: password updated successfully
+</pre></div>
+</div>
+<p>Acum utilizator are o nouă parolă.</p>
+<p>Evident, utilizatorul privilegiat poate schimba parolele tuturor utilizatorilor.</p>
+</section>
+<section id="exercitii-gestiunea-utilizatorului-curent">
+<h3><span class="section-number">2.2.3. </span>Exerciții: Gestiunea utilizatorului curent<a class="headerlink" href="#exercitii-gestiunea-utilizatorului-curent" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple">
+<li><p>Din contul utilizatorului curent (<code class="docutils literal notranslate"><span class="pre">student</span></code>), folosiți comanda <code class="docutils literal notranslate"><span class="pre">passwd</span></code> pentru a schimba parola utilizatorului.
+<strong>GRIJĂ MARE</strong> să nu uitați parola schimbată.
+Folosiți într-un nou shell comanda <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">login</span> <span class="pre">student</span></code> pentru a testa noua parolă.</p></li>
+<li><p>Dintr-un shell de root folosiți comanda <code class="docutils literal notranslate"><span class="pre">passwd</span> <span class="pre">student</span></code> pentru a schimba parola utilizatorului student
+<strong>GRIJĂ MARE</strong> să nu uitați parola schimbată.
+Folosiți într-un nou shell comanda <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">login</span> <span class="pre">student</span></code> pentru a testa noua parolă.</p></li>
+</ol>
+</section>
+</section>
+<section id="vizualizarea-proceselor">
+<span id="users-perms-processes-process"></span><h2><span class="section-number">2.3. </span>Vizualizarea proceselor<a class="headerlink" href="#vizualizarea-proceselor" title="Permalink to this headline">¶</a></h2>
+<p>Putem vizualiza evoluția proceselor (privilegiate, neprivilegiate) folosind comanda <code class="docutils literal notranslate"><span class="pre">ps</span></code> pentru a înțelege funcționarea comenzilor și apartenența acestora la un anumit utilizator.</p>
+<p>Comanda simplă <code class="docutils literal notranslate"><span class="pre">ps</span></code> afișează procesele din terminalul curent, în vreme ce comanda <code class="docutils literal notranslate"><span class="pre">ps</span> <span class="pre">-f</span></code> afișează inclusiv numele de utilizator:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ ps
+  PID TTY          TIME CMD
+<span class="m">18900</span> pts/2    <span class="m">00</span>:00:00 ps
+<span class="m">28892</span> pts/2    <span class="m">00</span>:00:00 bash
+student@uso:~$ ps -f
+UID        PID  PPID  C STIME TTY          TIME CMD
+student   <span class="m">18907</span> <span class="m">28892</span>  <span class="m">0</span> <span class="m">22</span>:38 pts/2    <span class="m">00</span>:00:00 ps -f
+student   <span class="m">28892</span> <span class="m">20845</span>  <span class="m">0</span> <span class="m">14</span>:02 pts/2    <span class="m">00</span>:00:00 /bin/bash
+</pre></div>
+</div>
+<p>Se afișează procesul shell (<code class="docutils literal notranslate"><span class="pre">bash</span></code>) și procesul <code class="docutils literal notranslate"><span class="pre">ps</span></code> însuși, ambele aparținând utilizatorului <code class="docutils literal notranslate"><span class="pre">student</span></code>.</p>
+<p>Putem personaliza afișarea pentru a prezenta și UID-ul:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ ps -o uid,user,pid,ppid,cmd
+  UID USER       PID  PPID CMD
+ <span class="m">1000</span> student   <span class="m">19083</span> <span class="m">28892</span> ps -o uid,user,pid,ppid,cmd
+ <span class="m">1000</span> student   <span class="m">28892</span> <span class="m">20845</span> /bin/bash
+</pre></div>
+</div>
+<p>Folosirea comenzii <code class="docutils literal notranslate"><span class="pre">ps</span></code> ajută la înțelegerea comenzilor <code class="docutils literal notranslate"><span class="pre">sudo</span></code> sau <code class="docutils literal notranslate"><span class="pre">su</span></code>.</p>
+<p>Atunci când creăm un shell privilegiat folosind <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">bash</span></code>, avem următoarea situație:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ ps -f
+UID        PID  PPID  C STIME TTY          TIME CMD
+student   <span class="m">19153</span> <span class="m">28892</span>  <span class="m">0</span> <span class="m">22</span>:46 pts/2    <span class="m">00</span>:00:00 ps -f
+student   <span class="m">28892</span> <span class="m">20845</span>  <span class="m">0</span> <span class="m">14</span>:02 pts/2    <span class="m">00</span>:00:00 /bin/bash
+
+student@uso:~$ sudo bash
+
+root@uso:~# ps -H
+  PID TTY          TIME CMD
+<span class="m">19154</span> pts/2    <span class="m">00</span>:00:00 sudo
+<span class="m">19155</span> pts/2    <span class="m">00</span>:00:00   bash
+<span class="m">19163</span> pts/2    <span class="m">00</span>:00:00     ps
+
+root@uso:~# ps -f
+UID        PID  PPID  C STIME TTY          TIME CMD
+root     <span class="m">19154</span> <span class="m">28892</span>  <span class="m">0</span> <span class="m">22</span>:46 pts/2    <span class="m">00</span>:00:00 sudo bash
+root     <span class="m">19155</span> <span class="m">19154</span>  <span class="m">0</span> <span class="m">22</span>:46 pts/2    <span class="m">00</span>:00:00 bash
+root     <span class="m">19173</span> <span class="m">19155</span>  <span class="m">0</span> <span class="m">22</span>:46 pts/2    <span class="m">00</span>:00:00 ps -f
+
+root@uso:~# pstree -Aup <span class="m">28892</span>
+bash<span class="o">(</span><span class="m">28892</span>,student<span class="o">)</span>---sudo<span class="o">(</span><span class="m">19154</span>,root<span class="o">)</span>---bash<span class="o">(</span><span class="m">19155</span><span class="o">)</span>---pstree<span class="o">(</span><span class="m">19198</span><span class="o">)</span>
+
+root@uso:~# <span class="nb">exit</span>
+<span class="nb">exit</span>
+
+student@uso:~$ ps -f
+UID        PID  PPID  C STIME TTY          TIME CMD
+student   <span class="m">19205</span> <span class="m">28892</span>  <span class="m">0</span> <span class="m">22</span>:47 pts/2    <span class="m">00</span>:00:00 ps -f
+student   <span class="m">28892</span> <span class="m">20845</span>  <span class="m">0</span> <span class="m">14</span>:02 pts/2    <span class="m">00</span>:00:00 /bin/bash
+</pre></div>
+</div>
+<p>Observăm că există un proces <code class="docutils literal notranslate"><span class="pre">sudo</span></code> și un proces <code class="docutils literal notranslate"><span class="pre">bash</span></code> care aparțin utilizatorului <code class="docutils literal notranslate"><span class="pre">root</span></code>.
+Aceste procese sunt create în urma comenzii <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">bash</span></code>.
+Procesul părinte (<code class="docutils literal notranslate"><span class="pre">PPID</span></code>) pentru procesul <code class="docutils literal notranslate"><span class="pre">sudo</span></code> este <code class="docutils literal notranslate"><span class="pre">28892</span></code> adică shellul inițial al utilizatorului <code class="docutils literal notranslate"><span class="pre">student</span></code>, cel care a rulat comanda <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">bash</span></code>.
+Practic dintr-un shell al utilizatorului <code class="docutils literal notranslate"><span class="pre">student</span></code>, folosind <code class="docutils literal notranslate"><span class="pre">sudo</span></code> se generează un shell al utilizatorului <code class="docutils literal notranslate"><span class="pre">root</span></code>.
+Comanda <code class="docutils literal notranslate"><span class="pre">pstree</span></code> afișează ierarhia de procese și schimbările de conturi de utilizator.</p>
+<p>O situație similară avem în cazul <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">su</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ sudo su
+
+root@uso:/home/student# ps -H
+  PID TTY          TIME CMD
+<span class="m">19432</span> pts/2    <span class="m">00</span>:00:00 sudo
+<span class="m">19433</span> pts/2    <span class="m">00</span>:00:00   su
+<span class="m">19434</span> pts/2    <span class="m">00</span>:00:00     bash
+<span class="m">19445</span> pts/2    <span class="m">00</span>:00:00       ps
+
+root@uso:/home/student# ps -f
+UID        PID  PPID  C STIME TTY          TIME CMD
+root     <span class="m">19432</span> <span class="m">28892</span>  <span class="m">0</span> <span class="m">22</span>:54 pts/2    <span class="m">00</span>:00:00 sudo su
+root     <span class="m">19433</span> <span class="m">19432</span>  <span class="m">0</span> <span class="m">22</span>:54 pts/2    <span class="m">00</span>:00:00 su
+root     <span class="m">19434</span> <span class="m">19433</span>  <span class="m">0</span> <span class="m">22</span>:54 pts/2    <span class="m">00</span>:00:00 bash
+root     <span class="m">19455</span> <span class="m">19434</span>  <span class="m">0</span> <span class="m">22</span>:54 pts/2    <span class="m">00</span>:00:00 ps -f
+
+root@uso:/home/student# pstree -Aup <span class="m">28892</span>
+bash<span class="o">(</span><span class="m">28892</span>,student<span class="o">)</span>---sudo<span class="o">(</span><span class="m">19432</span>,root<span class="o">)</span>---su<span class="o">(</span><span class="m">19433</span><span class="o">)</span>---bash<span class="o">(</span><span class="m">19434</span><span class="o">)</span>---pstree<span class="o">(</span><span class="m">19460</span><span class="o">)</span>
+
+root@uso:/home/student# <span class="nb">exit</span>
+
+student@uso:~$
+</pre></div>
+</div>
+<section id="exercitii-vizualizarea-proceselor">
+<h3><span class="section-number">2.3.1. </span>Exerciții: Vizualizarea proceselor<a class="headerlink" href="#exercitii-vizualizarea-proceselor" title="Permalink to this headline">¶</a></h3>
+<p>Realizați un scenariu în care accesați contul <code class="docutils literal notranslate"><span class="pre">root</span></code> apoi contul <code class="docutils literal notranslate"><span class="pre">student</span></code> și apoi iar contul de <code class="docutils literal notranslate"><span class="pre">root</span></code>.
+Afișați procesele create la fiecare pas.
+Folosiți comanda <code class="docutils literal notranslate"><span class="pre">pstree</span></code> ca să afișați arborescența de procese astfel create.</p>
+<p>Apoi închideți procesele astfel create (folosind <code class="docutils literal notranslate"><span class="pre">exit</span></code>, <code class="docutils literal notranslate"><span class="pre">logout</span></code> sau <code class="docutils literal notranslate"><span class="pre">Ctrl+d</span></code>).
+Afișați, la fiecare pas, ierarhia de procese.</p>
+</section>
+</section>
+</section>
+
+
+          </div>
+          <div class="page-nav">
+            <div class="inner"><ul class="page-nav">
+  <li class="prev">
+    <a href="privileged-access.html"
+       title="previous chapter">← <span class="section-number">1. </span>Accesul privilegiat</a>
+  </li>
+  <li class="next">
+    <a href="permissions.html"
+       title="next chapter"><span class="section-number">3. </span>Permisiuni în sistemul de fișiere →</a>
+  </li>
+</ul><div class="footer" role="contentinfo">
+      &#169; Copyright 2020, USO Team.
+    <br>
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.3.1 with <a href="https://github.com/romnn/sphinx_press_theme">Press Theme</a>.
+</div>
+            </div>
+          </div>
+      </page>
+    </div>
+    
+    
+  </body>
+</html>
