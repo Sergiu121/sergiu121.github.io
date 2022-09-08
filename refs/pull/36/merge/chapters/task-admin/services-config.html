@@ -1,19 +1,24 @@
 <!DOCTYPE html>
-<html >
+<html  lang="en">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
       <title>6. Configurarea și administrarea serviciilor</title>
     
       <link rel="stylesheet" href="../../_static/pygments.css">
       <link rel="stylesheet" href="../../_static/theme.css">
-      <link rel="stylesheet" href="../../_static/romnnn_sphinx_press_theme.css">
+      <link rel="stylesheet" href="../../_static/romnn_sphinx_press_theme.css">
+          <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+          <link rel="stylesheet" href="../../_static/css/theme.css " type="text/css" />
       
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
 
       <!-- sphinx script_files -->
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../_static/doctools.js"></script>
         <script src="../../_static/my_actions.js"></script>
 
@@ -614,8 +619,8 @@
 <hr>
           <div class="content" role="main">
             
-  <div class="section" id="configurarea-si-administrarea-serviciilor">
-<h1><span class="section-number">6. </span>Configurarea și administrarea serviciilor<a class="headerlink" href="#configurarea-si-administrarea-serviciilor" title="Permalink to this headline">¶</a></h1>
+  <section id="configurarea-si-administrarea-serviciilor">
+<h1><span class="section-number">6. </span>Configurarea și administrarea serviciilor<a class="headerlink" href="#configurarea-si-administrarea-serviciilor" title="Permalink to this heading">¶</a></h1>
 <p>Scopul serviciilor este să ruleze în continuu și să primească cereri de la aplicații client, cum ar fi un client <cite>ssh</cite> și să răspundă la aceste cereri.
 Serviciile sunt aplicații care rulează în continuu pe stație, spre deosebire de comenzi, cum ar fi <cite>find</cite> sau <cite>ls</cite> care rulează cât timp se execută comanda.
 Deoarece ne dorim să avem majoritatea timpului conectivitate la mașină, sau ne dorim să avem acces la paginile web folosite, serverele care execută comenzi primite de la clienți rulează fără să se oprească.</p>
@@ -623,36 +628,36 @@ Deoarece ne dorim să avem majoritatea timpului conectivitate la mașină, sau n
 Avem nevoie de o interfață unică, cu o sintaxă minimală, care ne poate permite să gestionăm serviciile pe sistem, cum le pornim, oprim și cum putem să generăm noi propriile servicii.</p>
 <p>Comanda folosită pentru gestionarea serviciilor este <cite>systemctl</cite>.
 Aceasta se regăsește pe majoritatea distribuțiilor moderne de Linux.</p>
-<div class="section" id="lucrul-cu-serviciile-in-linux">
-<h2><span class="section-number">6.1. </span>Lucrul cu serviciile în Linux<a class="headerlink" href="#lucrul-cu-serviciile-in-linux" title="Permalink to this headline">¶</a></h2>
+<section id="lucrul-cu-serviciile-in-linux">
+<h2><span class="section-number">6.1. </span>Lucrul cu serviciile în Linux<a class="headerlink" href="#lucrul-cu-serviciile-in-linux" title="Permalink to this heading">¶</a></h2>
 <p>Inițial ne vom uita la servicii predefinite în Linux.
 Vom preciza cum se instalează serviciile predefinite.</p>
 <p>Vom verifica starea de funcționare a serviciului SSH, deoarece știu și au auzit deja de el.</p>
-<div class="section" id="verificarea-starii-unui-serviciu">
-<h3><span class="section-number">6.1.1. </span>Verificarea stării unui serviciu<a class="headerlink" href="#verificarea-starii-unui-serviciu" title="Permalink to this headline">¶</a></h3>
-</div>
-<div class="section" id="oprirea-unui-serviciu">
-<h3><span class="section-number">6.1.2. </span>Oprirea unui serviciu<a class="headerlink" href="#oprirea-unui-serviciu" title="Permalink to this headline">¶</a></h3>
+<section id="verificarea-starii-unui-serviciu">
+<h3><span class="section-number">6.1.1. </span>Verificarea stării unui serviciu<a class="headerlink" href="#verificarea-starii-unui-serviciu" title="Permalink to this heading">¶</a></h3>
+</section>
+<section id="oprirea-unui-serviciu">
+<h3><span class="section-number">6.1.2. </span>Oprirea unui serviciu<a class="headerlink" href="#oprirea-unui-serviciu" title="Permalink to this heading">¶</a></h3>
 <p>Îi punem să oprească serviciul SSH și testează dacă mai merge SSH-ul</p>
-</div>
-<div class="section" id="pornirea-unui-serviciu">
-<h3><span class="section-number">6.1.3. </span>Pornirea unui serviciu<a class="headerlink" href="#pornirea-unui-serviciu" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="pornirea-unui-serviciu">
+<h3><span class="section-number">6.1.3. </span>Pornirea unui serviciu<a class="headerlink" href="#pornirea-unui-serviciu" title="Permalink to this heading">¶</a></h3>
 <p>Îi punem să pornească serviciul SSH și testează dacă merge SSH-ul.</p>
-</div>
-<div class="section" id="repornirea-unui-serviciu">
-<h3><span class="section-number">6.1.4. </span>Repornirea unui serviciu<a class="headerlink" href="#repornirea-unui-serviciu" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="repornirea-unui-serviciu">
+<h3><span class="section-number">6.1.4. </span>Repornirea unui serviciu<a class="headerlink" href="#repornirea-unui-serviciu" title="Permalink to this heading">¶</a></h3>
 <p>Îi pune să schimbe <cite>PermitRootLogin</cite> din fișierul de configurare și îi punem să oprească și să îl repornească, pentru a vedea că opțiunea și-a făcut efectul</p>
-</div>
-<div class="section" id="configurarea-unui-serviciu">
-<h3><span class="section-number">6.1.5. </span>Configurarea unui serviciu<a class="headerlink" href="#configurarea-unui-serviciu" title="Permalink to this headline">¶</a></h3>
-</div>
-</div>
-<div class="section" id="definirea-unui-serviciu-personalizat">
-<h2><span class="section-number">6.2. </span>Definirea unui serviciu personalizat<a class="headerlink" href="#definirea-unui-serviciu-personalizat" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="configurarea-unui-serviciu">
+<h3><span class="section-number">6.1.5. </span>Configurarea unui serviciu<a class="headerlink" href="#configurarea-unui-serviciu" title="Permalink to this heading">¶</a></h3>
+</section>
+</section>
+<section id="definirea-unui-serviciu-personalizat">
+<h2><span class="section-number">6.2. </span>Definirea unui serviciu personalizat<a class="headerlink" href="#definirea-unui-serviciu-personalizat" title="Permalink to this heading">¶</a></h2>
 <p>Îi vom pune să își facă singuri un serviciu care face proxy ssh într-un container în care rulează o pagină web care ascultă doar pe localhost.
 Vor putea să acceseze acest proxy din browser.</p>
-</div>
-</div>
+</section>
+</section>
 
 
           </div>
@@ -669,7 +674,7 @@ Vor putea să acceseze acest proxy din browser.</p>
 </ul><div class="footer" role="contentinfo">
       &#169; Copyright 2020, USO Team.
     <br>
-    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.4.3 with <a href="https://github.com/romnnn/sphinx_press_theme">Press Theme</a>.
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 5.1.1 with <a href="https://github.com/romnn/sphinx_press_theme">Press Theme</a>.
 </div>
             </div>
           </div>
