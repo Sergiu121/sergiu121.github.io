@@ -1,19 +1,24 @@
 <!DOCTYPE html>
-<html >
+<html  lang="en">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
       <title>6. Instalarea aplicațiilor (serviciilor) folosind Docker</title>
     
       <link rel="stylesheet" href="../../_static/pygments.css">
       <link rel="stylesheet" href="../../_static/theme.css">
-      <link rel="stylesheet" href="../../_static/romnnn_sphinx_press_theme.css">
+      <link rel="stylesheet" href="../../_static/romnn_sphinx_press_theme.css">
+          <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+          <link rel="stylesheet" href="../../_static/css/theme.css " type="text/css" />
       
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
 
       <!-- sphinx script_files -->
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../_static/doctools.js"></script>
         <script src="../../_static/my_actions.js"></script>
 
@@ -608,53 +613,150 @@
 <hr>
           <div class="content" role="main">
             
-  <div class="section" id="instalarea-aplicatiilor-serviciilor-folosind-docker">
-<h1><span class="section-number">6. </span>Instalarea aplicațiilor (serviciilor) folosind Docker<a class="headerlink" href="#instalarea-aplicatiilor-serviciilor-folosind-docker" title="Permalink to this headline">¶</a></h1>
+  <section id="instalarea-aplicatiilor-serviciilor-folosind-docker">
+<h1><span class="section-number">6. </span>Instalarea aplicațiilor (serviciilor) folosind Docker<a class="headerlink" href="#instalarea-aplicatiilor-serviciilor-folosind-docker" title="Permalink to this heading">¶</a></h1>
 <p>Scopul acestui capitol este să îi introducem pe studenți în instalarea, folosirea containerelor și în instalarea serviciilor folosind containerele.</p>
 <p>Instalarea serviciilor nu este o operație ușoară.
 Acestea depind de aplicații și biblioteci care uneori nu sunt disponibile, sau nu există versiunile necesare pentru distribuția noastră.
 O altă problemă vine de la faptul că serviciile nu sunt de tipul “plug-and-play”, adică nu oferă o configurație simplă care să permită rularea serviciului imediat după instalarea aplicației.</p>
 <p>Docker vine ca o soluție pentru această problemă, deoarece acesta ne oferă servicii pre-împachetate cu dependențele pe care le are serviciul respectiv și cu configurările necesare pentru rularea serviciului.
 Un alt avantaj al folosirii Docker este că mediul oferit de Docker este unul izolat și efemer, adică o aplicație care rulează în Docker nu are acces în mod obișnuit la restul sistemului, iar orice modificare asupra sistemului de fișiere din Docker nu se va reflecta asupra sistemului.</p>
-<div class="section" id="folosirea-docker">
-<h2><span class="section-number">6.1. </span>Folosirea Docker<a class="headerlink" href="#folosirea-docker" title="Permalink to this headline">¶</a></h2>
-<p>În această subsecțiune studenții vor învăța cum să folosească Docker ca să pornească un container, cum să descarce un container, cum să se conecteze la un container.
-Nu punem accentul pe crearea containerelor ci pe folosirea lor.</p>
-<div class="section" id="gestionarea-containerelor">
-<h3><span class="section-number">6.1.1. </span>Gestionarea containerelor<a class="headerlink" href="#gestionarea-containerelor" title="Permalink to this headline">¶</a></h3>
+<p>Containerele sunt un mediu în care putem rula aplicații izolate de sistemul gazdă.</p>
+<p>În sistemele de operare bazate pe Linux, containerele sunt rulate ca o aplicație care are acces la resursele stației gazdă, dar care poate interacționa cu procesele din în afara mediului izolat.</p>
+<p>Avantajul utilizării unui container pentru rularea aplicațiilor este că poate fi pornit și oprit cu ușurință si modificate.
+Astfel, putem instala aplicații într-un container, le putem configura și rula fără a afecta celelalte componente ale sistemului</p>
+<section id="folosirea-docker">
+<h2><span class="section-number">6.1. </span>Folosirea Docker<a class="headerlink" href="#folosirea-docker" title="Permalink to this heading">¶</a></h2>
+<p>Un caz de utilizare în care rulăm containere este atunci când vrem să setăm un server care depinde de
+versiuni fixe, vechi ale anumitor biblioteci. Nu vrem să rulăm acel server pe sistemul nostru
+fizic, deoarece pot apărea conflicte cu alte aplicații. Containerizing serverul, putem avea un
+versiunea bibliotecii instalată pe mașina fizică și o altă versiune instalată pe
+container fără conflict între ele.</p>
+<section id="containere-versus-masini-virtuale">
+<h3><span class="section-number">6.1.1. </span>Containere versus mașini virtuale<a class="headerlink" href="#containere-versus-masini-virtuale" title="Permalink to this heading">¶</a></h3>
+<p>Atât containerele cât și mașinile virtuale ne permit să rulăm aplicații într-un mediu izolat.
+Totuși, există diferențe fundamentale între cele două mechanisme.
+Conform schemei de mai jos, un container rulează direct peste nucleul sistemului de operare gazdă.
+În schimb, o mașină virtuală execută propriul nucleu care apoi rulează aplicațiile.
+Acest nivel în plus de operații executate adaugă overhead rulării aplicațiilor dorite, iar overheadul încetinește viteza de execuție.</p>
+<p>Un alt avantaj al containerelor este abilitatea de a le construi și ambala iterativ.
+Practic, noi putem să descărcăm cu ușurință un container de pe un repository public, să îl modificăm și să îl încărcăm într-un repository public fără să încărcăm întreaga imagine.
+Putem face asta, deoarece modificările asupra unui container sunt făcute iterativ, salvând diferențele dintre imaginea inițială și versiunea modificată.</p>
+<p>Există și cazuri în care vrem să rulăm aplicațiile în interioriul unei mașini virtuale.
+De exemplu, dacă vrem să rulăm o aplicație compilată pentru un alt sistem de operare în afară de Linux, nu vom putea face asta, deoarece containerele pot executa aplicații care sunt compilate pentru sistemul de operare gazdă.
+Mașinile virtuale pot să ruleze și sisteme de operare diferite de sistemul de operare gazdă.</p>
+</section>
+<section id="gestionarea-containerelor">
+<h3><span class="section-number">6.1.2. </span>Gestionarea containerelor<a class="headerlink" href="#gestionarea-containerelor" title="Permalink to this heading">¶</a></h3>
 <p>În această sub-subsecțiune vom prezenta cum să descarce și cum să pornească un container care oferă o pagină web simplă, ca apoi să oprească containerul.</p>
-</div>
-<div class="section" id="conectarea-la-un-container">
-<h3><span class="section-number">6.1.2. </span>Conectarea la un container<a class="headerlink" href="#conectarea-la-un-container" title="Permalink to this headline">¶</a></h3>
-<p>În această sub-subsecțiune vor învăța cum să se conecteze la containerul de la secțiunea anterioară și vor modifica pagina web afișată.</p>
-</div>
-</div>
-<div class="section" id="instalarea-serviciilor-folosind-docker">
-<h2><span class="section-number">6.2. </span>Instalarea serviciilor folosind Docker<a class="headerlink" href="#instalarea-serviciilor-folosind-docker" title="Permalink to this headline">¶</a></h2>
+<p>Pentru a porni o aplicație în interiorul unui container Docker folosim următoarea comandă:</p>
+<p><code class="docutils literal notranslate"><span class="pre">`</span>
+<span class="pre">student&#64;uso:~$</span> <span class="pre">docker</span> <span class="pre">run</span> <span class="pre">-it</span> <span class="pre">ubuntu:18.04</span> <span class="pre">bash</span>
+<span class="pre">Unable</span> <span class="pre">to</span> <span class="pre">find</span> <span class="pre">image</span> <span class="pre">'ubuntu:18.04'</span> <span class="pre">locally</span>
+<span class="pre">18.04:</span> <span class="pre">Pulling</span> <span class="pre">from</span> <span class="pre">library/ubuntu</span>
+<span class="pre">92dc2a97ff99:</span> <span class="pre">Pull</span> <span class="pre">complete</span>
+<span class="pre">be13a9d27eb8:</span> <span class="pre">Pull</span> <span class="pre">complete</span>
+<span class="pre">c8299583700a:</span> <span class="pre">Pull</span> <span class="pre">complete</span>
+<span class="pre">Digest:</span> <span class="pre">sha256:4bc3ae6596938cb0d9e5ac51a1152ec9dcac2a1c50829c74abd9c4361e321b26</span>
+<span class="pre">Status:</span> <span class="pre">Downloaded</span> <span class="pre">newer</span> <span class="pre">image</span> <span class="pre">for</span> <span class="pre">ubuntu:18.04</span>
+<span class="pre">root&#64;86c268b30cd6:/#</span>
+<span class="pre">`</span></code></p>
+<p>Comanda <cite>docker</cite> a fost rulată folosind următorii parametrii:
+* <cite>run</cite>, pornește un container;
+* <cite>-i</cite>, pornește un container “interactiv”, care acceptă input de la tastatură;
+* <cite>-t</cite>, asociază un termina virtual comenzii rulate;
+* <cite>ubuntu:18.04</cite> este numele imaginii pe care vrem să o folosim. [Dockerhub](<a class="reference external" href="https://hub.docker.com/">https://hub.docker.com/</a>) este un repository public de imagini de unde putem descărca imagini deja construite;
+* <cite>bash</cite>, comanda pe care vrem să o rulăm în cadrul containerului.</p>
+<p>Putem rula și o comandă neinteractivă în container în felul următor:</p>
+<p><code class="docutils literal notranslate"><span class="pre">`</span>
+<span class="pre">student&#64;uso:~$</span> <span class="pre">docker</span> <span class="pre">run</span> <span class="pre">ubuntu:18.04</span> <span class="pre">ps</span> <span class="pre">-ef</span>
+<span class="pre">UID</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">PID</span>&#160;&#160;&#160; <span class="pre">PPID</span>&#160; <span class="pre">C</span> <span class="pre">STIME</span> <span class="pre">TTY</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">TIME</span> <span class="pre">CMD</span>
+<span class="pre">root</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">1</span>&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">0</span>&#160; <span class="pre">0</span> <span class="pre">12:01</span> <span class="pre">?</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">00:00:00</span> <span class="pre">ps</span> <span class="pre">-ef</span>
+<span class="pre">`</span></code></p>
+<ul class="simple">
+<li><p>instalarea facilă a unui serviciu</p></li>
+<li><p>configurarea unui mediu de dezvoltare izolat</p></li>
+<li><p>replicarea unui serviciu din producție local</p></li>
+<li><p>configurarea unui mediu replicabil pentru testare</p></li>
+</ul>
+<p>:::note
+Comanda <cite>ps -ef</cite> afișează toate procesele active din sistem. Observăm că în rezultatul de mai sus apare o singură comandă, deoarece rulăm într-un mediu izolat.
+::</p>
+<p>Cu toate acestea, nu dorim să rulăm întotdeauna containere în prim plan. Dacă vrem să rulăm un script care nu poate fi rulat în mediul gazdă, iar acest script va rula mult timp, preferăm să rulăm comanda în fundal.</p>
+<p>Pentru a rula un script în fundal în cadrul unui container Docker vom folosi opțiunea <cite>-d</cite> a comenzii <cite>docker run</cite> în felul următor:
+<code class="docutils literal notranslate"><span class="pre">`</span>
+<span class="pre">student&#64;lab-docker:~$</span> <span class="pre">sudo</span> <span class="pre">docker</span> <span class="pre">run</span> <span class="pre">-d</span> <span class="pre">ubuntu:18.04</span> <span class="pre">sleep</span> <span class="pre">10000</span>
+<span class="pre">a63ee06826a33c0dfab825a0cb2032eee2459e0721517777ee019f59e69ebc02</span>
+<span class="pre">student&#64;lab-docker:~$</span> <span class="pre">sudo</span> <span class="pre">docker</span> <span class="pre">ps</span>
+<span class="pre">CONTAINER</span> <span class="pre">ID</span>&#160;&#160; <span class="pre">IMAGE</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">COMMAND</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">CREATED</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">STATUS</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">PORTS</span>&#160;&#160;&#160;&#160; <span class="pre">NAMES</span>
+<span class="pre">a63ee06826a3</span>&#160;&#160; <span class="pre">ubuntu:18.04</span>&#160;&#160; <span class="pre">&quot;sleep</span> <span class="pre">10000&quot;</span>&#160;&#160; <span class="pre">7</span> <span class="pre">seconds</span> <span class="pre">ago</span>&#160;&#160; <span class="pre">Up</span> <span class="pre">5</span> <span class="pre">seconds</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">wonderful_lewin</span>
+<span class="pre">student&#64;lab-docker:~$</span> <span class="pre">sudo</span> <span class="pre">docker</span> <span class="pre">exec</span> <span class="pre">-it</span> <span class="pre">a63ee06826a3</span> <span class="pre">/bin/bash</span>
+<span class="pre">root&#64;a63ee06826a3:/#</span> <span class="pre">ps</span> <span class="pre">-ef</span>
+<span class="pre">UID</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">PID</span>&#160;&#160;&#160; <span class="pre">PPID</span>&#160; <span class="pre">C</span> <span class="pre">STIME</span> <span class="pre">TTY</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">TIME</span> <span class="pre">CMD</span>
+<span class="pre">root</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">1</span>&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">0</span>&#160; <span class="pre">0</span> <span class="pre">02:19</span> <span class="pre">?</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">00:00:00</span> <span class="pre">sleep</span> <span class="pre">10000</span>
+<span class="pre">root</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">7</span>&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">0</span>&#160; <span class="pre">2</span> <span class="pre">02:19</span> <span class="pre">pts/0</span>&#160;&#160;&#160; <span class="pre">00:00:00</span> <span class="pre">/bin/bash</span>
+<span class="pre">root</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">19</span>&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">7</span>&#160; <span class="pre">0</span> <span class="pre">02:20</span> <span class="pre">pts/0</span>&#160;&#160;&#160; <span class="pre">00:00:00</span> <span class="pre">ps</span> <span class="pre">-ef</span>
+<span class="pre">root&#64;a63ee06826a3:/#</span> <span class="pre">exit</span>
+<span class="pre">`</span></code></p>
+<p>Putem vedea că containerul pornit de noi încă rulează rulând comanda <cite>docker ps</cite>.
+Coloane relevante sunt:
+* <cite>CONTAINER ID</cite>
+* <cite>NAMES</cite></p>
+<p>Pentru a ne conecta la un container care rulează în fundal, ne folosim de comanda <cite>docker exec</cite> împreună cu ID-ul containerului sau numele selectat folosind comanda <cite>docker ps</cite>:</p>
+<p><code class="docutils literal notranslate"><span class="pre">`</span>
+<span class="pre">student&#64;lab-docker:~$</span> <span class="pre">sudo</span> <span class="pre">docker</span> <span class="pre">ps</span>
+<span class="pre">CONTAINER</span> <span class="pre">ID</span>&#160;&#160; <span class="pre">IMAGE</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">COMMAND</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">CREATED</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">STATUS</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">PORTS</span>&#160;&#160;&#160;&#160; <span class="pre">NAMES</span>
+<span class="pre">a63ee06826a3</span>&#160;&#160; <span class="pre">ubuntu:18.04</span>&#160;&#160; <span class="pre">&quot;sleep</span> <span class="pre">10000&quot;</span>&#160;&#160; <span class="pre">7</span> <span class="pre">seconds</span> <span class="pre">ago</span>&#160;&#160; <span class="pre">Up</span> <span class="pre">5</span> <span class="pre">seconds</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">wonderful_lewin</span>
+<span class="pre">student&#64;lab-docker:~$</span> <span class="pre">sudo</span> <span class="pre">docker</span> <span class="pre">exec</span> <span class="pre">-it</span> <span class="pre">a63ee06826a3</span> <span class="pre">/bin/bash</span>
+<span class="pre">root&#64;a63ee06826a3:/#</span> <span class="pre">ps</span> <span class="pre">-ef</span>
+<span class="pre">UID</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">PID</span>&#160;&#160;&#160; <span class="pre">PPID</span>&#160; <span class="pre">C</span> <span class="pre">STIME</span> <span class="pre">TTY</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">TIME</span> <span class="pre">CMD</span>
+<span class="pre">root</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">1</span>&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">0</span>&#160; <span class="pre">0</span> <span class="pre">02:19</span> <span class="pre">?</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">00:00:00</span> <span class="pre">sleep</span> <span class="pre">10000</span>
+<span class="pre">root</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">7</span>&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">0</span>&#160; <span class="pre">2</span> <span class="pre">02:19</span> <span class="pre">pts/0</span>&#160;&#160;&#160; <span class="pre">00:00:00</span> <span class="pre">/bin/bash</span>
+<span class="pre">root</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">19</span>&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">7</span>&#160; <span class="pre">0</span> <span class="pre">02:20</span> <span class="pre">pts/0</span>&#160;&#160;&#160; <span class="pre">00:00:00</span> <span class="pre">ps</span> <span class="pre">-ef</span>
+<span class="pre">root&#64;a63ee06826a3:/#</span> <span class="pre">exit</span>
+<span class="pre">`</span></code></p>
+<p>Pentru a opri un container care rulează în fundal, utilizați comanda „docker stop” împreună cu ID-ul sau numele containerului, în felul următor:
+<code class="docutils literal notranslate"><span class="pre">`</span>
+<span class="pre">student&#64;lab-docker:~$</span> <span class="pre">sudo</span> <span class="pre">docker</span> <span class="pre">stop</span> <span class="pre">a63ee06826a3</span>
+<span class="pre">a63ee06826a3</span>
+<span class="pre">student&#64;lab-docker:~$</span> <span class="pre">sudo</span> <span class="pre">docker</span> <span class="pre">ps</span>
+<span class="pre">CONTAINER</span> <span class="pre">ID</span>&#160;&#160; <span class="pre">IMAGE</span>&#160;&#160;&#160;&#160; <span class="pre">COMMAND</span>&#160;&#160; <span class="pre">CREATED</span>&#160;&#160; <span class="pre">STATUS</span>&#160;&#160;&#160; <span class="pre">PORTS</span>&#160;&#160;&#160;&#160; <span class="pre">NAMES</span>
+<span class="pre">student&#64;lab-docker:~$</span>
+<span class="pre">`</span></code></p>
+<p>## Exerciții: Gestionarea containerelor</p>
+<ul class="simple">
+<li><p>Porniți un nou container în fundal folosind imaginea de bază <cite>centos:7</cite>.</p></li>
+<li><p>Conectați-vă la containerul tocmai pornit și instalați aplicația <cite>bind-utils</cite> folosind comanda <cite>yum install bind-utils</cite>. Pentru a verifica faptu că ați instalat aplicația corect, verificați-vă rulând comanda <cite>nslookup google.com</cite>.</p></li>
+<li><p>Deconectați-vă de la container și opriți-l.</p></li>
+</ul>
+</section>
+</section>
+<section id="instalarea-serviciilor-folosind-docker">
+<h2><span class="section-number">6.2. </span>Instalarea serviciilor folosind Docker<a class="headerlink" href="#instalarea-serviciilor-folosind-docker" title="Permalink to this heading">¶</a></h2>
 <p>Cum am prezentat mai devreme, un avantaj al folosirii containerelor este faptul că putem să descărcăm containere care pot rula servicii.
 Aceste servicii nu vor mai fi lansate și gestionate de aplicația systemd care rulează pe stația de lucru, deoarece acestea vor rula în cadrul unui container care va gestiona rularea serviciului.
 Noi trebuie doar să ne asigurăm ca rulăm containerul folosind opțiunile potrivite.</p>
-<div class="section" id="identificarea-containerelor-pe-dockerhub">
-<h3><span class="section-number">6.2.1. </span>Identificarea containerelor pe Dockerhub<a class="headerlink" href="#identificarea-containerelor-pe-dockerhub" title="Permalink to this headline">¶</a></h3>
+<section id="identificarea-containerelor-pe-dockerhub">
+<h3><span class="section-number">6.2.1. </span>Identificarea containerelor pe Dockerhub<a class="headerlink" href="#identificarea-containerelor-pe-dockerhub" title="Permalink to this heading">¶</a></h3>
 <p>Precum aplicațiile obișnuite, și containerele Docker pot fi descărcate dintr-un repository central.
-Repository-ul central pentru containere este Dockerhub.
+Repository-ul central pentru containere pe care îl vom folosi este DockerHub &lt;TODO REF&gt;. Acesta nu este singurul repository de containere pe care putem să îl folosim, dar este cel mai vast.
 Noi vom folosi site-ul Dockerhub pentru a căuta containere împreună cu instrucțiuni de folosire ale acestora.</p>
-</div>
-<div class="section" id="instalarea-unui-server-de-minecraft-folosind-containere">
-<h3><span class="section-number">6.2.2. </span>Instalarea unui server de minecraft folosind containere<a class="headerlink" href="#instalarea-unui-server-de-minecraft-folosind-containere" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="instalarea-unui-server-de-minecraft-folosind-containere">
+<h3><span class="section-number">6.2.2. </span>Instalarea unui server de minecraft folosind containere<a class="headerlink" href="#instalarea-unui-server-de-minecraft-folosind-containere" title="Permalink to this heading">¶</a></h3>
 <p>Își vor instala un server de Minecraft pe PC, pe care îl vor testa folosind TLauncher (nu știu cât de legal e asta, TBD).</p>
-</div>
-<div class="section" id="instalarea-grafana-folosind-containere">
-<h3><span class="section-number">6.2.3. </span>Instalarea Grafana folosind containere<a class="headerlink" href="#instalarea-grafana-folosind-containere" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="instalarea-grafana-folosind-containere">
+<h3><span class="section-number">6.2.3. </span>Instalarea Grafana folosind containere<a class="headerlink" href="#instalarea-grafana-folosind-containere" title="Permalink to this heading">¶</a></h3>
 <p>Își vor instala un server de grafana și baza de date pentru acesta.</p>
-</div>
-<div class="section" id="extra-instalarea-containerelor-personalizate">
-<h3><span class="section-number">6.2.4. </span>Extra: Instalarea containerelor personalizate<a class="headerlink" href="#extra-instalarea-containerelor-personalizate" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="extra-instalarea-containerelor-personalizate">
+<h3><span class="section-number">6.2.4. </span>Extra: Instalarea containerelor personalizate<a class="headerlink" href="#extra-instalarea-containerelor-personalizate" title="Permalink to this heading">¶</a></h3>
 <p>Studenții vor descărca un Dockerfile și vor face build acestuia în loc să descarce direct containerul despre net.</p>
 <p>Le vom arăta cum să modifice Dockerfile-ul ca să instaleze diverse aplicații.</p>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
 
           </div>
@@ -671,7 +773,7 @@ Noi vom folosi site-ul Dockerhub pentru a căuta containere împreună cu instru
 </ul><div class="footer" role="contentinfo">
       &#169; Copyright 2020, USO Team.
     <br>
-    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.4.3 with <a href="https://github.com/romnnn/sphinx_press_theme">Press Theme</a>.
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 5.1.1 with <a href="https://github.com/romnn/sphinx_press_theme">Press Theme</a>.
 </div>
             </div>
           </div>
