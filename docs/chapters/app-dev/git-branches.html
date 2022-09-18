@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html >
+<html  lang="en">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
       <title>9. Lucrul pe branch-uri</title>
     
@@ -18,6 +18,7 @@
         <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../_static/doctools.js"></script>
         <script src="../../_static/my_actions.js"></script>
 
@@ -211,7 +212,7 @@
           </li>
 
         
-          <li class="toctree-l1 "><a href="../basic/cheatsheet.html" class="reference internal ">Cheatsheet</a>
+          <li class="toctree-l1 "><a href="../basic/cheatsheet.html" class="reference internal ">Sumar - Cheatsheet</a>
 
             
           </li>
@@ -538,7 +539,7 @@
           <div class="content" role="main">
             
   <section id="lucrul-pe-branch-uri">
-<span id="app-dev-branches"></span><h1><span class="section-number">9. </span>Lucrul pe branch-uri<a class="headerlink" href="#lucrul-pe-branch-uri" title="Permalink to this headline">¶</a></h1>
+<span id="app-dev-branches"></span><h1><span class="section-number">9. </span>Lucrul pe branch-uri<a class="headerlink" href="#lucrul-pe-branch-uri" title="Permalink to this heading">¶</a></h1>
 <p>Un dezvoltator vrea să lucreze la o funcționalitate nouă, care poate destabiliza proiectul.
 Pentru aceasta creează <strong>o ramură de dezvoltare nouă</strong> (<em>branch</em>) pe care face commituri noi.
 Ulterior, dacă funcționalitatea este utilă, va fi adăugată în proiect prin unificarea acestui branch (<em>merge</em>); altfel branch-ul va fi șters.</p>
@@ -587,7 +588,7 @@ Date:   Thu Sep <span class="m">24</span> <span class="m">09</span>:09:51 <span 
 <figure class="align-default">
 <a class="reference internal image-reference" href="../../_images/GitHub-commit-history.png"><img alt="Reprezentarea vizuală a istoricului de commituri" src="../../_images/GitHub-commit-history.png" style="width: 550.8000000000001px; height: 189.0px;" /></a>
 </figure>
-<p><strong>Root-commitul</strong> este primul commit din istoric (<em>b2a590a8637f1eab96e557334dbd4be14bf95833</em>, <em>b2a590a</em>) <a class="footnote-reference brackets" href="#hash" id="id1">1</a>.
+<p><strong>Root-commitul</strong> este primul commit din istoric (<em>b2a590a8637f1eab96e557334dbd4be14bf95833</em>, <em>b2a590a</em>) <a class="footnote-reference brackets" href="#hash" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>.
 Toate celelalte commituri vin în continuarea acestuia.
 Spre exemplu, al doilea commit (<em>f65a7fbe8bbe1b36ba5c8e16607456a879bfb6fa</em>, <em>f65a7fb</em>) a avut la bază primul commit (<em>b2a590a</em>).
 Modificările au fost făcute peste commitul <em>b2a590a</em>.</p>
@@ -604,8 +605,8 @@ Modificările au fost făcute peste commitul <em>b2a590a</em>.</p>
 <p>În secțiunea <a class="reference internal" href="#app-dev-add-gitignore"><span class="std std-ref">Adăugarea unui fișier .gitignore repository-ului</span></a> îl vom adăuga de pe un alt branch pe care îl numim <code class="docutils literal notranslate"><span class="pre">add-gitignore</span></code> ca să ne obișnuim să folosim branch-uri.</p>
 </div>
 <section id="adaugarea-unui-fisier-gitignore-repository-ului">
-<span id="app-dev-add-gitignore"></span><h2><span class="section-number">9.1. </span>Adăugarea unui fișier .gitignore repository-ului<a class="headerlink" href="#adaugarea-unui-fisier-gitignore-repository-ului" title="Permalink to this headline">¶</a></h2>
-<p>De acum încolo, vom face toate modificările de pe un nou branch, diferit de branch-ul <strong>master</strong> <a class="footnote-reference brackets" href="#good-practice" id="id2">2</a>.</p>
+<span id="app-dev-add-gitignore"></span><h2><span class="section-number">9.1. </span>Adăugarea unui fișier .gitignore repository-ului<a class="headerlink" href="#adaugarea-unui-fisier-gitignore-repository-ului" title="Permalink to this heading">¶</a></h2>
+<p>De acum încolo, vom face toate modificările de pe un nou branch, diferit de branch-ul <strong>master</strong> <a class="footnote-reference brackets" href="#good-practice" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a>.</p>
 <p>În această subsecțiune vom crea un nou branch numit <code class="docutils literal notranslate"><span class="pre">add-gitignore</span></code>.
 Vom adăuga un fișier <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code> proiectului de pe acest branch.</p>
 <div class="admonition note">
@@ -693,7 +694,7 @@ Spre exemplu, după crearea unui commit, verificăm <strong>statusul repository-
 </div>
 </section>
 <section id="operatia-merge-dintre-un-branch-secundar-si-master">
-<span id="app-dev-merge"></span><h2><span class="section-number">9.2. </span>Operația <strong>merge</strong> dintre un branch secundar și master<a class="headerlink" href="#operatia-merge-dintre-un-branch-secundar-si-master" title="Permalink to this headline">¶</a></h2>
+<span id="app-dev-merge"></span><h2><span class="section-number">9.2. </span>Operația <strong>merge</strong> dintre un branch secundar și master<a class="headerlink" href="#operatia-merge-dintre-un-branch-secundar-si-master" title="Permalink to this heading">¶</a></h2>
 <p>În secțiunea <a class="reference internal" href="#app-dev-add-gitignore"><span class="std std-ref">Adăugarea unui fișier .gitignore repository-ului</span></a> de mai sus am creat un commit pe branch-ul <strong>add-gitignore</strong>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -766,7 +767,7 @@ To https://github.com/lizababu/array-sorting-algorithms
 </figure>
 </section>
 <section id="stergerea-unui-branch">
-<span id="app-dev-delete-branch"></span><h2><span class="section-number">9.3. </span>Ștergerea unui branch<a class="headerlink" href="#stergerea-unui-branch" title="Permalink to this headline">¶</a></h2>
+<span id="app-dev-delete-branch"></span><h2><span class="section-number">9.3. </span>Ștergerea unui branch<a class="headerlink" href="#stergerea-unui-branch" title="Permalink to this heading">¶</a></h2>
 <p>După ce terminăm lucrul pe un branch, îl ștergem.
 Vom folosi noi ramuri de dezvoltare (<em>branch-uri</em>) pentru alte funcționalități, deci nu vom mai avea nevoie de branch-urile vechi.</p>
 <p>În acestă secțiune vom șterge branch-ul <strong>add-gitignore</strong> atât din repository-ul local cât și din interfața GitHub.</p>
@@ -798,7 +799,7 @@ To https://github.com/lizababu/array-sorting-algorithms.git
 </figure>
 </section>
 <section id="modificarea-fisierului-gitignore">
-<span id="app-dev-another-merge"></span><h2><span class="section-number">9.4. </span>Modificarea fișierului .gitignore<a class="headerlink" href="#modificarea-fisierului-gitignore" title="Permalink to this headline">¶</a></h2>
+<span id="app-dev-another-merge"></span><h2><span class="section-number">9.4. </span>Modificarea fișierului .gitignore<a class="headerlink" href="#modificarea-fisierului-gitignore" title="Permalink to this heading">¶</a></h2>
 <p>În această subsecțiune vom relua pașii prezentați în subsecțiunile anterioare.
 Vom lucra în continuare pe branch-uri.
 Vom adăuga o nouă linie în fișierul <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code>, vom crea un commit cu această schimbare și vom integra schimbările din branch-ul secundar în branch-ul <strong>master</strong> prin operația <strong>merge</strong>.</p>
@@ -912,7 +913,7 @@ To https://github.com/lizababu/array-sorting-algorithms.git
 </figure>
 </section>
 <section id="exercitii">
-<span id="app-dev-branches-ex"></span><h2><span class="section-number">9.5. </span>Exerciții<a class="headerlink" href="#exercitii" title="Permalink to this headline">¶</a></h2>
+<span id="app-dev-branches-ex"></span><h2><span class="section-number">9.5. </span>Exerciții<a class="headerlink" href="#exercitii" title="Permalink to this heading">¶</a></h2>
 <ol class="arabic">
 <li><p>Creați un branch cu numele <code class="docutils literal notranslate"><span class="pre">merge-sort-implementation</span></code>.</p></li>
 <li><p>Treceți pe branch-ul <code class="docutils literal notranslate"><span class="pre">merge-sort-implementation</span></code>.</p></li>
@@ -1016,7 +1017,7 @@ To https://github.com/lizababu/array-sorting-algorithms.git
 </ol>
 </section>
 <section id="bune-practici">
-<span id="app-dev-branches-good-practices"></span><h2><span class="section-number">9.6. </span>Bune practici<a class="headerlink" href="#bune-practici" title="Permalink to this headline">¶</a></h2>
+<span id="app-dev-branches-good-practices"></span><h2><span class="section-number">9.6. </span>Bune practici<a class="headerlink" href="#bune-practici" title="Permalink to this heading">¶</a></h2>
 <p>Atunci când contribuim la un proiect putem să lucrăm fie pe branch-ul <strong>master</strong>, fie pe un alt branch.
 Este considerat <strong>BAD PRACTICE</strong> să lucrăm pe branch-ul <strong>master</strong> din mai multe motive:</p>
 <ol class="arabic simple">
@@ -1028,16 +1029,18 @@ Mult mai simplu este să se realizeze întreaga etapă de feedback, numită <str
 Vom vorbi în următoarea secțiune, <a class="reference internal" href="git-first-pull-request.html#app-dev-pr"><span class="std std-ref">Crearea unui Pull Request (PR) pe GitHub</span></a>, termenul de <em>pull request</em>, folosit pentru code review.</p></li>
 </ol>
 <p class="rubric">Note de subsol</p>
-<dl class="footnote brackets">
-<dt class="label" id="hash"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
-<dd><p>ID-ul unui commit are o formă lungă, completă, și o formă scurtă formată din primele 7 caractere.
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="hash" role="note">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
+<p>ID-ul unui commit are o formă lungă, completă, și o formă scurtă formată din primele 7 caractere.
 De exemplu, pentru commitul cu ID-ul <em>b2a590a8637f1eab96e557334dbd4be14bf95833</em>, forma scurtă este <em>b2a590a</em>.</p>
-</dd>
-<dt class="label" id="good-practice"><span class="brackets"><a class="fn-backref" href="#id2">2</a></span></dt>
-<dd><p>Este <strong>GOOD PRACTICE</strong> ca fiecare modificare făcută pe un repository să fie făcută pe un branch nou.
+</aside>
+<aside class="footnote brackets" id="good-practice" role="note">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">2</a><span class="fn-bracket">]</span></span>
+<p>Este <strong>GOOD PRACTICE</strong> ca fiecare modificare făcută pe un repository să fie făcută pe un branch nou.
 Branch-ul trebuie să aibă un nume sugestiv pentru ca ceilalți să poată înțelege rapid ce schimbări se fac pe el.</p>
-</dd>
-</dl>
+</aside>
+</aside>
 </section>
 </section>
 
@@ -1056,7 +1059,7 @@ Branch-ul trebuie să aibă un nume sugestiv pentru ca ceilalți să poată în�
 </ul><div class="footer" role="contentinfo">
       &#169; Copyright 2020, USO Team.
     <br>
-    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.3.0 with <a href="https://github.com/romnn/sphinx_press_theme">Press Theme</a>.
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 5.1.1 with <a href="https://github.com/romnn/sphinx_press_theme">Press Theme</a>.
 </div>
             </div>
           </div>

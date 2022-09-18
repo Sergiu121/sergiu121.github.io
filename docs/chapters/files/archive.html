@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html >
+<html  lang="en">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
       <title>5. Arhive</title>
     
@@ -18,6 +18,7 @@
         <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../_static/doctools.js"></script>
         <script src="../../_static/my_actions.js"></script>
 
@@ -211,7 +212,7 @@
           </li>
 
         
-          <li class="toctree-l1 "><a href="../basic/cheatsheet.html" class="reference internal ">Cheatsheet</a>
+          <li class="toctree-l1 "><a href="../basic/cheatsheet.html" class="reference internal ">Sumar - Cheatsheet</a>
 
             
           </li>
@@ -530,7 +531,7 @@
           <div class="content" role="main">
             
   <section id="arhive">
-<h1><span class="section-number">5. </span>Arhive<a class="headerlink" href="#arhive" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">5. </span>Arhive<a class="headerlink" href="#arhive" title="Permalink to this heading">¶</a></h1>
 <p>Sunt situații în care vrem să trimitem/stocăm o ierarhie de fișiere.
 Pentru a ușura acest lucru, folosim arhive.
 Arhivele sunt o concatenare a unei ierarhii de fișiere și directoare într-un singur fișier.</p>
@@ -545,9 +546,9 @@ Rezultatul este similar: agregarea într-un singur fișier.</p>
 <p>În acest capitol vom folosi arhive de tipul <em>zip</em> și <em>tar</em>.
 Vom folosi <em>tar</em> pentru arhivare și <em>zip</em> pentru arhivare comprimată.</p>
 <section id="arhivare-tar">
-<span id="arhiva-tar"></span><h2><span class="section-number">5.1. </span>Arhivare - <strong>tar</strong><a class="headerlink" href="#arhivare-tar" title="Permalink to this headline">¶</a></h2>
+<span id="arhiva-tar"></span><h2><span class="section-number">5.1. </span>Arhivare - <strong>tar</strong><a class="headerlink" href="#arhivare-tar" title="Permalink to this heading">¶</a></h2>
 <section id="crearea-arhivelor">
-<h3><span class="section-number">5.1.1. </span>Crearea arhivelor<a class="headerlink" href="#crearea-arhivelor" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">5.1.1. </span>Crearea arhivelor<a class="headerlink" href="#crearea-arhivelor" title="Permalink to this heading">¶</a></h3>
 <p>Arhivele sunt utile atunci când vrem să trimitem pe mail sau să încărcăm pe un site o ierarhie de fișiere și directoare.
 Pe scurt, atunci când vrem să agregăm totul într-un singur fișier. Acesta poate fi transmis foarte ușor și ulterior dezarhivat.</p>
 <p>Creăm o arhivă cu fișierele <code class="docutils literal notranslate"><span class="pre">înregistrare_lab01.mov</span></code>, <code class="docutils literal notranslate"><span class="pre">înregistrare_lab02.mov</span></code>, <code class="docutils literal notranslate"><span class="pre">înregistrare_lab03.mov</span></code> numită <code class="docutils literal notranslate"><span class="pre">înregistrări.tar</span></code> folosind utilitarul <code class="docutils literal notranslate"><span class="pre">tar</span></code>:</p>
@@ -578,7 +579,7 @@ Avem acum în directorul curent arhiva <code class="docutils literal notranslate
 </ul>
 <p>Arhiva nou creată ocupă 9.1 MB.
 Fișierele ce compun arhiva ocupă 5M, 3M respectiv 1M.</p>
-<p>Fișierul de tipul <em>tar</em> nou creat nu ocupă mai puțin spațiu; din contră, ocupă mai mult spațiu din cauza metadatelor <a class="footnote-reference brackets" href="#id6" id="id1">1</a> fișierului.</p>
+<p>Fișierul de tipul <em>tar</em> nou creat nu ocupă mai puțin spațiu; din contră, ocupă mai mult spațiu din cauza metadatelor <a class="footnote-reference brackets" href="#id6" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a> fișierului.</p>
 <p>Verificăm tipul fișierului folosind utilitarul <code class="docutils literal notranslate"><span class="pre">file</span></code>.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ file înregistrări.tar
 înregistrări.tar: POSIX tar archive <span class="o">(</span>GNU<span class="o">)</span>
@@ -586,7 +587,7 @@ Fișierele ce compun arhiva ocupă 5M, 3M respectiv 1M.</p>
 </div>
 <p>Fișierul <code class="docutils literal notranslate"><span class="pre">înregistrări.tar</span></code> este o arhivă de tip <em>tar</em>.</p>
 <section id="exercitii-creare-arhive">
-<h4><span class="section-number">5.1.1.1. </span>Exerciții - creare arhive<a class="headerlink" href="#exercitii-creare-arhive" title="Permalink to this headline">¶</a></h4>
+<h4><span class="section-number">5.1.1.1. </span>Exerciții - creare arhive<a class="headerlink" href="#exercitii-creare-arhive" title="Permalink to this heading">¶</a></h4>
 <ol class="arabic simple">
 <li><ul class="simple">
 <li><p>Creați 3 fișiere noi care să conțină pe rând numele, prenumele și anul vostru de naștere.</p></li>
@@ -607,7 +608,7 @@ Fișierele ce compun arhiva ocupă 5M, 3M respectiv 1M.</p>
 </section>
 </section>
 <section id="afisarea-continutului-arhivelor">
-<h3><span class="section-number">5.1.2. </span>Afișarea conținutului arhivelor<a class="headerlink" href="#afisarea-continutului-arhivelor" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">5.1.2. </span>Afișarea conținutului arhivelor<a class="headerlink" href="#afisarea-continutului-arhivelor" title="Permalink to this heading">¶</a></h3>
 <p>Pentru ușurința de stocare și transmitere, un coleg ne-a transmis toate înregistrările laboratoarelor filmate de el, într-o arhivă.
 Noi vrem să vedem conținutul acestei arhive.
 Putem să vedem ce fișiere conține, fără a o deschide.</p>
@@ -621,14 +622,14 @@ Putem să vedem ce fișiere conține, fără a o deschide.</p>
 <p>Pentru a vizualiza arhiva <strong>fără</strong> dezarhivare am folosit opțiunea <code class="docutils literal notranslate"><span class="pre">t</span></code>.
 Folosim opțiunea <code class="docutils literal notranslate"><span class="pre">f</span></code> pentru a specifica ce arhivă vrem să afișăm.</p>
 <section id="exercitiu-afisarea-continutului-unei-arhive">
-<h4><span class="section-number">5.1.2.1. </span>Exercițiu - afișarea conținutului unei arhive<a class="headerlink" href="#exercitiu-afisarea-continutului-unei-arhive" title="Permalink to this headline">¶</a></h4>
+<h4><span class="section-number">5.1.2.1. </span>Exercițiu - afișarea conținutului unei arhive<a class="headerlink" href="#exercitiu-afisarea-continutului-unei-arhive" title="Permalink to this heading">¶</a></h4>
 <ul class="simple">
 <li><p>Afișați conținutul arhivelor create la exercițiul anterior <code class="docutils literal notranslate"><span class="pre">personal_data.tar</span></code> și <code class="docutils literal notranslate"><span class="pre">net.tar</span></code> <strong>fără</strong> dezarhivare.</p></li>
 </ul>
 </section>
 </section>
 <section id="extragerea-arhivelor">
-<h3><span class="section-number">5.1.3. </span>Extragerea arhivelor<a class="headerlink" href="#extragerea-arhivelor" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">5.1.3. </span>Extragerea arhivelor<a class="headerlink" href="#extragerea-arhivelor" title="Permalink to this heading">¶</a></h3>
 <p>Dezarhivarea este procesul opus al arhivării.
 Avem deja o arhivă de tip <em>tar</em> și vrem să extragem ierarhia din ea.</p>
 <p>În momentul în care dezarhivăm un fișier de tip <em>tar</em>, fișierele din cadrul arhivei vor fi create în directorul curent (dacă nu se specifică altfel).
@@ -661,7 +662,7 @@ total 19M
 </ul>
 </section>
 <section id="extragerea-arhivelor-la-o-cale-specifica">
-<h3><span class="section-number">5.1.4. </span>Extragerea arhivelor la o cale specifică<a class="headerlink" href="#extragerea-arhivelor-la-o-cale-specifica" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">5.1.4. </span>Extragerea arhivelor la o cale specifică<a class="headerlink" href="#extragerea-arhivelor-la-o-cale-specifica" title="Permalink to this heading">¶</a></h3>
 <p>Avem următorul scenariu: am descărcat scheletul de temă de la facultate, acesta se află în directorul <code class="docutils literal notranslate"><span class="pre">~/Downloads</span></code>, iar noi vrem să îl dezarhivăm în directorul <code class="docutils literal notranslate"><span class="pre">~/facultate/uso/teme/</span></code>.</p>
 <p>Sau am descărcat în <code class="docutils literal notranslate"><span class="pre">~/Downloads/</span></code> de la un prieten o arhivă cu înregistrările video ale laboratoarelor.
 Vrem să le dezarhivăm în directorul <code class="docutils literal notranslate"><span class="pre">~/facultate/uso/laboratoare/video/</span></code>.</p>
@@ -725,7 +726,7 @@ Este extrem de util acest lucru.</p>
 </div>
 <p>Am pus ca ultim parametru numele fișierului (<code class="docutils literal notranslate"><span class="pre">înregistrare_lab01.mov</span></code>).</p>
 <section id="exercitii-extragerea-dezarhivarea-unei-arhive">
-<h4><span class="section-number">5.1.4.1. </span>Exerciții - extragerea (dezarhivarea) unei arhive<a class="headerlink" href="#exercitii-extragerea-dezarhivarea-unei-arhive" title="Permalink to this headline">¶</a></h4>
+<h4><span class="section-number">5.1.4.1. </span>Exerciții - extragerea (dezarhivarea) unei arhive<a class="headerlink" href="#exercitii-extragerea-dezarhivarea-unei-arhive" title="Permalink to this heading">¶</a></h4>
 <ol class="arabic simple">
 <li><ul class="simple">
 <li><p>Creați un director cu numele <code class="docutils literal notranslate"><span class="pre">personal</span></code> și în acest director încă unul cu numele <code class="docutils literal notranslate"><span class="pre">documente</span></code> ca în ierarhia de mai sus.</p></li>
@@ -743,7 +744,7 @@ Este extrem de util acest lucru.</p>
 </section>
 </section>
 <section id="adaugarea-de-noi-fisiere-la-arhive">
-<h3><span class="section-number">5.1.5. </span>Adăugarea de noi fișiere la arhive<a class="headerlink" href="#adaugarea-de-noi-fisiere-la-arhive" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">5.1.5. </span>Adăugarea de noi fișiere la arhive<a class="headerlink" href="#adaugarea-de-noi-fisiere-la-arhive" title="Permalink to this heading">¶</a></h3>
 <p>Adăugăm un nou fișier la arhivă folosind comanda <code class="docutils literal notranslate"><span class="pre">tar</span></code>, astfel:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ tar -tf înregistrări.tar
 înregistrare_lab01.mov
@@ -765,7 +766,7 @@ student@uso:~$ tar tf înregistrări.tar
 <p>Observăm cum după comanda de adăugare de fișier la arhivă, am verificat corectitudinea operației.</p>
 </div>
 <section id="exercitii-adaugare-de-noi-fisiere">
-<h4><span class="section-number">5.1.5.1. </span>Exerciții - adăugare de noi fișiere<a class="headerlink" href="#exercitii-adaugare-de-noi-fisiere" title="Permalink to this headline">¶</a></h4>
+<h4><span class="section-number">5.1.5.1. </span>Exerciții - adăugare de noi fișiere<a class="headerlink" href="#exercitii-adaugare-de-noi-fisiere" title="Permalink to this heading">¶</a></h4>
 <ul class="simple">
 <li><p>Creați un fișier <code class="docutils literal notranslate"><span class="pre">UPB</span></code>; verificați operația afișând conținutul directorului părinte;</p></li>
 <li><p>Adăugați textul <em>Make UPB Great Again!</em> în interiorul fișierului; verificați operația afișând conținutul fișierului;</p></li>
@@ -774,7 +775,7 @@ student@uso:~$ tar tf înregistrări.tar
 </section>
 </section>
 <section id="comprimare-tar-gz">
-<h3><span class="section-number">5.1.6. </span>Comprimare <code class="docutils literal notranslate"><span class="pre">tar.gz</span></code><a class="headerlink" href="#comprimare-tar-gz" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">5.1.6. </span>Comprimare <code class="docutils literal notranslate"><span class="pre">tar.gz</span></code><a class="headerlink" href="#comprimare-tar-gz" title="Permalink to this heading">¶</a></h3>
 <p>Am văzut mai sus că pentru a pune o ierarhie de fișiere într-unul singur, folosim <code class="docutils literal notranslate"><span class="pre">tar</span></code>.
 Pentru a reduce dimensiunea arhivei folosim utilitarul <code class="docutils literal notranslate"><span class="pre">tar</span></code> astfel:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ tar -czvf inregistrari.tar.gz inregistrare_lab01.mov inregistrare_lab02.mov inregistrare_lab03.mov
@@ -797,13 +798,13 @@ student@uso:~$ ls -l
 </section>
 </section>
 <section id="comprimare-zip">
-<h2><span class="section-number">5.2. </span>Comprimare - <code class="docutils literal notranslate"><span class="pre">zip</span></code><a class="headerlink" href="#comprimare-zip" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">5.2. </span>Comprimare - <code class="docutils literal notranslate"><span class="pre">zip</span></code><a class="headerlink" href="#comprimare-zip" title="Permalink to this heading">¶</a></h2>
 <p>Acțiunea de comprimare este compusă din doi pași: <strong>arhivare</strong> și <strong>reducerea dimensiunii</strong> (<em>comprimare</em>).
 Utilitarul <code class="docutils literal notranslate"><span class="pre">zip</span></code> face ambii pași simultan.</p>
 <p>În continuare folosim utilitarul <code class="docutils literal notranslate"><span class="pre">zip</span></code> pentru arhivare și comprimare.
 Arhivarea este similară cu cea prezentată în subsecțiunea <a class="reference internal" href="#arhiva-tar"><span class="std std-ref">Arhivare - tar</span></a>, unde am folosit utilitarul <code class="docutils literal notranslate"><span class="pre">tar</span></code>.</p>
 <section id="id2">
-<h3><span class="section-number">5.2.1. </span>Crearea arhivelor<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">5.2.1. </span>Crearea arhivelor<a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h3>
 <p>Putem crea o arhivă folosind utilitarul <code class="docutils literal notranslate"><span class="pre">zip</span></code>, astfel:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ zip înregistrări.zip înregistrare_lab01.mov înregistrare_lab02.mov înregistrare_lab03.mov
   adding: înregistrare_lab01.mov <span class="o">(</span>deflated <span class="m">0</span>%<span class="o">)</span>
@@ -853,7 +854,7 @@ student@uso:~$ ls -lh
 <p>Pentru o mai bună înțelegere a comenzii de creare a arhivelor, inspectați manualul: <code class="docutils literal notranslate"><span class="pre">man</span> <span class="pre">zip</span></code>.</p>
 </div>
 <section id="id3">
-<h4><span class="section-number">5.2.1.1. </span>Exerciții - creare arhive<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h4>
+<h4><span class="section-number">5.2.1.1. </span>Exerciții - creare arhive<a class="headerlink" href="#id3" title="Permalink to this heading">¶</a></h4>
 <ol class="arabic simple">
 <li><ul class="simple">
 <li><p>Creați 3 fișiere noi care să conțină pe rând orașul natal, țara natală și liceul absolvit; verificați crearea fișierelor afișând conținutul directorului părinte.</p></li>
@@ -870,7 +871,7 @@ student@uso:~$ ls -lh
 </section>
 </section>
 <section id="id4">
-<h3><span class="section-number">5.2.2. </span>Afișarea conținutului arhivelor<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">5.2.2. </span>Afișarea conținutului arhivelor<a class="headerlink" href="#id4" title="Permalink to this heading">¶</a></h3>
 <p>Putem vizualiza conținutul arhivei astfel:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ zip -sf înregistrări.zip
 Archive contains:
@@ -881,7 +882,7 @@ Archive contains:
 </div>
 <p>Pentru a vizualiza arhiva <strong>fără</strong> dezarhivare folosim opțiunea <code class="docutils literal notranslate"><span class="pre">-sf</span></code> (prescurtare de la <em>show-files</em>).</p>
 <section id="exercitii-afisarea-continutului-unei-arhivei">
-<h4><span class="section-number">5.2.2.1. </span>Exerciții - afișarea conținutului unei arhivei<a class="headerlink" href="#exercitii-afisarea-continutului-unei-arhivei" title="Permalink to this headline">¶</a></h4>
+<h4><span class="section-number">5.2.2.1. </span>Exerciții - afișarea conținutului unei arhivei<a class="headerlink" href="#exercitii-afisarea-continutului-unei-arhivei" title="Permalink to this heading">¶</a></h4>
 <ul class="simple">
 <li><p>Acest exercițiu folosește arhiva creată la exercițiu anterior.</p></li>
 <li><p>Afișați conținutul arhivelor <code class="docutils literal notranslate"><span class="pre">personal_data.zip</span></code> și <code class="docutils literal notranslate"><span class="pre">net.zip</span></code> <strong>fără</strong> dezarhivare.</p></li>
@@ -889,7 +890,7 @@ Archive contains:
 </section>
 </section>
 <section id="dezarhivarea-arhivelor">
-<h3><span class="section-number">5.2.3. </span>Dezarhivarea arhivelor<a class="headerlink" href="#dezarhivarea-arhivelor" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">5.2.3. </span>Dezarhivarea arhivelor<a class="headerlink" href="#dezarhivarea-arhivelor" title="Permalink to this heading">¶</a></h3>
 <p>În momentul în care dezarhivăm un fișier de tip <em>zip</em>, fișierele din cadrul arhivei vor fi create în directorul curent (dacă nu se specifică altfel).
 Cu alte cuvinte, ierarhia de fișiere pe care am arhivat-o se păstrează, iar în momentul dezarhivării aceasta va arăta la fel ca înainte de arhivare.
 Pentru a vedea mai clar efectul operației de dezarhivare, ștergem fișierele <code class="docutils literal notranslate"><span class="pre">înregistrare_lab01.mov</span></code>, <code class="docutils literal notranslate"><span class="pre">înregistrare_lab02.mov</span></code>, <code class="docutils literal notranslate"><span class="pre">înregistrare_lab03.mov</span></code>, adică fișierele care se află în arhiva <em>înregistrări.zip</em>.</p>
@@ -974,7 +975,7 @@ drwxr-xr-x <span class="m">4</span> student student <span class="m">4</span>.0K 
 </div>
 <p>Puteți observa că am extras un singur fișier punând ca ultim parametru numele fișierului.</p>
 <section id="exercitii-dezarhivarea-unei-arhive">
-<h4><span class="section-number">5.2.3.1. </span>Exerciții - dezarhivarea unei arhive<a class="headerlink" href="#exercitii-dezarhivarea-unei-arhive" title="Permalink to this headline">¶</a></h4>
+<h4><span class="section-number">5.2.3.1. </span>Exerciții - dezarhivarea unei arhive<a class="headerlink" href="#exercitii-dezarhivarea-unei-arhive" title="Permalink to this heading">¶</a></h4>
 <ol class="arabic simple">
 <li><ul class="simple">
 <li><p>Creați un director cu numele <code class="docutils literal notranslate"><span class="pre">zip</span></code> în directorului <code class="docutils literal notranslate"><span class="pre">dezarhivare</span></code> ca în ierarhia de mai sus; verificați crearea afișând conținutul directorului <code class="docutils literal notranslate"><span class="pre">dezarhivare</span></code>.</p></li>
@@ -991,7 +992,7 @@ drwxr-xr-x <span class="m">4</span> student student <span class="m">4</span>.0K 
 </section>
 </section>
 <section id="id5">
-<h3><span class="section-number">5.2.4. </span>Adăugarea de noi fișiere la arhive<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">5.2.4. </span>Adăugarea de noi fișiere la arhive<a class="headerlink" href="#id5" title="Permalink to this heading">¶</a></h3>
 <p>Putem adăuga un nou fișier la arhivă folosind comanda <code class="docutils literal notranslate"><span class="pre">zip</span> <span class="pre">-u</span></code>:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ zip -u înregistrări.zip înregistrare_lab04.mov
   adding: înregistrare_lab04.mov <span class="o">(</span>deflated <span class="m">0</span>%<span class="o">)</span>
@@ -1010,7 +1011,7 @@ Total <span class="m">4</span> entries <span class="o">(</span><span class="m">1
 </div>
 <p>În exemplul de mai sus am adăugat <code class="docutils literal notranslate"><span class="pre">înregistrare_lab04.mov</span></code> la arhivă.</p>
 <section id="exercitii-adaugarea-unui-fisier-in-arhiva">
-<h4><span class="section-number">5.2.4.1. </span>Exerciții - adăugarea unui fișier în arhivă<a class="headerlink" href="#exercitii-adaugarea-unui-fisier-in-arhiva" title="Permalink to this headline">¶</a></h4>
+<h4><span class="section-number">5.2.4.1. </span>Exerciții - adăugarea unui fișier în arhivă<a class="headerlink" href="#exercitii-adaugarea-unui-fisier-in-arhiva" title="Permalink to this heading">¶</a></h4>
 <ul class="simple">
 <li><p>Creați un fișier <code class="docutils literal notranslate"><span class="pre">UPB</span></code> cu conținutul “Make UPB Great Again!”;</p></li>
 <li><p>Verificați conținutul arhivei <code class="docutils literal notranslate"><span class="pre">personal_data.zip</span></code>;</p></li>
@@ -1018,11 +1019,12 @@ Total <span class="m">4</span> entries <span class="o">(</span><span class="m">1
 <li><p>Verificați adăugarea fișierului la arhivă fără dezarhivare;</p></li>
 <li><p>Dezarhivați arhiva în directorul <code class="docutils literal notranslate"><span class="pre">personal_data_zip</span></code>.</p></li>
 </ul>
-<dl class="footnote brackets">
-<dt class="label" id="id6"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
-<dd><p>Metadatele sunt modalitatea sistemului de fișiere de a reține informații despre acesta: data creării, dimensiunea, utilizatorul ce deține fișierul, etc.</p>
-</dd>
-</dl>
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="id6" role="note">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
+<p>Metadatele sunt modalitatea sistemului de fișiere de a reține informații despre acesta: data creării, dimensiunea, utilizatorul ce deține fișierul, etc.</p>
+</aside>
+</aside>
 </section>
 </section>
 </section>
@@ -1043,7 +1045,7 @@ Total <span class="m">4</span> entries <span class="o">(</span><span class="m">1
 </ul><div class="footer" role="contentinfo">
       &#169; Copyright 2020, USO Team.
     <br>
-    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.3.0 with <a href="https://github.com/romnn/sphinx_press_theme">Press Theme</a>.
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 5.1.1 with <a href="https://github.com/romnn/sphinx_press_theme">Press Theme</a>.
 </div>
             </div>
           </div>
