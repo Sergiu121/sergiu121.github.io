@@ -5,9 +5,12 @@ Configurarea și administrarea serviciilor
 
 Scopul serviciilor este să ruleze în continuu și să primească cereri de la aplicații client, cum ar fi un client SSH, și să răspundă la aceste cereri.
 Serviciile sunt aplicații care rulează în continuu pe stație, spre deosebire de comenzi, cum ar fi ``find`` sau ``ls``, care rulează cât timp se execută comanda.
-Deoarece ne dorim să avem majoritatea timpului conectivitate la mașină, sau ne dorim să avem acces la paginile web folosite, serverele rulează fără oprire și servesc cereri venite de la clienți.
-Un sever / serviciu este oprit explicit de utilizator prin comenzi specifice sau este oprit la oprirea sistemului.
-Fără o intervenție explicită și fără oprirea sistemului, un server / serviciu va rula nedefinit.
+Serviciile mai sunt numite și aplicații server (server web, server SSH);
+a nu se confunda cu servere ca echipamente fizice;
+în această secțiune, noțiunea de "server" se va referi la aplicații server.
+Deoarece ne dorim să avem majoritatea timpului conectivitate la sistem, sau ne dorim să avem acces la paginile web folosite, serverele rulează fără oprire și servesc cereri venite de la clienți.
+Un server este oprit explicit de utilizator prin comenzi specifice sau este oprit la oprirea sistemului.
+Fără o intervenție explicită și fără oprirea sistemului, un server va rula nedefinit.
 
 Vrem să pornim și să configurăm servicii instalate în sistem, precum:
 
@@ -15,7 +18,7 @@ Vrem să pornim și să configurăm servicii instalate în sistem, precum:
 
 * un server SSH, pentru a ne conecta la stație;
 
-* un serviciu care ține un tunel SSH deschis către stație
+* un serviciu care ține un tunel SSH deschis către stație.
 
 Avem nevoie de o interfață unică, cu o sintaxă minimală, care ne permite să gestionăm serviciile pe sistem, și care ne permite sa generăm noi propriile servicii.
 
@@ -32,7 +35,7 @@ Aceasta se regăsește pe majoritatea distribuțiilor moderne de Linux.
 Verificarea stării unui serviciu
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Atunci când instalăm o aplicație care rulează sub forma unui serviciu, vom putea să îi verificăm starea folosind comanda ``systemctl status``.
+Atunci când instalăm o aplicație care rulează sub forma unui serviciu, vom putea să îi verificăm starea folosind comanda ``systemctl status``:
 
 .. code-block::
 
@@ -63,7 +66,7 @@ Programul ``systemd`` se ocupă de pornirea, oprirea și gestionarea serviciilor
 Fișierul care gestionează serviciul SSH este ``/lib/systemd/system/ssh.service``.
 Îl putem identifica din rezultatul comenzii ``systemctl status``.
 
-Atunci când un serviciu este instalat, acesta vine la pachet cu fișierul cu extensia ``.service`` cu care acesta va fi gestionat de ``systemd``, după cum putem vedea în rezultatul comenzii de mai jos:
+Atunci când un serviciu este instalat, acesta vine la pachet cu fișierul cu extensia ``.service`` cu care acesta va fi gestionat de ``systemd``, după cum putem vedea în rezultatul comenzii de mai jos [#ntp]_:
 
 .. code-block::
 
@@ -74,11 +77,6 @@ Atunci când un serviciu este instalat, acesta vine la pachet cu fișierul cu ex
     Created symlink /etc/systemd/system/multi-user.target.wants/ntp.service → /lib/systemd/system/ntp.service.
     ntp-systemd-netif.service is a disabled or a static unit, not starting it.
     [...]
-
-.. addmonition:: Observație
-
-    Serviciul ``ntp`` este folosit pentru sincronizarea ceasului cu surse precise de timp din Internet.
-    Acesta este un serviciu important pentru buna funcționare a aplicațiilor în Internet, deoarece o configurare a timpului pentru o stație poate duce la o funcționare incorectă a acesteia în comunicare.
 
 .. _task_admin_services_config_usage_status_ex:
 
@@ -92,19 +90,19 @@ Afișați starea serviciului ``thermald``, care gestionează senzorii de tempera
 Oprirea unui serviciu
 ^^^^^^^^^^^^^^^^^^^^^
 
-Pentru a opri un serviciu vom folosi comanda ``systemctl stop`` în felul următor:
+Pentru a opri un serviciu vom folosi comanda ``systemctl stop``:
 
 .. code-block::
 
     student@uso:~$ sudo netstat -tlpn
-    [sudo] password for student: 
+    [sudo] password for student:
     Active Internet connections (only servers)
-    Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name    
-    tcp        0      0 127.0.0.53:53           0.0.0.0:*               LISTEN      501/systemd-resolve 
-    tcp        0      0 0.0.0.0:22              0.0.0.0:*               LISTEN      4425/sshd: /usr/sbi 
-    tcp        0      0 127.0.0.1:631           0.0.0.0:*               LISTEN      541/cupsd           
-    tcp6       0      0 :::22                   :::*                    LISTEN      4425/sshd: /usr/sbi 
-    tcp6       0      0 ::1:631                 :::*                    LISTEN      541/cupsd           
+    Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name
+    tcp        0      0 127.0.0.53:53           0.0.0.0:*               LISTEN      501/systemd-resolve
+    tcp        0      0 0.0.0.0:22              0.0.0.0:*               LISTEN      4425/sshd: /usr/sbi
+    tcp        0      0 127.0.0.1:631           0.0.0.0:*               LISTEN      541/cupsd
+    tcp6       0      0 :::22                   :::*                    LISTEN      4425/sshd: /usr/sbi
+    tcp6       0      0 ::1:631                 :::*                    LISTEN      541/cupsd
     student@uso:~$ sudo systemctl stop ssh
     [sudo] password for student:
     student@uso:~$ sudo systemctl status ssh
@@ -126,7 +124,7 @@ Pentru a opri un serviciu vom folosi comanda ``systemctl stop`` în felul următ
     ian 09 04:58:28 uso systemd[1]: ssh.service: Succeeded.
     ian 09 04:58:28 uso systemd[1]: Stopped OpenBSD Secure Shell server.
 
-Pentru a verifica dacă mai funcționează serviciul SSH vom folosi comanda ``netstat`` pentru a verifica dacă mai ascultă serverul SSH pe portul ``22``.
+Pentru a verifica dacă mai funcționează serviciul SSH, vom folosi comanda ``netstat``:
 
 .. code-block::
 
@@ -137,10 +135,12 @@ Pentru a verifica dacă mai funcționează serviciul SSH vom folosi comanda ``ne
     tcp        0      0 127.0.0.1:631           0.0.0.0:*               LISTEN      541/cupsd
     tcp6       0      0 ::1:631                 :::*                    LISTEN      541/cupsd
 
+Opțiunea ``-tlpn`` (de la *TCP connections*, *listening applications* - servicii, *program name*, *numeric values*) ne afișează serviciile de rețea TCP active.
+De avut în vedere că nu toate serviciile sunt servicii de rețea, deci ``netstat`` nu va afișa informații despre toate serviciile.
 Observăm că nu ascultă niciun program pe portul ``22``.
 
 Recapitulare: Afișarea stării serviciilor
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Afișați starea serviciului ``ssh``.
 
@@ -183,15 +183,15 @@ Repornirea unui serviciu
 
 Pe parcursul rulării serviciilor pe un sistem, vom dori să schimbăm configurația unui serviciu sau să adăugăm parametri de rulare în plus.
 Majoritatea aplicațiilor citesc fișierele de configurare o singură dată, atunci când sunt pornite, deci orice modificare ulterioară a fișierelor de configurare nu va fi sesizată de serviciu.
-Din acest motiv, avem nevoie să repornim servicii.
+Din acest motiv, avem nevoie să repornim servicii care să își modifice comportamentul în funcție de actualizările fișierelor de configurare.
 
 De exemplu, vrem să permitem utilizatorilor să se autentifice ca utilizatorul ``root`` pe sistemul nostru.
-Acest lucru este dezactivat în mod predefinit de serviciu din motive de securitate.
+Din motive de securitate acest lucru este dezactivat în mod predefinit în configurația serviciului SSH.
 
 .. code-block::
 
     student@uso:~$ ssh root@localhost
-    root@localhost's password: 
+    root@localhost's password:
     Permission denied, please try again.
     [...]
 
@@ -206,7 +206,7 @@ Observăm că inițial nu puteam să ne conectăm la mașina locală ca utilizat
     [...]
     root@uso:~#
 
-Pentru a face acest lucru, avem nevoie să reconfigurăm serviciul SSH.
+Pentru a face acest lucru, avem nevoie să reconfigurăm și să repornim serviciul SSH.
 Odată ce am adăugat opțiunea ``PermitRootLogin yes`` în fișierul de configurare al serviciului și am repornit serviciului, am reușit să ne autentificăm ca utilizatorul ``root``.
 
 .. _task_admin_services_config_usage_enable:
@@ -214,13 +214,17 @@ Odată ce am adăugat opțiunea ``PermitRootLogin yes`` în fișierul de configu
 Pornirea unui serviciu la startup
 """""""""""""""""""""""""""""""""
 
-Atunci când configurăm un sistem și vrem să definim servicii care rulează pe el, ne dorim ca serviciile să fie ``setup and forget``, să nu fie necesar să le supraveghem și să le monitorizăm prea mult.
+Atunci când configurăm un sistem și vrem să definim servicii care rulează pe acesta, ne dorim ca serviciile să fie ``setup and forget``, să nu fie necesar să le supraveghem prea mult.
 Un mod de a ne ușura lucrul cu serverul este pornirea serviciilor la startup, ca să nu fie nevoie sa intervenim noi după secvența de pornire a sistemului, ca să le pornim de mână, folosind comanda ``systemctl start``
 
-Putem să vedem dacă un sistem pornește automat la startup din rezultatul comenzii ``systemctl status`` pe linia care începe cu ``Loaded:``.
-Dacă rezultatul conține șirul de caractere ``enabled``, atunci serviciul pornește la startup, iar dacă aceasta conține șirul ``disabled``, atunci serviciul nu va porni la startup.
+RD: Poate ar merge mai sus o referință analogie cu montarea automată SSHFS prin configurarea /etc/fstab.
 
-Pentru a dezactiva un serviciu la startup vom folosi comanda ``systemctl disable`` în felul următor:
+Putem să vedem dacă un sistem pornește automat la startup urmărind rezultatul comenzii ``systemctl status``;
+În rezultatul comenzii urmărim linia care începe cu ``Loaded:``.
+Dacă rezultatul conține șirul de caractere ``enabled``, atunci serviciul pornește la startup.
+Dacă aceasta conține șirul ``disabled``, atunci serviciul nu va porni la startup.
+
+Pentru a dezactiva un serviciu la startup vom folosi comanda ``systemctl disable``:
 
 .. code-block::
 
@@ -290,9 +294,10 @@ Configurarea unui serviciu
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 În majoritatea cazurilor, serviciile sunt configurate prin fișiere de configurare.
-Acestea se pot găsi în mai multe locuri:
+Acestea se pot găsi în diferite locuri în sistemul de fișiere, depinzând de serviciu, sistem de operare, distribuție.
+Locuri uzuale pentru fișiere de configurare sunt:
 
-* ``/etc/default/``, unde sunt fișiere care permit modificarea opțiunilor de rulare a unei comenzi, ca și cum am adăuga noi opțiuni la rularea unei comenzi.
+* ``/etc/default/``, unde sunt fișiere care permit modificarea opțiunilor de rulare a unei comenzi.
   Aceste fișiere sunt citite de ``systemd``, înainte să pornească serviciul;
 * directorul ``/etc/nume_serviciu/`` , unde se află fișierele de configurare sau direct fișierul ``/etc/nume_serviciu``.
   Aceste fișiere sunt citite și interpretate de servici.
@@ -303,16 +308,17 @@ Acestea se pot găsi în mai multe locuri:
 Exerciții: Gestiunea serviciilor
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-#) Configurați serviciul SSH pentru a permite autentificarea ca utilizatorul ``root`` folosind numai autentificare bazată pe chei.
+#. Configurați serviciul SSH pentru a permite autentificarea ca utilizatorul ``root`` folosind numai autentificare bazată pe chei.
 
-#) Instalați serviciul ``vsftpd``. Acesta este un serviciu de transfer de fișiere.
+#. Instalați serviciul ``vsftpd``, un serviciu de transfer de fișiere.
 
-    #) Realizați modificările necesare astfel încât acest serviciu să **NU** pornească la startup;
+    #. Realizați modificările necesare astfel încât acest serviciu să **NU** pornească la startup.
 
-    #) Dezactivați funcționalitatea bazată pe IPv6 a serviciului. **Hint**: ``listen_ipv6``, ``listen``.
+    #. Dezactivați funcționalitatea bazată pe IPv6 a serviciului.
+       **Hint**: ``listen_ipv6``, ``listen``.
 
-    #) Asigurați-vă că serviciul rulează.
-       Acest serviciu ascultă pe portul ``21``.
+    #. Asigurați-vă că serviciul rulează.
+       În implicit, serviciul ascultă conexiuni de rețea pe portul TCP ``21``.
 
 .. _task_admin_services_config_custom:
 
@@ -350,9 +356,9 @@ Acest fișier va avea următorul conținut:
 Acesta este un șablon pe care putem să îl folosim pentru multe tipuri de servicii. Opțiunile relevante pentru înțelegerea formatului sunt:
 
 * ``ExecStart``, comanda care se va executa pentru a porni serviciul;
-* ``ExecStop``, comanda care se va executa pentru a opri serviciul
+* ``ExecStop``, comanda care se va executa pentru a opri serviciul.
 
-.. addmonition:: Atenție
+.. admonition:: Atenție
 
     Pentru ca acest serviciu să funcționeze, este necesar să copiați cheia stației ``uso`` pe mașina ``fep.grid.pub.ro``.
 
@@ -362,15 +368,15 @@ Putem să verificăm dacă a pornit proxy-ul verificând dacă ascultă vreun se
 
     student@uso:~$ sudo netstat -tlpn
     Active Internet connections (only servers)
-    Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name    
-    tcp        0      0 127.0.0.1:1337          0.0.0.0:*               LISTEN      32177/ssh           
-    tcp        0      0 0.0.0.0:21              0.0.0.0:*               LISTEN      15794/vsftpd        
-    tcp        0      0 127.0.0.53:53           0.0.0.0:*               LISTEN      7088/systemd-resolv 
-    tcp        0      0 0.0.0.0:22              0.0.0.0:*               LISTEN      10459/sshd: /usr/sb 
-    tcp        0      0 127.0.0.1:631           0.0.0.0:*               LISTEN      541/cupsd           
-    tcp6       0      0 ::1:1337                :::*                    LISTEN      32177/ssh           
-    tcp6       0      0 :::22                   :::*                    LISTEN      10459/sshd: /usr/sb 
-    tcp6       0      0 ::1:631                 :::*                    LISTEN      541/cupsd           
+    Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name
+    tcp        0      0 127.0.0.1:1337          0.0.0.0:*               LISTEN      32177/ssh
+    tcp        0      0 0.0.0.0:21              0.0.0.0:*               LISTEN      15794/vsftpd
+    tcp        0      0 127.0.0.53:53           0.0.0.0:*               LISTEN      7088/systemd-resolv
+    tcp        0      0 0.0.0.0:22              0.0.0.0:*               LISTEN      10459/sshd: /usr/sb
+    tcp        0      0 127.0.0.1:631           0.0.0.0:*               LISTEN      541/cupsd
+    tcp6       0      0 ::1:1337                :::*                    LISTEN      32177/ssh
+    tcp6       0      0 :::22                   :::*                    LISTEN      10459/sshd: /usr/sb
+    tcp6       0      0 ::1:631                 :::*                    LISTEN      541/cupsd
 
 .. _task_admin_services_config_custom_ex:
 
@@ -378,3 +384,13 @@ Exercițiu: Definirea unui serviciu personalizat
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Realizați configurația necesară astfel încât să creați un tunel deschis permanent de pe stația ``uso``, care primește mesaje din portul ``4242`` al stației de la adresa ``10.10.10.3`` și le trimite către portul ``22`` al mașinii locale.
+
+RD: Ori suplimentar, ori îl locul acestui exercițiu, le-aș da un link și le-aș spune să configureze ``autossh`` în mod persistent.
+Mai ales că e varianta sănătoasă și realistă.
+
+.. rubric:: Note de subsol
+
+.. [#ntp]
+
+    Serviciul ``ntp`` este folosit pentru sincronizarea ceasului cu surse precise de timp din Internet.
+    Acesta este un serviciu important pentru buna funcționare a aplicațiilor în Internet, deoarece o configurare a timpului pentru o stație poate duce la o funcționare incorectă a acesteia în comunicare.
