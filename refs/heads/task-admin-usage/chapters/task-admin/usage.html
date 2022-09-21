@@ -1,19 +1,24 @@
 <!DOCTYPE html>
-<html >
+<html  lang="en">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
       <title>3. Folosirea stației la distanță</title>
     
       <link rel="stylesheet" href="../../_static/pygments.css">
       <link rel="stylesheet" href="../../_static/theme.css">
-      <link rel="stylesheet" href="../../_static/romnnn_sphinx_press_theme.css">
+      <link rel="stylesheet" href="../../_static/romnn_sphinx_press_theme.css">
+          <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+          <link rel="stylesheet" href="../../_static/css/theme.css " type="text/css" />
       
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
 
       <!-- sphinx script_files -->
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../_static/doctools.js"></script>
         <script src="../../_static/my_actions.js"></script>
 
@@ -608,8 +613,8 @@
 <hr>
           <div class="content" role="main">
             
-  <div class="section" id="folosirea-statiei-la-distanta">
-<span id="task-admin-usage"></span><h1><span class="section-number">3. </span>Folosirea stației la distanță<a class="headerlink" href="#folosirea-statiei-la-distanta" title="Permalink to this headline">¶</a></h1>
+  <section id="folosirea-statiei-la-distanta">
+<span id="task-admin-usage"></span><h1><span class="section-number">3. </span>Folosirea stației la distanță<a class="headerlink" href="#folosirea-statiei-la-distanta" title="Permalink to this heading">¶</a></h1>
 <p>Odată ce am reușit să realizăm o conexiune persistentă între stația locală și workstationul remote pe care vrem să lucrăm și ne-am configurat mediul de lucru la distanță, vrem să folosim stația.</p>
 <p>Pentru folosirea stației vom presupune următorul flux de lucru:</p>
 <ul class="simple">
@@ -618,26 +623,29 @@
 <li><p>compilăm un program, sau rulăm o aplicație</p></li>
 <li><p>ne deconectăm de la sistem</p></li>
 </ul>
-<div class="section" id="folosirea-tmux">
-<span id="task-admin-usage-tmux"></span><h2><span class="section-number">3.1. </span>Folosirea <code class="docutils literal notranslate"><span class="pre">tmux</span></code><a class="headerlink" href="#folosirea-tmux" title="Permalink to this headline">¶</a></h2>
-<p>Spre deosebire de un laptop unde, dacă închidem ecranul și îl băgăm în ghiozdan, acesta intră în hibernare, stația de lucru poate să lucreze în continuare.
-Acest lucru ne oferă persistență mediului de lucru, astfel nu mai este nevoie să repornim IDE-ul, mediul de lucru, taburile pentru debugging și așa mai departe.</p>
-<p>Atunci când ne conectăm la un calculator printr-un client SSH și rulăm comenzi, acestea vor rula în foreground.</p>
-<p>Dacă avem o aplicație care rulează mult timp, cum ar fi o căutare intensă în sistemul de fișiere folosind <code class="docutils literal notranslate"><span class="pre">updatedb</span></code>, și conexiunea SSH se întrerupe, se va întrerupe și execuția comenzii <code class="docutils literal notranslate"><span class="pre">updatedb</span></code>.</p>
+<section id="folosirea-tmux">
+<span id="task-admin-usage-tmux"></span><h2><span class="section-number">3.1. </span>Folosirea <code class="docutils literal notranslate"><span class="pre">tmux</span></code><a class="headerlink" href="#folosirea-tmux" title="Permalink to this heading">¶</a></h2>
+<p>Spre deosebire de un laptop unde, dacă închidem ecranul și îl punem în ghiozdan, acesta intră în hibernare, stația de lucru poate să lucreze în continuare.
+Acest lucru ne oferă persistența mediului de lucru;
+astfel nu mai este nevoie să repornim IDE-ul, mediul de lucru, taburile pentru debugging și așa mai departe.</p>
+<p>Totuși, atunci când ne conectăm la un calculator printr-un client SSH și rulăm comenzi, acestea vor rula în foreground.
+Dacă avem o aplicație care rulează mult timp, cum ar fi o căutare intensă în sistemul de fișiere folosind <code class="docutils literal notranslate"><span class="pre">updatedb</span></code>, și conexiunea SSH se întrerupe, se va întrerupe și execuția comenzii <code class="docutils literal notranslate"><span class="pre">updatedb</span></code>.</p>
 <p>Pentru a rezolva această problemă și a ne folosi de disponibilitatea oferită de un sistem distanță, vom folosi utilitarul <code class="docutils literal notranslate"><span class="pre">tmux</span></code>.
-Acest utilitar pornește o sesiune de shell care este independentă de terminalul în care rulează, astfel, putem să ne conectăm și să ne deconectăm de la ea.</p>
-<div class="section" id="crearea-unei-sesiuni-tmux">
-<span id="task-admin-usage-tmux-create"></span><h3><span class="section-number">3.1.1. </span>Crearea unei sesiuni <code class="docutils literal notranslate"><span class="pre">tmux</span></code><a class="headerlink" href="#crearea-unei-sesiuni-tmux" title="Permalink to this headline">¶</a></h3>
-<p>Fiecare pornire a aplicației <code class="docutils literal notranslate"><span class="pre">tmux</span></code> deschide o nouă sesiune.
-Putem considera fiecare sesiune ca o fereastră a unui browser.
+Acest utilitar pornește o sesiune de shell care este independentă de terminalul în care rulează;
+adică putem să ne conectăm și să ne deconectăm de la sesiunea de shell.</p>
+<section id="crearea-unei-sesiuni-tmux">
+<span id="task-admin-usage-tmux-create"></span><h3><span class="section-number">3.1.1. </span>Crearea unei sesiuni <code class="docutils literal notranslate"><span class="pre">tmux</span></code><a class="headerlink" href="#crearea-unei-sesiuni-tmux" title="Permalink to this heading">¶</a></h3>
+<p>Fiecare pornire a aplicației <code class="docutils literal notranslate"><span class="pre">tmux</span></code> deschide o nouă sesiune.</p>
+<p>RD: Nu am înțeles ce ai vrut să zici aici.</p>
+<p>Putem considera fiecare sesiune ca o fereastră a unui browser.
 De regulă nu este nevoie să avem mai multe ferestre de browser, sau de <code class="docutils literal notranslate"><span class="pre">tmux</span></code> pornite, deoarece avem alte moduri de organizare a spațiului de lucru cu care putem să lucrăm mai ușor folosind scurtături.
-În plus, pentru fiecare sesiune de <code class="docutils literal notranslate"><span class="pre">tmux</span></code> ar fi nevoie să pornim un nou client SSH, lucru care, în funție de modul de conectare la stație, adaugă pași în plus.</p>
-<div class="figure align-default">
+În plus, pentru fiecare sesiune de <code class="docutils literal notranslate"><span class="pre">tmux</span></code> ar fi nevoie să pornim un nou client SSH, lucru care, în funcție de modul de conectare la stație, adaugă pași în plus.</p>
+<figure class="align-default">
 <img alt="Pornirea unei sesiun ``tmux``" src="../../_images/tmux-start.gif" />
-</div>
-</div>
-<div class="section" id="detasarea-si-reatasarea-la-o-sesiune-tmux">
-<span id="task-admin-usage-tmux-session"></span><h3><span class="section-number">3.1.2. </span>Detașarea și reatașarea la o sesiune <code class="docutils literal notranslate"><span class="pre">tmux</span></code><a class="headerlink" href="#detasarea-si-reatasarea-la-o-sesiune-tmux" title="Permalink to this headline">¶</a></h3>
+</figure>
+</section>
+<section id="detasarea-si-reatasarea-la-o-sesiune-tmux">
+<span id="task-admin-usage-tmux-session"></span><h3><span class="section-number">3.1.2. </span>Detașarea și reatașarea la o sesiune <code class="docutils literal notranslate"><span class="pre">tmux</span></code><a class="headerlink" href="#detasarea-si-reatasarea-la-o-sesiune-tmux" title="Permalink to this heading">¶</a></h3>
 <p>Aplicația <code class="docutils literal notranslate"><span class="pre">tmux</span></code> permite detașarea de la o sesiune folosind combinația de taste <code class="docutils literal notranslate"><span class="pre">Ctrl+v</span> <span class="pre">d</span></code></p>
 <div class="admonition-observatie admonition">
 <p class="admonition-title">Observație</p>
@@ -645,9 +653,9 @@ De regulă nu este nevoie să avem mai multe ferestre de browser, sau de <code c
 Această combinație este predefinită pe mașina virtuală <code class="docutils literal notranslate"><span class="pre">USO.ova</span></code>, dar pe sistemele obișnuite combinația va fi <code class="docutils literal notranslate"><span class="pre">Ctrl+b</span></code>.
 Putem modifica prefixul în fișierul de configurare <code class="docutils literal notranslate"><span class="pre">tmux.conf</span></code>.</p>
 </div>
-<div class="figure align-default">
+<figure class="align-default">
 <img alt="Detașarea de la o sesiune ``tmux``" src="../../_images/tmux-dettach.gif" />
-</div>
+</figure>
 <p>Pentru a ne reatașa la o sesiune trebuie să ne dăm seama la care sesiune să ne atașăm.
 Fiecare sesiune <code class="docutils literal notranslate"><span class="pre">tmux</span></code> are asociat un identificator.</p>
 <p>Vom afișa toate sesiunile deschise folosind comanda <code class="docutils literal notranslate"><span class="pre">tmux</span> <span class="pre">ls</span></code>:</p>
@@ -657,12 +665,12 @@ Fiecare sesiune <code class="docutils literal notranslate"><span class="pre">tmu
 </div>
 <p>În momentul de față există o singură sesiune cu identificatorul <code class="docutils literal notranslate"><span class="pre">0</span></code>.</p>
 <p>Pentru a ne reatașa la sesiune folosim comanda <code class="docutils literal notranslate"><span class="pre">tmux</span> <span class="pre">attach-session</span> <span class="pre">-t</span> <span class="pre">0</span></code>.</p>
-<div class="figure align-default">
+<figure class="align-default">
 <img alt="Reatașarea la o sesiune ``tmux``" src="../../_images/tmux-attach.gif" />
-</div>
-</div>
-<div class="section" id="taburi-in-tmux">
-<span id="task-admin-usage-tmux-tabs"></span><h3><span class="section-number">3.1.3. </span>Taburi în <code class="docutils literal notranslate"><span class="pre">tmux</span></code><a class="headerlink" href="#taburi-in-tmux" title="Permalink to this headline">¶</a></h3>
+</figure>
+</section>
+<section id="taburi-in-tmux">
+<span id="task-admin-usage-tmux-tabs"></span><h3><span class="section-number">3.1.3. </span>Taburi în <code class="docutils literal notranslate"><span class="pre">tmux</span></code><a class="headerlink" href="#taburi-in-tmux" title="Permalink to this heading">¶</a></h3>
 <p>Pentru a ne organiza terminalele deschise pe stația de la distanță, recomandăm folosirea taburilor (numite ferestre - <em>window</em> în <code class="docutils literal notranslate"><span class="pre">tmux</span></code>), deoarece acestea sunt deschise pe durata sesiunii și permit crearea și gestiunea facilă.</p>
 <p>De exemplu, pentru a lucra la o aplicație, avem nevoie să deschidem într-un tab documentul sursă pe care îl gestionăm, într-un tab avem un shell în care compilăm aplicația și într-un tab rulăm comenzi de verificare a aplicației.
 Având fiecare tab cu sarcina sa desemnată, păstrăm un istoric mai curat și mai ușor de interpretat.
@@ -673,17 +681,17 @@ Astfel vom reduce numărul de comenzi pe care le rulăm pentru a reporni editoru
 <p>În bara de taburi din terminal a apărut un nou tab cu denumirea <code class="docutils literal notranslate"><span class="pre">1:bash*</span></code>.</p>
 </div>
 <p>Fiecare tab are propriul identificator și propriul nume.
-De exemplu, <code class="docutils literal notranslate"><span class="pre">Ctrl+v</span> <span class="pre">1</span></code> ne va plasa pe primul tab, iar <code class="docutils literal notranslate"><span class="pre">Ctrl+v</span> <span class="pre">2</span></code> ne va plasa pe al doilea tab.</p>
-<div class="figure align-default">
+De exemplu, <code class="docutils literal notranslate"><span class="pre">Ctrl+v</span> <span class="pre">0</span></code> ne va plasa pe primul tab, iar <code class="docutils literal notranslate"><span class="pre">Ctrl+v</span> <span class="pre">1</span></code> ne va plasa pe al doilea tab.</p>
+<figure class="align-default">
 <img alt="Schimbarea taburilor în ``tmux``" src="../../_images/tmux-tabs.gif" />
-</div>
+</figure>
 <div class="admonition-observatie admonition">
 <p class="admonition-title">Observație</p>
 <p>Odată ce se schimbă tabul activ se schimbă și sublinierea tabului activ din bara de taburi.</p>
 </div>
-</div>
-<div class="section" id="exercitii">
-<span id="task-admin-usage-tmux-ex"></span><h3><span class="section-number">3.1.4. </span>Exerciții<a class="headerlink" href="#exercitii" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="exercitii">
+<span id="task-admin-usage-tmux-ex"></span><h3><span class="section-number">3.1.4. </span>Exerciții<a class="headerlink" href="#exercitii" title="Permalink to this heading">¶</a></h3>
 <ol class="arabic simple">
 <li><p>Creați două sesiuni de <code class="docutils literal notranslate"><span class="pre">tmux</span></code>.</p></li>
 <li><p>În prima sesiune creată deschideți două taburi.
@@ -692,13 +700,13 @@ Rulați în primul tab comanda <code class="docutils literal notranslate"><span 
 Rulați în primul tab comanda <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">apt-get</span> <span class="pre">update</span></code>, rulați în al doilea terminal comanda <code class="docutils literal notranslate"><span class="pre">iostat</span> <span class="pre">-x</span> <span class="pre">2</span> <span class="pre">5</span></code> și în al treilea tab rulați comanda <code class="docutils literal notranslate"><span class="pre">tail</span> <span class="pre">-f</span> <span class="pre">/var/log/syslog</span></code>.
 Reveniți la primul tab din sesiune.</p></li>
 </ol>
-</div>
-</div>
-<div class="section" id="scenarii-de-folosire-a-sistemului-la-distanta">
-<span id="task-admin-usage-scenarios"></span><h2><span class="section-number">3.2. </span>Scenarii de folosire a sistemului la distanță<a class="headerlink" href="#scenarii-de-folosire-a-sistemului-la-distanta" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="scenarii-de-folosire-a-sistemului-la-distanta">
+<span id="task-admin-usage-scenarios"></span><h2><span class="section-number">3.2. </span>Scenarii de folosire a sistemului la distanță<a class="headerlink" href="#scenarii-de-folosire-a-sistemului-la-distanta" title="Permalink to this heading">¶</a></h2>
 <p>Vom folosi această subsecțiune ca un tutorial pentru a exemplifica un workflow pentru lucrul la distanță.</p>
-</div>
-</div>
+</section>
+</section>
 
 
           </div>
@@ -715,7 +723,7 @@ Reveniți la primul tab din sesiune.</p></li>
 </ul><div class="footer" role="contentinfo">
       &#169; Copyright 2020, USO Team.
     <br>
-    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.4.3 with <a href="https://github.com/romnnn/sphinx_press_theme">Press Theme</a>.
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 5.1.1 with <a href="https://github.com/romnn/sphinx_press_theme">Press Theme</a>.
 </div>
             </div>
           </div>

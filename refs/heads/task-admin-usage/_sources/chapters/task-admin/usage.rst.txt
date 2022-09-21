@@ -17,15 +17,16 @@ Pentru folosirea stației vom presupune următorul flux de lucru:
 Folosirea ``tmux``
 ------------------
 
-Spre deosebire de un laptop unde, dacă închidem ecranul și îl băgăm în ghiozdan, acesta intră în hibernare, stația de lucru poate să lucreze în continuare.
-Acest lucru ne oferă persistență mediului de lucru, astfel nu mai este nevoie să repornim IDE-ul, mediul de lucru, taburile pentru debugging și așa mai departe.
+Spre deosebire de un laptop unde, dacă închidem ecranul și îl punem în ghiozdan, acesta intră în hibernare, stația de lucru poate să lucreze în continuare.
+Acest lucru ne oferă persistența mediului de lucru;
+astfel nu mai este nevoie să repornim IDE-ul, mediul de lucru, taburile pentru debugging și așa mai departe.
 
-Atunci când ne conectăm la un calculator printr-un client SSH și rulăm comenzi, acestea vor rula în foreground.
-
+Totuși, atunci când ne conectăm la un calculator printr-un client SSH și rulăm comenzi, acestea vor rula în foreground.
 Dacă avem o aplicație care rulează mult timp, cum ar fi o căutare intensă în sistemul de fișiere folosind ``updatedb``, și conexiunea SSH se întrerupe, se va întrerupe și execuția comenzii ``updatedb``.
 
 Pentru a rezolva această problemă și a ne folosi de disponibilitatea oferită de un sistem distanță, vom folosi utilitarul ``tmux``.
-Acest utilitar pornește o sesiune de shell care este independentă de terminalul în care rulează, astfel, putem să ne conectăm și să ne deconectăm de la ea.
+Acest utilitar pornește o sesiune de shell care este independentă de terminalul în care rulează;
+adică putem să ne conectăm și să ne deconectăm de la sesiunea de shell.
 
 .. _task_admin_usage_tmux_create:
 
@@ -33,9 +34,12 @@ Crearea unei sesiuni ``tmux``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Fiecare pornire a aplicației ``tmux`` deschide o nouă sesiune.
+
+RD: Nu am înțeles ce ai vrut să zici aici.
+
 Putem considera fiecare sesiune ca o fereastră a unui browser.
 De regulă nu este nevoie să avem mai multe ferestre de browser, sau de ``tmux`` pornite, deoarece avem alte moduri de organizare a spațiului de lucru cu care putem să lucrăm mai ușor folosind scurtături.
-În plus, pentru fiecare sesiune de ``tmux`` ar fi nevoie să pornim un nou client SSH, lucru care, în funție de modul de conectare la stație, adaugă pași în plus.
+În plus, pentru fiecare sesiune de ``tmux`` ar fi nevoie să pornim un nou client SSH, lucru care, în funcție de modul de conectare la stație, adaugă pași în plus.
 
 .. figure:: ./gifs/tmux-start.gif
     :alt: Pornirea unei sesiun ``tmux``
@@ -91,7 +95,7 @@ Pentru a porni un nou tab folosim combinația de taste ``Ctrl+v c``.
     În bara de taburi din terminal a apărut un nou tab cu denumirea ``1:bash*``.
 
 Fiecare tab are propriul identificator și propriul nume.
-De exemplu, ``Ctrl+v 1`` ne va plasa pe primul tab, iar ``Ctrl+v 2`` ne va plasa pe al doilea tab.
+De exemplu, ``Ctrl+v 0`` ne va plasa pe primul tab, iar ``Ctrl+v 1`` ne va plasa pe al doilea tab.
 
 .. figure:: ./gifs/tmux-tabs.gif
     :alt: Schimbarea taburilor în ``tmux``
@@ -105,12 +109,12 @@ De exemplu, ``Ctrl+v 1`` ne va plasa pe primul tab, iar ``Ctrl+v 2`` ne va plasa
 Exerciții
 ^^^^^^^^^
 
-#) Creați două sesiuni de ``tmux``.
+#. Creați două sesiuni de ``tmux``.
 
-#) În prima sesiune creată deschideți două taburi.
+#. În prima sesiune creată deschideți două taburi.
    Rulați în primul tab comanda ``htop`` și în al doilea tab deschideți fișierul ``/etc/passwd`` folosind editorul de text ``nano``.
 
-#) În a doua sesiune creată deschideți trei taburi.
+#. În a doua sesiune creată deschideți trei taburi.
    Rulați în primul tab comanda ``sudo apt-get update``, rulați în al doilea terminal comanda ``iostat -x 2 5`` și în al treilea tab rulați comanda ``tail -f /var/log/syslog``.
    Reveniți la primul tab din sesiune.
 
