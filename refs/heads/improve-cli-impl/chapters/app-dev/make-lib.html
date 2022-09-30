@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html  lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+      <title>4. Legarea executabilelor folosind biblioteci externe</title>
+    
+      <link rel="stylesheet" href="../../_static/pygments.css">
+      <link rel="stylesheet" href="../../_static/theme.css">
+      <link rel="stylesheet" href="../../_static/romnn_sphinx_press_theme.css">
+          <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+          <link rel="stylesheet" href="../../_static/css/theme.css " type="text/css" />
+      
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+
+      <!-- sphinx script_files -->
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+        <script src="../../_static/my_actions.js"></script>
+
+      
+      <script src="../../_static/theme-vendors.js"></script>
+      <script src="../../_static/theme.js" defer></script>
+    
+  <link rel="index" title="Index" href="../../genindex.html" />
+  <link rel="search" title="Search" href="../../search.html" />
+  <link rel="next" title="5. Introducere în utilitarul Make și fișiere Makefile" href="make-simple-automation.html" />
+  <link rel="prev" title="3. Compilarea unui program din fișiere multiple" href="make-multiple.html" />
+    <link href="../../_static/my_theme.css" rel="stylesheet" type="text/css">
+
+  </head>
+
+  <body>
+    <div id="app" class="theme-container" :class="pageClasses"><navbar @toggle-sidebar="toggleSidebar">
+  <div class="home-link-container">
+      <router-link to="../../index.html" class="home-link">
+      
+        <span class="site-name">USO Lab Book</span>
+    </router-link>
+  </div>
+
+  <div class="links">
+    <navlinks class="can-hide">
+
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Acomodarea în Linux
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Lucrul cu fișiere
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link  router-link-active">
+         Dezvoltarea aplicațiilor
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Conectarea la Internet
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Instalarea și utilizarea aplicațiilor
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Îmbunătățirea lucrului în linia de comandă
+      </a>
+    </div>
+  
+
+
+
+  
+    <div class="nav-item">
+      <a href="https://github.com/Sergiu121/uso-lab-book"
+        class="nav-link external">
+          Github <outboundlink/>
+      </a>
+    </div>
+  
+
+    </navlinks>
+  </div>
+</navbar>
+
+      
+      <div class="sidebar-mask" @click="toggleSidebar(false)">
+      </div>
+        <sidebar @toggle-sidebar="toggleSidebar">
+          
+          <navlinks>
+            
+
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Acomodarea în Linux
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Lucrul cu fișiere
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link  router-link-active">
+         Dezvoltarea aplicațiilor
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Conectarea la Internet
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Instalarea și utilizarea aplicațiilor
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Îmbunătățirea lucrului în linia de comandă
+      </a>
+    </div>
+  
+
+
+
+  
+    <div class="nav-item">
+      <a href="https://github.com/Sergiu121/uso-lab-book"
+        class="nav-link external">
+          Github <outboundlink/>
+      </a>
+    </div>
+  
+
+            
+          </navlinks><div id="searchbox" class="searchbox" role="search">
+  <div class="caption"><span class="caption-text">Search</span>
+    <div class="searchformwrapper">
+      <form autocomplete="off" class="search" action="../../search.html" method="get">
+        <input type="text" name="q" autocomplete="off" />
+        <input type="submit" value="Go" />
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div><div class="sidebar-links" role="navigation" aria-label="main navigation">
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#uso-lab-book">Acomodarea în Linux</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../basic/apps.html" class="reference internal ">Pornirea și oprirea aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../basic/browser.html" class="reference internal ">Folosirea eficientă a browserului web</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../basic/terminal.html" class="reference internal ">Lucrul în terminal</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../basic/workspace.html" class="reference internal ">Lucrul cu workspace-uri</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../basic/cheatsheet.html" class="reference internal ">Sumar - Cheatsheet</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#uso-lab-book">Lucrul cu fișiere</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../files/paths.html" class="reference internal ">Căi în ierarhia de fișiere</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../files/files.html" class="reference internal ">Interacțiunea cu fișiere în linia de comandă</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../files/file_editor.html" class="reference internal ">Editor de text</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../files/io_redirection.html" class="reference internal ">Redirectări</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../files/archive.html" class="reference internal ">Arhive</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../files/file_system.html" class="reference internal ">Extra - Sistemul de fișiere</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../files/cheatsheet.html" class="reference internal ">Sumar - Cheatsheet</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#uso-lab-book">Dezvoltarea aplicațiilor</a></span>
+      </p>
+      <ul class="current">
+        
+          <li class="toctree-l1 "><a href="intro.html" class="reference internal ">Introducere</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="make-intro.html" class="reference internal ">Compilarea unui fișier cod sursă C</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="make-multiple.html" class="reference internal ">Compilarea unui program din fișiere multiple</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 current"><a href="#" class="reference internal current">Legarea executabilelor folosind biblioteci externe</a>
+
+            
+              <ul>
+                
+                  <li class="toctree-l2"><a href="#inspectarea-fisierelor" class="reference internal">Inspectarea fișierelor</a></li>
+                
+                  <li class="toctree-l2"><a href="#compilarea-fisierelor" class="reference internal">Compilarea fișierelor</a></li>
+                
+                  <li class="toctree-l2"><a href="#exercitii" class="reference internal">Exerciții</a></li>
+                
+              </ul>
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="make-simple-automation.html" class="reference internal ">Introducere în utilitarul Make și fișiere Makefile</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="make-advanced-automation.html" class="reference internal ">Aprofundarea folosirii fișierelor Makefile</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="git-intro.html" class="reference internal ">Introducere în Git și GitHub</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="git-first-commits.html" class="reference internal ">Primele commituri</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="git-branches.html" class="reference internal ">Lucrul pe branch-uri</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="git-first-pull-request.html" class="reference internal ">Crearea unui Pull Request (PR) pe GitHub</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="extra.html" class="reference internal ">Exerciții suplimentare</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#uso-lab-book">Conectarea la Internet</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../net/browser.html" class="reference internal ">Folosirea eficientă a browserului</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../net/connection.html" class="reference internal ">Conectarea la rețea și la Internet</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../net/services.html" class="reference internal ">Servicii și clienți de rețea</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../net/extra.html" class="reference internal ">Funcţionalităţi suplimentare de reţelistică</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#uso-lab-book">Instalarea și utilizarea aplicațiilor</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../app-install/start.html" class="reference internal ">Pornirea și oprirea aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-install/run.html" class="reference internal ">Rularea aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-install/config.html" class="reference internal ">Configurarea rulării aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-install/summary1.html" class="reference internal ">Exerciții: Pornirea, rularea și configurarea aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-install/show-config.html" class="reference internal ">Vizualizarea configurației sistemului</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-install/install.html" class="reference internal ">Instalarea și dezinstalarea aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-install/install-non-standard.html" class="reference internal ">Alternative la instalarea și dezinstalarea aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-install/show.html" class="reference internal ">Investigarea aplicațiilor instalate</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-install/summary2.html" class="reference internal ">Exerciții: Instalarea și gestiunea aplicațiilor</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#uso-lab-book">Îmbunătățirea lucrului în linia de comandă</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../improve-cli/improve-terminal.html" class="reference internal ">Îmbunătățirea lucrului în linia de comandă</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../improve-cli/inspect-fs.html" class="reference internal ">Inspectarea sistemului de fișiere</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../improve-cli/inspect-files.html" class="reference internal ">Inspectarea fișierelor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../improve-cli/improve-shell.html" class="reference internal ">O înțelegere mai bună a shellului</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../improve-cli/improve-cli-summary.html" class="reference internal ">Sumar: Îmbunătățirea lucrului în linia de comandă</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+</div>
+        </sidebar>
+
+      <page>
+          <div class="body-header" role="navigation" aria-label="navigation">
+  
+  <ul class="breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+    
+    <li><span class="section-number">4. </span>Legarea executabilelor folosind biblioteci externe</li>
+  </ul>
+  
+
+  <ul class="page-nav">
+  <li class="prev">
+    <a href="make-multiple.html"
+       title="previous chapter">← <span class="section-number">3. </span>Compilarea unui program din fișiere multiple</a>
+  </li>
+  <li class="next">
+    <a href="make-simple-automation.html"
+       title="next chapter"><span class="section-number">5. </span>Introducere în utilitarul Make și fișiere Makefile →</a>
+  </li>
+</ul>
+  
+</div>
+<hr>
+          <div class="content" role="main">
+            
+  <section id="legarea-executabilelor-folosind-biblioteci-externe">
+<span id="app-dev-link-libs"></span><h1><span class="section-number">4. </span>Legarea executabilelor folosind biblioteci externe<a class="headerlink" href="#legarea-executabilelor-folosind-biblioteci-externe" title="Permalink to this heading">¶</a></h1>
+<p>În secțiunea anterioară, <a class="reference internal" href="make-multiple.html#app-dev-compile-multiple-files"><span class="std std-ref">Compilarea unui program din fișiere multiple</span></a> am compilat fișierul <code class="docutils literal notranslate"><span class="pre">~/support/compile-multiple/main.c</span></code>, care conține:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;algorithms.h&quot;</span><span class="cp"></span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;gimme number and i&#39;ll give you factorial: &quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">n</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d! = %u</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">factorial</span><span class="p">(</span><span class="n">n</span><span class="p">));</span><span class="w"></span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d! = %u</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">factorial</span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">));</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p>În acest cod sursă am apelat 2 funcții diferite <code class="docutils literal notranslate"><span class="pre">printf</span></code> și <code class="docutils literal notranslate"><span class="pre">factorial</span></code>.
+Găsim implementarea funcției <code class="docutils literal notranslate"><span class="pre">factorial</span></code> în fișierul <code class="docutils literal notranslate"><span class="pre">algorithms.c</span></code>:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">factorial</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">fact</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">fact</span><span class="w"> </span><span class="o">*=</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="n">n</span><span class="o">--</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">fact</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p>Găsim implementarea funcției <code class="docutils literal notranslate"><span class="pre">printf</span></code> în <strong>biblioteca standard C</strong> (<em>C Standard Library</em>).
+Pentru a folosi funcția <code class="docutils literal notranslate"><span class="pre">printf</span></code> în fișierul <code class="docutils literal notranslate"><span class="pre">main.c</span></code>, am inclus fișierul header <code class="docutils literal notranslate"><span class="pre">stdio.h</span></code>.</p>
+<p>O <strong>bibliotecă</strong> este un fișier în care găsim o colecție de funcții generale, pe care le putem folosi în programele noastre, dar pe care nu le-am scris noi.</p>
+<p>Atunci când am legat fișierele obiect <code class="docutils literal notranslate"><span class="pre">main.o</span></code> și <code class="docutils literal notranslate"><span class="pre">algorithms.o</span></code> în executabilul <code class="docutils literal notranslate"><span class="pre">algorithms</span></code>, am legat, de fapt, fișierele obiect <code class="docutils literal notranslate"><span class="pre">main.o</span></code>, <code class="docutils literal notranslate"><span class="pre">algorithms.o</span></code> <strong>și</strong> biblioteca standard C.
+Compilatorul GCC leagă implicit această bibliotecă la executabilul final.
+Diagrama de mai jos arată cum se întâmplă acest lucru:</p>
+<img alt="../../_images/ditaa-881df43f4cc7fa07e150fb70277058390fd7424f.png" src="../../_images/ditaa-881df43f4cc7fa07e150fb70277058390fd7424f.png" />
+<p>Există alte biblioteci (precum <code class="docutils literal notranslate"><span class="pre">math</span></code>, <code class="docutils literal notranslate"><span class="pre">ncurses</span></code>) pe care compilatorul nu le leagă implicit la programele noastre.</p>
+<p>În continuare vom compila un fișier cod sursă care folosește biblioteca <code class="docutils literal notranslate"><span class="pre">math</span></code> pentru a calcula rădăcina pătrată a unui număr întreg.</p>
+<section id="inspectarea-fisierelor">
+<span id="app-dev-link-libs-inspect-file"></span><h2><span class="section-number">4.1. </span>Inspectarea fișierelor<a class="headerlink" href="#inspectarea-fisierelor" title="Permalink to this heading">¶</a></h2>
+<p>Intrăm în directorul <code class="docutils literal notranslate"><span class="pre">~/support/compile-with-lib</span></code> folosind comanda <code class="docutils literal notranslate"><span class="pre">cd</span></code>, unde găsim fișierul <code class="docutils literal notranslate"><span class="pre">squared_root.c</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ <span class="nb">cd</span> ~/support/compile-with-lib/
+student@uso:~/support/compile-with-lib$ ls
+squared_root.c
+</pre></div>
+</div>
+<p>Afișăm conținutul fișierului <code class="docutils literal notranslate"><span class="pre">squared_root.c</span></code>, folosind comanda <code class="docutils literal notranslate"><span class="pre">cat</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/support/compile-with-lib$ cat squared_root.c
+<span class="c1">#include &lt;stdio.h&gt;</span>
+<span class="c1">#include &lt;math.h&gt;</span>
+
+int main<span class="o">(</span>void<span class="o">)</span>
+<span class="o">{</span>
+    int n<span class="p">;</span>
+
+    printf<span class="o">(</span><span class="s2">&quot;gimme a number and i&#39;ll give its square root: &quot;</span><span class="o">)</span><span class="p">;</span>
+    scanf<span class="o">(</span><span class="s2">&quot;%d&quot;</span>, <span class="p">&amp;</span>n<span class="o">)</span><span class="p">;</span>
+
+    printf<span class="o">(</span><span class="s2">&quot;here you go: %f\n&quot;</span>, sqrt<span class="o">(</span>n<span class="o">))</span><span class="p">;</span>
+
+    <span class="k">return</span> <span class="m">0</span><span class="p">;</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>Linia <code class="docutils literal notranslate"><span class="pre">#include</span> <span class="pre">&lt;math.h&gt;</span></code> a fost scrisă pentru că în acest fișier cod sursă folosim funcția <code class="docutils literal notranslate"><span class="pre">sqrt</span></code> din biblioteca <code class="docutils literal notranslate"><span class="pre">math</span></code>.
+Spunem că <em>includem fișierul header</em> asociat bibliotecii <code class="docutils literal notranslate"><span class="pre">math</span></code> în fișier.</p>
+<p>În continuare vom vedea cum compilăm fișierul <code class="docutils literal notranslate"><span class="pre">squared_root.c</span></code> astfel încât să obținem un executabil care calculează rădăcina pătrată a unui număr întreg citit de la tastatură.</p>
+</section>
+<section id="compilarea-fisierelor">
+<span id="app-dev-link-libs-compile-file"></span><h2><span class="section-number">4.2. </span>Compilarea fișierelor<a class="headerlink" href="#compilarea-fisierelor" title="Permalink to this heading">¶</a></h2>
+<p>Compilăm fișierul <code class="docutils literal notranslate"><span class="pre">main.c</span></code>, folosind comanda <code class="docutils literal notranslate"><span class="pre">gcc</span></code>, ca în secțiunea <a class="reference internal" href="make-intro.html#app-dev-compile-custom"><span class="std std-ref">Compilarea codului sursă într-un executabil cu nume diferit</span></a>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/support/compile-with-lib$ gcc -o squared_root squared_root.c
+/tmp/ccp4kfvm.o: In <span class="k">function</span> <span class="sb">`</span>main<span class="sb">`</span>:
+squared_root.c:<span class="o">(</span>.text+0x48<span class="o">)</span>: undefined reference to <span class="sb">`</span>sqrt<span class="sb">`</span>
+collect2: error: ld returned <span class="m">1</span> <span class="nb">exit</span> status
+</pre></div>
+</div>
+<p>Eroarea <code class="docutils literal notranslate"><span class="pre">undefined</span> <span class="pre">reference</span> <span class="pre">to</span> <span class="pre">`sqrt`</span></code> apare din cauză că în fișierul <code class="docutils literal notranslate"><span class="pre">squared_root.c</span></code> folosim funcția <code class="docutils literal notranslate"><span class="pre">sqrt</span></code>, dar compilatorul nu știe unde să caute implementarea ei.
+Corectăm eroarea folosind opțiunea <code class="docutils literal notranslate"><span class="pre">-lm</span></code> pentru <code class="docutils literal notranslate"><span class="pre">gcc</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/support/compile-with-lib$ gcc -o squared_root squared_root.c -lm
+student@uso:~/support/compile-with-lib$ ls
+squared_root  squared_root.c
+</pre></div>
+</div>
+<p>Opțiunea <code class="docutils literal notranslate"><span class="pre">-lm</span></code> este formată prin alipirea opțiunii <code class="docutils literal notranslate"><span class="pre">-l</span></code> (<em>library</em>, <em>bibliotecă</em>) cu <code class="docutils literal notranslate"><span class="pre">m</span></code> (<em>math</em>).
+În cazul bibliotecii <code class="docutils literal notranslate"><span class="pre">math</span></code> trebuie folosită prescurtarea <code class="docutils literal notranslate"><span class="pre">m</span></code>, pentru alte biblioteci va fi diferit.</p>
+<p>Rulăm executabilul <code class="docutils literal notranslate"><span class="pre">squared_root</span></code> ca să verificăm că funcționează:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/support/compile-with-lib$ ./squared_root
+gimme a number and i&#39;ll give its square root: 15
+here you go: 3.872983
+</pre></div>
+</div>
+<p>Legarea bibliotecii <code class="docutils literal notranslate"><span class="pre">math</span></code> la executabilul <code class="docutils literal notranslate"><span class="pre">squared_root</span></code> se face după ce fișierul <code class="docutils literal notranslate"><span class="pre">squared_root.c</span></code> a fost compilat.
+Cu alte cuvinte, putem compila mai întâi fișierul <code class="docutils literal notranslate"><span class="pre">squared_root.c</span></code> până la un fișier obiect și după să îl legăm la biblioteca <code class="docutils literal notranslate"><span class="pre">math</span></code>, ca în exemplul de mai jos:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/support/compile-with-lib$ gcc -c squared_root.c
+student@uso:~/support/compile-with-lib$ gcc -o squared_root squared_root.o -lm
+student@uso:~/support/compile-with-lib$ ./squared_root
+gimme a number and i&#39;ll give its square root: 15
+here you go: 3.872983
+</pre></div>
+</div>
+<p>Vedem acești pași și în diagrama de mai jos:</p>
+<img alt="../../_images/ditaa-da144c599dc486bddba43c0d76c55dc6e70513f3.png" src="../../_images/ditaa-da144c599dc486bddba43c0d76c55dc6e70513f3.png" />
+</section>
+<section id="exercitii">
+<span id="app-dev-link-libs-ex"></span><h2><span class="section-number">4.3. </span>Exerciții<a class="headerlink" href="#exercitii" title="Permalink to this heading">¶</a></h2>
+<p>Înainte să începeți exercițiile, rulați comanda <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">apt-get</span> <span class="pre">install</span> <span class="pre">libncurses5-dev</span> <span class="pre">libncursesw5-dev</span></code>.
+Aceasta are rolul de a instala biblioteca grafică <code class="docutils literal notranslate"><span class="pre">ncurses</span></code> pe sistemul vostru, bibliotecă folosită de programul <code class="docutils literal notranslate"><span class="pre">hello_world.c</span></code>.</p>
+<ol class="arabic simple">
+<li><p>Intrați în directorul <code class="docutils literal notranslate"><span class="pre">~/support/compile-with-lib-ex</span></code>.</p></li>
+<li><p>Inspectați fișierul <code class="docutils literal notranslate"><span class="pre">hello_world.c</span></code> și identificați linia din program care ne arată că programul folosește biblioteca <code class="docutils literal notranslate"><span class="pre">ncurses</span></code>.</p></li>
+<li><p>Compilați programul, legați-l la biblioteca <code class="docutils literal notranslate"><span class="pre">ncurses</span></code> și creați executabilul <code class="docutils literal notranslate"><span class="pre">hello_world</span></code>.</p></li>
+<li><p>Verificați că programul <code class="docutils literal notranslate"><span class="pre">hello_world</span></code> funcționează.</p></li>
+</ol>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>Pentru a lega programul la biblioteca <code class="docutils literal notranslate"><span class="pre">ncurses</span></code> folosiți opțiunea <code class="docutils literal notranslate"><span class="pre">-lncurses</span></code>.</p>
+</div>
+</section>
+</section>
+
+
+          </div>
+          <div class="page-nav">
+            <div class="inner"><ul class="page-nav">
+  <li class="prev">
+    <a href="make-multiple.html"
+       title="previous chapter">← <span class="section-number">3. </span>Compilarea unui program din fișiere multiple</a>
+  </li>
+  <li class="next">
+    <a href="make-simple-automation.html"
+       title="next chapter"><span class="section-number">5. </span>Introducere în utilitarul Make și fișiere Makefile →</a>
+  </li>
+</ul><div class="footer" role="contentinfo">
+      &#169; Copyright 2020, USO Team.
+    <br>
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 5.2.2 with <a href="https://github.com/romnn/sphinx_press_theme">Press Theme</a>.
+</div>
+            </div>
+          </div>
+      </page>
+    </div>
+    
+    
+  </body>
+</html>

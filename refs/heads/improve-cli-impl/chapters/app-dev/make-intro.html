@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html  lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+      <title>2. Compilarea unui fișier cod sursă C</title>
+    
+      <link rel="stylesheet" href="../../_static/pygments.css">
+      <link rel="stylesheet" href="../../_static/theme.css">
+      <link rel="stylesheet" href="../../_static/romnn_sphinx_press_theme.css">
+          <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+          <link rel="stylesheet" href="../../_static/css/theme.css " type="text/css" />
+      
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+
+      <!-- sphinx script_files -->
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+        <script src="../../_static/my_actions.js"></script>
+
+      
+      <script src="../../_static/theme-vendors.js"></script>
+      <script src="../../_static/theme.js" defer></script>
+    
+  <link rel="index" title="Index" href="../../genindex.html" />
+  <link rel="search" title="Search" href="../../search.html" />
+  <link rel="next" title="3. Compilarea unui program din fișiere multiple" href="make-multiple.html" />
+  <link rel="prev" title="1. Introducere" href="intro.html" />
+    <link href="../../_static/my_theme.css" rel="stylesheet" type="text/css">
+
+  </head>
+
+  <body>
+    <div id="app" class="theme-container" :class="pageClasses"><navbar @toggle-sidebar="toggleSidebar">
+  <div class="home-link-container">
+      <router-link to="../../index.html" class="home-link">
+      
+        <span class="site-name">USO Lab Book</span>
+    </router-link>
+  </div>
+
+  <div class="links">
+    <navlinks class="can-hide">
+
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Acomodarea în Linux
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Lucrul cu fișiere
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link  router-link-active">
+         Dezvoltarea aplicațiilor
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Conectarea la Internet
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Instalarea și utilizarea aplicațiilor
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Îmbunătățirea lucrului în linia de comandă
+      </a>
+    </div>
+  
+
+
+
+  
+    <div class="nav-item">
+      <a href="https://github.com/Sergiu121/uso-lab-book"
+        class="nav-link external">
+          Github <outboundlink/>
+      </a>
+    </div>
+  
+
+    </navlinks>
+  </div>
+</navbar>
+
+      
+      <div class="sidebar-mask" @click="toggleSidebar(false)">
+      </div>
+        <sidebar @toggle-sidebar="toggleSidebar">
+          
+          <navlinks>
+            
+
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Acomodarea în Linux
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Lucrul cu fișiere
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link  router-link-active">
+         Dezvoltarea aplicațiilor
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Conectarea la Internet
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Instalarea și utilizarea aplicațiilor
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Îmbunătățirea lucrului în linia de comandă
+      </a>
+    </div>
+  
+
+
+
+  
+    <div class="nav-item">
+      <a href="https://github.com/Sergiu121/uso-lab-book"
+        class="nav-link external">
+          Github <outboundlink/>
+      </a>
+    </div>
+  
+
+            
+          </navlinks><div id="searchbox" class="searchbox" role="search">
+  <div class="caption"><span class="caption-text">Search</span>
+    <div class="searchformwrapper">
+      <form autocomplete="off" class="search" action="../../search.html" method="get">
+        <input type="text" name="q" autocomplete="off" />
+        <input type="submit" value="Go" />
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div><div class="sidebar-links" role="navigation" aria-label="main navigation">
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#uso-lab-book">Acomodarea în Linux</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../basic/apps.html" class="reference internal ">Pornirea și oprirea aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../basic/browser.html" class="reference internal ">Folosirea eficientă a browserului web</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../basic/terminal.html" class="reference internal ">Lucrul în terminal</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../basic/workspace.html" class="reference internal ">Lucrul cu workspace-uri</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../basic/cheatsheet.html" class="reference internal ">Sumar - Cheatsheet</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#uso-lab-book">Lucrul cu fișiere</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../files/paths.html" class="reference internal ">Căi în ierarhia de fișiere</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../files/files.html" class="reference internal ">Interacțiunea cu fișiere în linia de comandă</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../files/file_editor.html" class="reference internal ">Editor de text</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../files/io_redirection.html" class="reference internal ">Redirectări</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../files/archive.html" class="reference internal ">Arhive</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../files/file_system.html" class="reference internal ">Extra - Sistemul de fișiere</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../files/cheatsheet.html" class="reference internal ">Sumar - Cheatsheet</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#uso-lab-book">Dezvoltarea aplicațiilor</a></span>
+      </p>
+      <ul class="current">
+        
+          <li class="toctree-l1 "><a href="intro.html" class="reference internal ">Introducere</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 current"><a href="#" class="reference internal current">Compilarea unui fișier cod sursă C</a>
+
+            
+              <ul>
+                
+                  <li class="toctree-l2"><a href="#crearea-unui-fisier-cod-sursa" class="reference internal">Crearea unui fișier cod sursă</a></li>
+                
+                  <li class="toctree-l2"><a href="#compilarea-codului-sursa-in-executabilul-a-out" class="reference internal">Compilarea codului sursă în executabilul a.out</a></li>
+                
+                  <li class="toctree-l2"><a href="#compilarea-codului-sursa-intr-un-executabil-cu-nume-diferit" class="reference internal">Compilarea codului sursă într-un executabil cu nume diferit</a></li>
+                
+                  <li class="toctree-l2"><a href="#exercitii" class="reference internal">Exerciții</a></li>
+                
+              </ul>
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="make-multiple.html" class="reference internal ">Compilarea unui program din fișiere multiple</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="make-lib.html" class="reference internal ">Legarea executabilelor folosind biblioteci externe</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="make-simple-automation.html" class="reference internal ">Introducere în utilitarul Make și fișiere Makefile</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="make-advanced-automation.html" class="reference internal ">Aprofundarea folosirii fișierelor Makefile</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="git-intro.html" class="reference internal ">Introducere în Git și GitHub</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="git-first-commits.html" class="reference internal ">Primele commituri</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="git-branches.html" class="reference internal ">Lucrul pe branch-uri</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="git-first-pull-request.html" class="reference internal ">Crearea unui Pull Request (PR) pe GitHub</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="extra.html" class="reference internal ">Exerciții suplimentare</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#uso-lab-book">Conectarea la Internet</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../net/browser.html" class="reference internal ">Folosirea eficientă a browserului</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../net/connection.html" class="reference internal ">Conectarea la rețea și la Internet</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../net/services.html" class="reference internal ">Servicii și clienți de rețea</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../net/extra.html" class="reference internal ">Funcţionalităţi suplimentare de reţelistică</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#uso-lab-book">Instalarea și utilizarea aplicațiilor</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../app-install/start.html" class="reference internal ">Pornirea și oprirea aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-install/run.html" class="reference internal ">Rularea aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-install/config.html" class="reference internal ">Configurarea rulării aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-install/summary1.html" class="reference internal ">Exerciții: Pornirea, rularea și configurarea aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-install/show-config.html" class="reference internal ">Vizualizarea configurației sistemului</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-install/install.html" class="reference internal ">Instalarea și dezinstalarea aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-install/install-non-standard.html" class="reference internal ">Alternative la instalarea și dezinstalarea aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-install/show.html" class="reference internal ">Investigarea aplicațiilor instalate</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-install/summary2.html" class="reference internal ">Exerciții: Instalarea și gestiunea aplicațiilor</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#uso-lab-book">Îmbunătățirea lucrului în linia de comandă</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../improve-cli/improve-terminal.html" class="reference internal ">Îmbunătățirea lucrului în linia de comandă</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../improve-cli/inspect-fs.html" class="reference internal ">Inspectarea sistemului de fișiere</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../improve-cli/inspect-files.html" class="reference internal ">Inspectarea fișierelor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../improve-cli/improve-shell.html" class="reference internal ">O înțelegere mai bună a shellului</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../improve-cli/improve-cli-summary.html" class="reference internal ">Sumar: Îmbunătățirea lucrului în linia de comandă</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+</div>
+        </sidebar>
+
+      <page>
+          <div class="body-header" role="navigation" aria-label="navigation">
+  
+  <ul class="breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+    
+    <li><span class="section-number">2. </span>Compilarea unui fișier cod sursă C</li>
+  </ul>
+  
+
+  <ul class="page-nav">
+  <li class="prev">
+    <a href="intro.html"
+       title="previous chapter">← <span class="section-number">1. </span>Introducere</a>
+  </li>
+  <li class="next">
+    <a href="make-multiple.html"
+       title="next chapter"><span class="section-number">3. </span>Compilarea unui program din fișiere multiple →</a>
+  </li>
+</ul>
+  
+</div>
+<hr>
+          <div class="content" role="main">
+            
+  <section id="compilarea-unui-fisier-cod-sursa-c">
+<span id="app-dev-compile-source-file"></span><h1><span class="section-number">2. </span>Compilarea unui fișier cod sursă C<a class="headerlink" href="#compilarea-unui-fisier-cod-sursa-c" title="Permalink to this heading">¶</a></h1>
+<p>În această secțiune urmărim să învățăm pașii pentru a compila un program, adică a-l aduce de la cod sursă la executabil.
+Pentru aceasta vom crea un program care verifică dacă un număr citit de la tastatură este prim sau nu.
+Vom scrie într-un nou fișier programul care implementează algoritmul, vom compila codul sursă folosind <a class="reference external" href="https://gcc.gnu.org">compilatorul GCC</a> și vom testa că programul funcționează.</p>
+<section id="crearea-unui-fisier-cod-sursa">
+<span id="app-dev-create-source-file"></span><h2><span class="section-number">2.1. </span>Crearea unui fișier cod sursă<a class="headerlink" href="#crearea-unui-fisier-cod-sursa" title="Permalink to this heading">¶</a></h2>
+<p>Creăm un fișier nou cu numele <code class="docutils literal notranslate"><span class="pre">is-prime.c</span></code> cu implementarea algoritmului de verificare.
+Copiem codul sursă de mai jos și îl lipim în nano ca în imaginea de mai jos:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">check_if_prime</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Please gimme a number: &quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">n</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">check_if_prime</span><span class="p">(</span><span class="n">n</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d is prime</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d is not prime</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<figure class="align-default">
+<img alt="Crearea unui fișier ``is-prime.c`` cu algoritmul asociat" src="../../_images/create-is-prime.gif" />
+</figure>
+<p>Mai multe detalii despre folosirea editorului de text <code class="docutils literal notranslate"><span class="pre">nano</span></code> găsim în capitolul <em>Lucrul cu fișiere</em>.</p>
+</section>
+<section id="compilarea-codului-sursa-in-executabilul-a-out">
+<span id="app-dev-compile-aout"></span><h2><span class="section-number">2.2. </span>Compilarea codului sursă în executabilul <code class="docutils literal notranslate"><span class="pre">a.out</span></code><a class="headerlink" href="#compilarea-codului-sursa-in-executabilul-a-out" title="Permalink to this heading">¶</a></h2>
+<p>Avem fișierul cod sursă <code class="docutils literal notranslate"><span class="pre">is-prime.c</span></code> și vrem să obținem un program pe care să-l rulăm pe sistemul nostru.
+Pentru aceasta, trebuie să compilăm fișierul <code class="docutils literal notranslate"><span class="pre">is-prime.c</span></code>.
+Acest program este de fapt un <strong>executabil</strong> (<em>binar</em>).
+Executabilele sunt fișiere care conțin instrucțiuni pe care sistemul de calcul le poate interpreta și rula.</p>
+<p>Creăm un executabil din fișierul <code class="docutils literal notranslate"><span class="pre">is-prime.c</span></code> folosind comanda <code class="docutils literal notranslate"><span class="pre">gcc</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ gcc is-prime.c
+student@uso:~$ ls -l
+total <span class="m">16</span>
+-rwxr-xr-x <span class="m">1</span> student student <span class="m">8448</span> Oct <span class="m">26</span> <span class="m">06</span>:34 a.out
+-rw-r--r-- <span class="m">1</span> student student  <span class="m">406</span> Oct <span class="m">26</span> <span class="m">06</span>:17 is-prime.c
+</pre></div>
+</div>
+<p>Așa cum vedem în rezultatul rulări comenzii <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-l</span></code> de mai sus, executabilul se numește <code class="docutils literal notranslate"><span class="pre">a.out</span></code>.
+Acesta este numele implicit dat de GCC.
+Adică <code class="docutils literal notranslate"><span class="pre">a.out</span></code> va fi numele tuturor fișierelor executabile generate cu GCC, indiferent de fișierul cod sursă.
+Verificăm că fișierul <code class="docutils literal notranslate"><span class="pre">a.out</span></code> este într-adevăr un fișier executabil:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ file a.out
+a.out: ELF <span class="m">64</span>-bit LSB shared object, x86-64, version <span class="m">1</span> <span class="o">(</span>SYSV<span class="o">)</span>, dynamically linked, interpreter /lib64/l, <span class="k">for</span> GNU/Linux <span class="m">3</span>.2.0, BuildID<span class="o">[</span>sha1<span class="o">]=</span>14553360a84b6dbe4dba5f287a665047572bde7f, not stripped
+</pre></div>
+</div>
+<p>Acronimele <strong>ELF</strong> (<em>Executable and Linkable Format) și **LSB*</em> (<em>Linux Standard Base</em>) nu sunt relevante în această carte, dar reținem că atunci când vedem un fișier <strong>ELF</strong>, acesta este un fișier <em>executabil</em>.</p>
+<p>Rulăm executabilul <code class="docutils literal notranslate"><span class="pre">a.out</span></code> în felul următor și introducem de la tastatură un număr:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ ./a.out
+Please gimme a number: <span class="m">13</span>
+<span class="m">13</span> is prime
+</pre></div>
+</div>
+<p>Programul funcționează: citește un număr de la tastatură și afișează dacă acesta este prim sau nu.</p>
+</section>
+<section id="compilarea-codului-sursa-intr-un-executabil-cu-nume-diferit">
+<span id="app-dev-compile-custom"></span><h2><span class="section-number">2.3. </span>Compilarea codului sursă într-un executabil cu nume diferit<a class="headerlink" href="#compilarea-codului-sursa-intr-un-executabil-cu-nume-diferit" title="Permalink to this heading">¶</a></h2>
+<p>Numele <code class="docutils literal notranslate"><span class="pre">a.out</span></code> este implicit, deci toate programele compilate cu GCC se vor numi <code class="docutils literal notranslate"><span class="pre">a.out</span></code>.
+Putem configura un nume diferit pentru executabilul obținut.</p>
+<p>Spre exemplu, pentru programul care verifică dacă un număr este prim sau nu, numim executabilul <code class="docutils literal notranslate"><span class="pre">is-prime</span></code>.
+Creăm un executabil cu numele <code class="docutils literal notranslate"><span class="pre">is-prime</span></code> din fișierul <code class="docutils literal notranslate"><span class="pre">is-prime.c</span></code> folosind opțiunea <code class="docutils literal notranslate"><span class="pre">-o</span></code> a comenzii <code class="docutils literal notranslate"><span class="pre">gcc</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ gcc -o is-prime is-prime.c
+student@uso:~$ ls -l
+total <span class="m">28</span>
+-rwxr-xr-x <span class="m">1</span> student student <span class="m">8448</span> Oct <span class="m">26</span> <span class="m">06</span>:34 a.out
+-rwxr-xr-x <span class="m">1</span> student student <span class="m">8448</span> Oct <span class="m">26</span> <span class="m">06</span>:57 is-prime
+-rw-r--r-- <span class="m">1</span> student student  <span class="m">406</span> Oct <span class="m">26</span> <span class="m">06</span>:17 is-prime.c
+student@uso:~$ file is-prime
+is-prime: ELF <span class="m">64</span>-bit LSB shared object, x86-64, version <span class="m">1</span> <span class="o">(</span>SYSV<span class="o">)</span>, dynamically linked, interpreter /lib64/l, <span class="k">for</span> GNU/Linux <span class="m">3</span>.2.0, BuildID<span class="o">[</span>sha1<span class="o">]=</span>14553360a84b6dbe4dba5f287a665047572bde7f, not stripped
+</pre></div>
+</div>
+<p>Opțiunea <code class="docutils literal notranslate"><span class="pre">-o</span></code> urmată de numele ales pentru program (<code class="docutils literal notranslate"><span class="pre">is-prime</span></code>) transmite compilatorului ca programul să se numească <code class="docutils literal notranslate"><span class="pre">is-prime</span></code>, și nu <code class="docutils literal notranslate"><span class="pre">a.out</span></code>.
+Rulăm executabilul <code class="docutils literal notranslate"><span class="pre">is-prime</span></code> în felul următor și introducem de la tastatură un număr:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ ./is-prime
+Please gimme a number: <span class="m">13</span>
+<span class="m">13</span> is prime
+</pre></div>
+</div>
+<p>Vedem că, deși au nume diferit, programele <code class="docutils literal notranslate"><span class="pre">a.out</span></code> și <code class="docutils literal notranslate"><span class="pre">is-prime</span></code> au același comportament.
+Acest lucru este normal deoarece ele sunt 2 fișiere executabile obținute din același fișier cod sursă obținute folosind același compilator: GCC.</p>
+</section>
+<section id="exercitii">
+<span id="app-dev-make-intro-ex"></span><h2><span class="section-number">2.4. </span>Exerciții<a class="headerlink" href="#exercitii" title="Permalink to this heading">¶</a></h2>
+<ol class="arabic">
+<li><p>Creați un fișier cu numele <code class="docutils literal notranslate"><span class="pre">is-palindrome.c</span></code> care să conțină următorul conținut:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">check_if_palindrome</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">new_n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="n">n</span><span class="w"> </span><span class="o">/=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="n">new_n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">new_n</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">r</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="n">new_n</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Please gimme a number: &quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">n</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">check_if_palindrome</span><span class="p">(</span><span class="n">n</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d is a palindome</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d is not a palindrome</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+</li>
+<li><p>Compilați fișierul <code class="docutils literal notranslate"><span class="pre">is-palindrome.c</span></code> într-un executabil cu numele <code class="docutils literal notranslate"><span class="pre">a.out</span></code> folosind <code class="docutils literal notranslate"><span class="pre">gcc</span></code>.
+Verificați funcționalitatea programului.</p></li>
+<li><p>Compilați fișierul <code class="docutils literal notranslate"><span class="pre">is-palindrome.c</span></code> într-un executabil cu numele <code class="docutils literal notranslate"><span class="pre">is-palindrome</span></code> folosind <code class="docutils literal notranslate"><span class="pre">gcc</span></code>.
+Verificați funcționalitatea programului.</p></li>
+</ol>
+</section>
+</section>
+
+
+          </div>
+          <div class="page-nav">
+            <div class="inner"><ul class="page-nav">
+  <li class="prev">
+    <a href="intro.html"
+       title="previous chapter">← <span class="section-number">1. </span>Introducere</a>
+  </li>
+  <li class="next">
+    <a href="make-multiple.html"
+       title="next chapter"><span class="section-number">3. </span>Compilarea unui program din fișiere multiple →</a>
+  </li>
+</ul><div class="footer" role="contentinfo">
+      &#169; Copyright 2020, USO Team.
+    <br>
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 5.2.2 with <a href="https://github.com/romnn/sphinx_press_theme">Press Theme</a>.
+</div>
+            </div>
+          </div>
+      </page>
+    </div>
+    
+    
+  </body>
+</html>

@@ -1,0 +1,1018 @@
+<!DOCTYPE html>
+<html  lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+      <title>3. Inspectarea fișierelor</title>
+    
+      <link rel="stylesheet" href="../../_static/pygments.css">
+      <link rel="stylesheet" href="../../_static/theme.css">
+      <link rel="stylesheet" href="../../_static/romnn_sphinx_press_theme.css">
+          <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+          <link rel="stylesheet" href="../../_static/css/theme.css " type="text/css" />
+      
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+
+      <!-- sphinx script_files -->
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+        <script src="../../_static/my_actions.js"></script>
+
+      
+      <script src="../../_static/theme-vendors.js"></script>
+      <script src="../../_static/theme.js" defer></script>
+    
+  <link rel="index" title="Index" href="../../genindex.html" />
+  <link rel="search" title="Search" href="../../search.html" />
+  <link rel="next" title="4. O înțelegere mai bună a shellului" href="improve-shell.html" />
+  <link rel="prev" title="2. Inspectarea sistemului de fișiere" href="inspect-fs.html" />
+    <link href="../../_static/my_theme.css" rel="stylesheet" type="text/css">
+
+  </head>
+
+  <body>
+    <div id="app" class="theme-container" :class="pageClasses"><navbar @toggle-sidebar="toggleSidebar">
+  <div class="home-link-container">
+      <router-link to="../../index.html" class="home-link">
+      
+        <span class="site-name">USO Lab Book</span>
+    </router-link>
+  </div>
+
+  <div class="links">
+    <navlinks class="can-hide">
+
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Acomodarea în Linux
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Lucrul cu fișiere
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Dezvoltarea aplicațiilor
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Conectarea la Internet
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Instalarea și utilizarea aplicațiilor
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link  router-link-active">
+         Îmbunătățirea lucrului în linia de comandă
+      </a>
+    </div>
+  
+
+
+
+  
+    <div class="nav-item">
+      <a href="https://github.com/Sergiu121/uso-lab-book"
+        class="nav-link external">
+          Github <outboundlink/>
+      </a>
+    </div>
+  
+
+    </navlinks>
+  </div>
+</navbar>
+
+      
+      <div class="sidebar-mask" @click="toggleSidebar(false)">
+      </div>
+        <sidebar @toggle-sidebar="toggleSidebar">
+          
+          <navlinks>
+            
+
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Acomodarea în Linux
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Lucrul cu fișiere
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Dezvoltarea aplicațiilor
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Conectarea la Internet
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Instalarea și utilizarea aplicațiilor
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link  router-link-active">
+         Îmbunătățirea lucrului în linia de comandă
+      </a>
+    </div>
+  
+
+
+
+  
+    <div class="nav-item">
+      <a href="https://github.com/Sergiu121/uso-lab-book"
+        class="nav-link external">
+          Github <outboundlink/>
+      </a>
+    </div>
+  
+
+            
+          </navlinks><div id="searchbox" class="searchbox" role="search">
+  <div class="caption"><span class="caption-text">Search</span>
+    <div class="searchformwrapper">
+      <form autocomplete="off" class="search" action="../../search.html" method="get">
+        <input type="text" name="q" autocomplete="off" />
+        <input type="submit" value="Go" />
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div><div class="sidebar-links" role="navigation" aria-label="main navigation">
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#uso-lab-book">Acomodarea în Linux</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../basic/apps.html" class="reference internal ">Pornirea și oprirea aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../basic/browser.html" class="reference internal ">Folosirea eficientă a browserului web</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../basic/terminal.html" class="reference internal ">Lucrul în terminal</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../basic/workspace.html" class="reference internal ">Lucrul cu workspace-uri</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../basic/cheatsheet.html" class="reference internal ">Sumar - Cheatsheet</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#uso-lab-book">Lucrul cu fișiere</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../files/paths.html" class="reference internal ">Căi în ierarhia de fișiere</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../files/files.html" class="reference internal ">Interacțiunea cu fișiere în linia de comandă</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../files/file_editor.html" class="reference internal ">Editor de text</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../files/io_redirection.html" class="reference internal ">Redirectări</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../files/archive.html" class="reference internal ">Arhive</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../files/file_system.html" class="reference internal ">Extra - Sistemul de fișiere</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../files/cheatsheet.html" class="reference internal ">Sumar - Cheatsheet</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#uso-lab-book">Dezvoltarea aplicațiilor</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../app-dev/intro.html" class="reference internal ">Introducere</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/make-intro.html" class="reference internal ">Compilarea unui fișier cod sursă C</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/make-multiple.html" class="reference internal ">Compilarea unui program din fișiere multiple</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/make-lib.html" class="reference internal ">Legarea executabilelor folosind biblioteci externe</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/make-simple-automation.html" class="reference internal ">Introducere în utilitarul Make și fișiere Makefile</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/make-advanced-automation.html" class="reference internal ">Aprofundarea folosirii fișierelor Makefile</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/git-intro.html" class="reference internal ">Introducere în Git și GitHub</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/git-first-commits.html" class="reference internal ">Primele commituri</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/git-branches.html" class="reference internal ">Lucrul pe branch-uri</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/git-first-pull-request.html" class="reference internal ">Crearea unui Pull Request (PR) pe GitHub</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/extra.html" class="reference internal ">Exerciții suplimentare</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#uso-lab-book">Conectarea la Internet</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../net/browser.html" class="reference internal ">Folosirea eficientă a browserului</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../net/connection.html" class="reference internal ">Conectarea la rețea și la Internet</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../net/services.html" class="reference internal ">Servicii și clienți de rețea</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../net/extra.html" class="reference internal ">Funcţionalităţi suplimentare de reţelistică</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#uso-lab-book">Instalarea și utilizarea aplicațiilor</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../app-install/start.html" class="reference internal ">Pornirea și oprirea aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-install/run.html" class="reference internal ">Rularea aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-install/config.html" class="reference internal ">Configurarea rulării aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-install/summary1.html" class="reference internal ">Exerciții: Pornirea, rularea și configurarea aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-install/show-config.html" class="reference internal ">Vizualizarea configurației sistemului</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-install/install.html" class="reference internal ">Instalarea și dezinstalarea aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-install/install-non-standard.html" class="reference internal ">Alternative la instalarea și dezinstalarea aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-install/show.html" class="reference internal ">Investigarea aplicațiilor instalate</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-install/summary2.html" class="reference internal ">Exerciții: Instalarea și gestiunea aplicațiilor</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#uso-lab-book">Îmbunătățirea lucrului în linia de comandă</a></span>
+      </p>
+      <ul class="current">
+        
+          <li class="toctree-l1 "><a href="improve-terminal.html" class="reference internal ">Îmbunătățirea lucrului în linia de comandă</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="inspect-fs.html" class="reference internal ">Inspectarea sistemului de fișiere</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 current"><a href="#" class="reference internal current">Inspectarea fișierelor</a>
+
+            
+              <ul>
+                
+                  <li class="toctree-l2"><a href="#inspectarea-rapida-a-continutului-fisierelor" class="reference internal">Inspectarea rapida a conținutului fișierelor</a></li>
+                
+                  <li class="toctree-l2"><a href="#cautarea-in-fisiere" class="reference internal">Căutarea în fișiere</a></li>
+                
+                  <li class="toctree-l2"><a href="#compararea-fisierelor" class="reference internal">Compararea fișierelor</a></li>
+                
+              </ul>
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="improve-shell.html" class="reference internal ">O înțelegere mai bună a shellului</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="improve-cli-summary.html" class="reference internal ">Sumar: Îmbunătățirea lucrului în linia de comandă</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+</div>
+        </sidebar>
+
+      <page>
+          <div class="body-header" role="navigation" aria-label="navigation">
+  
+  <ul class="breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+    
+    <li><span class="section-number">3. </span>Inspectarea fișierelor</li>
+  </ul>
+  
+
+  <ul class="page-nav">
+  <li class="prev">
+    <a href="inspect-fs.html"
+       title="previous chapter">← <span class="section-number">2. </span>Inspectarea sistemului de fișiere</a>
+  </li>
+  <li class="next">
+    <a href="improve-shell.html"
+       title="next chapter"><span class="section-number">4. </span>O înțelegere mai bună a shellului →</a>
+  </li>
+</ul>
+  
+</div>
+<hr>
+          <div class="content" role="main">
+            
+  <section id="inspectarea-fisierelor">
+<span id="improve-cli-inspect-files"></span><h1><span class="section-number">3. </span>Inspectarea fișierelor<a class="headerlink" href="#inspectarea-fisierelor" title="Permalink to this heading">¶</a></h1>
+<section id="inspectarea-rapida-a-continutului-fisierelor">
+<h2><span class="section-number">3.1. </span>Inspectarea rapida a conținutului fișierelor<a class="headerlink" href="#inspectarea-rapida-a-continutului-fisierelor" title="Permalink to this heading">¶</a></h2>
+<p>În secțiunea anterioară, <a class="reference internal" href="inspect-fs.html#improve-cli-inspect-fs"><span class="std std-ref">Inspectarea sistemului de fișiere</span></a>, am văzut cum căutăm fișiere în sistem cu ajutorul utilitarelor <code class="docutils literal notranslate"><span class="pre">locate</span></code> și <code class="docutils literal notranslate"><span class="pre">find</span></code>.
+Căutăm un fișier cu un scop: vrem să găsim fișierul <code class="docutils literal notranslate"><span class="pre">README</span></code> pentru informații despre compilarea proiectului, vrem să ne amintim un detaliu de implementare din cod, etc.</p>
+<p>De cele mai multe ori acțiunea noastră se poate grupa în una din următoarele două categorii:</p>
+<ul class="simple">
+<li><p>Ne dorim să inspectăm rapid conținutul fișierelor pentru a ne da seama dacă am găsit informația căutată.</p></li>
+<li><p>Ne dorim să afișăm pe ecran conținutul fișierelor pentru a extrage și prelucra informații din acestea.</p></li>
+</ul>
+<section id="cautarea-informatiei-intr-un-fisier">
+<h3><span class="section-number">3.1.1. </span>Căutarea informației într-un fișier<a class="headerlink" href="#cautarea-informatiei-intr-un-fisier" title="Permalink to this heading">¶</a></h3>
+<p>Pentru a vedea rapid conținutul unui fișier folosim utlitarul <code class="docutils literal notranslate"><span class="pre">less</span></code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>De fapt, comanda <code class="docutils literal notranslate"><span class="pre">man</span></code> folosește utilitarul <code class="docutils literal notranslate"><span class="pre">less</span></code> pentru a afișa paginile de manual.
+<code class="docutils literal notranslate"><span class="pre">less</span></code> este pagerul implicit în majoritatea distribuțiilor Linux.</p>
+</div>
+<p>Avem fișierul <code class="docutils literal notranslate"><span class="pre">workspace/C/searching/binary_search.c</span></code>.
+Vrem să ne facem rapid o idee despre cum arată implementarea algoritmului <strong>binary_search</strong>.
+Inspectăm conținutul fișierului <code class="docutils literal notranslate"><span class="pre">workspace/C/searching/binary_search.c</span></code>, folosind utilitarul <a href="#id1"><span class="problematic" id="id2">``</span></a>less`, ca în exemplul de mai jos:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ less workspace/C/searching/binary_search.c
+
+/**
+ * @file
+ * @brief Program to perform <span class="o">[</span>binary
+ * search<span class="o">](</span>https://en.wikipedia.org/wiki/Binary_search_algorithm<span class="o">)</span> of a target
+ * value <span class="k">in</span> a given *sorted* array.
+ * @authors <span class="o">[</span>James McDermott<span class="o">](</span>https://github.com/theycallmemac<span class="o">)</span> - recursive
+ * algorithm
+ * @authors <span class="o">[</span>Krishna Vedala<span class="o">](</span>https://github.com/kvedala<span class="o">)</span> - iterative algorithm
+ */
+<span class="c1">#include &lt;assert.h&gt;</span>
+<span class="c1">#include &lt;stdio.h&gt;</span>
+
+/** Recursive implementation
+ * <span class="se">\p</span>aram<span class="o">[</span><span class="k">in</span><span class="o">]</span> arr array to search
+ * <span class="se">\p</span>aram l left index of search range
+ * <span class="se">\p</span>aram r right index of search range
+ * <span class="se">\p</span>aram x target value to search <span class="k">for</span>
+ * <span class="se">\r</span>eturns location of x assuming array arr<span class="o">[</span>l..r<span class="o">]</span> is present
+ * <span class="se">\r</span>eturns -1 otherwise
+ */
+int binarysearch1<span class="o">(</span>const int *arr, int l, int r, int x<span class="o">)</span>
+<span class="o">{</span>
+    <span class="k">if</span> <span class="o">(</span>r &gt;<span class="o">=</span> l<span class="o">)</span>
+    <span class="o">{</span>
+        int <span class="nv">mid</span> <span class="o">=</span> l + <span class="o">(</span>r - l<span class="o">)</span> / <span class="m">2</span><span class="p">;</span>
+
+        // If element is present at middle
+        <span class="k">if</span> <span class="o">(</span>arr<span class="o">[</span>mid<span class="o">]</span> <span class="o">==</span> x<span class="o">)</span>
+            <span class="k">return</span> mid<span class="p">;</span>
+:
+</pre></div>
+</div>
+<p>Observăm că acum avem o sesiune interactivă în interiorul căreia putem explora fișierul.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>În cadrul unei sesiuni <code class="docutils literal notranslate"><span class="pre">less</span></code> putem folosi aceeleași taste ca în cadrul sesiunii interactive <code class="docutils literal notranslate"><span class="pre">man</span></code> pentru navigarea în pagină:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Ctrl+n</span></code>/<code class="docutils literal notranslate"><span class="pre">Ctrl+p</span></code> sau <code class="docutils literal notranslate"><span class="pre">j</span></code>/<code class="docutils literal notranslate"><span class="pre">k</span></code> pentru a naviga, cu câte o linie, în jos, respectiv în sus; recomandăm utlizarea tastelor <code class="docutils literal notranslate"><span class="pre">j</span></code>/<code class="docutils literal notranslate"><span class="pre">k</span></code> pentru a fi mai eficienți</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Ctrl+f</span></code>/<code class="docutils literal notranslate"><span class="pre">Ctrl+b</span></code> pentru a naviga, cu câte o pagină de terminal, în jos, respectiv în sus</p></li>
+<li><p>Search (<code class="docutils literal notranslate"><span class="pre">/</span></code>, <code class="docutils literal notranslate"><span class="pre">?</span></code>, <code class="docutils literal notranslate"><span class="pre">n</span></code>, <code class="docutils literal notranslate"><span class="pre">N</span></code>)</p></li>
+<li><p>Go up (<code class="docutils literal notranslate"><span class="pre">g</span></code>), go down (<code class="docutils literal notranslate"><span class="pre">G</span></code>)</p></li>
+<li><p>Help (<code class="docutils literal notranslate"><span class="pre">h</span></code>) pentru a afla mai multe despre cum putem folosi mai bine sesiunea interactivă</p></li>
+<li><p>Quit (<code class="docutils literal notranslate"><span class="pre">q</span></code>) pentru a ieși din sesiunea interactivă</p></li>
+</ul>
+<p>Toate aceste informații se găsesc în pagina de manual a utilitarului <code class="docutils literal notranslate"><span class="pre">less</span></code>: <code class="docutils literal notranslate"><span class="pre">man</span> <span class="pre">less</span></code>.</p>
+</div>
+<p>În sesiunea interactivă căutăm după cuvântul cheie <strong>search</strong>.
+Pentru a porni căutarea apăsăm tasta <code class="docutils literal notranslate"><span class="pre">/</span></code>, introducem textul căutat (<strong>search</strong>) și apăsăm tasta <code class="docutils literal notranslate"><span class="pre">Enter</span></code>.
+Apăsăm tasta <code class="docutils literal notranslate"><span class="pre">n</span></code> pentru a merge la următoarea apariție a textului căutat; apăsăm <code class="docutils literal notranslate"><span class="pre">n</span></code> până când ajungem la implementarea funcției <code class="docutils literal notranslate"><span class="pre">binarysearch2</span></code>.</p>
+<section id="exercitii">
+<h4><span class="section-number">3.1.1.1. </span>Exerciții<a class="headerlink" href="#exercitii" title="Permalink to this heading">¶</a></h4>
+<ol class="arabic simple">
+<li><p>Analizați, folosind <code class="docutils literal notranslate"><span class="pre">less</span></code>, algoritmul de căutare din fișierul <code class="docutils literal notranslate"><span class="pre">workspace/C/searching/linear_search.c</span></code>.
+Ce implementare este mai eficientă: <strong>binary_search</strong> sau <strong>linear_search</strong>?</p></li>
+<li><p>Analizați, folosind <code class="docutils literal notranslate"><span class="pre">less</span></code>, algoritmul de sortare <strong>quick_sort</strong>.
+Folosiți utilitarul <code class="docutils literal notranslate"><span class="pre">find</span></code> pentru a găsi fișierul sursă care conține implementarea.</p></li>
+<li><p>Analizați, folosind <code class="docutils literal notranslate"><span class="pre">less</span></code>, algoritmul de sortare <strong>merge_sort</strong>.
+Folosiți utilitarul <code class="docutils literal notranslate"><span class="pre">find</span></code> pentru a găsi fișierul sursă care conține implementarea.</p></li>
+<li><p>Căutați pe Google detalii despre cei doi algoritmi de sortare și încercați să vă răspundeți la întrebarea:
+Când folosim <strong>merge_sort</strong> și când folosim <strong>quick_sort</strong>?</p></li>
+</ol>
+</section>
+</section>
+<section id="prelucrarea-informatiei-dintr-un-fisier">
+<h3><span class="section-number">3.1.2. </span>Prelucrarea informației dintr-un fișier<a class="headerlink" href="#prelucrarea-informatiei-dintr-un-fisier" title="Permalink to this heading">¶</a></h3>
+<p>Pentru a afișa pe ecran conținutul unui fișier folosim utlitarul <code class="docutils literal notranslate"><span class="pre">cat</span></code>.
+Rulăm comanda de mai jos, pentru a exemplifica:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ cat workspace/C/searching/binary_search.c
+/**
+ * @file
+ * @brief Program to perform <span class="o">[</span>binary
+ * search<span class="o">](</span>https://en.wikipedia.org/wiki/Binary_search_algorithm<span class="o">)</span> of a target
+ * value <span class="k">in</span> a given *sorted* array.
+ * @authors <span class="o">[</span>James McDermott<span class="o">](</span>https://github.com/theycallmemac<span class="o">)</span> - recursive
+ * algorithm
+ * @authors <span class="o">[</span>Krishna Vedala<span class="o">](</span>https://github.com/kvedala<span class="o">)</span> - iterative algorithm
+ */
+<span class="c1">#include &lt;assert.h&gt;</span>
+<span class="c1">#include &lt;stdio.h&gt;</span>
+
+<span class="o">[</span>...<span class="o">]</span>
+</pre></div>
+</div>
+<p>Observăm că pentru un fișier cu un număr mare de linii, așa cum este <strong>binary_search.c</strong>, afișarea întregului conținut pe ecran devine un impediment în a putea înțelege și urmări conținutul.
+De aceea vă încurajăm să folosiți <code class="docutils literal notranslate"><span class="pre">less</span></code> în loc de <code class="docutils literal notranslate"><span class="pre">cat</span></code> pentru a inspecta un fișier: vă este mult mai ușor să vă plimbați în interiorul fișierului și puteți folosi funcția search pentru a căuta în fișier.
+De asemeni, folosind <code class="docutils literal notranslate"><span class="pre">less</span></code> vă păstrați consola curată și puteți urmări mai ușor ce comenzi ați dat anterior și care au fost rezultatele acestora.</p>
+<p>Folosim comanda <code class="docutils literal notranslate"><span class="pre">cat</span></code> în combinație cu alte comenzi pentru a extrage sau filtra conținutul anumitor fișiere.
+Comanda <code class="docutils literal notranslate"><span class="pre">cat</span></code> primește ca argumente calea către unul sau mai multe fișiere și afișează pe ecran conținutul concatenat al acestora.</p>
+<p>Un exemplu uzual este faptul că vrem să extragem informațiile despre starea memoriei sistemului din fișierul <code class="docutils literal notranslate"><span class="pre">/proc/meminfo</span></code>.
+Pentru aceasta rulăm comanda de mai jos:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ cat /proc/meminfo <span class="p">|</span> grep <span class="s2">&quot;Mem&quot;</span>
+MemTotal:        <span class="m">2041248</span> kB
+MemFree:          <span class="m">236092</span> kB
+MemAvailable:     <span class="m">874420</span> kB
+</pre></div>
+</div>
+<p>În exemplul de mai sus folosim <code class="docutils literal notranslate"><span class="pre">cat</span></code> pentru a oferi ca intrare conținutul fișierului <code class="docutils literal notranslate"><span class="pre">/proc/meminfo</span></code> utilitarului <code class="docutils literal notranslate"><span class="pre">grep</span></code>; cu utilitarul <code class="docutils literal notranslate"><span class="pre">grep</span></code> filtrăm conținutul după textul <code class="docutils literal notranslate"><span class="pre">&quot;Mem&quot;</span></code>.
+Cu alte cuvinte, outputul comenzii <code class="docutils literal notranslate"><span class="pre">cat</span> <span class="pre">/proc/meminfo</span></code>, adică conținutul fișierului <code class="docutils literal notranslate"><span class="pre">/proc/meminfo</span></code> este textul pe care utilitarul <code class="docutils literal notranslate"><span class="pre">grep</span></code> îl prelucrează.</p>
+<p><strong>Exercițiu</strong>: Plecând de la exemplul de mai sus, extrageți din fișierul <code class="docutils literal notranslate"><span class="pre">/proc/cpuinfo</span></code> dimensiunea memoriei cache a procesorului vostru; filtrați conținutul după textul <code class="docutils literal notranslate"><span class="pre">&quot;cache&quot;</span></code>.</p>
+<section id="afisarea-partiala-a-unui-fisier">
+<h4><span class="section-number">3.1.2.1. </span>Afișarea parțială a unui fișier<a class="headerlink" href="#afisarea-partiala-a-unui-fisier" title="Permalink to this heading">¶</a></h4>
+<p>Am văzut că utilitarul <code class="docutils literal notranslate"><span class="pre">cat</span></code> afișează întreg conținutul unui fișier.
+Există scenarii în care suntem interesați doar de începutul sau sfârșitul unui conținut.
+Pentru aceste cazuri putem folosi utilitarele:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">head</span></code> - afișează primele <strong>10</strong> linii din conținut</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tail</span></code> - afișează ultimele <strong>10</strong> linii din conținut</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Valoarea <strong>10</strong> este valoarea implicită a ambelor utilitare, dar putem specifica un alt număr de linii.</p>
+</div>
+<p>Așa cum am observat în capitolul despre procese, putem folosi utilitarul <code class="docutils literal notranslate"><span class="pre">ps</span></code> pentru a vedea care sunt procesele din sistem și ce resurse consumă acestea.
+Memoria sistemului este una dintre cele mai importante resurse; dacă sistemul nostru rămâne fără memorie disponibilă, tot sistemul este afectat: sistemul se va “mișca” mai greu, procesele se vor “mișca” mai greu sau pot chiar să își întrerupă activitatea.
+Știind acest lucru, suntem interesați să vedem care sunt primele zece procese care consumă cea mai multă memorie.</p>
+<p>Folosim utilitarul <code class="docutils literal notranslate"><span class="pre">ps</span></code> pentru a afișa toate procesele din sistem:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ ps -e -ouser,uid,pid,%mem,%cpu,rss,cmd --sort<span class="o">=</span>%mem
+
+USER       UID   PID %MEM %CPU   RSS CMD
+root         <span class="m">0</span>     <span class="m">2</span>  <span class="m">0</span>.0  <span class="m">0</span>.0     <span class="m">0</span> <span class="o">[</span>kthreadd<span class="o">]</span>
+
+<span class="o">[</span>...<span class="o">]</span>
+
+student   <span class="m">1000</span>  <span class="m">8338</span>  <span class="m">3</span>.0  <span class="m">0</span>.0 <span class="m">61860</span> /usr/lib/evolution/evolution-calendar-factory-subprocess --factory all --bus-name org.gnome.evolution.dataserver.Subprocess.Backend.Calendarx8307x2 --own-path /org/gnome/evolution/dataserver/Subprocess/Backend/Calendar/8307/2
+student   <span class="m">1000</span>  <span class="m">8307</span>  <span class="m">3</span>.1  <span class="m">0</span>.0 <span class="m">64628</span> /usr/lib/evolution/evolution-calendar-factory
+root         <span class="m">0</span>  <span class="m">1338</span>  <span class="m">3</span>.8  <span class="m">0</span>.0 <span class="m">78880</span> /usr/bin/dockerd -H fd:// --containerd<span class="o">=</span>/run/containerd/containerd.sock
+student   <span class="m">1000</span>  <span class="m">7782</span>  <span class="m">3</span>.9  <span class="m">0</span>.0 <span class="m">81312</span> /usr/lib/xorg/Xorg vt1 -displayfd <span class="m">3</span> -auth /run/user/1000/gdm/Xauthority -background none -noreset -keeptty -verbose <span class="m">3</span>
+student   <span class="m">1000</span>  <span class="m">8437</span>  <span class="m">8</span>.4  <span class="m">0</span>.0 <span class="m">171916</span> /usr/bin/gnome-software --gapplication-service
+student   <span class="m">1000</span>  <span class="m">7938</span> <span class="m">18</span>.0  <span class="m">0</span>.1 <span class="m">368304</span> /usr/bin/gnome-shell
+</pre></div>
+</div>
+<p>Am folosit opțiunea <code class="docutils literal notranslate"><span class="pre">-ouser,uid,pid,%mem,%cpu,rss,cmd</span></code> pentru a selecta coloanele pe care să le afișeze <code class="docutils literal notranslate"><span class="pre">ps</span></code>.</p>
+<p>Am folosit opțiunea <code class="docutils literal notranslate"><span class="pre">--sort</span></code> cu argumentul <code class="docutils literal notranslate"><span class="pre">%mem</span></code> pentru a sorta procesele după procentul de memorie folosită.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Folosiți comanda <code class="docutils literal notranslate"><span class="pre">ps</span> <span class="pre">-e</span> <span class="pre">-ouser,uid,pid,%mem,%cpu,rss,cmd</span> <span class="pre">--sort=%mem</span> <span class="pre">|</span> <span class="pre">less</span></code> pentru a vizualiza rezultatul comenzii <code class="docutils literal notranslate"><span class="pre">ps</span></code> într-o sesiune interactivă <code class="docutils literal notranslate"><span class="pre">less</span></code>.</p>
+</div>
+<p>Observăm că avem procesele sortate crescător după coloana <code class="docutils literal notranslate"><span class="pre">%MEM</span></code>.
+Folosim utilitarul <code class="docutils literal notranslate"><span class="pre">tail</span></code> pentru a extrage din rezultatul <code class="docutils literal notranslate"><span class="pre">ps</span></code> cele mai consumatoare zece procese:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ ps -e -ouser,uid,pid,%mem,%cpu,rss,cmd --sort<span class="o">=</span>%mem <span class="p">|</span> tail
+student   <span class="m">1000</span> <span class="m">12966</span>  <span class="m">1</span>.8  <span class="m">0</span>.0 <span class="m">38216</span> /usr/lib/gnome-terminal/gnome-terminal-server
+root         <span class="m">0</span>  <span class="m">1074</span>  <span class="m">2</span>.2  <span class="m">0</span>.0 <span class="m">45460</span> /usr/bin/containerd
+student   <span class="m">1000</span>  <span class="m">8274</span>  <span class="m">2</span>.3  <span class="m">0</span>.0 <span class="m">48296</span> nautilus-desktop
+root         <span class="m">0</span>   <span class="m">336</span>  <span class="m">2</span>.6  <span class="m">0</span>.0 <span class="m">53612</span> /lib/systemd/systemd-journald
+student   <span class="m">1000</span>  <span class="m">8338</span>  <span class="m">3</span>.0  <span class="m">0</span>.0 <span class="m">61860</span> /usr/lib/evolution/evolution-calendar-factory-subprocess --factory all --bus-name org.gnome.evolution.dataserver.Subprocess.Backend.Calendarx8307x2 --own-path /org/gnome/evolution/dataserver/Subprocess/Backend/Calendar/8307/2
+student   <span class="m">1000</span>  <span class="m">8307</span>  <span class="m">3</span>.1  <span class="m">0</span>.0 <span class="m">64628</span> /usr/lib/evolution/evolution-calendar-factory
+root         <span class="m">0</span>  <span class="m">1338</span>  <span class="m">3</span>.8  <span class="m">0</span>.0 <span class="m">78880</span> /usr/bin/dockerd -H fd:// --containerd<span class="o">=</span>/run/containerd/containerd.sock
+student   <span class="m">1000</span>  <span class="m">7782</span>  <span class="m">3</span>.9  <span class="m">0</span>.0 <span class="m">81312</span> /usr/lib/xorg/Xorg vt1 -displayfd <span class="m">3</span> -auth /run/user/1000/gdm/Xauthority -background none -noreset -keeptty -verbose <span class="m">3</span>
+student   <span class="m">1000</span>  <span class="m">8437</span>  <span class="m">8</span>.4  <span class="m">0</span>.0 <span class="m">171916</span> /usr/bin/gnome-software --gapplication-service
+student   <span class="m">1000</span>  <span class="m">7938</span> <span class="m">18</span>.0  <span class="m">0</span>.1 <span class="m">368248</span> /usr/bin/gnome-shell
+</pre></div>
+</div>
+<p>În acest moment am găsit răspunsul căutat, dar avem două mici neajunsuri:</p>
+<ul class="simple">
+<li><p>Ne lipsește antetul, așa că nu știm ce informații avem pe coloane</p></li>
+<li><p>Procesele sunt sortate crescător, a.î. cel mai consumator este ultimul; vrem să fie sortate descrescător</p></li>
+</ul>
+<p>Rezolvăm cele două probleme prin intermediul opțiunii <code class="docutils literal notranslate"><span class="pre">--sort</span></code>: dacă punem un <code class="docutils literal notranslate"><span class="pre">-</span></code> (minus) în fața argumentului după care sortăm, o să sortăm descrescător.
+Rulăm comanda:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ ps -e -ouser,uid,pid,%mem,%cpu,rss,cmd --sort<span class="o">=</span>-%mem <span class="p">|</span> less
+USER       UID   PID %MEM %CPU   RSS CMD
+student   <span class="m">1000</span>  <span class="m">7938</span> <span class="m">18</span>.0  <span class="m">0</span>.1 <span class="m">368248</span> /usr/bin/gnome-shell
+student   <span class="m">1000</span>  <span class="m">8437</span>  <span class="m">8</span>.4  <span class="m">0</span>.0 <span class="m">171916</span> /usr/bin/gnome-software --gapplication-service
+student   <span class="m">1000</span>  <span class="m">7782</span>  <span class="m">3</span>.9  <span class="m">0</span>.0 <span class="m">81312</span> /usr/lib/xorg/Xorg vt1 -displayfd <span class="m">3</span> -auth /run/user/1000/gdm/Xauthority -background none -noreset -keeptty -verbose <span class="m">3</span>
+root         <span class="m">0</span>  <span class="m">1338</span>  <span class="m">3</span>.8  <span class="m">0</span>.0 <span class="m">78880</span> /usr/bin/dockerd -H fd:// --containerd<span class="o">=</span>/run/containerd/containerd.sock
+student   <span class="m">1000</span>  <span class="m">8307</span>  <span class="m">3</span>.1  <span class="m">0</span>.0 <span class="m">64628</span> /usr/lib/evolution/evolution-calendar-factory
+
+<span class="o">[</span>...<span class="o">]</span>
+</pre></div>
+</div>
+<p>Observăm că acum avem formatul dorit.
+Ne mai rămâne să extragem primele <strong>11</strong> linii din rezultatul comenzii de mai sus; <strong>11</strong> deoarece prima este linia antetului iar următoarele zece sunt procesele de interes.
+Pentru aceasta utilizăm comanda <code class="docutils literal notranslate"><span class="pre">head</span></code> cu opțiunea <code class="docutils literal notranslate"><span class="pre">-11</span></code> ca în exemplul de mai jos:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ ps -e -ouser,uid,pid,%mem,%cpu,rss,cmd --sort<span class="o">=</span>-%mem <span class="p">|</span> head -11
+USER       UID   PID %MEM %CPU   RSS CMD
+student   <span class="m">1000</span>  <span class="m">7938</span> <span class="m">18</span>.0  <span class="m">0</span>.1 <span class="m">367952</span> /usr/bin/gnome-shell
+student   <span class="m">1000</span>  <span class="m">8437</span>  <span class="m">8</span>.4  <span class="m">0</span>.0 <span class="m">171916</span> /usr/bin/gnome-software --gapplication-service
+student   <span class="m">1000</span>  <span class="m">7782</span>  <span class="m">3</span>.9  <span class="m">0</span>.0 <span class="m">81312</span> /usr/lib/xorg/Xorg vt1 -displayfd <span class="m">3</span> -auth /run/user/1000/gdm/Xauthority -background none -noreset -keeptty -verbose <span class="m">3</span>
+root         <span class="m">0</span>  <span class="m">1338</span>  <span class="m">3</span>.8  <span class="m">0</span>.0 <span class="m">78880</span> /usr/bin/dockerd -H fd:// --containerd<span class="o">=</span>/run/containerd/containerd.sock
+student   <span class="m">1000</span>  <span class="m">8307</span>  <span class="m">3</span>.1  <span class="m">0</span>.0 <span class="m">64628</span> /usr/lib/evolution/evolution-calendar-factory
+student   <span class="m">1000</span>  <span class="m">8338</span>  <span class="m">3</span>.0  <span class="m">0</span>.0 <span class="m">61860</span> /usr/lib/evolution/evolution-calendar-factory-subprocess --factory all --bus-name org.gnome.evolution.dataserver.Subprocess.Backend.Calendarx8307x2 --own-path /org/gnome/evolution/dataserver/Subprocess/Backend/Calendar/8307/2
+root         <span class="m">0</span>   <span class="m">336</span>  <span class="m">2</span>.6  <span class="m">0</span>.0 <span class="m">53612</span> /lib/systemd/systemd-journald
+student   <span class="m">1000</span>  <span class="m">8274</span>  <span class="m">2</span>.3  <span class="m">0</span>.0 <span class="m">48296</span> nautilus-desktop
+root         <span class="m">0</span>  <span class="m">1074</span>  <span class="m">2</span>.2  <span class="m">0</span>.0 <span class="m">45460</span> /usr/bin/containerd
+student   <span class="m">1000</span> <span class="m">12966</span>  <span class="m">1</span>.8  <span class="m">0</span>.0 <span class="m">38216</span> /usr/lib/gnome-terminal/gnome-terminal-server
+</pre></div>
+</div>
+</section>
+<section id="id3">
+<h4><span class="section-number">3.1.2.2. </span>Exerciții<a class="headerlink" href="#id3" title="Permalink to this heading">¶</a></h4>
+<ol class="arabic simple">
+<li><p>Afișați primele zece procese sortate în funcție de memoria ocupată (Hint: RSS).
+Nu uitați să includeți antetul.</p></li>
+<li><p>Afișați ultimele zece procese sortate în funcție de utilizarea procesorului (Hint: CPU).
+Nu uitați să includeți antetul.</p></li>
+</ol>
+</section>
+</section>
+</section>
+<section id="cautarea-in-fisiere">
+<h2><span class="section-number">3.2. </span>Căutarea în fișiere<a class="headerlink" href="#cautarea-in-fisiere" title="Permalink to this heading">¶</a></h2>
+<p>Așa cum am văzut până în acest punct din carte, majoritatea comenzilor Linux afișează o gamă largă de informații pe care apoi utilizatorul (adică noi) le filtrează pentru a extrage ceea ce îl intresează.
+La începutul acestei secțiuni, dar și de-a lungul cărții, am folosit utilitarul <code class="docutils literal notranslate"><span class="pre">grep</span></code> ca să filtrăm rezultatul unei comenzi.</p>
+<p>Comanda <code class="docutils literal notranslate"><span class="pre">grep</span></code> este una dintre cele mai folosite în linie de comandă.
+Sintaxa de folosire a <code class="docutils literal notranslate"><span class="pre">grep</span></code> este următoarea:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>SYNOPSIS
+       grep <span class="o">[</span>OPTIONS<span class="o">]</span> PATTERN <span class="o">[</span>FILE...<span class="o">]</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">grep</span></code> caută <strong>PATTERN</strong> în lista de fișiere primită ca argument și afișează liniile care conțin <strong>PATTERN</strong>-ul căutat.
+Atunci când nu primește nici un fișier, citește text de la tastatură (intrarea standard) și afișează liniile care conțin <strong>PATTERN</strong>-ul căutat.</p>
+<p>Până acum noi am utilizat <code class="docutils literal notranslate"><span class="pre">grep</span></code> după modelul de mai jos:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ cat workspace/C/searching/binary_search.c <span class="p">|</span> grep search
+ * search<span class="o">](</span>https://en.wikipedia.org/wiki/Binary_search_algorithm<span class="o">)</span> of a target
+ * <span class="se">\p</span>aram<span class="o">[</span><span class="k">in</span><span class="o">]</span> arr array to search
+ * <span class="se">\p</span>aram l left index of search range
+ * <span class="se">\p</span>aram r right index of search range
+ * <span class="se">\p</span>aram x target value to search <span class="k">for</span>
+int binarysearch1<span class="o">(</span>const int *arr, int l, int r, int x<span class="o">)</span>
+
+<span class="o">[</span>...<span class="o">]</span>
+</pre></div>
+</div>
+<p>În exemplul de mai sus, operatorul <code class="docutils literal notranslate"><span class="pre">|</span></code> trimite textul afișat de comanda <code class="docutils literal notranslate"><span class="pre">cat</span></code> către intrarea standard a comenzii <code class="docutils literal notranslate"><span class="pre">grep</span></code>.
+Vom discuta mai multe despre acesta în secțiunea <a class="reference internal" href="improve-shell.html#improve-cli-improve-shell-oneliners"><span class="std std-ref">Înlănțuirea comenzilor în funcție de succes sau eșec</span></a>.</p>
+<p>Comanda următoare este echivalentă cu cea de mai sus:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ grep search workspace/C/searching/binary_search.c
+ * search<span class="o">](</span>https://en.wikipedia.org/wiki/Binary_search_algorithm<span class="o">)</span> of a target
+ * <span class="se">\p</span>aram<span class="o">[</span><span class="k">in</span><span class="o">]</span> arr array to search
+ * <span class="se">\p</span>aram l left index of search range
+ * <span class="se">\p</span>aram r right index of search range
+ * <span class="se">\p</span>aram x target value to search <span class="k">for</span>
+int binarysearch1<span class="o">(</span>const int *arr, int l, int r, int x<span class="o">)</span>
+<span class="o">[</span>...<span class="o">]</span>
+</pre></div>
+</div>
+<p>Observăm modul de folosire: <code class="docutils literal notranslate"><span class="pre">grep</span> <span class="pre">PATTERN</span> <span class="pre">cale/către/fișier</span></code>.</p>
+<section id="id4">
+<h3><span class="section-number">3.2.1. </span>Exerciții<a class="headerlink" href="#id4" title="Permalink to this heading">¶</a></h3>
+<ol class="arabic simple">
+<li><p>Căutați <em>patternul</em> “l” în fișierul <code class="docutils literal notranslate"><span class="pre">binary_search.c</span></code>, pentru a vedea unde este folosit parametrul <strong>left</strong>.
+Observați cât de multe rezultate irelevante ați găsit datorită faptului că am căutat doar caracterul <strong>l</strong>.
+Aici există o lecție de învățat.
+Numele variabilelor sunt foarte improtante: nu fac doar codul mai ușor de înțeles, dar ajută și căutarea.
+Folosiți <em>patternul</em> “param l” în încercarea de a restrânge căutarea.</p></li>
+<li><p>Căutați <em>patternul</em> “arr” în fișierul <code class="docutils literal notranslate"><span class="pre">binary_search.c</span></code>.</p></li>
+<li><p>Căutați <em>patternul</em> “binarysearch1” în fișierul <code class="docutils literal notranslate"><span class="pre">binary_search.c</span></code> pentru a vedea cum este apelată funcția de căutare.</p></li>
+</ol>
+</section>
+<section id="optiuni-uzuale-ale-grep">
+<h3><span class="section-number">3.2.2. </span>Opțiuni uzuale ale <code class="docutils literal notranslate"><span class="pre">grep</span></code><a class="headerlink" href="#optiuni-uzuale-ale-grep" title="Permalink to this heading">¶</a></h3>
+<section id="afisarea-numarului-liniei-care-contine-patternul">
+<h4><span class="section-number">3.2.2.1. </span>Afișarea numărului liniei care conține patternul<a class="headerlink" href="#afisarea-numarului-liniei-care-contine-patternul" title="Permalink to this heading">¶</a></h4>
+<p>Folosim opțiunea <code class="docutils literal notranslate"><span class="pre">-n</span></code> pentru a afișa și numărul liniei care conține patternul căutat:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ grep -n search workspace/C/searching/binary_search.c
+<span class="m">4</span>: * search<span class="o">](</span>https://en.wikipedia.org/wiki/Binary_search_algorithm<span class="o">)</span> of a target
+<span class="m">14</span>: * <span class="se">\p</span>aram<span class="o">[</span><span class="k">in</span><span class="o">]</span> arr array to search
+<span class="m">15</span>: * <span class="se">\p</span>aram l left index of search range
+<span class="m">16</span>: * <span class="se">\p</span>aram r right index of search range
+<span class="m">17</span>: * <span class="se">\p</span>aram x target value to search <span class="k">for</span>
+<span class="m">21</span>:int binarysearch1<span class="o">(</span>const int *arr, int l, int r, int x<span class="o">)</span>
+<span class="o">[</span>...<span class="o">]</span>
+</pre></div>
+</div>
+</section>
+<section id="cautarea-case-insensitive">
+<h4><span class="section-number">3.2.2.2. </span>Căutarea case-insensitive<a class="headerlink" href="#cautarea-case-insensitive" title="Permalink to this heading">¶</a></h4>
+<p>Implicit, grep caută în mod case-sensitive patternul, așa cum putem observa din exemplul de mai jos:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ grep Search workspace/C/searching/binary_search.c
+</pre></div>
+</div>
+<p>Pentru a efectua căutarea textului în mod case-insesnsitive, folosim opțiunea <code class="docutils literal notranslate"><span class="pre">-i</span></code>, ca în exemplul de mai jos:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ grep -i Search workspace/C/searching/binary_search.c
+ * search<span class="o">](</span>https://en.wikipedia.org/wiki/Binary_search_algorithm<span class="o">)</span> of a target
+ * <span class="se">\p</span>aram<span class="o">[</span><span class="k">in</span><span class="o">]</span> arr array to search
+ * <span class="se">\p</span>aram l left index of search range
+ * <span class="se">\p</span>aram r right index of search range
+ * <span class="se">\p</span>aram x target value to search <span class="k">for</span>
+int binarysearch1<span class="o">(</span>const int *arr, int l, int r, int x<span class="o">)</span>
+<span class="o">[</span>...<span class="o">]</span>
+</pre></div>
+</div>
+</section>
+<section id="excluderea-unui-pattern">
+<h4><span class="section-number">3.2.2.3. </span>Excluderea unui pattern<a class="headerlink" href="#excluderea-unui-pattern" title="Permalink to this heading">¶</a></h4>
+<p>Pentru a afișa toate liniile, mai puțin pe cele care conțin pattern, folosim opțiunea <code class="docutils literal notranslate"><span class="pre">-v</span></code>, ca în exemplul de mai jos:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ grep -v search workspace/C/searching/binary_search.c <span class="p">|</span> less
+/**
+ * @file
+ * @brief Program to perform <span class="o">[</span>binary
+ * value <span class="k">in</span> a given *sorted* array.
+ * @authors <span class="o">[</span>James McDermott<span class="o">](</span>https://github.com/theycallmemac<span class="o">)</span> - recursive
+ * algorithm
+ * @authors <span class="o">[</span>Krishna Vedala<span class="o">](</span>https://github.com/kvedala<span class="o">)</span> - iterative algorithm
+ */
+<span class="c1">#include &lt;assert.h&gt;</span>
+<span class="c1">#include &lt;stdio.h&gt;</span>
+<span class="o">[</span>...<span class="o">]</span>
+</pre></div>
+</div>
+</section>
+<section id="cautarea-recursiva-a-unui-pattern">
+<h4><span class="section-number">3.2.2.4. </span>Căutarea recursivă a unui pattern<a class="headerlink" href="#cautarea-recursiva-a-unui-pattern" title="Permalink to this heading">¶</a></h4>
+<p>În căutările noastre de până acum, ca și în exemplele de mai sus, am presupus că știm în ce fișiere se găsește informația căutată de noi.
+Acest lucru este adevărat pentru fișiere din sistem cu informații bine cunoscute, cum ar fi <code class="docutils literal notranslate"><span class="pre">/proc/meminfo</span></code>, dar atunci când lucrăm cu un proiect nou nu vom ști în ce fișiere să căutăm informația dorită.
+De exemplu, în cazul proiectului cu algoritmi implementați în C, noi am făcut presupunerea că vom găsi linii care conțin patternul <strong>search</strong> în fișierul <code class="docutils literal notranslate"><span class="pre">workspace/C/searching/binary_search.c</span></code>.</p>
+<p>Atunci când nu știm în ce fișiere se află informația căutată putem să-i spunem lui <code class="docutils literal notranslate"><span class="pre">grep</span></code> să caute recursiv prin toată ierarhia de fișiere dintr-un anumit director.
+Pentru a efectua o căutare recursivă folosim opțiunea <code class="docutils literal notranslate"><span class="pre">-r</span></code>, ca în exemplul de mai jos:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ grep -r search workspace/C/ <span class="p">|</span> less
+
+workspace/C/leetcode/src/700.c:struct TreeNode *searchBST<span class="o">(</span>struct TreeNode *root, int val<span class="o">)</span>
+workspace/C/leetcode/src/700.c:        <span class="k">return</span> searchBST<span class="o">(</span>root-&gt;left, val<span class="o">)</span><span class="p">;</span>
+workspace/C/leetcode/src/700.c:        <span class="k">return</span> searchBST<span class="o">(</span>root-&gt;right, val<span class="o">)</span><span class="p">;</span>
+workspace/C/leetcode/src/35.c:int searchInsert<span class="o">(</span>int *nums, int numsSize, int target<span class="o">)</span>
+workspace/C/leetcode/src/35.c:int searchInsert<span class="o">(</span>int *nums, int numsSize, int target<span class="o">)</span>
+workspace/C/leetcode/src/35.c:        <span class="k">return</span> searchInsert<span class="o">(</span>nums, numsSize - <span class="m">1</span>, target<span class="o">)</span><span class="p">;</span>
+workspace/C/leetcode/src/704.c:int search<span class="o">(</span>int *nums, int numsSize, int target<span class="o">)</span>
+workspace/C/leetcode/src/704.c:/* Another solution: Using bsearch<span class="o">()</span> */
+workspace/C/leetcode/src/704.c:int search<span class="o">(</span>int *nums, int numsSize, int target<span class="o">)</span>
+workspace/C/leetcode/src/704.c:    int *ret <span class="o">=</span> bsearch<span class="o">(</span><span class="p">&amp;</span>target, nums, numsSize, sizeof<span class="o">(</span>int<span class="o">)</span>, cmpint<span class="o">)</span><span class="p">;</span>
+workspace/C/leetcode/README.md:<span class="p">|</span><span class="m">35</span><span class="p">|</span><span class="o">[</span>Search Insert Position<span class="o">](</span>https://leetcode.com/problems/search-insert-position/<span class="o">)</span> <span class="p">|</span> <span class="o">[</span>C<span class="o">](</span>./src/35.c<span class="o">)</span><span class="p">|</span>Easy<span class="p">|</span>
+workspace/C/leetcode/README.md:<span class="p">|</span><span class="m">108</span><span class="p">|</span><span class="o">[</span>Convert Sorted Array to Binary Search Tree<span class="o">](</span>https://leetcode.com/problems/convert-sorted-array-to-binary-search-tree/<span class="o">)</span> <span class="p">|</span> <span class="o">[</span>C<span class="o">](</span>./src/108.c<span class="o">)</span><span class="p">|</span>Easy<span class="p">|</span>
+workspace/C/leetcode/README.md:<span class="p">|</span><span class="m">109</span><span class="p">|</span><span class="o">[</span>Convert Sorted List to Binary Search Tree<span class="o">](</span>https://leetcode.com/problems/convert-sorted-list-to-binary-search-tree/<span class="o">)</span> <span class="p">|</span> <span class="o">[</span>C<span class="o">](</span>./src/109.c<span class="o">)</span><span class="p">|</span>Medium<span class="p">|</span>
+workspace/C/leetcode/README.md:<span class="p">|</span><span class="m">173</span><span class="p">|</span><span class="o">[</span>Binary Search Tree Iterator<span class="o">](</span>https://leetcode.com/problems/binary-search-tree-iterator/<span class="o">)</span> <span class="p">|</span> <span class="o">[</span>C<span class="o">](</span>./src/173.c<span class="o">)</span><span class="p">|</span>Medium<span class="p">|</span>
+workspace/C/leetcode/README.md:<span class="p">|</span><span class="m">700</span><span class="p">|</span><span class="o">[</span>Search <span class="k">in</span> a Binary Search Tree<span class="o">](</span>https://leetcode.com/problems/search-in-a-binary-search-tree/<span class="o">)</span> <span class="p">|</span> <span class="o">[</span>C<span class="o">](</span>./src/700.c<span class="o">)</span><span class="p">|</span>Easy<span class="p">|</span>
+workspace/C/leetcode/README.md:<span class="p">|</span><span class="m">701</span><span class="p">|</span><span class="o">[</span>Insert into a Binary Search Tree<span class="o">](</span>https://leetcode.com/problems/insert-into-a-binary-search-tree/<span class="o">)</span> <span class="p">|</span> <span class="o">[</span>C<span class="o">](</span>./src/701.c<span class="o">)</span><span class="p">|</span>Medium<span class="p">|</span>
+workspace/C/leetcode/README.md:<span class="p">|</span><span class="m">704</span><span class="p">|</span><span class="o">[</span>Binary Search<span class="o">](</span>https://leetcode.com/problems/binary-search/<span class="o">)</span> <span class="p">|</span> <span class="o">[</span>C<span class="o">](</span>./src/704.c<span class="o">)</span><span class="p">|</span>Easy<span class="p">|</span>
+workspace/C/DIRECTORY.md:    * <span class="o">[</span>Binary Search Tree<span class="o">](</span>https://github.com/TheAlgorithms/C/blob/master/data_structures/binary_trees/binary_search_tree.c<span class="o">)</span>
+workspace/C/DIRECTORY.md:  * <span class="o">[</span>Binary Search<span class="o">](</span>https://github.com/TheAlgorithms/C/blob/master/searching/binary_search.c<span class="o">)</span>
+workspace/C/DIRECTORY.md:  * <span class="o">[</span>Fibonacci Search<span class="o">](</span>https://github.com/TheAlgorithms/C/blob/master/searching/fibonacci_search.c<span class="o">)</span>
+</pre></div>
+</div>
+</section>
+<section id="best-practice">
+<h4><span class="section-number">3.2.2.5. </span>Best practice<a class="headerlink" href="#best-practice" title="Permalink to this heading">¶</a></h4>
+<p>De cele mai multe ori vom folosi opțiunile <code class="docutils literal notranslate"><span class="pre">-n</span></code>, <code class="docutils literal notranslate"><span class="pre">-i</span></code> și <code class="docutils literal notranslate"><span class="pre">-r</span></code> în aceelași timp.
+În cazul nostru de până acum, aceasta se traduce în:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ grep -nri search workspace/C/ <span class="p">|</span> less
+
+workspace/C/leetcode/src/700.c:10:struct TreeNode *searchBST<span class="o">(</span>struct TreeNode *root, int val<span class="o">)</span>
+workspace/C/leetcode/src/700.c:21:        <span class="k">return</span> searchBST<span class="o">(</span>root-&gt;left, val<span class="o">)</span><span class="p">;</span>
+workspace/C/leetcode/src/700.c:25:        <span class="k">return</span> searchBST<span class="o">(</span>root-&gt;right, val<span class="o">)</span><span class="p">;</span>
+workspace/C/leetcode/src/35.c:1:int searchInsert<span class="o">(</span>int *nums, int numsSize, int target<span class="o">)</span>
+workspace/C/leetcode/src/35.c:18:int searchInsert<span class="o">(</span>int *nums, int numsSize, int target<span class="o">)</span>
+workspace/C/leetcode/src/35.c:27:        <span class="k">return</span> searchInsert<span class="o">(</span>nums, numsSize - <span class="m">1</span>, target<span class="o">)</span><span class="p">;</span>
+workspace/C/leetcode/src/704.c:1:int search<span class="o">(</span>int *nums, int numsSize, int target<span class="o">)</span>
+workspace/C/leetcode/src/704.c:23:/* Another solution: Using bsearch<span class="o">()</span> */
+workspace/C/leetcode/src/704.c:26:int search<span class="o">(</span>int *nums, int numsSize, int target<span class="o">)</span>
+workspace/C/leetcode/src/704.c:28:    int *ret <span class="o">=</span> bsearch<span class="o">(</span><span class="p">&amp;</span>target, nums, numsSize, sizeof<span class="o">(</span>int<span class="o">)</span>, cmpint<span class="o">)</span><span class="p">;</span>
+workspace/C/leetcode/README.md:26:<span class="p">|</span><span class="m">35</span><span class="p">|</span><span class="o">[</span>Search Insert Position<span class="o">](</span>https://leetcode.com/problems/search-insert-position/<span class="o">)</span> <span class="p">|</span> <span class="o">[</span>C<span class="o">](</span>./src/35.c<span class="o">)</span><span class="p">|</span>Easy<span class="p">|</span>
+workspace/C/leetcode/README.md:35:<span class="p">|</span><span class="m">108</span><span class="p">|</span><span class="o">[</span>Convert Sorted Array to Binary Search Tree<span class="o">](</span>https://leetcode.com/problems/convert-sorted-array-to-binary-search-tree/<span class="o">)</span> <span class="p">|</span> <span class="o">[</span>C<span class="o">](</span>./src/108.c<span class="o">)</span><span class="p">|</span>Easy<span class="p">|</span>
+workspace/C/leetcode/README.md:36:<span class="p">|</span><span class="m">109</span><span class="p">|</span><span class="o">[</span>Convert Sorted List to Binary Search Tree<span class="o">](</span>https://leetcode.com/problems/convert-sorted-list-to-binary-search-tree/<span class="o">)</span> <span class="p">|</span> <span class="o">[</span>C<span class="o">](</span>./src/109.c<span class="o">)</span><span class="p">|</span>Medium<span class="p">|</span>
+workspace/C/leetcode/README.md:47:<span class="p">|</span><span class="m">173</span><span class="p">|</span><span class="o">[</span>Binary Search Tree Iterator<span class="o">](</span>https://leetcode.com/problems/binary-search-tree-iterator/<span class="o">)</span> <span class="p">|</span> <span class="o">[</span>C<span class="o">](</span>./src/173.c<span class="o">)</span><span class="p">|</span>Medium<span class="p">|</span>
+workspace/C/leetcode/README.md:78:<span class="p">|</span><span class="m">700</span><span class="p">|</span><span class="o">[</span>Search <span class="k">in</span> a Binary Search Tree<span class="o">](</span>https://leetcode.com/problems/search-in-a-binary-search-tree/<span class="o">)</span> <span class="p">|</span> <span class="o">[</span>C<span class="o">](</span>./src/700.c<span class="o">)</span><span class="p">|</span>Easy<span class="p">|</span>
+workspace/C/leetcode/README.md:79:<span class="p">|</span><span class="m">701</span><span class="p">|</span><span class="o">[</span>Insert into a Binary Search Tree<span class="o">](</span>https://leetcode.com/problems/insert-into-a-binary-search-tree/<span class="o">)</span> <span class="p">|</span> <span class="o">[</span>C<span class="o">](</span>./src/701.c<span class="o">)</span><span class="p">|</span>Medium<span class="p">|</span>
+workspace/C/leetcode/README.md:80:<span class="p">|</span><span class="m">704</span><span class="p">|</span><span class="o">[</span>Binary Search<span class="o">](</span>https://leetcode.com/problems/binary-search/<span class="o">)</span> <span class="p">|</span> <span class="o">[</span>C<span class="o">](</span>./src/704.c<span class="o">)</span><span class="p">|</span>Easy<span class="p">|</span>
+workspace/C/.github/pull_request_template.md:20:- <span class="o">[</span> <span class="o">]</span> Search previous suggestions before making a new one, as yours may be a duplicate.
+workspace/C/DIRECTORY.md:31:    * <span class="o">[</span>Binary Search Tree<span class="o">](</span>https://github.com/TheAlgorithms/C/blob/master/data_structures/binary_trees/binary_search_tree.c<span class="o">)</span>
+workspace/C/DIRECTORY.md:338:## Searching
+:
+</pre></div>
+</div>
+<p>Astfel avem o căutare cât mai cuprinzătoare și putem folosi funcția de căutare în sesiunea interactivă <code class="docutils literal notranslate"><span class="pre">less</span></code> pentru a găsi linia și fișierul care ne interesează.</p>
+</section>
+<section id="bonus-cautarea-unui-cuvant">
+<h4><span class="section-number">3.2.2.6. </span>Bonus: Căutarea unui cuvânt<a class="headerlink" href="#bonus-cautarea-unui-cuvant" title="Permalink to this heading">¶</a></h4>
+<p>Din rezultatele căutărilor de mai sus observăm că <code class="docutils literal notranslate"><span class="pre">grep</span></code> caută patternul dat ca un subșir.
+Acest lucru se vede foarte ușor în rezultatul anterior:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ grep -nri search workspace/C/ <span class="p">|</span> less
+
+workspace/C/leetcode/src/700.c:10:struct TreeNode *searchBST<span class="o">(</span>struct TreeNode *root, int val<span class="o">)</span>
+</pre></div>
+</div>
+<p>Observăm că patternul <strong>search</strong> se regăsește în șirul <strong>*searchBST</strong>.
+Dacă dorim să căutăm cuvântul <strong>search</strong> folosim opțiunea <code class="docutils literal notranslate"><span class="pre">-w</span></code> (word) pentru a-i transmite utilitarului că patternul trebuie tratat ca un cuvânt, ca în exemplul de mai jos:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ grep -nri -w <span class="s2">&quot;search&quot;</span> workspace/C/ <span class="p">|</span> less
+
+workspace/C/leetcode/src/704.c:1:int search<span class="o">(</span>int *nums, int numsSize, int target<span class="o">)</span>
+workspace/C/leetcode/src/704.c:26:int search<span class="o">(</span>int *nums, int numsSize, int target<span class="o">)</span>
+workspace/C/leetcode/README.md:26:<span class="p">|</span><span class="m">35</span><span class="p">|</span><span class="o">[</span>Search Insert Position<span class="o">](</span>https://leetcode.com/problems/search-insert-position/<span class="o">)</span> <span class="p">|</span> <span class="o">[</span>C<span class="o">](</span>./src/35.c<span class="o">)</span><span class="p">|</span>Easy<span class="p">|</span>
+<span class="o">[</span>...<span class="o">]</span>
+</pre></div>
+</div>
+<p>Observăm că acum rezultatele conțin doar cuvântul <strong>search</strong>.</p>
+</section>
+<section id="id5">
+<h4><span class="section-number">3.2.2.7. </span>Exerciții<a class="headerlink" href="#id5" title="Permalink to this heading">¶</a></h4>
+<ol class="arabic simple">
+<li><p>Găsiți toate fișierele care includ headerul <code class="docutils literal notranslate"><span class="pre">stdio.h</span></code>.</p></li>
+<li><p>Găsiți toate aparițiile patternului <code class="docutils literal notranslate"><span class="pre">binarySearch</span></code>.</p></li>
+<li><p>Găsiți toate aparițiile patternului <code class="docutils literal notranslate"><span class="pre">quickSort</span></code>.</p></li>
+</ol>
+</section>
+</section>
+</section>
+<section id="compararea-fisierelor">
+<h2><span class="section-number">3.3. </span>Compararea fișierelor<a class="headerlink" href="#compararea-fisierelor" title="Permalink to this heading">¶</a></h2>
+<p>Atunci când lucrăm cu fișiere o să ne întâlnim sporadic cu nevoia de a compara două fișiere între ele.</p>
+<section id="compararea-octet-cu-octet">
+<h3><span class="section-number">3.3.1. </span>Compararea octet cu octet<a class="headerlink" href="#compararea-octet-cu-octet" title="Permalink to this heading">¶</a></h3>
+<p>Compararea octet cu octet este utilă atunci când vrem aflăm dacă două fișiere sunt diferite sau nu, dar nu ne interesează cu ce diferă.
+Un exemplu ar fi: avem o arhivă cu aceelași nume în două locații diferite și nu mai ținem minte dacă am copiat-o noi sau este o coincidență de nume.
+Verificăm, fără să fie nevoie să le dezarhivăm, printr-o comparare la nivel de octet folosind comanda <code class="docutils literal notranslate"><span class="pre">cmp</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ cmp Documents/uso.tar Downloads/uso.tar
+student@uso:~$ cmp Downloads/courses.tar Downloads/uso.tar
+Downloads/courses.tar Downloads/uso.tar differ: byte <span class="m">1</span>, line <span class="m">1</span>
+</pre></div>
+</div>
+<p>În exemplul de mai sus, observăm că arhiva din calea <code class="docutils literal notranslate"><span class="pre">Documents/uso.tar</span></code> și cea din calea <code class="docutils literal notranslate"><span class="pre">Downloads/uso.tar</span></code> sunt identice, pe când arhivele <code class="docutils literal notranslate"><span class="pre">Downloads/courses.tar</span></code> și <code class="docutils literal notranslate"><span class="pre">Downloads/uso.tar</span></code> diferă de la primul octet <em>(byte 1, line 1)</em>.
+Observăm că în cazul în care fișierele sunt identice, <code class="docutils literal notranslate"><span class="pre">cmp</span></code> nu afișează nimic pe ecran.</p>
+</section>
+<section id="compararea-text">
+<h3><span class="section-number">3.3.2. </span>Compararea text<a class="headerlink" href="#compararea-text" title="Permalink to this heading">¶</a></h3>
+<p>Putem folosi <code class="docutils literal notranslate"><span class="pre">cmp</span></code> pentru a compara orice tip de fișier, inclusiv fișiere text, ca în exemplul de mai jos:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ cmp workspace/C/sorting/merge_sort.c workspace/C/sorting/quick_sort.c
+workspace/C/sorting/merge_sort.c workspace/C/sorting/quick_sort.c differ: byte <span class="m">1</span>, line <span class="m">1</span>
+</pre></div>
+</div>
+<p>Rezultatul de mai sus nu este ideal: știm că cele două fișiere sunt diferite, dar nu știm și cu ce anume diferă.
+Pentru comparații text folosim utilitarul <code class="docutils literal notranslate"><span class="pre">diff</span></code>.</p>
+<p>Pentru a exemplifica, navigăm în directorul <code class="docutils literal notranslate"><span class="pre">~/workspace/C/sorting/</span></code>, facem o copie fișierului <code class="docutils literal notranslate"><span class="pre">quick_sort.c</span></code> cu numele <code class="docutils literal notranslate"><span class="pre">quick_sort_old.c</span></code> și adăugăm comentariul <code class="docutils literal notranslate"><span class="pre">//</span> <span class="pre">It's</span> <span class="pre">so</span> <span class="pre">simple</span> <span class="pre">to</span> <span class="pre">diff</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ <span class="nb">cd</span> workspace/C/sorting/
+student@uso:~/workspace/C/sorting$ cp quick_sort.c quick_sort_old.c
+student@uso:~/workspace/C/sorting$ <span class="nb">echo</span> <span class="s2">&quot;// It&#39;s so simple to diff&quot;</span> &gt;&gt; quick_sort.c
+</pre></div>
+</div>
+<p>Folosim comanda <code class="docutils literal notranslate"><span class="pre">diff</span></code> pentru a vedea diferențele dintre <code class="docutils literal notranslate"><span class="pre">quick_sort.c</span></code> și <code class="docutils literal notranslate"><span class="pre">quick_sort_old.c</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/workspace/C/sorting$ diff quick_sort.c quick_sort_old.c
+98d97
+&lt; // It<span class="s1">&#39;s so simple to diff</span>
+<span class="s1">student@uso:~/workspace/C/sorting$ diff quick_sort_old.c quick_sort.c</span>
+<span class="s1">97a98</span>
+<span class="s1">&gt; // It&#39;</span>s so simple to diff
+</pre></div>
+</div>
+<p>Observăm următorul lucru: linia care diferă este precedată de caracterul <code class="docutils literal notranslate"><span class="pre">&lt;</span></code> atunci când provine din primul fișier, și este precedată de caracterul <code class="docutils literal notranslate"><span class="pre">&gt;</span></code> atunci când provine din al doilea fișier.</p>
+<section id="id6">
+<h4><span class="section-number">3.3.2.1. </span>Exerciții<a class="headerlink" href="#id6" title="Permalink to this heading">¶</a></h4>
+<ol class="arabic simple">
+<li><p>TODO</p></li>
+</ol>
+</section>
+</section>
+</section>
+</section>
+
+
+          </div>
+          <div class="page-nav">
+            <div class="inner"><ul class="page-nav">
+  <li class="prev">
+    <a href="inspect-fs.html"
+       title="previous chapter">← <span class="section-number">2. </span>Inspectarea sistemului de fișiere</a>
+  </li>
+  <li class="next">
+    <a href="improve-shell.html"
+       title="next chapter"><span class="section-number">4. </span>O înțelegere mai bună a shellului →</a>
+  </li>
+</ul><div class="footer" role="contentinfo">
+      &#169; Copyright 2020, USO Team.
+    <br>
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 5.2.2 with <a href="https://github.com/romnn/sphinx_press_theme">Press Theme</a>.
+</div>
+            </div>
+          </div>
+      </page>
+    </div>
+    
+    
+  </body>
+</html>
