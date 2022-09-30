@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html >
+<html  lang="en">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
       <title>1. Securitatea datelor</title>
     
@@ -18,7 +18,9 @@
         <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
         <script src="../../_static/my_actions.js"></script>
 
       
@@ -556,9 +558,9 @@
           <div class="content" role="main">
             
   <section id="securitatea-datelor">
-<h1><span class="section-number">1. </span>Securitatea datelor<a class="headerlink" href="#securitatea-datelor" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">1. </span>Securitatea datelor<a class="headerlink" href="#securitatea-datelor" title="Permalink to this heading">¶</a></h1>
 <section id="securitatea-in-sistemul-de-fisiere">
-<h2><span class="section-number">1.1. </span>Securitatea în sistemul de fișiere<a class="headerlink" href="#securitatea-in-sistemul-de-fisiere" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">1.1. </span>Securitatea în sistemul de fișiere<a class="headerlink" href="#securitatea-in-sistemul-de-fisiere" title="Permalink to this heading">¶</a></h2>
 <p>Pentru accesul corect la fișiere, sistemele de operare moderne permit configurarea de <strong>permisiuni de acces</strong> (<em>access permissions</em> sau <em>access rights</em>).
 Așa cum am precizat mai sus, în cazul acestor permisiuni, utilizatorii și procesele lor sunt subiecții, iar fișierele sunt obiectele.
 În forma simplă, permisiunile pe fișiere și directoare sunt de citire, scriere și execuție, așa cum am indicat în Secțiunea <strong>TODO Secțiune</strong>.</p>
@@ -612,7 +614,7 @@ drwxr-xr-x <span class="m">2</span> student student <span class="m">4096</span> 
 Pentru mai multe detalii de manipulare a permisiunilor, parcurgeți capitolul <strong>TODO PERMISIUNI</strong>.</p>
 <p><strong>TODO - Să vorbesc și despre chroot? Parcă e puțin cam mult</strong></p>
 <section id="exercitii-sistemul-de-fisiere">
-<h3><span class="section-number">1.1.1. </span>Exerciții - sistemul de fișiere<a class="headerlink" href="#exercitii-sistemul-de-fisiere" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">1.1.1. </span>Exerciții - sistemul de fișiere<a class="headerlink" href="#exercitii-sistemul-de-fisiere" title="Permalink to this heading">¶</a></h3>
 <ol class="arabic simple">
 <li><p>Modificați permisiunile fișierului <code class="docutils literal notranslate"><span class="pre">Google</span></code> astfel încât doar utilizatorul ce deține fișierul (<em>owner</em>) să aibă drepturi de citire (<em>read</em>).</p></li>
 <li><p>Modificați permisiunile fișierului <code class="docutils literal notranslate"><span class="pre">Netflix</span></code> astfel încât doar grupul ce deține fișierul (<em>owner</em>) să aibă drepturi de execuție (<em>execute</em>).</p></li>
@@ -621,7 +623,7 @@ Pentru mai multe detalii de manipulare a permisiunilor, parcurgeți capitolul <s
 </section>
 </section>
 <section id="confidentialitatea-datelor">
-<h2><span class="section-number">1.2. </span>Confidențialitatea datelor<a class="headerlink" href="#confidentialitatea-datelor" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">1.2. </span>Confidențialitatea datelor<a class="headerlink" href="#confidentialitatea-datelor" title="Permalink to this heading">¶</a></h2>
 <p>Sistemele și dispozitivele moderne au legătură aproape permanentă la Internet și transferă informații între ele.
 În această situație, permisiunile pe fișiere în sistemul local sunt nerelevante pentru un atacator care poate să captureze datele când sunt transferate.
 De aceea avem nevoie de moduri de a ascunde aceste date astfel încât, chiar capturate, să nu fie citite de un atacator, adică să păstrăm <em>confidențialitatea datelor</em>. <em>Confidențialitatea datelor</em> este asigurată, în general, prin <em>criptare</em>.
@@ -655,7 +657,7 @@ Your password is safe with your iOSstudent@uso-demo:~/securitate/stocks/Apple$
 <p>Am folosit parametrul <code class="docutils literal notranslate"><span class="pre">-d</span></code> pentru criptare, <code class="docutils literal notranslate"><span class="pre">-in</span></code> pentru a oferi fișierul criptat și <code class="docutils literal notranslate"><span class="pre">-out</span></code> pentru rezultat.
 Observăm că textul decriptat este identic cu cel original.</p>
 <section id="exercitii-confidentialitatea-datelor">
-<h3><span class="section-number">1.2.1. </span>Exerciții - confidentialitatea datelor<a class="headerlink" href="#exercitii-confidentialitatea-datelor" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">1.2.1. </span>Exerciții - confidentialitatea datelor<a class="headerlink" href="#exercitii-confidentialitatea-datelor" title="Permalink to this heading">¶</a></h3>
 <ol class="arabic simple">
 <li><p>Criptați propoziția următoare folosind algoritmul <em>aes-256-cbc</em>: <em>My password is better than yours!</em>;</p></li>
 <li><p>Decriptați fișierul obținut.</p></li>
@@ -663,7 +665,7 @@ Observăm că textul decriptat este identic cu cel original.</p>
 </section>
 </section>
 <section id="integritatea-datelor">
-<h2><span class="section-number">1.3. </span>Integritatea datelor<a class="headerlink" href="#integritatea-datelor" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">1.3. </span>Integritatea datelor<a class="headerlink" href="#integritatea-datelor" title="Permalink to this heading">¶</a></h2>
 <p>Un atacator poate urmări să citească datele, sau, în cazul în care acestea sunt criptate, poate decide să le modifice.
 Chiar și în absența atacatorului, datele pot fi corupte de defecte hardware ale dispozitivelor de stocare sau a celor de rețea.
 De aceea este necesar ca, în cazul transferului datelor, să asigurăm integritatea acestora.
@@ -703,7 +705,7 @@ Spre exemplu, dacă descărcăm <a class="reference external" href="https://down
 </div>
 <p>Cei de la VirtualBox ne oferă un <a class="reference external" href="https://www.virtualbox.org/download/hashes/6.1.26/MD5SUMS">fișier cu sumele de control</a> pentru fișierele oferite.</p>
 <section id="exercitii-integritatea-datelor">
-<h3><span class="section-number">1.3.1. </span>Exerciții - integritatea datelor<a class="headerlink" href="#exercitii-integritatea-datelor" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">1.3.1. </span>Exerciții - integritatea datelor<a class="headerlink" href="#exercitii-integritatea-datelor" title="Permalink to this heading">¶</a></h3>
 <ol class="arabic simple">
 <li><p>Creați suma de control pentru: “Facebook Amazon Apple Netflix Google (FAANG)”;</p></li>
 <li><p>Modificați un caracter din șirul de mai sus și refaceți suma de control;</p></li>
@@ -726,7 +728,7 @@ Spre exemplu, dacă descărcăm <a class="reference external" href="https://down
 </ul><div class="footer" role="contentinfo">
       &#169; Copyright 2020, USO Team.
     <br>
-    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.1.2 with <a href="https://github.com/romnn/sphinx_press_theme">Press Theme</a>.
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 5.2.2 with <a href="https://github.com/romnn/sphinx_press_theme">Press Theme</a>.
 </div>
             </div>
           </div>
