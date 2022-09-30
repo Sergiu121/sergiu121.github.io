@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html >
+<html  lang="en">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
       <title>10. Crearea unui Pull Request (PR) pe GitHub</title>
     
@@ -18,7 +18,9 @@
         <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
         <script src="../../_static/my_actions.js"></script>
 
       
@@ -565,7 +567,7 @@
           <div class="content" role="main">
             
   <section id="crearea-unui-pull-request-pr-pe-github">
-<span id="app-dev-pr"></span><h1><span class="section-number">10. </span>Crearea unui Pull Request (PR) pe GitHub<a class="headerlink" href="#crearea-unui-pull-request-pr-pe-github" title="Permalink to this headline">¶</a></h1>
+<span id="app-dev-pr"></span><h1><span class="section-number">10. </span>Crearea unui Pull Request (PR) pe GitHub<a class="headerlink" href="#crearea-unui-pull-request-pr-pe-github" title="Permalink to this heading">¶</a></h1>
 <p>În momentul în care vrem să adăugăm o funcționalitate nouă unui proiect software pe GitHub este recomandat să o facem printr-un <strong>Pull Request</strong>, prescurtat <strong>PR</strong>.
 Un <strong>Pull Request</strong> este o cerere de modificare a repository-ului.
 Alți colaboratori ai proiectului vor recenza modificările și vor aproba, vor sugera schimbări sau vor respinge această cerere.
@@ -575,7 +577,7 @@ Alți colaboratori ai proiectului vor recenza modificările și vor aproba, vor 
 De obicei acel branch este <strong>master</strong>.
 În acest tutorial vom deschide un Pull Request care urmează să fie integrat în branch-ul <strong>master</strong>.</p>
 <p>În secțiunea <a class="reference internal" href="git-branches.html#app-dev-branches"><span class="std std-ref">Lucrul pe branch-uri</span></a> am adus modificările de pe branch-ul <strong>add-gitignore</strong> pe branch-ul <strong>master</strong> prin operația <strong>merge</strong>.
-În această secțiune vom integra schimbările prin intermediul unui <strong>Pull Request</strong> <a class="footnote-reference brackets" href="#pull-request" id="id1">1</a> urmând pașii din subsecțiunea <a class="reference internal" href="#app-dev-pr-steps"><span class="std std-ref">Pași Pull Request</span></a>.</p>
+În această secțiune vom integra schimbările prin intermediul unui <strong>Pull Request</strong> <a class="footnote-reference brackets" href="#pull-request" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a> urmând pașii din subsecțiunea <a class="reference internal" href="#app-dev-pr-steps"><span class="std std-ref">Pași Pull Request</span></a>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Folosirea unui <strong>Pull Request</strong> în loc de a efectua o operație <strong>merge</strong> vine cu mai multe beneficii:</p>
@@ -585,7 +587,7 @@ De obicei acel branch este <strong>master</strong>.
 </ol>
 </div>
 <section id="pasi-pull-request">
-<span id="app-dev-pr-steps"></span><h2><span class="section-number">10.1. </span>Pași Pull Request<a class="headerlink" href="#pasi-pull-request" title="Permalink to this headline">¶</a></h2>
+<span id="app-dev-pr-steps"></span><h2><span class="section-number">10.1. </span>Pași Pull Request<a class="headerlink" href="#pasi-pull-request" title="Permalink to this heading">¶</a></h2>
 <p>Ca să avem o contribuție prin Pull Request, în mod uzual se urmează pașii:</p>
 <ol class="arabic simple">
 <li><p>Creăm un fork sau o clonă a repository-ului. Noi vom folosi în continuare repository-ul <strong>array-sorting-algorithms</strong>.</p></li>
@@ -598,7 +600,7 @@ De obicei acel branch este <strong>master</strong>.
 <p>În următoarele subsecțiuni vom implementa algoritmul Bubble Sort și vom modifica repository-ul <code class="docutils literal notranslate"><span class="pre">array-sorting-algorithms</span></code> prin intermediul unui <strong>Pull Request</strong>.</p>
 </section>
 <section id="crearea-unui-branch-nou">
-<span id="app-dev-pr-create-branch"></span><h2><span class="section-number">10.2. </span>Crearea unui branch nou<a class="headerlink" href="#crearea-unui-branch-nou" title="Permalink to this headline">¶</a></h2>
+<span id="app-dev-pr-create-branch"></span><h2><span class="section-number">10.2. </span>Crearea unui branch nou<a class="headerlink" href="#crearea-unui-branch-nou" title="Permalink to this heading">¶</a></h2>
 <p>Pentru a putea deschide un Pull Request, trebuie să lucrăm pe un branch diferit față de cel în care vrem să integrăm schimbările.
 Vom lucra pe un nou branch, diferit de branch-ul <strong>master</strong>.</p>
 <p>Creăm un branch numit <strong>bubble-sort-implementation</strong> folosind comanda <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">branch</span></code>:</p>
@@ -635,62 +637,62 @@ Date:   Mon Sep <span class="m">28</span> <span class="m">02</span>:29:00 <span 
 <p>În următoarea secțiune vom face încă un commit.</p>
 </section>
 <section id="crearea-unui-commit-pe-branch-ul-nou-creat">
-<span id="app-dev-create-new-commit-on-branch"></span><h2><span class="section-number">10.3. </span>Crearea unui commit pe branch-ul nou creat<a class="headerlink" href="#crearea-unui-commit-pe-branch-ul-nou-creat" title="Permalink to this headline">¶</a></h2>
+<span id="app-dev-create-new-commit-on-branch"></span><h2><span class="section-number">10.3. </span>Crearea unui commit pe branch-ul nou creat<a class="headerlink" href="#crearea-unui-commit-pe-branch-ul-nou-creat" title="Permalink to this heading">¶</a></h2>
 <p>Vom actualiza fișierul <code class="docutils literal notranslate"><span class="pre">bubble-sort.c</span></code> cu implementarea algoritmului ales.
 Modificăm fișierul <code class="docutils literal notranslate"><span class="pre">bubble-sort.c</span></code> astfel încât conținutul său să fie următorul:</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
 
 <span class="cp">#define MAX_LEN 100</span>
 
-<span class="k">static</span> <span class="kt">void</span> <span class="nf">swap</span><span class="p">(</span><span class="kt">int</span> <span class="o">*</span><span class="n">x</span><span class="p">,</span> <span class="kt">int</span> <span class="o">*</span><span class="n">y</span><span class="p">)</span>
-<span class="p">{</span>
-        <span class="kt">int</span> <span class="n">tmp</span> <span class="o">=</span> <span class="o">*</span><span class="n">x</span><span class="p">;</span>
-        <span class="o">*</span><span class="n">x</span> <span class="o">=</span> <span class="o">*</span><span class="n">y</span><span class="p">;</span>
-        <span class="o">*</span><span class="n">y</span> <span class="o">=</span> <span class="n">tmp</span><span class="p">;</span>
-<span class="p">}</span>
+<span class="k">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">swap</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">y</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">tmp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="n">x</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="o">*</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="n">y</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="o">*</span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tmp</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 
-<span class="k">static</span> <span class="kt">void</span> <span class="nf">bubble_sort</span><span class="p">(</span><span class="kt">int</span> <span class="o">*</span><span class="n">array</span><span class="p">,</span> <span class="kt">int</span> <span class="n">len</span><span class="p">)</span>
-<span class="p">{</span>
-        <span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">;</span>
+<span class="k">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">bubble_sort</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">array</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">len</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="p">;</span><span class="w"></span>
 
-        <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">len</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
-                <span class="k">for</span> <span class="p">(</span><span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">len</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span>
-                        <span class="k">if</span> <span class="p">(</span><span class="n">array</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">array</span><span class="p">[</span><span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">])</span>
-                                <span class="n">swap</span><span class="p">(</span><span class="o">&amp;</span><span class="n">array</span><span class="p">[</span><span class="n">j</span><span class="p">],</span> <span class="o">&amp;</span><span class="n">array</span><span class="p">[</span><span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]);</span>
-<span class="p">}</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">len</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"></span>
+<span class="w">                </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">len</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="o">++</span><span class="p">)</span><span class="w"></span>
+<span class="w">                        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">array</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">array</span><span class="p">[</span><span class="n">j</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">])</span><span class="w"></span>
+<span class="w">                                </span><span class="n">swap</span><span class="p">(</span><span class="o">&amp;</span><span class="n">array</span><span class="p">[</span><span class="n">j</span><span class="p">],</span><span class="w"> </span><span class="o">&amp;</span><span class="n">array</span><span class="p">[</span><span class="n">j</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">]);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 
-<span class="k">static</span> <span class="kt">void</span> <span class="nf">print_array</span><span class="p">(</span><span class="kt">int</span> <span class="o">*</span><span class="n">array</span><span class="p">,</span> <span class="kt">int</span> <span class="n">len</span><span class="p">)</span>
-<span class="p">{</span>
-        <span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
+<span class="k">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">print_array</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">array</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">len</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">;</span><span class="w"></span>
 
-        <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">len</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-                <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d &quot;</span><span class="p">,</span> <span class="n">array</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
-        <span class="p">}</span>
-        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
-<span class="p">}</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">len</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">                </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d &quot;</span><span class="p">,</span><span class="w"> </span><span class="n">array</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
-<span class="p">{</span>
-        <span class="kt">int</span> <span class="n">array</span><span class="p">[</span><span class="n">MAX_LEN</span><span class="p">],</span> <span class="n">len</span><span class="p">,</span> <span class="n">i</span><span class="p">;</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">array</span><span class="p">[</span><span class="n">MAX_LEN</span><span class="p">],</span><span class="w"> </span><span class="n">len</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">;</span><span class="w"></span>
 
-        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;What&#39;s the length of the array? Maximum lenght is %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">MAX_LEN</span><span class="p">);</span>
-        <span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">len</span><span class="p">);</span>
+<span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;What&#39;s the length of the array? Maximum lenght is %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">MAX_LEN</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">len</span><span class="p">);</span><span class="w"></span>
 
-        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Gimme the %d elements</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">len</span><span class="p">);</span>
-        <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">len</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">array</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
-        <span class="p">}</span>
+<span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Gimme the %d elements</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">len</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">len</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">array</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
 
-        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Nonsorted array: &quot;</span><span class="p">);</span>
-        <span class="n">print_array</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="n">len</span><span class="p">);</span>
+<span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Nonsorted array: &quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="n">print_array</span><span class="p">(</span><span class="n">array</span><span class="p">,</span><span class="w"> </span><span class="n">len</span><span class="p">);</span><span class="w"></span>
 
-        <span class="n">bubble_sort</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="n">len</span><span class="p">);</span>
+<span class="w">        </span><span class="n">bubble_sort</span><span class="p">(</span><span class="n">array</span><span class="p">,</span><span class="w"> </span><span class="n">len</span><span class="p">);</span><span class="w"></span>
 
-        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Sorted array: &quot;</span><span class="p">);</span>
-        <span class="n">print_array</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="n">len</span><span class="p">);</span>
+<span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Sorted array: &quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="n">print_array</span><span class="p">(</span><span class="n">array</span><span class="p">,</span><span class="w"> </span><span class="n">len</span><span class="p">);</span><span class="w"></span>
 
-        <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Algoritmul de mai sus sortează crescător un vector de numere întregi citit de la tastatură.
@@ -713,7 +715,7 @@ Adăugăm întâi modificările în zona de lucru (<em>staging area</em>) folosi
 On branch bubble-sort-implementation
 Changes not staged <span class="k">for</span> commit:
 <span class="o">(</span>use <span class="s2">&quot;git add &lt;file&gt;...&quot;</span> to update what will be committed<span class="o">)</span>
-<span class="o">(</span>use <span class="s2">&quot;git checkout -- &lt;file&gt;...&quot;</span> to discard changes in working directory<span class="o">)</span>
+<span class="o">(</span>use <span class="s2">&quot;git checkout -- &lt;file&gt;...&quot;</span> to discard changes <span class="k">in</span> working directory<span class="o">)</span>
 
         modified:   README.md
         modified:   bubble-sort.c
@@ -771,7 +773,7 @@ To https://github.com/lizababu/array-sorting-algorithms.git
 Pentru autorul acestui capitol este <code class="docutils literal notranslate"><span class="pre">lizababu</span></code>.</p>
 </section>
 <section id="crearea-pull-requestului">
-<span id="app-dev-create-pr"></span><h2><span class="section-number">10.4. </span>Crearea Pull Requestului<a class="headerlink" href="#crearea-pull-requestului" title="Permalink to this headline">¶</a></h2>
+<span id="app-dev-create-pr"></span><h2><span class="section-number">10.4. </span>Crearea Pull Requestului<a class="headerlink" href="#crearea-pull-requestului" title="Permalink to this heading">¶</a></h2>
 <p>Accesăm linkul PR-ului: <strong>https://github.com/{username}/array-sorting-algorithms/pull/new/bubble-sort-implementation</strong></p>
 <p>În acest moment s-a deschis o nouă pagină care arată că în imaginea de mai jos.</p>
 <figure class="align-default">
@@ -779,7 +781,7 @@ Pentru autorul acestui capitol este <code class="docutils literal notranslate"><
 </figure>
 <p>Mai jos explicăm semnificația celor mai importante componente prezente în imagine.</p>
 <section id="descrierea-pull-requestului">
-<span id="app-dev-pr-description"></span><h3><span class="section-number">10.4.1. </span>Descrierea Pull Requestului<a class="headerlink" href="#descrierea-pull-requestului" title="Permalink to this headline">¶</a></h3>
+<span id="app-dev-pr-description"></span><h3><span class="section-number">10.4.1. </span>Descrierea Pull Requestului<a class="headerlink" href="#descrierea-pull-requestului" title="Permalink to this heading">¶</a></h3>
 <p>În imaginea de mai jos vedem o parte a interfeței GitHub în care putem lăsa un comentariu în care să descriem (chiar și mai în detaliu decât într-un mesaj de commit) ce schimbări am făcut.</p>
 <p>În cazul nostru, comentariul poate conține detalii despre implementarea algoritmului.
 O descriere potrivită poate fi:</p>
@@ -792,8 +794,8 @@ O descriere potrivită poate fi:</p>
 </figure>
 </section>
 <section id="configurarea-branch-ului-in-care-vom-integra-pr-ul">
-<span id="app-dev-pr-config"></span><h3><span class="section-number">10.4.2. </span>Configurarea branch-ului în care vom integra PR-ul<a class="headerlink" href="#configurarea-branch-ului-in-care-vom-integra-pr-ul" title="Permalink to this headline">¶</a></h3>
-<p>Ca să finalizăm PR-ul, modificările din acesta trebuie să fie adăugate într-un branch, cel mai adesea în branch-ul <strong>master</strong> <a class="footnote-reference brackets" href="#base-branch" id="id2">2</a>.</p>
+<span id="app-dev-pr-config"></span><h3><span class="section-number">10.4.2. </span>Configurarea branch-ului în care vom integra PR-ul<a class="headerlink" href="#configurarea-branch-ului-in-care-vom-integra-pr-ul" title="Permalink to this heading">¶</a></h3>
+<p>Ca să finalizăm PR-ul, modificările din acesta trebuie să fie adăugate într-un branch, cel mai adesea în branch-ul <strong>master</strong> <a class="footnote-reference brackets" href="#base-branch" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a>.</p>
 <p>În acest tutorial vom folosi branch-ul <code class="docutils literal notranslate"><span class="pre">master</span></code> ca în imaginea de mai jos:</p>
 <figure class="align-default">
 <a class="reference internal image-reference" href="../../_images/GitHub-create-PR-base-branch.png"><img alt="Setarea branch-ului în care se va integra PR-ul" src="../../_images/GitHub-create-PR-base-branch.png" style="width: 1276.2px; height: 569.7px;" /></a>
@@ -804,7 +806,7 @@ O descriere potrivită poate fi:</p>
 </figure>
 </section>
 <section id="recenzii-si-recenzenti">
-<span id="app-dev-pr-reviewers"></span><h3><span class="section-number">10.4.3. </span>Recenzii și recenzenți<a class="headerlink" href="#recenzii-si-recenzenti" title="Permalink to this headline">¶</a></h3>
+<span id="app-dev-pr-reviewers"></span><h3><span class="section-number">10.4.3. </span>Recenzii și recenzenți<a class="headerlink" href="#recenzii-si-recenzenti" title="Permalink to this heading">¶</a></h3>
 <p>Folosirea PR-urilor ne aduce un beneficiu important: putem primi feedback pe modificările aduse.
 Din interfața grafică GitHub putem adăuga recenzenți care să dea feedback pe modificări.
 Recenzenții fac parte din colaboratorii proiectului.</p>
@@ -815,7 +817,7 @@ Recenzenții fac parte din colaboratorii proiectului.</p>
 </section>
 </section>
 <section id="integrarea-pr-ului">
-<span id="app-dev-pr-integration"></span><h2><span class="section-number">10.5. </span>Integrarea PR-ului<a class="headerlink" href="#integrarea-pr-ului" title="Permalink to this headline">¶</a></h2>
+<span id="app-dev-pr-integration"></span><h2><span class="section-number">10.5. </span>Integrarea PR-ului<a class="headerlink" href="#integrarea-pr-ului" title="Permalink to this heading">¶</a></h2>
 <p>După mai multe runde de feedback și aplicarea acestuia, PR-ul va fi gata de integrat în branch-ul <strong>master</strong>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -848,7 +850,7 @@ bubble-sort.c <span class="p">|</span> <span class="m">53</span> +++++++++++++++
 </div>
 </section>
 <section id="stergerea-branch-ului-in-urma-integrarii-in-branch-ul-master">
-<span id="app-dev-pr-delete-branch"></span><h2><span class="section-number">10.6. </span>Ștergerea branch-ului în urma integrării în branch-ul master<a class="headerlink" href="#stergerea-branch-ului-in-urma-integrarii-in-branch-ul-master" title="Permalink to this headline">¶</a></h2>
+<span id="app-dev-pr-delete-branch"></span><h2><span class="section-number">10.6. </span>Ștergerea branch-ului în urma integrării în branch-ul master<a class="headerlink" href="#stergerea-branch-ului-in-urma-integrarii-in-branch-ul-master" title="Permalink to this heading">¶</a></h2>
 <p>Odată făcută operația <code class="docutils literal notranslate"><span class="pre">merge</span></code>, putem șterge branch-ul pe care am lucrat apăsând pe butonul <code class="docutils literal notranslate"><span class="pre">Delete</span> <span class="pre">branch</span></code>.</p>
 <figure class="align-default">
 <img alt="Ștergerea branch-ului **bubble-sort-implementation** remote (*origin*)" src="../../_images/GitHub-delete-origin-branch.gif" />
@@ -865,89 +867,89 @@ student@uso:~/array-sorting-algorithms$ git branch
 Am șters branch-ul <strong>bubble-sort-implementation</strong>.</p>
 </section>
 <section id="exercitiu-crearea-unui-pr">
-<span id="app-dev-pr-ex"></span><h2><span class="section-number">10.7. </span>Exercițiu - Crearea unui PR<a class="headerlink" href="#exercitiu-crearea-unui-pr" title="Permalink to this headline">¶</a></h2>
+<span id="app-dev-pr-ex"></span><h2><span class="section-number">10.7. </span>Exercițiu - Crearea unui PR<a class="headerlink" href="#exercitiu-crearea-unui-pr" title="Permalink to this heading">¶</a></h2>
 <p>Veți folosi repository-ul <code class="docutils literal notranslate"><span class="pre">array-sorting-algorithms</span></code> pentru rezolvarea acestui exercțiu.</p>
 <p>Creați un <strong>Pull Request</strong> urmând pașii descriși mai sus în care să adăugați algoritmul de sortare Radix Sort.
 De această dată veți modifica fișierul <code class="docutils literal notranslate"><span class="pre">radix-sort.c</span></code> cu următorul conținut:</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
 
 <span class="cp">#define MAX_LEN 100</span>
 
-<span class="k">static</span> <span class="kt">int</span> <span class="nf">get_max</span><span class="p">(</span><span class="kt">int</span> <span class="n">array</span><span class="p">[],</span> <span class="kt">int</span> <span class="n">n</span><span class="p">)</span>
-<span class="p">{</span>
-        <span class="kt">int</span> <span class="n">max</span> <span class="o">=</span> <span class="n">array</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
-        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
-                <span class="k">if</span> <span class="p">(</span><span class="n">array</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">max</span><span class="p">)</span>
-                        <span class="n">max</span> <span class="o">=</span> <span class="n">array</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
-        <span class="k">return</span> <span class="n">max</span><span class="p">;</span>
-<span class="p">}</span>
+<span class="k">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">get_max</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">array</span><span class="p">[],</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">max</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">array</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span><span class="w"></span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"></span>
+<span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">array</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">max</span><span class="p">)</span><span class="w"></span>
+<span class="w">                        </span><span class="n">max</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">array</span><span class="p">[</span><span class="n">i</span><span class="p">];</span><span class="w"></span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">max</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 
-<span class="k">static</span> <span class="kt">void</span> <span class="nf">count_sort</span><span class="p">(</span><span class="kt">int</span> <span class="n">array</span><span class="p">[],</span> <span class="kt">int</span> <span class="n">n</span><span class="p">,</span> <span class="kt">int</span> <span class="n">exp</span><span class="p">)</span>
-<span class="p">{</span>
-        <span class="kt">int</span> <span class="n">output</span><span class="p">[</span><span class="n">n</span><span class="p">];</span>
-        <span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="n">count</span><span class="p">[</span><span class="mi">10</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">};</span>
+<span class="k">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">count_sort</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">array</span><span class="p">[],</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">exp</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">output</span><span class="p">[</span><span class="n">n</span><span class="p">];</span><span class="w"></span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">count</span><span class="p">[</span><span class="mi">10</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">0</span><span class="p">};</span><span class="w"></span>
 
-        <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-                <span class="n">count</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-        <span class="p">}</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">                </span><span class="n">count</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
 
-        <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-                <span class="n">count</span><span class="p">[(</span><span class="n">array</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">/</span> <span class="n">exp</span><span class="p">)</span> <span class="o">%</span> <span class="mi">10</span><span class="p">]</span><span class="o">++</span><span class="p">;</span>
-        <span class="p">}</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">                </span><span class="n">count</span><span class="p">[(</span><span class="n">array</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">exp</span><span class="p">)</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">10</span><span class="p">]</span><span class="o">++</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
 
-        <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-                <span class="n">count</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+=</span> <span class="n">count</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">];</span>
-        <span class="p">}</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">                </span><span class="n">count</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">count</span><span class="p">[</span><span class="n">i</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">];</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
 
-        <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">--</span><span class="p">)</span> <span class="p">{</span>
-                <span class="n">output</span><span class="p">[</span><span class="n">count</span><span class="p">[(</span><span class="n">array</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">/</span> <span class="n">exp</span><span class="p">)</span> <span class="o">%</span> <span class="mi">10</span><span class="p">]</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">array</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
-                <span class="n">count</span><span class="p">[(</span><span class="n">array</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">/</span> <span class="n">exp</span><span class="p">)</span> <span class="o">%</span> <span class="mi">10</span><span class="p">]</span><span class="o">--</span><span class="p">;</span>
-        <span class="p">}</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">--</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">                </span><span class="n">output</span><span class="p">[</span><span class="n">count</span><span class="p">[(</span><span class="n">array</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">exp</span><span class="p">)</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">10</span><span class="p">]</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">array</span><span class="p">[</span><span class="n">i</span><span class="p">];</span><span class="w"></span>
+<span class="w">                </span><span class="n">count</span><span class="p">[(</span><span class="n">array</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">exp</span><span class="p">)</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">10</span><span class="p">]</span><span class="o">--</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
 
-        <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
-                <span class="n">array</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">output</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
-<span class="p">}</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"></span>
+<span class="w">                </span><span class="n">array</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">output</span><span class="p">[</span><span class="n">i</span><span class="p">];</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 
-<span class="k">static</span> <span class="kt">void</span> <span class="nf">sort</span><span class="p">(</span><span class="kt">int</span> <span class="n">array</span><span class="p">[],</span> <span class="kt">int</span> <span class="n">n</span><span class="p">)</span>
-<span class="p">{</span>
-        <span class="kt">int</span> <span class="n">m</span> <span class="o">=</span> <span class="n">get_max</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="n">n</span><span class="p">);</span>
+<span class="k">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">sort</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">array</span><span class="p">[],</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">get_max</span><span class="p">(</span><span class="n">array</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">);</span><span class="w"></span>
 
-        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">exp</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">m</span> <span class="o">/</span> <span class="n">exp</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">;</span> <span class="n">exp</span> <span class="o">*=</span> <span class="mi">10</span><span class="p">)</span>
-                <span class="n">count_sort</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">exp</span><span class="p">);</span>
-<span class="p">}</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">exp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">exp</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">exp</span><span class="w"> </span><span class="o">*=</span><span class="w"> </span><span class="mi">10</span><span class="p">)</span><span class="w"></span>
+<span class="w">                </span><span class="n">count_sort</span><span class="p">(</span><span class="n">array</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">exp</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 
-<span class="k">static</span> <span class="kt">void</span> <span class="nf">print_array</span><span class="p">(</span><span class="kt">int</span> <span class="o">*</span><span class="n">array</span><span class="p">,</span> <span class="kt">int</span> <span class="n">len</span><span class="p">)</span>
-<span class="p">{</span>
-        <span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
+<span class="k">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">print_array</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">array</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">len</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">;</span><span class="w"></span>
 
-        <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">len</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-                <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d &quot;</span><span class="p">,</span> <span class="n">array</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
-        <span class="p">}</span>
-        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
-<span class="p">}</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">len</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">                </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d &quot;</span><span class="p">,</span><span class="w"> </span><span class="n">array</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
-<span class="p">{</span>
-        <span class="kt">int</span> <span class="n">array</span><span class="p">[</span><span class="n">MAX_LEN</span><span class="p">],</span> <span class="n">len</span><span class="p">,</span> <span class="n">i</span><span class="p">;</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">array</span><span class="p">[</span><span class="n">MAX_LEN</span><span class="p">],</span><span class="w"> </span><span class="n">len</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">;</span><span class="w"></span>
 
-        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;What&#39;s the length of the array? Maximum lenght is %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">MAX_LEN</span><span class="p">);</span>
-        <span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">len</span><span class="p">);</span>
+<span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;What&#39;s the length of the array? Maximum lenght is %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">MAX_LEN</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">len</span><span class="p">);</span><span class="w"></span>
 
-        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Gimme the %d elements</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">len</span><span class="p">);</span>
-        <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">len</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">array</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
-        <span class="p">}</span>
+<span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Gimme the %d elements</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">len</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">len</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">array</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
 
-        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Nonsorted array: &quot;</span><span class="p">);</span>
-        <span class="n">print_array</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="n">len</span><span class="p">);</span>
+<span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Nonsorted array: &quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="n">print_array</span><span class="p">(</span><span class="n">array</span><span class="p">,</span><span class="w"> </span><span class="n">len</span><span class="p">);</span><span class="w"></span>
 
-        <span class="n">sort</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="n">len</span><span class="p">);</span>
+<span class="w">        </span><span class="n">sort</span><span class="p">(</span><span class="n">array</span><span class="p">,</span><span class="w"> </span><span class="n">len</span><span class="p">);</span><span class="w"></span>
 
-        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Sorted array: &quot;</span><span class="p">);</span>
-        <span class="n">print_array</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="n">len</span><span class="p">);</span>
+<span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Sorted array: &quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="n">print_array</span><span class="p">(</span><span class="n">array</span><span class="p">,</span><span class="w"> </span><span class="n">len</span><span class="p">);</span><span class="w"></span>
 
-        <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Pe parcursul creării acestui Pull Request țineți cont de următoarele:</p>
@@ -959,7 +961,7 @@ De această dată veți modifica fișierul <code class="docutils literal notrans
 </ol>
 </section>
 <section id="bune-practici">
-<span id="app-dev-pr-good-practices"></span><h2><span class="section-number">10.8. </span>Bune practici<a class="headerlink" href="#bune-practici" title="Permalink to this headline">¶</a></h2>
+<span id="app-dev-pr-good-practices"></span><h2><span class="section-number">10.8. </span>Bune practici<a class="headerlink" href="#bune-practici" title="Permalink to this heading">¶</a></h2>
 <p>Alternativa la a crea un <strong>Pull Request</strong> ar fi să lucrăm direct pe branch-ul <strong>master</strong>.</p>
 <p>Așa cum am menționat și în secțiunile anterioare, este <strong>BAD-PRACTICE</strong> să lucrăm direct pe branch-ul <strong>master</strong> din mai multe motive:</p>
 <ol class="arabic simple">
@@ -972,16 +974,18 @@ Mult mai simplu este să se realizeze întreaga etapă de feedback, numită <str
 <li><p>În unele situații nici nu vom avea drepturi să scriem pe branch-ul <strong>master</strong>, astfel devenind obligatoriu lucrul pe un alt branch și integrarea codului în branch-ul <strong>master</strong> printr-un <strong>Pull Request</strong>.</p></li>
 </ol>
 <p class="rubric">Note de subsol</p>
-<dl class="footnote brackets">
-<dt class="label" id="pull-request"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
-<dd><p><a class="reference external" href="https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/about-pull-requests">https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/about-pull-requests</a></p>
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="pull-request" role="note">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
+<p><a class="reference external" href="https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/about-pull-requests">https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/about-pull-requests</a></p>
 <p><a class="reference external" href="https://www.atlassian.com/git/tutorials/making-a-pull-request">https://www.atlassian.com/git/tutorials/making-a-pull-request</a></p>
-</dd>
-<dt class="label" id="base-branch"><span class="brackets"><a class="fn-backref" href="#id2">2</a></span></dt>
-<dd><p>Putem schimba acest branch prin apăsarea butonului <code class="docutils literal notranslate"><span class="pre">base:</span> <span class="pre">master</span></code>.
+</aside>
+<aside class="footnote brackets" id="base-branch" role="note">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">2</a><span class="fn-bracket">]</span></span>
+<p>Putem schimba acest branch prin apăsarea butonului <code class="docutils literal notranslate"><span class="pre">base:</span> <span class="pre">master</span></code>.
 Vor fi afișate toate branch-urile din acest repository și vom putea alege în ce branch să integrăm PR-ul.</p>
-</dd>
-</dl>
+</aside>
+</aside>
 </section>
 </section>
 
@@ -1000,7 +1004,7 @@ Vor fi afișate toate branch-urile din acest repository și vom putea alege în 
 </ul><div class="footer" role="contentinfo">
       &#169; Copyright 2020, USO Team.
     <br>
-    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.1.2 with <a href="https://github.com/romnn/sphinx_press_theme">Press Theme</a>.
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 5.2.2 with <a href="https://github.com/romnn/sphinx_press_theme">Press Theme</a>.
 </div>
             </div>
           </div>
