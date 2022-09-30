@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html >
+<html  lang="en">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
       <title>4. Legarea executabilelor folosind biblioteci externe</title>
     
@@ -18,7 +18,9 @@
         <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
         <script src="../../_static/my_actions.js"></script>
 
       
@@ -561,37 +563,37 @@
           <div class="content" role="main">
             
   <section id="legarea-executabilelor-folosind-biblioteci-externe">
-<span id="app-dev-link-libs"></span><h1><span class="section-number">4. </span>Legarea executabilelor folosind biblioteci externe<a class="headerlink" href="#legarea-executabilelor-folosind-biblioteci-externe" title="Permalink to this headline">¶</a></h1>
+<span id="app-dev-link-libs"></span><h1><span class="section-number">4. </span>Legarea executabilelor folosind biblioteci externe<a class="headerlink" href="#legarea-executabilelor-folosind-biblioteci-externe" title="Permalink to this heading">¶</a></h1>
 <p>În secțiunea anterioară, <a class="reference internal" href="make-multiple.html#app-dev-compile-multiple-files"><span class="std std-ref">Compilarea unui program din fișiere multiple</span></a> am compilat fișierul <code class="docutils literal notranslate"><span class="pre">~/support/compile-multiple/main.c</span></code>, care conține:</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">&quot;algorithms.h&quot;</span><span class="cp"></span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;algorithms.h&quot;</span><span class="cp"></span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="kt">int</span> <span class="n">n</span><span class="p">;</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"></span>
 
-    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;gimme number and i&#39;ll give you factorial: &quot;</span><span class="p">);</span>
-    <span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">n</span><span class="p">);</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;gimme number and i&#39;ll give you factorial: &quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">n</span><span class="p">);</span><span class="w"></span>
 
-    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d! = %u</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">factorial</span><span class="p">(</span><span class="n">n</span><span class="p">));</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d! = %u</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">factorial</span><span class="p">(</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">));</span>
-    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d! = %u</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">factorial</span><span class="p">(</span><span class="n">n</span><span class="p">));</span><span class="w"></span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d! = %u</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">factorial</span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">));</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 <p>În acest cod sursă am apelat 2 funcții diferite <code class="docutils literal notranslate"><span class="pre">printf</span></code> și <code class="docutils literal notranslate"><span class="pre">factorial</span></code>.
 Găsim implementarea funcției <code class="docutils literal notranslate"><span class="pre">factorial</span></code> în fișierul <code class="docutils literal notranslate"><span class="pre">algorithms.c</span></code>:</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">unsigned</span> <span class="kt">int</span> <span class="nf">factorial</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">fact</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">factorial</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">fact</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
 
-    <span class="k">while</span> <span class="p">(</span><span class="n">n</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">fact</span> <span class="o">*=</span> <span class="n">n</span><span class="p">;</span>
-        <span class="n">n</span><span class="o">--</span><span class="p">;</span>
-    <span class="p">}</span>
+<span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">fact</span><span class="w"> </span><span class="o">*=</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="n">n</span><span class="o">--</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
 
-    <span class="k">return</span> <span class="n">fact</span><span class="p">;</span>
-<span class="p">}</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">fact</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Găsim implementarea funcției <code class="docutils literal notranslate"><span class="pre">printf</span></code> în <strong>biblioteca standard C</strong> (<em>C Standard Library</em>).
@@ -604,7 +606,7 @@ Diagrama de mai jos arată cum se întâmplă acest lucru:</p>
 <p>Există alte biblioteci (precum <code class="docutils literal notranslate"><span class="pre">math</span></code>, <code class="docutils literal notranslate"><span class="pre">ncurses</span></code>) pe care compilatorul nu le leagă implicit la programele noastre.</p>
 <p>În continuare vom compila un fișier cod sursă care folosește biblioteca <code class="docutils literal notranslate"><span class="pre">math</span></code> pentru a calcula rădăcina pătrată a unui număr întreg.</p>
 <section id="inspectarea-fisierelor">
-<span id="app-dev-link-libs-inspect-file"></span><h2><span class="section-number">4.1. </span>Inspectarea fișierelor<a class="headerlink" href="#inspectarea-fisierelor" title="Permalink to this headline">¶</a></h2>
+<span id="app-dev-link-libs-inspect-file"></span><h2><span class="section-number">4.1. </span>Inspectarea fișierelor<a class="headerlink" href="#inspectarea-fisierelor" title="Permalink to this heading">¶</a></h2>
 <p>Intrăm în directorul <code class="docutils literal notranslate"><span class="pre">~/support/compile-with-lib</span></code> folosind comanda <code class="docutils literal notranslate"><span class="pre">cd</span></code>, unde găsim fișierul <code class="docutils literal notranslate"><span class="pre">squared_root.c</span></code>:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ <span class="nb">cd</span> ~/support/compile-with-lib/
 student@uso:~/support/compile-with-lib$ ls
@@ -634,7 +636,7 @@ Spunem că <em>includem fișierul header</em> asociat bibliotecii <code class="d
 <p>În continuare vom vedea cum compilăm fișierul <code class="docutils literal notranslate"><span class="pre">squared_root.c</span></code> astfel încât să obținem un executabil care calculează rădăcina pătrată a unui număr întreg citit de la tastatură.</p>
 </section>
 <section id="compilarea-fisierelor">
-<span id="app-dev-link-libs-compile-file"></span><h2><span class="section-number">4.2. </span>Compilarea fișierelor<a class="headerlink" href="#compilarea-fisierelor" title="Permalink to this headline">¶</a></h2>
+<span id="app-dev-link-libs-compile-file"></span><h2><span class="section-number">4.2. </span>Compilarea fișierelor<a class="headerlink" href="#compilarea-fisierelor" title="Permalink to this heading">¶</a></h2>
 <p>Compilăm fișierul <code class="docutils literal notranslate"><span class="pre">main.c</span></code>, folosind comanda <code class="docutils literal notranslate"><span class="pre">gcc</span></code>, ca în secțiunea <a class="reference internal" href="make-intro.html#app-dev-compile-custom"><span class="std std-ref">Compilarea codului sursă într-un executabil cu nume diferit</span></a>:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/support/compile-with-lib$ gcc -o squared_root squared_root.c
 /tmp/ccp4kfvm.o: In <span class="k">function</span> <span class="sb">`</span>main<span class="sb">`</span>:
@@ -670,7 +672,7 @@ here you go: 3.872983
 <img alt="../../_images/ditaa-da144c599dc486bddba43c0d76c55dc6e70513f3.png" src="../../_images/ditaa-da144c599dc486bddba43c0d76c55dc6e70513f3.png" />
 </section>
 <section id="exercitii">
-<span id="app-dev-link-libs-ex"></span><h2><span class="section-number">4.3. </span>Exerciții<a class="headerlink" href="#exercitii" title="Permalink to this headline">¶</a></h2>
+<span id="app-dev-link-libs-ex"></span><h2><span class="section-number">4.3. </span>Exerciții<a class="headerlink" href="#exercitii" title="Permalink to this heading">¶</a></h2>
 <p>Înainte să începeți exercițiile, rulați comanda <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">apt-get</span> <span class="pre">install</span> <span class="pre">libncurses5-dev</span> <span class="pre">libncursesw5-dev</span></code>.
 Aceasta are rolul de a instala biblioteca grafică <code class="docutils literal notranslate"><span class="pre">ncurses</span></code> pe sistemul vostru, bibliotecă folosită de programul <code class="docutils literal notranslate"><span class="pre">hello_world.c</span></code>.</p>
 <ol class="arabic simple">
@@ -701,7 +703,7 @@ Aceasta are rolul de a instala biblioteca grafică <code class="docutils literal
 </ul><div class="footer" role="contentinfo">
       &#169; Copyright 2020, USO Team.
     <br>
-    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.1.2 with <a href="https://github.com/romnn/sphinx_press_theme">Press Theme</a>.
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 5.2.2 with <a href="https://github.com/romnn/sphinx_press_theme">Press Theme</a>.
 </div>
             </div>
           </div>
