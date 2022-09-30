@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html >
+<html  lang="en">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
       <title>1. Securitatea Accesului. Autentificare</title>
     
@@ -18,7 +18,9 @@
         <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
         <script src="../../_static/my_actions.js"></script>
 
       
@@ -517,7 +519,9 @@
             
               <ul>
                 
-                  <li class="toctree-l2"><a href="#securitatea-accesului-autentificare" class="reference internal">Securitatea Accesului. Autentificare</a></li>
+                  <li class="toctree-l2"><a href="#parole-in-linux" class="reference internal">Parole în Linux</a></li>
+                
+                  <li class="toctree-l2"><a href="#manager-de-parole" class="reference internal">Manager de parole</a></li>
                 
               </ul>
             
@@ -552,11 +556,14 @@
           <div class="content" role="main">
             
   <section id="securitatea-accesului-autentificare">
-<h1><span class="section-number">1. </span>Securitatea Accesului. Autentificare<a class="headerlink" href="#securitatea-accesului-autentificare" title="Permalink to this headline">¶</a></h1>
-<p>Autentificarea presupune transmiterea unor informații de autentificare compuse uzual dintr-un nume de utilizator (<em>username</em>) și un element de autentificare (<em>authentication token</em>), adesea o parolă.</p>
+<h1><span class="section-number">1. </span>Securitatea Accesului. Autentificare<a class="headerlink" href="#securitatea-accesului-autentificare" title="Permalink to this heading">¶</a></h1>
+<p>Autentificarea presupune transmiterea unor informații de secrete/personale (credențiale) compuse uzual dintr-un nume de utilizator (<em>username</em>) și un element de autentificare (<em>authentication token</em>), adesea o parolă.</p>
 <p>Pentru sporirea nivelului de securitate în cazul autentificării putem folosi autentificare de tip multi-factor (<em>multi-factor authentication</em>).
 Forma uzuală este <em>two-factor authentication</em> (2FA).
-În acest caz sunt folosite mai multe moduri de autentificare: o parolă și o parolă de tip one-time sau o parolă și un identificator biometric.</p>
+În acest caz sunt folosite mai multe moduri de autentificare: parolă + e-mail sau parolă + identificator biometric sau alte combinații.
+Astfel, folosind două (sau mai multe) tipuri de autentificare, micșorăm șansele ca un actor malițios să ne poată impersona.</p>
+<section id="parole-in-linux">
+<h2><span class="section-number">1.1. </span>Parole în Linux<a class="headerlink" href="#parole-in-linux" title="Permalink to this heading">¶</a></h2>
 <p>În Linux informațiile despre utilizatori sunt reținute în fișierul <code class="docutils literal notranslate"><span class="pre">/etc/passwd</span></code> care este citibil de către toți utilizatorii.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso-demo:~/securitate/stocks$ cat /etc/passwd
 root:x:0:0:root:/root:/bin/bash
@@ -591,7 +598,8 @@ avahi:x:109:115:Avahi mDNS daemon,,,:/var/run/avahi-daemon:/bin/false
 Amazon:x:1001:1001::/home/Amazon:/bin/sh
 </pre></div>
 </div>
-<p>Observăm utilizatorii <code class="docutils literal notranslate"><span class="pre">root</span></code>, <code class="docutils literal notranslate"><span class="pre">student</span></code>, <code class="docutils literal notranslate"><span class="pre">Amazon</span></code>.</p>
+<p>Observăm utilizatorii <code class="docutils literal notranslate"><span class="pre">root</span></code>, <code class="docutils literal notranslate"><span class="pre">student</span></code>, <code class="docutils literal notranslate"><span class="pre">Amazon</span></code>.
+Chiar dacă fișierul se numește <code class="docutils literal notranslate"><span class="pre">passwd</span></code> acesta nu conține informații confidențiale.</p>
 <p>Informațiile despre parole sunt reținute în fișierul <code class="docutils literal notranslate"><span class="pre">/etc/shadow</span></code> care este citibil doar de procese privilegiate.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso-demo:~/securitate/stocks$ sudo cat /etc/shadow
 root:<span class="nv">$6$8</span>esr1Ey5<span class="nv">$giBB2WfjBlEp2COdj</span>.HO1J0vHA8Tm/n15.yA2d81GkgDnlezY84tCSK5uOWby/IuZYupYfIanj0ernAiPueoi/:16760:0:99999:7:::
@@ -626,8 +634,9 @@ avahi:*:16760:0:99999:7:::
 Amazon:<span class="nv">$6$nlimOUzV$YmDo8EIcQ3KqGWt</span>/6r4GRwxGfIBtpbd0kAT3tpYHVMYybhCTe6ZxB40GjPcZX3pVPANbkDwQKLlTPrnPc.7un.:18865:0:99999:7:::
 </pre></div>
 </div>
-<p>Observăm că în fișierul <code class="docutils literal notranslate"><span class="pre">/etc/shadow</span></code> parolele sunt reținute ca rezumat, nu în format plaintext.</p>
-<p>Pentru generale de parole folosim utilitarul <code class="docutils literal notranslate"><span class="pre">pwgen</span></code>:</p>
+<p>Pentru a accesa fișierul <code class="docutils literal notranslate"><span class="pre">etc/shadow</span></code> ca utilizator privilegiat, am utilizat cuvântul cheie <code class="docutils literal notranslate"><span class="pre">sudo</span></code>.
+Observăm că în fișierul <code class="docutils literal notranslate"><span class="pre">/etc/shadow</span></code> parolele sunt reținute ca rezumat, nu în format citibil (plaintext).</p>
+<p>Există diverse utilitare pentru generale de parole; cel mai uzual este utilitarul <code class="docutils literal notranslate"><span class="pre">pwgen</span></code>:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso-demo:~/securitate/stocks$ pwgen
 kiloo3Th uPh2goh5 Xae2xah9 ixu0fiaY Sai7oowa ohCh7aid nohBah8n Xiedae2f
 yoh6GaeJ IoPhae9f ooX6oquu Uangu7sh miu4ohC5 IeLah6Ea chieP3ra eir4Aevo
@@ -658,7 +667,7 @@ if5aerai1uc2giuJ1 maiTeiwahm9loo0li
 </pre></div>
 </div>
 <p>Primul parametru se referă la numărul de caractere pentru fiecare parolă și al doilea se referă la numărul de parole generate.</p>
-<p>Putem complica parolele pentru a fi mai sigure, folosind parametrul <code class="docutils literal notranslate"><span class="pre">-sync</span></code>:</p>
+<p>Putem adăuga complexitate parolelor pentru a fi mai sigure, folosind parametrul <code class="docutils literal notranslate"><span class="pre">-sync</span></code>:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso-demo:~/securitate/stocks$ pwgen -c <span class="m">17</span> <span class="m">2</span>
 yephaet5Heeh0IeYi choh2OuThu0ieGh0j
 student@uso-demo:~/securitate/stocks$ pwgen -nc <span class="m">17</span> <span class="m">2</span>
@@ -673,16 +682,22 @@ vultw<span class="s2">&quot;&quot;</span>8nkOj8H<span class="o">)</span>u# nh&lt
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>O parolă precum <strong>Tr0oub4dor&amp;3</strong> este mai greu de reținut și mai ușor de spart decât passphrase-ul <strong>horse battery staple</strong>.</p>
-<p>Parolele sa conțină un set de caractere cât mai larg, să nu fie doar litere mici.
-Ideal, parolele ar trebui să aibă minim 16 caractere, să conțină litere mari, cifre, semne de punctuație.</p>
+<p>Ideal, parolele ar trebui să aibă minim 16 caractere, să conțină litere mari, cifre, semne de punctuație.</p>
 </div>
-<p>Ținând cont de numărul mare de parole folosite, trebuie să fie generate parole sau passphrase-uri diferite și greu de ghicit.
-Pentru aceasta este util să apelăm la <strong>generatoare de parole</strong>.</p>
-<p>Browserele web moderne au integrate generatoare de parole care vor completa automat câmpurile din formularele web de creare de conturi și parole:</p>
+</section>
+<section id="manager-de-parole">
+<h2><span class="section-number">1.2. </span>Manager de parole<a class="headerlink" href="#manager-de-parole" title="Permalink to this heading">¶</a></h2>
+<p>Ținând cont de:
+* numărul mare de aplicații ce folosesc parole pentru autentificare
+* bunele practici de securitate ce recomandă folosirea parolelor de minim 16 caractere, cu litere mici, mari, cifre și semne de punctuație</p>
+<p>este util să apelăm la <strong>manager de parole</strong>.</p>
+<p>Browserele web moderne au integrate manager de parole care vor genera la cerere și vor completa automat câmpurile din formularele web de conturi și parole:</p>
 <figure class="align-default">
-<img alt="chapters/security/res/pass_manager.png" src="chapters/security/res/pass_manager.png" />
+<img alt="../../_images/password_manager_chrome.png" src="../../_images/password_manager_chrome.png" />
 </figure>
-<p>Pentru gestiunea și stocarea parolelor este recomandată folosirea unui <strong>manager de parole</strong> (<em>password manager</em> ).</p>
+<p>Avantajul managerului de parole din browser este disponibilitatea pe diverse dispozitive (i.e. parolele din Chrome pot fi folosite pe laptop, desktop, telefon mobil, tabletă, etc.)
+Dacă singura necesitate este autentificare pe web, managerul de parole din browser este suficient, însă există manager de parole ca aplicație separată pe sistemele gazdă.</p>
+</section>
 </section>
 
 
@@ -696,7 +711,7 @@ Pentru aceasta este util să apelăm la <strong>generatoare de parole</strong>.<
 </ul><div class="footer" role="contentinfo">
       &#169; Copyright 2020, USO Team.
     <br>
-    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.1.2 with <a href="https://github.com/romnn/sphinx_press_theme">Press Theme</a>.
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 5.2.2 with <a href="https://github.com/romnn/sphinx_press_theme">Press Theme</a>.
 </div>
             </div>
           </div>

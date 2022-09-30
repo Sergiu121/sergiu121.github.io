@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html >
+<html  lang="en">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
       <title>6. Extra - Sistemul de fișiere</title>
     
@@ -18,7 +18,9 @@
         <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
         <script src="../../_static/my_actions.js"></script>
 
       
@@ -561,14 +563,14 @@
           <div class="content" role="main">
             
   <section id="extra-sistemul-de-fisiere">
-<h1><span class="section-number">6. </span>Extra - Sistemul de fișiere<a class="headerlink" href="#extra-sistemul-de-fisiere" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">6. </span>Extra - Sistemul de fișiere<a class="headerlink" href="#extra-sistemul-de-fisiere" title="Permalink to this heading">¶</a></h1>
 <section id="cautarea-fisierelor-in-sistemul-de-fisiere">
-<h2><span class="section-number">6.1. </span>Căutarea fișierelor în sistemul de fișiere<a class="headerlink" href="#cautarea-fisierelor-in-sistemul-de-fisiere" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.1. </span>Căutarea fișierelor în sistemul de fișiere<a class="headerlink" href="#cautarea-fisierelor-in-sistemul-de-fisiere" title="Permalink to this heading">¶</a></h2>
 <p>Se poate întâmpla să vrem să aflăm dacă într-o ierarhie de fișiere găsim un anumit fișier și, dacă există, vrem să aflăm unde se află.
 Spre exemplu, serviciul <code class="docutils literal notranslate"><span class="pre">ssh</span></code> folosește un fișier de configurare numit <code class="docutils literal notranslate"><span class="pre">ssh_config</span></code>, dar nu mai ținem minte calea exactă până la acel fișier.</p>
 <p>Linux ne oferă două utilitare, <code class="docutils literal notranslate"><span class="pre">locate</span></code> și <code class="docutils literal notranslate"><span class="pre">find</span></code>, care pot fi de ajutor în situația descrisă mai sus.</p>
 <section id="folosirea-utilitarului-find">
-<h3><span class="section-number">6.1.1. </span>Folosirea utilitarului <code class="docutils literal notranslate"><span class="pre">find</span></code><a class="headerlink" href="#folosirea-utilitarului-find" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.1.1. </span>Folosirea utilitarului <code class="docutils literal notranslate"><span class="pre">find</span></code><a class="headerlink" href="#folosirea-utilitarului-find" title="Permalink to this heading">¶</a></h3>
 <p>În mod obișnuit, numele fișierelor de configurare pentru servicii se termină în extensia <code class="docutils literal notranslate"><span class="pre">conf</span></code>.
 Găsim toate fișierele de configurare ale serviciului <code class="docutils literal notranslate"><span class="pre">ssh</span></code> de pe sistem folosind comanda <code class="docutils literal notranslate"><span class="pre">find</span></code>:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/comenzi$ find / -iname <span class="s2">&quot;*ssh*conf&quot;</span>
@@ -582,7 +584,7 @@ Găsim toate fișierele de configurare ale serviciului <code class="docutils lit
 <p>Mai multe informații și exemple de utilizări vom vedea în capitolul #TODOref_capitol_edi</p>
 </section>
 <section id="folosirea-utilitarului-locate">
-<h3><span class="section-number">6.1.2. </span>Folosirea utilitarului <code class="docutils literal notranslate"><span class="pre">locate</span></code><a class="headerlink" href="#folosirea-utilitarului-locate" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.1.2. </span>Folosirea utilitarului <code class="docutils literal notranslate"><span class="pre">locate</span></code><a class="headerlink" href="#folosirea-utilitarului-locate" title="Permalink to this heading">¶</a></h3>
 <p>Atunci când vrem să căutăm într-o ierarhie mare de fișiere, utilitarul <code class="docutils literal notranslate"><span class="pre">find</span></code> nu este cea mai bună soluție deoarece este încet.</p>
 <p>Utilitarul <code class="docutils literal notranslate"><span class="pre">locate</span></code> ne poate ajuta în astfel de situații.</p>
 <p>Acesta funcționează în 2 pași:</p>
@@ -614,15 +616,15 @@ Răspunsul comenzii este instant.</p>
 </section>
 </section>
 <section id="variabila-de-mediu-path">
-<h2><span class="section-number">6.2. </span>Variabila de mediu PATH<a class="headerlink" href="#variabila-de-mediu-path" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.2. </span>Variabila de mediu PATH<a class="headerlink" href="#variabila-de-mediu-path" title="Permalink to this heading">¶</a></h2>
 <p>Până acum am învățat câteva comenzi utile: <code class="docutils literal notranslate"><span class="pre">ls</span></code>, <code class="docutils literal notranslate"><span class="pre">cd</span></code>, <code class="docutils literal notranslate"><span class="pre">find</span></code>, <code class="docutils literal notranslate"><span class="pre">locate</span></code>.</p>
 <p>Utilitarele sunt de fapt <strong>programe</strong> (<em>executabile</em>) care se află undeva în sistemul de fișiere.</p>
 <p>Shell-ul știe să ruleze utilitarele din orice loc în care ne aflăm (din ierarhia de fișiere).
 Se întâmplă acest lucru pentru că shell-ul are o listă de câteva directoare în care se uită după utilitarele pe care le folosim.
 Spre exemplu, atunci când rulăm utilitarul <code class="docutils literal notranslate"><span class="pre">ls</span></code>, el caută programul <code class="docutils literal notranslate"><span class="pre">ls</span></code> în lista pe care o are, îl găsește și îl rulează.</p>
-<p>Această listă se găsește în <em>variabila de mediu</em> <a class="footnote-reference brackets" href="#id2" id="id1">1</a> <code class="docutils literal notranslate"><span class="pre">PATH</span></code>.</p>
+<p>Această listă se găsește în <em>variabila de mediu</em> <a class="footnote-reference brackets" href="#id2" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a> <code class="docutils literal notranslate"><span class="pre">PATH</span></code>.</p>
 <section id="afisarea-variabilei-path-din-sistem">
-<h3><span class="section-number">6.2.1. </span>Afișarea variabilei PATH din sistem<a class="headerlink" href="#afisarea-variabilei-path-din-sistem" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.2.1. </span>Afișarea variabilei PATH din sistem<a class="headerlink" href="#afisarea-variabilei-path-din-sistem" title="Permalink to this heading">¶</a></h3>
 <p>Afișăm valoarea variabilei de mediu <code class="docutils literal notranslate"><span class="pre">PATH</span></code> a sistemului folosind utilitarul <code class="docutils literal notranslate"><span class="pre">echo</span></code>.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ echo $PATH
 /usr/local/bin:/usr/bin:/bin:/usr/games
@@ -637,10 +639,10 @@ Astfel, sistemul verifică dacă utilitarul este prezent în calea <code class="
 </section>
 </section>
 <section id="cautarea-utilitarelor-in-sistemul-de-fisiere">
-<h2><span class="section-number">6.3. </span>Căutarea utilitarelor în sistemul de fișiere<a class="headerlink" href="#cautarea-utilitarelor-in-sistemul-de-fisiere" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.3. </span>Căutarea utilitarelor în sistemul de fișiere<a class="headerlink" href="#cautarea-utilitarelor-in-sistemul-de-fisiere" title="Permalink to this heading">¶</a></h2>
 <p>Există cazuri când vrem să găsim locația exactă a unui utilitar: vrem să aflăm ce permisiuni are, cine îl deține sau ce dimensiune are.</p>
 <section id="folosirea-utilitarului-which">
-<h3><span class="section-number">6.3.1. </span>Folosirea utilitarului <code class="docutils literal notranslate"><span class="pre">which</span></code><a class="headerlink" href="#folosirea-utilitarului-which" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.3.1. </span>Folosirea utilitarului <code class="docutils literal notranslate"><span class="pre">which</span></code><a class="headerlink" href="#folosirea-utilitarului-which" title="Permalink to this heading">¶</a></h3>
 <p>Acest utilitar identifică calea programelor din sistem.</p>
 <p>Căutăm calea la care se află utilitarul <code class="docutils literal notranslate"><span class="pre">ls</span></code> folosind comanda <code class="docutils literal notranslate"><span class="pre">which</span></code>:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>student@uso:~$ which ls
@@ -655,21 +657,22 @@ student@uso:~$ which man
 <p>Aflăm mai multe detalii despre utilitarul <code class="docutils literal notranslate"><span class="pre">which</span></code> în capitolul #TODOtodo_edi_which.</p>
 </section>
 <section id="exercitii">
-<h3><span class="section-number">6.3.2. </span>Exerciții<a class="headerlink" href="#exercitii" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.3.2. </span>Exerciții<a class="headerlink" href="#exercitii" title="Permalink to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>Redenumiți utilitarul <code class="docutils literal notranslate"><span class="pre">pwd</span></code> în <code class="docutils literal notranslate"><span class="pre">pwd_backup</span></code>.
 Puteți să mai executați comanda <code class="docutils literal notranslate"><span class="pre">pwd</span></code>?
 Dar <code class="docutils literal notranslate"><span class="pre">pwd_backup</span></code>?</p></li>
 </ul>
-<dl class="footnote brackets">
-<dt class="label" id="id2"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
-<dd><p>Variabilele de mediu sunt variabile care descriu mediul în care sunt executate programele.
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="id2" role="note">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
+<p>Variabilele de mediu sunt variabile care descriu mediul în care sunt executate programele.
 Ele sunt folosite de aplicații pentru a răspunde la întrebări cum ar fi: Care este numele calculatorului pe care sunt instalată?
 Care este numele contului de utilizator care mă execută?
 Care este folderul meu de lucru?
 Unde se află fișierele temporare pe calculator?</p>
-</dd>
-</dl>
+</aside>
+</aside>
 </section>
 </section>
 </section>
@@ -689,7 +692,7 @@ Unde se află fișierele temporare pe calculator?</p>
 </ul><div class="footer" role="contentinfo">
       &#169; Copyright 2020, USO Team.
     <br>
-    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.1.2 with <a href="https://github.com/romnn/sphinx_press_theme">Press Theme</a>.
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 5.2.2 with <a href="https://github.com/romnn/sphinx_press_theme">Press Theme</a>.
 </div>
             </div>
           </div>

@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html >
+<html  lang="en">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
       <title>1. Căi în ierarhia de fișiere</title>
     
@@ -18,7 +18,9 @@
         <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
         <script src="../../_static/my_actions.js"></script>
 
       
@@ -567,7 +569,7 @@
           <div class="content" role="main">
             
   <section id="cai-in-ierarhia-de-fisiere">
-<span id="files-paths-in-fs"></span><h1><span class="section-number">1. </span>Căi în ierarhia de fișiere<a class="headerlink" href="#cai-in-ierarhia-de-fisiere" title="Permalink to this headline">¶</a></h1>
+<span id="files-paths-in-fs"></span><h1><span class="section-number">1. </span>Căi în ierarhia de fișiere<a class="headerlink" href="#cai-in-ierarhia-de-fisiere" title="Permalink to this heading">¶</a></h1>
 <p>Atunci când folosim un terminal este important să știm unde ne aflăm în ierarhie.
 Dacă vrem să jucăm un joc, știm că vrem să ajungem în directorul <code class="docutils literal notranslate"><span class="pre">Games</span></code>, unde avem jocul preferat, <code class="docutils literal notranslate"><span class="pre">Warcraft3</span></code>.
 Pentru a ajunge în directorul <code class="docutils literal notranslate"><span class="pre">Games</span></code>, trebuie să știm unde suntem și apoi să navigăm în sistemul de fișiere până acolo.</p>
@@ -688,7 +690,7 @@ Voi veți avea alt rezultat, conform fișierelor și directoarelor de pe sistemu
 În rezultatul comenzii <code class="docutils literal notranslate"><span class="pre">tree</span></code>, vedem întreaga ierarhie a directorului <code class="docutils literal notranslate"><span class="pre">/home/student</span></code>.</p>
 <p>În continuare detaliem conceptul de cale.</p>
 <section id="calea-curenta">
-<h2><span class="section-number">1.1. </span>Calea curentă<a class="headerlink" href="#calea-curenta" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">1.1. </span>Calea curentă<a class="headerlink" href="#calea-curenta" title="Permalink to this heading">¶</a></h2>
 <p>Pornim de la următoarea analogie: Avem patru puncte pe o dreaptă: A, B, C și D.
 Pentru a ajunge de la A la D, <strong>trebuie</strong> să trecem prin B și C.
 Astfel, avem următoarele segmente: AB, BC, CD.</p>
@@ -713,7 +715,7 @@ student@uso:/usr/bin$ <span class="nb">pwd</span>
 Observăm cum calea curentă se schimbă atunci când schimbăm directorul în care ne aflăm.</p>
 </section>
 <section id="separator-de-cale">
-<h2><span class="section-number">1.2. </span>Separator de cale<a class="headerlink" href="#separator-de-cale" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">1.2. </span>Separator de cale<a class="headerlink" href="#separator-de-cale" title="Permalink to this heading">¶</a></h2>
 <p>În exemplele de mai sus, observăm că există un delimitator între directoare: <code class="docutils literal notranslate"><span class="pre">/</span></code> (slash).
 Atunci când compunem calea, după fiecare nod/director (nivel de arbore) prin care trecem, punem acest delimitator.
 Astfel, îi transmitem sistemului de operare că am înaintat în ierarhia de fișiere.</p>
@@ -721,7 +723,7 @@ Astfel, îi transmitem sistemului de operare că am înaintat în ierarhia de fi
 În Windows, nodul rădăcină este <code class="docutils literal notranslate"><span class="pre">C:</span></code>, iar separatorul de cale este <code class="docutils literal notranslate"><span class="pre">\\</span></code>.</p>
 </section>
 <section id="cale-relativa-si-cale-absoluta">
-<h2><span class="section-number">1.3. </span>Cale relativă și cale absolută<a class="headerlink" href="#cale-relativa-si-cale-absoluta" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">1.3. </span>Cale relativă și cale absolută<a class="headerlink" href="#cale-relativa-si-cale-absoluta" title="Permalink to this heading">¶</a></h2>
 <p>Atunci când vrem să citim, scriem, ștergem un fișier sau director trebuie să ne referim la acel fișier sau director.
 Practic, <em>orice operație în sistemul de fișiere (arhivare, criptare, ștergere, editare) folosește căi</em>.
 Este impropriu să spunem “deschide fișierul <code class="docutils literal notranslate"><span class="pre">/home/student/a.txt</span></code>”; tehnic corect este “deschide fișierul de la calea <code class="docutils literal notranslate"><span class="pre">/home/student/a.txt</span></code>”.</p>
@@ -737,7 +739,7 @@ Este impropriu să spunem “deschide fișierul <code class="docutils literal no
 <li><p>Pornind de la directorul în care ne aflăm (<em>director curent</em>), numită <em>cale relativă</em>.</p></li>
 </ul>
 <section id="cale-absoluta">
-<h3><span class="section-number">1.3.1. </span>Cale absolută<a class="headerlink" href="#cale-absoluta" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">1.3.1. </span>Cale absolută<a class="headerlink" href="#cale-absoluta" title="Permalink to this heading">¶</a></h3>
 <p>După cum am precizat mai sus, calea absolută începe întotdeauna cu caracterul <code class="docutils literal notranslate"><span class="pre">/</span></code> (slash), denumit și <em>director rădăcină</em>.
 Acesta indică începutul ierarhiei de fișiere.</p>
 <p>Afișam fișierele <code class="docutils literal notranslate"><span class="pre">/usr/bin/touch</span></code> și <code class="docutils literal notranslate"><span class="pre">/etc/passwd</span></code> prin cale absolută, folosind <code class="docutils literal notranslate"><span class="pre">ls</span></code>:</p>
@@ -751,7 +753,7 @@ student@uso:~$ ls -l /etc/passwd
 <p>Observăm că o cale absolută începe întotdeauna cu caracterul <code class="docutils literal notranslate"><span class="pre">/</span></code> (directorul rădăcină).</p>
 </section>
 <section id="cale-relativa">
-<h3><span class="section-number">1.3.2. </span>Cale relativă<a class="headerlink" href="#cale-relativa" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">1.3.2. </span>Cale relativă<a class="headerlink" href="#cale-relativa" title="Permalink to this heading">¶</a></h3>
 <p>Prin calea relativă ne referim la un fișier în funcție de calea curentă.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ ls -l comenzi/mkdir/
 total <span class="m">8</span>
@@ -772,7 +774,7 @@ drwxr-xr-x <span class="m">2</span> student student <span class="m">4096</span> 
 În cazul în care putem ajunge mai repede de la directorul rădăcina <code class="docutils literal notranslate"><span class="pre">/</span></code> la directorul țintă, este mai utilă <em>calea absolută</em>.</p>
 </section>
 <section id="intrarea-in-sistemul-de-fisiere">
-<h3><span class="section-number">1.3.3. </span>Intrarea <code class="docutils literal notranslate"><span class="pre">..</span></code> în sistemul de fișiere<a class="headerlink" href="#intrarea-in-sistemul-de-fisiere" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">1.3.3. </span>Intrarea <code class="docutils literal notranslate"><span class="pre">..</span></code> în sistemul de fișiere<a class="headerlink" href="#intrarea-in-sistemul-de-fisiere" title="Permalink to this heading">¶</a></h3>
 <p>Referim aceleași fișiere (<code class="docutils literal notranslate"><span class="pre">/usr/bin/touch</span></code> și <code class="docutils literal notranslate"><span class="pre">/etc/passwd</span></code>) prin cale relativă, folosind <code class="docutils literal notranslate"><span class="pre">ls</span></code>:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ <span class="nb">pwd</span>
 /home/student
@@ -790,7 +792,7 @@ student@uso:~$ ls -l ../../etc/passwd
 </div>
 </section>
 <section id="exercitii">
-<h3><span class="section-number">1.3.4. </span>Exerciții<a class="headerlink" href="#exercitii" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">1.3.4. </span>Exerciții<a class="headerlink" href="#exercitii" title="Permalink to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>Afișați calea curentă folosind utilitarul <code class="docutils literal notranslate"><span class="pre">pwd</span></code>.</p></li>
 <li><p>Referiți fișirele/directoarele <code class="docutils literal notranslate"><span class="pre">/lib/</span></code>, <code class="docutils literal notranslate"><span class="pre">/home</span></code>, <code class="docutils literal notranslate"><span class="pre">/bin/cat</span></code> atât prin cale relativă cât și prin cale absolută.</p></li>
@@ -799,7 +801,7 @@ student@uso:~$ ls -l ../../etc/passwd
 </section>
 </section>
 <section id="schimbarea-caii-curente">
-<h2><span class="section-number">1.4. </span>Schimbarea căii curente<a class="headerlink" href="#schimbarea-caii-curente" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">1.4. </span>Schimbarea căii curente<a class="headerlink" href="#schimbarea-caii-curente" title="Permalink to this heading">¶</a></h2>
 <p>Plasarea noastră într-un alt director decât cel curent înseamnă schimbarea căii curente.
 Facem acest lucru folosind comanda <code class="docutils literal notranslate"><span class="pre">cd</span></code> (<em>change directory</em>):</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:/etc$ <span class="nb">pwd</span>
@@ -868,7 +870,7 @@ student@uso:~/comenzi$ <span class="nb">cd</span> ../../usr/bin
 <p>Observăm că suntem la calea <code class="docutils literal notranslate"><span class="pre">/home/student/comenzi</span></code>.
 Executând comanda <code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">../../usr/bin</span></code> de mai sus, am ajunge la calea <code class="docutils literal notranslate"><span class="pre">/home/usr/bin</span></code> care nu există.</p>
 <section id="exercitii-schimbarea-directorului-curent">
-<h3><span class="section-number">1.4.1. </span>Exerciții - schimbarea directorului curent<a class="headerlink" href="#exercitii-schimbarea-directorului-curent" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">1.4.1. </span>Exerciții - schimbarea directorului curent<a class="headerlink" href="#exercitii-schimbarea-directorului-curent" title="Permalink to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>Schimbați directorul curent cu directorul de la calea <code class="docutils literal notranslate"><span class="pre">/usr/bin</span></code>. Folosiți cale absolută.</p></li>
 <li><p>Schimbați directorul curent cu directorul de la calea <code class="docutils literal notranslate"><span class="pre">/etc/</span></code>. Folosiți cale relativă.</p></li>
@@ -877,7 +879,7 @@ Executând comanda <code class="docutils literal notranslate"><span class="pre">
 </section>
 </section>
 <section id="tab-completion">
-<h2><span class="section-number">1.5. </span>TAB completion<a class="headerlink" href="#tab-completion" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">1.5. </span>TAB completion<a class="headerlink" href="#tab-completion" title="Permalink to this heading">¶</a></h2>
 <p>Funcția de <em>tab completion</em> este probabil una dintre cele mai utile funcții expuse de către shell.
 Prin simpla apăsare a tastei <code class="docutils literal notranslate"><span class="pre">Tab</span></code> în timp ce scriem numele unei comenzi, al unei opțiuni a unei comenzi sau calea către un director sau fișier, shellul va completa în mod automat textul sau va sugera opțiuni de auto-complete.</p>
 <figure class="align-default">
@@ -888,7 +890,7 @@ Atunci vrem să ne auto-completeze numele, apăsăm o singură dată pe tasta <c
 <p>Tasta <code class="docutils literal notranslate"><span class="pre">Tab</span></code> este descrisă în detaliu în capitolul <em>Îmbunătățirea lucrului în linia de comandă</em>.</p>
 </section>
 <section id="scurtaturi-de-cai">
-<h2><span class="section-number">1.6. </span>Scurtături de căi<a class="headerlink" href="#scurtaturi-de-cai" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">1.6. </span>Scurtături de căi<a class="headerlink" href="#scurtaturi-de-cai" title="Permalink to this heading">¶</a></h2>
 <p>Pentru o eficiență mai bună, putem folosi simboluri pentru interacțiunea cu utilitarul <code class="docutils literal notranslate"><span class="pre">cd</span></code>:</p>
 <ul>
 <li><p>Folosim caracterul <code class="docutils literal notranslate"><span class="pre">-</span></code> (<em>minus</em>) pentru a referi la <em>calea anterioară</em>.</p>
@@ -950,7 +952,7 @@ student@uso:~$ <span class="nb">pwd</span>
 </ul><div class="footer" role="contentinfo">
       &#169; Copyright 2020, USO Team.
     <br>
-    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.1.2 with <a href="https://github.com/romnn/sphinx_press_theme">Press Theme</a>.
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 5.2.2 with <a href="https://github.com/romnn/sphinx_press_theme">Press Theme</a>.
 </div>
             </div>
           </div>
