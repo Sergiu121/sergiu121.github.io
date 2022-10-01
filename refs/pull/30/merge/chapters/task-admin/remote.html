@@ -1,22 +1,28 @@
 <!DOCTYPE html>
-<html >
+<html  lang="en">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
       <title>2. Conectarea la workstation</title>
     
       <link rel="stylesheet" href="../../_static/pygments.css">
       <link rel="stylesheet" href="../../_static/theme.css">
-      <link rel="stylesheet" href="../../_static/romnnn_sphinx_press_theme.css">
+      <link rel="stylesheet" href="../../_static/romnn_sphinx_press_theme.css">
+          <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+          <link rel="stylesheet" href="../../_static/css/theme.css " type="text/css" />
       
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
 
       <!-- sphinx script_files -->
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
         <script src="../../_static/my_actions.js"></script>
-        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
       
       <script src="../../_static/theme-vendors.js"></script>
@@ -611,8 +617,9 @@
 <hr>
           <div class="content" role="main">
             
-  <div class="section" id="conectarea-la-workstation">
-<span id="task-admin-remote"></span><h1><span class="section-number">2. </span>Conectarea la workstation<a class="headerlink" href="#conectarea-la-workstation" title="Permalink to this headline">¶</a></h1>
+  <section id="conectarea-la-workstation">
+<span id="task-admin-remote"></span><h1><span class="section-number">2. </span>Conectarea la workstation<a class="headerlink" href="#conectarea-la-workstation" title="Permalink to this heading">¶</a></h1>
+<p>RD: Nota asta e doar pentru laboratorul de USO, trebuie adaptată pentru acest repository.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Pentru a parcurge această secțiune este recomandat să descărcați ultima versiune a respository-ului laboratorului.
@@ -625,24 +632,27 @@ Dacă nu aveți deja instalat Docker Engine pe sistem, scriptul <code class="doc
 Așadar, nu ne vom putea conecta direct la sistem folosind un protocol de comunicare la distanță, cum ar fi SSH fără să facem pași suplimentari.</p>
 <p>Câteva soluții de conectare la sistem pe care le vom aborda sunt:</p>
 <ul class="simple">
-<li><p>VPN;</p></li>
-<li><p>tunel SSH;</p></li>
-<li><p>DDNS (Dynamic Domain Name System).</p></li>
+<li><p>VPN</p></li>
+<li><p>tunel SSH</p></li>
+<li><p>DDNS (<em>Dynamic Domain Name System)</em></p></li>
 </ul>
-<p>Nu vom aborda soluția bazată pe DDNS, deoarece aceasta presupune că avem o adresă IP publică configurată pe ruterul primit de la furnizorul de Internet, dar acest lucru nu mai este valabil pentru majoritatea stațiilor.</p>
-<div class="section" id="problema-adreselor-ip-private">
-<span id="task-admin-remote-ip"></span><h2><span class="section-number">2.1. </span>Problema adreselor IP private<a class="headerlink" href="#problema-adreselor-ip-private" title="Permalink to this headline">¶</a></h2>
+<p>Nu vom aborda soluția bazată pe DDNS, deoarece aceasta presupune că avem o adresă IP publică configurată pe ruterul primit de la furnizorul de Internet, dar acest lucru nu este valabil pentru majoritatea stațiilor.</p>
+<section id="problema-adreselor-ip-private">
+<span id="task-admin-remote-ip"></span><h2><span class="section-number">2.1. </span>Problema adreselor IP private<a class="headerlink" href="#problema-adreselor-ip-private" title="Permalink to this heading">¶</a></h2>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Pentru rularea acestui demo, rulați în directorul <code class="docutils literal notranslate"><span class="pre">~/uso.git/labs/03-user/lab-containers/</span></code> comanda <code class="docutils literal notranslate"><span class="pre">./lab_prepare.sh</span> <span class="pre">install</span> <span class="pre">remote</span></code> și comanda  <code class="docutils literal notranslate"><span class="pre">./lab_prepare.sh</span> <span class="pre">install</span> <span class="pre">local</span></code>
 Pentru a ne conecta la infrastructura pentru această secțiune, vom folosi comanda <code class="docutils literal notranslate"><span class="pre">./lab_prepare.sh</span> <span class="pre">connect</span></code> având ca parametru numele mașinii la care vrem să ne conectăm, <code class="docutils literal notranslate"><span class="pre">local</span></code> sau <code class="docutils literal notranslate"><span class="pre">remote</span></code>.</p>
 </div>
-<p>Adresele IPv4 au fost contruite pentru a fi identificatori unici în Internet pentru stații.
+<p>RD: Referință la capitolul de conectivitate</p>
+<p>Adresele IPv4 au fost proiectate pentru a fi identificatori unici în Internet pentru stații.
 Acestea pot să identifice maxim <span class="math notranslate nohighlight">\(2^{32}\)</span> stații în Internet.
 Însă acum există mai multe dispozitive conectate la Internet decât există adrese IPv4 care se pot asigna pe dispozitive.</p>
-<p>Pentru a se rezolva această problemă, au fost alese anumite intervale de adrese IP care pot fi atribuite pe mai multe dispozitive în același timp.
+<p>Pentru a rezolva această problemă, au fost alese anumite intervale de adrese IP care pot fi atribuite pe mai multe dispozitive în același timp.
 Astfel, s-a rezolvat problema suprapunerii adreselor IP.
-Dezavantajul este că aceste adrese, nemaifiind unice, nu mai pot să fie accesibile de oriunde din Internet.</p>
+Dezavantajul este că aceste adrese, nemaifiind unice, nu mai pot să fie accesibile de oriunde din Internet.
+Aceste adrese IP sunt <strong>adrese IP private</strong>;
+celelalte adrese, accesibile din Internet, sunt <strong>adrese IP publice</strong> sau <strong>rutabile</strong>.</p>
 <p>Intervalele adreselor IPv4 private sunt următoarele:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">10.0.0.0</span></code> - <code class="docutils literal notranslate"><span class="pre">10.255.255.255</span></code>;</p></li>
@@ -650,46 +660,43 @@ Dezavantajul este că aceste adrese, nemaifiind unice, nu mai pot să fie accesi
 <li><p><code class="docutils literal notranslate"><span class="pre">192.168.0.0</span></code> - <code class="docutils literal notranslate"><span class="pre">192.168.255.255</span></code></p></li>
 </ul>
 <p>Nicio adresă IP din intervalele de mai sunt nu poate fi accesată direct din Internet.</p>
-<p>În această subsecțiune vom lucra cu 3 stații care sunt distribuite în felul următor:
+<p>În această subsecțiune vom lucra cu 3 (RD: 2?) stații care sunt distribuite în felul următor:
 * <code class="docutils literal notranslate"><span class="pre">local</span></code>, reprezintă stația “locală”, adică laptopul de pe care ne-am conecta, dacă ar fi vorba de un scenariu real; are o singură interfață de rețea cu adresa IP <code class="docutils literal notranslate"><span class="pre">10.10.10.3</span></code>;
 * <code class="docutils literal notranslate"><span class="pre">remote</span></code>, reprezintă workstationul la care vrem să ne conectăm; are o singură interfață cu adresa IP <code class="docutils literal notranslate"><span class="pre">10.11.11.3</span></code>.</p>
-<p>Vom verifica conectivitatea cu stația <code class="docutils literal notranslate"><span class="pre">remote</span></code> de pe stația <code class="docutils literal notranslate"><span class="pre">local</span></code> folosind comanda <code class="docutils literal notranslate"><span class="pre">ping</span></code>:</p>
+<p>Vom verifica conectivitatea cu stația <code class="docutils literal notranslate"><span class="pre">remote</span></code> de pe stația <code class="docutils literal notranslate"><span class="pre">local</span></code> folosind comanda <code class="docutils literal notranslate"><span class="pre">ping</span></code> (am introdus utilitarul <code class="docutils literal notranslate"><span class="pre">ping</span></code> în capitolul TODO):</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">root</span><span class="nd">@local</span><span class="p">:</span><span class="o">~</span><span class="c1"># ping -c 2 10.10.10.3</span>
-<span class="n">PING</span> <span class="mf">10.10</span><span class="o">.</span><span class="mf">10.3</span> <span class="p">(</span><span class="mf">10.10</span><span class="o">.</span><span class="mf">10.3</span><span class="p">)</span> <span class="mi">56</span><span class="p">(</span><span class="mi">84</span><span class="p">)</span> <span class="nb">bytes</span> <span class="n">of</span> <span class="n">data</span><span class="o">.</span>
+<span class="n">PING</span> <span class="mf">10.10.10.3</span> <span class="p">(</span><span class="mf">10.10.10.3</span><span class="p">)</span> <span class="mi">56</span><span class="p">(</span><span class="mi">84</span><span class="p">)</span> <span class="nb">bytes</span> <span class="n">of</span> <span class="n">data</span><span class="o">.</span>
 
-<span class="o">---</span> <span class="mf">10.10</span><span class="o">.</span><span class="mf">10.3</span> <span class="n">ping</span> <span class="n">statistics</span> <span class="o">---</span>
+<span class="o">---</span> <span class="mf">10.10.10.3</span> <span class="n">ping</span> <span class="n">statistics</span> <span class="o">---</span>
 <span class="mi">2</span> <span class="n">packets</span> <span class="n">transmitted</span><span class="p">,</span> <span class="mi">0</span> <span class="n">received</span><span class="p">,</span> <span class="mi">100</span><span class="o">%</span> <span class="n">packet</span> <span class="n">loss</span><span class="p">,</span> <span class="n">time</span> <span class="mi">1010</span><span class="n">ms</span>
 
 <span class="n">root</span><span class="nd">@local</span><span class="p">:</span><span class="o">~</span><span class="c1"># ping -c 2 141.85.241.99</span>
-<span class="n">PING</span> <span class="mf">141.85</span><span class="o">.</span><span class="mf">241.99</span> <span class="p">(</span><span class="mf">141.85</span><span class="o">.</span><span class="mf">241.99</span><span class="p">)</span> <span class="mi">56</span><span class="p">(</span><span class="mi">84</span><span class="p">)</span> <span class="nb">bytes</span> <span class="n">of</span> <span class="n">data</span><span class="o">.</span>
-<span class="mi">64</span> <span class="nb">bytes</span> <span class="kn">from</span> <span class="mf">141.85</span><span class="o">.</span><span class="mf">241.99</span><span class="p">:</span> <span class="n">icmp_seq</span><span class="o">=</span><span class="mi">1</span> <span class="n">ttl</span><span class="o">=</span><span class="mi">61</span> <span class="n">time</span><span class="o">=</span><span class="mf">9.02</span> <span class="n">ms</span>
-<span class="mi">64</span> <span class="nb">bytes</span> <span class="kn">from</span> <span class="mf">141.85</span><span class="o">.</span><span class="mf">241.99</span><span class="p">:</span> <span class="n">icmp_seq</span><span class="o">=</span><span class="mi">2</span> <span class="n">ttl</span><span class="o">=</span><span class="mi">61</span> <span class="n">time</span><span class="o">=</span><span class="mf">8.58</span> <span class="n">ms</span>
+<span class="n">PING</span> <span class="mf">141.85.241.99</span> <span class="p">(</span><span class="mf">141.85.241.99</span><span class="p">)</span> <span class="mi">56</span><span class="p">(</span><span class="mi">84</span><span class="p">)</span> <span class="nb">bytes</span> <span class="n">of</span> <span class="n">data</span><span class="o">.</span>
+<span class="mi">64</span> <span class="nb">bytes</span> <span class="kn">from</span> <span class="mf">141.85.241.99</span><span class="p">:</span> <span class="n">icmp_seq</span><span class="o">=</span><span class="mi">1</span> <span class="n">ttl</span><span class="o">=</span><span class="mi">61</span> <span class="n">time</span><span class="o">=</span><span class="mf">9.02</span> <span class="n">ms</span>
+<span class="mi">64</span> <span class="nb">bytes</span> <span class="kn">from</span> <span class="mf">141.85.241.99</span><span class="p">:</span> <span class="n">icmp_seq</span><span class="o">=</span><span class="mi">2</span> <span class="n">ttl</span><span class="o">=</span><span class="mi">61</span> <span class="n">time</span><span class="o">=</span><span class="mf">8.58</span> <span class="n">ms</span>
 
-<span class="o">---</span> <span class="mf">141.85</span><span class="o">.</span><span class="mf">241.99</span> <span class="n">ping</span> <span class="n">statistics</span> <span class="o">---</span>
+<span class="o">---</span> <span class="mf">141.85.241.99</span> <span class="n">ping</span> <span class="n">statistics</span> <span class="o">---</span>
 <span class="mi">2</span> <span class="n">packets</span> <span class="n">transmitted</span><span class="p">,</span> <span class="mi">2</span> <span class="n">received</span><span class="p">,</span> <span class="mi">0</span><span class="o">%</span> <span class="n">packet</span> <span class="n">loss</span><span class="p">,</span> <span class="n">time</span> <span class="mi">1001</span><span class="n">ms</span>
 <span class="n">rtt</span> <span class="nb">min</span><span class="o">/</span><span class="n">avg</span><span class="o">/</span><span class="nb">max</span><span class="o">/</span><span class="n">mdev</span> <span class="o">=</span> <span class="mf">8.588</span><span class="o">/</span><span class="mf">8.806</span><span class="o">/</span><span class="mf">9.024</span><span class="o">/</span><span class="mf">0.218</span> <span class="n">ms</span>
 </pre></div>
 </div>
-<p>Rezultatul comenzii primei rulări a comenzii <code class="docutils literal notranslate"><span class="pre">ping</span></code> demonstrează faptul că nu avem conectivitate între stația <code class="docutils literal notranslate"><span class="pre">local</span></code> și stația <code class="docutils literal notranslate"><span class="pre">remote</span></code>.
-Totuși, am testat și conectivitatea cu o altă adresă IP din Internet, în cazul acesta folosind adresa IP a stației <code class="docutils literal notranslate"><span class="pre">fep.grid.pub.ro</span></code> (cu adresa IP 141.85.241.99), cu care putem să comunicăm, deci nu este o problemă de conectare la Internet.
-Pentru a recapitula funcționalitatea utilitarului <code class="docutils literal notranslate"><span class="pre">ping</span></code>, revizitați capitolul &lt;TODO&gt;.</p>
-</div>
-<div class="section" id="conectarea-prin-vpn">
-<span id="task-admin-remote-vpn"></span><h2><span class="section-number">2.2. </span>Conectarea prin VPN<a class="headerlink" href="#conectarea-prin-vpn" title="Permalink to this headline">¶</a></h2>
-<p>Prima soluție pentru conectarea la o stație care folosește o adresă IP privată o reprezintă serviciile de tip VPN (<em>Virtual Private Network</em>).
+<p>Rezultatul primei rulări a comenzii <code class="docutils literal notranslate"><span class="pre">ping</span></code> arată că nu avem conectivitate între stația <code class="docutils literal notranslate"><span class="pre">local</span></code> și stația <code class="docutils literal notranslate"><span class="pre">remote</span></code>.
+Totuși, am testat și conectivitatea cu o altă adresă IP din Internet (în cazul acesta folosind adresa IP a stației <code class="docutils literal notranslate"><span class="pre">fep.grid.pub.ro</span></code> - cu adresa IP 141.85.241.99);
+cu aceasta am putut să comunicăm, deci nu este o problemă de conectare la Internet.</p>
+</section>
+<section id="conectarea-prin-vpn">
+<span id="task-admin-remote-vpn"></span><h2><span class="section-number">2.2. </span>Conectarea prin VPN<a class="headerlink" href="#conectarea-prin-vpn" title="Permalink to this heading">¶</a></h2>
+<p>O primă soluție pentru conectarea la o stație care folosește o adresă IP privată o reprezintă serviciile de tip VPN (<em>Virtual Private Network</em>).
 Acestea conectează două stații care în mod fizic nu sunt conectate la aceeași rețea &lt;TODO ref capitol rețea&gt;.</p>
-<p>Pentru această soluție avem două moduri de organizare: folosind un server public pe care îl configurăm noi drept server de VPN, sau folosirea unui serviciu public de VPN cum ar fi:</p>
-<ul class="simple">
-<li><p><a class="reference external" href="www.vpn.com/">Hamachi</a>;</p></li>
-<li><p><a class="reference external" href="www.zerotier.com/">ZeroTier</a>.</p></li>
-</ul>
-<p>Am folosit ca exemplu serviciile Hamachi sau ZeroTier, deoarece acestea pot fi folosite gratuit și sunt ușor de configurat.</p>
-<table class="colwidths-given docutils align-default" id="id1">
+<p>Pentru această soluție avem două moduri de conectare: folosind un server public pe care îl configurăm noi drept server de VPN, sau folosirea unui serviciu public de VPN cum ar fi <a class="reference external" href="www.vpn.com/">Hamachi</a> sau <a class="reference external" href="www.zerotier.com/">ZeroTier</a>.
+Am folosit ca exemplu serviciile Hamachi sau ZeroTier, deoarece acestea pot fi folosite gratuit și sunt ușor de configurat, așa cum reiese din tabelul de mai jos.</p>
+<p>RD: sunt ciudate liniile libere în tabel. Ce reprezintă?</p>
+<table class="docutils align-default" id="id1">
 <caption><span class="caption-text">Soluții VPN</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
 <colgroup>
-<col style="width: 25%" />
-<col style="width: 25%" />
-<col style="width: 50%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 50.0%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Nume soluție</p></th>
@@ -700,7 +707,7 @@ Acestea conectează două stații care în mod fizic nu sunt conectate la aceea�
 <tbody>
 <tr class="row-even"><td><p>Hamachi</p></td>
 <td><ul class="simple">
-<li><p>Ușor de setat</p></li>
+<li><p>Ușor de configurat</p></li>
 <li><p>Aplicație client disponibilă pe Linux și pe Windows</p></li>
 <li><p>Nu necesită înregistrarea</p></li>
 </ul>
@@ -713,7 +720,7 @@ Acestea conectează două stații care în mod fizic nu sunt conectate la aceea�
 </tr>
 <tr class="row-odd"><td><p>ZeroTier</p></td>
 <td><ul class="simple">
-<li><p>Ușor de instalat și setat</p></li>
+<li><p>Ușor de instalat și cofigurat</p></li>
 <li><p>Permite 50 de stații într-o rețea</p></li>
 </ul>
 </td>
@@ -737,44 +744,44 @@ speciale</p></li>
 </tr>
 </tbody>
 </table>
-<div class="section" id="folosirea-serviciului-hamachi">
-<span id="task-admin-remote-vpn-hamachi"></span><h3><span class="section-number">2.2.1. </span>Folosirea serviciului Hamachi<a class="headerlink" href="#folosirea-serviciului-hamachi" title="Permalink to this headline">¶</a></h3>
-<p>Pentru început, recomandăm folosirea aplicației Hamachi, deoarece acesta nu presupune înregistrarea unui cont pentru folosirea aplicație.
+<section id="folosirea-serviciului-hamachi">
+<span id="task-admin-remote-vpn-hamachi"></span><h3><span class="section-number">2.2.1. </span>Folosirea serviciului Hamachi<a class="headerlink" href="#folosirea-serviciului-hamachi" title="Permalink to this heading">¶</a></h3>
+<p>Pentru început, recomandăm folosirea aplicației Hamachi, deoarece acesta nu presupune înregistrarea unui cont pentru a fi folosită.
 Hamachi vine cu dezavantajul că putem să conectăm maxim cinci stații între ele și viteza conexiunii este mai mică decât dacă am folosi unele servicii plătite, cum ar fi OpenVPN.</p>
-<div class="section" id="instalarea-hamachi">
-<span id="task-admin-remote-vpn-hamachi-install"></span><h4><span class="section-number">2.2.1.1. </span>Instalarea Hamachi<a class="headerlink" href="#instalarea-hamachi" title="Permalink to this headline">¶</a></h4>
-<p>Nu vom instala pachetul folosind aplicația <code class="docutils literal notranslate"><span class="pre">apt</span></code>, cum am învățat până acum, deoarece repository-ul de pachete folosit de Ubuntu nu conține pachetul pentru Hamachi.
-Pentru instalarea aplicației Hamachi vom descărca pachetul.</p>
+<section id="instalarea-hamachi">
+<span id="task-admin-remote-vpn-hamachi-install"></span><h4><span class="section-number">2.2.1.1. </span>Instalarea Hamachi<a class="headerlink" href="#instalarea-hamachi" title="Permalink to this heading">¶</a></h4>
+<p>Nu vom instala pachetul folosind comanda <code class="docutils literal notranslate"><span class="pre">apt</span></code>, deoarece repository-ul de pachete folosit de Ubuntu nu conține pachetul pentru Hamachi.
+Pentru instalarea aplicației Hamachi vom descărca și instala manual pachetul.</p>
 <p>Vom folosi comanda <code class="docutils literal notranslate"><span class="pre">wget</span></code> pentru a descărca pachetul:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">root</span><span class="nd">@remote</span><span class="p">:</span><span class="o">~</span><span class="c1"># wget https://www.vpn.net/installers/logmein-hamachi_2.1.0.203-1_amd64.deb</span>
-<span class="o">--</span><span class="mi">2021</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">05</span> <span class="mi">15</span><span class="p">:</span><span class="mi">49</span><span class="p">:</span><span class="mi">15</span><span class="o">--</span>  <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="o">.</span><span class="n">vpn</span><span class="o">.</span><span class="n">net</span><span class="o">/</span><span class="n">installers</span><span class="o">/</span><span class="n">logmein</span><span class="o">-</span><span class="n">hamachi_2</span><span class="o">.</span><span class="mf">1.0</span><span class="o">.</span><span class="mi">203</span><span class="o">-</span><span class="mi">1</span><span class="n">_amd64</span><span class="o">.</span><span class="n">deb</span>
-<span class="n">Resolving</span> <span class="n">www</span><span class="o">.</span><span class="n">vpn</span><span class="o">.</span><span class="n">net</span> <span class="p">(</span><span class="n">www</span><span class="o">.</span><span class="n">vpn</span><span class="o">.</span><span class="n">net</span><span class="p">)</span><span class="o">...</span> <span class="mf">64.95</span><span class="o">.</span><span class="mf">128.197</span><span class="p">,</span> <span class="mf">64.95</span><span class="o">.</span><span class="mf">128.199</span>
-<span class="n">Connecting</span> <span class="n">to</span> <span class="n">www</span><span class="o">.</span><span class="n">vpn</span><span class="o">.</span><span class="n">net</span> <span class="p">(</span><span class="n">www</span><span class="o">.</span><span class="n">vpn</span><span class="o">.</span><span class="n">net</span><span class="p">)</span><span class="o">|</span><span class="mf">64.95</span><span class="o">.</span><span class="mf">128.197</span><span class="o">|</span><span class="p">:</span><span class="mf">443.</span><span class="o">..</span> <span class="n">connected</span><span class="o">.</span>
+<span class="o">--</span><span class="mi">2021</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">05</span> <span class="mi">15</span><span class="p">:</span><span class="mi">49</span><span class="p">:</span><span class="mi">15</span><span class="o">--</span>  <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="o">.</span><span class="n">vpn</span><span class="o">.</span><span class="n">net</span><span class="o">/</span><span class="n">installers</span><span class="o">/</span><span class="n">logmein</span><span class="o">-</span><span class="n">hamachi_2</span><span class="mf">.1.0.203</span><span class="o">-</span><span class="mi">1</span><span class="n">_amd64</span><span class="o">.</span><span class="n">deb</span>
+<span class="n">Resolving</span> <span class="n">www</span><span class="o">.</span><span class="n">vpn</span><span class="o">.</span><span class="n">net</span> <span class="p">(</span><span class="n">www</span><span class="o">.</span><span class="n">vpn</span><span class="o">.</span><span class="n">net</span><span class="p">)</span><span class="o">...</span> <span class="mf">64.95.128.197</span><span class="p">,</span> <span class="mf">64.95.128.199</span>
+<span class="n">Connecting</span> <span class="n">to</span> <span class="n">www</span><span class="o">.</span><span class="n">vpn</span><span class="o">.</span><span class="n">net</span> <span class="p">(</span><span class="n">www</span><span class="o">.</span><span class="n">vpn</span><span class="o">.</span><span class="n">net</span><span class="p">)</span><span class="o">|</span><span class="mf">64.95.128.197</span><span class="o">|</span><span class="p">:</span><span class="mf">443.</span><span class="o">..</span> <span class="n">connected</span><span class="o">.</span>
 <span class="n">HTTP</span> <span class="n">request</span> <span class="n">sent</span><span class="p">,</span> <span class="n">awaiting</span> <span class="n">response</span><span class="o">...</span> <span class="mi">200</span> <span class="n">OK</span>
 <span class="n">Length</span><span class="p">:</span> <span class="mi">1613102</span> <span class="p">(</span><span class="mf">1.5</span><span class="n">M</span><span class="p">)</span> <span class="p">[</span><span class="n">application</span><span class="o">/</span><span class="n">vnd</span><span class="o">.</span><span class="n">debian</span><span class="o">.</span><span class="n">binary</span><span class="o">-</span><span class="n">package</span><span class="p">]</span>
 <span class="n">Saving</span> <span class="n">to</span><span class="p">:</span> <span class="s1">&#39;logmein-hamachi_2.1.0.203-1_amd64.deb&#39;</span>
 
-<span class="n">logmein</span><span class="o">-</span><span class="n">hamachi_2</span><span class="o">.</span><span class="mf">1.0</span><span class="o">.</span><span class="mi">203</span><span class="o">-</span><span class="mi">1</span><span class="n">_amd64</span> <span class="mi">100</span><span class="o">%</span><span class="p">[</span><span class="o">==========================================================&gt;</span><span class="p">]</span>   <span class="mf">1.54</span><span class="n">M</span>  <span class="mf">4.14</span><span class="n">MB</span><span class="o">/</span><span class="n">s</span>    <span class="ow">in</span> <span class="mf">0.4</span><span class="n">s</span>
+<span class="n">logmein</span><span class="o">-</span><span class="n">hamachi_2</span><span class="mf">.1.0.203</span><span class="o">-</span><span class="mi">1</span><span class="n">_amd64</span> <span class="mi">100</span><span class="o">%</span><span class="p">[</span><span class="o">==========================================================&gt;</span><span class="p">]</span>   <span class="mf">1.54</span><span class="n">M</span>  <span class="mf">4.14</span><span class="n">MB</span><span class="o">/</span><span class="n">s</span>    <span class="ow">in</span> <span class="mf">0.4</span><span class="n">s</span>
 
 <span class="mi">2021</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">05</span> <span class="mi">15</span><span class="p">:</span><span class="mi">49</span><span class="p">:</span><span class="mi">16</span> <span class="p">(</span><span class="mf">4.14</span> <span class="n">MB</span><span class="o">/</span><span class="n">s</span><span class="p">)</span> <span class="o">-</span> <span class="s1">&#39;logmein-hamachi_2.1.0.203-1_amd64.deb&#39;</span> <span class="n">saved</span> <span class="p">[</span><span class="mi">1613102</span><span class="o">/</span><span class="mi">1613102</span><span class="p">]</span>
 
 <span class="n">root</span><span class="nd">@remote</span><span class="p">:</span><span class="o">~</span><span class="c1"># dpkg -i logmein-hamachi_2.1.0.203-1_amd64.deb</span>
 <span class="n">Selecting</span> <span class="n">previously</span> <span class="n">unselected</span> <span class="n">package</span> <span class="n">logmein</span><span class="o">-</span><span class="n">hamachi</span><span class="o">.</span>
 <span class="p">(</span><span class="n">Reading</span> <span class="n">database</span> <span class="o">...</span> <span class="mi">12216</span> <span class="n">files</span> <span class="ow">and</span> <span class="n">directories</span> <span class="n">currently</span> <span class="n">installed</span><span class="o">.</span><span class="p">)</span>
-<span class="n">Preparing</span> <span class="n">to</span> <span class="n">unpack</span> <span class="n">logmein</span><span class="o">-</span><span class="n">hamachi_2</span><span class="o">.</span><span class="mf">1.0</span><span class="o">.</span><span class="mi">203</span><span class="o">-</span><span class="mi">1</span><span class="n">_amd64</span><span class="o">.</span><span class="n">deb</span> <span class="o">...</span>
-<span class="n">Unpacking</span> <span class="n">logmein</span><span class="o">-</span><span class="n">hamachi</span> <span class="p">(</span><span class="mf">2.1</span><span class="o">.</span><span class="mf">0.203</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">...</span>
-<span class="n">Setting</span> <span class="n">up</span> <span class="n">logmein</span><span class="o">-</span><span class="n">hamachi</span> <span class="p">(</span><span class="mf">2.1</span><span class="o">.</span><span class="mf">0.203</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">...</span>
+<span class="n">Preparing</span> <span class="n">to</span> <span class="n">unpack</span> <span class="n">logmein</span><span class="o">-</span><span class="n">hamachi_2</span><span class="mf">.1.0.203</span><span class="o">-</span><span class="mi">1</span><span class="n">_amd64</span><span class="o">.</span><span class="n">deb</span> <span class="o">...</span>
+<span class="n">Unpacking</span> <span class="n">logmein</span><span class="o">-</span><span class="n">hamachi</span> <span class="p">(</span><span class="mf">2.1.0.203</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">...</span>
+<span class="n">Setting</span> <span class="n">up</span> <span class="n">logmein</span><span class="o">-</span><span class="n">hamachi</span> <span class="p">(</span><span class="mf">2.1.0.203</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">...</span>
 <span class="n">mknod</span><span class="p">:</span> <span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">net</span><span class="o">/</span><span class="n">tun</span><span class="p">:</span> <span class="n">File</span> <span class="n">exists</span>
 <span class="n">Starting</span> <span class="n">LogMeIn</span> <span class="n">Hamachi</span> <span class="n">VPN</span> <span class="n">tunneling</span> <span class="n">engine</span> <span class="n">logmein</span><span class="o">-</span><span class="n">hamachi</span>
 <span class="n">starting</span> <span class="o">-</span> <span class="n">success</span>
-<span class="n">Processing</span> <span class="n">triggers</span> <span class="k">for</span> <span class="n">systemd</span> <span class="p">(</span><span class="mf">245.4</span><span class="o">-</span><span class="mi">4</span><span class="n">ubuntu3</span><span class="o">.</span><span class="mi">3</span><span class="p">)</span> <span class="o">...</span>
+<span class="n">Processing</span> <span class="n">triggers</span> <span class="k">for</span> <span class="n">systemd</span> <span class="p">(</span><span class="mf">245.4</span><span class="o">-</span><span class="mi">4</span><span class="n">ubuntu3</span><span class="mf">.3</span><span class="p">)</span> <span class="o">...</span>
 </pre></div>
 </div>
 <p>Am folosit comanda <code class="docutils literal notranslate"><span class="pre">dpkg</span></code> care gestionează aplicații sub forma pachetelor <code class="docutils literal notranslate"><span class="pre">.deb</span></code>, specifice distribuțiilor Debian, Ubuntu și Mint.
 Opțiunea <code class="docutils literal notranslate"><span class="pre">-i</span></code> specifică comenzii <code class="docutils literal notranslate"><span class="pre">dpkg</span></code> că vrem să instalăm o aplicație.</p>
-<p>Verificăm că am instalat aplicația Hamachi folosind comanda <code class="docutils literal notranslate"><span class="pre">hamachi</span></code> în felul următor:</p>
+<p>Verificăm instalarea folosind comanda <code class="docutils literal notranslate"><span class="pre">hamachi</span></code>:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">root</span><span class="nd">@remote</span><span class="p">:</span><span class="o">~</span><span class="c1"># hamachi</span>
-  <span class="n">version</span>    <span class="p">:</span> <span class="mf">2.1</span><span class="o">.</span><span class="mf">0.203</span>
+  <span class="n">version</span>    <span class="p">:</span> <span class="mf">2.1.0.203</span>
   <span class="n">pid</span>        <span class="p">:</span> <span class="mi">42</span>
   <span class="n">status</span>     <span class="p">:</span> <span class="n">offline</span>
   <span class="n">client</span> <span class="nb">id</span>  <span class="p">:</span>
@@ -787,31 +794,31 @@ Opțiunea <code class="docutils literal notranslate"><span class="pre">-i</span>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">root</span><span class="nd">@remote</span><span class="p">:</span><span class="o">~</span><span class="c1"># hamachi login</span>
 <span class="n">Logging</span> <span class="ow">in</span> <span class="o">..........</span> <span class="n">ok</span>
 <span class="n">root</span><span class="nd">@remote</span><span class="p">:</span><span class="o">~</span><span class="c1"># hamachi</span>
-  <span class="n">version</span>    <span class="p">:</span> <span class="mf">2.1</span><span class="o">.</span><span class="mf">0.203</span>
+  <span class="n">version</span>    <span class="p">:</span> <span class="mf">2.1.0.203</span>
   <span class="n">pid</span>        <span class="p">:</span> <span class="mi">42</span>
   <span class="n">status</span>     <span class="p">:</span> <span class="n">logged</span> <span class="ow">in</span>
   <span class="n">client</span> <span class="nb">id</span>  <span class="p">:</span> <span class="mi">253</span><span class="o">-</span><span class="mi">932</span><span class="o">-</span><span class="mi">022</span>
-  <span class="n">address</span>    <span class="p">:</span> <span class="mf">25.114</span><span class="o">.</span><span class="mf">254.180</span>    <span class="mi">2620</span><span class="p">:</span><span class="mi">9</span><span class="n">b</span><span class="p">::</span><span class="mi">1972</span><span class="p">:</span><span class="n">feb4</span>
+  <span class="n">address</span>    <span class="p">:</span> <span class="mf">25.114.254.180</span>    <span class="mi">2620</span><span class="p">:</span><span class="mi">9</span><span class="n">b</span><span class="p">::</span><span class="mi">1972</span><span class="p">:</span><span class="n">feb4</span>
   <span class="n">nickname</span>   <span class="p">:</span> <span class="n">remote</span>
   <span class="n">lmi</span> <span class="n">account</span><span class="p">:</span> <span class="o">-</span>
 </pre></div>
 </div>
 <p>Această comandă generează un identificator unic per stație și stabilește un nickname.
-Rulând comanda <code class="docutils literal notranslate"><span class="pre">hamachi</span></code> vor fi afișate identificatorul, nickname-ul sistemului, adresa IP din VPN și nickname-ul sistemului.</p>
-</div>
-<div class="section" id="exercitiu-instalare-hamachi">
-<span id="task-admin-remote-vpn-hamachi-install-ex"></span><h4><span class="section-number">2.2.1.2. </span>Exercițiu: Instalare Hamachi<a class="headerlink" href="#exercitiu-instalare-hamachi" title="Permalink to this headline">¶</a></h4>
+Rulând comanda <code class="docutils literal notranslate"><span class="pre">hamachi</span></code> vor fi afișate identificatorul, nickname-ul sistemului și adresa IP din VPN.</p>
+</section>
+<section id="exercitiu-instalare-hamachi">
+<span id="task-admin-remote-vpn-hamachi-install-ex"></span><h4><span class="section-number">2.2.1.2. </span>Exercițiu: Instalare Hamachi<a class="headerlink" href="#exercitiu-instalare-hamachi" title="Permalink to this heading">¶</a></h4>
 <p>Instalați Hamachi pe stația <code class="docutils literal notranslate"><span class="pre">local</span></code>.</p>
-</div>
-<div class="section" id="crearea-unei-retele-private">
-<span id="task-admin-remote-vpn-hamachi-create"></span><h4><span class="section-number">2.2.1.3. </span>Crearea unei rețele private<a class="headerlink" href="#crearea-unei-retele-private" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="crearea-unei-retele-private">
+<span id="task-admin-remote-vpn-hamachi-create"></span><h4><span class="section-number">2.2.1.3. </span>Crearea unei rețele private<a class="headerlink" href="#crearea-unei-retele-private" title="Permalink to this heading">¶</a></h4>
 <p>Odată ce am instalat Hamachi pe ambele stații pe care vrem să le conectăm, trebuie să creăm o rețea virtuală prin care acestea două să comunice.
-Această rețea va conecta cele două calculatoare, cu toate că ele nu sunt fizic în aceeași rețea.</p>
+Această rețea va conecta cele două stații, cu toate că ele nu sunt fizic în aceeași rețea.</p>
 <p>Vom crea rețeaua virtuală de pe stația <code class="docutils literal notranslate"><span class="pre">remote</span></code>.
 Pentru a crea o rețea virtuală folosim comanda <code class="docutils literal notranslate"><span class="pre">hamachi</span> <span class="pre">create</span></code> împreună cu numele rețelei și parola acesteia.
 Stația <code class="docutils literal notranslate"><span class="pre">remote</span></code> va avea drepturi de administrare a rețelei.
-Doar având drepturi administrative se poate scoate sisteme din rețea, sau se poate șterge rețeaua.
-Pentru demo-ul pe care îl urmăriți, folosiți în loc de șirul de caractere <code class="docutils literal notranslate"><span class="pre">nume-prenume</span></code> numele și prenumele vostru.</p>
+Doar având drepturi administrative se pot scoate sisteme din rețea, sau se poate șterge rețeaua.
+În comanda de mai jos, folosiți în loc de șirul de caractere <code class="docutils literal notranslate"><span class="pre">nume-prenume</span></code> numele și prenumele vostru:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">root</span><span class="nd">@remote</span><span class="p">:</span><span class="o">~</span><span class="c1"># hamachi create nume-prenume 12345667890</span>
 <span class="n">Creating</span> <span class="n">nume</span><span class="o">-</span><span class="n">prenume</span> <span class="o">..</span> <span class="n">ok</span>
 <span class="n">root</span><span class="nd">@remote</span><span class="p">:</span><span class="o">~</span><span class="c1"># hamachi list</span>
@@ -820,48 +827,47 @@ Pentru demo-ul pe care îl urmăriți, folosiți în loc de șirul de caractere 
 </div>
 <p>Am folosit comanda <code class="docutils literal notranslate"><span class="pre">hamachi</span> <span class="pre">list</span></code> pentru a verifica faptul că a fost creată rețeaua.
 Comanda <code class="docutils literal notranslate"><span class="pre">hamachi</span> <span class="pre">list</span></code> afișează toate rețelele din care face parte stația.</p>
-</div>
-<div class="section" id="conectarea-la-o-retea">
-<span id="task-admin-remote-vpn-hamachi-connect"></span><h4><span class="section-number">2.2.1.4. </span>Conectarea la o rețea<a class="headerlink" href="#conectarea-la-o-retea" title="Permalink to this headline">¶</a></h4>
-<p>Pentru a conecta stația <code class="docutils literal notranslate"><span class="pre">local</span></code> la rețeaua privată vom folosi comanda <code class="docutils literal notranslate"><span class="pre">hamachi</span> <span class="pre">join</span></code> urmată de numele rețelei la care vom conecta stația și parola rețelei.</p>
+</section>
+<section id="conectarea-la-o-retea">
+<span id="task-admin-remote-vpn-hamachi-connect"></span><h4><span class="section-number">2.2.1.4. </span>Conectarea la o rețea<a class="headerlink" href="#conectarea-la-o-retea" title="Permalink to this heading">¶</a></h4>
+<p>Pentru a conecta stația <code class="docutils literal notranslate"><span class="pre">local</span></code> la rețeaua privată vom, folosi comanda <code class="docutils literal notranslate"><span class="pre">hamachi</span> <span class="pre">join</span></code> urmată de numele rețelei la care vom conecta stația și parola rețelei:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">root</span><span class="nd">@local</span><span class="p">:</span><span class="o">~</span><span class="c1"># hamachi join nume-prenume 12345667890</span>
 <span class="n">Joining</span> <span class="n">nume</span><span class="o">-</span><span class="n">prenume</span> <span class="o">..</span> <span class="n">ok</span>
 <span class="n">root</span><span class="nd">@local</span><span class="p">:</span><span class="o">~</span><span class="c1"># hamachi list</span>
  <span class="o">*</span> <span class="p">[</span><span class="n">nume</span><span class="o">-</span><span class="n">prenume</span><span class="p">]</span>  <span class="n">capacity</span><span class="p">:</span> <span class="mi">2</span><span class="o">/</span><span class="mi">5</span><span class="p">,</span> <span class="n">subscription</span> <span class="nb">type</span><span class="p">:</span> <span class="n">Free</span><span class="p">,</span> <span class="n">owner</span><span class="p">:</span> <span class="n">remote</span> <span class="p">(</span><span class="mi">253</span><span class="o">-</span><span class="mi">932</span><span class="o">-</span><span class="mi">022</span><span class="p">)</span>
- <span class="o">*</span> <span class="mi">253</span><span class="o">-</span><span class="mi">932</span><span class="o">-</span><span class="mi">022</span>   <span class="n">remote</span>                     <span class="mf">25.114</span><span class="o">.</span><span class="mf">254.180</span>    <span class="n">alias</span><span class="p">:</span> <span class="ow">not</span> <span class="nb">set</span>           <span class="mi">2620</span><span class="p">:</span><span class="mi">9</span><span class="n">b</span><span class="p">::</span><span class="mi">1972</span><span class="p">:</span><span class="n">feb4</span>                          <span class="n">via</span> <span class="n">server</span>  <span class="n">TCP</span>
+ <span class="o">*</span> <span class="mi">253</span><span class="o">-</span><span class="mi">932</span><span class="o">-</span><span class="mi">022</span>   <span class="n">remote</span>                     <span class="mf">25.114.254.180</span>    <span class="n">alias</span><span class="p">:</span> <span class="ow">not</span> <span class="nb">set</span>           <span class="mi">2620</span><span class="p">:</span><span class="mi">9</span><span class="n">b</span><span class="p">::</span><span class="mi">1972</span><span class="p">:</span><span class="n">feb4</span>                          <span class="n">via</span> <span class="n">server</span>  <span class="n">TCP</span>
 </pre></div>
 </div>
 <p>Rulând comanda <code class="docutils literal notranslate"><span class="pre">hamachi</span> <span class="pre">list</span></code>, am afișat rețelele la care este conectată stația <code class="docutils literal notranslate"><span class="pre">local</span></code> și stațiile cu care împarte rețelele.
-Adresa IP a stației stației <code class="docutils literal notranslate"><span class="pre">remote</span></code> din rețeaua privată este <code class="docutils literal notranslate"><span class="pre">25.114.254.180</span></code>, conform rezultatului comenzii.</p>
-<p>Pentru a testa conexiunea dintre stațiile <code class="docutils literal notranslate"><span class="pre">local</span></code> și <code class="docutils literal notranslate"><span class="pre">remote</span></code> vom rula comanda <code class="docutils literal notranslate"><span class="pre">ping</span></code>.</p>
+Adresa IP a stației <code class="docutils literal notranslate"><span class="pre">remote</span></code> din rețeaua privată este <code class="docutils literal notranslate"><span class="pre">25.114.254.180</span></code>, conform rezultatului comenzii.</p>
+<p>Pentru a testa conectivitatea între stațiile <code class="docutils literal notranslate"><span class="pre">local</span></code> și <code class="docutils literal notranslate"><span class="pre">remote</span></code> vom rula comanda <code class="docutils literal notranslate"><span class="pre">ping</span></code>:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">root</span><span class="nd">@local</span><span class="p">:</span><span class="o">~</span><span class="c1"># ping -c 2 25.114.254.180</span>
-<span class="n">PING</span> <span class="mf">25.114</span><span class="o">.</span><span class="mf">254.180</span> <span class="p">(</span><span class="mf">25.114</span><span class="o">.</span><span class="mf">254.180</span><span class="p">)</span> <span class="mi">56</span><span class="p">(</span><span class="mi">84</span><span class="p">)</span> <span class="nb">bytes</span> <span class="n">of</span> <span class="n">data</span><span class="o">.</span>
-<span class="mi">64</span> <span class="nb">bytes</span> <span class="kn">from</span> <span class="mf">25.114</span><span class="o">.</span><span class="mf">254.180</span><span class="p">:</span> <span class="n">icmp_seq</span><span class="o">=</span><span class="mi">1</span> <span class="n">ttl</span><span class="o">=</span><span class="mi">64</span> <span class="n">time</span><span class="o">=</span><span class="mf">76.5</span> <span class="n">ms</span>
-<span class="mi">64</span> <span class="nb">bytes</span> <span class="kn">from</span> <span class="mf">25.114</span><span class="o">.</span><span class="mf">254.180</span><span class="p">:</span> <span class="n">icmp_seq</span><span class="o">=</span><span class="mi">2</span> <span class="n">ttl</span><span class="o">=</span><span class="mi">64</span> <span class="n">time</span><span class="o">=</span><span class="mf">92.3</span> <span class="n">ms</span>
+<span class="n">PING</span> <span class="mf">25.114.254.180</span> <span class="p">(</span><span class="mf">25.114.254.180</span><span class="p">)</span> <span class="mi">56</span><span class="p">(</span><span class="mi">84</span><span class="p">)</span> <span class="nb">bytes</span> <span class="n">of</span> <span class="n">data</span><span class="o">.</span>
+<span class="mi">64</span> <span class="nb">bytes</span> <span class="kn">from</span> <span class="mf">25.114.254.180</span><span class="p">:</span> <span class="n">icmp_seq</span><span class="o">=</span><span class="mi">1</span> <span class="n">ttl</span><span class="o">=</span><span class="mi">64</span> <span class="n">time</span><span class="o">=</span><span class="mf">76.5</span> <span class="n">ms</span>
+<span class="mi">64</span> <span class="nb">bytes</span> <span class="kn">from</span> <span class="mf">25.114.254.180</span><span class="p">:</span> <span class="n">icmp_seq</span><span class="o">=</span><span class="mi">2</span> <span class="n">ttl</span><span class="o">=</span><span class="mi">64</span> <span class="n">time</span><span class="o">=</span><span class="mf">92.3</span> <span class="n">ms</span>
 
-<span class="o">---</span> <span class="mf">25.114</span><span class="o">.</span><span class="mf">254.180</span> <span class="n">ping</span> <span class="n">statistics</span> <span class="o">---</span>
+<span class="o">---</span> <span class="mf">25.114.254.180</span> <span class="n">ping</span> <span class="n">statistics</span> <span class="o">---</span>
 <span class="mi">2</span> <span class="n">packets</span> <span class="n">transmitted</span><span class="p">,</span> <span class="mi">2</span> <span class="n">received</span><span class="p">,</span> <span class="mi">0</span><span class="o">%</span> <span class="n">packet</span> <span class="n">loss</span><span class="p">,</span> <span class="n">time</span> <span class="mi">1003</span><span class="n">ms</span>
 <span class="n">rtt</span> <span class="nb">min</span><span class="o">/</span><span class="n">avg</span><span class="o">/</span><span class="nb">max</span><span class="o">/</span><span class="n">mdev</span> <span class="o">=</span> <span class="mf">76.592</span><span class="o">/</span><span class="mf">84.493</span><span class="o">/</span><span class="mf">92.394</span><span class="o">/</span><span class="mf">7.901</span> <span class="n">ms</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="exercitiu-crearea-si-folosirea-unei-retele-private">
-<span id="task-admin-remote-vpn-hamachi-connect-ex"></span><h4><span class="section-number">2.2.1.5. </span>Exercițiu: Crearea și folosirea unei rețele private<a class="headerlink" href="#exercitiu-crearea-si-folosirea-unei-retele-private" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="exercitiu-crearea-si-folosirea-unei-retele-private">
+<span id="task-admin-remote-vpn-hamachi-connect-ex"></span><h4><span class="section-number">2.2.1.5. </span>Exercițiu: Crearea și folosirea unei rețele private<a class="headerlink" href="#exercitiu-crearea-si-folosirea-unei-retele-private" title="Permalink to this heading">¶</a></h4>
 <p>Creați o nouă rețea privată numită <code class="docutils literal notranslate"><span class="pre">prenume-nume</span></code>, cu parola de acces <code class="docutils literal notranslate"><span class="pre">anaaremere</span></code>.
 Conectați stațiile <code class="docutils literal notranslate"><span class="pre">local</span></code> și <code class="docutils literal notranslate"><span class="pre">remote</span></code> la noua rețea.</p>
-</div>
-</div>
-<div class="section" id="folosirea-unui-vpn-privat">
-<span id="task-admin-remote-vpn-private"></span><h3><span class="section-number">2.2.2. </span>Folosirea unui VPN privat<a class="headerlink" href="#folosirea-unui-vpn-privat" title="Permalink to this headline">¶</a></h3>
+</section>
+</section>
+<section id="folosirea-unui-vpn-privat">
+<span id="task-admin-remote-vpn-private"></span><h3><span class="section-number">2.2.2. </span>Folosirea unui VPN privat<a class="headerlink" href="#folosirea-unui-vpn-privat" title="Permalink to this heading">¶</a></h3>
 <p>Pentru folosirea unui VPN privat este nevoie să avem o stație în Internet la care să avem acces atât de la stația locală (cum ar fi laptopul) cât și de la cea de la distanță (workstationul).
 Putem obține acces la astfel de stații cumpărând acces la o mașină virtuală de la un serviciu de hosting, cum ar fi AWS, DigitalOcean, Microsoft Azure sau Linode.</p>
 <p>Odată ce am obținut o stație cu o adresă IP publică, este nevoie să configurăm un serviciu de VPN.
-Pentru aceasta putem folosi infrastructura pe care am folosit-o deja la laboratorul de rețelistică.
-Aceasta pornește un server OpenVPN pe sistem &lt;TODO ref capitol rețelistică&gt;.</p>
-</div>
-</div>
-<div class="section" id="conectarea-folosind-un-tunel-ssh">
-<span id="task-admin-remote-tunnel"></span><h2><span class="section-number">2.3. </span>Conectarea folosind un tunel SSH<a class="headerlink" href="#conectarea-folosind-un-tunel-ssh" title="Permalink to this headline">¶</a></h2>
+Pentru aceasta putem folosi infrastructura pe care am prezentat-o în capitolul de rețelistică (TODO: referință), infrastructură care pornește un server OpenVPN.</p>
+</section>
+</section>
+<section id="conectarea-folosind-un-tunel-ssh">
+<span id="task-admin-remote-tunnel"></span><h2><span class="section-number">2.3. </span>Conectarea folosind un tunel SSH<a class="headerlink" href="#conectarea-folosind-un-tunel-ssh" title="Permalink to this heading">¶</a></h2>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Pentru rularea acestui demo, rulați în directorul <code class="docutils literal notranslate"><span class="pre">~/uso.git/labs/10-task-admin/lab-containers/</span></code> comanda <code class="docutils literal notranslate"><span class="pre">./lab_prepare.sh</span> <span class="pre">install</span> <span class="pre">ssh-server</span></code>.
@@ -869,21 +875,29 @@ Pentru a ne conecta la infrastructura pentru această secțiune, vom folosi coma
 </div>
 <p>Abordările pe care le-am discutat mai sus presupun accesul la un server central și drepturi de administrator din partea utilizatorului pentru instalarea aplicațiilor (cum ar fi Hamachi sau OpenVPN).
 Dacă nu avem acces la un cont de administrator, nu putem să ne conectăm la stația de la distanță.</p>
-<p>O alternativă care nu presupune drepturi administrative sunt tunelele SSH.
+<p>O alternativă care nu presupune drepturi administrative sunt tunelurile SSH.
 Un tunel SSH reprezintă o conexiune între două stații facilitată de protocolul SSH.
-Astfel, în loc să trimitem comenzi prin SSH către o stație, putem trimite orice tip de mesaj, pentru orice aplicație.</p>
+Prin această conexiune se pot “tunela” alte mesaje, inclusiv o altă conexiune SSH.</p>
 <p>Dezavantajul acestei abordări este că necesită accesul la un server terț care să fie accesibil de ambele stații.</p>
 <p>În această subsecțiune vom lucra cu 3 stații care sunt distribuite în felul următor:</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">local</span></code>, reprezintă stația “locală”, adică laptopul de pe care ne-am conecta, dacă ar fi vorba de un scenariu real; are o singură interfață de rețea cu adresa IP <code class="docutils literal notranslate"><span class="pre">10.10.10.3</span></code>;</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">remote</span></code>, reprezintă workstationul la care vrem să ne conectăm; are o singură interfață cu adresa IP <code class="docutils literal notranslate"><span class="pre">10.11.11.3</span></code>;</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">ssh-server</span></code>, reprezintă serverul terț prin care ne vom conecta ca să ajungem la workstation; această stație are două interfețe conectate la ea, cu adresele IP <code class="docutils literal notranslate"><span class="pre">10.10.10.2</span></code> și <code class="docutils literal notranslate"><span class="pre">10.11.11.2</span></code>, dar în realitate aceasta ar avea o singură placă de rețea.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">local</span></code>, reprezintă stația “locală”, adică laptopul de pe care ne-am conecta, dacă ar fi vorba de un scenariu real;
+are o singură interfață de rețea cu adresa IP <code class="docutils literal notranslate"><span class="pre">10.10.10.3</span></code>;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">remote</span></code>, reprezintă workstationul la care vrem să ne conectăm;
+are o singură interfață cu adresa IP <code class="docutils literal notranslate"><span class="pre">10.11.11.3</span></code>;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ssh-server</span></code>, reprezintă serverul terț prin care ne vom conecta ca să ajungem la workstation;
+această stație are două interfețe conectate la ea, cu adresele IP <code class="docutils literal notranslate"><span class="pre">10.10.10.2</span></code> și <code class="docutils literal notranslate"><span class="pre">10.11.11.2</span></code>, dar în realitate aceasta ar avea o singură placă de rețea.</p></li>
 </ul>
-<p>Stațiile <code class="docutils literal notranslate"><span class="pre">local</span></code> și <code class="docutils literal notranslate"><span class="pre">remote</span></code> nu au conectivitate între ele, dar au conectivitate la stația <code class="docutils literal notranslate"><span class="pre">ssh-server</span></code>, deoarece sunt în aceeași rețea.</p>
-<div class="section" id="initializarea-tunelului-ssh">
-<span id="task-admin-remote-tunnel-init"></span><h3><span class="section-number">2.3.1. </span>Inițializarea tunelului SSH<a class="headerlink" href="#initializarea-tunelului-ssh" title="Permalink to this headline">¶</a></h3>
+<p>Stațiile <code class="docutils literal notranslate"><span class="pre">local</span></code> și <code class="docutils literal notranslate"><span class="pre">remote</span></code> nu au conectivitate între ele, dar au conectivitate la stația <code class="docutils literal notranslate"><span class="pre">ssh-server</span></code>, deoarece sunt fiecare în rețea cu stația.</p>
+<p>În continuare descriem pașii pentru folosirea tunelului SSH, pași care sunt prezentați și în animația de mai jos.</p>
+<figure class="align-center">
+<img alt="Folosirea unui tunel invers SSH" src="../../_images/reverse-ssh-tunnel.gif" />
+</figure>
+<section id="initializarea-tunelului-ssh">
+<span id="task-admin-remote-tunnel-init"></span><h3><span class="section-number">2.3.1. </span>Inițializarea tunelului SSH<a class="headerlink" href="#initializarea-tunelului-ssh" title="Permalink to this heading">¶</a></h3>
 <p>Primul pas necesar pentru conectarea la o stație prin tunel SSH este inițializarea tunelului.
-Când inițializăm tunelul acesta va deschide portul <code class="docutils literal notranslate"><span class="pre">4242</span></code> pe stația <code class="docutils literal notranslate"><span class="pre">ssh-server</span></code> de la adresa <code class="docutils literal notranslate"><span class="pre">10.11.11.2</span></code>, astfel încât mesajele trimise către portul <code class="docutils literal notranslate"><span class="pre">4242</span></code> vor fi trimise către portul <code class="docutils literal notranslate"><span class="pre">22</span></code> de pe stația <code class="docutils literal notranslate"><span class="pre">remote</span></code> , stația de pe care inițializăm tunelul SSH.</p>
+Când inițializăm tunelul acesta va deschide portul <code class="docutils literal notranslate"><span class="pre">4242</span></code> pe stația <code class="docutils literal notranslate"><span class="pre">ssh-server</span></code> de la adresa <code class="docutils literal notranslate"><span class="pre">10.11.11.2</span></code>, astfel încât mesajele trimise către portul <code class="docutils literal notranslate"><span class="pre">4242</span></code> vor fi trimise către portul <code class="docutils literal notranslate"><span class="pre">22</span></code> de pe stația <code class="docutils literal notranslate"><span class="pre">remote</span></code> , stația de pe care inițializăm tunelul SSH.
+Vom folosi utilizatorul <code class="docutils literal notranslate"><span class="pre">root</span></code> și parola <code class="docutils literal notranslate"><span class="pre">root</span></code> pentru a ne conecta.</p>
 <p>Pentru a deschide tunelul vom folosi comanda următoare:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>root@remote:~# ssh -N -R 4242:localhost:22 root@10.10.10.2
 The authenticity of host &#39;10.10.10.2 (10.10.10.2)&#39; can&#39;t be established.
@@ -895,32 +909,38 @@ root@10.10.10.2&#39;s password:
 </div>
 <p>Opțiunile comenzii <code class="docutils literal notranslate"><span class="pre">ssh</span></code> folosite sunt următoarele:</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">-N</span></code> este folosită atunci când deschidem tunele pentru a nu deschide shelluri în care să dăm comenzi;</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">4242</span></code> este portul pe care vrem să îl deschidă pe stația <code class="docutils literal notranslate"><span class="pre">ssh-server</span></code>;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-N</span></code> este folosită atunci când deschidem tuneluri pentru a nu deschide shelluri în care să dăm comenzi;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">4242</span></code> este portul pe care vrem să îl deschidem pe stația <code class="docutils literal notranslate"><span class="pre">ssh-server</span></code>;</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">localhost</span></code> este stația către care vor fi trimise mesajele primite pe portul <code class="docutils literal notranslate"><span class="pre">4242</span></code>. În cazul acesta mesajele vor fi trimise către <code class="docutils literal notranslate"><span class="pre">localhost</span></code>, adică stația <code class="docutils literal notranslate"><span class="pre">remote</span></code>, cea de pe care rulăm comanda de tunelare;</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">22</span></code> este portul de pe stația <code class="docutils literal notranslate"><span class="pre">localhost</span></code> către care vrem să fie trimise mesajele primite pe portul <code class="docutils literal notranslate"><span class="pre">4242</span></code> de pe stația <code class="docutils literal notranslate"><span class="pre">ssh-server</span></code>;</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">root&#64;10.10.10.2</span></code>, utilizatorul și adresa IP a stației către care vrem să deschidem tunelul; în cazul acesta este adresa IP a stației <code class="docutils literal notranslate"><span class="pre">ssh-server</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">root&#64;10.10.10.2</span></code>, utilizatorul și adresa IP a stației către care vrem să deschidem tunelul;
+în cazul acesta este adresa IP a stației <code class="docutils literal notranslate"><span class="pre">ssh-server</span></code>.</p></li>
 </ul>
-<p>Putem să verificăm că a fost deschis portul <code class="docutils literal notranslate"><span class="pre">4242</span></code> pe stația <code class="docutils literal notranslate"><span class="pre">ssh-server</span></code>
-rulând comanda <code class="docutils literal notranslate"><span class="pre">netstat</span> <span class="pre">-tlpn</span></code>:</p>
+<div class="admonition-atentie admonition">
+<p class="admonition-title">Atenție!</p>
+<p>După ce am pornit tunelul, comanda <code class="docutils literal notranslate"><span class="pre">ssh</span></code> nu va mai afișa nimic la terminal.
+Tunelul va rămâne activ cât timp comanda <code class="docutils literal notranslate"><span class="pre">ssh</span></code> de mai sus rulează.</p>
+</div>
+<p>Putem să verificăm că a fost deschis portul <code class="docutils literal notranslate"><span class="pre">4242</span></code> pe stația <code class="docutils literal notranslate"><span class="pre">ssh-server</span></code> rulând comanda <code class="docutils literal notranslate"><span class="pre">netstat</span> <span class="pre">-tlpn</span></code>:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">root</span><span class="nd">@ssh</span><span class="o">-</span><span class="n">server</span><span class="p">:</span><span class="o">~</span><span class="c1"># netstat -tlpn</span>
 <span class="n">Active</span> <span class="n">Internet</span> <span class="n">connections</span> <span class="p">(</span><span class="n">only</span> <span class="n">servers</span><span class="p">)</span>
 <span class="n">Proto</span> <span class="n">Recv</span><span class="o">-</span><span class="n">Q</span> <span class="n">Send</span><span class="o">-</span><span class="n">Q</span> <span class="n">Local</span> <span class="n">Address</span>           <span class="n">Foreign</span> <span class="n">Address</span>         <span class="n">State</span>       <span class="n">PID</span><span class="o">/</span><span class="n">Program</span> <span class="n">name</span>
-<span class="n">tcp</span>        <span class="mi">0</span>      <span class="mi">0</span> <span class="mf">0.0</span><span class="o">.</span><span class="mf">0.0</span><span class="p">:</span><span class="mi">22</span>              <span class="mf">0.0</span><span class="o">.</span><span class="mf">0.0</span><span class="p">:</span><span class="o">*</span>               <span class="n">LISTEN</span>      <span class="mi">24</span><span class="o">/</span><span class="n">sshd</span>
-<span class="n">tcp</span>        <span class="mi">0</span>      <span class="mi">0</span> <span class="mf">127.0</span><span class="o">.</span><span class="mf">0.1</span><span class="p">:</span><span class="mi">4242</span>          <span class="mf">0.0</span><span class="o">.</span><span class="mf">0.0</span><span class="p">:</span><span class="o">*</span>               <span class="n">LISTEN</span>      <span class="mi">99</span><span class="o">/</span><span class="n">sshd</span><span class="p">:</span> <span class="n">root</span>
-<span class="n">tcp</span>        <span class="mi">0</span>      <span class="mi">0</span> <span class="mf">127.0</span><span class="o">.</span><span class="mf">0.11</span><span class="p">:</span><span class="mi">42991</span>        <span class="mf">0.0</span><span class="o">.</span><span class="mf">0.0</span><span class="p">:</span><span class="o">*</span>               <span class="n">LISTEN</span>      <span class="o">-</span>
+<span class="n">tcp</span>        <span class="mi">0</span>      <span class="mi">0</span> <span class="mf">0.0.0.0</span><span class="p">:</span><span class="mi">22</span>              <span class="mf">0.0.0.0</span><span class="p">:</span><span class="o">*</span>               <span class="n">LISTEN</span>      <span class="mi">24</span><span class="o">/</span><span class="n">sshd</span>
+<span class="n">tcp</span>        <span class="mi">0</span>      <span class="mi">0</span> <span class="mf">127.0.0.1</span><span class="p">:</span><span class="mi">4242</span>          <span class="mf">0.0.0.0</span><span class="p">:</span><span class="o">*</span>               <span class="n">LISTEN</span>      <span class="mi">99</span><span class="o">/</span><span class="n">sshd</span><span class="p">:</span> <span class="n">root</span>
+<span class="n">tcp</span>        <span class="mi">0</span>      <span class="mi">0</span> <span class="mf">127.0.0.11</span><span class="p">:</span><span class="mi">42991</span>        <span class="mf">0.0.0.0</span><span class="p">:</span><span class="o">*</span>               <span class="n">LISTEN</span>      <span class="o">-</span>
 <span class="n">tcp6</span>       <span class="mi">0</span>      <span class="mi">0</span> <span class="p">:::</span><span class="mi">22</span>                   <span class="p">:::</span><span class="o">*</span>                    <span class="n">LISTEN</span>      <span class="mi">24</span><span class="o">/</span><span class="n">sshd</span>
 </pre></div>
 </div>
-<p>Cât timp această fereastră rămâne deschisă, tunelul va fi activ. Vom învăța în secțiunea <span class="xref std std-ref">task_admin_services_config_custom</span> cum să rulăm această comandă în afara terminalului și cum să ne asigurăm că tunelul este mereu deschis.</p>
-</div>
-<div class="section" id="folosirea-tunelului-ssh">
-<span id="task-admin-remote-tunnel-usage"></span><h3><span class="section-number">2.3.2. </span>Folosirea tunelului SSH<a class="headerlink" href="#folosirea-tunelului-ssh" title="Permalink to this headline">¶</a></h3>
+<p>Cât timp această fereastră rămâne deschisă, tunelul va fi activ.
+Vom prezenta în secțiunea <span class="xref std std-ref">task_admin_services_config_custom</span> cum să rulăm această comandă în afara terminalului și cum să ne asigurăm că tunelul este mereu deschis.</p>
+</section>
+<section id="folosirea-tunelului-ssh">
+<span id="task-admin-remote-tunnel-usage"></span><h3><span class="section-number">2.3.2. </span>Folosirea tunelului SSH<a class="headerlink" href="#folosirea-tunelului-ssh" title="Permalink to this heading">¶</a></h3>
 <p>Odată creat tunelul, vrem să îl folosim de pe stația <code class="docutils literal notranslate"><span class="pre">local</span></code>, pentru a putea rula comenzi pe stația <code class="docutils literal notranslate"><span class="pre">remote</span></code>.</p>
 <p>Pentru a face acest lucru, trebuie să ne conectăm la stația <code class="docutils literal notranslate"><span class="pre">server</span></code>. Serverul <code class="docutils literal notranslate"><span class="pre">server</span></code> poate fi accesat la adresa <code class="docutils literal notranslate"><span class="pre">10.11.11.2</span></code>.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">root</span><span class="nd">@local</span><span class="p">:</span><span class="o">~</span><span class="c1"># ssh root@10.11.11.2</span>
-<span class="n">root</span><span class="nd">@10</span><span class="o">.</span><span class="mf">11.11</span><span class="o">.</span><span class="mi">2</span><span class="s1">&#39;s password:</span>
-<span class="n">Welcome</span> <span class="n">to</span> <span class="n">Ubuntu</span> <span class="mf">18.04</span><span class="o">.</span><span class="mi">5</span> <span class="n">LTS</span> <span class="p">(</span><span class="n">GNU</span><span class="o">/</span><span class="n">Linux</span> <span class="mf">5.4</span><span class="o">.</span><span class="mi">0</span><span class="o">-</span><span class="mi">52</span><span class="o">-</span><span class="n">generic</span> <span class="n">x86_64</span><span class="p">)</span>
+<span class="n">root</span><span class="o">@</span><span class="mf">10.11.11.2</span><span class="s1">&#39;s password:</span>
+<span class="n">Welcome</span> <span class="n">to</span> <span class="n">Ubuntu</span> <span class="mf">18.04.5</span> <span class="n">LTS</span> <span class="p">(</span><span class="n">GNU</span><span class="o">/</span><span class="n">Linux</span> <span class="mf">5.4.0</span><span class="o">-</span><span class="mi">52</span><span class="o">-</span><span class="n">generic</span> <span class="n">x86_64</span><span class="p">)</span>
 
  <span class="o">*</span> <span class="n">Documentation</span><span class="p">:</span>  <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">help</span><span class="o">.</span><span class="n">ubuntu</span><span class="o">.</span><span class="n">com</span>
  <span class="o">*</span> <span class="n">Management</span><span class="p">:</span>     <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">landscape</span><span class="o">.</span><span class="n">canonical</span><span class="o">.</span><span class="n">com</span>
@@ -929,12 +949,12 @@ rulând comanda <code class="docutils literal notranslate"><span class="pre">net
 <span class="ow">not</span> <span class="n">required</span> <span class="n">on</span> <span class="n">a</span> <span class="n">system</span> <span class="n">that</span> <span class="n">users</span> <span class="n">do</span> <span class="ow">not</span> <span class="n">log</span> <span class="n">into</span><span class="o">.</span>
 
 <span class="n">To</span> <span class="n">restore</span> <span class="n">this</span> <span class="n">content</span><span class="p">,</span> <span class="n">you</span> <span class="n">can</span> <span class="n">run</span> <span class="n">the</span> <span class="s1">&#39;unminimize&#39;</span> <span class="n">command</span><span class="o">.</span>
-<span class="n">Last</span> <span class="n">login</span><span class="p">:</span> <span class="n">Tue</span> <span class="n">Jan</span>  <span class="mi">5</span> <span class="mi">23</span><span class="p">:</span><span class="mi">08</span><span class="p">:</span><span class="mi">53</span> <span class="mi">2021</span> <span class="kn">from</span> <span class="mf">10.11</span><span class="o">.</span><span class="mf">11.3</span>
+<span class="n">Last</span> <span class="n">login</span><span class="p">:</span> <span class="n">Tue</span> <span class="n">Jan</span>  <span class="mi">5</span> <span class="mi">23</span><span class="p">:</span><span class="mi">08</span><span class="p">:</span><span class="mi">53</span> <span class="mi">2021</span> <span class="kn">from</span> <span class="mf">10.11.11.3</span>
 <span class="n">root</span><span class="nd">@ssh</span><span class="o">-</span><span class="n">server</span><span class="p">:</span><span class="o">~</span><span class="c1">#</span>
 </pre></div>
 </div>
-<p>După cum am observat mai sus, în rezultatul comenzii <code class="docutils literal notranslate"><span class="pre">netstat</span></code>, tunelul SSH este deschis pe portul <code class="docutils literal notranslate"><span class="pre">4242</span></code> al stației <code class="docutils literal notranslate"><span class="pre">ssh-server</span></code> și redirectează mesajele către stația <code class="docutils literal notranslate"><span class="pre">remote</span></code>.</p>
-<p>Pentru a ne conecta la acest port folosind clientul SSH, rulăm următoarea comandă:</p>
+<p>După cum am observat mai sus, în rezultatul comenzii <code class="docutils literal notranslate"><span class="pre">netstat</span></code>, tunelul SSH este deschis pe portul <code class="docutils literal notranslate"><span class="pre">4242</span></code> al stației <code class="docutils literal notranslate"><span class="pre">ssh-server</span></code> și redirectează mesajele către portul <code class="docutils literal notranslate"><span class="pre">22</span></code> al stației <code class="docutils literal notranslate"><span class="pre">remote</span></code>.
+Pentru a ne conecta la acest port folosind clientul SSH, rulăm următoarea comandă:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">root</span><span class="nd">@ssh</span><span class="o">-</span><span class="n">server</span><span class="p">:</span><span class="o">~</span><span class="c1"># ssh root@localhost -p 4242</span>
 <span class="p">[</span><span class="o">...</span><span class="p">]</span>
 <span class="n">root</span><span class="nd">@remote</span><span class="p">:</span><span class="o">~</span><span class="c1">#</span>
@@ -943,13 +963,14 @@ rulând comanda <code class="docutils literal notranslate"><span class="pre">net
 <p>Am folosit opțiunea <code class="docutils literal notranslate"><span class="pre">-p</span></code> pentru a ne conecta folosind SSH pe un alt port decât portul predefinit (<code class="docutils literal notranslate"><span class="pre">22</span></code>).
 În comanda de mai sus ne-am conectat la stația <code class="docutils literal notranslate"><span class="pre">localhost</span></code>, adică stația <code class="docutils literal notranslate"><span class="pre">ssh-server</span></code> dar, deoarece portul <code class="docutils literal notranslate"><span class="pre">4242</span></code> este de fapt un tunel, conexiunea a fost redirectată la stația <code class="docutils literal notranslate"><span class="pre">remote</span></code>.</p>
 <p>Observăm că promptul s-a schimbat în <code class="docutils literal notranslate"><span class="pre">root&#64;remote:~#</span></code>, deci ne-am conectat la stația <code class="docutils literal notranslate"><span class="pre">remote</span></code>.</p>
-</div>
-<div class="section" id="exercitiu-crearea-si-folosirea-tunelelor-ssh">
-<span id="task-admin-remote-tunnel-usage-ex"></span><h3><span class="section-number">2.3.3. </span>Exercițiu: Crearea și folosirea tunelelor SSH<a class="headerlink" href="#exercitiu-crearea-si-folosirea-tunelelor-ssh" title="Permalink to this headline">¶</a></h3>
-<p>Creați un tunel SSH care să ducă de la stația <code class="docutils literal notranslate"><span class="pre">local</span></code> la <code class="docutils literal notranslate"><span class="pre">ssh-server</span></code> folosind portul 6970 și conectați-vă la stația <code class="docutils literal notranslate"><span class="pre">local</span></code> din stația <code class="docutils literal notranslate"><span class="pre">remote</span></code> folosindu-vă de stația <code class="docutils literal notranslate"><span class="pre">ssh-server</span></code> ca mai sus.</p>
-</div>
-</div>
-</div>
+<p>RD: Pus un sumar 1, 2, 3 cu pașii ce trebuie făcuți ca să ai o conexiune între laptop și workstation folosind tunel SSH și un intermediar.</p>
+</section>
+<section id="exercitiu-crearea-si-folosirea-tunelurilor-ssh">
+<span id="task-admin-remote-tunnel-usage-ex"></span><h3><span class="section-number">2.3.3. </span>Exercițiu: Crearea și folosirea tunelurilor SSH<a class="headerlink" href="#exercitiu-crearea-si-folosirea-tunelurilor-ssh" title="Permalink to this heading">¶</a></h3>
+<p>Creați un tunel SSH care să ducă de la stația <code class="docutils literal notranslate"><span class="pre">local</span></code> la <code class="docutils literal notranslate"><span class="pre">ssh-server</span></code> folosind portul <code class="docutils literal notranslate"><span class="pre">6970</span></code> și conectați-vă la stația <code class="docutils literal notranslate"><span class="pre">local</span></code> din stația <code class="docutils literal notranslate"><span class="pre">remote</span></code> folosindu-vă de stația <code class="docutils literal notranslate"><span class="pre">ssh-server</span></code> ca mai sus.</p>
+</section>
+</section>
+</section>
 
 
           </div>
@@ -966,7 +987,7 @@ rulând comanda <code class="docutils literal notranslate"><span class="pre">net
 </ul><div class="footer" role="contentinfo">
       &#169; Copyright 2020, USO Team.
     <br>
-    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.4.3 with <a href="https://github.com/romnnn/sphinx_press_theme">Press Theme</a>.
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 5.2.3 with <a href="https://github.com/romnn/sphinx_press_theme">Press Theme</a>.
 </div>
             </div>
           </div>

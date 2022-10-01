@@ -1,22 +1,27 @@
 <!DOCTYPE html>
-<html >
+<html  lang="en">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
       <title>2. Verificarea conectivităţii la reţea</title>
     
       <link rel="stylesheet" href="../../_static/pygments.css">
       <link rel="stylesheet" href="../../_static/theme.css">
-      <link rel="stylesheet" href="../../_static/romnnn_sphinx_press_theme.css">
+      <link rel="stylesheet" href="../../_static/romnn_sphinx_press_theme.css">
+          <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+          <link rel="stylesheet" href="../../_static/css/theme.css " type="text/css" />
       
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
 
       <!-- sphinx script_files -->
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
         <script src="../../_static/my_actions.js"></script>
-        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
       
       <script src="../../_static/theme-vendors.js"></script>
@@ -611,96 +616,96 @@
 <hr>
           <div class="content" role="main">
             
-  <div class="section" id="verificarea-conectivitatii-la-retea">
-<h1><span class="section-number">2. </span>Verificarea conectivităţii la reţea<a class="headerlink" href="#verificarea-conectivitatii-la-retea" title="Permalink to this headline">¶</a></h1>
+  <section id="verificarea-conectivitatii-la-retea">
+<h1><span class="section-number">2. </span>Verificarea conectivităţii la reţea<a class="headerlink" href="#verificarea-conectivitatii-la-retea" title="Permalink to this heading">¶</a></h1>
 <p>Vom descompune fiecare nivel din stiva TCP/IP (implicit, nu le vom spune
 efectiv ce face tot stiva) şi le vom arăta cum arată ea la nivelul sistemului
 de operare, respectiv cum se verifică dacă funcţionează corespunzător nivelul
 respectiv.</p>
-<div class="section" id="interactiunea-cu-nivelul-fizic">
-<h2><span class="section-number">2.1. </span>1) Interacţiunea cu nivelul fizic<a class="headerlink" href="#interactiunea-cu-nivelul-fizic" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="a-investigarea-nivelului-fizic-al-retelei">
-<h3><span class="section-number">2.1.1. </span>a. Investigarea nivelului fizic al rețelei<a class="headerlink" href="#a-investigarea-nivelului-fizic-al-retelei" title="Permalink to this headline">¶</a></h3>
+<section id="interactiunea-cu-nivelul-fizic">
+<h2><span class="section-number">2.1. </span>1) Interacţiunea cu nivelul fizic<a class="headerlink" href="#interactiunea-cu-nivelul-fizic" title="Permalink to this heading">¶</a></h2>
+<section id="a-investigarea-nivelului-fizic-al-retelei">
+<h3><span class="section-number">2.1.1. </span>a. Investigarea nivelului fizic al rețelei<a class="headerlink" href="#a-investigarea-nivelului-fizic-al-retelei" title="Permalink to this heading">¶</a></h3>
 <p>Pentru primul nivel, nivelul fizic, le vom arăta, folosind poze, cum arată un
 cablu de net, unde trebuie băgat, respectiv cum îţi dai seama că acel cablu
 băgat are uplink.</p>
-</div>
-<div class="section" id="b-configurarea-retelei-in-mediul-grafic">
-<h3><span class="section-number">2.1.2. </span>b. Configurarea reţelei în mediul grafic<a class="headerlink" href="#b-configurarea-retelei-in-mediul-grafic" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="b-configurarea-retelei-in-mediul-grafic">
+<h3><span class="section-number">2.1.2. </span>b. Configurarea reţelei în mediul grafic<a class="headerlink" href="#b-configurarea-retelei-in-mediul-grafic" title="Permalink to this heading">¶</a></h3>
 <p>Le vom arăta cum să se conecteze la o reţea folosind interfaţa vizuală a unui
 Desktop Environment, probabil GNOME</p>
-</div>
-<div class="section" id="c-configurarea-interfetelor-de-retea">
-<h3><span class="section-number">2.1.3. </span>c. Configurarea interfeţelor de reţea<a class="headerlink" href="#c-configurarea-interfetelor-de-retea" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="c-configurarea-interfetelor-de-retea">
+<h3><span class="section-number">2.1.3. </span>c. Configurarea interfeţelor de reţea<a class="headerlink" href="#c-configurarea-interfetelor-de-retea" title="Permalink to this heading">¶</a></h3>
 <p>Le vom arăta output-ul comenzii <cite>ip a s</cite> şi le vom explica se înseamna fiecare
 intrare de interfaţă şi ce înseamnă că o interfaţă este up.</p>
 <p>Îi punem sa dea <cite>ip link set up</cite> şi să vadă ce se schimbă la output-ul lui <cite>ip a
 s</cite> şi să vadă că acum le merge netul.</p>
-</div>
-</div>
-<div class="section" id="configurarea-nivelului-internet">
-<h2><span class="section-number">2.2. </span>2) Configurarea nivelului Internet<a class="headerlink" href="#configurarea-nivelului-internet" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="a-configurarea-unei-adrese-ip">
-<h3><span class="section-number">2.2.1. </span>a. Configurarea unei adrese IP<a class="headerlink" href="#a-configurarea-unei-adrese-ip" title="Permalink to this headline">¶</a></h3>
+</section>
+</section>
+<section id="configurarea-nivelului-internet">
+<h2><span class="section-number">2.2. </span>2) Configurarea nivelului Internet<a class="headerlink" href="#configurarea-nivelului-internet" title="Permalink to this heading">¶</a></h2>
+<section id="a-configurarea-unei-adrese-ip">
+<h3><span class="section-number">2.2.1. </span>a. Configurarea unei adrese IP<a class="headerlink" href="#a-configurarea-unei-adrese-ip" title="Permalink to this heading">¶</a></h3>
 <p>Le dăm o maşină care are interfaţa pornită, dar le arătăm ca nu are IP pe
 interfaţă. Le arătăm comanda <cite>dhclient &lt;interfaţă&gt;</cite> pentru a obţine adresa IP şi
 le arătăm că pot să dea ping la un calculator, dar nu se pot da ping la anumite
 adrese IP.</p>
-</div>
-<div class="section" id="b-inspectarea-rutelor-din-sistem">
-<h3><span class="section-number">2.2.2. </span>b. Inspectarea rutelor din sistem<a class="headerlink" href="#b-inspectarea-rutelor-din-sistem" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="b-inspectarea-rutelor-din-sistem">
+<h3><span class="section-number">2.2.2. </span>b. Inspectarea rutelor din sistem<a class="headerlink" href="#b-inspectarea-rutelor-din-sistem" title="Permalink to this heading">¶</a></h3>
 <p>Le explicăm ce înseamnă o reţea de calculatoare şi de ce nu le merge să iasă din
 reţeaua lor, că nu este setat un default gateway. Îi punem să dea <cite>traceroute</cite>
 înainte şi după ce adaugă o rută de mână (sau putem să îi punem sa dea iar
 dhclient, dar pe o altă maşină pe care este configurat dhclient să dea gateway)
 şi îi punem să dea a doua oară traceroute, ca să vadă că iese din reţea acum.</p>
-</div>
-<div class="section" id="c-configurarea-gateway-ului">
-<h3><span class="section-number">2.2.3. </span>c. Configurarea gateway-ului<a class="headerlink" href="#c-configurarea-gateway-ului" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="c-configurarea-gateway-ului">
+<h3><span class="section-number">2.2.3. </span>c. Configurarea gateway-ului<a class="headerlink" href="#c-configurarea-gateway-ului" title="Permalink to this heading">¶</a></h3>
 <p>Le explicăm ce înseamnă o reţea de calculatoare şi de ce nu le merge să iasă din
 reţeaua lor, că nu este setat un default gateway. Îi punem să dea <cite>traceroute</cite>
 înainte şi după ce adaugă o rută de mână (sau putem să îi punem sa dea iar
 dhclient, dar pe o altă maşină pe care este configurat dhclient să dea gateway)
 şi îi punem să dea a doua oară traceroute, ca să vadă că iese din reţea acum;</p>
-</div>
-<div class="section" id="d-verificarea-conectivitatii-la-o-alta-statie">
-<h3><span class="section-number">2.2.4. </span>d. Verificarea conectivității la o altă stație<a class="headerlink" href="#d-verificarea-conectivitatii-la-o-alta-statie" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="d-verificarea-conectivitatii-la-o-alta-statie">
+<h3><span class="section-number">2.2.4. </span>d. Verificarea conectivității la o altă stație<a class="headerlink" href="#d-verificarea-conectivitatii-la-o-alta-statie" title="Permalink to this heading">¶</a></h3>
 <p>Le vom arăta cum să folosească comanda <cite>ping</cite> pentru a verifica conexiunea cu
 diverse stații.</p>
 <p>Pentru a face troubleshooting facil este necesar să porniţi de la primul nivel
 al stivei de reţea şi să verificaţi folosind comenzile de verificare de mai sus
 (<cite>ip address show</cite>, <cite>ip route show</cite>, <cite>traceroute</cite>, <cite>ping &lt;adresă IP&gt;</cite>, <cite>ping
 &lt;hostname&gt;</cite>) pentru a verifica funcţionalitatea fiecărui nivel.</p>
-</div>
-<div class="section" id="d-investigarea-serviciului-dns">
-<h3><span class="section-number">2.2.5. </span>d. Investigarea serviciului DNS<a class="headerlink" href="#d-investigarea-serviciului-dns" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="d-investigarea-serviciului-dns">
+<h3><span class="section-number">2.2.5. </span>d. Investigarea serviciului DNS<a class="headerlink" href="#d-investigarea-serviciului-dns" title="Permalink to this heading">¶</a></h3>
 <p>Le vom arăta cu o imagine cum funcţionează DNS-ul şi le vom arăta că poate fi
 configurat temporar din /etc/resolv.conf, pentru a testa alte servere de DNS.</p>
 <p>Le vom arăta cum se foloseşte comanda <cite>dig</cite>, pentru a verifica răspunsurile de
 la diverse DNS-uri, gen Google şi CloudFlare.</p>
-</div>
-</div>
-<div class="section" id="configurarea-nivelului-transport">
-<h2><span class="section-number">2.3. </span>3) Configurarea nivelului Transport<a class="headerlink" href="#configurarea-nivelului-transport" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="a-conectivitatea-intre-aplicatii-de-retea-folosind-porturi">
-<h3><span class="section-number">2.3.1. </span>a. Conectivitatea între aplicații de rețea folosind porturi<a class="headerlink" href="#a-conectivitatea-intre-aplicatii-de-retea-folosind-porturi" title="Permalink to this headline">¶</a></h3>
+</section>
+</section>
+<section id="configurarea-nivelului-transport">
+<h2><span class="section-number">2.3. </span>3) Configurarea nivelului Transport<a class="headerlink" href="#configurarea-nivelului-transport" title="Permalink to this heading">¶</a></h2>
+<section id="a-conectivitatea-intre-aplicatii-de-retea-folosind-porturi">
+<h3><span class="section-number">2.3.1. </span>a. Conectivitatea între aplicații de rețea folosind porturi<a class="headerlink" href="#a-conectivitatea-intre-aplicatii-de-retea-folosind-porturi" title="Permalink to this heading">¶</a></h3>
 <p>Le arătăm că fiecare aplicaţie care vrea să răspundă la cereri se foloseşte de
 porturi. Pentru asta vom folosi <cite>netcat</cite> pentru a deschide un port, iar apoi
 vom folosi <cite>netstat</cite> pentru a vedea ca a fost deschis portul.</p>
-</div>
-<div class="section" id="b-pornirea-unei-aplicatii-care-foloseste-porturi">
-<h3><span class="section-number">2.3.2. </span>b. Pornirea unei aplicaţii care folosește porturi<a class="headerlink" href="#b-pornirea-unei-aplicatii-care-foloseste-porturi" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="b-pornirea-unei-aplicatii-care-foloseste-porturi">
+<h3><span class="section-number">2.3.2. </span>b. Pornirea unei aplicaţii care folosește porturi<a class="headerlink" href="#b-pornirea-unei-aplicatii-care-foloseste-porturi" title="Permalink to this heading">¶</a></h3>
 <p>Studenţii se vor conecta la portul deschis folosind <cite>netcat</cite>, şi vor scrie la
 tastatura ceva pentru a apărea pe server.</p>
-</div>
-<div class="section" id="c-conectarea-tcp-la-o-aplicatie">
-<h3><span class="section-number">2.3.3. </span>c. Conectarea TCP la o aplicație<a class="headerlink" href="#c-conectarea-tcp-la-o-aplicatie" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="c-conectarea-tcp-la-o-aplicatie">
+<h3><span class="section-number">2.3.3. </span>c. Conectarea TCP la o aplicație<a class="headerlink" href="#c-conectarea-tcp-la-o-aplicatie" title="Permalink to this heading">¶</a></h3>
 <p>Vom pune studenţii sa se conecteze la portul 80 al unui site (cum ar fi
 elf.cs.pub.ro) şi să vadă ce apare la terminal. Astfel, le vom explica ca
 server-ele deschid un port la care se conectează serviciile client.</p>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
 
           </div>
@@ -717,7 +722,7 @@ server-ele deschid un port la care se conectează serviciile client.</p>
 </ul><div class="footer" role="contentinfo">
       &#169; Copyright 2020, USO Team.
     <br>
-    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.4.3 with <a href="https://github.com/romnnn/sphinx_press_theme">Press Theme</a>.
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 5.2.3 with <a href="https://github.com/romnn/sphinx_press_theme">Press Theme</a>.
 </div>
             </div>
           </div>
