@@ -2,7 +2,7 @@
 <html  lang="en">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="viewport" content="width=device-width, initial-scale=1" />
 
       <title>3. Compilarea unui program din fișiere multiple</title>
     
@@ -15,13 +15,10 @@
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
 
       <!-- sphinx script_files -->
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/sphinx_highlight.js"></script>
-        <script src="../../_static/my_actions.js"></script>
+        <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../_static/my_actions.js?v=1451d81f"></script>
 
       
       <script src="../../_static/theme-vendors.js"></script>
@@ -565,15 +562,15 @@
           <div class="content" role="main">
             
   <section id="compilarea-unui-program-din-fisiere-multiple">
-<span id="app-dev-compile-multiple-files"></span><h1><span class="section-number">3. </span>Compilarea unui program din fișiere multiple<a class="headerlink" href="#compilarea-unui-program-din-fisiere-multiple" title="Permalink to this heading">¶</a></h1>
+<span id="app-dev-compile-multiple-files"></span><h1><span class="section-number">3. </span>Compilarea unui program din fișiere multiple<a class="headerlink" href="#compilarea-unui-program-din-fisiere-multiple" title="Link to this heading">¶</a></h1>
 <p>În secțiunea anterioară, <a class="reference internal" href="make-intro.html#app-dev-compile-source-file"><span class="std std-ref">Compilarea unui fișier cod sursă C</span></a>, am creat și am compilat un sigur fișier cod sursă C, <code class="docutils literal notranslate"><span class="pre">is-prime.c</span></code>.</p>
 <p>În această secțiune vom compila un program pornind de la mai multe fișiere cod sursă și fișiere header.
 Mai exact, vom crea un program care afișează factorialul și inversul unui număr întreg.</p>
 <section id="inspectarea-fisierelor">
-<span id="app-dev-inspect-files"></span><h2><span class="section-number">3.1. </span>Inspectarea fișierelor<a class="headerlink" href="#inspectarea-fisierelor" title="Permalink to this heading">¶</a></h2>
+<span id="app-dev-inspect-files"></span><h2><span class="section-number">3.1. </span>Inspectarea fișierelor<a class="headerlink" href="#inspectarea-fisierelor" title="Link to this heading">¶</a></h2>
 <p>Afișăm conținutul directorului <code class="docutils literal notranslate"><span class="pre">support/compile-multiple</span></code>, folosind comanda <code class="docutils literal notranslate"><span class="pre">ls</span></code>:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ ls support/compile-multiple
-algorithms.c  algorithms.h  main.c
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$<span class="w"> </span>ls<span class="w"> </span>support/compile-multiple
+algorithms.c<span class="w">  </span>algorithms.h<span class="w">  </span>main.c
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">main.c</span></code> este fișier cod sursă și conține funcția <code class="docutils literal notranslate"><span class="pre">main</span></code> din care pornim logica programului.</p>
@@ -582,39 +579,39 @@ algorithms.c  algorithms.h  main.c
 <p><strong>Exercițiu:</strong> Verificați conținutul fișierelor <code class="docutils literal notranslate"><span class="pre">main.c</span></code>, <code class="docutils literal notranslate"><span class="pre">algorithms.c</span></code> și <code class="docutils literal notranslate"><span class="pre">algorithms.h</span></code> folosind comanda <code class="docutils literal notranslate"><span class="pre">cat</span></code>, pagerul <code class="docutils literal notranslate"><span class="pre">less</span></code> sau editorul <code class="docutils literal notranslate"><span class="pre">nano</span></code>.</p>
 </section>
 <section id="compilarea-programului-din-surse-multiple">
-<span id="app-dev-compile-multiple-sources"></span><h2><span class="section-number">3.2. </span>Compilarea programului din surse multiple<a class="headerlink" href="#compilarea-programului-din-surse-multiple" title="Permalink to this heading">¶</a></h2>
+<span id="app-dev-compile-multiple-sources"></span><h2><span class="section-number">3.2. </span>Compilarea programului din surse multiple<a class="headerlink" href="#compilarea-programului-din-surse-multiple" title="Link to this heading">¶</a></h2>
 <p>Ne plasăm în directorul <code class="docutils literal notranslate"><span class="pre">support/compile-multiple</span></code> folosind comanda <code class="docutils literal notranslate"><span class="pre">cd</span></code>:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ <span class="nb">cd</span> support/compile-multiple
-student@uso:~/support/compile-multiple$ ls
-algorithms.c  algorithms.h  main.c
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>support/compile-multiple
+student@uso:~/support/compile-multiple$<span class="w"> </span>ls
+algorithms.c<span class="w">  </span>algorithms.h<span class="w">  </span>main.c
 </pre></div>
 </div>
 <p>Compilăm fișierele <code class="docutils literal notranslate"><span class="pre">algorithms.c</span></code> și <code class="docutils literal notranslate"><span class="pre">main.c</span></code> într-un singur program numit <code class="docutils literal notranslate"><span class="pre">algorithms</span></code> folosind comanda <code class="docutils literal notranslate"><span class="pre">gcc</span></code>:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/support/compile-multiple$ gcc -o algorithms main.c algorithms.c
-student@uso:~/support/compile-multiple$ ls
-algorithms  algorithms.c  algorithms.h  main.c
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/support/compile-multiple$<span class="w"> </span>gcc<span class="w"> </span>-o<span class="w"> </span>algorithms<span class="w"> </span>main.c<span class="w"> </span>algorithms.c
+student@uso:~/support/compile-multiple$<span class="w"> </span>ls
+algorithms<span class="w">  </span>algorithms.c<span class="w">  </span>algorithms.h<span class="w">  </span>main.c
 </pre></div>
 </div>
 <p>Acum GCC a compilat ambele fișiere cod sursă (<code class="docutils literal notranslate"><span class="pre">main.c</span></code> și <code class="docutils literal notranslate"><span class="pre">algorithms.c</span></code>), le-a legat, și a creat fișierul executabil <code class="docutils literal notranslate"><span class="pre">algorithms</span></code>.
 Rulăm programul <code class="docutils literal notranslate"><span class="pre">algorithms</span></code> ca mai jos:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/support/compile-multiple$ ./algorithms
-gimme number and i&#39;ll give you factorial: 12
-12! = 479001600
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/support/compile-multiple$<span class="w"> </span>./algorithms
+gimme<span class="w"> </span>number<span class="w"> </span>and<span class="w"> </span>i<span class="err">&#39;</span>ll<span class="w"> </span>give<span class="w"> </span>you<span class="w"> </span>factorial:<span class="w"> </span><span class="m">12</span>
+<span class="m">12</span>!<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">479001600</span>
 </pre></div>
 </div>
 <p>Acum, de fiecare dată când modificăm fișierul <code class="docutils literal notranslate"><span class="pre">main.c</span></code>, compilatorul va trece iar prin etapa de compilare pentru ambele fișiere cod sursă, chiar dacă <code class="docutils literal notranslate"><span class="pre">algorithms.c</span></code> nu a fost și el modificat; la fel și vice-versa.
 Acest lucru este ineficient atunci când lucrăm la un proiect mai mare, unde etapa de compilare durează mult <a class="footnote-reference brackets" href="#compile-linux-kernel" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>.
 În secțiunea următoare, <a class="reference internal" href="#app-dev-object-files"><span class="std std-ref">Fișiere obiect</span></a>, vedem cum scăpăm de această problemă.</p>
 <p>Ștergem fișierul <code class="docutils literal notranslate"><span class="pre">algorithms</span></code> ca să avem directorul curat, folosind comanda <code class="docutils literal notranslate"><span class="pre">rm</span></code>.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/support/compile-multiple$ rm algorithms
-student@uso:~/support/compile-multiple$ ls
-algorithms.c  algorithms.h  main.c
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/support/compile-multiple$<span class="w"> </span>rm<span class="w"> </span>algorithms
+student@uso:~/support/compile-multiple$<span class="w"> </span>ls
+algorithms.c<span class="w">  </span>algorithms.h<span class="w">  </span>main.c
 </pre></div>
 </div>
 <p>Vom reface executabilul <code class="docutils literal notranslate"><span class="pre">algorithms</span></code> în secțiunea <a class="reference internal" href="#app-dev-object-files"><span class="std std-ref">Fișiere obiect</span></a>.</p>
 </section>
 <section id="fisiere-obiect">
-<span id="app-dev-object-files"></span><h2><span class="section-number">3.3. </span>Fișiere obiect<a class="headerlink" href="#fisiere-obiect" title="Permalink to this heading">¶</a></h2>
+<span id="app-dev-object-files"></span><h2><span class="section-number">3.3. </span>Fișiere obiect<a class="headerlink" href="#fisiere-obiect" title="Link to this heading">¶</a></h2>
 <p>Ca să evităm recompilarea fișierelor cod sursă care nu au fost modifcate, putem să <em>descompunem</em> etapa de compilare în 2 părți:</p>
 <ol class="arabic simple">
 <li><p>Compilarea tuturor fișierelor cod sursă (<em>fișiere cu extensia .c</em>) până la <strong>fișiere obiect</strong> (<em>fișiere cu extensia .o</em>)</p></li>
@@ -632,44 +629,44 @@ Atunci când vom modifica fișierul <code class="docutils literal notranslate"><
 Nu este nevoie să regenerăm fișierul <code class="docutils literal notranslate"><span class="pre">algorithms.o</span></code> pentru că <code class="docutils literal notranslate"><span class="pre">algorithms.c</span></code> nu a fost modificat.</p>
 <p>În subsecțiunile următoare vom compila fișierele sursă, <code class="docutils literal notranslate"><span class="pre">main.c</span></code> și <code class="docutils literal notranslate"><span class="pre">algorithms.c</span></code>, în fișiere obiect și le vom lega astfel încât, în final, vom obține executabilul <code class="docutils literal notranslate"><span class="pre">algorithms</span></code>.</p>
 <section id="compilarea-fisierelor-cod-sursa-in-fisiere-obiect">
-<span id="app-dev-compile-to-object-files"></span><h3><span class="section-number">3.3.1. </span>Compilarea fișierelor cod sursă în fișiere obiect<a class="headerlink" href="#compilarea-fisierelor-cod-sursa-in-fisiere-obiect" title="Permalink to this heading">¶</a></h3>
+<span id="app-dev-compile-to-object-files"></span><h3><span class="section-number">3.3.1. </span>Compilarea fișierelor cod sursă în fișiere obiect<a class="headerlink" href="#compilarea-fisierelor-cod-sursa-in-fisiere-obiect" title="Link to this heading">¶</a></h3>
 <p>În această subsecțiune vom trece prin pasul <code class="docutils literal notranslate"><span class="pre">1</span></code> din diagrama din secțiunea <a class="reference internal" href="#app-dev-object-files"><span class="std std-ref">Fișiere obiect</span></a>, adică pașii de <em>compilare</em>.</p>
 <p>Compilăm fișierul <code class="docutils literal notranslate"><span class="pre">main.c</span></code> într-un fișier obiect <code class="docutils literal notranslate"><span class="pre">main.o</span></code> folosind opțiunea <code class="docutils literal notranslate"><span class="pre">-c</span></code> a comenzii <code class="docutils literal notranslate"><span class="pre">gcc</span></code>:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/support/compile-multiple$ gcc -c main.c
-student@uso:~/support/compile-multiple$ ls
-algorithms.c  algorithms.h  main.c  main.o
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/support/compile-multiple$<span class="w"> </span>gcc<span class="w"> </span>-c<span class="w"> </span>main.c
+student@uso:~/support/compile-multiple$<span class="w"> </span>ls
+algorithms.c<span class="w">  </span>algorithms.h<span class="w">  </span>main.c<span class="w">  </span>main.o
 </pre></div>
 </div>
 <p>Opțiunea <code class="docutils literal notranslate"><span class="pre">-c</span></code> compilează fișierul cod sursă <code class="docutils literal notranslate"><span class="pre">main.c</span></code> într-un fișier obiect <code class="docutils literal notranslate"><span class="pre">main.o</span></code>.</p>
 <p>Facem același lucru pentru <code class="docutils literal notranslate"><span class="pre">algorithms.c</span></code>:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/support/compile-multiple$ gcc -c algorithms.c
-student@uso:~/support/compile-multiple$ ls
-algorithms.c  algorithms.h  algorithms.o  main.c  main.o
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/support/compile-multiple$<span class="w"> </span>gcc<span class="w"> </span>-c<span class="w"> </span>algorithms.c
+student@uso:~/support/compile-multiple$<span class="w"> </span>ls
+algorithms.c<span class="w">  </span>algorithms.h<span class="w">  </span>algorithms.o<span class="w">  </span>main.c<span class="w">  </span>main.o
 </pre></div>
 </div>
 <p>Acum avem 2 fișiere obiect, <code class="docutils literal notranslate"><span class="pre">main.o</span></code> și <code class="docutils literal notranslate"><span class="pre">algorithms.o</span></code>, pe care urmează să le legăm și să formăm executabilul <code class="docutils literal notranslate"><span class="pre">algorithms</span></code>.</p>
 </section>
 <section id="legarea-fisierelor-obiect-intr-un-fisier-executabil">
-<span id="app-dev-link-object-files"></span><h3><span class="section-number">3.3.2. </span>Legarea fișierelor obiect într-un fișier executabil<a class="headerlink" href="#legarea-fisierelor-obiect-intr-un-fisier-executabil" title="Permalink to this heading">¶</a></h3>
+<span id="app-dev-link-object-files"></span><h3><span class="section-number">3.3.2. </span>Legarea fișierelor obiect într-un fișier executabil<a class="headerlink" href="#legarea-fisierelor-obiect-intr-un-fisier-executabil" title="Link to this heading">¶</a></h3>
 <p>În această subsecțiune vom trece prin pasul <code class="docutils literal notranslate"><span class="pre">2</span></code> din diagrama din secțiunea <a class="reference internal" href="#app-dev-object-files"><span class="std std-ref">Fișiere obiect</span></a>, adică pasul de <em>legare</em>.</p>
 <p>Acum că avem 2 fișiere obiect, trebuie să le legăm pentru a obține executabilul final.
 Legăm fișierele obiect <code class="docutils literal notranslate"><span class="pre">main.o</span></code> și <code class="docutils literal notranslate"><span class="pre">algorithms.o</span></code> folosind comanda <code class="docutils literal notranslate"><span class="pre">gcc</span></code>:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/support/compile-multiple$ gcc -o algorithms main.o algorithms.o
-student@uso:~/support/compile-multiple$ ls
-algorithms  algorithms.c  algorithms.h  algorithms.o  main.c  main.o
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/support/compile-multiple$<span class="w"> </span>gcc<span class="w"> </span>-o<span class="w"> </span>algorithms<span class="w"> </span>main.o<span class="w"> </span>algorithms.o
+student@uso:~/support/compile-multiple$<span class="w"> </span>ls
+algorithms<span class="w">  </span>algorithms.c<span class="w">  </span>algorithms.h<span class="w">  </span>algorithms.o<span class="w">  </span>main.c<span class="w">  </span>main.o
 </pre></div>
 </div>
 <p>Am creat executabilul final <code class="docutils literal notranslate"><span class="pre">algorithms</span></code> din 2 fișiere obiect.
 Rulăm executabilul și vedem că are același comportament ca în secțiunea <a class="reference internal" href="#app-dev-compile-multiple-sources"><span class="std std-ref">Compilarea programului din surse multiple</span></a>:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/support/compile-multiple$ ./algorithms
-gimme number and i&#39;ll give you factorial: 12
-12! = 479001600
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/support/compile-multiple$<span class="w"> </span>./algorithms
+gimme<span class="w"> </span>number<span class="w"> </span>and<span class="w"> </span>i<span class="err">&#39;</span>ll<span class="w"> </span>give<span class="w"> </span>you<span class="w"> </span>factorial:<span class="w"> </span><span class="m">12</span>
+<span class="m">12</span>!<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">479001600</span>
 </pre></div>
 </div>
 <p>Ștergem fișierul <code class="docutils literal notranslate"><span class="pre">algorithms</span></code> folosind comanda <code class="docutils literal notranslate"><span class="pre">rm</span></code>:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/support/compile-multiple$ rm algorithms
-student@uso:~/support/compile-multiple$ ls
-algorithms.c  algorithms.h  algorithms.o    main.c  main.o
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/support/compile-multiple$<span class="w"> </span>rm<span class="w"> </span>algorithms
+student@uso:~/support/compile-multiple$<span class="w"> </span>ls
+algorithms.c<span class="w">  </span>algorithms.h<span class="w">  </span>algorithms.o<span class="w">    </span>main.c<span class="w">  </span>main.o
 </pre></div>
 </div>
 <p>Plecând de la 2 fișiere obiect, <code class="docutils literal notranslate"><span class="pre">main.o</span></code> și <code class="docutils literal notranslate"><span class="pre">algorithms.o</span></code>, am obținut același executabil <code class="docutils literal notranslate"><span class="pre">algorithms</span></code>.</p>
@@ -677,7 +674,7 @@ algorithms.c  algorithms.h  algorithms.o    main.c  main.o
 Recompilăm <em>doar</em> fișierele care au fost modificate de la ultima compilare și refacem executabilul prin legarea fișierelor obiect vechi (nemodificate de la ultima compilare) cu cele noi (recompilate după modificarea fișierelor cod sursă).</p>
 </section>
 <section id="modificarea-fisierelor-sursa-si-recompilarea-lor">
-<span id="app-dev-modify-recompile"></span><h3><span class="section-number">3.3.3. </span>Modificarea fișierelor sursă și recompilarea lor<a class="headerlink" href="#modificarea-fisierelor-sursa-si-recompilarea-lor" title="Permalink to this heading">¶</a></h3>
+<span id="app-dev-modify-recompile"></span><h3><span class="section-number">3.3.3. </span>Modificarea fișierelor sursă și recompilarea lor<a class="headerlink" href="#modificarea-fisierelor-sursa-si-recompilarea-lor" title="Link to this heading">¶</a></h3>
 <p>În continuare, vedem care sunt avantajele compilării incrementale, în care unele operații de compilare nu au loc.</p>
 <p>Modificăm fișierul <code class="docutils literal notranslate"><span class="pre">main.c</span></code>, îl recompilăm într-un fișier obiect <code class="docutils literal notranslate"><span class="pre">main.o</span></code>.
 Fișierul <code class="docutils literal notranslate"><span class="pre">algorithms.o</span></code> rămâne nemodificat.
@@ -687,23 +684,23 @@ Legăm noul fișier <code class="docutils literal notranslate"><span class="pre"
 <img alt="Modificarea fișierului ``main.c``" src="../../_images/modify-main.gif" />
 </figure>
 <p>Compilăm fișierul <code class="docutils literal notranslate"><span class="pre">main.c</span></code> într-un fișier obiect <code class="docutils literal notranslate"><span class="pre">main.o</span></code> folosind <code class="docutils literal notranslate"><span class="pre">gcc</span></code>:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/support/compile-multiple$ gcc -c main.c
-student@uso:~/support/compile-multiple$ ls
-algorithms.c  algorithms.h  algorithms.o    main.c  main.o
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/support/compile-multiple$<span class="w"> </span>gcc<span class="w"> </span>-c<span class="w"> </span>main.c
+student@uso:~/support/compile-multiple$<span class="w"> </span>ls
+algorithms.c<span class="w">  </span>algorithms.h<span class="w">  </span>algorithms.o<span class="w">    </span>main.c<span class="w">  </span>main.o
 </pre></div>
 </div>
 <p>Legăm fișierele obiect <code class="docutils literal notranslate"><span class="pre">main.o</span></code> și <code class="docutils literal notranslate"><span class="pre">algorithms.o</span></code> folosind comanda <code class="docutils literal notranslate"><span class="pre">gcc</span></code>:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/support/compile-multiple$ gcc -o algorithms main.o algorithms.o
-student@uso:~/support/compile-multiple$ ls
-algorithms  algorithms.c  algorithms.h  algorithms.o  main.c  main.o
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/support/compile-multiple$<span class="w"> </span>gcc<span class="w"> </span>-o<span class="w"> </span>algorithms<span class="w"> </span>main.o<span class="w"> </span>algorithms.o
+student@uso:~/support/compile-multiple$<span class="w"> </span>ls
+algorithms<span class="w">  </span>algorithms.c<span class="w">  </span>algorithms.h<span class="w">  </span>algorithms.o<span class="w">  </span>main.c<span class="w">  </span>main.o
 </pre></div>
 </div>
 <p>Am creat executabilul final <code class="docutils literal notranslate"><span class="pre">algorithms</span></code> din 2 fișiere obiect, fără să recompilăm fișierul <code class="docutils literal notranslate"><span class="pre">algorithms.c</span></code> (care nu a fost modificat).</p>
 <p>Rulăm executabilul <code class="docutils literal notranslate"><span class="pre">algorithms</span></code>, ca mai jos:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/support/compile-multiple$ ./algorithms
-gimme number and i&#39;ll give you factorial: 10
-10! = 3628800
-11! = 39916800
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/support/compile-multiple$<span class="w"> </span>./algorithms
+gimme<span class="w"> </span>number<span class="w"> </span>and<span class="w"> </span>i<span class="err">&#39;</span>ll<span class="w"> </span>give<span class="w"> </span>you<span class="w"> </span>factorial:<span class="w"> </span><span class="m">10</span>
+<span class="m">10</span>!<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">3628800</span>
+<span class="m">11</span>!<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">39916800</span>
 </pre></div>
 </div>
 <p>Am văzut în această secțiune cum compilăm eficient un program din mai multe fișiere cod sursă.
@@ -711,7 +708,7 @@ Concret, am compilat fișierele <code class="docutils literal notranslate"><span
 </section>
 </section>
 <section id="exercitii">
-<span id="app-dev-make-multiple-ex"></span><h2><span class="section-number">3.4. </span>Exerciții<a class="headerlink" href="#exercitii" title="Permalink to this heading">¶</a></h2>
+<span id="app-dev-make-multiple-ex"></span><h2><span class="section-number">3.4. </span>Exerciții<a class="headerlink" href="#exercitii" title="Link to this heading">¶</a></h2>
 <ol class="arabic simple">
 <li><p>Mergeți în directorul <code class="docutils literal notranslate"><span class="pre">~/support/compile-multiple-ex</span></code>.</p></li>
 <li><p>Inspectați fișierele <code class="docutils literal notranslate"><span class="pre">main.c</span></code> și <code class="docutils literal notranslate"><span class="pre">lottery.c</span></code>.</p></li>
@@ -722,7 +719,7 @@ Concret, am compilat fișierele <code class="docutils literal notranslate"><span
 </ol>
 <p class="rubric">Note de subsol</p>
 <aside class="footnote-list brackets">
-<aside class="footnote brackets" id="compile-linux-kernel" role="note">
+<aside class="footnote brackets" id="compile-linux-kernel" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
 <p>Compilarea <a class="reference external" href="https://github.com/torvalds/linux">nucleului Linux</a> durează, în general, mult.
 <a class="reference external" href="https://ubuntuforums.org/showthread.php?t=650461">https://ubuntuforums.org/showthread.php?t=650461</a></p>
@@ -746,7 +743,7 @@ Concret, am compilat fișierele <code class="docutils literal notranslate"><span
 </ul><div class="footer" role="contentinfo">
       &#169; Copyright 2020, USO Team.
     <br>
-    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 5.2.2 with <a href="https://github.com/romnn/sphinx_press_theme">Press Theme</a>.
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 7.2.3 with <a href="https://github.com/romnn/sphinx_press_theme">Press Theme</a>.
 </div>
             </div>
           </div>
