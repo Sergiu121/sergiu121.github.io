@@ -574,7 +574,7 @@ Așa cum am precizat mai sus, în cazul acestor permisiuni, utilizatorii și pro
 </div>
 <p>Pentru fiecare linie asociată unui fișier observăm primul caracter (<em>d</em> - director sau <em>-</em> fișier simplu) după care nouă caractere de tipul <em>r (read)</em>, <em>w (write)</em>, <em>x (execute)</em>.
 Pentru lipsa permisiunii respective avem caracterul <em>-</em>.
-Ne aducem aminte din capitolul <strong>TODO Sectiune</strong> că primele trei caractere se referă la utilizator, următoarele trei la grup, iar ultimele trei la restul utilizatorilor din sistem.</p>
+Ne amintim din capitolul <strong>TODO Sectiune</strong> că primele trei caractere se referă la permisiunile care se aplică utilizatorului (<em>user</em>), următoarele trei se aplică grupului (<em>group</em>), iar ultimele trei se aplică restului utilizatorilor din sistem (<em>others</em>).</p>
 <p>Coloanele trei și patru de mai sus reprezintă utilizatorul și grupul ce dețin fișierul.
 Acestea pot fi schimbate cu ajutorul utilitarului <em>chown</em>:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso-demo:~/securitate/stocks$<span class="w"> </span>chown<span class="w"> </span>Amazon:Amazon<span class="w"> </span>Amazon
@@ -590,8 +590,8 @@ drwxr-xr-x<span class="w"> </span><span class="m">2</span><span class="w"> </spa
 drwxr-xr-x<span class="w"> </span><span class="m">2</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">4096</span><span class="w"> </span>Aug<span class="w"> </span><span class="m">26</span><span class="w"> </span><span class="m">12</span>:58<span class="w"> </span>Netflix
 </pre></div>
 </div>
-<p>Observăm că pentru a schimba deținătorul unui fișier este nevoie de permisiuni de <em>root</em> (am primit eroare din partea sistemului).
-Pentru asta, am folosit utilitarul <em>sudo</em> împreună cu comanda <em>chown</em>.
+<p>Observăm din eroarea primită din partea sistemului că pentru a schimba deținătorul unui fișier este nevoie de drepturi privilegiate.
+Pentru aceasta, am folosit utilitarul <em>sudo</em> împreună cu comanda <em>chown</em>.
 Parametrii folosiți sunt <em>utilizator:grup</em> și fișierul <code class="docutils literal notranslate"><span class="pre">Amazon</span></code>.</p>
 <blockquote>
 <div><p>Pentru a modifica permisiunile, folosim utilitarul <em>chmod</em>:</p>
