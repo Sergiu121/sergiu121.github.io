@@ -348,7 +348,7 @@
           </li>
 
         
-          <li class="toctree-l1 "><a href="extra.html" class="reference internal ">Exerciții suplimentare</a>
+          <li class="toctree-l1 "><a href="extra.html" class="reference internal ">Exercițîi suplimentare</a>
 
             
           </li>
@@ -535,8 +535,11 @@
   <section id="compilarea-unui-fisier-cod-sursa-c">
 <span id="app-dev-compile-source-file"></span><h1><span class="section-number">2. </span>Compilarea unui fișier cod sursă C<a class="headerlink" href="#compilarea-unui-fisier-cod-sursa-c" title="Link to this heading">¶</a></h1>
 <p>În această secțiune urmărim să învățăm pașii pentru a compila un program, adică a-l aduce de la cod sursă la executabil.
-Pentru aceasta vom crea un program care verifică dacă un număr citit de la tastatură este prim sau nu.
-Vom scrie într-un nou fișier programul care implementează algoritmul, vom compila codul sursă folosind <a class="reference external" href="https://gcc.gnu.org">compilatorul GCC</a> și vom testa că programul funcționează.</p>
+Pentru aceasta vom crea un program care verifică dacă un număr citit de la tastatură este prim sau nu.</p>
+<p>Pașii pe care îi vom face sunt:
+* vom scrie într-un nou fișier cu extensia .c programul care implementează algoritmul
+* vom compila codul sursă folosind <a class="reference external" href="https://gcc.gnu.org">compilatorul GCC</a>
+* vom testa că programul funcționează.</p>
 <section id="crearea-unui-fisier-cod-sursa">
 <span id="app-dev-create-source-file"></span><h2><span class="section-number">2.1. </span>Crearea unui fișier cod sursă<a class="headerlink" href="#crearea-unui-fisier-cod-sursa" title="Link to this heading">¶</a></h2>
 <p>Creăm un fișier nou cu numele <code class="docutils literal notranslate"><span class="pre">is-prime.c</span></code> cu implementarea algoritmului de verificare.
@@ -547,7 +550,7 @@ Copiem codul sursă de mai jos și îl lipim în nano ca în imaginea de mai jos
 <span class="p">{</span>
 <span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
 
-<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <span class="w">        </span><span class="p">}</span>
@@ -582,9 +585,9 @@ Copiem codul sursă de mai jos și îl lipim în nano ca în imaginea de mai jos
 <span id="app-dev-compile-aout"></span><h2><span class="section-number">2.2. </span>Compilarea codului sursă în executabilul <code class="docutils literal notranslate"><span class="pre">a.out</span></code><a class="headerlink" href="#compilarea-codului-sursa-in-executabilul-a-out" title="Link to this heading">¶</a></h2>
 <p>Avem fișierul cod sursă <code class="docutils literal notranslate"><span class="pre">is-prime.c</span></code> și vrem să obținem un program pe care să-l rulăm pe sistemul nostru.
 Pentru aceasta, trebuie să compilăm fișierul <code class="docutils literal notranslate"><span class="pre">is-prime.c</span></code>.
-Acest program este de fapt un <strong>executabil</strong> (<em>binar</em>).
+Acest program este de fapt un <strong>executabil</strong> (<em>fișier binar</em>).
 Executabilele sunt fișiere care conțin instrucțiuni pe care sistemul de calcul le poate interpreta și rula.</p>
-<p>Creăm un executabil din fișierul <code class="docutils literal notranslate"><span class="pre">is-prime.c</span></code> folosind comanda <code class="docutils literal notranslate"><span class="pre">gcc</span></code>:</p>
+<p>Creăm un executabil din fișierul <code class="docutils literal notranslate"><span class="pre">is-prime.c</span></code> folosind comanda <code class="docutils literal notranslate"><span class="pre">gcc</span></code>: Astfel invocăm compilatorul GCC(GNU Compiler Collection) instalat anterior și îi dăm ca argument numele fișierului dorit.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$<span class="w"> </span>gcc<span class="w"> </span>is-prime.c
 student@uso:~$<span class="w"> </span>ls<span class="w"> </span>-l
 total<span class="w"> </span><span class="m">16</span>
@@ -593,7 +596,7 @@ total<span class="w"> </span><span class="m">16</span>
 </pre></div>
 </div>
 <p>Așa cum vedem în rezultatul rulări comenzii <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-l</span></code> de mai sus, executabilul se numește <code class="docutils literal notranslate"><span class="pre">a.out</span></code>.
-Acesta este numele implicit dat de GCC.
+Acesta este numele <strong>implicit</strong> dat de GCC.
 Adică <code class="docutils literal notranslate"><span class="pre">a.out</span></code> va fi numele tuturor fișierelor executabile generate cu GCC, indiferent de fișierul cod sursă.
 Verificăm că fișierul <code class="docutils literal notranslate"><span class="pre">a.out</span></code> este într-adevăr un fișier executabil:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$<span class="w"> </span>file<span class="w"> </span>a.out

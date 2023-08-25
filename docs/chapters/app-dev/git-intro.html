@@ -346,7 +346,7 @@
           </li>
 
         
-          <li class="toctree-l1 "><a href="extra.html" class="reference internal ">Exerciții suplimentare</a>
+          <li class="toctree-l1 "><a href="extra.html" class="reference internal ">Exercițîi suplimentare</a>
 
             
           </li>
@@ -532,17 +532,21 @@
             
   <section id="introducere-in-git-si-github">
 <span id="app-dev-git-intro"></span><h1><span class="section-number">7. </span>Introducere în Git și GitHub<a class="headerlink" href="#introducere-in-git-si-github" title="Link to this heading">¶</a></h1>
-<p>Vor fi cazuri când vom <em>strica</em> o versiune a codului și vom avea nevoie să revenim la o versiune corectă, caz în care un istoric de versiuni ne-ar fi de folos.
-Vom putea să lucrăm la un proiect de pe un alt sistem, în afară de al nostru, sau vom vrea să cerem feedback pe codul scris de noi.</p>
-<p>Când vorbim despre un proiect software vrem să avem dezvoltatori, oameni care să lucreze împreună cu noi la proiect.
-Dezvoltatorii au nevoie de acces la codul sursă al proiectului software la care lucrăm.
-După ce le dăm acces, vrem ca fiecare dezvoltator să știe la ce a lucrat și la ce lucrează ceilalți; ca să nu se suprapună, ca să ajute și ca să ofere feedback.</p>
-<p>Pentru a putea rezolva problemele de sincronizare între doi sau mai mulți colegi de echipă care lucrează la același proiect, ne ajută să avem un <strong>sistem de versionare a codului</strong>, adică să avem un istoric de modificări.
-Fiecare modificare înseamnă o nouă versiune a proiectului; avem astfel o listă de versiuni gestionată de sistemul de versionare a codului.
+<p><a class="reference external" href="http://www.github.com/">GitHub</a> este o platformă online, pe care dezvoltatorii o pot folosi pentru a stoca și versiona codul lor sursă.
+<strong>Git</strong> este un sistem de management și versionare a codului sursă care permite lucrul eficient la un proiect software.</p>
+<p>Astfel, Git este utilitarul folosit în terminal, iar GitHub este serverul și aplicația web pe care rulează acesta, locul în care păstrăm repository-ul remote.</p>
+<p>Folosim Github pentru:</p>
+<ul class="simple">
+<li><p>Vor fi cazuri când vom <em>strica</em> o versiune a codului și vom avea nevoie să revenim la o versiune corectă, caz în care un istoric de versiuni ne-ar fi de folos. În caz contrar, va trebui să salvăm diferite versiuni a proiectului nostru că niște checkpoints pe PC-ul nostru, ocupând mult spațiu de depozitare.</p></li>
+<li><p>Vom putea să lucrăm la un proiect de pe un alt sistem, în afară de al nostru, sau vom vrea să cerem feedback pe codul scris de noi.</p></li>
+<li><p>Când vorbim despre un proiect software vrem să avem dezvoltatori, oameni care să lucreze împreună cu noi la proiect.</p></li>
+</ul>
+<p>Dezvoltatorii au nevoie de acces la codul sursă al proiectului software la care lucrăm. După ce le dăm acces, vrem ca fiecare dezvoltator să știe la ce a lucrat și la ce lucrează ceilalți; ca să nu se suprapună, ca să ajute și ca să ofere feedback.</p>
+<ul class="simple">
+<li><p>Pentru a putea rezolva problemele de sincronizare între doi sau mai mulți colegi de echipă care lucrează la același proiect, ne ajută să avem un <strong>sistem de versionare a codului</strong>, adică să avem un istoric de modificări.</p></li>
+</ul>
+<p>Fiecare modificare înseamnă o nouă versiune a proiectului; avem astfel o listă de versiuni gestionată de sistemul de versionare a codului.
 Pe lângă rezolvarea problemelor de sincronizare, versionarea codului aduce și alte avantaje cum ar fi revenirea la o versiune mai veche a proiectului, găsirea rapidă a autorului unei secvențe de cod sau, pur și simplu, organizarea unui proiect.</p>
-<p><strong>Git</strong> este un sistem de management și versionare a codului sursă care permite lucrul eficient la un proiect software.</p>
-<p><a class="reference external" href="http://www.github.com/">GitHub</a> este o platformă online, bazată pe Git, pe care dezvoltatorii o pot folosi pentru a stoca și versiona codul lor sursă.
-Git este utilitarul folosit, iar GitHub este serverul și aplicația web pe care rulează acesta, locul în care păstrăm repository-ul remote.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Similar cu GitHub există și alte platforme precum <a class="reference external" href="https://bitbucket.org">Bitbucket</a> sau <a class="reference external" href="https://about.gitlab.com">GitLab</a>.
@@ -583,11 +587,14 @@ De exemplu, pentru autorul acestei secțiuni, comenzile rulate sunt:</p>
 student@uso:~$<span class="w"> </span>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>user.email<span class="w"> </span><span class="s2">&quot;lizababu@example.com&quot;</span>
 </pre></div>
 </div>
+<p id="app-dev-create-first-repo">Această configurare trebuie făcută o singură dată pe PC / Virtual Machine.
+Pentru a verifica că setările s-au salvat, verificăm rulând acest lucru rulând <code class="docutils literal notranslate"><span class="pre">gît</span> <span class="pre">config</span> <span class="pre">--list</span></code>.</p>
 </section>
 <section id="crearea-primului-repository">
-<span id="app-dev-create-first-repo"></span><h2><span class="section-number">7.3. </span>Crearea primului repository<a class="headerlink" href="#crearea-primului-repository" title="Link to this heading">¶</a></h2>
+<h2><span class="section-number">7.3. </span>Crearea primului repository<a class="headerlink" href="#crearea-primului-repository" title="Link to this heading">¶</a></h2>
 <p>Pentru a lucra la un proiect software, creăm un <strong>repository software</strong>.
-Vom crea unul pe GitHub, unul local, după care le vom interconecta.</p>
+Un repository reprezintă o metodă de împărțire a proiectelor: poate fi o temă la o materie, poate conține chiar toate temele la o materie, în directoare diferite sau poate conține doar un simplu README.md;</p>
+<p>Vom crea unul pe GitHub (numit de acum remote), unul local (la noi pe PC), după care le vom interconecta.</p>
 <div class="admonition-repository-software admonition">
 <p class="admonition-title"><strong>Repository software</strong></p>
 <p>Proiectul este stocat într-un <strong>repository software</strong>.
@@ -609,15 +616,15 @@ Urmărim pașii prezentați în imaginea de mai jos și explicați imediat după
 <img alt="Crearea unui repository nou pe GitHub" src="../../_images/GitHub-create-repo.gif" />
 </figure>
 <ol class="arabic simple">
-<li><p>Apăsăm pe săgeată din meniul din dreapta sus și vedem ceva similar cu imaginea de mai sus.</p></li>
+<li><p>Apăsăm pe săgeata din meniul din dreapta sus și vedem ceva similar cu imaginea de mai sus.</p></li>
 <li><p>Apăsăm pe <code class="docutils literal notranslate"><span class="pre">Your</span> <span class="pre">profile</span></code> pentru a merge pe profilul nostru.
 Aici este locul în care vom putea vedea contribuțiile noastre pe GitHub.
-În partea de sus a ecranului vom vedea un meniu orizonatal care conține 4 opțiuni: <code class="docutils literal notranslate"><span class="pre">Overview</span></code>, <code class="docutils literal notranslate"><span class="pre">Repositories</span></code>, <code class="docutils literal notranslate"><span class="pre">Projects</span></code> și <code class="docutils literal notranslate"><span class="pre">Packages</span></code>.</p></li>
+În partea de sus a ecranului vom vedea un meniu orizontal care conține 4 opțiuni: <code class="docutils literal notranslate"><span class="pre">Overview</span></code>, <code class="docutils literal notranslate"><span class="pre">Repositories</span></code>, <code class="docutils literal notranslate"><span class="pre">Projects</span></code> și <code class="docutils literal notranslate"><span class="pre">Packages</span></code>.</p></li>
 <li><p>Apăsăm pe <code class="docutils literal notranslate"><span class="pre">Repositories</span></code>.
 Acum vom vedea întreaga listă de repository-uri pe care le avem. Pentru a crea unul nou, apăsăm pe butonul verde din dreapta sus pe care scrie <code class="docutils literal notranslate"><span class="pre">New</span></code>.</p></li>
 <li><p>Acum este momentul în care vom da un nume proiectului nostru, o descriere succintă a acestuia și vom putea decide dacă să fie <strong>public</strong> (vizibil tuturor utilizatorilor) sau <strong>privat</strong> (vizibil doar pentru noi și eventualii colaboratori ai proiectului).
 Ne va apărea un formular similar cu cel din imaginea de mai sus.
-Pentru acest tutorial vom crea un repository <strong>public</strong>.
+Pentru acest tutorial vom crea un repository <strong>public</strong> ).
 Este indicat ca numele repository-ului să descrie bine proiectul, în cazul nostru <code class="docutils literal notranslate"><span class="pre">array-sorting-algorithms</span></code>.
 Descrierea proiectului este opțională, dar e recomandat să o adăugăm pentru a fi ușor de înțeles pentru cei care vor ajunge la proiectul nostru.</p></li>
 <li><p>Apăsăm pe <code class="docutils literal notranslate"><span class="pre">Create</span> <span class="pre">repository</span></code>.
@@ -653,7 +660,7 @@ Directorul <code class="docutils literal notranslate"><span class="pre">.git</sp
 </section>
 <section id="conectarea-celor-doua-repository-uri">
 <span id="app-dev-connect-repos"></span><h3><span class="section-number">7.3.3. </span>Conectarea celor două repository-uri<a class="headerlink" href="#conectarea-celor-doua-repository-uri" title="Link to this heading">¶</a></h3>
-<p>Am creat până în acest moment un repository local și unul remote.
+<p>Am creat până în acest moment un repository local (pe PC-ul nostru) și unul remote (platforma GitHub).
 Trebuie să le interconectăm pentru a lucra cu ele.</p>
 <p>În cazul în care suntem mai mulți membri în echipă, fiecare membru va conecta repository-ul său local, la repository-ul remote.
 Pentru conectarea celor două repository-uri folosim comanda de mai jos, dată în directorul unde este repository-ul local Git (în cazul nostru <code class="docutils literal notranslate"><span class="pre">/home/student/array-sorting-algorithms</span></code>):</p>
