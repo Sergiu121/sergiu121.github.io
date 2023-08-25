@@ -39,30 +39,30 @@ Pentru a vedea fișierele sub formă arborescentă, folosim comanda ``tree``:
 
 .. code-block:: bash
 
-    student@uso:~/comenzi/mkdir$ tree -L 1 /
+    student@uso:~/comenzi/mkdir$ tree -F -L 1 /
     /
-    |-- bin
-    |-- boot
-    |-- dev
-    |-- etc
-    |-- home
+    |-- bin/
+    |-- boot/
+    |-- dev/
+    |-- etc/
+    |-- home/
     |-- initrd.img -> /boot/initrd.img-3.16.0-4-586
-    |-- lib
-    |-- lib64
-    |-- libx32
-    |-- lost+found
-    |-- media
-    |-- mnt
-    |-- opt
-    |-- proc
-    |-- root
-    |-- run
-    |-- sbin
-    |-- srv
-    |-- sys
-    |-- tmp
-    |-- usr
-    |-- var
+    |-- lib/
+    |-- lib64/
+    |-- libx32/
+    |-- lost+found/
+    |-- media/
+    |-- mnt/
+    |-- opt/
+    |-- proc/
+    |-- root/
+    |-- run/
+    |-- sbin/
+    |-- srv/
+    |-- sys/
+    |-- tmp/
+    |-- usr/
+    |-- var/
     ``-- vmlinuz -> boot/vmlinuz-3.16.0-4-586
 
 
@@ -258,7 +258,7 @@ Afișăm rapid conținutul fișierului ``Arya`` din directorul ``GameOfThrones``
 
 
 O altă metodă este de a folosi un editor de text: `vim`_, `gedit`_, `emacs`_, `nano`_, `Sublime`_, etc.
-Vom detalia utilizarea unui editor de text în subsectiunea *Editor de text*.
+Vom detalia utilizarea unui editor de text în subsecțiunea *Editor de text*.
 
 .. _gedit: https://wiki.gnome.org/Apps/Gedit
 .. _Sublime: https://www.sublimetext.com/3
@@ -336,7 +336,7 @@ Aceasta permite parcurgerea în adâncime a întregii ierarhii de fișiere.
 .. important::
     După executarea comenzii, verificăm corectitudinea operației.
     Trebuie să verificăm și să nu presupunem că o comandă s-a executat.
-    Lipsa unei verifică poate duce la erori și mult timp pierdut din partea noastră.
+    Lipsa unei verificări poate duce la erori și mult timp pierdut din partea noastră.
 
 
 Redenumirea și mutarea fișierelor și directoarelor
@@ -344,7 +344,7 @@ Redenumirea și mutarea fișierelor și directoarelor
 
 Fișierele și directoarele se redenumesc în mod similar, folosind comanda ``mv`` astfel: ``mv nume_actual nume_nou``.
 
-Redenumim fișierele si directoarele folosind comanda ``mv``:
+Redenumim fișierele și directoarele folosind comanda ``mv``:
 
 .. code-block:: bash
 
@@ -390,18 +390,18 @@ Am verificat că directorul ``GameOfThrones`` se află la calea indicată (calea
 
 .. note::
 
-    Observăm că putem folosi atât căi relative cât și căi absolute ca argumente pentru comanda ``mv`` de mutare / redenumire de fișiere și directoare.
+    Observăm că putem folosi atât căi relative, cât și căi absolute ca argumente pentru comanda ``mv`` de mutare / redenumire de fișiere și directoare.
 
 Exerciții - redenumire și mutare
 """"""""""""""""""""""""""""""""
 
-#. * Creați un director ``Vikings`` în directorul home al vostru;
+#. * Creați un director ``Vikings`` în directorul home al vostru (``~``);
    * Creați fișierele ``Ragnar``, ``Rollo``, ``Lagertha`` în directorul ``Vikings``;
    * Verificați că directorul și fișierele au fost mutate;
-   * Mutati directorul (împreună cu întreaga ierarhie de fișiere) la locația ``/tmp/``;
+   * Mutați directorul (împreună cu întreaga ierarhie de fișiere) la locația ``/tmp/``;
    * Verificați că directorul și ierarhia de fișiere au fost mutate; 
 
-#. * Creați un director ``NBA`` în directorul home al vostru;
+#. * Creați un director ``NBA`` în directorul home al vostru (``~``);
    * Creați fișierele ``MichaelJordan``, ``LeBronJames``, ``DwayneWade`` și ``KobeBryant`` în directorul ``NBA``;
    * Verificați că directorul și fișierele au fost mutate;
    * Mutați directorul ``NBA`` (împreună cu întreaga ierarhie de fișiere) în directorul ``Vikings``;
@@ -410,7 +410,7 @@ Exerciții - redenumire și mutare
 #. * Redenumiți directorul ``GameOfThrones`` în ``ThronesInTheGame``;
    * Mutați fișierele din interiorul directorului ``ThronesInTheGame`` în ``/tmp``;
    * Verificați operațiile;
-   * Mutați directorul înapoi la locatia inițială folosind atât căi relative cât și căi absolute.
+   * Mutați directorul înapoi la locatia inițială folosind atât căi relative, cât și căi absolute.
 
 Copierea fișierelor și directoarelor
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -547,18 +547,18 @@ Am creat directorul ascuns ``.LordOfTheRings``.
 Exerciții - creare fișiere/directoare ascunse
 """""""""""""""""""""""""""""""""""""""""""""
 
-#. * Creați un director cu numele ``.LordOfTheRings`` în directorul vostru home;
+#. * Creați un director cu numele ``.LordOfTheRings`` în directorul vostru home (``~``);
    * Intrați în directorul creat;
    * Creați 3 fișiere ascunse cu numele ``Aragorn``, ``Legolas``, ``Frodo Baggins``;
    * Verificați operațiile de creare (director și fișiere).
 
-#. * Creați un director cu numele ``stiri`` în directorul vostru home;
+#. * Creați un director cu numele ``stiri`` în directorul vostru home (``~``);
    * Creați fișierele ``hotnews``, ``biziday``, ``digi24``;
    * Creați fișierul ascuns ``.cancan``;
    * Afișați **toate** fișierele din director;
    * Afișați fișierele din director care **nu** sunt ascunse.
 
-#. * Creați un director ``tv`` în directorul vostru home;
+#. * Creați un director ``tv`` în directorul vostru home (``~``);
    * Creați fișierele ``ProTV``, ``Digi24``, ``Eurosport``;
    * Creați fișierele ascunse ``Antena3``, ``Romania24``;
    * Afișați **toate** fișierele din director;
@@ -582,7 +582,7 @@ Pentru a afla tipul fișierului folosim comanda ``file``:
     student@uso:~$ file index.rst
     index.rst: ASCII text
     student@uso:~$ file archive.tar
-    archive.tar: POSIX tar archive (GNU) 
+    archive.tar: POSIX tar archive (GNU)
 
 Observăm că fișierul ``Picture.abc`` este un fișier de tipul *PNG* în ciuda extensiei, iar ``archive.tar`` este o arhivă de tipul *tar*.
 
@@ -594,28 +594,28 @@ Exerciții - ierarhii de fișiere și directoare
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 #. * Afișați ierarhia de fișiere pornind de la directorul vostru home (``~``).
-   * Creați următoarea ierarhie pornind de la directorul ``/home/student/``:
+   * Creați următoarea ierarhie pornind de la directorul ``/home/student/`` (directoarele se termina cu ``/``):
 
    .. code-block:: bash
 
-       student@uso:~$ tree
+       student@uso:~$ tree -F
        .
-       ├── prime_video
-       ├── Hulu
+       ├── prime_video/
+       ├── Hulu/
        │   └── Favorite
-       ├── Netflix
-       │   ├── Filme
+       ├── Netflix/
+       │   ├── Filme/
        │   │   ├── filme_2020.txt
        │   │   ├── filme_2019.txt
        │   │   ├── filme_vechi
-       │   └── Seriale
-       │       ├── seriale_2020
+       │   └── Seriale/
+       │       ├── seriale_2020/
        │       ├── seriale_2019.txt
-       │       └── seriale_vechi
-       ├── HBO_GO
+       │       └── seriale_vechi/
+       ├── HBO_GO/
        │   ├── Modern_Family.txt
-       │   └── Harry_Potter
-       └── YouTubeTV
+       │   └── Harry_Potter/
+       └── YouTubeTV/
 
    * Copiați întreaga ierarhie în calea ``/tmp``. Folosiți comanda ``cp``. (Hint: recursivitate).
    * Confirmați copierea prin afișarea directorului părinte.
@@ -633,12 +633,12 @@ Exerciții - ierarhii de fișiere și directoare
 
    .. code-block:: bash
 
-       student@uso:~$ tree
+       student@uso:~$ tree -F
        .
-       └─── Cale
-           └─── Lungă
-                └─── De
-                     └─── Directoare
+       └─── Cale/
+           └─── Lungă/
+                └─── De/
+                     └─── Directoare/
 
 
    * Mutați ierarhia copiată anterior în ``/tmp`` în directorul ``Directoare``.
@@ -710,7 +710,7 @@ Observăm că dacă am șters un fișier accesându-l prin legătura, s-a șters
 Exerciții - legături (linkuri)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-* Creați o legătură simbolică în directorul vostru ``home`` către directorul ``Netflix``.
+* Creați o legătură simbolică în directorul vostru ``home`` (``~``) către directorul ``Netflix``.
 * Verificați crearea legăturii prin afișarea conținutului directorului părinte.
 * Afișați conținutul legăturii.
 * Ștergeți directorul ``Netflix``.
@@ -744,4 +744,4 @@ Putem folosi atât calea relativă cât și absolută:
     student@uso:~/comenzi$ /home/student/comenzi/my_ls
     executie  mkdir  my_ls	touch
 
-Observăm cum se rulează un executabil atât cu cale relativă (în primul caz) cât și cu cale absolută (în al doilea caz).
+Observăm cum se rulează un executabil atât cu cale relativă (în primul caz), cât și cu cale absolută (în al doilea caz).

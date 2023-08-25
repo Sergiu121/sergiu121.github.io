@@ -2,7 +2,7 @@
 <html  lang="en">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="viewport" content="width=device-width, initial-scale=1" />
 
       <title>5. Arhive</title>
     
@@ -15,12 +15,10 @@
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
 
       <!-- sphinx script_files -->
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/my_actions.js"></script>
+        <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../_static/my_actions.js?v=1451d81f"></script>
 
       
       <script src="../../_static/theme-vendors.js"></script>
@@ -531,7 +529,7 @@
           <div class="content" role="main">
             
   <section id="arhive">
-<h1><span class="section-number">5. </span>Arhive<a class="headerlink" href="#arhive" title="Permalink to this heading">¶</a></h1>
+<h1><span class="section-number">5. </span>Arhive<a class="headerlink" href="#arhive" title="Link to this heading">¶</a></h1>
 <p>Sunt situații în care vrem să trimitem/stocăm o ierarhie de fișiere.
 Pentru a ușura acest lucru, folosim arhive.
 Arhivele sunt o concatenare a unei ierarhii de fișiere și directoare într-un singur fișier.</p>
@@ -546,27 +544,27 @@ Rezultatul este similar: agregarea într-un singur fișier.</p>
 <p>În acest capitol vom folosi arhive de tipul <em>zip</em> și <em>tar</em>.
 Vom folosi <em>tar</em> pentru arhivare și <em>zip</em> pentru arhivare comprimată.</p>
 <section id="arhivare-tar">
-<span id="arhiva-tar"></span><h2><span class="section-number">5.1. </span>Arhivare - <strong>tar</strong><a class="headerlink" href="#arhivare-tar" title="Permalink to this heading">¶</a></h2>
+<span id="arhiva-tar"></span><h2><span class="section-number">5.1. </span>Arhivare - <strong>tar</strong><a class="headerlink" href="#arhivare-tar" title="Link to this heading">¶</a></h2>
 <section id="crearea-arhivelor">
-<h3><span class="section-number">5.1.1. </span>Crearea arhivelor<a class="headerlink" href="#crearea-arhivelor" title="Permalink to this heading">¶</a></h3>
+<h3><span class="section-number">5.1.1. </span>Crearea arhivelor<a class="headerlink" href="#crearea-arhivelor" title="Link to this heading">¶</a></h3>
 <p>Arhivele sunt utile atunci când vrem să trimitem pe mail sau să încărcăm pe un site o ierarhie de fișiere și directoare.
 Pe scurt, atunci când vrem să agregăm totul într-un singur fișier. Acesta poate fi transmis foarte ușor și ulterior dezarhivat.</p>
 <p>Creăm o arhivă cu fișierele <code class="docutils literal notranslate"><span class="pre">înregistrare_lab01.mov</span></code>, <code class="docutils literal notranslate"><span class="pre">înregistrare_lab02.mov</span></code>, <code class="docutils literal notranslate"><span class="pre">înregistrare_lab03.mov</span></code> numită <code class="docutils literal notranslate"><span class="pre">înregistrări.tar</span></code> folosind utilitarul <code class="docutils literal notranslate"><span class="pre">tar</span></code>:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ ls -lh
-total <span class="m">9</span>.0M
--rw-r--r-- <span class="m">1</span> student student <span class="m">5</span>.0M Aug <span class="m">19</span> <span class="m">11</span>:55 înregistrare_lab01.mov
--rw-r--r-- <span class="m">1</span> student student <span class="m">3</span>.0M Aug <span class="m">19</span> <span class="m">11</span>:55 înregistrare_lab02.mov
--rw-r--r-- <span class="m">1</span> student student <span class="m">1</span>.0M Aug <span class="m">19</span> <span class="m">11</span>:55 înregistrare_lab03.mov
-student@uso:~$ tar cvf înregistrări.tar înregistrare_lab01.mov înregistrare_lab02.mov înregistrare_lab03.mov
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$<span class="w"> </span>ls<span class="w"> </span>-lh
+total<span class="w"> </span><span class="m">9</span>.0M
+-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">5</span>.0M<span class="w"> </span>Aug<span class="w"> </span><span class="m">19</span><span class="w"> </span><span class="m">11</span>:55<span class="w"> </span>înregistrare_lab01.mov
+-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">3</span>.0M<span class="w"> </span>Aug<span class="w"> </span><span class="m">19</span><span class="w"> </span><span class="m">11</span>:55<span class="w"> </span>înregistrare_lab02.mov
+-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">1</span>.0M<span class="w"> </span>Aug<span class="w"> </span><span class="m">19</span><span class="w"> </span><span class="m">11</span>:55<span class="w"> </span>înregistrare_lab03.mov
+student@uso:~$<span class="w"> </span>tar<span class="w"> </span>cvf<span class="w"> </span>înregistrări.tar<span class="w"> </span>înregistrare_lab01.mov<span class="w"> </span>înregistrare_lab02.mov<span class="w"> </span>înregistrare_lab03.mov
 înregistrare_lab01.mov
 înregistrare_lab02.mov
 înregistrare_lab03.mov
-student@uso:~$ ls -lh
-total 19M
--rw-r--r-- <span class="m">1</span> student student <span class="m">5</span>.0M Aug <span class="m">19</span> <span class="m">11</span>:55 înregistrare_lab01.mov
--rw-r--r-- <span class="m">1</span> student student <span class="m">3</span>.0M Aug <span class="m">19</span> <span class="m">11</span>:55 înregistrare_lab02.mov
--rw-r--r-- <span class="m">1</span> student student <span class="m">1</span>.0M Aug <span class="m">19</span> <span class="m">11</span>:55 înregistrare_lab03.mov
--rw-r--r-- <span class="m">1</span> student student <span class="m">9</span>.1M Aug <span class="m">19</span> <span class="m">11</span>:56 înregistrări.tar
+student@uso:~$<span class="w"> </span>ls<span class="w"> </span>-lh
+total<span class="w"> </span>19M
+-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">5</span>.0M<span class="w"> </span>Aug<span class="w"> </span><span class="m">19</span><span class="w"> </span><span class="m">11</span>:55<span class="w"> </span>înregistrare_lab01.mov
+-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">3</span>.0M<span class="w"> </span>Aug<span class="w"> </span><span class="m">19</span><span class="w"> </span><span class="m">11</span>:55<span class="w"> </span>înregistrare_lab02.mov
+-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">1</span>.0M<span class="w"> </span>Aug<span class="w"> </span><span class="m">19</span><span class="w"> </span><span class="m">11</span>:55<span class="w"> </span>înregistrare_lab03.mov
+-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">9</span>.1M<span class="w"> </span>Aug<span class="w"> </span><span class="m">19</span><span class="w"> </span><span class="m">11</span>:56<span class="w"> </span>înregistrări.tar
 </pre></div>
 </div>
 <p>Observăm cum după comanda de creare a arhivei <em>tar</em> am verificat corectitudinea operației.
@@ -578,16 +576,16 @@ Avem acum în directorul curent arhiva <code class="docutils literal notranslate
 <li><p>f: folosește arhiva dată ca parametru (în cazul de față, numele ei).</p></li>
 </ul>
 <p>Arhiva nou creată ocupă 9.1 MB.
-Fișierele ce compun arhiva ocupă 5M, 3M respectiv 1M.</p>
+Fișierele ce compun arhiva ocupă 5MB, 3MB respectiv 1MB.</p>
 <p>Fișierul de tipul <em>tar</em> nou creat nu ocupă mai puțin spațiu; din contră, ocupă mai mult spațiu din cauza metadatelor <a class="footnote-reference brackets" href="#id6" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a> fișierului.</p>
 <p>Verificăm tipul fișierului folosind utilitarul <code class="docutils literal notranslate"><span class="pre">file</span></code>.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ file înregistrări.tar
-înregistrări.tar: POSIX tar archive <span class="o">(</span>GNU<span class="o">)</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$<span class="w"> </span>file<span class="w"> </span>înregistrări.tar
+înregistrări.tar:<span class="w"> </span>POSIX<span class="w"> </span>tar<span class="w"> </span>archive<span class="w"> </span><span class="o">(</span>GNU<span class="o">)</span>
 </pre></div>
 </div>
 <p>Fișierul <code class="docutils literal notranslate"><span class="pre">înregistrări.tar</span></code> este o arhivă de tip <em>tar</em>.</p>
 <section id="exercitii-creare-arhive">
-<h4><span class="section-number">5.1.1.1. </span>Exerciții - creare arhive<a class="headerlink" href="#exercitii-creare-arhive" title="Permalink to this heading">¶</a></h4>
+<h4><span class="section-number">5.1.1.1. </span>Exerciții - creare arhive<a class="headerlink" href="#exercitii-creare-arhive" title="Link to this heading">¶</a></h4>
 <ol class="arabic simple">
 <li><ul class="simple">
 <li><p>Creați 3 fișiere noi care să conțină pe rând numele, prenumele și anul vostru de naștere.</p></li>
@@ -608,50 +606,50 @@ Fișierele ce compun arhiva ocupă 5M, 3M respectiv 1M.</p>
 </section>
 </section>
 <section id="afisarea-continutului-arhivelor">
-<h3><span class="section-number">5.1.2. </span>Afișarea conținutului arhivelor<a class="headerlink" href="#afisarea-continutului-arhivelor" title="Permalink to this heading">¶</a></h3>
+<h3><span class="section-number">5.1.2. </span>Afișarea conținutului arhivelor<a class="headerlink" href="#afisarea-continutului-arhivelor" title="Link to this heading">¶</a></h3>
 <p>Pentru ușurința de stocare și transmitere, un coleg ne-a transmis toate înregistrările laboratoarelor filmate de el, într-o arhivă.
 Noi vrem să vedem conținutul acestei arhive.
 Putem să vedem ce fișiere conține, fără a o deschide.</p>
 <p>Facem acest lucru folosind utilitarul <code class="docutils literal notranslate"><span class="pre">tar</span></code>:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ tar tf înregistrări.tar
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$<span class="w"> </span>tar<span class="w"> </span>tf<span class="w"> </span>înregistrări.tar
 înregistrare_lab01.mov
 înregistrare_lab02.mov
 înregistrare_lab03.mov
 </pre></div>
 </div>
 <p>Pentru a vizualiza arhiva <strong>fără</strong> dezarhivare am folosit opțiunea <code class="docutils literal notranslate"><span class="pre">t</span></code>.
-Folosim opțiunea <code class="docutils literal notranslate"><span class="pre">f</span></code> pentru a specifica ce arhivă vrem să afișăm.</p>
+Folosim opțiunea <code class="docutils literal notranslate"><span class="pre">f</span></code> pentru a specifica arhiva pe care vrem să o afișăm.</p>
 <section id="exercitiu-afisarea-continutului-unei-arhive">
-<h4><span class="section-number">5.1.2.1. </span>Exercițiu - afișarea conținutului unei arhive<a class="headerlink" href="#exercitiu-afisarea-continutului-unei-arhive" title="Permalink to this heading">¶</a></h4>
+<h4><span class="section-number">5.1.2.1. </span>Exercițiu - afișarea conținutului unei arhive<a class="headerlink" href="#exercitiu-afisarea-continutului-unei-arhive" title="Link to this heading">¶</a></h4>
 <ul class="simple">
 <li><p>Afișați conținutul arhivelor create la exercițiul anterior <code class="docutils literal notranslate"><span class="pre">personal_data.tar</span></code> și <code class="docutils literal notranslate"><span class="pre">net.tar</span></code> <strong>fără</strong> dezarhivare.</p></li>
 </ul>
 </section>
 </section>
 <section id="extragerea-arhivelor">
-<h3><span class="section-number">5.1.3. </span>Extragerea arhivelor<a class="headerlink" href="#extragerea-arhivelor" title="Permalink to this heading">¶</a></h3>
+<h3><span class="section-number">5.1.3. </span>Extragerea arhivelor<a class="headerlink" href="#extragerea-arhivelor" title="Link to this heading">¶</a></h3>
 <p>Dezarhivarea este procesul opus al arhivării.
 Avem deja o arhivă de tip <em>tar</em> și vrem să extragem ierarhia din ea.</p>
 <p>În momentul în care dezarhivăm un fișier de tip <em>tar</em>, fișierele din cadrul arhivei vor fi create în directorul curent (dacă nu se specifică altfel).
 Cu alte cuvinte, ierarhia de fișiere pe care am arhivat-o se păstrează, iar în momentul dezarhivării aceasta va arăta la fel ca înainte de arhivare.
 Pentru a vedea mai clar efectul operației de dezarhivare, ștergem fișierele <code class="docutils literal notranslate"><span class="pre">înregistrare_lab01.mov</span></code>, <code class="docutils literal notranslate"><span class="pre">înregistrare_lab02.mov</span></code>, <code class="docutils literal notranslate"><span class="pre">înregistrare_lab03.mov</span></code>, adică fișierele care se află în arhiva <code class="docutils literal notranslate"><span class="pre">înregistrări.tar</span></code>.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ rm înregistrare_lab01.mov înregistrare_lab02.mov înregistrare_lab03.mov
-student@uso:~$ ls
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$<span class="w"> </span>rm<span class="w"> </span>înregistrare_lab01.mov<span class="w"> </span>înregistrare_lab02.mov<span class="w"> </span>înregistrare_lab03.mov
+student@uso:~$<span class="w"> </span>ls
 înregistrări.tar
 </pre></div>
 </div>
 <p>Am verificat că fișierele nu mai există.</p>
 <p>În continuare extragem fișierele din arhivă folosind <code class="docutils literal notranslate"><span class="pre">tar</span></code>:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ tar xvf înregistrări.tar
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$<span class="w"> </span>tar<span class="w"> </span>xvf<span class="w"> </span>înregistrări.tar
 înregistrare_lab01.mov
 înregistrare_lab02.mov
 înregistrare_lab03.mov
-student@uso:~$ ls -lh
-total 19M
--rw-r--r-- <span class="m">1</span> student student <span class="m">5</span>.0M Aug <span class="m">19</span> <span class="m">11</span>:55 înregistrare_lab01.mov
--rw-r--r-- <span class="m">1</span> student student <span class="m">3</span>.0M Aug <span class="m">19</span> <span class="m">11</span>:55 înregistrare_lab02.mov
--rw-r--r-- <span class="m">1</span> student student <span class="m">1</span>.0M Aug <span class="m">19</span> <span class="m">11</span>:55 înregistrare_lab03.mov
--rw-r--r-- <span class="m">1</span> student student <span class="m">9</span>.1M Aug <span class="m">19</span> <span class="m">12</span>:04 înregistrări.tar
+student@uso:~$<span class="w"> </span>ls<span class="w"> </span>-lh
+total<span class="w"> </span>19M
+-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">5</span>.0M<span class="w"> </span>Aug<span class="w"> </span><span class="m">19</span><span class="w"> </span><span class="m">11</span>:55<span class="w"> </span>înregistrare_lab01.mov
+-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">3</span>.0M<span class="w"> </span>Aug<span class="w"> </span><span class="m">19</span><span class="w"> </span><span class="m">11</span>:55<span class="w"> </span>înregistrare_lab02.mov
+-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">1</span>.0M<span class="w"> </span>Aug<span class="w"> </span><span class="m">19</span><span class="w"> </span><span class="m">11</span>:55<span class="w"> </span>înregistrare_lab03.mov
+-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">9</span>.1M<span class="w"> </span>Aug<span class="w"> </span><span class="m">19</span><span class="w"> </span><span class="m">12</span>:04<span class="w"> </span>înregistrări.tar
 </pre></div>
 </div>
 <p>Pentru dezarhivare am folosit următorii parametrii ai utiliitarului <code class="docutils literal notranslate"><span class="pre">tar</span></code>:</p>
@@ -662,60 +660,60 @@ total 19M
 </ul>
 </section>
 <section id="extragerea-arhivelor-la-o-cale-specifica">
-<h3><span class="section-number">5.1.4. </span>Extragerea arhivelor la o cale specifică<a class="headerlink" href="#extragerea-arhivelor-la-o-cale-specifica" title="Permalink to this heading">¶</a></h3>
+<h3><span class="section-number">5.1.4. </span>Extragerea arhivelor la o cale specifică<a class="headerlink" href="#extragerea-arhivelor-la-o-cale-specifica" title="Link to this heading">¶</a></h3>
 <p>Avem următorul scenariu: am descărcat scheletul de temă de la facultate, acesta se află în directorul <code class="docutils literal notranslate"><span class="pre">~/Downloads</span></code>, iar noi vrem să îl dezarhivăm în directorul <code class="docutils literal notranslate"><span class="pre">~/facultate/uso/teme/</span></code>.</p>
 <p>Sau am descărcat în <code class="docutils literal notranslate"><span class="pre">~/Downloads/</span></code> de la un prieten o arhivă cu înregistrările video ale laboratoarelor.
 Vrem să le dezarhivăm în directorul <code class="docutils literal notranslate"><span class="pre">~/facultate/uso/laboratoare/video/</span></code>.</p>
 <p>Creăm un director <code class="docutils literal notranslate"><span class="pre">dezarhivare/tar</span></code> și extragem arhiva acolo folosind <code class="docutils literal notranslate"><span class="pre">tar</span></code>:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ ls -l
-total <span class="m">18436</span>
--rw-r--r-- <span class="m">1</span> student student <span class="m">5242880</span> Aug <span class="m">19</span> <span class="m">11</span>:55 înregistrare_lab01.mov
--rw-r--r-- <span class="m">1</span> student student <span class="m">3145728</span> Aug <span class="m">19</span> <span class="m">11</span>:55 înregistrare_lab02.mov
--rw-r--r-- <span class="m">1</span> student student <span class="m">1048576</span> Aug <span class="m">19</span> <span class="m">11</span>:55 înregistrare_lab03.mov
--rw-r--r-- <span class="m">1</span> student student <span class="m">9439088</span> Aug <span class="m">19</span> <span class="m">12</span>:04 înregistrări.tar
-student@uso:~$ mkdir -p dezarhivare/tar
-student@uso:~$ tree
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$<span class="w"> </span>ls<span class="w"> </span>-l
+total<span class="w"> </span><span class="m">18436</span>
+-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">5242880</span><span class="w"> </span>Aug<span class="w"> </span><span class="m">19</span><span class="w"> </span><span class="m">11</span>:55<span class="w"> </span>înregistrare_lab01.mov
+-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">3145728</span><span class="w"> </span>Aug<span class="w"> </span><span class="m">19</span><span class="w"> </span><span class="m">11</span>:55<span class="w"> </span>înregistrare_lab02.mov
+-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">1048576</span><span class="w"> </span>Aug<span class="w"> </span><span class="m">19</span><span class="w"> </span><span class="m">11</span>:55<span class="w"> </span>înregistrare_lab03.mov
+-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">9439088</span><span class="w"> </span>Aug<span class="w"> </span><span class="m">19</span><span class="w"> </span><span class="m">12</span>:04<span class="w"> </span>înregistrări.tar
+student@uso:~$<span class="w"> </span>mkdir<span class="w"> </span>-p<span class="w"> </span>dezarhivare/tar
+student@uso:~$<span class="w"> </span>tree<span class="w"> </span>-F
 .
-<span class="p">|</span>-- dezarhivare
-<span class="p">|</span>   <span class="sb">``</span>-- tar
-<span class="p">|</span>-- înregistrare_lab01.mov
-<span class="p">|</span>-- înregistrare_lab02.mov
-<span class="p">|</span>-- înregistrare_lab03.mov
-<span class="sb">``</span>-- înregistrări.tar
+<span class="p">|</span>--<span class="w"> </span>dezarhivare/
+<span class="p">|</span><span class="w">   </span><span class="sb">``</span>--<span class="w"> </span>tar/
+<span class="p">|</span>--<span class="w"> </span>înregistrare_lab01.mov
+<span class="p">|</span>--<span class="w"> </span>înregistrare_lab02.mov
+<span class="p">|</span>--<span class="w"> </span>înregistrare_lab03.mov
+<span class="sb">``</span>--<span class="w"> </span>înregistrări.tar
 
-<span class="m">2</span> directories, <span class="m">4</span> files
-student@uso:~$ tar xvf înregistrări.tar --directory dezarhivare/tar/
+<span class="m">2</span><span class="w"> </span>directories,<span class="w"> </span><span class="m">4</span><span class="w"> </span>files
+student@uso:~$<span class="w"> </span>tar<span class="w"> </span>xvf<span class="w"> </span>înregistrări.tar<span class="w"> </span>--directory<span class="w"> </span>dezarhivare/tar/
 înregistrare_lab01.mov
 înregistrare_lab02.mov
 înregistrare_lab03.mov
-student@uso:~$ tree
+student@uso:~$<span class="w"> </span>tree<span class="w"> </span>-F
 .
-<span class="p">|</span>-- dezarhivare
-<span class="p">|</span>   <span class="sb">``</span>-- tar
-<span class="p">|</span>       <span class="p">|</span>-- înregistrare_lab01.mov
-<span class="p">|</span>       <span class="p">|</span>-- înregistrare_lab02.mov
-<span class="p">|</span>       <span class="sb">``</span>-- înregistrare_lab03.mov
-<span class="p">|</span>-- înregistrare_lab01.mov
-<span class="p">|</span>-- înregistrare_lab02.mov
-<span class="p">|</span>-- înregistrare_lab03.mov
-<span class="sb">``</span>-- înregistrări.tar
+<span class="p">|</span>--<span class="w"> </span>dezarhivare/
+<span class="p">|</span><span class="w">   </span><span class="sb">``</span>--<span class="w"> </span>tar/
+<span class="p">|</span><span class="w">       </span><span class="p">|</span>--<span class="w"> </span>înregistrare_lab01.mov
+<span class="p">|</span><span class="w">       </span><span class="p">|</span>--<span class="w"> </span>înregistrare_lab02.mov
+<span class="p">|</span><span class="w">       </span><span class="sb">``</span>--<span class="w"> </span>înregistrare_lab03.mov
+<span class="p">|</span>--<span class="w"> </span>înregistrare_lab01.mov
+<span class="p">|</span>--<span class="w"> </span>înregistrare_lab02.mov
+<span class="p">|</span>--<span class="w"> </span>înregistrare_lab03.mov
+<span class="sb">``</span>--<span class="w"> </span>înregistrări.tar
 
-<span class="m">2</span> directories, <span class="m">7</span> files
+<span class="m">2</span><span class="w"> </span>directories,<span class="w"> </span><span class="m">7</span><span class="w"> </span>files
 </pre></div>
 </div>
 <p>Observăm că după crearea directoarelor și după extragerea arhivelor am verificat corectitudinea operațiilor.</p>
 <p>După cum observăm în exemplu de mai sus, pentru a extrage fișierele către o anumită cale, folosim opțiunea <code class="docutils literal notranslate"><span class="pre">--directory</span></code> (<em>- - d i r e c t o r y</em>):</p>
 <p>Putem extrage un singur fișier fără să fim obligați să dezarhivăm tot, folosind comanda <code class="docutils literal notranslate"><span class="pre">tar</span> <span class="pre">xvf</span></code> astfel:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ rm înregistrare_lab01.mov înregistrare_lab02.mov înregistrare_lab03.mov
-student@uso:~$ ls
-dezarhivare  înregistrări.tar
-student@uso:~$ tar xvf înregistrări.tar înregistrare_lab01.mov
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$<span class="w"> </span>rm<span class="w"> </span>înregistrare_lab01.mov<span class="w"> </span>înregistrare_lab02.mov<span class="w"> </span>înregistrare_lab03.mov
+student@uso:~$<span class="w"> </span>ls
+dezarhivare<span class="w">  </span>înregistrări.tar
+student@uso:~$<span class="w"> </span>tar<span class="w"> </span>xvf<span class="w"> </span>înregistrări.tar<span class="w"> </span>înregistrare_lab01.mov
 înregistrare_lab01.mov
-student@uso:~$ ls -l
-total <span class="m">14344</span>
-drwxr-xr-x <span class="m">3</span> student student    <span class="m">4096</span> Aug <span class="m">19</span> <span class="m">12</span>:15 dezarhivare
--rw-r--r-- <span class="m">1</span> student student <span class="m">5242880</span> Aug <span class="m">19</span> <span class="m">11</span>:55 înregistrare_lab01.mov
--rw-r--r-- <span class="m">1</span> student student <span class="m">9439088</span> Aug <span class="m">19</span> <span class="m">12</span>:04 înregistrări.tar
+student@uso:~$<span class="w"> </span>ls<span class="w"> </span>-l
+total<span class="w"> </span><span class="m">14344</span>
+drwxr-xr-x<span class="w"> </span><span class="m">3</span><span class="w"> </span>student<span class="w"> </span>student<span class="w">    </span><span class="m">4096</span><span class="w"> </span>Aug<span class="w"> </span><span class="m">19</span><span class="w"> </span><span class="m">12</span>:15<span class="w"> </span>dezarhivare
+-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">5242880</span><span class="w"> </span>Aug<span class="w"> </span><span class="m">19</span><span class="w"> </span><span class="m">11</span>:55<span class="w"> </span>înregistrare_lab01.mov
+-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">9439088</span><span class="w"> </span>Aug<span class="w"> </span><span class="m">19</span><span class="w"> </span><span class="m">12</span>:04<span class="w"> </span>înregistrări.tar
 </pre></div>
 </div>
 <p>Am extras doar fișierul <code class="docutils literal notranslate"><span class="pre">înregistrare_lab01.mov</span></code> din arhiva <code class="docutils literal notranslate"><span class="pre">înregistrări.tar</span></code>.</p>
@@ -726,7 +724,7 @@ Este extrem de util acest lucru.</p>
 </div>
 <p>Am pus ca ultim parametru numele fișierului (<code class="docutils literal notranslate"><span class="pre">înregistrare_lab01.mov</span></code>).</p>
 <section id="exercitii-extragerea-dezarhivarea-unei-arhive">
-<h4><span class="section-number">5.1.4.1. </span>Exerciții - extragerea (dezarhivarea) unei arhive<a class="headerlink" href="#exercitii-extragerea-dezarhivarea-unei-arhive" title="Permalink to this heading">¶</a></h4>
+<h4><span class="section-number">5.1.4.1. </span>Exerciții - extragerea (dezarhivarea) unei arhive<a class="headerlink" href="#exercitii-extragerea-dezarhivarea-unei-arhive" title="Link to this heading">¶</a></h4>
 <ol class="arabic simple">
 <li><ul class="simple">
 <li><p>Creați un director cu numele <code class="docutils literal notranslate"><span class="pre">personal</span></code> și în acest director încă unul cu numele <code class="docutils literal notranslate"><span class="pre">documente</span></code> ca în ierarhia de mai sus.</p></li>
@@ -744,15 +742,15 @@ Este extrem de util acest lucru.</p>
 </section>
 </section>
 <section id="adaugarea-de-noi-fisiere-la-arhive">
-<h3><span class="section-number">5.1.5. </span>Adăugarea de noi fișiere la arhive<a class="headerlink" href="#adaugarea-de-noi-fisiere-la-arhive" title="Permalink to this heading">¶</a></h3>
+<h3><span class="section-number">5.1.5. </span>Adăugarea de noi fișiere la arhive<a class="headerlink" href="#adaugarea-de-noi-fisiere-la-arhive" title="Link to this heading">¶</a></h3>
 <p>Adăugăm un nou fișier la arhivă folosind comanda <code class="docutils literal notranslate"><span class="pre">tar</span></code>, astfel:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ tar -tf înregistrări.tar
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$<span class="w"> </span>tar<span class="w"> </span>-tf<span class="w"> </span>înregistrări.tar
 înregistrare_lab01.mov
 înregistrare_lab02.mov
 înregistrare_lab03.mov
-student@uso:~$ tar rvf înregistrări.tar înregistrare_lab04.mov
+student@uso:~$<span class="w"> </span>tar<span class="w"> </span>rvf<span class="w"> </span>înregistrări.tar<span class="w"> </span>înregistrare_lab04.mov
 înregistrare_lab04.mov
-student@uso:~$ tar tf înregistrări.tar
+student@uso:~$<span class="w"> </span>tar<span class="w"> </span>tf<span class="w"> </span>înregistrări.tar
 înregistrare_lab01.mov
 înregistrare_lab02.mov
 înregistrare_lab03.mov
@@ -766,7 +764,7 @@ student@uso:~$ tar tf înregistrări.tar
 <p>Observăm cum după comanda de adăugare de fișier la arhivă, am verificat corectitudinea operației.</p>
 </div>
 <section id="exercitii-adaugare-de-noi-fisiere">
-<h4><span class="section-number">5.1.5.1. </span>Exerciții - adăugare de noi fișiere<a class="headerlink" href="#exercitii-adaugare-de-noi-fisiere" title="Permalink to this heading">¶</a></h4>
+<h4><span class="section-number">5.1.5.1. </span>Exerciții - adăugare de noi fișiere<a class="headerlink" href="#exercitii-adaugare-de-noi-fisiere" title="Link to this heading">¶</a></h4>
 <ul class="simple">
 <li><p>Creați un fișier <code class="docutils literal notranslate"><span class="pre">UPB</span></code>; verificați operația afișând conținutul directorului părinte;</p></li>
 <li><p>Adăugați textul <em>Make UPB Great Again!</em> în interiorul fișierului; verificați operația afișând conținutul fișierului;</p></li>
@@ -775,16 +773,16 @@ student@uso:~$ tar tf înregistrări.tar
 </section>
 </section>
 <section id="comprimare-tar-gz">
-<h3><span class="section-number">5.1.6. </span>Comprimare <code class="docutils literal notranslate"><span class="pre">tar.gz</span></code><a class="headerlink" href="#comprimare-tar-gz" title="Permalink to this heading">¶</a></h3>
+<h3><span class="section-number">5.1.6. </span>Comprimare <code class="docutils literal notranslate"><span class="pre">tar.gz</span></code><a class="headerlink" href="#comprimare-tar-gz" title="Link to this heading">¶</a></h3>
 <p>Am văzut mai sus că pentru a pune o ierarhie de fișiere într-unul singur, folosim <code class="docutils literal notranslate"><span class="pre">tar</span></code>.
 Pentru a reduce dimensiunea arhivei folosim utilitarul <code class="docutils literal notranslate"><span class="pre">tar</span></code> astfel:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ tar -czvf inregistrari.tar.gz inregistrare_lab01.mov inregistrare_lab02.mov inregistrare_lab03.mov
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$<span class="w"> </span>tar<span class="w"> </span>-czvf<span class="w"> </span>inregistrari.tar.gz<span class="w"> </span>inregistrare_lab01.mov<span class="w"> </span>inregistrare_lab02.mov<span class="w"> </span>inregistrare_lab03.mov
 inregistrare_lab01.mov
 inregistrare_lab02.mov
 inregistrare_lab03.mov
-student@uso:~$ ls -l
--rw-r--r-- <span class="m">1</span> student student   <span class="m">9441280</span> Sep <span class="m">29</span> <span class="m">04</span>:51 inregistrari.tar
--rw-r--r-- <span class="m">1</span> student student   <span class="m">9439133</span> Oct <span class="m">12</span> <span class="m">18</span>:55 inregistrari.tar.gz
+student@uso:~$<span class="w"> </span>ls<span class="w"> </span>-l
+-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>student<span class="w"> </span>student<span class="w">   </span><span class="m">9441280</span><span class="w"> </span>Sep<span class="w"> </span><span class="m">29</span><span class="w"> </span><span class="m">04</span>:51<span class="w"> </span>inregistrari.tar
+-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>student<span class="w"> </span>student<span class="w">   </span><span class="m">9439133</span><span class="w"> </span>Oct<span class="w"> </span><span class="m">12</span><span class="w"> </span><span class="m">18</span>:55<span class="w"> </span>inregistrari.tar.gz
 </pre></div>
 </div>
 <p>Am folosit următorii parametrii:</p>
@@ -798,27 +796,27 @@ student@uso:~$ ls -l
 </section>
 </section>
 <section id="comprimare-zip">
-<h2><span class="section-number">5.2. </span>Comprimare - <code class="docutils literal notranslate"><span class="pre">zip</span></code><a class="headerlink" href="#comprimare-zip" title="Permalink to this heading">¶</a></h2>
+<h2><span class="section-number">5.2. </span>Comprimare - <code class="docutils literal notranslate"><span class="pre">zip</span></code><a class="headerlink" href="#comprimare-zip" title="Link to this heading">¶</a></h2>
 <p>Acțiunea de comprimare este compusă din doi pași: <strong>arhivare</strong> și <strong>reducerea dimensiunii</strong> (<em>comprimare</em>).
 Utilitarul <code class="docutils literal notranslate"><span class="pre">zip</span></code> face ambii pași simultan.</p>
 <p>În continuare folosim utilitarul <code class="docutils literal notranslate"><span class="pre">zip</span></code> pentru arhivare și comprimare.
 Arhivarea este similară cu cea prezentată în subsecțiunea <a class="reference internal" href="#arhiva-tar"><span class="std std-ref">Arhivare - tar</span></a>, unde am folosit utilitarul <code class="docutils literal notranslate"><span class="pre">tar</span></code>.</p>
 <section id="id2">
-<h3><span class="section-number">5.2.1. </span>Crearea arhivelor<a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h3>
+<h3><span class="section-number">5.2.1. </span>Crearea arhivelor<a class="headerlink" href="#id2" title="Link to this heading">¶</a></h3>
 <p>Putem crea o arhivă folosind utilitarul <code class="docutils literal notranslate"><span class="pre">zip</span></code>, astfel:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ zip înregistrări.zip înregistrare_lab01.mov înregistrare_lab02.mov înregistrare_lab03.mov
-  adding: înregistrare_lab01.mov <span class="o">(</span>deflated <span class="m">0</span>%<span class="o">)</span>
-  adding: înregistrare_lab02.mov <span class="o">(</span>deflated <span class="m">0</span>%<span class="o">)</span>
-  adding: înregistrare_lab03.mov <span class="o">(</span>deflated <span class="m">0</span>%<span class="o">)</span>
-student@uso:~$ ls -lh
-total 26M
-drwxr-xr-x <span class="m">3</span> student student <span class="m">4</span>.0K Aug <span class="m">19</span> <span class="m">12</span>:15 dezarhivare
--rw-r--r-- <span class="m">1</span> student student <span class="m">5</span>.0M Aug <span class="m">19</span> <span class="m">11</span>:55 înregistrare_lab01.mov
--rw-r--r-- <span class="m">1</span> student student <span class="m">3</span>.0M Aug <span class="m">19</span> <span class="m">11</span>:55 înregistrare_lab02.mov
--rw-r--r-- <span class="m">1</span> student student <span class="m">1</span>.0M Aug <span class="m">19</span> <span class="m">11</span>:55 înregistrare_lab03.mov
--rw-r--r-- <span class="m">1</span> student student <span class="m">7</span>.0M Aug <span class="m">19</span> <span class="m">12</span>:35 înregistrare_lab04.mov
--rw-r--r-- <span class="m">1</span> student student <span class="m">9</span>.1M Aug <span class="m">19</span> <span class="m">17</span>:56 înregistrări.tar
--rw-r--r-- <span class="m">1</span> student student <span class="m">9</span>.1M Aug <span class="m">19</span> <span class="m">17</span>:54 înregistrări.zip
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$<span class="w"> </span>zip<span class="w"> </span>înregistrări.zip<span class="w"> </span>înregistrare_lab01.mov<span class="w"> </span>înregistrare_lab02.mov<span class="w"> </span>înregistrare_lab03.mov
+<span class="w">  </span>adding:<span class="w"> </span>înregistrare_lab01.mov<span class="w"> </span><span class="o">(</span>deflated<span class="w"> </span><span class="m">0</span>%<span class="o">)</span>
+<span class="w">  </span>adding:<span class="w"> </span>înregistrare_lab02.mov<span class="w"> </span><span class="o">(</span>deflated<span class="w"> </span><span class="m">0</span>%<span class="o">)</span>
+<span class="w">  </span>adding:<span class="w"> </span>înregistrare_lab03.mov<span class="w"> </span><span class="o">(</span>deflated<span class="w"> </span><span class="m">0</span>%<span class="o">)</span>
+student@uso:~$<span class="w"> </span>ls<span class="w"> </span>-lh
+total<span class="w"> </span>26M
+drwxr-xr-x<span class="w"> </span><span class="m">3</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">4</span>.0K<span class="w"> </span>Aug<span class="w"> </span><span class="m">19</span><span class="w"> </span><span class="m">12</span>:15<span class="w"> </span>dezarhivare
+-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">5</span>.0M<span class="w"> </span>Aug<span class="w"> </span><span class="m">19</span><span class="w"> </span><span class="m">11</span>:55<span class="w"> </span>înregistrare_lab01.mov
+-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">3</span>.0M<span class="w"> </span>Aug<span class="w"> </span><span class="m">19</span><span class="w"> </span><span class="m">11</span>:55<span class="w"> </span>înregistrare_lab02.mov
+-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">1</span>.0M<span class="w"> </span>Aug<span class="w"> </span><span class="m">19</span><span class="w"> </span><span class="m">11</span>:55<span class="w"> </span>înregistrare_lab03.mov
+-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">7</span>.0M<span class="w"> </span>Aug<span class="w"> </span><span class="m">19</span><span class="w"> </span><span class="m">12</span>:35<span class="w"> </span>înregistrare_lab04.mov
+-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">9</span>.1M<span class="w"> </span>Aug<span class="w"> </span><span class="m">19</span><span class="w"> </span><span class="m">17</span>:56<span class="w"> </span>înregistrări.tar
+-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">9</span>.1M<span class="w"> </span>Aug<span class="w"> </span><span class="m">19</span><span class="w"> </span><span class="m">17</span>:54<span class="w"> </span>înregistrări.zip
 </pre></div>
 </div>
 <p>Sintaxa este în felul următor: <code class="docutils literal notranslate"><span class="pre">zip</span> <span class="pre">numele_arhivă.zip</span> <span class="pre">ierarhia_de_fișiere</span></code>
@@ -831,21 +829,21 @@ Exemplu de informații stocate: dimensiune, data creare, permisiuni, utilizatoru
 De fapt, dacă ne uităm în detaliu, vom vedea că nu este așa.</p>
 <p>Mai sus vedeam afișarea dimensiuni în format <em>human-readable</em> adică în <em>MegaBytes</em> (MegaOcteți).
 Afișăm dimesniunea în octeți:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ ls -l
--rw-r--r-- <span class="m">1</span> student student <span class="m">9441280</span> Sep <span class="m">29</span> <span class="m">04</span>:51 înregistrări.tar
--rw-r--r-- <span class="m">1</span> student student <span class="m">9439072</span> Sep <span class="m">29</span> <span class="m">04</span>:51 înregistrări.zip
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$<span class="w"> </span>ls<span class="w"> </span>-l
+-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">9441280</span><span class="w"> </span>Sep<span class="w"> </span><span class="m">29</span><span class="w"> </span><span class="m">04</span>:51<span class="w"> </span>înregistrări.tar
+-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">9439072</span><span class="w"> </span>Sep<span class="w"> </span><span class="m">29</span><span class="w"> </span><span class="m">04</span>:51<span class="w"> </span>înregistrări.zip
 </pre></div>
 </div>
 <p>Arhiva <code class="docutils literal notranslate"><span class="pre">tar</span></code> are 9441280 octeți, iar arhiva <code class="docutils literal notranslate"><span class="pre">zip</span></code> are 9439072.
 Observăm o mică diferență între cele două, varianta <code class="docutils literal notranslate"><span class="pre">zip</span></code> fiind mai mică.</p>
 <p>Mergem mai departe cu un experiment.
 Facem arhivare și comprimare a ierarhiei de directoare <code class="docutils literal notranslate"><span class="pre">/usr/bin</span></code> și comparăm dimensiunea:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ ls -l
--rw-r--r-- <span class="m">1</span> student student <span class="m">100679680</span> Sep <span class="m">29</span> <span class="m">04</span>:46 usr_bin.tar
--rw-r--r-- <span class="m">1</span> student student  <span class="m">87282498</span> Sep <span class="m">29</span> <span class="m">04</span>:46 usr_bin.zip
-student@uso:~$ ls -lh
--rw-r--r-- <span class="m">1</span> student student 97M Sep <span class="m">29</span> <span class="m">04</span>:46 usr_bin.tar
--rw-r--r-- <span class="m">1</span> student student 84M Sep <span class="m">29</span> <span class="m">04</span>:46 usr_bin.zip
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$<span class="w"> </span>ls<span class="w"> </span>-l
+-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">100679680</span><span class="w"> </span>Sep<span class="w"> </span><span class="m">29</span><span class="w"> </span><span class="m">04</span>:46<span class="w"> </span>usr_bin.tar
+-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>student<span class="w"> </span>student<span class="w">  </span><span class="m">87282498</span><span class="w"> </span>Sep<span class="w"> </span><span class="m">29</span><span class="w"> </span><span class="m">04</span>:46<span class="w"> </span>usr_bin.zip
+student@uso:~$<span class="w"> </span>ls<span class="w"> </span>-lh
+-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span>97M<span class="w"> </span>Sep<span class="w"> </span><span class="m">29</span><span class="w"> </span><span class="m">04</span>:46<span class="w"> </span>usr_bin.tar
+-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span>84M<span class="w"> </span>Sep<span class="w"> </span><span class="m">29</span><span class="w"> </span><span class="m">04</span>:46<span class="w"> </span>usr_bin.zip
 </pre></div>
 </div>
 <p>Observăm deja o diferență mai mare de dimensiune între cele două.</p>
@@ -854,7 +852,7 @@ student@uso:~$ ls -lh
 <p>Pentru o mai bună înțelegere a comenzii de creare a arhivelor, inspectați manualul: <code class="docutils literal notranslate"><span class="pre">man</span> <span class="pre">zip</span></code>.</p>
 </div>
 <section id="id3">
-<h4><span class="section-number">5.2.1.1. </span>Exerciții - creare arhive<a class="headerlink" href="#id3" title="Permalink to this heading">¶</a></h4>
+<h4><span class="section-number">5.2.1.1. </span>Exerciții - creare arhive<a class="headerlink" href="#id3" title="Link to this heading">¶</a></h4>
 <ol class="arabic simple">
 <li><ul class="simple">
 <li><p>Creați 3 fișiere noi care să conțină pe rând orașul natal, țara natală și liceul absolvit; verificați crearea fișierelor afișând conținutul directorului părinte.</p></li>
@@ -864,25 +862,25 @@ student@uso:~$ ls -lh
 </li>
 <li><ul class="simple">
 <li><p>Creați o arhivă de tipul <code class="docutils literal notranslate"><span class="pre">zip</span></code> a fișierelor din interiorul directorului <code class="docutils literal notranslate"><span class="pre">/usr/include/net/</span></code> cu numele <code class="docutils literal notranslate"><span class="pre">net.zip</span></code>.</p></li>
-<li><p>Comparați dimensiunea arhivei <code class="docutils literal notranslate"><span class="pre">zip</span></code> cu cea <code class="docutils literal notranslate"><span class="pre">tar</span></code> de la exercițiu precendent.</p></li>
+<li><p>Comparați dimensiunea arhivei <code class="docutils literal notranslate"><span class="pre">zip</span></code> cu cea <code class="docutils literal notranslate"><span class="pre">tar</span></code> de la exercițiul precendent.</p></li>
 </ul>
 </li>
 </ol>
 </section>
 </section>
 <section id="id4">
-<h3><span class="section-number">5.2.2. </span>Afișarea conținutului arhivelor<a class="headerlink" href="#id4" title="Permalink to this heading">¶</a></h3>
+<h3><span class="section-number">5.2.2. </span>Afișarea conținutului arhivelor<a class="headerlink" href="#id4" title="Link to this heading">¶</a></h3>
 <p>Putem vizualiza conținutul arhivei astfel:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ zip -sf înregistrări.zip
-Archive contains:
-  înregistrare_lab01.mov
-  înregistrare_lab02.mov
-  înregistrare_lab03.mov
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$<span class="w"> </span>zip<span class="w"> </span>-sf<span class="w"> </span>înregistrări.zip
+Archive<span class="w"> </span>contains:
+<span class="w">  </span>înregistrare_lab01.mov
+<span class="w">  </span>înregistrare_lab02.mov
+<span class="w">  </span>înregistrare_lab03.mov
 </pre></div>
 </div>
 <p>Pentru a vizualiza arhiva <strong>fără</strong> dezarhivare folosim opțiunea <code class="docutils literal notranslate"><span class="pre">-sf</span></code> (prescurtare de la <em>show-files</em>).</p>
 <section id="exercitii-afisarea-continutului-unei-arhivei">
-<h4><span class="section-number">5.2.2.1. </span>Exerciții - afișarea conținutului unei arhivei<a class="headerlink" href="#exercitii-afisarea-continutului-unei-arhivei" title="Permalink to this heading">¶</a></h4>
+<h4><span class="section-number">5.2.2.1. </span>Exerciții - afișarea conținutului unei arhivei<a class="headerlink" href="#exercitii-afisarea-continutului-unei-arhivei" title="Link to this heading">¶</a></h4>
 <ul class="simple">
 <li><p>Acest exercițiu folosește arhiva creată la exercițiu anterior.</p></li>
 <li><p>Afișați conținutul arhivelor <code class="docutils literal notranslate"><span class="pre">personal_data.zip</span></code> și <code class="docutils literal notranslate"><span class="pre">net.zip</span></code> <strong>fără</strong> dezarhivare.</p></li>
@@ -890,25 +888,57 @@ Archive contains:
 </section>
 </section>
 <section id="dezarhivarea-arhivelor">
-<h3><span class="section-number">5.2.3. </span>Dezarhivarea arhivelor<a class="headerlink" href="#dezarhivarea-arhivelor" title="Permalink to this heading">¶</a></h3>
+<h3><span class="section-number">5.2.3. </span>Dezarhivarea arhivelor<a class="headerlink" href="#dezarhivarea-arhivelor" title="Link to this heading">¶</a></h3>
 <p>În momentul în care dezarhivăm un fișier de tip <em>zip</em>, fișierele din cadrul arhivei vor fi create în directorul curent (dacă nu se specifică altfel).
 Cu alte cuvinte, ierarhia de fișiere pe care am arhivat-o se păstrează, iar în momentul dezarhivării aceasta va arăta la fel ca înainte de arhivare.
 Pentru a vedea mai clar efectul operației de dezarhivare, ștergem fișierele <code class="docutils literal notranslate"><span class="pre">înregistrare_lab01.mov</span></code>, <code class="docutils literal notranslate"><span class="pre">înregistrare_lab02.mov</span></code>, <code class="docutils literal notranslate"><span class="pre">înregistrare_lab03.mov</span></code>, adică fișierele care se află în arhiva <em>înregistrări.zip</em>.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ ls -l
-total <span class="m">29708</span>
-drwxr-xr-x <span class="m">3</span> student student    <span class="m">4096</span> Aug <span class="m">19</span> <span class="m">12</span>:15 dezarhivare
--rw-r--r-- <span class="m">1</span> student student <span class="m">5242880</span> Aug <span class="m">19</span> <span class="m">11</span>:55 înregistrare_lab01.mov
--rw-r--r-- <span class="m">1</span> student student <span class="m">3145728</span> Aug <span class="m">19</span> <span class="m">11</span>:55 înregistrare_lab02.mov
--rw-r--r-- <span class="m">1</span> student student <span class="m">1048576</span> Aug <span class="m">19</span> <span class="m">11</span>:55 înregistrare_lab03.mov
--rw-r--r-- <span class="m">1</span> student student <span class="m">7340032</span> Aug <span class="m">19</span> <span class="m">12</span>:35 înregistrare_lab04.mov
--rw-r--r-- <span class="m">1</span> student student <span class="m">9441280</span> Aug <span class="m">19</span> <span class="m">17</span>:56 înregistrări.tar
--rw-r--r-- <span class="m">1</span> student student <span class="m">4195250</span> Aug <span class="m">19</span> <span class="m">18</span>:00 înregistrări.zip
-student@uso:~$ rm înregistrări.zip
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$<span class="w"> </span>ls<span class="w"> </span>-l
+total<span class="w"> </span><span class="m">29708</span>
+drwxr-xr-x<span class="w"> </span><span class="m">3</span><span class="w"> </span>student<span class="w"> </span>student<span class="w">    </span><span class="m">4096</span><span class="w"> </span>Aug<span class="w"> </span><span class="m">19</span><span class="w"> </span><span class="m">12</span>:15<span class="w"> </span>dezarhivare
+-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">5242880</span><span class="w"> </span>Aug<span class="w"> </span><span class="m">19</span><span class="w"> </span><span class="m">11</span>:55<span class="w"> </span>înregistrare_lab01.mov
+-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">3145728</span><span class="w"> </span>Aug<span class="w"> </span><span class="m">19</span><span class="w"> </span><span class="m">11</span>:55<span class="w"> </span>înregistrare_lab02.mov
+-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">1048576</span><span class="w"> </span>Aug<span class="w"> </span><span class="m">19</span><span class="w"> </span><span class="m">11</span>:55<span class="w"> </span>înregistrare_lab03.mov
+-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">7340032</span><span class="w"> </span>Aug<span class="w"> </span><span class="m">19</span><span class="w"> </span><span class="m">12</span>:35<span class="w"> </span>înregistrare_lab04.mov
+-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">9441280</span><span class="w"> </span>Aug<span class="w"> </span><span class="m">19</span><span class="w"> </span><span class="m">17</span>:56<span class="w"> </span>înregistrări.tar
+-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">4195250</span><span class="w"> </span>Aug<span class="w"> </span><span class="m">19</span><span class="w"> </span><span class="m">18</span>:00<span class="w"> </span>înregistrări.zip
+student@uso:~$<span class="w"> </span>rm<span class="w"> </span>înregistrări.zip
 </pre></div>
 </div>
 <p>În primă instanță, ștergem arhiva <code class="docutils literal notranslate"><span class="pre">înregistrări.zip</span></code>.
 În continuare, recreăm arhiva <code class="docutils literal notranslate"><span class="pre">înregistrări.zip</span></code> și ștergem fișierele <code class="docutils literal notranslate"><span class="pre">înregistrare_lab01.mov</span></code>, <code class="docutils literal notranslate"><span class="pre">înregistrare_lab02.mov</span></code>, <code class="docutils literal notranslate"><span class="pre">înregistrare_lab03.mov</span></code>:</p>
-<p>În momentul de față avem doar arhiva <em>zip</em> și urmează să obținem fișierele cu înregistrari,  folosind utilitarul <code class="docutils literal notranslate"><span class="pre">zip</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$<span class="w"> </span>zip<span class="w"> </span>înregistrări.zip<span class="w"> </span>înregistrare_lab01.mov<span class="w"> </span>înregistrare_lab02.mov<span class="w">  </span>înregistrare_lab03.mov
+<span class="w">  </span>adding:<span class="w"> </span>înregistrare_lab01.mov<span class="w"> </span><span class="o">(</span>deflated<span class="w"> </span><span class="m">0</span>%<span class="o">)</span>
+<span class="w">  </span>adding:<span class="w"> </span>înregistrare_lab02.mov<span class="w"> </span><span class="o">(</span>deflated<span class="w"> </span><span class="m">0</span>%<span class="o">)</span>
+<span class="w">  </span>adding:<span class="w"> </span>înregistrare_lab03.mov<span class="w"> </span><span class="o">(</span>deflated<span class="w"> </span><span class="m">0</span>%<span class="o">)</span>
+student@uso:~$<span class="w"> </span>ls<span class="w"> </span>-l
+total<span class="w"> </span><span class="m">34828</span>
+drwxr-xr-x<span class="w"> </span><span class="m">3</span><span class="w"> </span>student<span class="w"> </span>student<span class="w">    </span><span class="m">4096</span><span class="w"> </span>Aug<span class="w"> </span><span class="m">19</span><span class="w"> </span><span class="m">12</span>:15<span class="w"> </span>dezarhivare
+-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">5242880</span><span class="w"> </span>Aug<span class="w"> </span><span class="m">19</span><span class="w"> </span><span class="m">11</span>:55<span class="w"> </span>înregistrare_lab01.mov
+-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">3145728</span><span class="w"> </span>Aug<span class="w"> </span><span class="m">19</span><span class="w"> </span><span class="m">11</span>:55<span class="w"> </span>înregistrare_lab02.mov
+-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">1048576</span><span class="w"> </span>Aug<span class="w"> </span><span class="m">19</span><span class="w"> </span><span class="m">11</span>:55<span class="w"> </span>înregistrare_lab03.mov
+-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">7340032</span><span class="w"> </span>Aug<span class="w"> </span><span class="m">19</span><span class="w"> </span><span class="m">12</span>:35<span class="w"> </span>înregistrare_lab04.mov
+-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">9441280</span><span class="w"> </span>Aug<span class="w"> </span><span class="m">19</span><span class="w"> </span><span class="m">17</span>:56<span class="w"> </span>înregistrări.tar
+-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">9439072</span><span class="w"> </span>Aug<span class="w"> </span><span class="m">19</span><span class="w"> </span><span class="m">18</span>:02<span class="w"> </span>înregistrări.zip
+student@uso:~$<span class="w"> </span>rm<span class="w"> </span>înregistrare_lab01.mov<span class="w"> </span>înregistrare_lab02.mov<span class="w">  </span>înregistrare_lab03.mov
+</pre></div>
+</div>
+<p>În momentul de față avem doar arhiva <em>zip</em> și urmează să obținem fișierele cu înregistrari,  folosind utilitarul <code class="docutils literal notranslate"><span class="pre">unzip</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$<span class="w"> </span>unzip<span class="w"> </span>înregistrări.zip
+Archive:<span class="w">  </span>înregistrări.zip
+<span class="w">  </span>inflating:<span class="w"> </span>înregistrare_lab01.mov
+<span class="w">  </span>inflating:<span class="w"> </span>înregistrare_lab02.mov
+<span class="w">  </span>inflating:<span class="w"> </span>înregistrare_lab03.mov
+student@uso:~$<span class="w"> </span>ls<span class="w"> </span>-lh
+total<span class="w"> </span>35M
+drwxr-xr-x<span class="w"> </span><span class="m">3</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">4</span>.0K<span class="w"> </span>Aug<span class="w"> </span><span class="m">19</span><span class="w"> </span><span class="m">12</span>:15<span class="w"> </span>dezarhivare
+-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">5</span>.0M<span class="w"> </span>Aug<span class="w"> </span><span class="m">19</span><span class="w"> </span><span class="m">11</span>:55<span class="w"> </span>înregistrare_lab01.mov
+-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">3</span>.0M<span class="w"> </span>Aug<span class="w"> </span><span class="m">19</span><span class="w"> </span><span class="m">11</span>:55<span class="w"> </span>înregistrare_lab02.mov
+-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">1</span>.0M<span class="w"> </span>Aug<span class="w"> </span><span class="m">19</span><span class="w"> </span><span class="m">11</span>:55<span class="w"> </span>înregistrare_lab03.mov
+-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">7</span>.0M<span class="w"> </span>Aug<span class="w"> </span><span class="m">19</span><span class="w"> </span><span class="m">12</span>:35<span class="w"> </span>înregistrare_lab04.mov
+-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">9</span>.1M<span class="w"> </span>Aug<span class="w"> </span><span class="m">19</span><span class="w"> </span><span class="m">17</span>:56<span class="w"> </span>înregistrări.tar
+-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">9</span>.1M<span class="w"> </span>Aug<span class="w"> </span><span class="m">19</span><span class="w"> </span><span class="m">18</span>:02<span class="w"> </span>înregistrări.zip
+</pre></div>
+</div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Observăm cum după operațiile de ștergere și dezarhivare, verificăm corectitudinea operațiilor.</p>
@@ -916,28 +946,28 @@ student@uso:~$ rm înregistrări.zip
 <p>Pentru a dezarhiva o arhivă folosim utilitarul <code class="docutils literal notranslate"><span class="pre">unzip</span></code>.
 Observați că am șters fișierele existente înainte de extragere.</p>
 <p>Putem extrage fișierele către o anumită cale:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ mkdir dezarhivare/zip
-student@uso:~$ unzip înregistrări.zip -d dezarhivare/zip/
-Archive:  înregistrări.zip
-  inflating: dezarhivare/zip/înregistrare_lab01.mov
-  inflating: dezarhivare/zip/înregistrare_lab02.mov
-  inflating: dezarhivare/zip/înregistrare_lab03.mov
-student@uso:~$ tree
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$<span class="w"> </span>mkdir<span class="w"> </span>dezarhivare/zip
+student@uso:~$<span class="w"> </span>unzip<span class="w"> </span>înregistrări.zip<span class="w"> </span>-d<span class="w"> </span>dezarhivare/zip/
+Archive:<span class="w">  </span>înregistrări.zip
+<span class="w">  </span>inflating:<span class="w"> </span>dezarhivare/zip/înregistrare_lab01.mov
+<span class="w">  </span>inflating:<span class="w"> </span>dezarhivare/zip/înregistrare_lab02.mov
+<span class="w">  </span>inflating:<span class="w"> </span>dezarhivare/zip/înregistrare_lab03.mov
+student@uso:~$<span class="w"> </span>tree<span class="w"> </span>-F
 .
-<span class="p">|</span>-- dezarhivare
-<span class="p">|</span>   <span class="p">|</span>-- tar
-<span class="p">|</span>   <span class="sb">``</span>-- zip
-<span class="p">|</span>       <span class="p">|</span>-- înregistrare_lab01.mov
-<span class="p">|</span>       <span class="p">|</span>-- înregistrare_lab02.mov
-<span class="p">|</span>       <span class="sb">``</span>-- înregistrare_lab03.mov
-<span class="p">|</span>-- înregistrare_lab01.mov
-<span class="p">|</span>-- înregistrare_lab02.mov
-<span class="p">|</span>-- înregistrare_lab03.mov
-<span class="p">|</span>-- înregistrare_lab04.mov
-<span class="p">|</span>-- înregistrări.tar
-<span class="sb">``</span>-- înregistrări.zip
+<span class="p">|</span>--<span class="w"> </span>dezarhivare/
+<span class="p">|</span><span class="w">   </span><span class="p">|</span>--<span class="w"> </span>tar/
+<span class="p">|</span><span class="w">   </span><span class="sb">``</span>--<span class="w"> </span>zip/
+<span class="p">|</span><span class="w">       </span><span class="p">|</span>--<span class="w"> </span>înregistrare_lab01.mov
+<span class="p">|</span><span class="w">       </span><span class="p">|</span>--<span class="w"> </span>înregistrare_lab02.mov
+<span class="p">|</span><span class="w">       </span><span class="sb">``</span>--<span class="w"> </span>înregistrare_lab03.mov
+<span class="p">|</span>--<span class="w"> </span>înregistrare_lab01.mov
+<span class="p">|</span>--<span class="w"> </span>înregistrare_lab02.mov
+<span class="p">|</span>--<span class="w"> </span>înregistrare_lab03.mov
+<span class="p">|</span>--<span class="w"> </span>înregistrare_lab04.mov
+<span class="p">|</span>--<span class="w"> </span>înregistrări.tar
+<span class="sb">``</span>--<span class="w"> </span>înregistrări.zip
 
-<span class="m">3</span> directories, <span class="m">9</span> files
+<span class="m">3</span><span class="w"> </span>directories,<span class="w"> </span><span class="m">9</span><span class="w"> </span>files
 </pre></div>
 </div>
 <div class="admonition note">
@@ -946,27 +976,27 @@ student@uso:~$ tree
 </div>
 <p>Am folosit comanda <code class="docutils literal notranslate"><span class="pre">unzip</span> <span class="pre">-d</span> <span class="pre">destinație</span></code> pentru a extrage o arhivă <em>zip</em> la calea <em>destinație</em>.</p>
 <p>Putem dezarhiva <em>un singur</em> fișier/director din toată arhiva:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ rm înregistrare_lab03.mov
-student@uso:~$ ls -lh
-total 34M
-drwxr-xr-x <span class="m">4</span> student student <span class="m">4</span>.0K Aug <span class="m">19</span> <span class="m">18</span>:05 dezarhivare
--rw-r--r-- <span class="m">1</span> student student <span class="m">5</span>.0M Aug <span class="m">19</span> <span class="m">11</span>:55 înregistrare_lab01.mov
--rw-r--r-- <span class="m">1</span> student student <span class="m">3</span>.0M Aug <span class="m">19</span> <span class="m">11</span>:55 înregistrare_lab02.mov
--rw-r--r-- <span class="m">1</span> student student <span class="m">7</span>.0M Aug <span class="m">19</span> <span class="m">12</span>:35 înregistrare_lab04.mov
--rw-r--r-- <span class="m">1</span> student student <span class="m">9</span>.1M Aug <span class="m">19</span> <span class="m">17</span>:56 înregistrări.tar
--rw-r--r-- <span class="m">1</span> student student <span class="m">9</span>.1M Aug <span class="m">19</span> <span class="m">18</span>:02 înregistrări.zip
-student@uso:~$ unzip înregistrări.zip înregistrare_lab03.mov
-Archive:  înregistrări.zip
-inflating: înregistrare_lab03.mov
-student@uso:~$ ls -lh
-total 35M
-drwxr-xr-x <span class="m">4</span> student student <span class="m">4</span>.0K Aug <span class="m">19</span> <span class="m">18</span>:05 dezarhivare
--rw-r--r-- <span class="m">1</span> student student <span class="m">5</span>.0M Aug <span class="m">19</span> <span class="m">11</span>:55 înregistrare_lab01.mov
--rw-r--r-- <span class="m">1</span> student student <span class="m">3</span>.0M Aug <span class="m">19</span> <span class="m">11</span>:55 înregistrare_lab02.mov
--rw-r--r-- <span class="m">1</span> student student <span class="m">1</span>.0M Aug <span class="m">19</span> <span class="m">11</span>:55 înregistrare_lab03.mov
--rw-r--r-- <span class="m">1</span> student student <span class="m">7</span>.0M Aug <span class="m">19</span> <span class="m">12</span>:35 înregistrare_lab04.mov
--rw-r--r-- <span class="m">1</span> student student <span class="m">9</span>.1M Aug <span class="m">19</span> <span class="m">17</span>:56 înregistrări.tar
--rw-r--r-- <span class="m">1</span> student student <span class="m">9</span>.1M Aug <span class="m">19</span> <span class="m">18</span>:02 înregistrări.zip
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$<span class="w"> </span>rm<span class="w"> </span>înregistrare_lab03.mov
+student@uso:~$<span class="w"> </span>ls<span class="w"> </span>-lh
+total<span class="w"> </span>34M
+drwxr-xr-x<span class="w"> </span><span class="m">4</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">4</span>.0K<span class="w"> </span>Aug<span class="w"> </span><span class="m">19</span><span class="w"> </span><span class="m">18</span>:05<span class="w"> </span>dezarhivare
+-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">5</span>.0M<span class="w"> </span>Aug<span class="w"> </span><span class="m">19</span><span class="w"> </span><span class="m">11</span>:55<span class="w"> </span>înregistrare_lab01.mov
+-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">3</span>.0M<span class="w"> </span>Aug<span class="w"> </span><span class="m">19</span><span class="w"> </span><span class="m">11</span>:55<span class="w"> </span>înregistrare_lab02.mov
+-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">7</span>.0M<span class="w"> </span>Aug<span class="w"> </span><span class="m">19</span><span class="w"> </span><span class="m">12</span>:35<span class="w"> </span>înregistrare_lab04.mov
+-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">9</span>.1M<span class="w"> </span>Aug<span class="w"> </span><span class="m">19</span><span class="w"> </span><span class="m">17</span>:56<span class="w"> </span>înregistrări.tar
+-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">9</span>.1M<span class="w"> </span>Aug<span class="w"> </span><span class="m">19</span><span class="w"> </span><span class="m">18</span>:02<span class="w"> </span>înregistrări.zip
+student@uso:~$<span class="w"> </span>unzip<span class="w"> </span>înregistrări.zip<span class="w"> </span>înregistrare_lab03.mov
+Archive:<span class="w">  </span>înregistrări.zip
+inflating:<span class="w"> </span>înregistrare_lab03.mov
+student@uso:~$<span class="w"> </span>ls<span class="w"> </span>-lh
+total<span class="w"> </span>35M
+drwxr-xr-x<span class="w"> </span><span class="m">4</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">4</span>.0K<span class="w"> </span>Aug<span class="w"> </span><span class="m">19</span><span class="w"> </span><span class="m">18</span>:05<span class="w"> </span>dezarhivare
+-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">5</span>.0M<span class="w"> </span>Aug<span class="w"> </span><span class="m">19</span><span class="w"> </span><span class="m">11</span>:55<span class="w"> </span>înregistrare_lab01.mov
+-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">3</span>.0M<span class="w"> </span>Aug<span class="w"> </span><span class="m">19</span><span class="w"> </span><span class="m">11</span>:55<span class="w"> </span>înregistrare_lab02.mov
+-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">1</span>.0M<span class="w"> </span>Aug<span class="w"> </span><span class="m">19</span><span class="w"> </span><span class="m">11</span>:55<span class="w"> </span>înregistrare_lab03.mov
+-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">7</span>.0M<span class="w"> </span>Aug<span class="w"> </span><span class="m">19</span><span class="w"> </span><span class="m">12</span>:35<span class="w"> </span>înregistrare_lab04.mov
+-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">9</span>.1M<span class="w"> </span>Aug<span class="w"> </span><span class="m">19</span><span class="w"> </span><span class="m">17</span>:56<span class="w"> </span>înregistrări.tar
+-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">9</span>.1M<span class="w"> </span>Aug<span class="w"> </span><span class="m">19</span><span class="w"> </span><span class="m">18</span>:02<span class="w"> </span>înregistrări.zip
 </pre></div>
 </div>
 <div class="admonition note">
@@ -975,7 +1005,7 @@ drwxr-xr-x <span class="m">4</span> student student <span class="m">4</span>.0K 
 </div>
 <p>Puteți observa că am extras un singur fișier punând ca ultim parametru numele fișierului.</p>
 <section id="exercitii-dezarhivarea-unei-arhive">
-<h4><span class="section-number">5.2.3.1. </span>Exerciții - dezarhivarea unei arhive<a class="headerlink" href="#exercitii-dezarhivarea-unei-arhive" title="Permalink to this heading">¶</a></h4>
+<h4><span class="section-number">5.2.3.1. </span>Exerciții - dezarhivarea unei arhive<a class="headerlink" href="#exercitii-dezarhivarea-unei-arhive" title="Link to this heading">¶</a></h4>
 <ol class="arabic simple">
 <li><ul class="simple">
 <li><p>Creați un director cu numele <code class="docutils literal notranslate"><span class="pre">zip</span></code> în directorului <code class="docutils literal notranslate"><span class="pre">dezarhivare</span></code> ca în ierarhia de mai sus; verificați crearea afișând conținutul directorului <code class="docutils literal notranslate"><span class="pre">dezarhivare</span></code>.</p></li>
@@ -992,17 +1022,17 @@ drwxr-xr-x <span class="m">4</span> student student <span class="m">4</span>.0K 
 </section>
 </section>
 <section id="id5">
-<h3><span class="section-number">5.2.4. </span>Adăugarea de noi fișiere la arhive<a class="headerlink" href="#id5" title="Permalink to this heading">¶</a></h3>
+<h3><span class="section-number">5.2.4. </span>Adăugarea de noi fișiere la arhive<a class="headerlink" href="#id5" title="Link to this heading">¶</a></h3>
 <p>Putem adăuga un nou fișier la arhivă folosind comanda <code class="docutils literal notranslate"><span class="pre">zip</span> <span class="pre">-u</span></code>:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ zip -u înregistrări.zip înregistrare_lab04.mov
-  adding: înregistrare_lab04.mov <span class="o">(</span>deflated <span class="m">0</span>%<span class="o">)</span>
-student@uso:~$ zip -sf înregistrări.zip
-Archive contains:
-  înregistrare_lab01.mov
-  înregistrare_lab02.mov
-  înregistrare_lab03.mov
-  înregistrare_lab04.mov
-Total <span class="m">4</span> entries <span class="o">(</span><span class="m">16777216</span> bytes<span class="o">)</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$<span class="w"> </span>zip<span class="w"> </span>-u<span class="w"> </span>înregistrări.zip<span class="w"> </span>înregistrare_lab04.mov
+<span class="w">  </span>adding:<span class="w"> </span>înregistrare_lab04.mov<span class="w"> </span><span class="o">(</span>deflated<span class="w"> </span><span class="m">0</span>%<span class="o">)</span>
+student@uso:~$<span class="w"> </span>zip<span class="w"> </span>-sf<span class="w"> </span>înregistrări.zip
+Archive<span class="w"> </span>contains:
+<span class="w">  </span>înregistrare_lab01.mov
+<span class="w">  </span>înregistrare_lab02.mov
+<span class="w">  </span>înregistrare_lab03.mov
+<span class="w">  </span>înregistrare_lab04.mov
+Total<span class="w"> </span><span class="m">4</span><span class="w"> </span>entries<span class="w"> </span><span class="o">(</span><span class="m">16777216</span><span class="w"> </span>bytes<span class="o">)</span>
 </pre></div>
 </div>
 <div class="admonition note">
@@ -1011,7 +1041,7 @@ Total <span class="m">4</span> entries <span class="o">(</span><span class="m">1
 </div>
 <p>În exemplul de mai sus am adăugat <code class="docutils literal notranslate"><span class="pre">înregistrare_lab04.mov</span></code> la arhivă.</p>
 <section id="exercitii-adaugarea-unui-fisier-in-arhiva">
-<h4><span class="section-number">5.2.4.1. </span>Exerciții - adăugarea unui fișier în arhivă<a class="headerlink" href="#exercitii-adaugarea-unui-fisier-in-arhiva" title="Permalink to this heading">¶</a></h4>
+<h4><span class="section-number">5.2.4.1. </span>Exerciții - adăugarea unui fișier în arhivă<a class="headerlink" href="#exercitii-adaugarea-unui-fisier-in-arhiva" title="Link to this heading">¶</a></h4>
 <ul class="simple">
 <li><p>Creați un fișier <code class="docutils literal notranslate"><span class="pre">UPB</span></code> cu conținutul “Make UPB Great Again!”;</p></li>
 <li><p>Verificați conținutul arhivei <code class="docutils literal notranslate"><span class="pre">personal_data.zip</span></code>;</p></li>
@@ -1020,7 +1050,7 @@ Total <span class="m">4</span> entries <span class="o">(</span><span class="m">1
 <li><p>Dezarhivați arhiva în directorul <code class="docutils literal notranslate"><span class="pre">personal_data_zip</span></code>.</p></li>
 </ul>
 <aside class="footnote-list brackets">
-<aside class="footnote brackets" id="id6" role="note">
+<aside class="footnote brackets" id="id6" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
 <p>Metadatele sunt modalitatea sistemului de fișiere de a reține informații despre acesta: data creării, dimensiunea, utilizatorul ce deține fișierul, etc.</p>
 </aside>
@@ -1045,7 +1075,7 @@ Total <span class="m">4</span> entries <span class="o">(</span><span class="m">1
 </ul><div class="footer" role="contentinfo">
       &#169; Copyright 2020, USO Team.
     <br>
-    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 5.1.1 with <a href="https://github.com/romnn/sphinx_press_theme">Press Theme</a>.
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 7.2.3 with <a href="https://github.com/romnn/sphinx_press_theme">Press Theme</a>.
 </div>
             </div>
           </div>
