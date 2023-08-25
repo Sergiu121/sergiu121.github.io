@@ -593,9 +593,7 @@ drwxr-xr-x<span class="w"> </span><span class="m">2</span><span class="w"> </spa
 <p>Observăm din eroarea primită din partea sistemului că pentru a schimba deținătorul unui fișier este nevoie de drepturi privilegiate.
 Pentru aceasta, am folosit utilitarul <em>sudo</em> împreună cu comanda <em>chown</em>.
 Parametrii folosiți sunt <em>utilizator:grup</em> și fișierul <code class="docutils literal notranslate"><span class="pre">Amazon</span></code>.</p>
-<blockquote>
-<div><p>Pentru a modifica permisiunile, folosim utilitarul <em>chmod</em>:</p>
-</div></blockquote>
+<p>Pentru a modifica permisiunile, folosim utilitarul <em>chmod</em>:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso-demo:~/securitate/stocks$<span class="w"> </span>sudo<span class="w"> </span>chmod<span class="w"> </span>-r<span class="w"> </span>Amazon/
 student@uso-demo:~/securitate/stocks$<span class="w"> </span>ls<span class="w"> </span>-l
 total<span class="w"> </span><span class="m">24</span>
@@ -607,15 +605,18 @@ drwxr-xr-x<span class="w"> </span><span class="m">2</span><span class="w"> </spa
 drwxr-xr-x<span class="w"> </span><span class="m">2</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">4096</span><span class="w"> </span>Aug<span class="w"> </span><span class="m">26</span><span class="w"> </span><span class="m">12</span>:58<span class="w"> </span>Netflix
 </pre></div>
 </div>
-<p>Observăm că pentru a scoate permisiunile de citire, pentru toate cele trei categorii (user, group, others), folosim opțiunea (flagul)  <em>-r</em>, după care fișierul/directorul țintă.
-Pentru mai multe detalii de manipulare a permisiunilor, parcurgeți capitolul <strong>TODO PERMISIUNI</strong>.</p>
-<p><strong>TODO - Să vorbesc și despre chroot? Parcă e puțin cam mult</strong></p>
+<p>Observăm că pentru a scoate permisiunile de citire, pentru toate cele trei categorii (user, group, others), folosim opțiunea (flagul)  <em>-r</em>, după care fișierul/directorul țintă.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>A nu se confunda <em>-r</em> folosit anterior cu <em>-R</em> ce aplică modificările recursiv pe toate fișierele și directoarele din cadrul directorului dat ca parametru.</p>
+</div>
+<p>Pentru mai multe detalii de manipulare a permisiunilor, parcurgeți capitolul <strong>TODO PERMISIUNI</strong>.</p>
 <section id="exercitii-sistemul-de-fisiere">
 <h3><span class="section-number">1.1.1. </span>Exerciții - sistemul de fișiere<a class="headerlink" href="#exercitii-sistemul-de-fisiere" title="Link to this heading">¶</a></h3>
 <ol class="arabic simple">
 <li><p>Modificați permisiunile fișierului <code class="docutils literal notranslate"><span class="pre">Google</span></code> astfel încât doar utilizatorul care deține fișierul (<em>user</em>) să aibă drepturi de citire (<em>read</em>).</p></li>
 <li><p>Modificați permisiunile fișierului <code class="docutils literal notranslate"><span class="pre">Netflix</span></code> astfel încât doar grupul care deține fișierul (<em>group</em>) să aibă drepturi de execuție (<em>execute</em>).</p></li>
-<li><p>Modificați permisiunile fișierului <code class="docutils literal notranslate"><span class="pre">Amazon</span></code> astfel încât toți utilizatorii să aibă drepturi de scriere (<em>write</em>).</p></li>
+<li><p>Modificați permisiunile fișierului <code class="docutils literal notranslate"><span class="pre">Amazon</span></code> astfel încât toți utilizatorii (<em>others</em>) să aibă drepturi de scriere (<em>write</em>) asupra acestuia.</p></li>
 </ol>
 </section>
 </section>
