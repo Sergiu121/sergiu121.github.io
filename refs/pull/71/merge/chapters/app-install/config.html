@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html >
+<html  lang="en">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="viewport" content="width=device-width, initial-scale=1" />
 
       <title>3. Configurarea rulării aplicațiilor</title>
     
@@ -15,11 +15,10 @@
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
 
       <!-- sphinx script_files -->
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
-        <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/my_actions.js"></script>
+        <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../_static/my_actions.js?v=1451d81f"></script>
 
       
       <script src="../../_static/theme-vendors.js"></script>
@@ -531,6 +530,12 @@
           </li>
 
         
+          <li class="toctree-l1 "><a href="../users-permissions/processes.html" class="reference internal ">Utilizatori și procese</a>
+
+            
+          </li>
+
+        
           <li class="toctree-l1 "><a href="../users-permissions/permissions.html" class="reference internal ">Permisiuni în sistemul de fișiere</a>
 
             
@@ -581,42 +586,42 @@
           <div class="content" role="main">
             
   <section id="configurarea-rularii-aplicatiilor">
-<span id="app-install-config"></span><h1><span class="section-number">3. </span>Configurarea rulării aplicațiilor<a class="headerlink" href="#configurarea-rularii-aplicatiilor" title="Permalink to this headline">¶</a></h1>
+<span id="app-install-config"></span><h1><span class="section-number">3. </span>Configurarea rulării aplicațiilor<a class="headerlink" href="#configurarea-rularii-aplicatiilor" title="Link to this heading">¶</a></h1>
 <p>Modul în care o aplicație rulează este configurabil.
 Adică informațiile afișate, interfața expusă utilizatorului și opțiunile permise utilizatorului pot varia de la o rulare la altă rulare.
 Mai mult, o aplicație care rulează (un proces) poate să își modifice comportamentul în timpul rulării.</p>
 <p>Configurarea unei aplicații se realizează în diferite moduri.</p>
 <section id="configurarea-prin-argumente">
-<h2><span class="section-number">3.1. </span>Configurarea prin argumente<a class="headerlink" href="#configurarea-prin-argumente" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.1. </span>Configurarea prin argumente<a class="headerlink" href="#configurarea-prin-argumente" title="Link to this heading">¶</a></h2>
 <p>O aplicație se comportă diferit prin transmiterea de opțiuni și argumente în linia de comandă.</p>
 <p>De exemplu, utilitarul <code class="docutils literal notranslate"><span class="pre">ls</span></code>, la fel ca majoritatea utilitarelor în linia de comandă, are comportament diferit în funcție de opțiuni, ca mai jos:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ ls
-Desktop  Documents  Downloads  examples.desktop  Music  Pictures  Public  snap  Templates  uso.git  Videos  vm-actions-log.txt
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$<span class="w"> </span>ls
+Desktop<span class="w">  </span>Documents<span class="w">  </span>Downloads<span class="w">  </span>examples.desktop<span class="w">  </span>Music<span class="w">  </span>Pictures<span class="w">  </span>Public<span class="w">  </span>snap<span class="w">  </span>Templates<span class="w">  </span>uso.git<span class="w">  </span>Videos<span class="w">  </span>vm-actions-log.txt
 
-student@uso:~$ ls -F
-Desktop/  Documents/  Downloads/  examples.desktop  Music/  Pictures/  Public/  snap/  Templates/  uso.git/  Videos/  vm-actions-log.txt
+student@uso:~$<span class="w"> </span>ls<span class="w"> </span>-F
+Desktop/<span class="w">  </span>Documents/<span class="w">  </span>Downloads/<span class="w">  </span>examples.desktop<span class="w">  </span>Music/<span class="w">  </span>Pictures/<span class="w">  </span>Public/<span class="w">  </span>snap/<span class="w">  </span>Templates/<span class="w">  </span>uso.git/<span class="w">  </span>Videos/<span class="w">  </span>vm-actions-log.txt
 
-student@uso:~$ ls -l
-total <span class="m">60</span>
-drwxr-xr-x  <span class="m">2</span> student student <span class="m">4096</span> Aug  <span class="m">6</span>  <span class="m">2018</span> Desktop
-drwxr-xr-x  <span class="m">3</span> student student <span class="m">4096</span> Aug <span class="m">20</span>  <span class="m">2018</span> Documents
-drwxr-xr-x  <span class="m">2</span> student student <span class="m">4096</span> Aug  <span class="m">6</span>  <span class="m">2018</span> Downloads
--rw-r--r--  <span class="m">1</span> student student <span class="m">8980</span> Aug  <span class="m">6</span>  <span class="m">2018</span> examples.desktop
-drwxr-xr-x  <span class="m">2</span> student student <span class="m">4096</span> Aug  <span class="m">6</span>  <span class="m">2018</span> Music
-drwxr-xr-x  <span class="m">3</span> student student <span class="m">4096</span> Aug <span class="m">25</span> <span class="m">21</span>:01 Pictures
-drwxr-xr-x  <span class="m">2</span> student student <span class="m">4096</span> Aug  <span class="m">6</span>  <span class="m">2018</span> Public
-drwxr-xr-x  <span class="m">3</span> student student <span class="m">4096</span> Aug  <span class="m">8</span> <span class="m">09</span>:02 snap
-drwxr-xr-x  <span class="m">2</span> student student <span class="m">4096</span> Aug  <span class="m">6</span>  <span class="m">2018</span> Templates
-drwxr-xr-x <span class="m">14</span> student student <span class="m">4096</span> Aug <span class="m">20</span>  <span class="m">2018</span> uso.git
-drwxr-xr-x  <span class="m">2</span> student student <span class="m">4096</span> Aug  <span class="m">6</span>  <span class="m">2018</span> Videos
--rw-r--r--  <span class="m">1</span> student student <span class="m">4827</span> Aug <span class="m">21</span>  <span class="m">2018</span> vm-actions-log.txt
+student@uso:~$<span class="w"> </span>ls<span class="w"> </span>-l
+total<span class="w"> </span><span class="m">60</span>
+drwxr-xr-x<span class="w">  </span><span class="m">2</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">4096</span><span class="w"> </span>Aug<span class="w">  </span><span class="m">6</span><span class="w">  </span><span class="m">2018</span><span class="w"> </span>Desktop
+drwxr-xr-x<span class="w">  </span><span class="m">3</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">4096</span><span class="w"> </span>Aug<span class="w"> </span><span class="m">20</span><span class="w">  </span><span class="m">2018</span><span class="w"> </span>Documents
+drwxr-xr-x<span class="w">  </span><span class="m">2</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">4096</span><span class="w"> </span>Aug<span class="w">  </span><span class="m">6</span><span class="w">  </span><span class="m">2018</span><span class="w"> </span>Downloads
+-rw-r--r--<span class="w">  </span><span class="m">1</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">8980</span><span class="w"> </span>Aug<span class="w">  </span><span class="m">6</span><span class="w">  </span><span class="m">2018</span><span class="w"> </span>examples.desktop
+drwxr-xr-x<span class="w">  </span><span class="m">2</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">4096</span><span class="w"> </span>Aug<span class="w">  </span><span class="m">6</span><span class="w">  </span><span class="m">2018</span><span class="w"> </span>Music
+drwxr-xr-x<span class="w">  </span><span class="m">3</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">4096</span><span class="w"> </span>Aug<span class="w"> </span><span class="m">25</span><span class="w"> </span><span class="m">21</span>:01<span class="w"> </span>Pictures
+drwxr-xr-x<span class="w">  </span><span class="m">2</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">4096</span><span class="w"> </span>Aug<span class="w">  </span><span class="m">6</span><span class="w">  </span><span class="m">2018</span><span class="w"> </span>Public
+drwxr-xr-x<span class="w">  </span><span class="m">3</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">4096</span><span class="w"> </span>Aug<span class="w">  </span><span class="m">8</span><span class="w"> </span><span class="m">09</span>:02<span class="w"> </span>snap
+drwxr-xr-x<span class="w">  </span><span class="m">2</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">4096</span><span class="w"> </span>Aug<span class="w">  </span><span class="m">6</span><span class="w">  </span><span class="m">2018</span><span class="w"> </span>Templates
+drwxr-xr-x<span class="w"> </span><span class="m">14</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">4096</span><span class="w"> </span>Aug<span class="w"> </span><span class="m">20</span><span class="w">  </span><span class="m">2018</span><span class="w"> </span>uso.git
+drwxr-xr-x<span class="w">  </span><span class="m">2</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">4096</span><span class="w"> </span>Aug<span class="w">  </span><span class="m">6</span><span class="w">  </span><span class="m">2018</span><span class="w"> </span>Videos
+-rw-r--r--<span class="w">  </span><span class="m">1</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">4827</span><span class="w"> </span>Aug<span class="w"> </span><span class="m">21</span><span class="w">  </span><span class="m">2018</span><span class="w"> </span>vm-actions-log.txt
 </pre></div>
 </div>
 <p>La o rulare simplă a comenzii <code class="docutils literal notranslate"><span class="pre">ls</span></code>, se afișează conținutul directorului curent.
 Opțiunea <code class="docutils literal notranslate"><span class="pre">-F</span></code> adaugă un sufix specific intrărilor pentru a indica tipul lor; de exemplu <code class="docutils literal notranslate"><span class="pre">/</span></code> (<em>slash</em>) în cazul directoarelor.
 Opțiunea <code class="docutils literal notranslate"><span class="pre">-l</span></code> afișează detalii despre intrări.</p>
 <p>La fel, dacă folosim comanda <code class="docutils literal notranslate"><span class="pre">emacs</span></code>, pornim aplicația Emacs (în mediul grafic).
-Pe când dacă folosim comanda <code class="docutils literal notranslate"><span class="pre">emacs</span> <span class="pre">-nw</span></code>, aplicația va porni în consolă, cu interfața în linia de comandă <a class="footnote-reference brackets" href="#emacs-close" id="id1">1</a>.</p>
+Pe când dacă folosim comanda <code class="docutils literal notranslate"><span class="pre">emacs</span> <span class="pre">-nw</span></code>, aplicația va porni în consolă, cu interfața în linia de comandă <a class="footnote-reference brackets" href="#emacs-close" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>.</p>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
 <p>Pentru a afla argumentele posibile ale unei comenzi cel mai adesea vom folosi pagina de manual a acelui utilitar.
@@ -624,47 +629,47 @@ De exemplu, pentru a afla argumentele posibile ale comenzii <code class="docutil
 Mai multe informații despre folosirea paginilor de manual se găsesc în TODO (referință la capitolul de linia de comandă).</p>
 </div>
 <section id="exercitii">
-<h3><span class="section-number">3.1.1. </span>Exerciții<a class="headerlink" href="#exercitii" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">3.1.1. </span>Exerciții<a class="headerlink" href="#exercitii" title="Link to this heading">¶</a></h3>
 <p>O aplicație poate fi pornită cu argumente în interfața grafică folosind combinația de taste <code class="docutils literal notranslate"><span class="pre">Alt+F2</span></code>.</p>
 <p>Folosiți <code class="docutils literal notranslate"><span class="pre">Alt+F2</span></code> și porniți aplicația <code class="docutils literal notranslate"><span class="pre">gedit</span></code> ca să deschidă fișierul <code class="docutils literal notranslate"><span class="pre">.bashrc</span></code>.</p>
 <p>Folosiți <code class="docutils literal notranslate"><span class="pre">Alt+F2</span></code> și porniți aplicația <code class="docutils literal notranslate"><span class="pre">gedit</span></code> ca să deschidă fișierul <code class="docutils literal notranslate"><span class="pre">.bashrc</span></code> la linia <code class="docutils literal notranslate"><span class="pre">90</span></code>.</p>
 </section>
 </section>
 <section id="configurarea-prin-fisiere-de-configurare">
-<h2><span class="section-number">3.2. </span>Configurarea prin fișiere de configurare<a class="headerlink" href="#configurarea-prin-fisiere-de-configurare" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.2. </span>Configurarea prin fișiere de configurare<a class="headerlink" href="#configurarea-prin-fisiere-de-configurare" title="Link to this heading">¶</a></h2>
 <p>Fișierele de configurare ale unei aplicații modifică funcționarea acesteia.</p>
 <p>De exemplu, shellul Bash este configurat în fișiere de configurare precum <code class="docutils literal notranslate"><span class="pre">/etc/profile</span></code>, <code class="docutils literal notranslate"><span class="pre">/etc/bash.bashrc</span></code>, <code class="docutils literal notranslate"><span class="pre">~/.profile</span></code>, <code class="docutils literal notranslate"><span class="pre">~/.bashrc</span></code>.
 Editorul Vim este configurat în <code class="docutils literal notranslate"><span class="pre">/etc/vim/vimrc</span></code> și <code class="docutils literal notranslate"><span class="pre">~/.vimrc</span></code>.
 Browserul web Firefox are fișiere de configurare în directorul <code class="docutils literal notranslate"><span class="pre">~/.mozilla/</span></code>.
 În Linux, multe aplicații au fișiere de configurare în subdirectoare din directorul <code class="docutils literal notranslate"><span class="pre">~/.config/</span></code>.</p>
 <p>Fișierele de configurare sunt adesea text și pot fi modificate cu ajutorul unui editor.
-Altfel, sunt modificate de obicei din cadrul aplicației sau cu o aplicație auxiliară de configurare <a class="footnote-reference brackets" href="#winconfig" id="id2">2</a>.</p>
+Altfel, sunt modificate de obicei din cadrul aplicației sau cu o aplicație auxiliară de configurare <a class="footnote-reference brackets" href="#winconfig" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a>.</p>
 <section id="inspectarea-fisierelor-de-configurare">
-<h3><span class="section-number">3.2.1. </span>Inspectarea fișierelor de configurare<a class="headerlink" href="#inspectarea-fisierelor-de-configurare" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">3.2.1. </span>Inspectarea fișierelor de configurare<a class="headerlink" href="#inspectarea-fisierelor-de-configurare" title="Link to this heading">¶</a></h3>
 <p>Urmăriți conținutul fișierelor de configurare <code class="docutils literal notranslate"><span class="pre">~/.gitconfig</span></code>, <code class="docutils literal notranslate"><span class="pre">~/.vimrc</span></code>, <code class="docutils literal notranslate"><span class="pre">~/.tmux.conf</span></code>.
 Aceste fișiere sunt folosite, respectiv, pentru a configura Git, Vim sau tmux.
 Nu ne interesează aici să înțelegem conținutul acestor fișiere de configurare; doar le avem în vedere ca exemple reale de fișiere de configurare.</p>
 <p>Fișierele de configurare pot fi editate cu un editor.
 Alternativ, pot fi editate cu ajutorul unui utilitar dedicat, precum e cazul Git, ca mai jos:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ cat .gitconfig
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$<span class="w"> </span>cat<span class="w"> </span>.gitconfig
 <span class="o">[</span>color<span class="o">]</span>
-    <span class="nv">ui</span> <span class="o">=</span> auto
+<span class="w">    </span><span class="nv">ui</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>auto
 <span class="o">[</span>user<span class="o">]</span>
-    <span class="nv">name</span> <span class="o">=</span> Student USO VM User
-    <span class="nv">email</span> <span class="o">=</span> student@stud.acs.upb.ro
-student@uso:~$ git config --global user.email student@example.com
-student@uso:~$ cat .gitconfig
+<span class="w">    </span><span class="nv">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>Student<span class="w"> </span>USO<span class="w"> </span>VM<span class="w"> </span>User
+<span class="w">    </span><span class="nv">email</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>student@stud.acs.upb.ro
+student@uso:~$<span class="w"> </span>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>user.email<span class="w"> </span>student@example.com
+student@uso:~$<span class="w"> </span>cat<span class="w"> </span>.gitconfig
 <span class="o">[</span>color<span class="o">]</span>
-    <span class="nv">ui</span> <span class="o">=</span> auto
+<span class="w">    </span><span class="nv">ui</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>auto
 <span class="o">[</span>user<span class="o">]</span>
-    <span class="nv">name</span> <span class="o">=</span> Student USO VM User
-    <span class="nv">email</span> <span class="o">=</span> student@example.com
+<span class="w">    </span><span class="nv">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>Student<span class="w"> </span>USO<span class="w"> </span>VM<span class="w"> </span>User
+<span class="w">    </span><span class="nv">email</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>student@example.com
 </pre></div>
 </div>
 <p>Mai sus am folosit comanda <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">config</span></code> cu opțiunea <code class="docutils literal notranslate"><span class="pre">--global</span></code> pentru a modifica fișierul global de configurare <code class="docutils literal notranslate"><span class="pre">~/.gitconfig</span></code>.</p>
 </section>
 <section id="exercitiu-modificarea-unui-fisiere-de-configurare">
-<h3><span class="section-number">3.2.2. </span>Exercițiu: Modificarea unui fișiere de configurare<a class="headerlink" href="#exercitiu-modificarea-unui-fisiere-de-configurare" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">3.2.2. </span>Exercițiu: Modificarea unui fișiere de configurare<a class="headerlink" href="#exercitiu-modificarea-unui-fisiere-de-configurare" title="Link to this heading">¶</a></h3>
 <p>Dorim să configurăm o aplicație din fișierul de configurare.
 O aplicație simplă este editorul Nano, care funcționează în linia de comandă, și îl vom folosi pe acesta.
 Configurarea editorului Nano se face în fișierul <code class="docutils literal notranslate"><span class="pre">~/.nanorc</span></code>.</p>
@@ -681,8 +686,8 @@ Găsiți opțiunea în pagina de manual (<code class="docutils literal notransla
 Creați în Nano un fișier cod sursă C în care verificați adăugarea opțiunii.</p>
 </section>
 <section id="exercitiu-configurarea-clientului-ssh">
-<h3><span class="section-number">3.2.3. </span>Exercițiu: Configurarea clientului SSH<a class="headerlink" href="#exercitiu-configurarea-clientului-ssh" title="Permalink to this headline">¶</a></h3>
-<p>Configurați utilitarul <code class="docutils literal notranslate"><span class="pre">ssh</span></code> (client SSH), astfel încât folosirea comenzii <code class="docutils literal notranslate"><span class="pre">ssh</span> <span class="pre">fav</span></code> să însemne conectarea la un cont la distanță SSH la care aveți acces <a class="footnote-reference brackets" href="#ssh-config" id="id3">4</a>.</p>
+<h3><span class="section-number">3.2.3. </span>Exercițiu: Configurarea clientului SSH<a class="headerlink" href="#exercitiu-configurarea-clientului-ssh" title="Link to this heading">¶</a></h3>
+<p>Configurați utilitarul <code class="docutils literal notranslate"><span class="pre">ssh</span></code> (client SSH), astfel încât folosirea comenzii <code class="docutils literal notranslate"><span class="pre">ssh</span> <span class="pre">fav</span></code> să însemne conectarea la un cont la distanță SSH la care aveți acces <a class="footnote-reference brackets" href="#ssh-config" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>4<span class="fn-bracket">]</span></a>.</p>
 <div class="admonition-pentru-studentii-de-la-acs-upb admonition">
 <p class="admonition-title">Pentru studenții de la ACS, UPB:</p>
 <p>Dacă sunteți student la ACS, UPB, vă puteți conecta, de exemplu, la contul vostru UPB de pe sistemul <code class="docutils literal notranslate"><span class="pre">fep.grid.pub.ro</span></code>.
@@ -693,12 +698,12 @@ Vedeți și <a class="reference external" href="https://linuxize.com/post/using-
 </section>
 </section>
 <section id="configurarea-din-aplicatie">
-<h2><span class="section-number">3.3. </span>Configurarea din aplicație<a class="headerlink" href="#configurarea-din-aplicatie" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.3. </span>Configurarea din aplicație<a class="headerlink" href="#configurarea-din-aplicatie" title="Link to this heading">¶</a></h2>
 <p>Modul în care rulează o aplicație poate fi configurat direct din aplicație.</p>
 <p>De exemplu, în cadrul interfeței browserului web Firefox, putem modifica pagina de start, sau putem activa anumite pluginuri, sau putem personaliza dispunerea meniurilor sau fonturile folosite.
 Aceste opțiuni sunt frecvente în majoritatea aplicațiilor grafice.</p>
 <section id="id4">
-<h3><span class="section-number">3.3.1. </span>Exerciții<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">3.3.1. </span>Exerciții<a class="headerlink" href="#id4" title="Link to this heading">¶</a></h3>
 <p>Porniți editorul Gedit și configurați-l, din aplicație (mediu grafic), să afișeze numărul liniilor editate.</p>
 <p>Configurați editorul Gedit să folosească fundal închis (<em>dark background</em>).</p>
 <p>Porniți browserul de sistem de fișiere Nautilus.
@@ -707,19 +712,19 @@ Configurați-l din aplicație (mediu grafic) pentru a afișa conținutul în for
 </section>
 </section>
 <section id="configurarea-cu-variabile-de-mediu">
-<h2><span class="section-number">3.4. </span>Configurarea cu variabile de mediu<a class="headerlink" href="#configurarea-cu-variabile-de-mediu" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.4. </span>Configurarea cu variabile de mediu<a class="headerlink" href="#configurarea-cu-variabile-de-mediu" title="Link to this heading">¶</a></h2>
 <p>O variabilă de mediu (<em>environment variable</em>) este o valoare care poate fi configurată la pornirea unui proces sau în timpul rulării sale pentru a afecta comportamentul procesului.</p>
-<p>De exemplu, utilitarele <code class="docutils literal notranslate"><span class="pre">wget</span></code> și <code class="docutils literal notranslate"><span class="pre">curl</span></code>, clienți web, folosesc variabilele de mediu <code class="docutils literal notranslate"><span class="pre">http_proxy</span></code> și <code class="docutils literal notranslate"><span class="pre">https_proxy</span></code> pentru a folosi un proxy web <a class="footnote-reference brackets" href="#proxy" id="id5">3</a>.
+<p>De exemplu, utilitarele <code class="docutils literal notranslate"><span class="pre">wget</span></code> și <code class="docutils literal notranslate"><span class="pre">curl</span></code>, clienți web, folosesc variabilele de mediu <code class="docutils literal notranslate"><span class="pre">http_proxy</span></code> și <code class="docutils literal notranslate"><span class="pre">https_proxy</span></code> pentru a folosi un proxy web <a class="footnote-reference brackets" href="#proxy" id="id5" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a>.
 Shellul folosește o serie de variabile de mediu pentru a configura funcționarea sa și modul în care pornește alte aplicații.
 De exemplu, variabila de mediu <code class="docutils literal notranslate"><span class="pre">PATH</span></code> reține căile unde shellul caută fișierul executabil corespunzător unei comenzi.</p>
 <section id="folosirea-de-varabile-de-mediu">
-<h3><span class="section-number">3.4.1. </span>Folosirea de varabile de mediu<a class="headerlink" href="#folosirea-de-varabile-de-mediu" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">3.4.1. </span>Folosirea de varabile de mediu<a class="headerlink" href="#folosirea-de-varabile-de-mediu" title="Link to this heading">¶</a></h3>
 <p>Putem modifica ordinea afișată de utilitare de afișare (precum <code class="docutils literal notranslate"><span class="pre">ls</span></code>) folosind variabila de mediu <code class="docutils literal notranslate"><span class="pre">LC_ALL</span></code>, ca mai jos:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ <span class="nv">LC_ALL</span><span class="o">=</span>en_US.UTF-8 ls
-Desktop  Documents  Downloads  examples.desktop  Music  Pictures  Public  snap  Templates  test.c  uso.git  Videos  vm-actions-log.txt
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$<span class="w"> </span><span class="nv">LC_ALL</span><span class="o">=</span>en_US.UTF-8<span class="w"> </span>ls
+Desktop<span class="w">  </span>Documents<span class="w">  </span>Downloads<span class="w">  </span>examples.desktop<span class="w">  </span>Music<span class="w">  </span>Pictures<span class="w">  </span>Public<span class="w">  </span>snap<span class="w">  </span>Templates<span class="w">  </span>test.c<span class="w">  </span>uso.git<span class="w">  </span>Videos<span class="w">  </span>vm-actions-log.txt
 
-student@uso:~$ <span class="nv">LC_ALL</span><span class="o">=</span>POSIX ls
-Desktop  Documents  Downloads  Music  Pictures  Public  Templates  Videos  examples.desktop  snap  test.c  uso.git  vm-actions-log.txt
+student@uso:~$<span class="w"> </span><span class="nv">LC_ALL</span><span class="o">=</span>POSIX<span class="w"> </span>ls
+Desktop<span class="w">  </span>Documents<span class="w">  </span>Downloads<span class="w">  </span>Music<span class="w">  </span>Pictures<span class="w">  </span>Public<span class="w">  </span>Templates<span class="w">  </span>Videos<span class="w">  </span>examples.desktop<span class="w">  </span>snap<span class="w">  </span>test.c<span class="w">  </span>uso.git<span class="w">  </span>vm-actions-log.txt
 </pre></div>
 </div>
 <p>Atunci când variabila de mediul <code class="docutils literal notranslate"><span class="pre">LC_ALL</span></code> folosește valoarea <code class="docutils literal notranslate"><span class="pre">en_US.UTF-8</span></code>, se afișează intrările în ordine alfabetică, indiferent dacă numele acestora începe cu literă mare sau literă mică.
@@ -732,22 +737,26 @@ La nevoie această variabilă se poate definiela nivelul întregului shell.
 <strong>Dacă</strong> e cazul: Mai multe informații despre variabile de mediu se găsesc în TODO (referință la capitolul de linia de comandă).</p>
 </div>
 <p class="rubric">Note de subsol</p>
-<dl class="footnote brackets">
-<dt class="label" id="emacs-close"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
-<dd><p>Pentru a închide editorul Emacs (pornit fie în mediul grafic, fie în consolă) folosim combinația de taste specifică pentru oprirea aplicației: <code class="docutils literal notranslate"><span class="pre">Ctrl+x</span></code> urmat de <code class="docutils literal notranslate"><span class="pre">Ctrl+c</span></code>.</p>
-</dd>
-<dt class="label" id="winconfig"><span class="brackets"><a class="fn-backref" href="#id2">2</a></span></dt>
-<dd><p>În Windows, echivalentul fișierelor de configurare este Windows Registry.</p>
-</dd>
-<dt class="label" id="proxy"><span class="brackets"><a class="fn-backref" href="#id5">3</a></span></dt>
-<dd><p>Un proxy web este o stație internemediară în comunicația web din Internet.
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="emacs-close" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
+<p>Pentru a închide editorul Emacs (pornit fie în mediul grafic, fie în consolă) folosim combinația de taste specifică pentru oprirea aplicației: <code class="docutils literal notranslate"><span class="pre">Ctrl+x</span></code> urmat de <code class="docutils literal notranslate"><span class="pre">Ctrl+c</span></code>.</p>
+</aside>
+<aside class="footnote brackets" id="winconfig" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">2</a><span class="fn-bracket">]</span></span>
+<p>În Windows, echivalentul fișierelor de configurare este Windows Registry.</p>
+</aside>
+<aside class="footnote brackets" id="proxy" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id5">3</a><span class="fn-bracket">]</span></span>
+<p>Un proxy web este o stație internemediară în comunicația web din Internet.
 Un proxy web este folosit pentru monitorizarea traficului, pentru a stoca informații local și a reduce încărcara traficului sau pentru anonimizare.
 Ceva mai detaliat este prezentată folosirea unui proxy web în TODO (referință la secțiunea de proxy web din capitolul “Conectarea la Internet”).</p>
-</dd>
-<dt class="label" id="ssh-config"><span class="brackets"><a class="fn-backref" href="#id3">4</a></span></dt>
-<dd><p>Secțiunea TODO (referință la secțiunea “Configurarea scurtăturilor SSH”) prezintă un scenariu similar pentru folosirea unei scurtături SSH.</p>
-</dd>
-</dl>
+</aside>
+<aside class="footnote brackets" id="ssh-config" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id3">4</a><span class="fn-bracket">]</span></span>
+<p>Secțiunea TODO (referință la secțiunea “Configurarea scurtăturilor SSH”) prezintă un scenariu similar pentru folosirea unei scurtături SSH.</p>
+</aside>
+</aside>
 </section>
 </section>
 </section>
@@ -767,7 +776,7 @@ Ceva mai detaliat este prezentată folosirea unui proxy web în TODO (referinț�
 </ul><div class="footer" role="contentinfo">
       &#169; Copyright 2020, USO Team.
     <br>
-    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.3.1 with <a href="https://github.com/romnn/sphinx_press_theme">Press Theme</a>.
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 7.2.3 with <a href="https://github.com/romnn/sphinx_press_theme">Press Theme</a>.
 </div>
             </div>
           </div>
