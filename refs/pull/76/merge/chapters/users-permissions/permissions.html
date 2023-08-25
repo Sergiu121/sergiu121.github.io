@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html  lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+      <title>3. Permisiuni în sistemul de fișiere</title>
+    
+      <link rel="stylesheet" href="../../_static/pygments.css">
+      <link rel="stylesheet" href="../../_static/theme.css">
+      <link rel="stylesheet" href="../../_static/romnn_sphinx_press_theme.css">
+          <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+          <link rel="stylesheet" href="../../_static/css/theme.css " type="text/css" />
+      
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+
+      <!-- sphinx script_files -->
+        <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../_static/my_actions.js?v=1451d81f"></script>
+
+      
+      <script src="../../_static/theme-vendors.js"></script>
+      <script src="../../_static/theme.js" defer></script>
+    
+  <link rel="index" title="Index" href="../../genindex.html" />
+  <link rel="search" title="Search" href="../../search.html" />
+  <link rel="next" title="4. Gruparea utilizatorilor" href="groups.html" />
+  <link rel="prev" title="2. Utilizatori și procese" href="processes.html" />
+    <link href="../../_static/my_theme.css" rel="stylesheet" type="text/css">
+
+  </head>
+
+  <body>
+    <div id="app" class="theme-container" :class="pageClasses"><navbar @toggle-sidebar="toggleSidebar">
+  <div class="home-link-container">
+      <router-link to="../../index.html" class="home-link">
+      
+        <span class="site-name">USO Lab Book</span>
+    </router-link>
+  </div>
+
+  <div class="links">
+    <navlinks class="can-hide">
+
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Acomodarea în Linux
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Lucrul cu fișiere
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Dezvoltarea aplicațiilor
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Conectarea la Internet
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Instalarea și utilizarea aplicațiilor
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Îmbunătățirea lucrului în linia de comandă
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link  router-link-active">
+         Utilizatori și permisiuni
+      </a>
+    </div>
+  
+
+
+
+  
+    <div class="nav-item">
+      <a href="https://github.com/Sergiu121/uso-lab-book"
+        class="nav-link external">
+          Github <outboundlink/>
+      </a>
+    </div>
+  
+
+    </navlinks>
+  </div>
+</navbar>
+
+      
+      <div class="sidebar-mask" @click="toggleSidebar(false)">
+      </div>
+        <sidebar @toggle-sidebar="toggleSidebar">
+          
+          <navlinks>
+            
+
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Acomodarea în Linux
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Lucrul cu fișiere
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Dezvoltarea aplicațiilor
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Conectarea la Internet
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Instalarea și utilizarea aplicațiilor
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Îmbunătățirea lucrului în linia de comandă
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link  router-link-active">
+         Utilizatori și permisiuni
+      </a>
+    </div>
+  
+
+
+
+  
+    <div class="nav-item">
+      <a href="https://github.com/Sergiu121/uso-lab-book"
+        class="nav-link external">
+          Github <outboundlink/>
+      </a>
+    </div>
+  
+
+            
+          </navlinks><div id="searchbox" class="searchbox" role="search">
+  <div class="caption"><span class="caption-text">Search</span>
+    <div class="searchformwrapper">
+      <form autocomplete="off" class="search" action="../../search.html" method="get">
+        <input type="text" name="q" autocomplete="off" />
+        <input type="submit" value="Go" />
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div><div class="sidebar-links" role="navigation" aria-label="main navigation">
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#uso-lab-book">Acomodarea în Linux</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../basic/apps.html" class="reference internal ">Pornirea și oprirea aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../basic/browser.html" class="reference internal ">Folosirea eficientă a browserului web</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../basic/terminal.html" class="reference internal ">Lucrul în terminal</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../basic/workspace.html" class="reference internal ">Lucrul cu workspace-uri</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../basic/cheatsheet.html" class="reference internal ">Cheatsheet</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#uso-lab-book">Lucrul cu fișiere</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../files/paths.html" class="reference internal ">Căi în ierarhia de fișiere</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../files/files.html" class="reference internal ">Interacțiunea cu fișiere în linia de comandă</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../files/file_editor.html" class="reference internal ">Editor de text</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../files/io_redirection.html" class="reference internal ">Redirectări</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../files/archive.html" class="reference internal ">Arhive</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../files/file_system.html" class="reference internal ">Extra - Sistemul de fișiere</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../files/cheatsheet.html" class="reference internal ">Sumar - Cheatsheet</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#uso-lab-book">Dezvoltarea aplicațiilor</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../app-dev/intro.html" class="reference internal ">Introducere</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/make-intro.html" class="reference internal ">Compilarea unui fișier cod sursă C</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/make-multiple.html" class="reference internal ">Compilarea unui program din fișiere multiple</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/make-lib.html" class="reference internal ">Legarea executabilelor folosind biblioteci externe</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/make-simple-automation.html" class="reference internal ">Introducere în utilitarul Make și fișiere Makefile</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/make-advanced-automation.html" class="reference internal ">Aprofundarea folosirii fișierelor Makefile</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/git-intro.html" class="reference internal ">Introducere în Git și GitHub</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/git-first-commits.html" class="reference internal ">Primele commituri</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/git-branches.html" class="reference internal ">Lucrul pe branch-uri</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/git-first-pull-request.html" class="reference internal ">Crearea unui Pull Request (PR) pe GitHub</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/extra.html" class="reference internal ">Exerciții suplimentare</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#uso-lab-book">Conectarea la Internet</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../net/browser.html" class="reference internal ">Folosirea eficientă a browser-ului</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../net/troubleshoot.html" class="reference internal ">Verificarea conectivităţii la reţea</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../net/services.html" class="reference internal ">Servicii şi clienţi de reţea</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../net/extra.html" class="reference internal ">Funcţionalităţi suplimentare de reţelistică</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#uso-lab-book">Instalarea și utilizarea aplicațiilor</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../app-install/start.html" class="reference internal ">Pornirea și oprirea aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-install/run.html" class="reference internal ">Rularea aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-install/config.html" class="reference internal ">Configurarea rulării aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-install/summary1.html" class="reference internal ">Exerciții: Pornirea, rularea și configurarea aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-install/show-config.html" class="reference internal ">Vizualizarea configurației sistemului</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-install/install.html" class="reference internal ">Instalarea și dezinstalarea aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-install/install-non-standard.html" class="reference internal ">Alternative la instalarea și dezinstalarea aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-install/show.html" class="reference internal ">Investigarea aplicațiilor instalate</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-install/summary2.html" class="reference internal ">Exerciții: Instalarea și gestiunea aplicațiilor</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#uso-lab-book">Îmbunătățirea lucrului în linia de comandă</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../improve-cli/improve-terminal.html" class="reference internal ">Îmbunătățirea lucrului în linia de comandă</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../improve-cli/inspect-fs.html" class="reference internal ">Inspectarea sistemului de fișiere</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../improve-cli/inspect-sys.html" class="reference internal ">Inspectarea sistemului</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../improve-cli/inspect-files.html" class="reference internal ">Inspectarea fișierelor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../improve-cli/process-files.html" class="reference internal ">Prelucrarea fișierelor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../improve-cli/improve-shell.html" class="reference internal ">O înțelegere mai bună a shell-ului</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../improve-cli/term-multiplexing.html" class="reference internal ">Multiplexarea terminalului</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#uso-lab-book">Utilizatori și permisiuni</a></span>
+      </p>
+      <ul class="current">
+        
+          <li class="toctree-l1 "><a href="privileged-access.html" class="reference internal ">Accesul privilegiat</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="processes.html" class="reference internal ">Utilizatori și procese</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 current"><a href="#" class="reference internal current">Permisiuni în sistemul de fișiere</a>
+
+            
+              <ul>
+                
+                  <li class="toctree-l2"><a href="#vizualizarea-permisiunilor" class="reference internal">Vizualizarea permisiunilor</a></li>
+                
+                  <li class="toctree-l2"><a href="#permisiuni-pe-directoare" class="reference internal">Permisiuni pe directoare</a></li>
+                
+                  <li class="toctree-l2"><a href="#modificarea-permisiunilor" class="reference internal">Modificarea permisiunilor</a></li>
+                
+                  <li class="toctree-l2"><a href="#gruparea-utilizatorilor" class="reference internal">Gruparea utilizatorilor</a></li>
+                
+                  <li class="toctree-l2"><a href="#formatul-numeric-al-permisiunilor" class="reference internal">Formatul numeric al permisiunilor</a></li>
+                
+                  <li class="toctree-l2"><a href="#cautarea-fisierelor-dupa-permisiuni" class="reference internal">Căutarea fișierelor după permisiuni</a></li>
+                
+              </ul>
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="groups.html" class="reference internal ">Gruparea utilizatorilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="advanced.html" class="reference internal ">Cazuri avansate</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+</div>
+        </sidebar>
+
+      <page>
+          <div class="body-header" role="navigation" aria-label="navigation">
+  
+  <ul class="breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+    
+    <li><span class="section-number">3. </span>Permisiuni în sistemul de fișiere</li>
+  </ul>
+  
+
+  <ul class="page-nav">
+  <li class="prev">
+    <a href="processes.html"
+       title="previous chapter">← <span class="section-number">2. </span>Utilizatori și procese</a>
+  </li>
+  <li class="next">
+    <a href="groups.html"
+       title="next chapter"><span class="section-number">4. </span>Gruparea utilizatorilor →</a>
+  </li>
+</ul>
+  
+</div>
+<hr>
+          <div class="content" role="main">
+            
+  <section id="permisiuni-in-sistemul-de-fisiere">
+<span id="users-perms-permissions-in-fs"></span><h1><span class="section-number">3. </span>Permisiuni în sistemul de fișiere<a class="headerlink" href="#permisiuni-in-sistemul-de-fisiere" title="Link to this heading">¶</a></h1>
+<p>Un proces aparținând unui utilizator (adică având un anumit câmp UID) are anumite permisiuni în sistem.
+Permisiunile (sau drepturile sau privilegiile) se referă la acțiuni pe care utilizatorul le poate efectua în cadrul sistemului;
+aceste acțiuni se vor efectua prin intermediul unor procese aparținând utilizatorului.
+Utilizatorul privilegiat (superuser, <code class="docutils literal notranslate"><span class="pre">root</span></code>) are permisiuni complete în sistem și poate realiza orice acțiuni.
+Un utilizator neprivilegiat (așa cum este utilizatorul <code class="docutils literal notranslate"><span class="pre">student</span></code>) poate executa doar un subset al acestora;
+acțiunile considerate critice sau sensibile nu pot fi executate de un utilizator neprvilegiat;
+spunem că utilizatorul nu are permisiunile necesare;
+acest lucru îl putem observa în linia de comandă prin primirea unui mesaj de tipul <code class="docutils literal notranslate"><span class="pre">Permission</span> <span class="pre">denied</span></code>, ca atunci când utilizatorul <code class="docutils literal notranslate"><span class="pre">student</span></code> dorește vizualizarea conținutului fișierului <code class="docutils literal notranslate"><span class="pre">/etc/shadow</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$<span class="w"> </span>cat<span class="w"> </span>/etc/shadow
+cat:<span class="w"> </span>/etc/shadow:<span class="w"> </span>Permission<span class="w"> </span>denied
+</pre></div>
+</div>
+<p>Permisiunile unui utilizator pot fi cel mai adesea configurate.
+Adică unui utilizator îi pot fi acordate sau revocate permisiuni pentru realizarea unor acțiuni.
+Numim această acțiune <strong>autorizare</strong>.</p>
+<p>Cea mai frecventă țință de configurare a permisiunilor o reprezintă sistemul de fișiere.
+Însemnând configurarea accesului unui utilizator la anumite fișiere / directoare.
+De exemplu, putem configura ca un utilizator să nu aibă deloc acces la un fișier, sau doar acces de citire, sau acces de citire și de scriere.
+În restul acestei secțiuni vom discuta despre permisiuni în sistemul de fișiere.
+Alte tipuri de permisiuni (și configurarea acestora) vor fi descrise în secțiunea <a class="reference internal" href="advanced.html#users-perms-advanced"><span class="std std-ref">Cazuri avansate</span></a>.</p>
+<section id="vizualizarea-permisiunilor">
+<span id="users-perms-permissions-in-fs-view"></span><h2><span class="section-number">3.1. </span>Vizualizarea permisiunilor<a class="headerlink" href="#vizualizarea-permisiunilor" title="Link to this heading">¶</a></h2>
+<p>Cel mai direct mod de a vizualiza permisiunile în sistemul de fișiere este cu opțiunea <code class="docutils literal notranslate"><span class="pre">-l</span></code> (<em>long listing</em>) a comenzii <code class="docutils literal notranslate"><span class="pre">ls</span></code>, ca în cazul comenzii de mai jos:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/.../users-permissions/support/permissions$<span class="w"> </span>ls<span class="w"> </span>-l
+total<span class="w"> </span><span class="m">8</span>
+-rw-rw-r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">34</span><span class="w"> </span>Dec<span class="w"> </span><span class="m">26</span><span class="w"> </span><span class="m">18</span>:34<span class="w"> </span>hello.sh
+----------<span class="w"> </span><span class="m">1</span><span class="w"> </span>student<span class="w"> </span>student<span class="w">  </span><span class="m">0</span><span class="w"> </span>Dec<span class="w"> </span><span class="m">26</span><span class="w"> </span><span class="m">18</span>:34<span class="w"> </span>noperm
+-r--------<span class="w"> </span><span class="m">1</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">20</span><span class="w"> </span>Dec<span class="w"> </span><span class="m">26</span><span class="w"> </span><span class="m">18</span>:35<span class="w"> </span><span class="nb">readonly</span>
+--w-------<span class="w"> </span><span class="m">1</span><span class="w"> </span>student<span class="w"> </span>student<span class="w">  </span><span class="m">0</span><span class="w"> </span>Dec<span class="w"> </span><span class="m">26</span><span class="w"> </span><span class="m">18</span>:36<span class="w"> </span>writeonly
+</pre></div>
+</div>
+<p>Comanda <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-l</span></code> afișează, pentru fiecare intrare, permisiunile acesteia.
+Permisiunile sunt indicate de primele caractere afișate pe fiecare linie, mai puțin primul caracter.
+Primul caracter reprezintă tipul intrării, în vreme ce următoarele 9 caractere sunt permisiunile.
+În cazul fișierului <code class="docutils literal notranslate"><span class="pre">hello.sh</span></code> permisiunile sunt <code class="docutils literal notranslate"><span class="pre">rw-rw-r--</span></code>, în vreme ce în cazul fișierului <code class="docutils literal notranslate"><span class="pre">readonly</span></code> permisiunile sunt <code class="docutils literal notranslate"><span class="pre">r--------</span></code>.
+Pe moment vom discuta strict despre primele 3 caractere din permisiuni; aceste caractere dau cel mai adesea permisiunile utilizatorului.
+În Secțiunea TODO vom discuta cumulat despre toate cele 9 caractere din permisiuni.</p>
+<p>Cum este de așteptat din numele fișierelor:</p>
+<ul class="simple">
+<li><p>fișierul <code class="docutils literal notranslate"><span class="pre">noperm</span></code> nu are nici o permisiune: primele 3 caractere de permisiune sunt <code class="docutils literal notranslate"><span class="pre">---</span></code></p></li>
+<li><p>fișierul <code class="docutils literal notranslate"><span class="pre">readonly</span></code> are doar permisiune de citire: primele 3 caractere de permisiune sunt <code class="docutils literal notranslate"><span class="pre">r--</span></code></p></li>
+<li><p>fișierul <code class="docutils literal notranslate"><span class="pre">writeonly</span></code> are doar permisiune de scriere: primele 3 caractere de permisiune sunt <code class="docutils literal notranslate"><span class="pre">-w-</span></code></p></li>
+</ul>
+<p>Cele 3 caractere corespund celor 3 tipuri de permisiuni:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">r</span></code> (<em>read</em>): permisiune de citire</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">w</span></code> (<em>write</em>): permisiune de scriere</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">x</span></code> (<em>execute</em>): permisiune de execuție</p></li>
+</ul>
+<section id="verificarea-permisiunilor">
+<h3><span class="section-number">3.1.1. </span>Verificarea permisiunilor<a class="headerlink" href="#verificarea-permisiunilor" title="Link to this heading">¶</a></h3>
+<p>Aceste permisiuni sunt aplicate în momentul în care executăm acțiuni concrete pe fișiere.
+Astfel, pentru a verifica în mod concret permisiunile pe fișiere, folosim comenzi precum cele de mai jos:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/.../users-permissions/support/permissions$<span class="w"> </span>cat<span class="w"> </span><span class="nb">readonly</span>
+seeing<span class="w"> </span>is<span class="w"> </span>believing
+student@uso:~/.../users-permissions/support/permissions$<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="nb">test</span><span class="w"> </span>&gt;<span class="w"> </span><span class="nb">readonly</span>
+bash:<span class="w"> </span>readonly:<span class="w"> </span>Permission<span class="w"> </span>denied
+student@uso:~/.../users-permissions/support/permissions$<span class="w"> </span>cat<span class="w"> </span>writeonly
+cat:<span class="w"> </span>writeonly:<span class="w"> </span>Permission<span class="w"> </span>denied
+student@uso:~/.../users-permissions/support/permissions$<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="nb">test</span><span class="w"> </span>&gt;<span class="w"> </span>writeonly
+student@uso:~/.../users-permissions/support/permissions$<span class="w"> </span>cat<span class="w"> </span>noperm
+cat:<span class="w"> </span>noperm:<span class="w"> </span>Permission<span class="w"> </span>denied
+student@uso:~/.../users-permissions/support/permissions$<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="nb">test</span><span class="w"> </span>&gt;<span class="w"> </span>noperm
+bash:<span class="w"> </span>noperm:<span class="w"> </span>Permission<span class="w"> </span>denied
+student@uso:~/.../users-permissions/support/permissions$<span class="w"> </span>./hello.sh
+bash:<span class="w"> </span>./hello.sh:<span class="w"> </span>Permission<span class="w"> </span>denied
+</pre></div>
+</div>
+<p>Am folosit, în comenzile de mai sus:</p>
+<ul class="simple">
+<li><p>comanda <code class="docutils literal notranslate"><span class="pre">cat</span></code> pentru a afișa continutul unui fișier și pentru a verifica, astfel, permisiunea de citire.
+Putem vizualiza conținutul fișierului <code class="docutils literal notranslate"><span class="pre">readonly</span></code>, care are permisiune de citire, dar nu al fișierelor <code class="docutils literal notranslate"><span class="pre">writeonly</span></code> și <code class="docutils literal notranslate"><span class="pre">noperm</span></code> care nu au permisiune de citire.</p></li>
+<li><p>redirectarea ieșirii comenzii <code class="docutils literal notranslate"><span class="pre">echo</span> <span class="pre">test</span></code> pentru a scrie conținut într-un fișier și pentru a verifica, astfel, permisiunea de scriere.
+Putem scrie conținut în fișierul <code class="docutils literal notranslate"><span class="pre">writeonly</span></code>, care are permisiune de scriere, dar nu în fișierele <code class="docutils literal notranslate"><span class="pre">readonlyonly</span></code> și <code class="docutils literal notranslate"><span class="pre">noperm</span></code> care nu au permisiune de scriere.</p></li>
+<li><p>prefixul <code class="docutils literal notranslate"><span class="pre">./</span></code> în fața unui fișier pentru a executa acel fișier și pentru a verifica, astfel, permisiunea de execuție.
+Fișierul <code class="docutils literal notranslate"><span class="pre">hello.sh</span></code> nu are permisiune de execuție, astfel câ încercarea de a îl executa va eșua.
+La fel ar fi cazul și celorlalte fișiere, nici unul dintre care nu are permisiune de execuție.</p></li>
+</ul>
+<p>Observăm că în cazul unor comenzi eșuate din cauza lipsei de permisiuni, mesajul afîșat este mereu același: <em>Permission denied*</em>.</p>
+</section>
+<section id="alte-moduri-de-vizualizare-a-permisiunilor">
+<h3><span class="section-number">3.1.2. </span>Alte moduri de vizualizare a permisiunilor<a class="headerlink" href="#alte-moduri-de-vizualizare-a-permisiunilor" title="Link to this heading">¶</a></h3>
+<p>Pe lângă comanda <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-l</span></code> un alt mod de a verifica permisiunile unui fișier este folosind comanda <code class="docutils literal notranslate"><span class="pre">stat</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/.../users-permissions/support/permissions$<span class="w"> </span>stat<span class="w"> </span>writeonly
+<span class="w">  </span>File:<span class="w"> </span>writeonly
+<span class="w">  </span>Size:<span class="w"> </span><span class="m">5</span><span class="w">           </span>Blocks:<span class="w"> </span><span class="m">8</span><span class="w">          </span>IO<span class="w"> </span>Block:<span class="w"> </span><span class="m">4096</span><span class="w">   </span>regular<span class="w"> </span>file
+Device:<span class="w"> </span>10305h/66309d<span class="w">       </span>Inode:<span class="w"> </span><span class="m">534501</span><span class="w">      </span>Links:<span class="w"> </span><span class="m">1</span>
+Access:<span class="w"> </span><span class="o">(</span><span class="m">0200</span>/--w-------<span class="o">)</span><span class="w">  </span>Uid:<span class="w"> </span><span class="o">(</span><span class="w"> </span><span class="m">1000</span>/<span class="w">  </span>student<span class="o">)</span><span class="w">   </span>Gid:<span class="w"> </span><span class="o">(</span><span class="w"> </span><span class="m">1000</span>/<span class="w">  </span>student<span class="o">)</span>
+Access:<span class="w"> </span><span class="m">2021</span>-12-26<span class="w"> </span><span class="m">18</span>:34:56.615303322<span class="w"> </span>+0200
+Modify:<span class="w"> </span><span class="m">2021</span>-12-30<span class="w"> </span><span class="m">19</span>:35:31.859546113<span class="w"> </span>+0200
+Change:<span class="w"> </span><span class="m">2021</span>-12-30<span class="w"> </span><span class="m">19</span>:35:31.859546113<span class="w"> </span>+0200
+<span class="w"> </span>Birth:<span class="w"> </span>-
+student@uso:~/.../users-permissions/support/permissions$<span class="w"> </span>stat<span class="w"> </span><span class="nb">readonly</span>
+<span class="w">  </span>File:<span class="w"> </span><span class="nb">readonly</span>
+<span class="w">  </span>Size:<span class="w"> </span><span class="m">20</span><span class="w">          </span>Blocks:<span class="w"> </span><span class="m">8</span><span class="w">          </span>IO<span class="w"> </span>Block:<span class="w"> </span><span class="m">4096</span><span class="w">   </span>regular<span class="w"> </span>file
+Device:<span class="w"> </span>10305h/66309d<span class="w">       </span>Inode:<span class="w"> </span><span class="m">534504</span><span class="w">      </span>Links:<span class="w"> </span><span class="m">1</span>
+Access:<span class="w"> </span><span class="o">(</span><span class="m">0400</span>/-r--------<span class="o">)</span><span class="w">  </span>Uid:<span class="w"> </span><span class="o">(</span><span class="w"> </span><span class="m">1000</span>/<span class="w">  </span>student<span class="o">)</span><span class="w">   </span>Gid:<span class="w"> </span><span class="o">(</span><span class="w"> </span><span class="m">1000</span>/<span class="w">  </span>student<span class="o">)</span>
+Access:<span class="w"> </span><span class="m">2021</span>-12-30<span class="w"> </span><span class="m">19</span>:35:04.035618222<span class="w"> </span>+0200
+Modify:<span class="w"> </span><span class="m">2021</span>-12-26<span class="w"> </span><span class="m">18</span>:35:23.044215182<span class="w"> </span>+0200
+Change:<span class="w"> </span><span class="m">2021</span>-12-26<span class="w"> </span><span class="m">18</span>:35:32.164529854<span class="w"> </span>+0200
+<span class="w"> </span>Birth:<span class="w"> </span>-
+</pre></div>
+</div>
+<p>Linia <code class="docutils literal notranslate"><span class="pre">Access:</span></code> afișează permisiunile.
+Observăm că permisiunile sunt precedate de o valoare numerică (<code class="docutils literal notranslate"><span class="pre">0200</span></code> și <code class="docutils literal notranslate"><span class="pre">0400</span></code>).
+Vom discuta despre această valoare numerică, numită forma numerică (în octal) a permisiunilor în Secțiunea <span class="xref std std-ref">user_perm_permissions_numeric</span>.</p>
+</section>
+<section id="exercitii">
+<h3><span class="section-number">3.1.3. </span>Exerciții<a class="headerlink" href="#exercitii" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Creați fișierul <code class="docutils literal notranslate"><span class="pre">myfile</span></code> folosind comanda <code class="docutils literal notranslate"><span class="pre">touch</span></code>.
+Vizualizați permisiunile implicite (<em>default</em>) ale fișierului.
+Verificați permisiunile.</p></li>
+<li><p>Vizualizați permisiunile fișierului <code class="docutils literal notranslate"><span class="pre">bye.sh</span></code> din directorul de suport.
+Verificați permisiunile.</p></li>
+<li><p>Vizualizați permisiunile fișierului <code class="docutils literal notranslate"><span class="pre">dec31.sh</span></code> din directorul de suport.
+Verificați permisiunile.
+Observați că, și dacă are permisiune de execuție, fișierul nu poate fi executat dacă nu are și permisiune de citire.</p></li>
+</ul>
+</section>
+</section>
+<section id="permisiuni-pe-directoare">
+<span id="users-perms-permissions-in-fs-dir"></span><h2><span class="section-number">3.2. </span>Permisiuni pe directoare<a class="headerlink" href="#permisiuni-pe-directoare" title="Link to this heading">¶</a></h2>
+<p>Am discutat până acum permisiunile pe fișiere.
+Cele trei permisiuni (citire, scriere și execuție se pot aplica și pe directoare):</p>
+<div class="highlight-basho notranslate"><div class="highlight"><pre><span></span>student@uso:~/.../support/permissions/demo-dir$ ls -l
+total 20
+d--x------ 2 student student 4096 Dec 30 20:20 exec-dir
+dr-x------ 2 student student 4096 Dec 30 20:20 read-exec-dir
+drw------- 2 student student 4096 Dec 30 20:20 read-write-dir
+drwx------ 2 student student 4096 Dec 30 20:20 read-write-exec-dir
+d-wx------ 2 student student 4096 Dec 30 20:20 write-exec-dir
+</pre></div>
+</div>
+<p>Cele trei permisiuni pe directoare au următorul rol:</p>
+<ul class="simple">
+<li><p>permisiunea de citire: conținutul directorului poate fi afișat</p></li>
+<li><p>permisiunea de scriere: conținutul directorului poate fi modificat (pot fi create și șterse intrări din director)</p></li>
+<li><p>permisiunea de execuție: directorul poate fi parcurs, poate fi parte a unei căi</p></li>
+</ul>
+<section id="verificarea-permisiunilor-pe-directoare">
+<h3><span class="section-number">3.2.1. </span>Verificarea permisiunilor pe directoare<a class="headerlink" href="#verificarea-permisiunilor-pe-directoare" title="Link to this heading">¶</a></h3>
+<p>Verificăm permisiunile pe directoare folosind comenzile de mai jos:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">&lt;director&gt;</span></code>: Afișează conținutul directorului, adică intrările din acel director (fișiere, subdirectoare etc.).
+Necesită permisiune de citire pe director.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">&lt;director&gt;/a.txt</span></code>: Afișează calea către fișierul <code class="docutils literal notranslate"><span class="pre">a.txt</span></code> din cadrul directorului.
+Necesită permisiune de execuție pe director.
+Fără permisiuni de execuție, directorul nu poate fi parte a unei căi.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cat</span> <span class="pre">&lt;director&gt;/a.txt</span></code>: Afișează conținutul fișierului <code class="docutils literal notranslate"><span class="pre">a.txt</span></code> din cadrul directorului.
+Necesită permisiune de execuție pe director <strong>și</strong> drept de citire pe fișierul <code class="docutils literal notranslate"><span class="pre">a.txt</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">touch</span> <span class="pre">&lt;director&gt;/c.txt</span></code>: Creează o intrare în director, în forma unui fișier cu numele <code class="docutils literal notranslate"><span class="pre">c.txt</span></code>.
+Necesită permisiune de scriere <strong>și</strong> de execuție pe director.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">rm</span> <span class="pre">&lt;director&gt;/c.txt</span></code>: Șterge intrarea numită <code class="docutils literal notranslate"><span class="pre">c.txt</span></code> din director.
+Necesită permisiune de scriere <strong>și</strong> de execuție pe director.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">&lt;director&gt;/&lt;TAB&gt;&lt;TAB&gt;</span></code>: Afișează conținutul posibil pentru completarea căilor din director.
+Necesită permisiune de citire <strong>și</strong> de execuție pe director.</p></li>
+</ul>
+<p>Astfel, verificăm permisiunile pe directoarele <code class="docutils literal notranslate"><span class="pre">read-exec-dir</span></code> și <code class="docutils literal notranslate"><span class="pre">read-write-dir</span></code> folosind comenzile de mai jos:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/.../support/permissions/demo-dir$<span class="w"> </span>ls<span class="w"> </span>exec-dir/
+ls:<span class="w"> </span>cannot<span class="w"> </span>open<span class="w"> </span>directory<span class="w"> </span><span class="s1">&#39;exec-dir/&#39;</span>:<span class="w"> </span>Permission<span class="w"> </span>denied
+student@uso:~/.../support/permissions/demo-dir$<span class="w"> </span>cat<span class="w"> </span>exec-dir/a.txt
+test-a
+student@uso:~/.../support/permissions/demo-dir$<span class="w"> </span>cat<span class="w"> </span>exec-dir/b.txt
+test-b
+student@uso:~/.../support/permissions/demo-dir$<span class="w"> </span>touch<span class="w"> </span>exec-dir/c.txt
+touch:<span class="w"> </span>cannot<span class="w"> </span>touch<span class="w"> </span><span class="s1">&#39;exec-dir/c.txt&#39;</span>:<span class="w"> </span>Permission<span class="w"> </span>denied
+student@uso:~/.../support/permissions/demo-dir$<span class="w"> </span>rm<span class="w"> </span>exec-dir/a.txt
+rm:<span class="w"> </span>cannot<span class="w"> </span>remove<span class="w"> </span><span class="s1">&#39;exec-dir/a.txt&#39;</span>:<span class="w"> </span>Permission<span class="w"> </span>denied
+
+student@uso:~/.../support/permissions/demo-dir$<span class="w"> </span>ls<span class="w"> </span>read-exec-dir/
+a.txt<span class="w">  </span>b.txt
+student@uso:~/.../support/permissions/demo-dir$<span class="w"> </span>ls<span class="w"> </span>read-exec-dir/a.txt
+read-exec-dir/a.txt
+student@uso:~/.../support/permissions/demo-dir$<span class="w"> </span>cat<span class="w"> </span>read-exec-dir/a.txt
+test-a
+student@uso:~/.../support/permissions/demo-dir$<span class="w"> </span>touch<span class="w"> </span>read-exec-dir/c.txt
+touch:<span class="w"> </span>cannot<span class="w"> </span>touch<span class="w"> </span><span class="s1">&#39;read-exec-dir/c.txt&#39;</span>:<span class="w"> </span>Permission<span class="w"> </span>denied
+student@uso:~/.../support/permissions/demo-dir$<span class="w"> </span>rm<span class="w"> </span>read-exec-dir/a.txt
+rm:<span class="w"> </span>cannot<span class="w"> </span>remove<span class="w"> </span><span class="s1">&#39;read-exec-dir/a.txt&#39;</span>:<span class="w"> </span>Permission<span class="w"> </span>denied
+</pre></div>
+</div>
+</section>
+<section id="id1">
+<h3><span class="section-number">3.2.2. </span>Exerciții<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h3>
+</section>
+</section>
+<section id="modificarea-permisiunilor">
+<span id="users-perms-permissions-in-fs-mod"></span><h2><span class="section-number">3.3. </span>Modificarea permisiunilor<a class="headerlink" href="#modificarea-permisiunilor" title="Link to this heading">¶</a></h2>
+</section>
+<section id="gruparea-utilizatorilor">
+<span id="users-perms-permissions-in-fs-groups"></span><h2><span class="section-number">3.4. </span>Gruparea utilizatorilor<a class="headerlink" href="#gruparea-utilizatorilor" title="Link to this heading">¶</a></h2>
+</section>
+<section id="formatul-numeric-al-permisiunilor">
+<span id="users-perms-permissions-in-fs-numeric"></span><h2><span class="section-number">3.5. </span>Formatul numeric al permisiunilor<a class="headerlink" href="#formatul-numeric-al-permisiunilor" title="Link to this heading">¶</a></h2>
+</section>
+<section id="cautarea-fisierelor-dupa-permisiuni">
+<span id="users-perms-permissions-in-fs-find"></span><h2><span class="section-number">3.6. </span>Căutarea fișierelor după permisiuni<a class="headerlink" href="#cautarea-fisierelor-dupa-permisiuni" title="Link to this heading">¶</a></h2>
+</section>
+</section>
+
+
+          </div>
+          <div class="page-nav">
+            <div class="inner"><ul class="page-nav">
+  <li class="prev">
+    <a href="processes.html"
+       title="previous chapter">← <span class="section-number">2. </span>Utilizatori și procese</a>
+  </li>
+  <li class="next">
+    <a href="groups.html"
+       title="next chapter"><span class="section-number">4. </span>Gruparea utilizatorilor →</a>
+  </li>
+</ul><div class="footer" role="contentinfo">
+      &#169; Copyright 2020, USO Team.
+    <br>
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 7.2.3 with <a href="https://github.com/romnn/sphinx_press_theme">Press Theme</a>.
+</div>
+            </div>
+          </div>
+      </page>
+    </div>
+    
+    
+  </body>
+</html>
