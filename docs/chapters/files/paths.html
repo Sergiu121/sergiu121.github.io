@@ -352,7 +352,7 @@
           </li>
 
         
-          <li class="toctree-l1 "><a href="../app-dev/extra.html" class="reference internal ">Exercițîi suplimentare</a>
+          <li class="toctree-l1 "><a href="../app-dev/extra.html" class="reference internal ">Exerciții suplimentare</a>
 
             
           </li>
@@ -538,7 +538,7 @@
             
   <section id="cai-in-ierarhia-de-fisiere">
 <span id="files-paths-in-fs"></span><h1><span class="section-number">1. </span>Căi în ierarhia de fișiere<a class="headerlink" href="#cai-in-ierarhia-de-fisiere" title="Link to this heading">¶</a></h1>
-<p>Atunci când folosim un terminal, este important să știm unde ne aflăm în ierarhie.
+<p>Atunci când folosim un terminal este important să știm unde ne aflăm în ierarhie.
 Dacă vrem să jucăm un joc, știm că vrem să ajungem în directorul <code class="docutils literal notranslate"><span class="pre">Games</span></code>, unde avem jocul preferat, <code class="docutils literal notranslate"><span class="pre">Warcraft3</span></code>.
 Pentru a ajunge în directorul <code class="docutils literal notranslate"><span class="pre">Games</span></code>, trebuie să știm unde suntem și apoi să navigăm în sistemul de fișiere până acolo.</p>
 <p><strong>O ierarhie de fișiere și directoare</strong> este o structură de organizare a acestora.
@@ -552,40 +552,40 @@ Structura ierarhică permite gruparea acestora în directoare, ce conțin la râ
 Dacă privim sistemul de fișiere ca un arbore întors, directorul rădăcină este chiar rădăcina acestui arbore.
 De acolo cresc ramurile și frunzele sistemului de fișiere, formând ceea ce vom numi <strong>căi</strong> (<em>paths</em>).</p>
 <p>Putem vedea mai jos începutul ierarhiei din Linux:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:/$<span class="w"> </span>tree<span class="w"> </span>-F<span class="w"> </span>-L<span class="w"> </span><span class="m">1</span><span class="w"> </span>/
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:/$<span class="w"> </span>tree<span class="w"> </span>-L<span class="w"> </span><span class="m">1</span><span class="w"> </span>/
 /
-<span class="p">|</span>--<span class="w"> </span>bin/
-<span class="p">|</span>--<span class="w"> </span>boot/
-<span class="p">|</span>--<span class="w"> </span>dev/
-<span class="p">|</span>--<span class="w"> </span>etc/
-<span class="p">|</span>--<span class="w"> </span>home/
+<span class="p">|</span>--<span class="w"> </span>bin
+<span class="p">|</span>--<span class="w"> </span>boot
+<span class="p">|</span>--<span class="w"> </span>dev
+<span class="p">|</span>--<span class="w"> </span>etc
+<span class="p">|</span>--<span class="w"> </span>home
 <span class="p">|</span>--<span class="w"> </span>initrd.img<span class="w"> </span>-&gt;<span class="w"> </span>/boot/initrd.img-3.16.0-4-586
-<span class="p">|</span>--<span class="w"> </span>lib/
-<span class="p">|</span>--<span class="w"> </span>lib64/
-<span class="p">|</span>--<span class="w"> </span>libx32/
-<span class="p">|</span>--<span class="w"> </span>lost+found/
-<span class="p">|</span>--<span class="w"> </span>media/
-<span class="p">|</span>--<span class="w"> </span>mnt/
-<span class="p">|</span>--<span class="w"> </span>opt/
-<span class="p">|</span>--<span class="w"> </span>proc/
-<span class="p">|</span>--<span class="w"> </span>root/
-<span class="p">|</span>--<span class="w"> </span>run/
-<span class="p">|</span>--<span class="w"> </span>sbin/
-<span class="p">|</span>--<span class="w"> </span>srv/
-<span class="p">|</span>--<span class="w"> </span>sys/
-<span class="p">|</span>--<span class="w"> </span>tmp/
-<span class="p">|</span>--<span class="w"> </span>usr/
-<span class="p">|</span>--<span class="w"> </span>var/
+<span class="p">|</span>--<span class="w"> </span>lib
+<span class="p">|</span>--<span class="w"> </span>lib64
+<span class="p">|</span>--<span class="w"> </span>libx32
+<span class="p">|</span>--<span class="w"> </span>lost+found
+<span class="p">|</span>--<span class="w"> </span>media
+<span class="p">|</span>--<span class="w"> </span>mnt
+<span class="p">|</span>--<span class="w"> </span>opt
+<span class="p">|</span>--<span class="w"> </span>proc
+<span class="p">|</span>--<span class="w"> </span>root
+<span class="p">|</span>--<span class="w"> </span>run
+<span class="p">|</span>--<span class="w"> </span>sbin
+<span class="p">|</span>--<span class="w"> </span>srv
+<span class="p">|</span>--<span class="w"> </span>sys
+<span class="p">|</span>--<span class="w"> </span>tmp
+<span class="p">|</span>--<span class="w"> </span>usr
+<span class="p">|</span>--<span class="w"> </span>var
 <span class="sb">``</span>--<span class="w"> </span>vmlinuz<span class="w"> </span>-&gt;<span class="w"> </span>boot/vmlinuz-3.16.0-4-586
 </pre></div>
 </div>
 <p>Observăm <code class="docutils literal notranslate"><span class="pre">/</span></code> (directorul rădăcină) la începutul ierarhiei.
 Pe nivelul următor, adică ramuri / copii ai directorului rădăcină, sunt directoarele <code class="docutils literal notranslate"><span class="pre">bin</span></code>, <code class="docutils literal notranslate"><span class="pre">boot</span></code>, <code class="docutils literal notranslate"><span class="pre">dev</span></code> etc.</p>
 <p>Observăm conținutul directorul <code class="docutils literal notranslate"><span class="pre">home</span></code>:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:/home$<span class="w"> </span>tree<span class="w"> </span>-F<span class="w"> </span>-L<span class="w"> </span><span class="m">1</span><span class="w"> </span>/home
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:/home$<span class="w"> </span>tree<span class="w"> </span>-L<span class="w"> </span><span class="m">1</span><span class="w"> </span>/home
 .
-<span class="p">|</span>--<span class="w"> </span>student/
-<span class="sb">``</span>--<span class="w"> </span>test/
+<span class="p">|</span>--<span class="w"> </span>student
+<span class="sb">``</span>--<span class="w"> </span><span class="nb">test</span>
 </pre></div>
 </div>
 <p>Există două directoare <code class="docutils literal notranslate"><span class="pre">student</span></code> și <code class="docutils literal notranslate"><span class="pre">test</span></code>.</p>
@@ -593,44 +593,44 @@ Pe nivelul următor, adică ramuri / copii ai directorului rădăcină, sunt dir
 <p class="admonition-title">Note</p>
 <p>Observăm cum se schimbă promptul de terminal:</p>
 <ul class="simple">
-<li><p>în primul exemplu <code class="docutils literal notranslate"><span class="pre">student&#64;uso:/$</span> <span class="pre">tree</span> <span class="pre">-F</span> <span class="pre">-L</span> <span class="pre">1</span> <span class="pre">/</span></code> eram în directorul <code class="docutils literal notranslate"><span class="pre">/</span></code>.</p></li>
-<li><p>în al doilea exemplu <code class="docutils literal notranslate"><span class="pre">student&#64;uso:/home$</span> <span class="pre">tree</span> <span class="pre">-F</span> <span class="pre">-L</span> <span class="pre">1</span></code> eram în directorul <code class="docutils literal notranslate"><span class="pre">/home</span></code>.</p></li>
+<li><p>în primul exemplu <code class="docutils literal notranslate"><span class="pre">student&#64;uso:/$</span> <span class="pre">tree</span> <span class="pre">-L</span> <span class="pre">1</span> <span class="pre">/</span></code> eram în directorul <code class="docutils literal notranslate"><span class="pre">/</span></code>.</p></li>
+<li><p>în al doilea exemplu <code class="docutils literal notranslate"><span class="pre">student&#64;uso:/home$</span> <span class="pre">tree</span> <span class="pre">-L</span> <span class="pre">1</span></code> eram în directorul <code class="docutils literal notranslate"><span class="pre">/home</span></code>.</p></li>
 </ul>
 </div>
 <p>Avansăm în ierarhia de directoare către <code class="docutils literal notranslate"><span class="pre">student</span></code>, folosind comanda <code class="docutils literal notranslate"><span class="pre">cd</span></code>:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:/home$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>student
 student@uso:~$<span class="w"> </span><span class="nb">pwd</span>
 /home/student
-student@uso:~$<span class="w"> </span>tree<span class="w"> </span>-F
+student@uso:~$<span class="w"> </span>tree
 .
-<span class="p">|</span>--<span class="w"> </span>comenzi/
-<span class="p">|</span><span class="w">   </span><span class="p">|</span>--<span class="w"> </span>executie/
-<span class="p">|</span><span class="w">   </span><span class="p">|</span>--<span class="w"> </span>ls/
+<span class="p">|</span>--<span class="w"> </span>comenzi
+<span class="p">|</span><span class="w">   </span><span class="p">|</span>--<span class="w"> </span>executie
+<span class="p">|</span><span class="w">   </span><span class="p">|</span>--<span class="w"> </span>ls
 <span class="p">|</span><span class="w">   </span><span class="p">|</span><span class="w">   </span><span class="sb">``</span>--<span class="w"> </span>mkdir<span class="w"> </span>-&gt;<span class="w"> </span>/home/student/comenzi/mkdir/
-<span class="p">|</span><span class="w">   </span><span class="p">|</span>--<span class="w"> </span>mkdir/
-<span class="p">|</span><span class="w">   </span><span class="p">|</span><span class="w">   </span><span class="p">|</span>--<span class="w"> </span>Avengers/
+<span class="p">|</span><span class="w">   </span><span class="p">|</span>--<span class="w"> </span>mkdir
+<span class="p">|</span><span class="w">   </span><span class="p">|</span><span class="w">   </span><span class="p">|</span>--<span class="w"> </span>Avengers
 <span class="p">|</span><span class="w">   </span><span class="p">|</span><span class="w">   </span><span class="p">|</span><span class="w">   </span><span class="p">|</span>--<span class="w"> </span>Captain<span class="se">\ </span>America
 <span class="p">|</span><span class="w">   </span><span class="p">|</span><span class="w">   </span><span class="p">|</span><span class="w">   </span><span class="p">|</span>--<span class="w"> </span>Iron<span class="se">\ </span>Man
 <span class="p">|</span><span class="w">   </span><span class="p">|</span><span class="w">   </span><span class="p">|</span><span class="w">   </span><span class="sb">``</span>--<span class="w"> </span>Thor
-<span class="p">|</span><span class="w">   </span><span class="p">|</span><span class="w">   </span><span class="sb">``</span>--<span class="w"> </span>GameOfThrones/
+<span class="p">|</span><span class="w">   </span><span class="p">|</span><span class="w">   </span><span class="sb">``</span>--<span class="w"> </span>GameOfThrones
 <span class="p">|</span><span class="w">   </span><span class="p">|</span><span class="w">       </span><span class="p">|</span>--<span class="w"> </span>Arya<span class="se">\ </span>Stark
 <span class="p">|</span><span class="w">   </span><span class="p">|</span><span class="w">       </span><span class="p">|</span>--<span class="w"> </span>Daenerys<span class="se">\ </span>Targaryen
 <span class="p">|</span><span class="w">   </span><span class="p">|</span><span class="w">       </span><span class="p">|</span>--<span class="w"> </span>Jon<span class="se">\ </span>Snow
 <span class="p">|</span><span class="w">   </span><span class="p">|</span><span class="w">       </span><span class="sb">``</span>--<span class="w"> </span>Tyrion<span class="se">\ </span>Lannister
 <span class="p">|</span><span class="w">   </span><span class="p">|</span>--<span class="w"> </span>my_ls
-<span class="p">|</span><span class="w">   </span><span class="sb">``</span>--<span class="w"> </span>touch/
+<span class="p">|</span><span class="w">   </span><span class="sb">``</span>--<span class="w"> </span>touch
 <span class="p">|</span><span class="w">       </span><span class="p">|</span>--<span class="w"> </span>orase
 <span class="p">|</span><span class="w">       </span><span class="p">|</span>--<span class="w"> </span>orase<span class="se">\ </span>romania
 <span class="p">|</span><span class="w">       </span><span class="sb">``</span>--<span class="w"> </span>romania
 <span class="p">|</span>--<span class="w"> </span>comenzi_redirectare
 <span class="p">|</span>--<span class="w"> </span>continut_materii
-<span class="p">|</span>--<span class="w"> </span>dezarhivare/
-<span class="p">|</span><span class="w">   </span><span class="p">|</span>--<span class="w"> </span>tar/
-<span class="p">|</span><span class="w">   </span><span class="sb">``</span>--<span class="w"> </span>zip/
+<span class="p">|</span>--<span class="w"> </span>dezarhivare
+<span class="p">|</span><span class="w">   </span><span class="p">|</span>--<span class="w"> </span>tar
+<span class="p">|</span><span class="w">   </span><span class="sb">``</span>--<span class="w"> </span>zip
 <span class="p">|</span><span class="w">       </span><span class="p">|</span>--<span class="w"> </span>fisier1
 <span class="p">|</span><span class="w">       </span><span class="p">|</span>--<span class="w"> </span>fisier2
 <span class="p">|</span><span class="w">       </span><span class="sb">``</span>--<span class="w"> </span>fisier3
-<span class="p">|</span>--<span class="w"> </span>ELTH/
+<span class="p">|</span>--<span class="w"> </span>ELTH
 <span class="p">|</span>--<span class="w"> </span>erori_comenzi
 <span class="p">|</span>--<span class="w"> </span>fisier
 <span class="p">|</span>--<span class="w"> </span>fisier1
@@ -644,7 +644,7 @@ student@uso:~$<span class="w"> </span>tree<span class="w"> </span>-F
 <span class="p">|</span>--<span class="w"> </span>orase
 <span class="p">|</span>--<span class="w"> </span>scurtaturi.save
 <span class="p">|</span>--<span class="w"> </span>test.zip
-<span class="p">|</span>--<span class="w"> </span>USO/
+<span class="p">|</span>--<span class="w"> </span>USO
 <span class="p">|</span>--<span class="w"> </span>usr_bin.tar
 <span class="sb">``</span>--<span class="w"> </span>usr_bin.zip
 </pre></div>
@@ -662,7 +662,7 @@ Voi veți avea alt rezultat, conform fișierelor și directoarelor de pe sistemu
 <p>Pornim de la următoarea analogie: Avem patru puncte pe o dreaptă: A, B, C și D.
 Pentru a ajunge de la A la D, <strong>trebuie</strong> să trecem prin B și C.
 Astfel, avem următoarele segmente: AB, BC, CD.</p>
-<p>Similar, pentru sistemul de fișiere, pornim de la directorul rădăcină (<code class="docutils literal notranslate"><span class="pre">/</span></code>) și coborâm pe arbore.</p>
+<p>Similar, pentru sistemul de fișiere, pornim de la directorul rădăcină (<code class="docutils literal notranslate"><span class="pre">/</span></code>) și să coborâm în jos pe arbore.</p>
 <p>Lista de directoare intermediare de la rădăcina ierarhiei de fișiere (<code class="docutils literal notranslate"><span class="pre">/</span></code>) până la un anumit fișier sau director se numeste <strong>cale</strong>.</p>
 <p><em>Calea curentă</em> este pozitia noastră în sistemul de fișiere.</p>
 <p>În lina de comandă afișăm calea până la directorul în care ne aflăm (<em>calea curentă</em>) folosind comanda <code class="docutils literal notranslate"><span class="pre">pwd</span></code> (<em>print working directory</em>) :</p>
@@ -729,7 +729,7 @@ drwxr-xr-x<span class="w"> </span><span class="m">2</span><span class="w"> </spa
 drwxr-xr-x<span class="w"> </span><span class="m">2</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">4096</span><span class="w"> </span>Sep<span class="w"> </span><span class="m">29</span><span class="w"> </span><span class="m">19</span>:21<span class="w"> </span>GameOfThrones
 </pre></div>
 </div>
-<p>În exemplul de mai sus, ne aflăm la calea <code class="docutils literal notranslate"><span class="pre">/home/student</span></code> și am coborât în ierarhia de fișiere către directorul <code class="docutils literal notranslate"><span class="pre">comenzi</span></code>, apoi directorul <code class="docutils literal notranslate"><span class="pre">mkdir</span></code>.</p>
+<p>În exemplul de mai sus, ne aflăm la calea <code class="docutils literal notranslate"><span class="pre">/home/student</span></code> și am coborât în jos în ierarhia de fișiere către directorul <code class="docutils literal notranslate"><span class="pre">comenzi</span></code>, apoi directorul <code class="docutils literal notranslate"><span class="pre">mkdir</span></code>.</p>
 <p>Același rezultat îl obținem folosind calea absolută:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$<span class="w"> </span>ls<span class="w"> </span>-l<span class="w"> </span>/home/student/comenzi/mkdir/
 total<span class="w"> </span><span class="m">8</span>
@@ -793,7 +793,7 @@ Această comandă poate fi folosită oriunde ne-am afla deoarece este o <em>cale
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>La fel ca toate comenzile de lucru cu sistemul de fișiere, comanda <code class="docutils literal notranslate"><span class="pre">cd</span></code> primește ca parametru o cale. Aceasta poate fi atât <em>relativă</em>, cât și <em>absolută</em>.</p>
+<p>La fel ca toate comenzile de lucru cu sistemul de fișiere, comanda <code class="docutils literal notranslate"><span class="pre">cd</span></code> primește ca parametru o cale. Aceasta poate fi atât <em>relativă</em> cât și <em>absolută</em>.</p>
 </div>
 <p>Schimbăm calea curentă în <code class="docutils literal notranslate"><span class="pre">/home/student</span></code>, folosind <code class="docutils literal notranslate"><span class="pre">cd</span></code>:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:/usr$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>/home/student
@@ -827,7 +827,7 @@ student@uso:/usr/bin$<span class="w"> </span><span class="nb">pwd</span>
 Dacă știm unde ne aflăm, ne putem orienta către destinație.
 Știm unde ne aflăm folosind comanda <code class="docutils literal notranslate"><span class="pre">pwd</span></code>; ne deplasăm în altă parte folosind comanda <code class="docutils literal notranslate"><span class="pre">cd</span></code>.</p>
 </div>
-<p>Observăm cum am urcat în ierarhie folosind <code class="docutils literal notranslate"><span class="pre">..</span></code> până la <code class="docutils literal notranslate"><span class="pre">/</span></code> (<em>directorul rădăcină</em>), apoi am coborât spre <code class="docutils literal notranslate"><span class="pre">usr</span></code> și apoi <code class="docutils literal notranslate"><span class="pre">bin</span></code>.</p>
+<p>Observăm cum am urcat în ierarhie folosind <code class="docutils literal notranslate"><span class="pre">..</span></code> până la <code class="docutils literal notranslate"><span class="pre">/</span></code> (<em>directorul rădăcină</em>) iar apoi am coborât spre <code class="docutils literal notranslate"><span class="pre">usr</span></code> și apoi <code class="docutils literal notranslate"><span class="pre">bin</span></code>.</p>
 <p>În exemplul de mai jos, comanda de mai sus nu este valabilă:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/comenzi$<span class="w"> </span><span class="nb">pwd</span>
 /home/student/comenzi

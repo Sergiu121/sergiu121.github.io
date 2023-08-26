@@ -346,7 +346,7 @@
           </li>
 
         
-          <li class="toctree-l1 "><a href="../app-dev/extra.html" class="reference internal ">Exercițîi suplimentare</a>
+          <li class="toctree-l1 "><a href="../app-dev/extra.html" class="reference internal ">Exerciții suplimentare</a>
 
             
           </li>
@@ -549,7 +549,7 @@ Găsim toate fișierele de configurare ale serviciului <code class="docutils lit
 </div>
 <p>Am căutat în calea <code class="docutils literal notranslate"><span class="pre">/</span></code> (<em>root</em>) orice fișier ce conține <code class="docutils literal notranslate"><span class="pre">ssh</span></code> și se termină cu <code class="docutils literal notranslate"><span class="pre">conf</span></code>.</p>
 <p>Utilitarul <code class="docutils literal notranslate"><span class="pre">find</span></code> caută în ierarhia de fișiere care începe de la calea dată ca parametru în jos. În cazul nostru, de la <code class="docutils literal notranslate"><span class="pre">/</span></code> (root) în jos, adică în tot sistemul de fișiere.</p>
-<p>Mai multe informații și exemple de utilizări vom vedea în capitolul <code class="docutils literal notranslate"><span class="pre">Îmbunătățirea</span> <span class="pre">lucrului</span> <span class="pre">în</span> <span class="pre">linia</span> <span class="pre">de</span> <span class="pre">comandă</span></code>.</p>
+<p>Mai multe informații și exemple de utilizări vom vedea în capitolul #TODOref_capitol_edi</p>
 </section>
 <section id="folosirea-utilitarului-locate">
 <h3><span class="section-number">6.1.2. </span>Folosirea utilitarului <code class="docutils literal notranslate"><span class="pre">locate</span></code><a class="headerlink" href="#folosirea-utilitarului-locate" title="Link to this heading">¶</a></h3>
@@ -558,7 +558,7 @@ Găsim toate fișierele de configurare ale serviciului <code class="docutils lit
 <p>Acesta funcționează în 2 pași:</p>
 <ul class="simple">
 <li><p>Crearea și actualizarea unei baze de date folosind comanda <code class="docutils literal notranslate"><span class="pre">updatedb</span></code>.
-Aceasta conține intrări cu toate fișierele din sistem și locația acestora.</p></li>
+Aceasta conține intrări cu toate fișierele din sistem și locatia acestora.</p></li>
 <li><p>Căutarea folosind <code class="docutils literal notranslate"><span class="pre">locate</span></code>.
 Această căutare se reduce la interogarea bazei de date create anterior cu <code class="docutils literal notranslate"><span class="pre">updatedb</span></code>.</p></li>
 </ul>
@@ -580,15 +580,15 @@ Răspunsul comenzii este instant.</p>
 </pre></div>
 </div>
 <p>Am folosit utilitarul <code class="docutils literal notranslate"><span class="pre">locate</span></code> să căutăm în tot sistemul orice fișier se termină cu <code class="docutils literal notranslate"><span class="pre">.tar</span></code>.</p>
-<p>Găsim mai multe informații și exemple în capitolul <code class="docutils literal notranslate"><span class="pre">Îmbunătățirea</span> <span class="pre">lucrului</span> <span class="pre">în</span> <span class="pre">linia</span> <span class="pre">de</span> <span class="pre">comandă</span></code>.</p>
+<p>Găsim mai multe informații și exemple în capitolul todo_ref_edi</p>
 </section>
 </section>
 <section id="variabila-de-mediu-path">
 <h2><span class="section-number">6.2. </span>Variabila de mediu PATH<a class="headerlink" href="#variabila-de-mediu-path" title="Link to this heading">¶</a></h2>
 <p>Până acum am învățat câteva comenzi utile: <code class="docutils literal notranslate"><span class="pre">ls</span></code>, <code class="docutils literal notranslate"><span class="pre">cd</span></code>, <code class="docutils literal notranslate"><span class="pre">find</span></code>, <code class="docutils literal notranslate"><span class="pre">locate</span></code>.</p>
 <p>Utilitarele sunt de fapt <strong>programe</strong> (<em>executabile</em>) care se află undeva în sistemul de fișiere.</p>
-<p>Shellul știe să ruleze utilitarele din orice loc în care ne aflăm (din ierarhia de fișiere).
-Se întâmplă acest lucru pentru că shellul are o listă de câteva directoare în care se uită după utilitarele pe care le folosim.
+<p>Shell-ul știe să ruleze utilitarele din orice loc în care ne aflăm (din ierarhia de fișiere).
+Se întâmplă acest lucru pentru că shell-ul are o listă de câteva directoare în care se uită după utilitarele pe care le folosim.
 Spre exemplu, atunci când rulăm utilitarul <code class="docutils literal notranslate"><span class="pre">ls</span></code>, el caută programul <code class="docutils literal notranslate"><span class="pre">ls</span></code> în lista pe care o are, îl găsește și îl rulează.</p>
 <p>Această listă se găsește în <em>variabila de mediu</em> <a class="footnote-reference brackets" href="#id2" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a> <code class="docutils literal notranslate"><span class="pre">PATH</span></code>.</p>
 <section id="afisarea-variabilei-path-din-sistem">
@@ -599,7 +599,7 @@ Spre exemplu, atunci când rulăm utilitarul <code class="docutils literal notra
 </pre></div>
 </div>
 <p>Variabila <code class="docutils literal notranslate"><span class="pre">PATH</span></code> are patru căi din sistem, despărțite de caracterul <code class="docutils literal notranslate"><span class="pre">:</span></code>.
-Astfel, sistemul verifică dacă utilitarul este prezent în calea <code class="docutils literal notranslate"><span class="pre">/usr/local/bin</span></code>; dacă nu-l găsește, merge la următoarea cale: <code class="docutils literal notranslate"><span class="pre">/usr/bin</span></code>; dacă nu-l găsește, merge la următoarea cale: <code class="docutils literal notranslate"><span class="pre">/bin</span></code>; dacă nu-l găsește, merge la ultima cale: <code class="docutils literal notranslate"><span class="pre">/usr/games</span></code>.</p>
+Astfel, sistemul verifică dacă utilitarul este prezent în calea <code class="docutils literal notranslate"><span class="pre">/usr/local/bin</span></code>; dacă nu-l găsește, merge la următoarea calea <code class="docutils literal notranslate"><span class="pre">/usr/bin</span></code>; dacă nu-l găsește, merge la următoarea cale <code class="docutils literal notranslate"><span class="pre">/bin</span></code>; dacă nu-l găsește, merge la ultima cale <code class="docutils literal notranslate"><span class="pre">/usr/games</span></code>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Un utilitar poate fi la mai multe căi din PATH, dar va fi executat utilitarul din cea mai din stânga cale (prima, dacă nu a doua, etc.).</p>
@@ -622,7 +622,7 @@ student@uso:~$ which man
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">which</span></code> folosește variabila de mediu <code class="docutils literal notranslate"><span class="pre">PATH</span></code> pentru a găsi utilitarul cerut și va afișa rezultatele în ordinea directoarelor din <code class="docutils literal notranslate"><span class="pre">PATH</span></code>.</p>
-<p>Aflăm mai multe detalii despre utilitarul <code class="docutils literal notranslate"><span class="pre">which</span></code> în capitolul <code class="docutils literal notranslate"><span class="pre">Îmbunătățirea</span> <span class="pre">lucrului</span> <span class="pre">în</span> <span class="pre">linia</span> <span class="pre">de</span> <span class="pre">comandă</span></code>.</p>
+<p>Aflăm mai multe detalii despre utilitarul <code class="docutils literal notranslate"><span class="pre">which</span></code> în capitolul #TODOtodo_edi_which.</p>
 </section>
 <section id="exercitii">
 <h3><span class="section-number">6.3.2. </span>Exerciții<a class="headerlink" href="#exercitii" title="Link to this heading">¶</a></h3>

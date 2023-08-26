@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-      <title>11. Exercițîi suplimentare</title>
+      <title>11. Exerciții suplimentare</title>
     
       <link rel="stylesheet" href="../../_static/pygments.css">
       <link rel="stylesheet" href="../../_static/theme.css">
@@ -336,24 +336,28 @@
           </li>
 
         
-          <li class="toctree-l1 current"><a href="#" class="reference internal current">Exercițîi suplimentare</a>
+          <li class="toctree-l1 current"><a href="#" class="reference internal current">Exerciții suplimentare</a>
 
             
               <ul>
                 
                   <li class="toctree-l2"><a href="#pregatirea-mediului-de-lucru" class="reference internal">Pregătirea mediului de lucru</a></li>
                 
-                  <li class="toctree-l2"><a href="#ce-sunt-bibliotecile" class="reference internal">Ce sunt bibliotecile</a></li>
+                  <li class="toctree-l2"><a href="#crearea-si-folosirea-unei-biblioteci-statice" class="reference internal">Crearea și folosirea unei biblioteci statice</a></li>
                 
-                  <li class="toctree-l2"><a href="#crearea-unei-biblioteci-statice-si-utilizarea-ei" class="reference internal">Crearea unei biblioteci statice și utilizarea ei</a></li>
+                  <li class="toctree-l2"><a href="#legarea-la-biblioteca-statica-creata" class="reference internal">Legarea la biblioteca statică creată</a></li>
                 
-                  <li class="toctree-l2"><a href="#exercitiu" class="reference internal">Exercițiu</a></li>
+                  <li class="toctree-l2"><a href="#adaugarea-unei-reguli-noi-in-makefile-pentru-crearea-bibliotecii-statice" class="reference internal">Adăugarea unei reguli noi în Makefile pentru crearea bibliotecii statice</a></li>
                 
                   <li class="toctree-l2"><a href="#crearea-unei-biblioteci-dinamice" class="reference internal">Crearea unei biblioteci dinamice</a></li>
                 
-                  <li class="toctree-l2"><a href="#id1" class="reference internal">Exercițiu</a></li>
+                  <li class="toctree-l2"><a href="#legarea-la-biblioteca-dinamica-creata" class="reference internal">Legarea la biblioteca dinamică creată</a></li>
                 
-                  <li class="toctree-l2"><a href="#self-study" class="reference internal">Self-Study</a></li>
+                  <li class="toctree-l2"><a href="#adaugarea-unei-reguli-noi-in-makefile-pentru-crearea-bibliotecii-dinamice" class="reference internal">Adăugarea unei reguli noi în Makefile pentru crearea bibliotecii dinamice</a></li>
+                
+                  <li class="toctree-l2"><a href="#ld-preload-si-beneficiile-sale" class="reference internal">LD_PRELOAD și beneficiile sale</a></li>
+                
+                  <li class="toctree-l2"><a href="#gist-pe-github" class="reference internal">Gist pe GitHub</a></li>
                 
               </ul>
             
@@ -519,7 +523,7 @@
   <ul class="breadcrumbs">
     <li><a href="../../index.html">Docs</a> &raquo;</li>
     
-    <li><span class="section-number">11. </span>Exercițîi suplimentare</li>
+    <li><span class="section-number">11. </span>Exerciții suplimentare</li>
   </ul>
   
 
@@ -539,66 +543,43 @@
           <div class="content" role="main">
             
   <section id="exercitii-suplimentare">
-<h1><span class="section-number">11. </span>Exercițîi suplimentare<a class="headerlink" href="#exercitii-suplimentare" title="Link to this heading">¶</a></h1>
+<h1><span class="section-number">11. </span>Exerciții suplimentare<a class="headerlink" href="#exercitii-suplimentare" title="Link to this heading">¶</a></h1>
 <section id="pregatirea-mediului-de-lucru">
 <h2><span class="section-number">11.1. </span>Pregătirea mediului de lucru<a class="headerlink" href="#pregatirea-mediului-de-lucru" title="Link to this heading">¶</a></h2>
-<p>În această secțiune vom exersa cunoștiințele acumulate despre GitHub în timp ce vom învăța despre utilizarea bibliotecilor statice și dinamice.</p>
-<p>Pentru asta, clonati repository-ul de la adresa <a class="reference external" href="https://github.com/(TO">https://github.com/(TO</a> DO) ce conține:
-* un fișier sursă <em>.c</em> cu funcția main
-* un fișier header <em>.h</em> ce implementează o funcție ușoară și un fișier <em>.c</em> asociat acestui header
-* un Makefile minimal.
-De acestea ne vom ajuta să înțelegem practic cele două tipuri de biblioteci existente.</p>
+<p>Aici vor clona un repository de la noi care conține cel puțin un fișier cod sursă și unul header.
+Aceste fișiere vor fi folosite pentru crearea unei biblioteci. Proiectul deja conține un Makefile minimal.</p>
 </section>
-<section id="ce-sunt-bibliotecile">
-<h2><span class="section-number">11.2. </span>Ce sunt bibliotecile<a class="headerlink" href="#ce-sunt-bibliotecile" title="Link to this heading">¶</a></h2>
-<p>Aceeași utilitate pe care o au și funcțiile din limbajul C, aceea de a permite scrierea unui cod modularizat și reutilizabil, în același sens funcționează și bibliotecile, permit reutilizarea codului sursă.
-Pe scurt, bibliotecile reprezintă un pachet de funcțîi precompilate care te ajută în dezvoltarea mai rapidă a programelor, pentru că tu să nu rescrii acele funcțîi de la zero. Printre cele mai cunoscute biblioteci de C reamintim: stdio.h, strîng.h, stdlib.h, math.h.
-Însă, este de avut în vedere faptul că bibliotecile nu sunt executabile, ci doar fișiere de tip header ce includ în procesul de linkeditare fișierul obiect asociat lor, permițându-ți să foloseșți conținutul acestora.</p>
-<p>În limbajul C, regăsim două tipuri de biblioteci: <em>statice</em> și <em>dinamice</em>.
-* Diferența majoră dintre ele este faptul că cele statice sunt incluse în fișierul executabil final în compile-time, combinând munca ta cu librăria, în timp ce bibliotecile dinamice sunt combinate la run-time, astfel că nu au nevoie de recompilare sau relink-uire.
-* O altă diferență rezultată din prima este faptul că bibliotecile statice sunt mai rapide, deoarece codul binar este inclus direct în cod, dar rezultă și dezavantajul faptului că executabilul final va avea o dimensiune mult mai mare. În schimb, în cazul bibliotecilor dinamice, ele ‘trăiesc’ independent de program și doar oferă funcțiile care sunt apelate, rezultând un executabil de dimensiuni mai mici,
-cu costul timpului care va fi mai mare, datorită faptului că acea funcție trebuie căutată în acesta librărie de fiecare dată.
-* În final, avantajul folosirii unei biblioteci dinamice este faptul că poate fi folosită de mai multe procese în același timp, în timp ce o bibliotecă statică este legată de un singur proces.</p>
+<section id="crearea-si-folosirea-unei-biblioteci-statice">
+<h2><span class="section-number">11.2. </span>Crearea și folosirea unei biblioteci statice<a class="headerlink" href="#crearea-si-folosirea-unei-biblioteci-statice" title="Link to this heading">¶</a></h2>
 </section>
-<section id="crearea-unei-biblioteci-statice-si-utilizarea-ei">
-<h2><span class="section-number">11.3. </span>Crearea unei biblioteci statice și utilizarea ei<a class="headerlink" href="#crearea-unei-biblioteci-statice-si-utilizarea-ei" title="Link to this heading">¶</a></h2>
-<p>Crearea unei biblioteci statice este mai simplă decât a unei biblioteci dinamice.</p>
-<p>În trecut, pentru librării precum math, adăugam comenzii de compilare opțiunea: -lm (l - opțiunea de linkuire, m - numele bibliotecii noastre).
-În același fel o să procedăm și acum.</p>
-<p>Pași:
-- Creăm un fișier obiect din fișierul ce implementează funcțiile noastre: gcc -c functions.c
-- Arhivam fișierul obiect utilizând comanda: ‘ar rcs liball.a functions.o’
-# ar - achieve # rcs (c - create / update, r - insert files (replace existing), s - sorted index - pentru acces mai rapid la funcțiile din librăria nou creată).</p>
-<p>Utilizare: gcc -o exec main.c -L -lall (L - opțiune ce indică căutarea în fișierul curent, l - opțiunea de linkurile, all - numele pe care l-am dat noi arhivei: <em>lib</em> + <strong>all</strong>).</p>
-<p>Bibliotecile statice se numesc <em>archive libraries</em>, de acolo extensia ‘.a’ a fișierului liball.</p>
+<section id="legarea-la-biblioteca-statica-creata">
+<h2><span class="section-number">11.3. </span>Legarea la biblioteca statică creată<a class="headerlink" href="#legarea-la-biblioteca-statica-creata" title="Link to this heading">¶</a></h2>
+<p>Legarea se mai numește și linking.
+Aici după ce o vor crea și după ce vor crea fișierul executabul vor observa
+dimesiunea executabilului.</p>
 </section>
-<section id="exercitiu">
-<h2><span class="section-number">11.4. </span>Exercițiu<a class="headerlink" href="#exercitiu" title="Link to this heading">¶</a></h2>
-<p>Adăugați opțiunea de link-uire și în Makefile.</p>
+<section id="adaugarea-unei-reguli-noi-in-makefile-pentru-crearea-bibliotecii-statice">
+<h2><span class="section-number">11.4. </span>Adăugarea unei reguli noi în Makefile pentru crearea bibliotecii statice<a class="headerlink" href="#adaugarea-unei-reguli-noi-in-makefile-pentru-crearea-bibliotecii-statice" title="Link to this heading">¶</a></h2>
 </section>
 <section id="crearea-unei-biblioteci-dinamice">
 <h2><span class="section-number">11.5. </span>Crearea unei biblioteci dinamice<a class="headerlink" href="#crearea-unei-biblioteci-dinamice" title="Link to this heading">¶</a></h2>
-<p>Pași:
-* Creăm fișierul obiect: gcc -o functions.c
-* Adăugăm fișierului obiect opțiunea ‘shared’: gcc functions.o -shared -o liball.so.
-* În final, fiindcă bibliotecile dinamice pot fi utilizate de mai multe procese în același timp, trebuie să îi facem cunoscută locația către variabilă de mediu (Environmental Variables) LD_LIBRARY_PATH. Rulăm comandă: export LD_LIBRARY_PATH=.:$LD_LIBRARY_PATH.</p>
-<p>Utilizare: gcc -o exec main.c liball.so</p>
-<p>Bibliotecile dinamice se mai numesc și shared objects, de acolo extensia ‘.so’ a fișierului liball.</p>
 </section>
-<section id="id1">
-<h2><span class="section-number">11.6. </span>Exercițiu<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h2>
-<p>Adăugați o regulă nouă în Makefile pentru crearea bibliotecii dinamice</p>
+<section id="legarea-la-biblioteca-dinamica-creata">
+<h2><span class="section-number">11.6. </span>Legarea la biblioteca dinamică creată<a class="headerlink" href="#legarea-la-biblioteca-dinamica-creata" title="Link to this heading">¶</a></h2>
+<p>Vor observa din nou dimensiunea (mai mică de data asta) a fișierului executabil.</p>
 </section>
-<section id="self-study">
-<h2><span class="section-number">11.7. </span>Self-Study<a class="headerlink" href="#self-study" title="Link to this heading">¶</a></h2>
-<p>1. Scrieți propria bibliotecă în care să implementați o funcție similară funcției sqrt din math.h.
-Că orice inginer, uneori trebuie să ne rezolvăm singuri problemele.
-Documentați-va despre LD_PRELOAD și vedeți cum puteți să faceți astfel încât să folosiți <em>propria</em> funcție sqrt, chiar dacă executabilul vostru este legat și la biblioteca math.
-Testați asta afișând și un scurt mesaj pentru a arată că sqrt-ul vostru a fost chemat, nu cel al bibliotecii math.</p>
-<p>Hint: Dacă setați LD_PRELOAD către locația unei fișier de tip shared-objects(librărie dinamică, cu extensia .so), acel fișier va fi prioritizat în defavoarea oricăror altele. Comandă: LD_PRELOAD=/path/to/my/library.so</p>
-<ol class="arabic simple" start="2">
-<li><p>Pentru o aprofundare mai vastă a GitHub și a posibilităților oferite de acesta, documentați-va despre Github Gist.</p></li>
-</ol>
+<section id="adaugarea-unei-reguli-noi-in-makefile-pentru-crearea-bibliotecii-dinamice">
+<h2><span class="section-number">11.7. </span>Adăugarea unei reguli noi în Makefile pentru crearea bibliotecii dinamice<a class="headerlink" href="#adaugarea-unei-reguli-noi-in-makefile-pentru-crearea-bibliotecii-dinamice" title="Link to this heading">¶</a></h2>
+</section>
+<section id="ld-preload-si-beneficiile-sale">
+<h2><span class="section-number">11.8. </span>LD_PRELOAD și beneficiile sale<a class="headerlink" href="#ld-preload-si-beneficiile-sale" title="Link to this heading">¶</a></h2>
+<p>Aici vor scrie singuri o bibliotecă care să conțină o funcție sqrt similară cu cea
+din biblioteca math, o vor compila și vor folosi LD_PRELOAD pentru a vedea cum pot să
+folosească propria funcție sqrt, chiar dacă executabilul este legat și la biblioteca math.</p>
+</section>
+<section id="gist-pe-github">
+<h2><span class="section-number">11.9. </span>Gist pe GitHub<a class="headerlink" href="#gist-pe-github" title="Link to this heading">¶</a></h2>
+<p>Vor învăța cum să creeze un gist pe GitHub-ul lor.</p>
 </section>
 </section>
 
