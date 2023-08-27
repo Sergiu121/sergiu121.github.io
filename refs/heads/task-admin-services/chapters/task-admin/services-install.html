@@ -2,7 +2,7 @@
 <html  lang="en">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="viewport" content="width=device-width, initial-scale=1" />
 
       <title>6. Instalarea aplicațiilor (serviciilor) folosind Docker</title>
     
@@ -15,12 +15,10 @@
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
 
       <!-- sphinx script_files -->
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/my_actions.js"></script>
+        <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../_static/my_actions.js?v=1451d81f"></script>
 
       
       <script src="../../_static/theme-vendors.js"></script>
@@ -614,7 +612,7 @@
           <div class="content" role="main">
             
   <section id="instalarea-aplicatiilor-serviciilor-folosind-docker">
-<h1><span class="section-number">6. </span>Instalarea aplicațiilor (serviciilor) folosind Docker<a class="headerlink" href="#instalarea-aplicatiilor-serviciilor-folosind-docker" title="Permalink to this heading">¶</a></h1>
+<h1><span class="section-number">6. </span>Instalarea aplicațiilor (serviciilor) folosind Docker<a class="headerlink" href="#instalarea-aplicatiilor-serviciilor-folosind-docker" title="Link to this heading">¶</a></h1>
 <p>Scopul acestui capitol este să îi introducem pe studenți în instalarea, folosirea containerelor și în instalarea serviciilor folosind containerele.</p>
 <p>Instalarea serviciilor nu este o operație ușoară.
 Acestea depind de aplicații și biblioteci care uneori nu sunt disponibile, sau nu există versiunile necesare pentru distribuția noastră.
@@ -623,31 +621,32 @@ O altă problemă vine de la faptul că serviciile nu sunt de tipul “plug-and-
 Un alt avantaj al folosirii Docker este că mediul oferit de Docker este unul izolat și efemer, adică o aplicație care rulează în Docker nu are acces în mod obișnuit la restul sistemului, iar orice modificare asupra sistemului de fișiere din Docker nu se va reflecta asupra sistemului.</p>
 <p>Containerele sunt un mediu în care putem rula aplicații izolate de sistemul gazdă.</p>
 <p>În sistemele de operare bazate pe Linux, containerele sunt rulate ca o aplicație care are acces la resursele stației gazdă, dar care poate interacționa cu procesele din în afara mediului izolat.</p>
-<p>Avantajul utilizării unui container pentru rularea aplicațiilor este că poate fi pornit și oprit cu ușurință si modificate.
-Astfel, putem instala aplicații într-un container, le putem configura și rula fără a afecta celelalte componente ale sistemului</p>
+<p>Avantajul utilizării unui container pentru rularea aplicațiilor este că poate fi pornit și oprit cu ușurință și modificate.
+Astfel, putem instala aplicații într-un container, le putem configura și rula fără a afecta celelalte componente ale sistemului.</p>
 <section id="folosirea-docker">
-<h2><span class="section-number">6.1. </span>Folosirea Docker<a class="headerlink" href="#folosirea-docker" title="Permalink to this heading">¶</a></h2>
-<p>Un caz de utilizare în care rulăm containere este atunci când vrem să setăm un server care depinde de
-versiuni fixe, vechi ale anumitor biblioteci. Nu vrem să rulăm acel server pe sistemul nostru
-fizic, deoarece pot apărea conflicte cu alte aplicații. Containerizing serverul, putem avea un
-versiunea bibliotecii instalată pe mașina fizică și o altă versiune instalată pe
-container fără conflict între ele.</p>
+<h2><span class="section-number">6.1. </span>Folosirea Docker<a class="headerlink" href="#folosirea-docker" title="Link to this heading">¶</a></h2>
+<p>Un caz de utilizare în care rulăm containere este atunci când vrem să setăm un server care depinde de versiuni specifice ale anumitor biblioteci.
+Nu vrem să rulăm acel server pe sistemul nostru fizic, deoarece pot apărea conflicte cu alte aplicații.
+Rulând aplicația într-un container, putem avea o versiune a bibliotecii instalată pe mașina fizică și o altă versiune instalată în container fără conflict între ele.</p>
 <section id="containere-versus-masini-virtuale">
-<h3><span class="section-number">6.1.1. </span>Containere versus mașini virtuale<a class="headerlink" href="#containere-versus-masini-virtuale" title="Permalink to this heading">¶</a></h3>
+<h3><span class="section-number">6.1.1. </span>Containere versus mașini virtuale<a class="headerlink" href="#containere-versus-masini-virtuale" title="Link to this heading">¶</a></h3>
 <p>Atât containerele cât și mașinile virtuale ne permit să rulăm aplicații într-un mediu izolat.
-Totuși, există diferențe fundamentale între cele două mechanisme.
+Totuși, există diferențe fundamentale între cele două mecanisme.
 Conform schemei de mai jos, un container rulează direct peste nucleul sistemului de operare gazdă.
 În schimb, o mașină virtuală execută propriul nucleu care apoi rulează aplicațiile.
 Acest nivel în plus de operații executate adaugă overhead rulării aplicațiilor dorite, iar overheadul încetinește viteza de execuție.</p>
-<p>Un alt avantaj al containerelor este abilitatea de a le construi și ambala iterativ.
-Practic, noi putem să descărcăm cu ușurință un container de pe un repository public, să îl modificăm și să îl încărcăm într-un repository public fără să încărcăm întreaga imagine.
+<figure class="align-default">
+<a class="reference internal image-reference" href="../../_images/containers-vs-vms.svg"><img alt="Containers versus VM overhead" height="144" src="../../_images/containers-vs-vms.svg" width="160" /></a>
+</figure>
+<p>Un alt avantaj al containerelor este abilitatea de a le construi iterativ.
+Noi putem să descărcăm cu ușurință un container de pe un repository public, să îl modificăm și să îl încărcăm într-un repository public fără să încărcăm întreaga imagine.
 Putem face asta, deoarece modificările asupra unui container sunt făcute iterativ, salvând diferențele dintre imaginea inițială și versiunea modificată.</p>
-<p>Există și cazuri în care vrem să rulăm aplicațiile în interioriul unei mașini virtuale.
+<p>Există și cazuri în care vrem să rulăm aplicațiile în interiorul unei mașini virtuale.
 De exemplu, dacă vrem să rulăm o aplicație compilată pentru un alt sistem de operare în afară de Linux, nu vom putea face asta, deoarece containerele pot executa aplicații care sunt compilate pentru sistemul de operare gazdă.
 Mașinile virtuale pot să ruleze și sisteme de operare diferite de sistemul de operare gazdă.</p>
 </section>
 <section id="gestionarea-containerelor">
-<h3><span class="section-number">6.1.2. </span>Gestionarea containerelor<a class="headerlink" href="#gestionarea-containerelor" title="Permalink to this heading">¶</a></h3>
+<h3><span class="section-number">6.1.2. </span>Gestionarea containerelor<a class="headerlink" href="#gestionarea-containerelor" title="Link to this heading">¶</a></h3>
 <p>În această sub-subsecțiune vom prezenta cum să descarce și cum să pornească un container care oferă o pagină web simplă, ca apoi să oprească containerul.</p>
 <p>Pentru a porni o aplicație în interiorul unui container Docker folosim următoarea comandă:</p>
 <p><code class="docutils literal notranslate"><span class="pre">`</span>
@@ -661,12 +660,12 @@ Mașinile virtuale pot să ruleze și sisteme de operare diferite de sistemul de
 <span class="pre">Status:</span> <span class="pre">Downloaded</span> <span class="pre">newer</span> <span class="pre">image</span> <span class="pre">for</span> <span class="pre">ubuntu:18.04</span>
 <span class="pre">root&#64;86c268b30cd6:/#</span>
 <span class="pre">`</span></code></p>
-<p>Comanda <cite>docker</cite> a fost rulată folosind următorii parametrii:
-* <cite>run</cite>, pornește un container;
-* <cite>-i</cite>, pornește un container “interactiv”, care acceptă input de la tastatură;
-* <cite>-t</cite>, asociază un termina virtual comenzii rulate;
-* <cite>ubuntu:18.04</cite> este numele imaginii pe care vrem să o folosim. [Dockerhub](<a class="reference external" href="https://hub.docker.com/">https://hub.docker.com/</a>) este un repository public de imagini de unde putem descărca imagini deja construite;
-* <cite>bash</cite>, comanda pe care vrem să o rulăm în cadrul containerului.</p>
+<p>Comanda <code class="docutils literal notranslate"><span class="pre">docker</span></code> a fost rulată folosind următorii parametrii:
+* <code class="docutils literal notranslate"><span class="pre">run</span></code>, pornește un container;
+* <code class="docutils literal notranslate"><span class="pre">-i</span></code>, pornește un container “interactiv”, care acceptă input de la tastatură;
+* <code class="docutils literal notranslate"><span class="pre">-t</span></code>, asociază un termina virtual comenzii rulate;
+* <code class="docutils literal notranslate"><span class="pre">ubuntu:18.04</span></code> este numele imaginii pe care vrem să o folosim. <a class="reference external" href="https://hub.docker.com/">Dockerhub</a> este un repository public de imagini de unde putem descărca imagini deja construite;
+* <code class="docutils literal notranslate"><span class="pre">bash</span></code>, comanda pe care vrem să o rulăm în cadrul containerului.</p>
 <p>Putem rula și o comandă neinteractivă în container în felul următor:</p>
 <p><code class="docutils literal notranslate"><span class="pre">`</span>
 <span class="pre">student&#64;uso:~$</span> <span class="pre">docker</span> <span class="pre">run</span> <span class="pre">ubuntu:18.04</span> <span class="pre">ps</span> <span class="pre">-ef</span>
@@ -680,10 +679,12 @@ Mașinile virtuale pot să ruleze și sisteme de operare diferite de sistemul de
 <li><p>configurarea unui mediu replicabil pentru testare</p></li>
 </ul>
 <p>:::note
-Comanda <cite>ps -ef</cite> afișează toate procesele active din sistem. Observăm că în rezultatul de mai sus apare o singură comandă, deoarece rulăm într-un mediu izolat.
+Comanda <code class="docutils literal notranslate"><span class="pre">ps</span> <span class="pre">-ef</span></code> afișează toate procesele active din sistem.
+Observăm că în rezultatul de mai sus apare o singură comandă, deoarece rulăm într-un mediu izolat.
 ::</p>
-<p>Cu toate acestea, nu dorim să rulăm întotdeauna containere în prim plan. Dacă vrem să rulăm un script care nu poate fi rulat în mediul gazdă, iar acest script va rula mult timp, preferăm să rulăm comanda în fundal.</p>
-<p>Pentru a rula un script în fundal în cadrul unui container Docker vom folosi opțiunea <cite>-d</cite> a comenzii <cite>docker run</cite> în felul următor:
+<p>Cu toate acestea, nu dorim să rulăm întotdeauna containere în prim plan.
+Dacă vrem să rulăm un script care nu poate fi rulat în mediul gazdă, iar acest script va rula mult timp, preferăm să rulăm comanda în fundal.</p>
+<p>Pentru a rula un script în fundal în cadrul unui container Docker vom folosi opțiunea <code class="docutils literal notranslate"><span class="pre">-d</span></code> a comenzii <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">run</span></code> în felul următor:
 <code class="docutils literal notranslate"><span class="pre">`</span>
 <span class="pre">student&#64;lab-docker:~$</span> <span class="pre">sudo</span> <span class="pre">docker</span> <span class="pre">run</span> <span class="pre">-d</span> <span class="pre">ubuntu:18.04</span> <span class="pre">sleep</span> <span class="pre">10000</span>
 <span class="pre">a63ee06826a33c0dfab825a0cb2032eee2459e0721517777ee019f59e69ebc02</span>
@@ -698,11 +699,11 @@ Comanda <cite>ps -ef</cite> afișează toate procesele active din sistem. Observ
 <span class="pre">root</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">19</span>&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">7</span>&#160; <span class="pre">0</span> <span class="pre">02:20</span> <span class="pre">pts/0</span>&#160;&#160;&#160; <span class="pre">00:00:00</span> <span class="pre">ps</span> <span class="pre">-ef</span>
 <span class="pre">root&#64;a63ee06826a3:/#</span> <span class="pre">exit</span>
 <span class="pre">`</span></code></p>
-<p>Putem vedea că containerul pornit de noi încă rulează rulând comanda <cite>docker ps</cite>.
+<p>Putem vedea dacă containerul pornit de noi încă rulează rulând comanda <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">ps</span></code>.
 Coloane relevante sunt:
-* <cite>CONTAINER ID</cite>
-* <cite>NAMES</cite></p>
-<p>Pentru a ne conecta la un container care rulează în fundal, ne folosim de comanda <cite>docker exec</cite> împreună cu ID-ul containerului sau numele selectat folosind comanda <cite>docker ps</cite>:</p>
+* <code class="docutils literal notranslate"><span class="pre">CONTAINER</span> <span class="pre">ID</span></code>;
+* <code class="docutils literal notranslate"><span class="pre">NAMES</span></code>.</p>
+<p>Pentru a ne conecta la un container care rulează în fundal, ne folosim de comanda <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">exec</span></code> împreună cu ID-ul containerului sau numele selectat folosind comanda <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">ps</span></code>:</p>
 <p><code class="docutils literal notranslate"><span class="pre">`</span>
 <span class="pre">student&#64;lab-docker:~$</span> <span class="pre">sudo</span> <span class="pre">docker</span> <span class="pre">ps</span>
 <span class="pre">CONTAINER</span> <span class="pre">ID</span>&#160;&#160; <span class="pre">IMAGE</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">COMMAND</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">CREATED</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">STATUS</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">PORTS</span>&#160;&#160;&#160;&#160; <span class="pre">NAMES</span>
@@ -715,7 +716,7 @@ Coloane relevante sunt:
 <span class="pre">root</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">19</span>&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">7</span>&#160; <span class="pre">0</span> <span class="pre">02:20</span> <span class="pre">pts/0</span>&#160;&#160;&#160; <span class="pre">00:00:00</span> <span class="pre">ps</span> <span class="pre">-ef</span>
 <span class="pre">root&#64;a63ee06826a3:/#</span> <span class="pre">exit</span>
 <span class="pre">`</span></code></p>
-<p>Pentru a opri un container care rulează în fundal, utilizați comanda „docker stop” împreună cu ID-ul sau numele containerului, în felul următor:
+<p>Pentru a opri un container care rulează în fundal, utilizați comanda <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">stop</span></code> împreună cu ID-ul sau numele containerului, în felul următor:
 <code class="docutils literal notranslate"><span class="pre">`</span>
 <span class="pre">student&#64;lab-docker:~$</span> <span class="pre">sudo</span> <span class="pre">docker</span> <span class="pre">stop</span> <span class="pre">a63ee06826a3</span>
 <span class="pre">a63ee06826a3</span>
@@ -725,36 +726,284 @@ Coloane relevante sunt:
 <span class="pre">`</span></code></p>
 <p>## Exerciții: Gestionarea containerelor</p>
 <ul class="simple">
-<li><p>Porniți un nou container în fundal folosind imaginea de bază <cite>centos:7</cite>.</p></li>
-<li><p>Conectați-vă la containerul tocmai pornit și instalați aplicația <cite>bind-utils</cite> folosind comanda <cite>yum install bind-utils</cite>. Pentru a verifica faptu că ați instalat aplicația corect, verificați-vă rulând comanda <cite>nslookup google.com</cite>.</p></li>
+<li><p>Porniți un nou container în fundal folosind imaginea de bază <code class="docutils literal notranslate"><span class="pre">centos:7</span></code>;</p></li>
+<li><p>Conectați-vă la containerul tocmai pornit și instalați aplicația <code class="docutils literal notranslate"><span class="pre">bind-utils</span></code> folosind comanda <code class="docutils literal notranslate"><span class="pre">yum</span> <span class="pre">install</span> <span class="pre">bind-utils</span></code>. Pentru a verifica faptu că ați instalat aplicația corect, verificați-vă rulând comanda <code class="docutils literal notranslate"><span class="pre">nslookup</span> <span class="pre">google.com</span></code>;</p></li>
 <li><p>Deconectați-vă de la container și opriți-l.</p></li>
 </ul>
 </section>
 </section>
 <section id="instalarea-serviciilor-folosind-docker">
-<h2><span class="section-number">6.2. </span>Instalarea serviciilor folosind Docker<a class="headerlink" href="#instalarea-serviciilor-folosind-docker" title="Permalink to this heading">¶</a></h2>
+<h2><span class="section-number">6.2. </span>Instalarea serviciilor folosind Docker<a class="headerlink" href="#instalarea-serviciilor-folosind-docker" title="Link to this heading">¶</a></h2>
 <p>Cum am prezentat mai devreme, un avantaj al folosirii containerelor este faptul că putem să descărcăm containere care pot rula servicii.
-Aceste servicii nu vor mai fi lansate și gestionate de aplicația systemd care rulează pe stația de lucru, deoarece acestea vor rula în cadrul unui container care va gestiona rularea serviciului.
+Aceste servicii nu vor mai fi lansate și gestionate de aplicația <code class="docutils literal notranslate"><span class="pre">systemd</span></code> care rulează pe stația de lucru, deoarece acestea vor rula în cadrul unui container care va gestiona rularea serviciului.
 Noi trebuie doar să ne asigurăm ca rulăm containerul folosind opțiunile potrivite.</p>
 <section id="identificarea-containerelor-pe-dockerhub">
-<h3><span class="section-number">6.2.1. </span>Identificarea containerelor pe Dockerhub<a class="headerlink" href="#identificarea-containerelor-pe-dockerhub" title="Permalink to this heading">¶</a></h3>
+<h3><span class="section-number">6.2.1. </span>Identificarea containerelor pe Dockerhub<a class="headerlink" href="#identificarea-containerelor-pe-dockerhub" title="Link to this heading">¶</a></h3>
 <p>Precum aplicațiile obișnuite, și containerele Docker pot fi descărcate dintr-un repository central.
-Repository-ul central pentru containere pe care îl vom folosi este DockerHub &lt;TODO REF&gt;. Acesta nu este singurul repository de containere pe care putem să îl folosim, dar este cel mai vast.
-Noi vom folosi site-ul Dockerhub pentru a căuta containere împreună cu instrucțiuni de folosire ale acestora.</p>
+Repository-ul central pentru containere pe care îl vom folosi este <a class="reference external" href="hub.docker.com/">DockerHub</a>. Acesta nu este singurul repository de containere pe care putem să îl folosim, dar este cel mai vast.
+Vom folosi site-ul DockerHub pentru a căuta containere împreună cu instrucțiuni de folosire ale acestora.</p>
 </section>
 <section id="studiu-de-caz-instalarea-unui-server-de-minecraft-folosind-containere">
-<h3><span class="section-number">6.2.2. </span>Studiu de caz: Instalarea unui server de minecraft folosind containere<a class="headerlink" href="#studiu-de-caz-instalarea-unui-server-de-minecraft-folosind-containere" title="Permalink to this heading">¶</a></h3>
+<h3><span class="section-number">6.2.2. </span>Studiu de caz: Instalarea unui server de Minecraft folosind containere<a class="headerlink" href="#studiu-de-caz-instalarea-unui-server-de-minecraft-folosind-containere" title="Link to this heading">¶</a></h3>
 <p>În următoarea secțiune vom prezenta un studiu de caz pentru rularea unui server de Minecraft și monitorizarea lui folosind containere.</p>
+<p>Pentru a descărca imaginea unui container pentru un server de Minecraft, trebuie să identificăm un serviciu deja containerizat pe DockerHub.
+Vom face asta folosind funcția de căutare oferită de platformă.</p>
+<p>În alegerea unui container pe care să îl folosim trebuie să avem în vedere următorii factori:</p>
+<ul class="simple">
+<li><p>numărul de persoane care au descărcat deja containerul; ne dorim să folosim un serviciu are a fost folosit și verificat de cât mai mulți utilizatori;</p></li>
+<li><p>data ultimului update; în general cu cât sunt actualizări mai noi, cu atât este mai bun suportul pentru serviciu;</p></li>
+<li><p>starea documentației; cu cât instrucțiunile pentru configurare sunt mai complete și concise, cu atât ne putem baza pe faptul că nu vom petrece mult timp în pregătirea mediului de rulare al containerului.</p></li>
+</ul>
+<p>Conform instrucțiunilor de instalare din pagina containerului, putem porni serviciul folosind comanda următoare:
+<code class="docutils literal notranslate"><span class="pre">`</span>
+<span class="pre">student&#64;uso:~/.../labs/09-task-admin/lab-container$</span> <span class="pre">sudo</span> <span class="pre">docker</span> <span class="pre">run</span> <span class="pre">-d</span> <span class="pre">-p</span> <span class="pre">25565:25565</span> <span class="pre">--name</span> <span class="pre">mc</span> <span class="pre">itzg/minecraft-server</span>
+<span class="pre">Unable</span> <span class="pre">to</span> <span class="pre">find</span> <span class="pre">image</span> <span class="pre">'itzg/minecraft-server:latest'</span> <span class="pre">locally</span>
+<span class="pre">latest:</span> <span class="pre">Pulling</span> <span class="pre">from</span> <span class="pre">itzg/minecraft-server</span>
+<span class="pre">675920708c8b:</span> <span class="pre">Pull</span> <span class="pre">complete</span>
+<span class="pre">74b551139104:</span> <span class="pre">Pull</span> <span class="pre">complete</span>
+<span class="pre">c290a58bcfd7:</span> <span class="pre">Pull</span> <span class="pre">complete</span>
+<span class="pre">4d6bcabdde06:</span> <span class="pre">Pull</span> <span class="pre">complete</span>
+<span class="pre">02ff7afd9866:</span> <span class="pre">Pull</span> <span class="pre">complete</span>
+<span class="pre">58640237d5df:</span> <span class="pre">Pull</span> <span class="pre">complete</span>
+<span class="pre">d9165be859a2:</span> <span class="pre">Pull</span> <span class="pre">complete</span>
+<span class="pre">575fb4190f2f:</span> <span class="pre">Pull</span> <span class="pre">complete</span>
+<span class="pre">c3c6d5d36ce5:</span> <span class="pre">Pull</span> <span class="pre">complete</span>
+<span class="pre">9f1d7790dab7:</span> <span class="pre">Pull</span> <span class="pre">complete</span>
+<span class="pre">a7a32c154b26:</span> <span class="pre">Pull</span> <span class="pre">complete</span>
+<span class="pre">e253f974e9a6:</span> <span class="pre">Pull</span> <span class="pre">complete</span>
+<span class="pre">d61d99ed5e98:</span> <span class="pre">Pull</span> <span class="pre">complete</span>
+<span class="pre">c78f023f58b3:</span> <span class="pre">Pull</span> <span class="pre">complete</span>
+<span class="pre">70401c8e828a:</span> <span class="pre">Pull</span> <span class="pre">complete</span>
+<span class="pre">4f4fb700ef54:</span> <span class="pre">Pull</span> <span class="pre">complete</span>
+<span class="pre">087988aa5331:</span> <span class="pre">Pull</span> <span class="pre">complete</span>
+<span class="pre">13ee4174c665:</span> <span class="pre">Pull</span> <span class="pre">complete</span>
+<span class="pre">9381121a4fe0:</span> <span class="pre">Pull</span> <span class="pre">complete</span>
+<span class="pre">6a8a23430798:</span> <span class="pre">Pull</span> <span class="pre">complete</span>
+<span class="pre">b5b33c72ea51:</span> <span class="pre">Pull</span> <span class="pre">complete</span>
+<span class="pre">edf873f8c85d:</span> <span class="pre">Pull</span> <span class="pre">complete</span>
+<span class="pre">Digest:</span> <span class="pre">sha256:0697315bd265c751821d5796662436efd94edea8e77b42a7404dab22586af73f</span>
+<span class="pre">Status:</span> <span class="pre">Downloaded</span> <span class="pre">newer</span> <span class="pre">image</span> <span class="pre">for</span> <span class="pre">itzg/minecraft-server:latest</span>
+<span class="pre">53a920004fa8316ef87e4776f57f6b826825edf8237d08b9791c1936f40e50e2</span>
+<span class="pre">student&#64;uso:~/.../labs/09-task-admin/lab-container$</span> <span class="pre">sudo</span> <span class="pre">docker</span> <span class="pre">image</span> <span class="pre">ls</span>
+<span class="pre">REPOSITORY</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">TAG</span>&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">IMAGE</span> <span class="pre">ID</span>&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">CREATED</span>&#160;&#160;&#160;&#160;&#160; <span class="pre">SIZE</span>
+<span class="pre">itzg/minecraft-server</span>&#160;&#160; <span class="pre">latest</span>&#160;&#160;&#160; <span class="pre">616bdcb51f15</span>&#160;&#160; <span class="pre">7</span> <span class="pre">days</span> <span class="pre">ago</span>&#160;&#160; <span class="pre">670MB</span>
+<span class="pre">student&#64;uso:~/.../labs/09-task-admin/lab-container$</span> <span class="pre">sudo</span> <span class="pre">docker</span> <span class="pre">ps</span>
+<span class="pre">CONTAINER</span> <span class="pre">ID</span>&#160;&#160; <span class="pre">IMAGE</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">COMMAND</span>&#160;&#160;&#160; <span class="pre">CREATED</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">STATUS</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">PORTS</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">NAMES</span>
+<span class="pre">53a920004fa8</span>&#160;&#160; <span class="pre">itzg/minecraft-server</span>&#160;&#160; <span class="pre">&quot;/start&quot;</span>&#160;&#160; <span class="pre">5</span> <span class="pre">seconds</span> <span class="pre">ago</span>&#160;&#160; <span class="pre">Up</span> <span class="pre">4</span> <span class="pre">seconds</span> <span class="pre">(health:</span> <span class="pre">starting)</span>&#160;&#160; <span class="pre">0.0.0.0:25565-&gt;25565/tcp,</span> <span class="pre">:::25565-&gt;25565/tcp,</span> <span class="pre">25575/tcp</span>&#160;&#160; <span class="pre">mc</span>
+<span class="pre">`</span></code></p>
+<p>Am folosit opțiunea <code class="docutils literal notranslate"><span class="pre">--name`</span></code> a utilitarului <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">run</span></code> pentru a specifica un nume ușor de reținut pentru containerul pornit, în cazul acesta numele este <code class="docutils literal notranslate"><span class="pre">mc</span></code>. Am adăugat opțiunea <code class="docutils literal notranslate"><span class="pre">-p</span></code> pentru a deschide portul <code class="docutils literal notranslate"><span class="pre">25565</span></code> pe mașină pe care rulează containerul, port pe care se realizează comunicarea cu serverul de Minecraft.</p>
+<p>Observăm că a fost descărcat containerul și a început să ruleze.
+Pentru a verifica faptul că am descărcat imaginea containerului, rulăm comanda <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">image</span> <span class="pre">ls</span></code>, care listează toate containerele de pe sistem.
+Regăsim în lista containerelor imaginea cu numele <code class="docutils literal notranslate"><span class="pre">itzg/minecraft-server</span></code>.</p>
+<p>Pentru a verifica funcționarea containerului ne vom conecta la serverul de Minecraft folosind portul expus mai sus.
+<code class="docutils literal notranslate"><span class="pre">`</span>
+<span class="pre">student&#64;uso:~/.../labs/09-task-admin/lab-container$</span> <span class="pre">curl</span> <span class="pre">localhost:25565</span>
+<span class="pre">���{&quot;translate&quot;:&quot;disconnect.genericReason&quot;,&quot;with&quot;:[&quot;Internal</span> <span class="pre">Exception:</span> <span class="pre">io.netty.handler.codec.DecoderException:</span> <span class="pre">java.lang.IndexOutOfBoundsException:</span> <span class="pre">Index</span> <span class="pre">69</span> <span class="pre">out</span> <span class="pre">of</span> <span class="pre">bounds</span> <span class="pre">for</span> <span class="pre">length</span> <span class="pre">1&quot;]}</span>
+<span class="pre">student&#64;uso:~/.../labs/09-task-admin/lab-container$</span>
+<span class="pre">`</span></code></p>
+<p>Observăm că am primit înapoi o eroare de Java, asta înseamnă că serverul de Minecraft, care este bazat pe limbajul de programare Java, este accesibil.
+Eroarea apare deoarece încercam să accesăm containerul folosind un client HTTP, în loc de a folosi Java</p>
 </section>
-<section id="instalarea-grafana-folosind-containere">
-<h3><span class="section-number">6.2.3. </span>Instalarea Grafana folosind containere<a class="headerlink" href="#instalarea-grafana-folosind-containere" title="Permalink to this heading">¶</a></h3>
-<p>Își vor instala un server de grafana și baza de date pentru acesta.</p>
-<section id="exercitiu-instalarea-unui-serviciu-de-media-hosting">
-<h4><span class="section-number">6.2.3.1. </span>Exercițiu: Instalarea unui serviciu de media hosting<a class="headerlink" href="#exercitiu-instalarea-unui-serviciu-de-media-hosting" title="Permalink to this heading">¶</a></h4>
+<section id="folosirea-docker-compose-pentru-gestiunea-containerelor-complexe">
+<h3><span class="section-number">6.2.3. </span>Folosirea Docker Compose pentru gestiunea containerelor complexe<a class="headerlink" href="#folosirea-docker-compose-pentru-gestiunea-containerelor-complexe" title="Link to this heading">¶</a></h3>
+<p>După cum putem vedea din exemplul de mai sus, putem porni containerele folosind comanda <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">run</span></code>, dar asta înseamnă rularea unei comenzi pentru fiecare container.
+Acest lucru este simplu atunci când trebuie să pornim doar două containere, dar dacă vrem să pornim mai mult de două containere, sau dacă vrem să folosim o soluție “one click” și folosim o suită de containere necesare pentru soluția noastră, avem nevoie de o nouă metodă de pornire a containerelor.</p>
+<p>Soluția la această problemă este serviciul Docker Compose.
+Acesta permite unui utilizator să scrie o specificație pentru un mediu de lucru, inclusiv opțiuni pentru rularea containerelor, volumele atașate containerelor și rețelele prin care containerele vor comunica.</p>
+<p>Comanda folosită pentru gestionarea containerelor este <code class="docutils literal notranslate"><span class="pre">docker-compose</span></code>, iar specificația containerelor este scrisă în fișierul <code class="docutils literal notranslate"><span class="pre">docker-compose.yml</span></code>.</p>
+<p>Formatului fișierului <code class="docutils literal notranslate"><span class="pre">docker-compose.yml</span></code> este de forma:
+<a href="#id2"><span class="problematic" id="id3">``</span></a>`
+services:</p>
+<blockquote>
+<div><dl>
+<dt>nume_serviciu:</dt><dd><p>image: &lt;nume imagine&gt;
+volumes:</p>
+<blockquote>
+<div><p>&lt;listă volume&gt;</p>
+</div></blockquote>
+<dl class="simple">
+<dt>ports:</dt><dd><p>&lt;listă porturi deschise&gt;</p>
+</dd>
+<dt>environment:</dt><dd><p>&lt;lista variabile mediu&gt;</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</div></blockquote>
+<dl class="simple">
+<dt>volumes:</dt><dd><p>nume_volum:</p>
+</dd>
+<dt>networks:</dt><dd><p>nume_rețele:</p>
+</dd>
+</dl>
+<p><a href="#id4"><span class="problematic" id="id5">``</span></a><a href="#id6"><span class="problematic" id="id7">`</span></a></p>
+<p>Seviciul de vizualiare Grafana este un standard în industrie pentru afișarea graficelor de diverse forme și alertarea bazată pe condiții specificate de utilizator.</p>
+<p>Grafana se folosește de o bază de date și de un agregator de informații.
+Un agregator des folosit în Grafana este Prometheus, care poate să se conecteze la clienți externi și să descarce informații de la aplicații care expun informații numite exportere.</p>
+<p>Ambele servicii folosesc fișiere și variabile de configurare complexe pentru specificarea modului de rulare.
+Din această cauză, nu este facil să rulăm comenzile de pornire ale lor direct în line de comandă.</p>
+<p>Ne dorim să monitorizăm serverul de Minecraft, pentru a observa cum se schimbă folosirea resurselor.
+Vom folosi exporterul <code class="docutils literal notranslate"><span class="pre">node-exporter</span></code> pentru colectarea informațiilor despre sistemul pe care rulează serverul.</p>
+<p>Vom scrie în fișierul <code class="docutils literal notranslate"><span class="pre">docker-compose.yml</span></code> următoarea rețetă YAML:
+<a href="#id8"><span class="problematic" id="id9">``</span></a>`
+version: ‘2.1’</p>
+<dl class="simple">
+<dt>volumes:</dt><dd><p>prometheus_data:
+grafana_data:</p>
+</dd>
+</dl>
+<p>services:</p>
+<blockquote>
+<div><dl>
+<dt>prometheus:</dt><dd><p>image: prom/prometheus:v2.37.9
+container_name: prometheus
+volumes:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>./prometheus:/etc/prometheus</p></li>
+<li><p>prometheus_data:/prometheus</p></li>
+</ul>
+</div></blockquote>
+<dl class="simple">
+<dt>command:</dt><dd><ul class="simple">
+<li><p>‘–config.file=/etc/prometheus/prometheus.yml’</p></li>
+<li><p>‘–storage.tsdb.path=/prometheus’</p></li>
+<li><p>‘–web.console.libraries=/etc/prometheus/console_libraries’</p></li>
+<li><p>‘–web.console.templates=/etc/prometheus/consoles’</p></li>
+<li><p>‘–storage.tsdb.retention.time=200h’</p></li>
+<li><p>‘–web.enable-lifecycle’</p></li>
+</ul>
+</dd>
+</dl>
+<p>restart: unless-stopped
+ports:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>9090:9090</p></li>
+</ul>
+</div></blockquote>
+</dd>
+<dt>nodeexporter:</dt><dd><p>image: prom/node-exporter:v1.6.1
+container_name: nodeexporter
+volumes:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>/proc:/host/proc:ro</p></li>
+<li><p>/sys:/host/sys:ro</p></li>
+<li><p>/:/rootfs:ro</p></li>
+</ul>
+</div></blockquote>
+<dl class="simple">
+<dt>command:</dt><dd><ul class="simple">
+<li><p>‘–path.procfs=/host/proc’</p></li>
+<li><p>‘–path.rootfs=/rootfs’</p></li>
+<li><p>‘–path.sysfs=/host/sys’</p></li>
+<li><p>‘–collector.filesystem.ignored-mount-points=^/(sys|proc|dev|host|etc)($$|/)’</p></li>
+</ul>
+</dd>
+</dl>
+<p>restart: unless-stopped
+ports:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>9100:9100</p></li>
+</ul>
+</div></blockquote>
+</dd>
+<dt>grafana:</dt><dd><p>image: grafana/grafana:9.1.7
+container_name: grafana
+volumes:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>grafana_data:/var/lib/grafana</p></li>
+<li><p>./grafana/provisioning:/etc/grafana/provisioning</p></li>
+</ul>
+</div></blockquote>
+<dl class="simple">
+<dt>environment:</dt><dd><ul class="simple">
+<li><p>GF_SECURITY_ADMIN_USER=admin</p></li>
+<li><p>GF_SECURITY_ADMIN_PASSWORD=usorules</p></li>
+<li><p>GF_USERS_ALLOW_SIGN_UP=false</p></li>
+</ul>
+</dd>
+</dl>
+<p>restart: unless-stopped
+ports:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>3000:3000</p></li>
+</ul>
+</div></blockquote>
+</dd>
+</dl>
+</div></blockquote>
+<p><a href="#id10"><span class="problematic" id="id11">``</span></a><a href="#id12"><span class="problematic" id="id13">`</span></a></p>
+<p>Acest fișier a fost generat pe baza unui <a class="reference external" href="https://github.com/Einsteinish/Docker-Compose-Prometheus-and-Grafana/">repository</a> open source deja existent, adaptat pentru cazul nostru de folosire.</p>
+<p>Intrările sub tag-ul <code class="docutils literal notranslate"><span class="pre">volumes</span></code> reprezintă directoare partajate între container și sistemul fizic.
+Volumele containerelor oferă persistență informației înregistrate în container.
+În mod predefinit containerele stochează informație în mod efemer, dacă un container a fost șters, a fost ștersă și informația din cadrul acestuia.</p>
+<p>Un director montat este de forma <code class="docutils literal notranslate"><span class="pre">&lt;director</span> <span class="pre">sursă&gt;:&lt;director</span> <span class="pre">destinație&gt;</span></code>.
+În cazul în care directorul sursă nu este o cale în sistem, acesta este generat un volum în cadrul directorului de lucru al serviciului Docker.</p>
+<p>Serviciile Grafana, Prometheus și <code class="docutils literal notranslate"><span class="pre">node_exporter</span></code> sunt accesibile pe rețea dintr-un browser și comunică prin porturi.
+Pentru a putea accesa aceste servicii trebuie să expunem porturile.
+Expunerea porturilor este realizată sub eticheta <code class="docutils literal notranslate"><span class="pre">ports</span></code>, fiecare port fiind definind sub forma <code class="docutils literal notranslate"><span class="pre">&lt;port</span> <span class="pre">sursă&gt;:&lt;port</span> <span class="pre">destinație&gt;</span></code>.</p>
+<p>Serviciile containerzate sunt configurate folosind eticheta <code class="docutils literal notranslate"><span class="pre">environment</span></code>.
+Parola sistemului Grafana a fost configurată folosind variabilele de mediu <code class="docutils literal notranslate"><span class="pre">GF_USERS_ADMIN_USER</span></code> și <code class="docutils literal notranslate"><span class="pre">GF_SECURITY_ADMIN_PASSWORD</span></code>.</p>
+<p>Ne vom autentifica în mașina virtuală la serviciul de monitorizare în browser la
+adresa <code class="docutils literal notranslate"><span class="pre">localhost:3000</span></code>.
+Am setat utilizator administrator <code class="docutils literal notranslate"><span class="pre">admin</span></code> și parola <code class="docutils literal notranslate"><span class="pre">usorules</span></code>.
+Vom fi rugați sa modificăm aceste informații.</p>
+<p>Odată autentificați, apăsăm pe butonul dashboards, apoi pe browse și accesăm panoul <code class="docutils literal notranslate"><span class="pre">Node</span> <span class="pre">Exporter</span> <span class="pre">Full</span></code> apăsând pe numele acestuia.</p>
+<figure class="align-default">
+<a class="reference internal image-reference" href="../../_images/services-dashboards.png"><img alt="Grafana dashboards page" src="../../_images/services-dashboards.png" style="width: 861.75px; height: 463.95px;" /></a>
+</figure>
+<p>Afișarea informațiilor în Grafana este realizată folosind dashboarduri (panouri de control).
+Acestea pot fi generate de utilizatori în mod dinamic, sau pot să fie descărcate drept fișiere JSON.
+În cadrul infrastructurii curente am descărcat dahsboardul <code class="docutils literal notranslate"><span class="pre">Node</span> <span class="pre">Exporter</span> <span class="pre">Full</span></code>, unde putem să urmărim detalii despre resurse folosite, cum ar fi traficul pe rețea sau câtă memorie este folosită.</p>
+<figure class="align-default">
+<a class="reference internal image-reference" href="../../_images/services-node-exporter.png"><img alt="Grafana Node Exporter" src="../../_images/services-node-exporter.png" style="width: 864.0px; height: 486.0px;" /></a>
+</figure>
+<p>Atunci când folosim servicii bazate pe <code class="docutils literal notranslate"><span class="pre">docker-compose</span></code>, nu este suficient să avem un fișier <code class="docutils literal notranslate"><span class="pre">docker-compose.yaml</span></code>.
+Serviciile sunt configurabile și prin fișiere de configurare pe care trebuie să le definim.
+În cadrul directorului <code class="docutils literal notranslate"><span class="pre">/home/student/uso.git/labs/09-task-admin/lab-container/grafana</span></code> am generat fișierele de configurare pentru serviciile Prometheus și Grafana.
+Aceste fișiere configurează Prometheus să se conecteze la <code class="docutils literal notranslate"><span class="pre">node_exporter</span></code> și configurează Grafana să se afișeze informațiile stocate în Prometheus.
+Aceste fișiere nu sunt relevante pentru un setup simplu, avantajul folosirii serviciilor containerizate este tocmai faptul că nu trebuie să scriem noi toate fișierele de configurare și avem un serviciu deja funcțional configurat.</p>
+<p>Observăm mai jos ierarhia de fișiere completă:
+<a href="#id14"><span class="problematic" id="id15">``</span></a>`
+grafana
+├── docker-compose.yml
+├── grafana
+│   └── provisioning
+│       ├── dashboards
+│       │   ├── 1860_rev31.json
+│       │   ├── dashboard.yml
+│       │   └── monitor_services.json
+│       └── datasources
+│           └── datasource.yml
+└── prometheus</p>
+<blockquote>
+<div><p>└── prometheus.yml</p>
+</div></blockquote>
+<p><a href="#id16"><span class="problematic" id="id17">``</span></a><a href="#id18"><span class="problematic" id="id19">`</span></a></p>
+<section id="instalarea-unui-serviciu-de-media-hosting">
+<h4><span class="section-number">6.2.3.1. </span>Instalarea unui serviciu de media hosting<a class="headerlink" href="#instalarea-unui-serviciu-de-media-hosting" title="Link to this heading">¶</a></h4>
 <p>Un exemplu pentru folosirea containerelor Docker într-un mod facil este pentru găzduirea unui server de media privat.
-Serviciul oferit este ca și cum ai avea serviciul Netflix sau Disney+ hostat pe propriul calculator.
-Acest lucru este folositor atunci când vrei să vizualizezi prorpriul conținut, care poate nu este hostat pe unul din serviciile cloud (Netflix, Disney+).
+Serviciul oferit este ca și cum am folosi serviciul Netflix sau Disney+ găzduit pe propriul calculator.
+Serviciile de media hosting sunt folosite pentru gestionarea propriei biblioteci
+media, organizarea, sortarea și descărcarea metadatelor într-un portal centralizat.
 Un alt avantaj al acestor servicii este faptul că ele pot fi vizualizate pe orice dispozitiv are acces la calculatorul care rulează containerul printr-un browser, fie că este televizor, tabletă sau telefon mobil.</p>
+<p>Serviciul Plex este unul dintre cele mai cunoscute servicii de media hosting.
+Acesta poate să gestioneze conținut audio, foto și video.
+Serviciul poate să fie rulat nativ în cadrul sistemului, sau poate să ruleze în container.
+Avantajul folosirii Plex într-un container este ușurința de instalare și gestiune a sistemului.
+Este suficient doar să descărcăm containerul și să îl pornim folosind comanda <code class="docutils literal notranslate"><span class="pre">docker-compose</span></code>.</p>
+<p>Pentru acest exercițiu, este suficient să cautăm o imagine de container pentru serviciul Plex pe platforma <a class="reference external" href="https://hub.docker.com/">DockerHub</a>.</p>
+<p>Observăm că avem două posibilități de containere oficiale, primul este
+împachetat și oferit de <a class="reference external" href="https://hub.docker.com/r/linuxserver/plex">linuxserver.io</a>, iar al doilea este oferit de <a class="reference external" href="https://hub.docker.com/r/linuxserver/plex/">Plex Inc</a>.
+Vom folosi soluția oferită de linuxserver.io, deoarece aceștia oferă, în general, containere împachetate optim pentru folosirea în containere.</p>
+<p>** Exercițiu **</p>
+<p>Pe baza exemplului de fișier <code class="docutils literal notranslate"><span class="pre">docker-compose.yaml</span></code> oferit de linuxserver.io pe pagina de Docker Hub, realizați configurările necesare astfel încât să porniți un server de media Plex care are încărcată biblioteca folosind un volum din directorul <code class="docutils literal notranslate"><span class="pre">/home/student/uso.git/labs/09-task-admin/lab-container/plex</span></code> și expune portul de acces 32400 către sistemul gazdă.</p>
+<p>Verificați că puteți reda melodia încărcată în directorul <code class="docutils literal notranslate"><span class="pre">/home/student/uso.git/labs/09-task-admin/lab-container/plex</span></code> folosind Plex.</p>
 </section>
 </section>
 </section>
@@ -775,7 +1024,7 @@ Un alt avantaj al acestor servicii este faptul că ele pot fi vizualizate pe ori
 </ul><div class="footer" role="contentinfo">
       &#169; Copyright 2020, USO Team.
     <br>
-    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 5.1.1 with <a href="https://github.com/romnn/sphinx_press_theme">Press Theme</a>.
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 7.2.3 with <a href="https://github.com/romnn/sphinx_press_theme">Press Theme</a>.
 </div>
             </div>
           </div>
