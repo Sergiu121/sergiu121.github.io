@@ -344,7 +344,7 @@
           </li>
 
         
-          <li class="toctree-l1 "><a href="../app-dev/extra.html" class="reference internal ">Exerciții suplimentare</a>
+          <li class="toctree-l1 "><a href="../app-dev/extra.html" class="reference internal ">Exercițîi suplimentare</a>
 
             
           </li>
@@ -576,7 +576,7 @@ Avem acum în directorul curent arhiva <code class="docutils literal notranslate
 <li><p>f: folosește arhiva dată ca parametru (în cazul de față, numele ei).</p></li>
 </ul>
 <p>Arhiva nou creată ocupă 9.1 MB.
-Fișierele ce compun arhiva ocupă 5M, 3M respectiv 1M.</p>
+Fișierele ce compun arhiva ocupă 5MB, 3MB respectiv 1MB.</p>
 <p>Fișierul de tipul <em>tar</em> nou creat nu ocupă mai puțin spațiu; din contră, ocupă mai mult spațiu din cauza metadatelor <a class="footnote-reference brackets" href="#id6" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a> fișierului.</p>
 <p>Verificăm tipul fișierului folosind utilitarul <code class="docutils literal notranslate"><span class="pre">file</span></code>.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$<span class="w"> </span>file<span class="w"> </span>înregistrări.tar
@@ -618,7 +618,7 @@ Putem să vedem ce fișiere conține, fără a o deschide.</p>
 </pre></div>
 </div>
 <p>Pentru a vizualiza arhiva <strong>fără</strong> dezarhivare am folosit opțiunea <code class="docutils literal notranslate"><span class="pre">t</span></code>.
-Folosim opțiunea <code class="docutils literal notranslate"><span class="pre">f</span></code> pentru a specifica ce arhivă vrem să afișăm.</p>
+Folosim opțiunea <code class="docutils literal notranslate"><span class="pre">f</span></code> pentru a specifica arhiva pe care vrem să o afișăm.</p>
 <section id="exercitiu-afisarea-continutului-unei-arhive">
 <h4><span class="section-number">5.1.2.1. </span>Exercițiu - afișarea conținutului unei arhive<a class="headerlink" href="#exercitiu-afisarea-continutului-unei-arhive" title="Link to this heading">¶</a></h4>
 <ul class="simple">
@@ -672,10 +672,10 @@ total<span class="w"> </span><span class="m">18436</span>
 -rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">1048576</span><span class="w"> </span>Aug<span class="w"> </span><span class="m">19</span><span class="w"> </span><span class="m">11</span>:55<span class="w"> </span>înregistrare_lab03.mov
 -rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">9439088</span><span class="w"> </span>Aug<span class="w"> </span><span class="m">19</span><span class="w"> </span><span class="m">12</span>:04<span class="w"> </span>înregistrări.tar
 student@uso:~$<span class="w"> </span>mkdir<span class="w"> </span>-p<span class="w"> </span>dezarhivare/tar
-student@uso:~$<span class="w"> </span>tree
+student@uso:~$<span class="w"> </span>tree<span class="w"> </span>-F
 .
-<span class="p">|</span>--<span class="w"> </span>dezarhivare
-<span class="p">|</span><span class="w">   </span><span class="sb">``</span>--<span class="w"> </span>tar
+<span class="p">|</span>--<span class="w"> </span>dezarhivare/
+<span class="p">|</span><span class="w">   </span><span class="sb">``</span>--<span class="w"> </span>tar/
 <span class="p">|</span>--<span class="w"> </span>înregistrare_lab01.mov
 <span class="p">|</span>--<span class="w"> </span>înregistrare_lab02.mov
 <span class="p">|</span>--<span class="w"> </span>înregistrare_lab03.mov
@@ -686,10 +686,10 @@ student@uso:~$<span class="w"> </span>tar<span class="w"> </span>xvf<span class=
 înregistrare_lab01.mov
 înregistrare_lab02.mov
 înregistrare_lab03.mov
-student@uso:~$<span class="w"> </span>tree
+student@uso:~$<span class="w"> </span>tree<span class="w"> </span>-F
 .
-<span class="p">|</span>--<span class="w"> </span>dezarhivare
-<span class="p">|</span><span class="w">   </span><span class="sb">``</span>--<span class="w"> </span>tar
+<span class="p">|</span>--<span class="w"> </span>dezarhivare/
+<span class="p">|</span><span class="w">   </span><span class="sb">``</span>--<span class="w"> </span>tar/
 <span class="p">|</span><span class="w">       </span><span class="p">|</span>--<span class="w"> </span>înregistrare_lab01.mov
 <span class="p">|</span><span class="w">       </span><span class="p">|</span>--<span class="w"> </span>înregistrare_lab02.mov
 <span class="p">|</span><span class="w">       </span><span class="sb">``</span>--<span class="w"> </span>înregistrare_lab03.mov
@@ -862,7 +862,7 @@ student@uso:~$<span class="w"> </span>ls<span class="w"> </span>-lh
 </li>
 <li><ul class="simple">
 <li><p>Creați o arhivă de tipul <code class="docutils literal notranslate"><span class="pre">zip</span></code> a fișierelor din interiorul directorului <code class="docutils literal notranslate"><span class="pre">/usr/include/net/</span></code> cu numele <code class="docutils literal notranslate"><span class="pre">net.zip</span></code>.</p></li>
-<li><p>Comparați dimensiunea arhivei <code class="docutils literal notranslate"><span class="pre">zip</span></code> cu cea <code class="docutils literal notranslate"><span class="pre">tar</span></code> de la exercițiu precendent.</p></li>
+<li><p>Comparați dimensiunea arhivei <code class="docutils literal notranslate"><span class="pre">zip</span></code> cu cea <code class="docutils literal notranslate"><span class="pre">tar</span></code> de la exercițiul precendent.</p></li>
 </ul>
 </li>
 </ol>
@@ -922,7 +922,7 @@ drwxr-xr-x<span class="w"> </span><span class="m">3</span><span class="w"> </spa
 student@uso:~$<span class="w"> </span>rm<span class="w"> </span>înregistrare_lab01.mov<span class="w"> </span>înregistrare_lab02.mov<span class="w">  </span>înregistrare_lab03.mov
 </pre></div>
 </div>
-<p>În momentul de față avem doar arhiva <em>zip</em> și urmează să obținem fișierele cu înregistrari,  folosind utilitarul <code class="docutils literal notranslate"><span class="pre">zip</span></code>:</p>
+<p>În momentul de față avem doar arhiva <em>zip</em> și urmează să obținem fișierele cu înregistrari,  folosind utilitarul <code class="docutils literal notranslate"><span class="pre">unzip</span></code>:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$<span class="w"> </span>unzip<span class="w"> </span>înregistrări.zip
 Archive:<span class="w">  </span>înregistrări.zip
 <span class="w">  </span>inflating:<span class="w"> </span>înregistrare_lab01.mov
@@ -952,11 +952,11 @@ Archive:<span class="w">  </span>înregistrări.zip
 <span class="w">  </span>inflating:<span class="w"> </span>dezarhivare/zip/înregistrare_lab01.mov
 <span class="w">  </span>inflating:<span class="w"> </span>dezarhivare/zip/înregistrare_lab02.mov
 <span class="w">  </span>inflating:<span class="w"> </span>dezarhivare/zip/înregistrare_lab03.mov
-student@uso:~$<span class="w"> </span>tree
+student@uso:~$<span class="w"> </span>tree<span class="w"> </span>-F
 .
-<span class="p">|</span>--<span class="w"> </span>dezarhivare
-<span class="p">|</span><span class="w">   </span><span class="p">|</span>--<span class="w"> </span>tar
-<span class="p">|</span><span class="w">   </span><span class="sb">``</span>--<span class="w"> </span>zip
+<span class="p">|</span>--<span class="w"> </span>dezarhivare/
+<span class="p">|</span><span class="w">   </span><span class="p">|</span>--<span class="w"> </span>tar/
+<span class="p">|</span><span class="w">   </span><span class="sb">``</span>--<span class="w"> </span>zip/
 <span class="p">|</span><span class="w">       </span><span class="p">|</span>--<span class="w"> </span>înregistrare_lab01.mov
 <span class="p">|</span><span class="w">       </span><span class="p">|</span>--<span class="w"> </span>înregistrare_lab02.mov
 <span class="p">|</span><span class="w">       </span><span class="sb">``</span>--<span class="w"> </span>înregistrare_lab03.mov
@@ -1075,7 +1075,7 @@ Total<span class="w"> </span><span class="m">4</span><span class="w"> </span>ent
 </ul><div class="footer" role="contentinfo">
       &#169; Copyright 2020, USO Team.
     <br>
-    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 7.2.3 with <a href="https://github.com/romnn/sphinx_press_theme">Press Theme</a>.
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 7.2.5 with <a href="https://github.com/romnn/sphinx_press_theme">Press Theme</a>.
 </div>
             </div>
           </div>
