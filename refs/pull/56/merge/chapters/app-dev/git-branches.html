@@ -2,7 +2,7 @@
 <html  lang="en">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="viewport" content="width=device-width, initial-scale=1" />
 
       <title>9. Lucrul pe branch-uri</title>
     
@@ -15,13 +15,10 @@
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
 
       <!-- sphinx script_files -->
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/sphinx_highlight.js"></script>
-        <script src="../../_static/my_actions.js"></script>
+        <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../_static/my_actions.js?v=1451d81f"></script>
 
       
       <script src="../../_static/theme-vendors.js"></script>
@@ -569,49 +566,49 @@
           <div class="content" role="main">
             
   <section id="lucrul-pe-branch-uri">
-<span id="app-dev-branches"></span><h1><span class="section-number">9. </span>Lucrul pe branch-uri<a class="headerlink" href="#lucrul-pe-branch-uri" title="Permalink to this heading">¶</a></h1>
+<span id="app-dev-branches"></span><h1><span class="section-number">9. </span>Lucrul pe branch-uri<a class="headerlink" href="#lucrul-pe-branch-uri" title="Link to this heading">¶</a></h1>
 <p>Un dezvoltator vrea să lucreze la o funcționalitate nouă, care poate destabiliza proiectul.
 Pentru aceasta creează <strong>o ramură de dezvoltare nouă</strong> (<em>branch</em>) pe care face commituri noi.
 Ulterior, dacă funcționalitatea este utilă, va fi adăugată în proiect prin unificarea acestui branch (<em>merge</em>); altfel branch-ul va fi șters.</p>
 <p>Un repository Git are un branch principal de dezvoltare, numit <strong>master</strong>.
 Branch-ul <code class="docutils literal notranslate"><span class="pre">master</span></code> este branch-ul implicit cu care lucrăm, în care adăugăm commituri și în care vedem istoricul de commituri.</p>
 <p>În acest moment istoricul de commituri este următorul:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/array-sorting-algorithms$ git log
-commit 66b7c5fabb93b521326e6cd9ff219a06a3aec064
-Author: Liza Babu &lt;lizababu@example.com&gt;
-Date:   Thu Sep <span class="m">24</span> <span class="m">10</span>:40:06 <span class="m">2020</span> -0700
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/array-sorting-algorithms$<span class="w"> </span>git<span class="w"> </span>log
+commit<span class="w"> </span>66b7c5fabb93b521326e6cd9ff219a06a3aec064
+Author:<span class="w"> </span>Liza<span class="w"> </span>Babu<span class="w"> </span>&lt;lizababu@example.com&gt;
+Date:<span class="w">   </span>Thu<span class="w"> </span>Sep<span class="w"> </span><span class="m">24</span><span class="w"> </span><span class="m">10</span>:40:06<span class="w"> </span><span class="m">2020</span><span class="w"> </span>-0700
 
-    Update README title
+<span class="w">    </span>Update<span class="w"> </span>README<span class="w"> </span>title
 
-commit 247b87f3f317816a204c4512f6fd9914527a03ad
-Author: Liza Babu &lt;lizababu@example.com&gt;
-Date:   Thu Sep <span class="m">24</span> <span class="m">09</span>:50:30 <span class="m">2020</span> -0700
+commit<span class="w"> </span>247b87f3f317816a204c4512f6fd9914527a03ad
+Author:<span class="w"> </span>Liza<span class="w"> </span>Babu<span class="w"> </span>&lt;lizababu@example.com&gt;
+Date:<span class="w">   </span>Thu<span class="w"> </span>Sep<span class="w"> </span><span class="m">24</span><span class="w"> </span><span class="m">09</span>:50:30<span class="w"> </span><span class="m">2020</span><span class="w"> </span>-0700
 
-    Update README with project explanation
+<span class="w">    </span>Update<span class="w"> </span>README<span class="w"> </span>with<span class="w"> </span>project<span class="w"> </span>explanation
 
-commit 3c835b0d8e7fc88ef45dfd3681867c21b75ed588
-Author: Liza Babu &lt;lizababu@example.com&gt;
-Date:   Thu Sep <span class="m">24</span> <span class="m">09</span>:45:13 <span class="m">2020</span> -0700
+commit<span class="w"> </span>3c835b0d8e7fc88ef45dfd3681867c21b75ed588
+Author:<span class="w"> </span>Liza<span class="w"> </span>Babu<span class="w"> </span>&lt;lizababu@example.com&gt;
+Date:<span class="w">   </span>Thu<span class="w"> </span>Sep<span class="w"> </span><span class="m">24</span><span class="w"> </span><span class="m">09</span>:45:13<span class="w"> </span><span class="m">2020</span><span class="w"> </span>-0700
 
-    Add Merge Sort algotihm skeleton
+<span class="w">    </span>Add<span class="w"> </span>Merge<span class="w"> </span>Sort<span class="w"> </span>algotihm<span class="w"> </span>skeleton
 
-commit b92a52c0fc5d66dce4b2562114cc84ea326b2763
-Author: Liza Babu &lt;lizababu@example.com&gt;
-Date:   Thu Sep <span class="m">24</span> <span class="m">09</span>:44:36 <span class="m">2020</span> -0700
+commit<span class="w"> </span>b92a52c0fc5d66dce4b2562114cc84ea326b2763
+Author:<span class="w"> </span>Liza<span class="w"> </span>Babu<span class="w"> </span>&lt;lizababu@example.com&gt;
+Date:<span class="w">   </span>Thu<span class="w"> </span>Sep<span class="w"> </span><span class="m">24</span><span class="w"> </span><span class="m">09</span>:44:36<span class="w"> </span><span class="m">2020</span><span class="w"> </span>-0700
 
-    Add Radix Sort algotihm skeleton
+<span class="w">    </span>Add<span class="w"> </span>Radix<span class="w"> </span>Sort<span class="w"> </span>algotihm<span class="w"> </span>skeleton
 
-commit f65a7fbe8bbe1b36ba5c8e16607456a879bfb6fa
-Author: Liza Babu &lt;lizababu@example.com&gt;
-Date:   Thu Sep <span class="m">24</span> <span class="m">09</span>:21:49 <span class="m">2020</span> -0700
+commit<span class="w"> </span>f65a7fbe8bbe1b36ba5c8e16607456a879bfb6fa
+Author:<span class="w"> </span>Liza<span class="w"> </span>Babu<span class="w"> </span>&lt;lizababu@example.com&gt;
+Date:<span class="w">   </span>Thu<span class="w"> </span>Sep<span class="w"> </span><span class="m">24</span><span class="w"> </span><span class="m">09</span>:21:49<span class="w"> </span><span class="m">2020</span><span class="w"> </span>-0700
 
-    Add Bubble Sort algorithm skeleton
+<span class="w">    </span>Add<span class="w"> </span>Bubble<span class="w"> </span>Sort<span class="w"> </span>algorithm<span class="w"> </span>skeleton
 
-commit b2a590a8637f1eab96e557334dbd4be14bf95833
-Author: Liza Babu &lt;lizababu@example.com&gt;
-Date:   Thu Sep <span class="m">24</span> <span class="m">09</span>:09:51 <span class="m">2020</span> -0700
+commit<span class="w"> </span>b2a590a8637f1eab96e557334dbd4be14bf95833
+Author:<span class="w"> </span>Liza<span class="w"> </span>Babu<span class="w"> </span>&lt;lizababu@example.com&gt;
+Date:<span class="w">   </span>Thu<span class="w"> </span>Sep<span class="w"> </span><span class="m">24</span><span class="w"> </span><span class="m">09</span>:09:51<span class="w"> </span><span class="m">2020</span><span class="w"> </span>-0700
 
-    Add README file
+<span class="w">    </span>Add<span class="w"> </span>README<span class="w"> </span>file
 </pre></div>
 </div>
 <p>O reprezentare vizuală a istoricului commiturilor este:</p>
@@ -635,7 +632,7 @@ Modificările au fost făcute peste commitul <em>b2a590a</em>.</p>
 <p>În secțiunea <a class="reference internal" href="#app-dev-add-gitignore"><span class="std std-ref">Adăugarea unui fișier .gitignore repository-ului</span></a> îl vom adăuga de pe un alt branch pe care îl numim <code class="docutils literal notranslate"><span class="pre">add-gitignore</span></code> ca să ne obișnuim să folosim branch-uri.</p>
 </div>
 <section id="adaugarea-unui-fisier-gitignore-repository-ului">
-<span id="app-dev-add-gitignore"></span><h2><span class="section-number">9.1. </span>Adăugarea unui fișier .gitignore repository-ului<a class="headerlink" href="#adaugarea-unui-fisier-gitignore-repository-ului" title="Permalink to this heading">¶</a></h2>
+<span id="app-dev-add-gitignore"></span><h2><span class="section-number">9.1. </span>Adăugarea unui fișier .gitignore repository-ului<a class="headerlink" href="#adaugarea-unui-fisier-gitignore-repository-ului" title="Link to this heading">¶</a></h2>
 <p>De acum încolo, vom face toate modificările de pe un nou branch, diferit de branch-ul <strong>master</strong> <a class="footnote-reference brackets" href="#good-practice" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a>.</p>
 <p>În această subsecțiune vom crea un nou branch numit <code class="docutils literal notranslate"><span class="pre">add-gitignore</span></code>.
 Vom adăuga un fișier <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code> proiectului de pe acest branch.</p>
@@ -647,24 +644,24 @@ Acestea sunt fișiere și directoare din directorul proiectului pe care nu vrem 
 Având codul sursă, putem genera fișierele obiect și executabile pe sistemul nostru.</p>
 </div>
 <p>Verificăm branch-ul pe care ne aflăm folosind comanda <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">branch</span></code>:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/array-sorting-algorithms$ git branch
-*  master
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/array-sorting-algorithms$<span class="w"> </span>git<span class="w"> </span>branch
+*<span class="w">  </span>master
 </pre></div>
 </div>
 <p>Caracterul <code class="docutils literal notranslate"><span class="pre">*</span></code> se află în dreptul branch-ului pe care ne aflăm, în cazul nostru <strong>master</strong>.</p>
 <p>Creăm un nou branch numit <code class="docutils literal notranslate"><span class="pre">add-gitignore</span></code> folosind comanda <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">branch</span></code> urmată de numele noului branch:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/array-sorting-algorithms$ git branch add-gitignore
-student@uso:~/array-sorting-algorithms$ git branch
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/array-sorting-algorithms$<span class="w"> </span>git<span class="w"> </span>branch<span class="w"> </span>add-gitignore
+student@uso:~/array-sorting-algorithms$<span class="w"> </span>git<span class="w"> </span>branch
 add-gitignore
-* master
+*<span class="w"> </span>master
 </pre></div>
 </div>
 <p>Acum avem 2 branch-uri <strong>add-gitignore</strong> și <strong>master</strong> și ne aflăm pe branch-ul <strong>master</strong>.</p>
 <p>Trecem pe branch-ul <strong>add-gitignore</strong> folosind comanda <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">checkout</span></code>:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/array-sorting-algorithms$ git checkout add-gitignore
-Switched to a new branch <span class="s1">&#39;add-gitignore&#39;</span>
-student@uso:~/array-sorting-algorithms$ git branch
-* add-gitignore
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/array-sorting-algorithms$<span class="w"> </span>git<span class="w"> </span>checkout<span class="w"> </span>add-gitignore
+Switched<span class="w"> </span>to<span class="w"> </span>a<span class="w"> </span>new<span class="w"> </span>branch<span class="w"> </span><span class="s1">&#39;add-gitignore&#39;</span>
+student@uso:~/array-sorting-algorithms$<span class="w"> </span>git<span class="w"> </span>branch
+*<span class="w"> </span>add-gitignore
 master
 </pre></div>
 </div>
@@ -673,45 +670,45 @@ master
 Când vom face schimbări (în formă de commituri), cele două branch-uri vor diverge.</p>
 <p>Nu dorim să avem fișiere obiect în repository așa că vom configura Git să ignore aceste fișiere.
 Facem acest lucru prin adăugarea șirului <code class="docutils literal notranslate"><span class="pre">*.o</span></code> în fișierul <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code>:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/array-sorting-algorithms$ <span class="nb">echo</span> <span class="s2">&quot;*.o&quot;</span> &gt; .gitignore
-student@uso:~/array-sorting-algorithms$ ls -a
-.  ..  bubble-sort.c  .git  .gitignore  merge-sort.c  radix-sort.c  README.md
-student@uso:~/array-sorting-algorithms$ git status
-On branch add-gitignore
-Untracked files:
-<span class="o">(</span>use <span class="s2">&quot;git add &lt;file&gt;...&quot;</span> to include <span class="k">in</span> what will be committed<span class="o">)</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/array-sorting-algorithms$<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;*.o&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>.gitignore
+student@uso:~/array-sorting-algorithms$<span class="w"> </span>ls<span class="w"> </span>-a
+.<span class="w">  </span>..<span class="w">  </span>bubble-sort.c<span class="w">  </span>.git<span class="w">  </span>.gitignore<span class="w">  </span>merge-sort.c<span class="w">  </span>radix-sort.c<span class="w">  </span>README.md
+student@uso:~/array-sorting-algorithms$<span class="w"> </span>git<span class="w"> </span>status
+On<span class="w"> </span>branch<span class="w"> </span>add-gitignore
+Untracked<span class="w"> </span>files:
+<span class="o">(</span>use<span class="w"> </span><span class="s2">&quot;git add &lt;file&gt;...&quot;</span><span class="w"> </span>to<span class="w"> </span>include<span class="w"> </span><span class="k">in</span><span class="w"> </span>what<span class="w"> </span>will<span class="w"> </span>be<span class="w"> </span>committed<span class="o">)</span>
 
-    .gitignore
+<span class="w">    </span>.gitignore
 
-nothing added to commit but untracked files present <span class="o">(</span>use <span class="s2">&quot;git add&quot;</span> to track<span class="o">)</span>
+nothing<span class="w"> </span>added<span class="w"> </span>to<span class="w"> </span>commit<span class="w"> </span>but<span class="w"> </span>untracked<span class="w"> </span>files<span class="w"> </span>present<span class="w"> </span><span class="o">(</span>use<span class="w"> </span><span class="s2">&quot;git add&quot;</span><span class="w"> </span>to<span class="w"> </span>track<span class="o">)</span>
 </pre></div>
 </div>
 <p>Creăm un commit cu această modificare (<code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">add</span></code> și <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">commit</span></code>) și îl publicăm (<code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">push</span></code>):</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/array-sorting-algorithms$ git add .gitignore
-student@uso:~/array-sorting-algorithms$ git status
-On branch add-gitignore
-Changes to be committed:
-<span class="o">(</span>use <span class="s2">&quot;git reset HEAD &lt;file&gt;...&quot;</span> to unstage<span class="o">)</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/array-sorting-algorithms$<span class="w"> </span>git<span class="w"> </span>add<span class="w"> </span>.gitignore
+student@uso:~/array-sorting-algorithms$<span class="w"> </span>git<span class="w"> </span>status
+On<span class="w"> </span>branch<span class="w"> </span>add-gitignore
+Changes<span class="w"> </span>to<span class="w"> </span>be<span class="w"> </span>committed:
+<span class="o">(</span>use<span class="w"> </span><span class="s2">&quot;git reset HEAD &lt;file&gt;...&quot;</span><span class="w"> </span>to<span class="w"> </span>unstage<span class="o">)</span>
 
-    new file:   .gitignore
+<span class="w">    </span>new<span class="w"> </span>file:<span class="w">   </span>.gitignore
 
-student@uso:~/array-sorting-algorithms$ git commit -m <span class="s2">&quot;Add .gitignore file&quot;</span>
-<span class="o">[</span>add-gitignore 988b188<span class="o">]</span> Add .gitignore file
-<span class="m">1</span> file changed, <span class="m">1</span> insertion<span class="o">(</span>+<span class="o">)</span>
-create mode <span class="m">100644</span> .gitignore
-student@uso:~/array-sorting-algorithms$ git push origin add-gitignore
-Counting objects: <span class="m">3</span>, <span class="k">done</span>.
-Delta compression using up to <span class="m">2</span> threads.
-Compressing objects: <span class="m">100</span>% <span class="o">(</span><span class="m">2</span>/2<span class="o">)</span>, <span class="k">done</span>.
-Writing objects: <span class="m">100</span>% <span class="o">(</span><span class="m">3</span>/3<span class="o">)</span>, <span class="m">283</span> bytes <span class="p">|</span> <span class="m">70</span>.00 KiB/s, <span class="k">done</span>.
-Total <span class="m">3</span> <span class="o">(</span>delta <span class="m">1</span><span class="o">)</span>, reused <span class="m">0</span> <span class="o">(</span>delta <span class="m">0</span><span class="o">)</span>
-remote: Resolving deltas: <span class="m">100</span>% <span class="o">(</span><span class="m">1</span>/1<span class="o">)</span>, completed with <span class="m">1</span> <span class="nb">local</span> object.
+student@uso:~/array-sorting-algorithms$<span class="w"> </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Add .gitignore file&quot;</span>
+<span class="o">[</span>add-gitignore<span class="w"> </span>988b188<span class="o">]</span><span class="w"> </span>Add<span class="w"> </span>.gitignore<span class="w"> </span>file
+<span class="m">1</span><span class="w"> </span>file<span class="w"> </span>changed,<span class="w"> </span><span class="m">1</span><span class="w"> </span>insertion<span class="o">(</span>+<span class="o">)</span>
+create<span class="w"> </span>mode<span class="w"> </span><span class="m">100644</span><span class="w"> </span>.gitignore
+student@uso:~/array-sorting-algorithms$<span class="w"> </span>git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>add-gitignore
+Counting<span class="w"> </span>objects:<span class="w"> </span><span class="m">3</span>,<span class="w"> </span><span class="k">done</span>.
+Delta<span class="w"> </span>compression<span class="w"> </span>using<span class="w"> </span>up<span class="w"> </span>to<span class="w"> </span><span class="m">2</span><span class="w"> </span>threads.
+Compressing<span class="w"> </span>objects:<span class="w"> </span><span class="m">100</span>%<span class="w"> </span><span class="o">(</span><span class="m">2</span>/2<span class="o">)</span>,<span class="w"> </span><span class="k">done</span>.
+Writing<span class="w"> </span>objects:<span class="w"> </span><span class="m">100</span>%<span class="w"> </span><span class="o">(</span><span class="m">3</span>/3<span class="o">)</span>,<span class="w"> </span><span class="m">283</span><span class="w"> </span>bytes<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="m">70</span>.00<span class="w"> </span>KiB/s,<span class="w"> </span><span class="k">done</span>.
+Total<span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="o">(</span>delta<span class="w"> </span><span class="m">1</span><span class="o">)</span>,<span class="w"> </span>reused<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="o">(</span>delta<span class="w"> </span><span class="m">0</span><span class="o">)</span>
+remote:<span class="w"> </span>Resolving<span class="w"> </span>deltas:<span class="w"> </span><span class="m">100</span>%<span class="w"> </span><span class="o">(</span><span class="m">1</span>/1<span class="o">)</span>,<span class="w"> </span>completed<span class="w"> </span>with<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="nb">local</span><span class="w"> </span>object.
 remote:
-remote: Create a pull request <span class="k">for</span> <span class="s1">&#39;add-gitignore&#39;</span> on GitHub by visiting:
-remote:      https://github.com/lizababu/array-sorting-algorithmss/pull/new/add-gitignore
+remote:<span class="w"> </span>Create<span class="w"> </span>a<span class="w"> </span>pull<span class="w"> </span>request<span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="s1">&#39;add-gitignore&#39;</span><span class="w"> </span>on<span class="w"> </span>GitHub<span class="w"> </span>by<span class="w"> </span>visiting:
+remote:<span class="w">      </span>https://github.com/lizababu/array-sorting-algorithmss/pull/new/add-gitignore
 remote:
-To https://github.com/lizababu/array-sorting-algorithmss.git
-* <span class="o">[</span>new branch<span class="o">]</span>      add-gitignore -&gt; add-gitignore
+To<span class="w"> </span>https://github.com/lizababu/array-sorting-algorithmss.git
+*<span class="w"> </span><span class="o">[</span>new<span class="w"> </span>branch<span class="o">]</span><span class="w">      </span>add-gitignore<span class="w"> </span>-&gt;<span class="w"> </span>add-gitignore
 </pre></div>
 </div>
 <p>Am publicat commitul în repository-ul remote pe branch-ul <code class="docutils literal notranslate"><span class="pre">add-gitignore</span></code>.
@@ -724,7 +721,7 @@ Spre exemplu, după crearea unui commit, verificăm <strong>statusul repository-
 </div>
 </section>
 <section id="operatia-merge-dintre-un-branch-secundar-si-master">
-<span id="app-dev-merge"></span><h2><span class="section-number">9.2. </span>Operația <strong>merge</strong> dintre un branch secundar și master<a class="headerlink" href="#operatia-merge-dintre-un-branch-secundar-si-master" title="Permalink to this heading">¶</a></h2>
+<span id="app-dev-merge"></span><h2><span class="section-number">9.2. </span>Operația <strong>merge</strong> dintre un branch secundar și master<a class="headerlink" href="#operatia-merge-dintre-un-branch-secundar-si-master" title="Link to this heading">¶</a></h2>
 <p>În secțiunea <a class="reference internal" href="#app-dev-add-gitignore"><span class="std std-ref">Adăugarea unui fișier .gitignore repository-ului</span></a> de mai sus am creat un commit pe branch-ul <strong>add-gitignore</strong>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -734,61 +731,61 @@ Spre exemplu, după crearea unui commit, verificăm <strong>statusul repository-
 Facem acest lucru prin intermediul operației <code class="docutils literal notranslate"><span class="pre">merge</span></code>, operație care unește două branch-uri: adică aduce conținutul unui branch pe un alt branch, în cazul nostru de pe <strong>add-gitignore</strong> pe <strong>master</strong>.
 Pentru a face acest lucru trebuie să fim pe branch-ul <strong>master</strong>, adică pe branch-ul în care vrem să integrăm schimbările.</p>
 <p>Trecem pe branch-ul <strong>master</strong> folosind comanda <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">checkout</span></code>:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/array-sorting-algorithms$ git checkout master
-Switched to branch <span class="s1">&#39;master&#39;</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/array-sorting-algorithms$<span class="w"> </span>git<span class="w"> </span>checkout<span class="w"> </span>master
+Switched<span class="w"> </span>to<span class="w"> </span>branch<span class="w"> </span><span class="s1">&#39;master&#39;</span>
 </pre></div>
 </div>
 <p>Suntem pe branch-ul <strong>master</strong> local și ne asigurăm că este sincronizat cu cel remote folosind comanda <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">pull</span></code>:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/array-sorting-algorithms$ git pull origin master
-From https://github.com/lizababu/array-sorting-algorithmss
-* branch            master     -&gt; FETCH_HEAD
-Already up to date.
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/array-sorting-algorithms$<span class="w"> </span>git<span class="w"> </span>pull<span class="w"> </span>origin<span class="w"> </span>master
+From<span class="w"> </span>https://github.com/lizababu/array-sorting-algorithmss
+*<span class="w"> </span>branch<span class="w">            </span>master<span class="w">     </span>-&gt;<span class="w"> </span>FETCH_HEAD
+Already<span class="w"> </span>up<span class="w"> </span>to<span class="w"> </span>date.
 </pre></div>
 </div>
 <p>Branch-ul <strong>master</strong> local este sincronizat cu cel remote (<em>Already up to date</em>).
 Integrăm branch-ul <strong>add-gitignore</strong> în branch-ul <strong>master</strong> folosind comanda <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">merge</span></code>:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/array-sorting-algorithms$ git merge add-gitignore
-Updating 66b7c5f..988b188
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/array-sorting-algorithms$<span class="w"> </span>git<span class="w"> </span>merge<span class="w"> </span>add-gitignore
+Updating<span class="w"> </span>66b7c5f..988b188
 Fast-forward
-.gitignore <span class="p">|</span> <span class="m">1</span> +
-<span class="m">1</span> file changed, <span class="m">1</span> insertion<span class="o">(</span>+<span class="o">)</span>
-create mode <span class="m">100644</span> .gitignore
-student@uso:~/array-sorting-algorithms$ git status
-On branch master
-Your branch is ahead of <span class="s1">&#39;origin/master&#39;</span> by <span class="m">1</span> commit.
-<span class="o">(</span>use <span class="s2">&quot;git push&quot;</span> to publish your <span class="nb">local</span> commits<span class="o">)</span>
+.gitignore<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="m">1</span><span class="w"> </span>+
+<span class="m">1</span><span class="w"> </span>file<span class="w"> </span>changed,<span class="w"> </span><span class="m">1</span><span class="w"> </span>insertion<span class="o">(</span>+<span class="o">)</span>
+create<span class="w"> </span>mode<span class="w"> </span><span class="m">100644</span><span class="w"> </span>.gitignore
+student@uso:~/array-sorting-algorithms$<span class="w"> </span>git<span class="w"> </span>status
+On<span class="w"> </span>branch<span class="w"> </span>master
+Your<span class="w"> </span>branch<span class="w"> </span>is<span class="w"> </span>ahead<span class="w"> </span>of<span class="w"> </span><span class="s1">&#39;origin/master&#39;</span><span class="w"> </span>by<span class="w"> </span><span class="m">1</span><span class="w"> </span>commit.
+<span class="o">(</span>use<span class="w"> </span><span class="s2">&quot;git push&quot;</span><span class="w"> </span>to<span class="w"> </span>publish<span class="w"> </span>your<span class="w"> </span><span class="nb">local</span><span class="w"> </span>commits<span class="o">)</span>
 
-nothing to commit, working tree clean
+nothing<span class="w"> </span>to<span class="w"> </span>commit,<span class="w"> </span>working<span class="w"> </span>tree<span class="w"> </span>clean
 </pre></div>
 </div>
 <p>Acum avem pe repository-ul local un commit în plus față de repository-ul origin (<em>Your branch is ahead of ‘origin/master’ by 1 commit</em>), adică avem un commit care nu a fost publicat.
 Verificăm istoricul de commituri pentru a-l vedea folosind comanda <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">log</span></code>:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>commit 988b188d2c6422a3162d1da25653f4682f7df6db <span class="o">(</span>HEAD -&gt; master, origin/add-gitignore, add-gitignore<span class="o">)</span>
-Author: Liza Babu &lt;lizababu@example.com&gt;
-Date:   Mon Sep <span class="m">28</span> <span class="m">02</span>:29:00 <span class="m">2020</span> -0700
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>commit<span class="w"> </span>988b188d2c6422a3162d1da25653f4682f7df6db<span class="w"> </span><span class="o">(</span>HEAD<span class="w"> </span>-&gt;<span class="w"> </span>master,<span class="w"> </span>origin/add-gitignore,<span class="w"> </span>add-gitignore<span class="o">)</span>
+Author:<span class="w"> </span>Liza<span class="w"> </span>Babu<span class="w"> </span>&lt;lizababu@example.com&gt;
+Date:<span class="w">   </span>Mon<span class="w"> </span>Sep<span class="w"> </span><span class="m">28</span><span class="w"> </span><span class="m">02</span>:29:00<span class="w"> </span><span class="m">2020</span><span class="w"> </span>-0700
 
-    Add .gitignore file
+<span class="w">    </span>Add<span class="w"> </span>.gitignore<span class="w"> </span>file
 
-commit 66b7c5fabb93b521326e6cd9ff219a06a3aec064 <span class="o">(</span>origin/master, origin/HEAD<span class="o">)</span>
-Merge: f59ba10 23d5cfa
-Author: Liza Babu &lt;lizababu@example.com&gt;
-Date:   Thu Sep <span class="m">24</span> <span class="m">10</span>:40:06 <span class="m">2020</span> -0700
+commit<span class="w"> </span>66b7c5fabb93b521326e6cd9ff219a06a3aec064<span class="w"> </span><span class="o">(</span>origin/master,<span class="w"> </span>origin/HEAD<span class="o">)</span>
+Merge:<span class="w"> </span>f59ba10<span class="w"> </span>23d5cfa
+Author:<span class="w"> </span>Liza<span class="w"> </span>Babu<span class="w"> </span>&lt;lizababu@example.com&gt;
+Date:<span class="w">   </span>Thu<span class="w"> </span>Sep<span class="w"> </span><span class="m">24</span><span class="w"> </span><span class="m">10</span>:40:06<span class="w"> </span><span class="m">2020</span><span class="w"> </span>-0700
 
-    Update README title
+<span class="w">    </span>Update<span class="w"> </span>README<span class="w"> </span>title
 <span class="o">(</span>...<span class="o">)</span>
 </pre></div>
 </div>
 <p>După integrarea branch-ului <strong>add-gitignore</strong> în branch-ul <strong>master</strong> vedem că ultimul commit (hash <em>988b188d2c6422a3162d1da25653f4682f7df6db</em>) se află în istoric.
 Îl publicăm în repository-ul origin folosind comanda <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">push</span></code>:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/array-sorting-algorithms$ git push origin master
-Enumerating objects: <span class="m">4</span>, <span class="k">done</span>.
-Counting objects: <span class="m">100</span>% <span class="o">(</span><span class="m">4</span>/4<span class="o">)</span>, <span class="k">done</span>.
-Delta compression using up to <span class="m">4</span> threads
-Compressing objects: <span class="m">100</span>% <span class="o">(</span><span class="m">2</span>/2<span class="o">)</span>, <span class="k">done</span>.
-Writing objects: <span class="m">100</span>% <span class="o">(</span><span class="m">2</span>/2<span class="o">)</span>, <span class="m">296</span> bytes <span class="p">|</span> <span class="m">296</span>.00 KiB/s, <span class="k">done</span>.
-Total <span class="m">2</span> <span class="o">(</span>delta <span class="m">0</span><span class="o">)</span>, reused <span class="m">0</span> <span class="o">(</span>delta <span class="m">0</span><span class="o">)</span>, pack-reused <span class="m">0</span>
-To https://github.com/lizababu/array-sorting-algorithms
-5c982a1..1f553ab  master -&gt; master
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/array-sorting-algorithms$<span class="w"> </span>git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>master
+Enumerating<span class="w"> </span>objects:<span class="w"> </span><span class="m">4</span>,<span class="w"> </span><span class="k">done</span>.
+Counting<span class="w"> </span>objects:<span class="w"> </span><span class="m">100</span>%<span class="w"> </span><span class="o">(</span><span class="m">4</span>/4<span class="o">)</span>,<span class="w"> </span><span class="k">done</span>.
+Delta<span class="w"> </span>compression<span class="w"> </span>using<span class="w"> </span>up<span class="w"> </span>to<span class="w"> </span><span class="m">4</span><span class="w"> </span>threads
+Compressing<span class="w"> </span>objects:<span class="w"> </span><span class="m">100</span>%<span class="w"> </span><span class="o">(</span><span class="m">2</span>/2<span class="o">)</span>,<span class="w"> </span><span class="k">done</span>.
+Writing<span class="w"> </span>objects:<span class="w"> </span><span class="m">100</span>%<span class="w"> </span><span class="o">(</span><span class="m">2</span>/2<span class="o">)</span>,<span class="w"> </span><span class="m">296</span><span class="w"> </span>bytes<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="m">296</span>.00<span class="w"> </span>KiB/s,<span class="w"> </span><span class="k">done</span>.
+Total<span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="o">(</span>delta<span class="w"> </span><span class="m">0</span><span class="o">)</span>,<span class="w"> </span>reused<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="o">(</span>delta<span class="w"> </span><span class="m">0</span><span class="o">)</span>,<span class="w"> </span>pack-reused<span class="w"> </span><span class="m">0</span>
+To<span class="w"> </span>https://github.com/lizababu/array-sorting-algorithms
+5c982a1..1f553ab<span class="w">  </span>master<span class="w"> </span>-&gt;<span class="w"> </span>master
 </pre></div>
 </div>
 <p>Vedem commitul și pe GitHub ca în imaginea de mai jos pe branch-ul <strong>master</strong>:</p>
@@ -797,30 +794,30 @@ To https://github.com/lizababu/array-sorting-algorithms
 </figure>
 </section>
 <section id="stergerea-unui-branch">
-<span id="app-dev-delete-branch"></span><h2><span class="section-number">9.3. </span>Ștergerea unui branch<a class="headerlink" href="#stergerea-unui-branch" title="Permalink to this heading">¶</a></h2>
+<span id="app-dev-delete-branch"></span><h2><span class="section-number">9.3. </span>Ștergerea unui branch<a class="headerlink" href="#stergerea-unui-branch" title="Link to this heading">¶</a></h2>
 <p>După ce terminăm lucrul pe un branch, îl ștergem.
 Vom folosi noi ramuri de dezvoltare (<em>branch-uri</em>) pentru alte funcționalități, deci nu vom mai avea nevoie de branch-urile vechi.</p>
 <p>În acestă secțiune vom șterge branch-ul <strong>add-gitignore</strong> atât din repository-ul local cât și din interfața GitHub.</p>
 <p>Trebuie să ne aflăm pe un branch diferit față de cel pe care vrem să-l ștergem.
 Verificăm branch-ul pe care ne aflăm folosind comanda <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">branch</span></code>:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/array-sorting-algorithms$ git branch
-  add-gitignore
-* master
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/array-sorting-algorithms$<span class="w"> </span>git<span class="w"> </span>branch
+<span class="w">  </span>add-gitignore
+*<span class="w"> </span>master
 </pre></div>
 </div>
 <p>Ne aflăm pe branch-ul <strong>master</strong>.
 Ștergem branch-ul <strong>add-gitignore</strong> din repository-ul local folosind comanda <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">branch</span> <span class="pre">-d</span></code>:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/array-sorting-algorithms$ git branch -d add-gitignore
-Deleted branch add-gitignore <span class="o">(</span>was 988b188<span class="o">)</span>.
-student@uso:~/array-sorting-algorithms$ git branch
-* master
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/array-sorting-algorithms$<span class="w"> </span>git<span class="w"> </span>branch<span class="w"> </span>-d<span class="w"> </span>add-gitignore
+Deleted<span class="w"> </span>branch<span class="w"> </span>add-gitignore<span class="w"> </span><span class="o">(</span>was<span class="w"> </span>988b188<span class="o">)</span>.
+student@uso:~/array-sorting-algorithms$<span class="w"> </span>git<span class="w"> </span>branch
+*<span class="w"> </span>master
 </pre></div>
 </div>
 <p>Am șters branch-ul <strong>add-gitignore</strong> din repository-ul local și am rămas doar cu branch-ul <strong>master</strong>.
 Ștergem acum branch-ul <strong>add-gitiginore</strong> și din repository-ul origin folosind comanda <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">push</span></code>:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/array-sorting-algorithms$ git push origin --delete add-gitignore
-To https://github.com/lizababu/array-sorting-algorithms.git
-- <span class="o">[</span>deleted<span class="o">]</span>         add-gitignore
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/array-sorting-algorithms$<span class="w"> </span>git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>--delete<span class="w"> </span>add-gitignore
+To<span class="w"> </span>https://github.com/lizababu/array-sorting-algorithms.git
+-<span class="w"> </span><span class="o">[</span>deleted<span class="o">]</span><span class="w">         </span>add-gitignore
 </pre></div>
 </div>
 <p>Vedem și din interfața GitHub că nu mai există branch-ul <strong>add-gitignore</strong> ca în imaginea de mai jos:</p>
@@ -829,14 +826,14 @@ To https://github.com/lizababu/array-sorting-algorithms.git
 </figure>
 </section>
 <section id="modificarea-fisierului-gitignore">
-<span id="app-dev-another-merge"></span><h2><span class="section-number">9.4. </span>Modificarea fișierului .gitignore<a class="headerlink" href="#modificarea-fisierului-gitignore" title="Permalink to this heading">¶</a></h2>
+<span id="app-dev-another-merge"></span><h2><span class="section-number">9.4. </span>Modificarea fișierului .gitignore<a class="headerlink" href="#modificarea-fisierului-gitignore" title="Link to this heading">¶</a></h2>
 <p>În această subsecțiune vom relua pașii prezentați în subsecțiunile anterioare.
 Vom lucra în continuare pe branch-uri.
 Vom adăuga o nouă linie în fișierul <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code>, vom crea un commit cu această schimbare și vom integra schimbările din branch-ul secundar în branch-ul <strong>master</strong> prin operația <strong>merge</strong>.</p>
 <p>Creăm un branch numit <strong>update-gitiginore</strong> și ne mutăm pe el.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/array-sorting-algorithms$ git branch update-gitignore
-student@uso:~/array-sorting-algorithms$ git checkout update-gitignore
-Switched to branch <span class="s1">&#39;update-gitignore&#39;</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/array-sorting-algorithms$<span class="w"> </span>git<span class="w"> </span>branch<span class="w"> </span>update-gitignore
+student@uso:~/array-sorting-algorithms$<span class="w"> </span>git<span class="w"> </span>checkout<span class="w"> </span>update-gitignore
+Switched<span class="w"> </span>to<span class="w"> </span>branch<span class="w"> </span><span class="s1">&#39;update-gitignore&#39;</span>
 </pre></div>
 </div>
 <p>Suntem pe branch-ul <strong>update-gitignore</strong> și adăugăm linia <code class="docutils literal notranslate"><span class="pre">build/</span></code> în fișierul <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code>.</p>
@@ -848,93 +845,93 @@ Astfel, punem doar numele directorului în <code class="docutils literal notrans
 Dezavantajul aici este că nu putem refolosi un fișier <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code> de la un proiect la altul pentru că numele executabilelor vor fi, cel mai probabil, diferite.</p>
 </div>
 <p>Putem face acest lucru folosind un editor text sau folosind următoarea comandă:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/array-sorting-algorithms$ <span class="nb">echo</span> <span class="s2">&quot;build/&quot;</span> &gt;&gt; .gitignore
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/array-sorting-algorithms$<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;build/&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>.gitignore
 </pre></div>
 </div>
 <p>Creăm un commit care să conțină modificărea din fișierul <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code>.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/array-sorting-algorithms$ git status
-On branch update-gitignore
-Changes not staged <span class="k">for</span> commit:
-<span class="o">(</span>use <span class="s2">&quot;git add &lt;file&gt;...&quot;</span> to update what will be committed<span class="o">)</span>
-<span class="o">(</span>use <span class="s2">&quot;git checkout -- &lt;file&gt;...&quot;</span> to discard changes <span class="k">in</span> working directory<span class="o">)</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/array-sorting-algorithms$<span class="w"> </span>git<span class="w"> </span>status
+On<span class="w"> </span>branch<span class="w"> </span>update-gitignore
+Changes<span class="w"> </span>not<span class="w"> </span>staged<span class="w"> </span><span class="k">for</span><span class="w"> </span>commit:
+<span class="o">(</span>use<span class="w"> </span><span class="s2">&quot;git add &lt;file&gt;...&quot;</span><span class="w"> </span>to<span class="w"> </span>update<span class="w"> </span>what<span class="w"> </span>will<span class="w"> </span>be<span class="w"> </span>committed<span class="o">)</span>
+<span class="o">(</span>use<span class="w"> </span><span class="s2">&quot;git checkout -- &lt;file&gt;...&quot;</span><span class="w"> </span>to<span class="w"> </span>discard<span class="w"> </span>changes<span class="w"> </span><span class="k">in</span><span class="w"> </span>working<span class="w"> </span>directory<span class="o">)</span>
 
-    modified:   .gitignore
+<span class="w">    </span>modified:<span class="w">   </span>.gitignore
 
-no changes added to commit <span class="o">(</span>use <span class="s2">&quot;git add&quot;</span> and/or <span class="s2">&quot;git commit -a&quot;</span><span class="o">)</span>
-student@uso:~/array-sorting-algorithms$ git add .gitignore
-student@uso:~/array-sorting-algorithms$ git status
-On branch update-gitignore
-Changes to be committed:
-<span class="o">(</span>use <span class="s2">&quot;git reset HEAD &lt;file&gt;...&quot;</span> to unstage<span class="o">)</span>
+no<span class="w"> </span>changes<span class="w"> </span>added<span class="w"> </span>to<span class="w"> </span>commit<span class="w"> </span><span class="o">(</span>use<span class="w"> </span><span class="s2">&quot;git add&quot;</span><span class="w"> </span>and/or<span class="w"> </span><span class="s2">&quot;git commit -a&quot;</span><span class="o">)</span>
+student@uso:~/array-sorting-algorithms$<span class="w"> </span>git<span class="w"> </span>add<span class="w"> </span>.gitignore
+student@uso:~/array-sorting-algorithms$<span class="w"> </span>git<span class="w"> </span>status
+On<span class="w"> </span>branch<span class="w"> </span>update-gitignore
+Changes<span class="w"> </span>to<span class="w"> </span>be<span class="w"> </span>committed:
+<span class="o">(</span>use<span class="w"> </span><span class="s2">&quot;git reset HEAD &lt;file&gt;...&quot;</span><span class="w"> </span>to<span class="w"> </span>unstage<span class="o">)</span>
 
-    modified:   .gitignore
+<span class="w">    </span>modified:<span class="w">   </span>.gitignore
 
-student@uso:~/array-sorting-algorithms$ git commit -m <span class="s2">&quot;Update .gitignore content&quot;</span>
-<span class="o">[</span>update-gitignore 6d5189f<span class="o">]</span> Update .gitignore content
- <span class="m">1</span> file changed, <span class="m">1</span> insertion<span class="o">(</span>+<span class="o">)</span>
-student@uso:~/array-sorting-algorithms$ git log
-commit 6d5189fd7095a19a6ad9bddb8c95491b37d9e828 <span class="o">(</span>HEAD -&gt; update-gitignore<span class="o">)</span>
-Author: Liza Babu &lt;lizababu@example.com&gt;
-Date:   Mon Sep <span class="m">28</span> <span class="m">11</span>:47:36 <span class="m">2020</span> -0700
+student@uso:~/array-sorting-algorithms$<span class="w"> </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Update .gitignore content&quot;</span>
+<span class="o">[</span>update-gitignore<span class="w"> </span>6d5189f<span class="o">]</span><span class="w"> </span>Update<span class="w"> </span>.gitignore<span class="w"> </span>content
+<span class="w"> </span><span class="m">1</span><span class="w"> </span>file<span class="w"> </span>changed,<span class="w"> </span><span class="m">1</span><span class="w"> </span>insertion<span class="o">(</span>+<span class="o">)</span>
+student@uso:~/array-sorting-algorithms$<span class="w"> </span>git<span class="w"> </span>log
+commit<span class="w"> </span>6d5189fd7095a19a6ad9bddb8c95491b37d9e828<span class="w"> </span><span class="o">(</span>HEAD<span class="w"> </span>-&gt;<span class="w"> </span>update-gitignore<span class="o">)</span>
+Author:<span class="w"> </span>Liza<span class="w"> </span>Babu<span class="w"> </span>&lt;lizababu@example.com&gt;
+Date:<span class="w">   </span>Mon<span class="w"> </span>Sep<span class="w"> </span><span class="m">28</span><span class="w"> </span><span class="m">11</span>:47:36<span class="w"> </span><span class="m">2020</span><span class="w"> </span>-0700
 
-    Update .gitignore content
+<span class="w">    </span>Update<span class="w"> </span>.gitignore<span class="w"> </span>content
 
-commit 988b188d2c6422a3162d1da25653f4682f7df6db <span class="o">(</span>origin/master, master<span class="o">)</span>
-Author: Liza Babu &lt;lizababu@example.com&gt;
-Date:   Mon Sep <span class="m">28</span> <span class="m">02</span>:29:00 <span class="m">2020</span> -0700
+commit<span class="w"> </span>988b188d2c6422a3162d1da25653f4682f7df6db<span class="w"> </span><span class="o">(</span>origin/master,<span class="w"> </span>master<span class="o">)</span>
+Author:<span class="w"> </span>Liza<span class="w"> </span>Babu<span class="w"> </span>&lt;lizababu@example.com&gt;
+Date:<span class="w">   </span>Mon<span class="w"> </span>Sep<span class="w"> </span><span class="m">28</span><span class="w"> </span><span class="m">02</span>:29:00<span class="w"> </span><span class="m">2020</span><span class="w"> </span>-0700
 
-    Add .gitignore file
+<span class="w">    </span>Add<span class="w"> </span>.gitignore<span class="w"> </span>file
 
-commit 66b7c5fabb93b521326e6cd9ff219a06a3aec064
-Author: Liza Babu &lt;lizababu@example.com&gt;
-Date:   Thu Sep <span class="m">24</span> <span class="m">10</span>:40:06 <span class="m">2020</span> -0700
+commit<span class="w"> </span>66b7c5fabb93b521326e6cd9ff219a06a3aec064
+Author:<span class="w"> </span>Liza<span class="w"> </span>Babu<span class="w"> </span>&lt;lizababu@example.com&gt;
+Date:<span class="w">   </span>Thu<span class="w"> </span>Sep<span class="w"> </span><span class="m">24</span><span class="w"> </span><span class="m">10</span>:40:06<span class="w"> </span><span class="m">2020</span><span class="w"> </span>-0700
 
-    Update README title
+<span class="w">    </span>Update<span class="w"> </span>README<span class="w"> </span>title
 <span class="o">(</span>...<span class="o">)</span>
 </pre></div>
 </div>
 <p>Am verificat istoricul de commituri și vedem că ultimul commit este cel cu identificatorul <em>6d5189fd7095a19a6ad9bddb8c95491b37d9e828</em>, adică cel creat în această subsecțiune.</p>
 <p>Publicăm commitul și în repository-ul origin, pentru ca acesta să fie vizibil și celorlalți colaboratori ai proiectului, folosind comanda <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">push</span></code></p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/array-sorting-algorithms$ git push origin update-gitignore
-Counting objects: <span class="m">3</span>, <span class="k">done</span>.
-Delta compression using up to <span class="m">2</span> threads.
-Compressing objects: <span class="m">100</span>% <span class="o">(</span><span class="m">2</span>/2<span class="o">)</span>, <span class="k">done</span>.
-Writing objects: <span class="m">100</span>% <span class="o">(</span><span class="m">3</span>/3<span class="o">)</span>, <span class="m">295</span> bytes <span class="p">|</span> <span class="m">295</span>.00 KiB/s, <span class="k">done</span>.
-Total <span class="m">3</span> <span class="o">(</span>delta <span class="m">1</span><span class="o">)</span>, reused <span class="m">0</span> <span class="o">(</span>delta <span class="m">0</span><span class="o">)</span>
-remote: Resolving deltas: <span class="m">100</span>% <span class="o">(</span><span class="m">1</span>/1<span class="o">)</span>, completed with <span class="m">1</span> <span class="nb">local</span> object.
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/array-sorting-algorithms$<span class="w"> </span>git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>update-gitignore
+Counting<span class="w"> </span>objects:<span class="w"> </span><span class="m">3</span>,<span class="w"> </span><span class="k">done</span>.
+Delta<span class="w"> </span>compression<span class="w"> </span>using<span class="w"> </span>up<span class="w"> </span>to<span class="w"> </span><span class="m">2</span><span class="w"> </span>threads.
+Compressing<span class="w"> </span>objects:<span class="w"> </span><span class="m">100</span>%<span class="w"> </span><span class="o">(</span><span class="m">2</span>/2<span class="o">)</span>,<span class="w"> </span><span class="k">done</span>.
+Writing<span class="w"> </span>objects:<span class="w"> </span><span class="m">100</span>%<span class="w"> </span><span class="o">(</span><span class="m">3</span>/3<span class="o">)</span>,<span class="w"> </span><span class="m">295</span><span class="w"> </span>bytes<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="m">295</span>.00<span class="w"> </span>KiB/s,<span class="w"> </span><span class="k">done</span>.
+Total<span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="o">(</span>delta<span class="w"> </span><span class="m">1</span><span class="o">)</span>,<span class="w"> </span>reused<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="o">(</span>delta<span class="w"> </span><span class="m">0</span><span class="o">)</span>
+remote:<span class="w"> </span>Resolving<span class="w"> </span>deltas:<span class="w"> </span><span class="m">100</span>%<span class="w"> </span><span class="o">(</span><span class="m">1</span>/1<span class="o">)</span>,<span class="w"> </span>completed<span class="w"> </span>with<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="nb">local</span><span class="w"> </span>object.
 remote:
-remote: Create a pull request <span class="k">for</span> <span class="s1">&#39;update-gitignore&#39;</span> on GitHub by visiting:
-remote:      https://github.com/lizababu/array-sorting-algorithms/pull/new/update-gitignore
+remote:<span class="w"> </span>Create<span class="w"> </span>a<span class="w"> </span>pull<span class="w"> </span>request<span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="s1">&#39;update-gitignore&#39;</span><span class="w"> </span>on<span class="w"> </span>GitHub<span class="w"> </span>by<span class="w"> </span>visiting:
+remote:<span class="w">      </span>https://github.com/lizababu/array-sorting-algorithms/pull/new/update-gitignore
 remote:
-To https://github.com/lizababu/array-sorting-algorithms.git
-* <span class="o">[</span>new branch<span class="o">]</span>      update-gitignore -&gt; update-gitignore
+To<span class="w"> </span>https://github.com/lizababu/array-sorting-algorithms.git
+*<span class="w"> </span><span class="o">[</span>new<span class="w"> </span>branch<span class="o">]</span><span class="w">      </span>update-gitignore<span class="w"> </span>-&gt;<span class="w"> </span>update-gitignore
 </pre></div>
 </div>
 <p>Revenim pe branch-ul <strong>master</strong> și efectuăm operația <strong>merge</strong> între branch-ul <strong>update-gitignore</strong> și <strong>master</strong>.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/array-sorting-algorithms$ git checkout master
-Switched to branch <span class="s1">&#39;master&#39;</span>
-student@uso:~/array-sorting-algorithms$ git merge update-gitignore
-Updating 988b188..6d5189f
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/array-sorting-algorithms$<span class="w"> </span>git<span class="w"> </span>checkout<span class="w"> </span>master
+Switched<span class="w"> </span>to<span class="w"> </span>branch<span class="w"> </span><span class="s1">&#39;master&#39;</span>
+student@uso:~/array-sorting-algorithms$<span class="w"> </span>git<span class="w"> </span>merge<span class="w"> </span>update-gitignore
+Updating<span class="w"> </span>988b188..6d5189f
 Fast-forward
-.gitignore <span class="p">|</span> <span class="m">1</span> +
-<span class="m">1</span> file changed, <span class="m">1</span> insertion<span class="o">(</span>+<span class="o">)</span>
-student@uso:~/array-sorting-algorithms$ git push origin master
-Enumerating objects: <span class="m">4</span>, <span class="k">done</span>.
-Counting objects: <span class="m">100</span>% <span class="o">(</span><span class="m">4</span>/4<span class="o">)</span>, <span class="k">done</span>.
-Delta compression using up to <span class="m">4</span> threads
-Compressing objects: <span class="m">100</span>% <span class="o">(</span><span class="m">2</span>/2<span class="o">)</span>, <span class="k">done</span>.
-Writing objects: <span class="m">100</span>% <span class="o">(</span><span class="m">2</span>/2<span class="o">)</span>, <span class="m">296</span> bytes <span class="p">|</span> <span class="m">296</span>.00 KiB/s, <span class="k">done</span>.
-Total <span class="m">2</span> <span class="o">(</span>delta <span class="m">0</span><span class="o">)</span>, reused <span class="m">0</span> <span class="o">(</span>delta <span class="m">0</span><span class="o">)</span>, pack-reused <span class="m">0</span>
-To https://github.com/lizababu/array-sorting-algorithms
-5c982a1..1f553ab  master -&gt; master
+.gitignore<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="m">1</span><span class="w"> </span>+
+<span class="m">1</span><span class="w"> </span>file<span class="w"> </span>changed,<span class="w"> </span><span class="m">1</span><span class="w"> </span>insertion<span class="o">(</span>+<span class="o">)</span>
+student@uso:~/array-sorting-algorithms$<span class="w"> </span>git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>master
+Enumerating<span class="w"> </span>objects:<span class="w"> </span><span class="m">4</span>,<span class="w"> </span><span class="k">done</span>.
+Counting<span class="w"> </span>objects:<span class="w"> </span><span class="m">100</span>%<span class="w"> </span><span class="o">(</span><span class="m">4</span>/4<span class="o">)</span>,<span class="w"> </span><span class="k">done</span>.
+Delta<span class="w"> </span>compression<span class="w"> </span>using<span class="w"> </span>up<span class="w"> </span>to<span class="w"> </span><span class="m">4</span><span class="w"> </span>threads
+Compressing<span class="w"> </span>objects:<span class="w"> </span><span class="m">100</span>%<span class="w"> </span><span class="o">(</span><span class="m">2</span>/2<span class="o">)</span>,<span class="w"> </span><span class="k">done</span>.
+Writing<span class="w"> </span>objects:<span class="w"> </span><span class="m">100</span>%<span class="w"> </span><span class="o">(</span><span class="m">2</span>/2<span class="o">)</span>,<span class="w"> </span><span class="m">296</span><span class="w"> </span>bytes<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="m">296</span>.00<span class="w"> </span>KiB/s,<span class="w"> </span><span class="k">done</span>.
+Total<span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="o">(</span>delta<span class="w"> </span><span class="m">0</span><span class="o">)</span>,<span class="w"> </span>reused<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="o">(</span>delta<span class="w"> </span><span class="m">0</span><span class="o">)</span>,<span class="w"> </span>pack-reused<span class="w"> </span><span class="m">0</span>
+To<span class="w"> </span>https://github.com/lizababu/array-sorting-algorithms
+5c982a1..1f553ab<span class="w">  </span>master<span class="w"> </span>-&gt;<span class="w"> </span>master
 </pre></div>
 </div>
 <p>Ștergem branch-ul <strong>update-gitignore</strong> în repository-ul local și în cel origin.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/array-sorting-algorithms$ git branch -d update-gitignore
-Deleted branch update-gitignore <span class="o">(</span>was 6d5189f<span class="o">)</span>.
-student@uso:~/array-sorting-algorithms$ git push origin --delete update-gitignore
-To https://github.com/lizababu/array-sorting-algorithms.git
- - <span class="o">[</span>deleted<span class="o">]</span>         update-gitignore
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/array-sorting-algorithms$<span class="w"> </span>git<span class="w"> </span>branch<span class="w"> </span>-d<span class="w"> </span>update-gitignore
+Deleted<span class="w"> </span>branch<span class="w"> </span>update-gitignore<span class="w"> </span><span class="o">(</span>was<span class="w"> </span>6d5189f<span class="o">)</span>.
+student@uso:~/array-sorting-algorithms$<span class="w"> </span>git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>--delete<span class="w"> </span>update-gitignore
+To<span class="w"> </span>https://github.com/lizababu/array-sorting-algorithms.git
+<span class="w"> </span>-<span class="w"> </span><span class="o">[</span>deleted<span class="o">]</span><span class="w">         </span>update-gitignore
 </pre></div>
 </div>
 <p>Vedem și din interfața GitHub că nu mai există branch-ul <strong>update-gitignore</strong> ca în imaginea de mai jos:</p>
@@ -943,100 +940,100 @@ To https://github.com/lizababu/array-sorting-algorithms.git
 </figure>
 </section>
 <section id="exercitii">
-<span id="app-dev-branches-ex"></span><h2><span class="section-number">9.5. </span>Exerciții<a class="headerlink" href="#exercitii" title="Permalink to this heading">¶</a></h2>
+<span id="app-dev-branches-ex"></span><h2><span class="section-number">9.5. </span>Exerciții<a class="headerlink" href="#exercitii" title="Link to this heading">¶</a></h2>
 <ol class="arabic">
 <li><p>Creați un branch cu numele <code class="docutils literal notranslate"><span class="pre">merge-sort-implementation</span></code>.</p></li>
 <li><p>Treceți pe branch-ul <code class="docutils literal notranslate"><span class="pre">merge-sort-implementation</span></code>.</p></li>
 <li><p>Modificați conținutul fișierului <strong>merge-sort.c</strong> cu următorul conținut:</p>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
 
 <span class="cp">#define MAX_LEN 100</span>
 
-<span class="k">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">merge</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">arr</span><span class="p">[],</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">left</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">mid</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">right</span><span class="p">)</span><span class="w"></span>
-<span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="p">,</span><span class="w"> </span><span class="n">k</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">n1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mid</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">left</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">n2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">right</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">mid</span><span class="p">;</span><span class="w"></span>
+<span class="k">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">merge</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">arr</span><span class="p">[],</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">left</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">mid</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">right</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="p">,</span><span class="w"> </span><span class="n">k</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">n1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mid</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">left</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">n2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">right</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">mid</span><span class="p">;</span>
 
-<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">aux_left</span><span class="p">[</span><span class="n">n1</span><span class="p">],</span><span class="w"> </span><span class="n">aux_right</span><span class="p">[</span><span class="n">n2</span><span class="p">];</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">aux_left</span><span class="p">[</span><span class="n">n1</span><span class="p">],</span><span class="w"> </span><span class="n">aux_right</span><span class="p">[</span><span class="n">n2</span><span class="p">];</span>
 
-<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"></span>
-<span class="w">        </span><span class="n">aux_left</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">arr</span><span class="p">[</span><span class="n">left</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">i</span><span class="p">];</span><span class="w"></span>
-<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n2</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="o">++</span><span class="p">)</span><span class="w"></span>
-<span class="w">        </span><span class="n">aux_right</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">arr</span><span class="p">[</span><span class="n">mid</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">j</span><span class="p">];</span><span class="w"></span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
+<span class="w">        </span><span class="n">aux_left</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">arr</span><span class="p">[</span><span class="n">left</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">i</span><span class="p">];</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n2</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="o">++</span><span class="p">)</span>
+<span class="w">        </span><span class="n">aux_right</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">arr</span><span class="p">[</span><span class="n">mid</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">j</span><span class="p">];</span>
 
-<span class="w">    </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="n">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">l</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n1</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">aux_left</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">aux_right</span><span class="p">[</span><span class="n">j</span><span class="p">])</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">            </span><span class="n">arr</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">aux_left</span><span class="p">[</span><span class="n">i</span><span class="p">];</span><span class="w"></span>
-<span class="w">            </span><span class="n">i</span><span class="o">++</span><span class="p">;</span><span class="w"></span>
-<span class="w">        </span><span class="p">}</span><span class="w"></span>
-<span class="w">        </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">            </span><span class="n">arr</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">aux_right</span><span class="p">[</span><span class="n">j</span><span class="p">];</span><span class="w"></span>
-<span class="w">            </span><span class="n">j</span><span class="o">++</span><span class="p">;</span><span class="w"></span>
-<span class="w">        </span><span class="p">}</span><span class="w"></span>
-<span class="w">        </span><span class="n">k</span><span class="o">++</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">    </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">    </span><span class="n">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">l</span><span class="p">;</span>
+<span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n1</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">aux_left</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">aux_right</span><span class="p">[</span><span class="n">j</span><span class="p">])</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">arr</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">aux_left</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+<span class="w">            </span><span class="n">i</span><span class="o">++</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">arr</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">aux_right</span><span class="p">[</span><span class="n">j</span><span class="p">];</span>
+<span class="w">            </span><span class="n">j</span><span class="o">++</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="n">k</span><span class="o">++</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
 
-<span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="n">arr</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">aux_left</span><span class="p">[</span><span class="n">i</span><span class="p">];</span><span class="w"></span>
-<span class="w">        </span><span class="n">i</span><span class="o">++</span><span class="p">;</span><span class="w"></span>
-<span class="w">        </span><span class="n">k</span><span class="o">++</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">arr</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">aux_left</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+<span class="w">        </span><span class="n">i</span><span class="o">++</span><span class="p">;</span>
+<span class="w">        </span><span class="n">k</span><span class="o">++</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
 
-<span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">j</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="n">arr</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">R</span><span class="p">[</span><span class="n">j</span><span class="p">];</span><span class="w"></span>
-<span class="w">        </span><span class="n">j</span><span class="o">++</span><span class="p">;</span><span class="w"></span>
-<span class="w">        </span><span class="n">k</span><span class="o">++</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">j</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">arr</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">R</span><span class="p">[</span><span class="n">j</span><span class="p">];</span>
+<span class="w">        </span><span class="n">j</span><span class="o">++</span><span class="p">;</span>
+<span class="w">        </span><span class="n">k</span><span class="o">++</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
 
-<span class="k">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">sort</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">arr</span><span class="p">[],</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">left</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">right</span><span class="p">)</span><span class="w"></span>
-<span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">left</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">right</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">mid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">left</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="n">right</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">left</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"></span>
+<span class="k">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">sort</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">arr</span><span class="p">[],</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">left</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">right</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">left</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">right</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">mid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">left</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="n">right</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">left</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
 
-<span class="w">        </span><span class="n">sort</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span><span class="w"> </span><span class="n">left</span><span class="p">,</span><span class="w"> </span><span class="n">mid</span><span class="p">);</span><span class="w"></span>
-<span class="w">        </span><span class="n">sort</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span><span class="w"> </span><span class="n">mid</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">right</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="n">sort</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span><span class="w"> </span><span class="n">left</span><span class="p">,</span><span class="w"> </span><span class="n">mid</span><span class="p">);</span>
+<span class="w">        </span><span class="n">sort</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span><span class="w"> </span><span class="n">mid</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">right</span><span class="p">);</span>
 
-<span class="w">        </span><span class="n">merge</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span><span class="w"> </span><span class="n">left</span><span class="p">,</span><span class="w"> </span><span class="n">mid</span><span class="p">,</span><span class="w"> </span><span class="n">right</span><span class="p">);</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="w">        </span><span class="n">merge</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span><span class="w"> </span><span class="n">left</span><span class="p">,</span><span class="w"> </span><span class="n">mid</span><span class="p">,</span><span class="w"> </span><span class="n">right</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
 
-<span class="k">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">print_array</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">arr</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">len</span><span class="p">)</span><span class="w"></span>
-<span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">;</span><span class="w"></span>
+<span class="k">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">print_array</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">arr</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">len</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
 
-<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">len</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d &quot;</span><span class="p">,</span><span class="w"> </span><span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
-<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">len</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d &quot;</span><span class="p">,</span><span class="w"> </span><span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="p">}</span>
 
-<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"></span>
-<span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">arr</span><span class="p">[</span><span class="n">MAX_LEN</span><span class="p">],</span><span class="w"> </span><span class="n">len</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">;</span><span class="w"></span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">arr</span><span class="p">[</span><span class="n">MAX_LEN</span><span class="p">],</span><span class="w"> </span><span class="n">len</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
 
-<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;What&#39;s the length of the array? Maximum lenght is %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">MAX_LEN</span><span class="p">);</span><span class="w"></span>
-<span class="w">    </span><span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">len</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;What&#39;s the length of the array? Maximum lenght is %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">MAX_LEN</span><span class="p">);</span>
+<span class="w">    </span><span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">len</span><span class="p">);</span>
 
-<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Gimme the %d elements</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">len</span><span class="p">);</span><span class="w"></span>
-<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">len</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Gimme the %d elements</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">len</span><span class="p">);</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">len</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+<span class="w">    </span><span class="p">}</span>
 
-<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Nonsorted array: &quot;</span><span class="p">);</span><span class="w"></span>
-<span class="w">    </span><span class="n">print_array</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span><span class="w"> </span><span class="n">len</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Nonsorted array: &quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="n">print_array</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span><span class="w"> </span><span class="n">len</span><span class="p">);</span>
 
-<span class="w">    </span><span class="n">sort</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span><span class="w"> </span><span class="n">len</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">sort</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span><span class="w"> </span><span class="n">len</span><span class="p">);</span>
 
-<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Sorted array: &quot;</span><span class="p">);</span><span class="w"></span>
-<span class="w">    </span><span class="n">print_array</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span><span class="w"> </span><span class="n">len</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Sorted array: &quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="n">print_array</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span><span class="w"> </span><span class="n">len</span><span class="p">);</span>
 
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 </li>
@@ -1047,7 +1044,7 @@ To https://github.com/lizababu/array-sorting-algorithms.git
 </ol>
 </section>
 <section id="bune-practici">
-<span id="app-dev-branches-good-practices"></span><h2><span class="section-number">9.6. </span>Bune practici<a class="headerlink" href="#bune-practici" title="Permalink to this heading">¶</a></h2>
+<span id="app-dev-branches-good-practices"></span><h2><span class="section-number">9.6. </span>Bune practici<a class="headerlink" href="#bune-practici" title="Link to this heading">¶</a></h2>
 <p>Atunci când contribuim la un proiect putem să lucrăm fie pe branch-ul <strong>master</strong>, fie pe un alt branch.
 Este considerat <strong>BAD PRACTICE</strong> să lucrăm pe branch-ul <strong>master</strong> din mai multe motive:</p>
 <ol class="arabic simple">
@@ -1060,12 +1057,12 @@ Vom vorbi în următoarea secțiune, <a class="reference internal" href="git-fir
 </ol>
 <p class="rubric">Note de subsol</p>
 <aside class="footnote-list brackets">
-<aside class="footnote brackets" id="hash" role="note">
+<aside class="footnote brackets" id="hash" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
 <p>ID-ul unui commit are o formă lungă, completă, și o formă scurtă formată din primele 7 caractere.
 De exemplu, pentru commitul cu ID-ul <em>b2a590a8637f1eab96e557334dbd4be14bf95833</em>, forma scurtă este <em>b2a590a</em>.</p>
 </aside>
-<aside class="footnote brackets" id="good-practice" role="note">
+<aside class="footnote brackets" id="good-practice" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">2</a><span class="fn-bracket">]</span></span>
 <p>Este <strong>GOOD PRACTICE</strong> ca fiecare modificare făcută pe un repository să fie făcută pe un branch nou.
 Branch-ul trebuie să aibă un nume sugestiv pentru ca ceilalți să poată înțelege rapid ce schimbări se fac pe el.</p>
@@ -1089,7 +1086,7 @@ Branch-ul trebuie să aibă un nume sugestiv pentru ca ceilalți să poată în�
 </ul><div class="footer" role="contentinfo">
       &#169; Copyright 2020, USO Team.
     <br>
-    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 5.2.2 with <a href="https://github.com/romnn/sphinx_press_theme">Press Theme</a>.
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 7.2.5 with <a href="https://github.com/romnn/sphinx_press_theme">Press Theme</a>.
 </div>
             </div>
           </div>
