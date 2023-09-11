@@ -2,9 +2,9 @@
 <html  lang="en">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-      <title>6. Sistemul de fișiere</title>
+      <title>6. Extra - Sistemul de fișiere</title>
     
       <link rel="stylesheet" href="../../_static/pygments.css">
       <link rel="stylesheet" href="../../_static/theme.css">
@@ -15,12 +15,10 @@
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
 
       <!-- sphinx script_files -->
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/my_actions.js"></script>
+        <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../_static/my_actions.js?v=1451d81f"></script>
 
       
       <script src="../../_static/theme-vendors.js"></script>
@@ -28,7 +26,7 @@
     
   <link rel="index" title="Index" href="../../genindex.html" />
   <link rel="search" title="Search" href="../../search.html" />
-  <link rel="next" title="1. Introducere în Git și GitHub" href="../app-dev/git-intro.html" />
+  <link rel="next" title="7. Sumar - Cheatsheet" href="cheatsheet.html" />
   <link rel="prev" title="5. Arhive" href="archive.html" />
     <link href="../../_static/my_theme.css" rel="stylesheet" type="text/css">
 
@@ -226,7 +224,7 @@
           </li>
 
         
-          <li class="toctree-l1 "><a href="../basic/cheatsheet.html" class="reference internal ">Cheatsheet</a>
+          <li class="toctree-l1 "><a href="../basic/cheatsheet.html" class="reference internal ">Sumar - Cheatsheet</a>
 
             
           </li>
@@ -241,7 +239,7 @@
       </p>
       <ul class="current">
         
-          <li class="toctree-l1 "><a href="paths.html" class="reference internal ">Căi absolute și relative</a>
+          <li class="toctree-l1 "><a href="paths.html" class="reference internal ">Căi în ierarhia de fișiere</a>
 
             
           </li>
@@ -271,20 +269,24 @@
           </li>
 
         
-          <li class="toctree-l1 current"><a href="#" class="reference internal current">Sistemul de fișiere</a>
+          <li class="toctree-l1 current"><a href="#" class="reference internal current">Extra - Sistemul de fișiere</a>
 
             
               <ul>
                 
-                  <li class="toctree-l2"><a href="#find" class="reference internal">1) Find</a></li>
+                  <li class="toctree-l2"><a href="#cautarea-fisierelor-in-sistemul-de-fisiere" class="reference internal">Căutarea fișierelor în sistemul de fișiere</a></li>
                 
-                  <li class="toctree-l2"><a href="#locate" class="reference internal">2) Locate</a></li>
+                  <li class="toctree-l2"><a href="#variabila-de-mediu-path" class="reference internal">Variabila de mediu PATH</a></li>
                 
-                  <li class="toctree-l2"><a href="#path" class="reference internal">3) PATH</a></li>
-                
-                  <li class="toctree-l2"><a href="#which" class="reference internal">4) Which</a></li>
+                  <li class="toctree-l2"><a href="#cautarea-utilitarelor-in-sistemul-de-fisiere" class="reference internal">Căutarea utilitarelor în sistemul de fișiere</a></li>
                 
               </ul>
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="cheatsheet.html" class="reference internal ">Sumar - Cheatsheet</a>
+
             
           </li>
 
@@ -298,31 +300,7 @@
       </p>
       <ul class="">
         
-          <li class="toctree-l1 "><a href="../app-dev/git-intro.html" class="reference internal ">Introducere în Git și GitHub</a>
-
-            
-          </li>
-
-        
-          <li class="toctree-l1 "><a href="../app-dev/git-first-commit.html" class="reference internal ">Primul commit</a>
-
-            
-          </li>
-
-        
-          <li class="toctree-l1 "><a href="../app-dev/git-more-commits.html" class="reference internal ">Crearea unui nou commit</a>
-
-            
-          </li>
-
-        
-          <li class="toctree-l1 "><a href="../app-dev/git-contribute.html" class="reference internal ">Contribuirea la un alt repository</a>
-
-            
-          </li>
-
-        
-          <li class="toctree-l1 "><a href="../app-dev/make-setup.html" class="reference internal ">Pregătirea mediului de lucru</a>
+          <li class="toctree-l1 "><a href="../app-dev/intro.html" class="reference internal ">Introducere</a>
 
             
           </li>
@@ -346,12 +324,6 @@
           </li>
 
         
-          <li class="toctree-l1 "><a href="../app-dev/make-debug.html" class="reference internal ">Depanare condițională / configurabilă</a>
-
-            
-          </li>
-
-        
           <li class="toctree-l1 "><a href="../app-dev/make-simple-automation.html" class="reference internal ">Introducere în utilitarul Make și fișiere Makefile</a>
 
             
@@ -364,13 +336,31 @@
           </li>
 
         
-          <li class="toctree-l1 "><a href="../app-dev/make-contribute.html" class="reference internal ">Contribuirea la un proiect existent pe GitHub</a>
+          <li class="toctree-l1 "><a href="../app-dev/git-intro.html" class="reference internal ">Introducere în Git și GitHub</a>
 
             
           </li>
 
         
-          <li class="toctree-l1 "><a href="../app-dev/extra.html" class="reference internal ">Exerciții suplimentare</a>
+          <li class="toctree-l1 "><a href="../app-dev/git-first-commits.html" class="reference internal ">Primele commituri</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/git-branches.html" class="reference internal ">Lucrul pe branch-uri</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/git-first-pull-request.html" class="reference internal ">Crearea unui Pull Request (PR) pe GitHub</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/extra.html" class="reference internal ">Exercițîi suplimentare</a>
 
             
           </li>
@@ -385,19 +375,19 @@
       </p>
       <ul class="">
         
-          <li class="toctree-l1 "><a href="../net/browser.html" class="reference internal ">Folosirea eficientă a browser-ului</a>
+          <li class="toctree-l1 "><a href="../net/browser.html" class="reference internal ">Folosirea eficientă a browserului</a>
 
             
           </li>
 
         
-          <li class="toctree-l1 "><a href="../net/troubleshoot.html" class="reference internal ">Verificarea conectivităţii la reţea</a>
+          <li class="toctree-l1 "><a href="../net/connection.html" class="reference internal ">Conectarea la rețea și la Internet</a>
 
             
           </li>
 
         
-          <li class="toctree-l1 "><a href="../net/services.html" class="reference internal ">Servicii şi clienţi de reţea</a>
+          <li class="toctree-l1 "><a href="../net/services.html" class="reference internal ">Servicii și clienți de rețea</a>
 
             
           </li>
@@ -418,7 +408,7 @@
       </p>
       <ul class="">
         
-          <li class="toctree-l1 "><a href="../app-install/start.html" class="reference internal ">Pornirea aplicațiilor</a>
+          <li class="toctree-l1 "><a href="../app-install/start.html" class="reference internal ">Pornirea și oprirea aplicațiilor</a>
 
             
           </li>
@@ -430,13 +420,13 @@
           </li>
 
         
-          <li class="toctree-l1 "><a href="../app-install/config.html" class="reference internal ">Configurarea aplicațiilor</a>
+          <li class="toctree-l1 "><a href="../app-install/config.html" class="reference internal ">Configurarea rulării aplicațiilor</a>
 
             
           </li>
 
         
-          <li class="toctree-l1 "><a href="../app-install/summary1.html" class="reference internal ">Sumar: Pornirea, rularea și configurarea aplicațiilor</a>
+          <li class="toctree-l1 "><a href="../app-install/summary1.html" class="reference internal ">Exerciții: Pornirea, rularea și configurarea aplicațiilor</a>
 
             
           </li>
@@ -454,13 +444,7 @@
           </li>
 
         
-          <li class="toctree-l1 "><a href="../app-install/install-non-standard.html" class="reference internal ">Instalarea și dezinstalarea aplicațiilor în mod nestandard</a>
-
-            
-          </li>
-
-        
-          <li class="toctree-l1 "><a href="../app-install/update.html" class="reference internal ">Actualizarea aplicațiilor</a>
+          <li class="toctree-l1 "><a href="../app-install/install-non-standard.html" class="reference internal ">Alternative la instalarea și dezinstalarea aplicațiilor</a>
 
             
           </li>
@@ -472,7 +456,7 @@
           </li>
 
         
-          <li class="toctree-l1 "><a href="../app-install/summary2.html" class="reference internal ">Sumar: Instalarea, dezinstalarea, investigarea, actualizarea aplicațiilor</a>
+          <li class="toctree-l1 "><a href="../app-install/summary2.html" class="reference internal ">Exerciții: Instalarea și gestiunea aplicațiilor</a>
 
             
           </li>
@@ -598,7 +582,7 @@
   <ul class="breadcrumbs">
     <li><a href="../../index.html">Docs</a> &raquo;</li>
     
-    <li><span class="section-number">6. </span>Sistemul de fișiere</li>
+    <li><span class="section-number">6. </span>Extra - Sistemul de fișiere</li>
   </ul>
   
 
@@ -608,8 +592,8 @@
        title="previous chapter">← <span class="section-number">5. </span>Arhive</a>
   </li>
   <li class="next">
-    <a href="../app-dev/git-intro.html"
-       title="next chapter"><span class="section-number">1. </span>Introducere în Git și GitHub →</a>
+    <a href="cheatsheet.html"
+       title="next chapter"><span class="section-number">7. </span>Sumar - Cheatsheet →</a>
   </li>
 </ul>
   
@@ -617,53 +601,89 @@
 <hr>
           <div class="content" role="main">
             
-  <section id="sistemul-de-fisiere">
-<h1><span class="section-number">6. </span>Sistemul de fișiere<a class="headerlink" href="#sistemul-de-fisiere" title="Permalink to this heading">¶</a></h1>
-<section id="find">
-<h2><span class="section-number">6.1. </span>1) Find<a class="headerlink" href="#find" title="Permalink to this heading">¶</a></h2>
-<p>Pentru a căuta un fișier într-o ierarhie de directoare, putem folosi utilitarul <strong>find</strong>.
-Pentru a învăța mai multe despre acest utilitar, putem inspecta manualul <code class="docutils literal notranslate"><span class="pre">man</span> <span class="pre">find</span></code>.
-Acesta nu scalează pentru situațiile când avem multe fișiere și dorim un răspuns rapid.</p>
+  <section id="extra-sistemul-de-fisiere">
+<h1><span class="section-number">6. </span>Extra - Sistemul de fișiere<a class="headerlink" href="#extra-sistemul-de-fisiere" title="Link to this heading">¶</a></h1>
+<section id="cautarea-fisierelor-in-sistemul-de-fisiere">
+<h2><span class="section-number">6.1. </span>Căutarea fișierelor în sistemul de fișiere<a class="headerlink" href="#cautarea-fisierelor-in-sistemul-de-fisiere" title="Link to this heading">¶</a></h2>
+<p>Se poate întâmpla să vrem să aflăm dacă într-o ierarhie de fișiere găsim un anumit fișier și, dacă există, vrem să aflăm unde se află.
+Spre exemplu, serviciul <code class="docutils literal notranslate"><span class="pre">ssh</span></code> folosește un fișier de configurare numit <code class="docutils literal notranslate"><span class="pre">ssh_config</span></code>, dar nu mai ținem minte calea exactă până la acel fișier.</p>
+<p>Linux ne oferă două utilitare, <code class="docutils literal notranslate"><span class="pre">locate</span></code> și <code class="docutils literal notranslate"><span class="pre">find</span></code>, care pot fi de ajutor în situația descrisă mai sus.</p>
 <section id="folosirea-utilitarului-find">
-<h3><span class="section-number">6.1.1. </span>Folosirea utilitarului <strong>find</strong><a class="headerlink" href="#folosirea-utilitarului-find" title="Permalink to this heading">¶</a></h3>
-<p>Căutați în sistem fișierul <strong>passwd</strong>.</p>
+<h3><span class="section-number">6.1.1. </span>Folosirea utilitarului <code class="docutils literal notranslate"><span class="pre">find</span></code><a class="headerlink" href="#folosirea-utilitarului-find" title="Link to this heading">¶</a></h3>
+<p>În mod obișnuit, numele fișierelor de configurare pentru servicii se termină în extensia <code class="docutils literal notranslate"><span class="pre">conf</span></code>.
+Găsim toate fișierele de configurare ale serviciului <code class="docutils literal notranslate"><span class="pre">ssh</span></code> de pe sistem folosind comanda <code class="docutils literal notranslate"><span class="pre">find</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/comenzi$<span class="w"> </span>find<span class="w"> </span>/<span class="w"> </span>-iname<span class="w"> </span><span class="s2">&quot;*ssh*conf&quot;</span>
+/usr/share/upstart/sessions/ssh-agent.conf
+/usr/lib/tmpfiles.d/sshd.conf
+/etc/init/ssh.conf
+</pre></div>
+</div>
+<p>Am căutat în calea <code class="docutils literal notranslate"><span class="pre">/</span></code> (<em>root</em>) orice fișier ce conține <code class="docutils literal notranslate"><span class="pre">ssh</span></code> și se termină cu <code class="docutils literal notranslate"><span class="pre">conf</span></code>.</p>
+<p>Utilitarul <code class="docutils literal notranslate"><span class="pre">find</span></code> caută în ierarhia de fișiere care începe de la calea dată ca parametru în jos. În cazul nostru, de la <code class="docutils literal notranslate"><span class="pre">/</span></code> (root) în jos, adică în tot sistemul de fișiere.</p>
+<p>Mai multe informații și exemple de utilizări vom vedea în capitolul <code class="docutils literal notranslate"><span class="pre">Îmbunătățirea</span> <span class="pre">lucrului</span> <span class="pre">în</span> <span class="pre">linia</span> <span class="pre">de</span> <span class="pre">comandă</span></code>.</p>
 </section>
-</section>
-<section id="locate">
-<h2><span class="section-number">6.2. </span>2) Locate<a class="headerlink" href="#locate" title="Permalink to this heading">¶</a></h2>
-<p>Utilitarul <strong>locate</strong> se folosește astfel: <code class="docutils literal notranslate"><span class="pre">locate</span> <span class="pre">nume_fisier</span></code>.
-Utilitarul funcționează în 2 pași:</p>
-<blockquote>
-<div><ul class="simple">
-<li><p>Crearea și actualizarea unei baze de date folosind comanda <strong>updatedb</strong>;</p></li>
-<li><p>Căutarea folosind <strong>locate</strong>.</p></li>
-</ul>
-</div></blockquote>
-<p>Performanța utilitarului este foarte bună, superioară lui <strong>find</strong>.
-Partea negativă este că la fiecare căutare trebuie folosit utilitarul <strong>updatedb</strong>.</p>
 <section id="folosirea-utilitarului-locate">
-<h3><span class="section-number">6.2.1. </span>Folosirea utilitarului <strong>locate</strong><a class="headerlink" href="#folosirea-utilitarului-locate" title="Permalink to this heading">¶</a></h3>
-<p>Căutați fișierul <strong>pwd</strong> în sistemul de fișiere folosind <strong>locate</strong>.</p>
+<h3><span class="section-number">6.1.2. </span>Folosirea utilitarului <code class="docutils literal notranslate"><span class="pre">locate</span></code><a class="headerlink" href="#folosirea-utilitarului-locate" title="Link to this heading">¶</a></h3>
+<p>Atunci când vrem să căutăm într-o ierarhie mare de fișiere, utilitarul <code class="docutils literal notranslate"><span class="pre">find</span></code> nu este cea mai bună soluție deoarece este încet.</p>
+<p>Utilitarul <code class="docutils literal notranslate"><span class="pre">locate</span></code> ne poate ajuta în astfel de situații.</p>
+<p>Acesta funcționează în 2 pași:</p>
+<ul class="simple">
+<li><p>Crearea și actualizarea unei baze de date folosind comanda <code class="docutils literal notranslate"><span class="pre">updatedb</span></code>.
+Aceasta conține intrări cu toate fișierele din sistem și locația acestora.</p></li>
+<li><p>Căutarea folosind <code class="docutils literal notranslate"><span class="pre">locate</span></code>.
+Această căutare se reduce la interogarea bazei de date create anterior cu <code class="docutils literal notranslate"><span class="pre">updatedb</span></code>.</p></li>
+</ul>
+<p>Performanța utilitarului este foarte bună, superioară lui <code class="docutils literal notranslate"><span class="pre">find</span></code>.
+Partea negativă este că la fiecare căutare trebuie folosit utilitarul <code class="docutils literal notranslate"><span class="pre">updatedb</span></code>.</p>
+<p>Încercăm să căutăm fișierul <code class="docutils literal notranslate"><span class="pre">pwd</span></code> în sistemul de fișiere folosind <code class="docutils literal notranslate"><span class="pre">locate</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/comenzi$<span class="w"> </span>sudo<span class="w"> </span>updatedb
+student@uso:~/comenzi$<span class="w"> </span>locate<span class="w"> </span><span class="s2">&quot;*ssh*conf&quot;</span>
+/etc/init/ssh.conf
+/usr/lib/tmpfiles.d/sshd.conf
+/usr/share/upstart/sessions/ssh-agent.conf
+</pre></div>
+</div>
+<p>Actualizăm baza de date folosind <code class="docutils literal notranslate"><span class="pre">updatedb</span></code> și apoi căutăm fișierul de configurare cu utilitarul <code class="docutils literal notranslate"><span class="pre">locate</span></code>.
+Răspunsul comenzii este instant.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$<span class="w"> </span>locate<span class="w"> </span>*.tar
+/home/student/inregistrari.tar
+/home/student/usr_bin.tar
+</pre></div>
+</div>
+<p>Am folosit utilitarul <code class="docutils literal notranslate"><span class="pre">locate</span></code> să căutăm în tot sistemul orice fișier se termină cu <code class="docutils literal notranslate"><span class="pre">.tar</span></code>.</p>
+<p>Găsim mai multe informații și exemple în capitolul <code class="docutils literal notranslate"><span class="pre">Îmbunătățirea</span> <span class="pre">lucrului</span> <span class="pre">în</span> <span class="pre">linia</span> <span class="pre">de</span> <span class="pre">comandă</span></code>.</p>
 </section>
 </section>
-<section id="path">
-<h2><span class="section-number">6.3. </span>3) PATH<a class="headerlink" href="#path" title="Permalink to this heading">¶</a></h2>
-<p>După cum am menționat într-un capitol anterior, PATH este
-o variabilă de mediu ce se află în contextul executării
-în linia de comandă. De fiecare dată când apelăm un program
-prima oară se verifică dacă în căile din <strong>PATH</strong> se află
-acest program.</p>
+<section id="variabila-de-mediu-path">
+<h2><span class="section-number">6.2. </span>Variabila de mediu PATH<a class="headerlink" href="#variabila-de-mediu-path" title="Link to this heading">¶</a></h2>
+<p>Până acum am învățat câteva comenzi utile: <code class="docutils literal notranslate"><span class="pre">ls</span></code>, <code class="docutils literal notranslate"><span class="pre">cd</span></code>, <code class="docutils literal notranslate"><span class="pre">find</span></code>, <code class="docutils literal notranslate"><span class="pre">locate</span></code>.</p>
+<p>Utilitarele sunt de fapt <strong>programe</strong> (<em>executabile</em>) care se află undeva în sistemul de fișiere.</p>
+<p>Shellul știe să ruleze utilitarele din orice loc în care ne aflăm (din ierarhia de fișiere).
+Se întâmplă acest lucru pentru că shellul are o listă de câteva directoare în care se uită după utilitarele pe care le folosim.
+Spre exemplu, atunci când rulăm utilitarul <code class="docutils literal notranslate"><span class="pre">ls</span></code>, el caută programul <code class="docutils literal notranslate"><span class="pre">ls</span></code> în lista pe care o are, îl găsește și îl rulează.</p>
+<p>Această listă se găsește în <em>variabila de mediu</em> <a class="footnote-reference brackets" href="#id2" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a> <code class="docutils literal notranslate"><span class="pre">PATH</span></code>.</p>
+<section id="afisarea-variabilei-path-din-sistem">
+<h3><span class="section-number">6.2.1. </span>Afișarea variabilei PATH din sistem<a class="headerlink" href="#afisarea-variabilei-path-din-sistem" title="Link to this heading">¶</a></h3>
+<p>Afișăm valoarea variabilei de mediu <code class="docutils literal notranslate"><span class="pre">PATH</span></code> a sistemului folosind utilitarul <code class="docutils literal notranslate"><span class="pre">echo</span></code>.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ echo $PATH
 /usr/local/bin:/usr/bin:/bin:/usr/games
 </pre></div>
 </div>
-<p><strong>Exercițiu:</strong> Afișează valoarea PATH a sistemului tău.</p>
+<p>Variabila <code class="docutils literal notranslate"><span class="pre">PATH</span></code> are patru căi din sistem, despărțite de caracterul <code class="docutils literal notranslate"><span class="pre">:</span></code>.
+Astfel, sistemul verifică dacă utilitarul este prezent în calea <code class="docutils literal notranslate"><span class="pre">/usr/local/bin</span></code>; dacă nu-l găsește, merge la următoarea cale: <code class="docutils literal notranslate"><span class="pre">/usr/bin</span></code>; dacă nu-l găsește, merge la următoarea cale: <code class="docutils literal notranslate"><span class="pre">/bin</span></code>; dacă nu-l găsește, merge la ultima cale: <code class="docutils literal notranslate"><span class="pre">/usr/games</span></code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Un utilitar poate fi la mai multe căi din PATH, dar va fi executat utilitarul din cea mai din stânga cale (prima, dacă nu a doua, etc.).</p>
+</div>
 </section>
-<section id="which">
-<h2><span class="section-number">6.4. </span>4) Which<a class="headerlink" href="#which" title="Permalink to this heading">¶</a></h2>
-<p>Acest utilitar identifică calea programelor din sistem.
-Acesta folosește variabila de mediu <strong>PATH</strong> pentru a găsi utilitarul cerut și va afișa rezultatele în ordinea directoarelor din <strong>PATH</strong>.
-Pentru mai mute detalii verificați manualul <code class="docutils literal notranslate"><span class="pre">man</span> <span class="pre">which</span></code>.</p>
+</section>
+<section id="cautarea-utilitarelor-in-sistemul-de-fisiere">
+<h2><span class="section-number">6.3. </span>Căutarea utilitarelor în sistemul de fișiere<a class="headerlink" href="#cautarea-utilitarelor-in-sistemul-de-fisiere" title="Link to this heading">¶</a></h2>
+<p>Există cazuri când vrem să găsim locația exactă a unui utilitar: vrem să aflăm ce permisiuni are, cine îl deține sau ce dimensiune are.</p>
+<section id="folosirea-utilitarului-which">
+<h3><span class="section-number">6.3.1. </span>Folosirea utilitarului <code class="docutils literal notranslate"><span class="pre">which</span></code><a class="headerlink" href="#folosirea-utilitarului-which" title="Link to this heading">¶</a></h3>
+<p>Acest utilitar identifică calea programelor din sistem.</p>
+<p>Căutăm calea la care se află utilitarul <code class="docutils literal notranslate"><span class="pre">ls</span></code> folosind comanda <code class="docutils literal notranslate"><span class="pre">which</span></code>:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>student@uso:~$ which ls
 /bin/ls
 student@uso:~$ which pwd
@@ -672,6 +692,27 @@ student@uso:~$ which man
 /usr/bin/man
 </pre></div>
 </div>
+<p><code class="docutils literal notranslate"><span class="pre">which</span></code> folosește variabila de mediu <code class="docutils literal notranslate"><span class="pre">PATH</span></code> pentru a găsi utilitarul cerut și va afișa rezultatele în ordinea directoarelor din <code class="docutils literal notranslate"><span class="pre">PATH</span></code>.</p>
+<p>Aflăm mai multe detalii despre utilitarul <code class="docutils literal notranslate"><span class="pre">which</span></code> în capitolul <code class="docutils literal notranslate"><span class="pre">Îmbunătățirea</span> <span class="pre">lucrului</span> <span class="pre">în</span> <span class="pre">linia</span> <span class="pre">de</span> <span class="pre">comandă</span></code>.</p>
+</section>
+<section id="exercitii">
+<h3><span class="section-number">6.3.2. </span>Exerciții<a class="headerlink" href="#exercitii" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Redenumiți utilitarul <code class="docutils literal notranslate"><span class="pre">pwd</span></code> în <code class="docutils literal notranslate"><span class="pre">pwd_backup</span></code>.
+Puteți să mai executați comanda <code class="docutils literal notranslate"><span class="pre">pwd</span></code>?
+Dar <code class="docutils literal notranslate"><span class="pre">pwd_backup</span></code>?</p></li>
+</ul>
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="id2" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
+<p>Variabilele de mediu sunt variabile care descriu mediul în care sunt executate programele.
+Ele sunt folosite de aplicații pentru a răspunde la întrebări cum ar fi: Care este numele calculatorului pe care sunt instalată?
+Care este numele contului de utilizator care mă execută?
+Care este folderul meu de lucru?
+Unde se află fișierele temporare pe calculator?</p>
+</aside>
+</aside>
+</section>
 </section>
 </section>
 
@@ -684,13 +725,13 @@ student@uso:~$ which man
        title="previous chapter">← <span class="section-number">5. </span>Arhive</a>
   </li>
   <li class="next">
-    <a href="../app-dev/git-intro.html"
-       title="next chapter"><span class="section-number">1. </span>Introducere în Git și GitHub →</a>
+    <a href="cheatsheet.html"
+       title="next chapter"><span class="section-number">7. </span>Sumar - Cheatsheet →</a>
   </li>
 </ul><div class="footer" role="contentinfo">
       &#169; Copyright 2020, USO Team.
     <br>
-    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 5.1.1 with <a href="https://github.com/romnn/sphinx_press_theme">Press Theme</a>.
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 7.2.5 with <a href="https://github.com/romnn/sphinx_press_theme">Press Theme</a>.
 </div>
             </div>
           </div>
