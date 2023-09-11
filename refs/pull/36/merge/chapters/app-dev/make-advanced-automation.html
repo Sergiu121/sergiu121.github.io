@@ -2,9 +2,9 @@
 <html  lang="en">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-      <title>11. Aprofundarea folosirii fișierelor Makefile</title>
+      <title>6. Aprofundarea folosirii fișierelor Makefile</title>
     
       <link rel="stylesheet" href="../../_static/pygments.css">
       <link rel="stylesheet" href="../../_static/theme.css">
@@ -15,12 +15,10 @@
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
 
       <!-- sphinx script_files -->
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/my_actions.js"></script>
+        <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../_static/my_actions.js?v=1451d81f"></script>
 
       
       <script src="../../_static/theme-vendors.js"></script>
@@ -28,8 +26,8 @@
     
   <link rel="index" title="Index" href="../../genindex.html" />
   <link rel="search" title="Search" href="../../search.html" />
-  <link rel="next" title="12. Contribuirea la un proiect existent pe GitHub" href="make-contribute.html" />
-  <link rel="prev" title="10. Introducere în utilitarul Make și fișiere Makefile" href="make-simple-automation.html" />
+  <link rel="next" title="7. Introducere în Git și GitHub" href="git-intro.html" />
+  <link rel="prev" title="5. Introducere în utilitarul Make și fișiere Makefile" href="make-simple-automation.html" />
     <link href="../../_static/my_theme.css" rel="stylesheet" type="text/css">
 
   </head>
@@ -226,7 +224,7 @@
           </li>
 
         
-          <li class="toctree-l1 "><a href="../basic/cheatsheet.html" class="reference internal ">Cheatsheet</a>
+          <li class="toctree-l1 "><a href="../basic/cheatsheet.html" class="reference internal ">Sumar - Cheatsheet</a>
 
             
           </li>
@@ -241,7 +239,7 @@
       </p>
       <ul class="">
         
-          <li class="toctree-l1 "><a href="../files/paths.html" class="reference internal ">Căi absolute și relative</a>
+          <li class="toctree-l1 "><a href="../files/paths.html" class="reference internal ">Căi în ierarhia de fișiere</a>
 
             
           </li>
@@ -271,7 +269,13 @@
           </li>
 
         
-          <li class="toctree-l1 "><a href="../files/file_system.html" class="reference internal ">Sistemul de fișiere</a>
+          <li class="toctree-l1 "><a href="../files/file_system.html" class="reference internal ">Extra - Sistemul de fișiere</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../files/cheatsheet.html" class="reference internal ">Sumar - Cheatsheet</a>
 
             
           </li>
@@ -286,31 +290,7 @@
       </p>
       <ul class="current">
         
-          <li class="toctree-l1 "><a href="git-intro.html" class="reference internal ">Introducere în Git și GitHub</a>
-
-            
-          </li>
-
-        
-          <li class="toctree-l1 "><a href="git-first-commit.html" class="reference internal ">Primul commit</a>
-
-            
-          </li>
-
-        
-          <li class="toctree-l1 "><a href="git-more-commits.html" class="reference internal ">Crearea unui nou commit</a>
-
-            
-          </li>
-
-        
-          <li class="toctree-l1 "><a href="git-contribute.html" class="reference internal ">Contribuirea la un alt repository</a>
-
-            
-          </li>
-
-        
-          <li class="toctree-l1 "><a href="make-setup.html" class="reference internal ">Pregătirea mediului de lucru</a>
+          <li class="toctree-l1 "><a href="intro.html" class="reference internal ">Introducere</a>
 
             
           </li>
@@ -334,12 +314,6 @@
           </li>
 
         
-          <li class="toctree-l1 "><a href="make-debug.html" class="reference internal ">Depanare condițională / configurabilă</a>
-
-            
-          </li>
-
-        
           <li class="toctree-l1 "><a href="make-simple-automation.html" class="reference internal ">Introducere în utilitarul Make și fișiere Makefile</a>
 
             
@@ -351,24 +325,40 @@
             
               <ul>
                 
-                  <li class="toctree-l2"><a href="#adaugarea-dependentelor-pentru-fiecare-regula-existenta" class="reference internal">1) Adăugarea dependențelor pentru fiecare regulă existentă</a></li>
+                  <li class="toctree-l2"><a href="#variabile" class="reference internal">Variabile</a></li>
                 
-                  <li class="toctree-l2"><a href="#folosirea-de-variabile-in-fisiere-makefile" class="reference internal">2) Folosirea de variabile în fișiere Makefile</a></li>
-                
-                  <li class="toctree-l2"><a href="#regula-phony" class="reference internal">2) Regula .PHONY</a></li>
+                  <li class="toctree-l2"><a href="#targetul-phony" class="reference internal">Targetul .PHONY</a></li>
                 
               </ul>
             
           </li>
 
         
-          <li class="toctree-l1 "><a href="make-contribute.html" class="reference internal ">Contribuirea la un proiect existent pe GitHub</a>
+          <li class="toctree-l1 "><a href="git-intro.html" class="reference internal ">Introducere în Git și GitHub</a>
 
             
           </li>
 
         
-          <li class="toctree-l1 "><a href="extra.html" class="reference internal ">Exerciții suplimentare</a>
+          <li class="toctree-l1 "><a href="git-first-commits.html" class="reference internal ">Primele commituri</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="git-branches.html" class="reference internal ">Lucrul pe branch-uri</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="git-first-pull-request.html" class="reference internal ">Crearea unui Pull Request (PR) pe GitHub</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="extra.html" class="reference internal ">Exercițîi suplimentare</a>
 
             
           </li>
@@ -383,19 +373,19 @@
       </p>
       <ul class="">
         
-          <li class="toctree-l1 "><a href="../net/browser.html" class="reference internal ">Folosirea eficientă a browser-ului</a>
+          <li class="toctree-l1 "><a href="../net/browser.html" class="reference internal ">Folosirea eficientă a browserului</a>
 
             
           </li>
 
         
-          <li class="toctree-l1 "><a href="../net/troubleshoot.html" class="reference internal ">Verificarea conectivităţii la reţea</a>
+          <li class="toctree-l1 "><a href="../net/connection.html" class="reference internal ">Conectarea la rețea și la Internet</a>
 
             
           </li>
 
         
-          <li class="toctree-l1 "><a href="../net/services.html" class="reference internal ">Servicii şi clienţi de reţea</a>
+          <li class="toctree-l1 "><a href="../net/services.html" class="reference internal ">Servicii și clienți de rețea</a>
 
             
           </li>
@@ -416,7 +406,7 @@
       </p>
       <ul class="">
         
-          <li class="toctree-l1 "><a href="../app-install/start.html" class="reference internal ">Pornirea aplicațiilor</a>
+          <li class="toctree-l1 "><a href="../app-install/start.html" class="reference internal ">Pornirea și oprirea aplicațiilor</a>
 
             
           </li>
@@ -428,13 +418,13 @@
           </li>
 
         
-          <li class="toctree-l1 "><a href="../app-install/config.html" class="reference internal ">Configurarea aplicațiilor</a>
+          <li class="toctree-l1 "><a href="../app-install/config.html" class="reference internal ">Configurarea rulării aplicațiilor</a>
 
             
           </li>
 
         
-          <li class="toctree-l1 "><a href="../app-install/summary1.html" class="reference internal ">Sumar: Pornirea, rularea și configurarea aplicațiilor</a>
+          <li class="toctree-l1 "><a href="../app-install/summary1.html" class="reference internal ">Exerciții: Pornirea, rularea și configurarea aplicațiilor</a>
 
             
           </li>
@@ -452,13 +442,7 @@
           </li>
 
         
-          <li class="toctree-l1 "><a href="../app-install/install-non-standard.html" class="reference internal ">Instalarea și dezinstalarea aplicațiilor în mod nestandard</a>
-
-            
-          </li>
-
-        
-          <li class="toctree-l1 "><a href="../app-install/update.html" class="reference internal ">Actualizarea aplicațiilor</a>
+          <li class="toctree-l1 "><a href="../app-install/install-non-standard.html" class="reference internal ">Alternative la instalarea și dezinstalarea aplicațiilor</a>
 
             
           </li>
@@ -470,7 +454,7 @@
           </li>
 
         
-          <li class="toctree-l1 "><a href="../app-install/summary2.html" class="reference internal ">Sumar: Instalarea, dezinstalarea, investigarea, actualizarea aplicațiilor</a>
+          <li class="toctree-l1 "><a href="../app-install/summary2.html" class="reference internal ">Exerciții: Instalarea și gestiunea aplicațiilor</a>
 
             
           </li>
@@ -602,18 +586,18 @@
   <ul class="breadcrumbs">
     <li><a href="../../index.html">Docs</a> &raquo;</li>
     
-    <li><span class="section-number">11. </span>Aprofundarea folosirii fișierelor Makefile</li>
+    <li><span class="section-number">6. </span>Aprofundarea folosirii fișierelor Makefile</li>
   </ul>
   
 
   <ul class="page-nav">
   <li class="prev">
     <a href="make-simple-automation.html"
-       title="previous chapter">← <span class="section-number">10. </span>Introducere în utilitarul Make și fișiere Makefile</a>
+       title="previous chapter">← <span class="section-number">5. </span>Introducere în utilitarul Make și fișiere Makefile</a>
   </li>
   <li class="next">
-    <a href="make-contribute.html"
-       title="next chapter"><span class="section-number">12. </span>Contribuirea la un proiect existent pe GitHub →</a>
+    <a href="git-intro.html"
+       title="next chapter"><span class="section-number">7. </span>Introducere în Git și GitHub →</a>
   </li>
 </ul>
   
@@ -622,37 +606,101 @@
           <div class="content" role="main">
             
   <section id="aprofundarea-folosirii-fisierelor-makefile">
-<h1><span class="section-number">11. </span>Aprofundarea folosirii fișierelor Makefile<a class="headerlink" href="#aprofundarea-folosirii-fisierelor-makefile" title="Permalink to this heading">¶</a></h1>
-<section id="adaugarea-dependentelor-pentru-fiecare-regula-existenta">
-<h2><span class="section-number">11.1. </span>1) Adăugarea dependențelor pentru fiecare regulă existentă<a class="headerlink" href="#adaugarea-dependentelor-pentru-fiecare-regula-existenta" title="Permalink to this heading">¶</a></h2>
-<p>Adăugarea dependențelor pentru regulile deja existente.</p>
+<h1><span class="section-number">6. </span>Aprofundarea folosirii fișierelor Makefile<a class="headerlink" href="#aprofundarea-folosirii-fisierelor-makefile" title="Link to this heading">¶</a></h1>
+<section id="variabile">
+<h2><span class="section-number">6.1. </span>Variabile<a class="headerlink" href="#variabile" title="Link to this heading">¶</a></h2>
+<p>Nu cred că variabilele au nevoie de o introducere. Au fost cu noi de la începutul carierei noastre de programatori și sunt aici să ne facă viața mai ușoară, fiind placeholdere pentru valorile noastre.
+În Makefile-uri, variabilele acționează identic cu variabilele din bash, adică fiind doar înlocuiri textuale.</p>
+<p>Astfel, putem simplifica un Makefile de tipul:</p>
+<blockquote id="app-dev-phony-makefile">
+<div><p>all: make_exec</p>
+<dl class="simple">
+<dt>make_exec: Fisier_cu_nume_foarte_foarte_foarte_foarte_lung.o</dt><dd><p>gcc -o exec Fisier_cu_nume_foarte_foarte_foarte_foarte_lung.c</p>
+</dd>
+<dt>TODO.o: Fisier_cu_nume_foarte_foarte_foarte_foarte_lung.c</dt><dd><p>gcc -c Fisier_cu_nume_foarte_foarte_foarte_foarte_lung.c</p>
+</dd>
+<dt>clean:</dt><dd><p>rm exec
+rm <a href="#id1"><span class="problematic" id="id2">*</span></a>.o</p>
+</dd>
+</dl>
+</div></blockquote>
+<p>cu ceva mai simplu:</p>
+<blockquote id="id3">
+<div><p>NAME=Fisier_cu_nume_foarte_foarte_foarte_foarte_lung</p>
+<p>all: make_exec</p>
+<dl class="simple">
+<dt>make_exec: $(NAME).o</dt><dd><p>gcc -o exec $(NAME).c</p>
+</dd>
+<dt>TODO.o: $(NAME).c</dt><dd><p>gcc -c $(NAME).c</p>
+</dd>
+<dt>clean:</dt><dd><p>rm exec
+rm <a href="#id4"><span class="problematic" id="id5">*</span></a>.o</p>
+</dd>
+</dl>
+</div></blockquote>
+<p>Sintaxa: PLACEHOLDER=text</p>
+<p>Inlocuirea este doar la nivel textual, deci textul poate fi reprezentat de orice:</p>
+<ul class="simple">
+<li><p>FLAGS=-Wall -Wextra -C99 -g</p></li>
+<li><p>COMPILER=gcc</p></li>
+<li><p>EXECUTABLE_NAME=exec</p></li>
+<li><p>FISIER=TODO</p></li>
+<li><p>Etc…</p></li>
+</ul>
+<p><em>Se recomandă numirea variabilelor acestea cu litere mari.</em></p>
+<p>Pentru utilizare, ca și în bash, se folosește semnul $ urmat de paranteze rotunde în jurul numelui variabilei, astfel: $(NUME_VARIABILA).</p>
+<p>Exemplu:</p>
+<blockquote id="id6">
+<div><dl class="simple">
+<dt>all: $(FISIER).c</dt><dd><p>$(COMPILER) -o $(EXECUTABLE_NAME) $(FISIER).c $(FLAGS)</p>
+</dd>
+</dl>
+</div></blockquote>
 </section>
-<section id="folosirea-de-variabile-in-fisiere-makefile">
-<h2><span class="section-number">11.2. </span>2) Folosirea de variabile în fișiere Makefile<a class="headerlink" href="#folosirea-de-variabile-in-fisiere-makefile" title="Permalink to this heading">¶</a></h2>
-<p>Introducerea variabilelor. De adăugat și ceva despre variabile de debug și specificarea arhitecturii la bonus/best practice</p>
-<section id="a-variabile-pentru-compilator">
-<h3><span class="section-number">11.2.1. </span>a. Variabile pentru compilator<a class="headerlink" href="#a-variabile-pentru-compilator" title="Permalink to this heading">¶</a></h3>
-</section>
-<section id="b-variabile-pentru-linker">
-<h3><span class="section-number">11.2.2. </span>b. Variabile pentru linker<a class="headerlink" href="#b-variabile-pentru-linker" title="Permalink to this heading">¶</a></h3>
-</section>
-<section id="c-modificarea-fisierului-makefile-folosind-variabile">
-<h3><span class="section-number">11.2.3. </span>c. Modificarea fișierului Makefile folosind variabile<a class="headerlink" href="#c-modificarea-fisierului-makefile-folosind-variabile" title="Permalink to this heading">¶</a></h3>
-</section>
-<section id="d-crearea-unui-nou-commit-cu-schimbarile-facute">
-<h3><span class="section-number">11.2.4. </span>d. Crearea unui nou commit cu schimbările făcute<a class="headerlink" href="#d-crearea-unui-nou-commit-cu-schimbarile-facute" title="Permalink to this heading">¶</a></h3>
-</section>
-</section>
-<section id="regula-phony">
-<h2><span class="section-number">11.3. </span>2) Regula .PHONY<a class="headerlink" href="#regula-phony" title="Permalink to this heading">¶</a></h2>
-<section id="a-necesitatea-folosirii-targetului-phony">
-<h3><span class="section-number">11.3.1. </span>a. Necesitatea folosirii targetului .PHONY<a class="headerlink" href="#a-necesitatea-folosirii-targetului-phony" title="Permalink to this heading">¶</a></h3>
-</section>
-<section id="b-adaugarea-targetului-phony">
-<h3><span class="section-number">11.3.2. </span>b. Adăugarea targetului .PHONY<a class="headerlink" href="#b-adaugarea-targetului-phony" title="Permalink to this heading">¶</a></h3>
-</section>
-<section id="c-comiterea-schimbarilor-facute">
-<h3><span class="section-number">11.3.3. </span>c. Comiterea schimbărilor făcute<a class="headerlink" href="#c-comiterea-schimbarilor-facute" title="Permalink to this heading">¶</a></h3>
+<section id="targetul-phony">
+<h2><span class="section-number">6.2. </span>Targetul <cite>.PHONY</cite><a class="headerlink" href="#targetul-phony" title="Link to this heading">¶</a></h2>
+<p>În mod implicit, targets-urile Makefile sunt „targets de fișiere” - sunt utilizate pentru a construi fișiere din alte fișiere.
+Make presupune că ținta sa este <em>un fișier</em> și acest lucru face ca scrierea Makefiles să fie relativ ușoară.</p>
+<p>Exemplu:
+.. _app_dev_phony_makefile:</p>
+<blockquote>
+<div><p>all: make_exec</p>
+<dl class="simple">
+<dt>make_exec: TODO.o</dt><dd><p>gcc -o exec TODO.c</p>
+</dd>
+<dt>TODO.o: TODO.c</dt><dd><p>gcc -c TODO.c</p>
+</dd>
+<dt>clean:</dt><dd><p>rm exec
+rm <a href="#id7"><span class="problematic" id="id8">*</span></a>.o</p>
+</dd>
+</dl>
+</div></blockquote>
+<p id="app-dev-understand-using-phony-makefile">Dacă scrieți o regulă a cărui cod nu va crea fișierul țintă, codul va fi executat de fiecare dată când ținta este chemată. În cazul nostru, targetul clean nu are un fișier de care depinde (asemenea make_exec sau TODO.o), așa că va rula de fiecare dată când va fi chemat prin ‘make clean’.
+De aici reiese o problema a Makefile-urilor: ele nu vor chema niciodată un target care este ‘up-to-date’. Ce înseamnă asta?
+Pentru un fișier .c la care nu am adus modificări, acesta rămâne ‘up-to-date’, deci nu va fi recompilat, ceea ce este un lucru bun, fiindcă nu este nevoie să recompilam un fișier asupra căruia nu am adus modificări.
+Dar, dacă în folderul curent avem un fișier cu numele target-ului nostru, de exemplu un fișier cu numele ‘clean’, ce se va întâmpla?
+Atâta timp când fișierul nu este modificat, acesta va rămâne ‘up-to-date’, iar comanda ‘make clean’ nu va mai funcționa, pentru că va identifica fișierul care nu a fost modificat cu numele ‘clean’ în loc de a executa codul dorit.</p>
+<p>Soluția se află în target-ul <strong>PHONY</strong>; Acesta specifică faptul că target-urile introduse după acesta <strong>nu</strong> au o legătură directă cu fișierele.</p>
+<section id="adaugarea-targetului-phony">
+<h3><span class="section-number">6.2.1. </span>Adăugarea targetului <cite>.PHONY</cite><a class="headerlink" href="#adaugarea-targetului-phony" title="Link to this heading">¶</a></h3>
+<p>Observăm cum suntem protejați de recompilarea fișierului cu extensia .c datorită targetului TODO.o care afișează mesajul “make: ‘TODO.o’ is up to date.” în cazul în care chemăm ‘make TODO.O’ în timp ce fișierul există.</p>
+<p>Exemplu:</p>
+<blockquote id="id9">
+<div><p>all: make_exec</p>
+<dl class="simple">
+<dt>make_exec: TODO.o</dt><dd><p>gcc -o exec TODO.c</p>
+</dd>
+<dt>TODO.o: TODO.c</dt><dd><p>gcc -c TODO.c</p>
+</dd>
+<dt>clean:</dt><dd><p>rm exec
+rm <a href="#id10"><span class="problematic" id="id11">*</span></a>.o</p>
+</dd>
+</dl>
+<p>.PHONY: clean</p>
+</div></blockquote>
+<p>Acum, adăugând ultima linie în Makefile, target-ul clean nu va mai fi considerat un fișier (datorita lui PHONY), astfel că putem avea un fișier numit ‘clean’ și tot putem rula comanda ‘make clean’.</p>
+<p>Observație legată de targetul PHONY: Dacă adăugăm, separat cu spațiu, alte nume pe lângă ‘clean’ de mai sus, și aceste target-uri vor fi considerate non-fișiere.
+Atenție, PHONY trebuie folosit cu grijă! Dacă am adaugă pe lângă ‘clean’ și targetul ‘TODO.o’, am pierde protecția împotriva recompilarii nenecesare și deci am anula utilitatea Makefile-ului.</p>
 </section>
 </section>
 </section>
@@ -663,16 +711,16 @@
             <div class="inner"><ul class="page-nav">
   <li class="prev">
     <a href="make-simple-automation.html"
-       title="previous chapter">← <span class="section-number">10. </span>Introducere în utilitarul Make și fișiere Makefile</a>
+       title="previous chapter">← <span class="section-number">5. </span>Introducere în utilitarul Make și fișiere Makefile</a>
   </li>
   <li class="next">
-    <a href="make-contribute.html"
-       title="next chapter"><span class="section-number">12. </span>Contribuirea la un proiect existent pe GitHub →</a>
+    <a href="git-intro.html"
+       title="next chapter"><span class="section-number">7. </span>Introducere în Git și GitHub →</a>
   </li>
 </ul><div class="footer" role="contentinfo">
       &#169; Copyright 2020, USO Team.
     <br>
-    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 5.1.1 with <a href="https://github.com/romnn/sphinx_press_theme">Press Theme</a>.
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 7.2.5 with <a href="https://github.com/romnn/sphinx_press_theme">Press Theme</a>.
 </div>
             </div>
           </div>

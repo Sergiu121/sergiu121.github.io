@@ -11,20 +11,20 @@ De exemplu, o persoană care va lucra foarte mult cu repository-uri de tip Git, 
 Aceste modificări au rolul de a reduce acțiunile repetitive pe care le facem sau de a pregăti aplicații pe care le vom folosi mai departe.
 
 Această secțiune cuprinde recomandări de configurare a sistemului de la distanță.
-Au formă de sugestii, nu sunt obligații, pe baza cărora fiecare poate decide pentru configurarea propriului mediu de lucru.
+Au formă de sugestii, pe baza cărora fiecare poate decide pentru configurarea propriului mediu de lucru.
 
 .. _task_admin_config_shell:
 
 Configurarea shellului
 ----------------------
 
-Primul aspect pe care îl vom modifica la mediul de lucru este shellul în care rulăm comenzi, deoarece acesta este cea mai folosită unealtă.
+Primul aspect pe care îl vom personaliza la mediul de lucru este shellul în care rulăm comenzi, deoarece acesta este cea mai folosită unealtă.
 Fie că că edităm cod, sau administrăm sisteme, acesta este locul unde rulăm comenzi.
 
-Modificările la nivelul shellului se fac schimbând variabile de mediu sau rulând comenzi înainte de rularea efectivă a shellului.
+Modificările la nivelul shellului se fac schimbând variabile de mediu, sau rulând comenzi înainte de rularea efectivă a shellului.
 
 Modificarea mediului shellului o realizăm într-un fișier de configurare.
-Vom folosi fișierul ``~/.profile``, deoarece acesta este citit și rulat de toate implementările de shell majorore, cum ar fi ``dash``, ``csh``, ``bash`` sau ``zsh``, astfel oferă intercompatibilitate între shelluri.
+Vom folosi fișierul ``~/.profile``, deoarece acesta este citit și rulat de toate implementările de shell majore, cum ar fi ``dash``, ``csh``, ``bash`` sau ``zsh``, astfel oferă compatibilitate între shelluri.
 
 .. _task_admin_config_shell_change:
 
@@ -50,11 +50,9 @@ Pentru a modifica shellul predefinit al unui utilizator folosim comanda ``usermo
     student@uso ~ % echo $SHELL
     /bin/zsh
 
-
-
 Rulând comanda de mai sus, am modificat shellul predefinit al utilizatorului ``student`` în ``/bin/zsh``.
 Pentru verificare, ne-am autentificat ca utilizatorul ``student``.
-La prima autentificare ``zsh`` ne-a întrebat ce fel de configurare vrem, iar noi am folosit opțiunea ``2``, pentru generarea automată a unei configurări.
+La prima autentificare, ``zsh`` ne-a întrebat ce fel de configurare vrem, iar noi am folosit opțiunea ``2``, pentru generarea automată a unei configurări.
 Am afișat valoarea variabilei ``SHELL`` pentru a afișa calea către shellul folosit.
 
 .. _task_admin_config_shell_change_ex:
@@ -100,33 +98,33 @@ Am definit aliasul ``gs`` pentru comanda ``git status`` și am verificat-o în r
 Pentru a verifica ce aliasuri sunt definite, vom folosi comanda ``alias`` fără parametri.
 
 Definirea de mai sus a unui alias nu este persistentă, ci acesta va fi definit cât timp shellul curent este deschis.
-Pentru a defini un alias în mod persistent, trebuie să îl definim, folosind comanda ``alias`` într-un fișier de configurare, cum ar fi ``.profile``.
+Pentru a dispune de un alias în mod persistent, trebuie să îl definim, folosind comanda ``alias`` într-un fișier de configurare, cum ar fi ``~/.profile``.
 
 .. _task_admin_config_shell_alias_ex:
 
 Exercițiu: Configurarea aliasurilor
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-#) Configurați aliasul ``gcs`` pentru comanda ``git commit --signnoff``.
-#) Configurați aliasul ``glog`` pentru comanda ``git log --oneline``.
+#. Configurați aliasul ``gcs`` pentru comanda ``git commit --signnoff``.
+#. Configurați aliasul ``glog`` pentru comanda ``git log --oneline``.
 
 .. _task_admin_config_shell_history:
 
 Modificarea dimensiunii istoricului de comenzi
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Fișierul de istoric al unui shell este locul unde sunt salvate comenzile rulate într-un shell până la închiderea sesiunii de shell.
+Fișierul de istoric al unui shell este locul unde sunt salvate comenzile rulate până la închiderea sesiunii.
 Acest fișier este folositor pentru repetarea acțiunilor.
 
-De exemplu, funcționalitatea de căutare inversă din shell bazată pe ``Ctrl+r`` caută în istoricul shellului, așa că este de preferat să avem un istoric complet în care să căutăm pentru a avea mai multe intrări în care să căutăm.
+De exemplu, funcționalitatea de căutare inversă din shell bazată pe ``Ctrl+r`` caută în istoricul shellului, așa că este de preferat să avem un istoric complet în care să căutăm.
 
 Pentru a mări dimensiunea istoricului shellului, este suficient să setăm variabila de mediu ``HISTSIZE`` într-un fișier de configurare.
-Vom folosi fișierul de configurare ``.profile`` din motivele enumerate mai sus, aflat în directorul home al utilizatorului ``student``.
+Vom folosi fișierul de configurare ``~/.profile`` din motivele enumerate mai sus.
 Această modificare va fi valabilă doar pentru utilizatorul ``student``.
 
 .. code-block::
 
-    student@uso:~$ echo HISTSIZE=20000 >> /home/student/.profile
+    student@uso:~$ echo HISTSIZE=20000 >> ~/.profile
 
 .. _task_admin_config_shell_history_ex:
 
@@ -144,7 +142,7 @@ Faceți modificările necesare astfel încât fișierul de istoric să fie conca
 Configurarea promptului
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-După cum am învățat în capitolul <TODO>, atunci când am început să lucrăm cu shellul prima oară, promptul este o sursă importantă de informații.
+Promptul unui shell este o sursă importantă de informații.
 Acesta ne poate oferi mai multă informație și ne eliberează din a rula anumite comenzi.
 Practic, noi putem obține mai mult informații rulând mai puține comenzi.
 
@@ -179,53 +177,53 @@ EZPrompt a generat următoarele comenzi pentru a modifica promptul, pe care le v
 
     # get current branch in git repo
     function parse_git_branch() {
-    	BRANCH=`git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'`
-    	if [ ! "${BRANCH}" == "" ]
-    	then
-    		STAT=`parse_git_dirty`
-    		echo "[${BRANCH}${STAT}]"
-    	else
-    		echo ""
-    	fi
+        BRANCH=`git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'`
+        if [ ! "${BRANCH}" == "" ]
+        then
+            STAT=`parse_git_dirty`
+            echo "[${BRANCH}${STAT}]"
+        else
+            echo ""
+        fi
     }
     # get current status of git repo
     function parse_git_dirty {
-    	status=`git status 2>&1 | tee`
-    	dirty=`echo -n "${status}" 2> /dev/null | grep "modified:" &> /dev/null; echo "$?"`
-    	untracked=`echo -n "${status}" 2> /dev/null | grep "Untracked files" &> /dev/null; echo "$?"`
-    	ahead=`echo -n "${status}" 2> /dev/null | grep "Your branch is ahead of" &> /dev/null; echo "$?"`
-    	newfile=`echo -n "${status}" 2> /dev/null | grep "new file:" &> /dev/null; echo "$?"`
-    	renamed=`echo -n "${status}" 2> /dev/null | grep "renamed:" &> /dev/null; echo "$?"`
-    	deleted=`echo -n "${status}" 2> /dev/null | grep "deleted:" &> /dev/null; echo "$?"`
-    	bits=''
-    	if [ "${renamed}" == "0" ]; then
-    		bits=">${bits}"
-    	fi
-    	if [ "${ahead}" == "0" ]; then
-    		bits="*${bits}"
-    	fi
-    	if [ "${newfile}" == "0" ]; then
-    		bits="+${bits}"
-    	fi
-    	if [ "${untracked}" == "0" ]; then
-    		bits="?${bits}"
-    	fi
-    	if [ "${deleted}" == "0" ]; then
-    		bits="x${bits}"
-    	fi
-    	if [ "${dirty}" == "0" ]; then
-    		bits="!${bits}"
-    	fi
-    	if [ ! "${bits}" == "" ]; then
-    		echo " ${bits}"
-    	else
-    		echo ""
-    	fi
+        status=`git status 2>&1 | tee`
+        dirty=`echo -n "${status}" 2> /dev/null | grep "modified:" &> /dev/null; echo "$?"`
+        untracked=`echo -n "${status}" 2> /dev/null | grep "Untracked files" &> /dev/null; echo "$?"`
+        ahead=`echo -n "${status}" 2> /dev/null | grep "Your branch is ahead of" &> /dev/null; echo "$?"`
+        newfile=`echo -n "${status}" 2> /dev/null | grep "new file:" &> /dev/null; echo "$?"`
+        renamed=`echo -n "${status}" 2> /dev/null | grep "renamed:" &> /dev/null; echo "$?"`
+        deleted=`echo -n "${status}" 2> /dev/null | grep "deleted:" &> /dev/null; echo "$?"`
+        bits=''
+        if [ "${renamed}" == "0" ]; then
+            bits=">${bits}"
+        fi
+        if [ "${ahead}" == "0" ]; then
+            bits="*${bits}"
+        fi
+        if [ "${newfile}" == "0" ]; then
+            bits="+${bits}"
+        fi
+        if [ "${untracked}" == "0" ]; then
+            bits="?${bits}"
+        fi
+        if [ "${deleted}" == "0" ]; then
+            bits="x${bits}"
+        fi
+        if [ "${dirty}" == "0" ]; then
+            bits="!${bits}"
+        fi
+        if [ ! "${bits}" == "" ]; then
+            echo " ${bits}"
+        else
+            echo ""
+        fi
     }
     export PS1="\u@\h:\w-\`parse_git_branch\` "
 
 Pornind un nou shell, vedem că promptul s-a schimbat, acum nu mai este colorat.
-Când schimbăm directorul curent într-un repository Git, în prompt va apărea și branch-ul pe care este setată replica repository-ului
+Când schimbăm directorul curent într-un repository Git, în prompt va apărea și branch-ul pe care este setată replica repository-ului.
 
 .. code-block::
 
