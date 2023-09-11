@@ -1,20 +1,20 @@
 Instalarea aplicațiilor (serviciilor) folosind Docker
 =====================================================
 
-Scopul acestui capitol este să îi introducem pe studenți în instalarea, folosirea containerelor și în instalarea serviciilor folosind containerele.
+Scopul acestui capitol este să vă introducem în instalarea, folosirea containerelor și în instalarea serviciilor folosind containerele.
 
 Instalarea serviciilor nu este o operație ușoară.
 Acestea depind de aplicații și biblioteci care uneori nu sunt disponibile, sau nu există versiunile necesare pentru distribuția noastră.
 O altă problemă vine de la faptul că serviciile nu sunt de tipul "plug-and-play", adică nu oferă o configurație simplă care să permită rularea serviciului imediat după instalarea aplicației.
 
-Docker vine ca o soluție pentru această problemă, deoarece acesta ne oferă servicii pre-împachetate cu dependențele pe care le are serviciul respectiv și cu configurările necesare pentru rularea serviciului.
+`Docker <https://www.docker.com/>`_ vine ca o soluție pentru această problemă, deoarece acesta ne oferă servicii pre-împachetate cu dependențele pe care le are serviciul respectiv și cu configurările necesare pentru rularea serviciului.
 Un alt avantaj al folosirii Docker este că mediul oferit de Docker este unul izolat și efemer, adică o aplicație care rulează în Docker nu are acces în mod obișnuit la restul sistemului, iar orice modificare asupra sistemului de fișiere din Docker nu se va reflecta asupra sistemului.
 
 Containerele sunt un mediu în care putem rula aplicații izolate de sistemul gazdă.
 
-În sistemele de operare bazate pe Linux, containerele sunt rulate ca o aplicație care are acces la resursele stației gazdă, dar care poate interacționa cu procesele din în afara mediului izolat.
+În sistemele de operare bazate pe Linux, containerele sunt rulate ca o aplicație care are acces la resursele stației gazdă, dar care poate interacționa cu procesele din afara mediului izolat.
 
-Avantajul utilizării unui container pentru rularea aplicațiilor este că poate fi pornit și oprit cu ușurință și modificate.
+Avantajul utilizării unui container pentru rularea aplicațiilor este că poate fi pornit, modificat și oprit cu ușurință.
 Astfel, putem instala aplicații într-un container, le putem configura și rula fără a afecta celelalte componente ale sistemului.
 
 Folosirea Docker
@@ -154,7 +154,7 @@ Cum am prezentat mai devreme, un avantaj al folosirii containerelor este faptul 
 Aceste servicii nu vor mai fi lansate și gestionate de aplicația ``systemd`` care rulează pe stația de lucru, deoarece acestea vor rula în cadrul unui container care va gestiona rularea serviciului.
 Noi trebuie doar să ne asigurăm ca rulăm containerul folosind opțiunile potrivite.
 
-Identificarea containerelor pe Dockerhub
+Identificarea containerelor pe DockerHub
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Precum aplicațiile obișnuite, și containerele Docker pot fi descărcate dintr-un repository central.
@@ -179,40 +179,40 @@ Conform instrucțiunilor de instalare din pagina containerului, putem porni serv
 
 .. code-block:: bash
 
-        student@uso:~/.../labs/09-task-admin/lab-container$ sudo docker run -d -p 25565:25565 --name mc itzg/minecraft-server
-        Unable to find image 'itzg/minecraft-server:latest' locally
-        latest: Pulling from itzg/minecraft-server
-        675920708c8b: Pull complete
-        74b551139104: Pull complete
-        c290a58bcfd7: Pull complete
-        4d6bcabdde06: Pull complete
-        02ff7afd9866: Pull complete
-        58640237d5df: Pull complete
-        d9165be859a2: Pull complete
-        575fb4190f2f: Pull complete
-        c3c6d5d36ce5: Pull complete
-        9f1d7790dab7: Pull complete
-        a7a32c154b26: Pull complete
-        e253f974e9a6: Pull complete
-        d61d99ed5e98: Pull complete
-        c78f023f58b3: Pull complete
-        70401c8e828a: Pull complete
-        4f4fb700ef54: Pull complete
-        087988aa5331: Pull complete
-        13ee4174c665: Pull complete
-        9381121a4fe0: Pull complete
-        6a8a23430798: Pull complete
-        b5b33c72ea51: Pull complete
-        edf873f8c85d: Pull complete
-        Digest: sha256:0697315bd265c751821d5796662436efd94edea8e77b42a7404dab22586af73f
-        Status: Downloaded newer image for itzg/minecraft-server:latest
-        53a920004fa8316ef87e4776f57f6b826825edf8237d08b9791c1936f40e50e2
-        student@uso:~/.../labs/09-task-admin/lab-container$ sudo docker image ls
-        REPOSITORY              TAG       IMAGE ID       CREATED      SIZE
-        itzg/minecraft-server   latest    616bdcb51f15   7 days ago   670MB
-        student@uso:~/.../labs/09-task-admin/lab-container$ sudo docker ps
-        CONTAINER ID   IMAGE                   COMMAND    CREATED         STATUS                            PORTS                                                      NAMES
-        53a920004fa8   itzg/minecraft-server   "/start"   5 seconds ago   Up 4 seconds (health: starting)   0.0.0.0:25565->25565/tcp, :::25565->25565/tcp, 25575/tcp   mc
+    student@uso:~/.../labs/09-task-admin/lab-container$ sudo docker run -d -p 25565:25565 --name mc itzg/minecraft-server
+    Unable to find image 'itzg/minecraft-server:latest' locally
+    latest: Pulling from itzg/minecraft-server
+    675920708c8b: Pull complete
+    74b551139104: Pull complete
+    c290a58bcfd7: Pull complete
+    4d6bcabdde06: Pull complete
+    02ff7afd9866: Pull complete
+    58640237d5df: Pull complete
+    d9165be859a2: Pull complete
+    575fb4190f2f: Pull complete
+    c3c6d5d36ce5: Pull complete
+    9f1d7790dab7: Pull complete
+    a7a32c154b26: Pull complete
+    e253f974e9a6: Pull complete
+    d61d99ed5e98: Pull complete
+    c78f023f58b3: Pull complete
+    70401c8e828a: Pull complete
+    4f4fb700ef54: Pull complete
+    087988aa5331: Pull complete
+    13ee4174c665: Pull complete
+    9381121a4fe0: Pull complete
+    6a8a23430798: Pull complete
+    b5b33c72ea51: Pull complete
+    edf873f8c85d: Pull complete
+    Digest: sha256:0697315bd265c751821d5796662436efd94edea8e77b42a7404dab22586af73f
+    Status: Downloaded newer image for itzg/minecraft-server:latest
+    53a920004fa8316ef87e4776f57f6b826825edf8237d08b9791c1936f40e50e2
+    student@uso:~/.../labs/09-task-admin/lab-container$ sudo docker image ls
+    REPOSITORY              TAG       IMAGE ID       CREATED      SIZE
+    itzg/minecraft-server   latest    616bdcb51f15   7 days ago   670MB
+    student@uso:~/.../labs/09-task-admin/lab-container$ sudo docker ps
+    CONTAINER ID   IMAGE                   COMMAND    CREATED         STATUS                            PORTS                                                      NAMES
+    53a920004fa8   itzg/minecraft-server   "/start"   5 seconds ago   Up 4 seconds (health: starting)   0.0.0.0:25565->25565/tcp, :::25565->25565/tcp, 25575/tcp   mc
 
 Am folosit opțiunea ``--name`` a utilitarului ``docker run`` pentru a specifica un nume ușor de reținut pentru containerul pornit, în cazul acesta numele este ``mc``. Am adăugat opțiunea ``-p`` pentru a deschide portul ``25565`` pe mașină pe care rulează containerul, port pe care se realizează comunicarea cu serverul de Minecraft.
 
@@ -260,7 +260,7 @@ Formatului fișierului ``docker-compose.yml`` este de forma:
         networks:
             nume_rețele:
 
-Seviciul de vizualiare Grafana este un standard în industrie pentru afișarea graficelor de diverse forme și alertarea bazată pe condiții specificate de utilizator.
+Serviciul de vizualizare Grafana este un standard în industrie pentru afișarea graficelor de diverse forme și alertarea bazată pe condiții specificate de utilizator.
 
 Grafana se folosește de o bază de date și de un agregator de informații.
 Un agregator des folosit în Grafana este Prometheus, care poate să se conecteze la clienți externi și să descarce informații de la aplicații care expun informații numite exportere.
@@ -410,7 +410,7 @@ Observăm că avem două posibilități de containere oficiale, primul este
 împachetat și oferit de `linuxserver.io <https://hub.docker.com/r/linuxserver/plex>`_, iar al doilea este oferit de `Plex Inc <https://hub.docker.com/r/linuxserver/plex/>`_.
 Vom folosi soluția oferită de linuxserver.io, deoarece aceștia oferă, în general, containere împachetate optim pentru folosirea în containere.
 
-** Exercițiu **
+**Exercițiu**
 
 Pe baza exemplului de fișier ``docker-compose.yaml`` oferit de linuxserver.io pe pagina de Docker Hub, realizați configurările necesare astfel încât să porniți un server de media Plex care are încărcată biblioteca folosind un volum din directorul ``/home/student/uso.git/labs/09-task-admin/lab-container/plex`` și expune portul de acces 32400 către sistemul gazdă.
 
