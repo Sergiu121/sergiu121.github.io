@@ -16,7 +16,7 @@ Gestionarea spațiului de stocare partajat
 O componentă importantă a mediului de lucru este spațiul de stocare.
 Cu toate că vom rula aplicații pe serverul de la distanță, avem nevoie de acces la spațiul de stocare al acestuia, deoarece vrem ca, într-un final, să urmărim rezultatul procesării și, eventual, să îl analizăm folosind utilitare grafice dedicate.
 O altă nevoie pe care o avem este editarea codului la distanță, deoarece majoritatea programatorilor folosesc IDE-uri în mediu grafic, care nu pot rula mereu eficient de la distanță.
-Soluția la această nevoie este să partajăm spațiul de stocare între serverul ``remote`` și stația ``local`` de pe care lucrăm.
+Soluția la aceste nevoi este să partajăm spațiul de stocare între serverul ``remote`` și stația ``local`` de pe care lucrăm.
 
 .. _task_admin_storage_sshfs:
 
@@ -33,12 +33,14 @@ SSHFS este o soluție de stocare partajată care permite montarea unui sistem de
 Avantajul folosirii SSHFS este că nu necesită descărcarea sistemului de fișiere de la distanță, deci nu duce la duplicarea fișierelor.
 Dezavantajul acestei abordări este că dacă pierdem conexiunea la sistemul de fișiere de la distanță, nu mai avem acces la fișiere.
 
+RD: Precizat cum se instalează suportul de SSHFS
+
 .. _task_admin_storage_sshfs_mount:
 
 Montarea temporară a unui sistem de fișiere
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Pentru a monta sistemul de fișiere de pe un alt sistem, vom folosi comanda ``sshfs``
+Pentru a monta sistemul de fișiere de pe un alt sistem, vom folosi comanda ``sshfs``:
 
 .. code-block::
 
@@ -63,6 +65,7 @@ Pentru a monta sistemul de fișiere de pe un alt sistem, vom folosi comanda ``ss
     bin  boot  dev  etc  home  lib  lib64  media  mnt  opt  proc  root  run  sbin  srv  sys  tmp  usr  var
 
 Comanda de mai sus a montat ierarhia de fișiere cu rădăcina în directorul ``/`` de pe sistemul de la adresa IP ``10.11.11.2`` în directorul ``/mnt`` de pe stația locală, cu numele ``local``, autentificându-se ca utilizatorul ``root``.
+Montarea cu SSHFS are ca sursă un director (de la distanță) și ca destinație alt director (local).
 
 Am folosit comanda ``df`` pentru a afișa informații despre toate sistemele de fișiere montate pe stația locală.
 Observăm că pe ultima linie apare conexiunea către stația de la adresa ``10.11.11.2``.
@@ -79,20 +82,21 @@ Atunci când vom opri stația, sistemul de fișiere va fi demontat.
 Exercițiu: Montarea temporară a unui sistem de fișiere
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-#) Montați temporar sistemul de fișiere cu rădăcina în directorul ``/`` de pe stația ``10.11.11.2`` în directorul ``/mnt/vol1``.
-#) Montați temporar sistemul de fișiere cu rădăcina în directorul ``/home/student`` de pe stația ``10.11.11.2`` în directorul ``/mnt/vol2``.
+#. Montați temporar ierarhia de fișiere ``/`` de pe stația ``10.11.11.2`` în directorul local ``/mnt/vol1``.
+#. Montați temporar ierarhia de fișiere ``/home/student`` de pe stația ``10.11.11.2`` în directorul local ``/mnt/vol2``.
 
 .. _task_admin_storage_sshfs_fstab:
 
 Montarea persistentă a unui sistem de fișiere
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Deoarece nu ne dorim să rulăm comanda ``sshfs`` atunci când vrem să folosim un sistem de fișiere la distanță, vrem să montăm persistent sistemul de fișiere de la distanță, astfel încât această montare să persiste după oprirea stației locale.
+În mod obișnuit, folosirea comenzii ``sshfs`` va fi o operație repetitivă care să ducă la folosirea unui sistem de fișiere la distanță.
+Vrem să automatiză această operație, astfel încât această montarea să fie făcută automat la pornirea stației.
 
 Ca să montăm persistent sistemul de fișiere avem nevoie să copiem cheia SSH pe stația de la distanță, deoarece montarea se va face în mod neinteractiv, deci nu vom avea posibilitatea de a introduce parola. <TODO REF NETWORKING>
 
 Pentru a monta persistent sistemul de fișiere, vom scrie o intrare în fișierul ``/etc/fstab``, care va conține detalii despre sistemul de fișiere pe care vrem să îl montăm.
-Pentru a monta sistemul de fișiere ``/``` de pe sistemul de la adresa IP ``10.11.11.2`` în directorul ``/mnt`` de pe stația locală, autentificându-ne ca utilizatorul ``root``, vom folosi următoarele comenzi:
+Pentru a monta ierarhia de fișiere ``/``` de pe sistemul de la adresa IP ``10.11.11.2`` în directorul ``/mnt`` de pe stația locală, autentificându-ne ca utilizatorul ``root``, vom folosi următoarele comenzi:
 
 .. code-block::
 
@@ -113,7 +117,8 @@ Pentru a monta sistemul de fișiere ``/``` de pe sistemul de la adresa IP ``10.1
     shm                 64M     0   64M   0% /dev/shm
     root@10.11.11.2:/   16G   14G  539M  97% /mnt
 
-Am scris în fișierul ``/etc/fstab`` folosind comanda ``echo``, iar pentru a monta sistemul de fișiere am folosit comanda ``mount`` cu opțiunea ``-a`` pentru montarea sistemelor de fișiere descrise în fișierul ``/etc/fstab``.
+Am scris în fișierul ``/etc/fstab`` folosind comanda ``echo``;
+iar pentru a monta sistemul de fișiere am folosit comanda ``mount`` cu opțiunea ``-a`` pentru montarea sistemelor de fișiere descrise în fișierul ``/etc/fstab``.
 
 .. admonition:: Atenție!:
 
@@ -125,8 +130,8 @@ Am scris în fișierul ``/etc/fstab`` folosind comanda ``echo``, iar pentru a mo
 Exercițiu: Montarea persistentă a unui sistem de fișiere
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-#) Montați persistent sistemul de fișiere cu rădăcina în directorul ``/`` de pe stația ``10.11.11.2`` în directorul ``/mnt/vol1``.
-#) Montați persistent sistemul de fișiere cu rădăcina în directorul ``/home/student`` de pe stația ``10.11.11.2`` în directorul ``/mnt/vol2``.
+#. Montați persistent sistemul de fișiere cu rădăcina în directorul ``/`` de pe stația ``10.11.11.2`` în directorul ``/mnt/vol1``.
+#. Montați persistent sistemul de fișiere cu rădăcina în directorul ``/home/student`` de pe stația ``10.11.11.2`` în directorul ``/mnt/vol2``.
 
 .. _task_admin_storage_online:
 
@@ -153,18 +158,16 @@ Stocarea partajată folosind Dropbox
     Pentru rularea acestui demo vom folosi direct mașina virtuală ``uso``,
 
 Dropbox este o soluție care se folosește de un server în Internet care stochează fișierele, ca apoi acestea să fie replicate pe fiecare calculator client.
-
-Este necesară crearea și activarea un cont pentru a folosi serviciul Dropbox.
+Este necesară crearea și activarea unui cont pentru a folosi serviciul Dropbox.
 
 Dropbox oferă o aplicație care rulează în linie de comandă pe care o vom descărca pentru a sincroniza sistemul de fișiere de pe serverele Dropbox într-un director local.
-
-Vom descărca aplicația Dropbox folosind comanda ``wget`` și o vom instala folosind comanda ``dpkg`` împreună cu parametrul ``-i``.
+Vom descărca aplicația Dropbox folosind comanda ``wget`` și o vom instala folosind comanda ``dpkg`` împreună cu parametrul ``-i``:
 
 .. code-block::
 
     student@uso:~$ wget https://www.dropbox.com/download?dl=packages/ubuntu/dropbox_2020.03.04_amd64.deb -O dropbox.deb
     [...]
-    student@uso:~$ sudo dpkg -i dropbox.deb 
+    student@uso:~$ sudo dpkg -i dropbox.deb
     Starting Dropbox...
     Dropbox is the easiest way to share and store your files online. Want to learn more? Head to https://www.dropbox.com/
 
@@ -193,9 +196,9 @@ Exercițiu: Stocarea partajată folosind Dropbox
     Pentru a ne conecta la infrastructura pentru această secțiune, vom folosi comanda ``./lab_prepare.sh connect dropbox``.
     Aplicația dropbox este deja descărcată, trebuie doar să o porniți.
 
-#) Conectați-vă la stația ``dropbox`` și porniți aplicația Dropbox pe aceasta.
+#. Conectați-vă la stația ``dropbox`` și porniți aplicația Dropbox pe aceasta.
 
-#) Creați un fișier numit ``hello.txt`` în directorul ``~/Dropbox``, partajat de cele două mașini.
+#. Creați un fișier numit ``hello.txt`` în directorul ``~/Dropbox``, partajat de cele două mașini.
    Scrieți în fișier mesajul ``Hello from remote`` pe stația ``dropbox``.
    Verificați că există fișierul ``hello.txt`` în directorul ``~/Dropbox`` pe stația ``uso``.
 
@@ -204,4 +207,5 @@ Exercițiu: Stocarea partajată folosind Dropbox
 Extra: Stocarea partajată folosind un server privat
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+TODO: De detaliat
 Îi vom pune să instaleze un container cu ownCloud și să îl configureze astfel încât să îl folosească ca o alternativă la Dropbox.
