@@ -2,9 +2,9 @@
 <html  lang="en">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-      <title>10. Introducere în utilitarul Make și fișiere Makefile</title>
+      <title>5. Introducere în utilitarul Make și fișiere Makefile</title>
     
       <link rel="stylesheet" href="../../_static/pygments.css">
       <link rel="stylesheet" href="../../_static/theme.css">
@@ -15,13 +15,10 @@
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
 
       <!-- sphinx script_files -->
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/sphinx_highlight.js"></script>
-        <script src="../../_static/my_actions.js"></script>
+        <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../_static/my_actions.js?v=1451d81f"></script>
 
       
       <script src="../../_static/theme-vendors.js"></script>
@@ -29,8 +26,8 @@
     
   <link rel="index" title="Index" href="../../genindex.html" />
   <link rel="search" title="Search" href="../../search.html" />
-  <link rel="next" title="11. Aprofundarea folosirii fișierelor Makefile" href="make-advanced-automation.html" />
-  <link rel="prev" title="9. Depanare condițională / configurabilă" href="make-debug.html" />
+  <link rel="next" title="6. Aprofundarea folosirii fișierelor Makefile" href="make-advanced-automation.html" />
+  <link rel="prev" title="4. Legarea executabilelor folosind biblioteci externe" href="make-lib.html" />
     <link href="../../_static/my_theme.css" rel="stylesheet" type="text/css">
 
   </head>
@@ -227,7 +224,7 @@
           </li>
 
         
-          <li class="toctree-l1 "><a href="../basic/cheatsheet.html" class="reference internal ">Cheatsheet</a>
+          <li class="toctree-l1 "><a href="../basic/cheatsheet.html" class="reference internal ">Sumar - Cheatsheet</a>
 
             
           </li>
@@ -242,7 +239,7 @@
       </p>
       <ul class="">
         
-          <li class="toctree-l1 "><a href="../files/paths.html" class="reference internal ">Căi absolute și relative</a>
+          <li class="toctree-l1 "><a href="../files/paths.html" class="reference internal ">Căi în ierarhia de fișiere</a>
 
             
           </li>
@@ -272,7 +269,13 @@
           </li>
 
         
-          <li class="toctree-l1 "><a href="../files/file_system.html" class="reference internal ">Sistemul de fișiere</a>
+          <li class="toctree-l1 "><a href="../files/file_system.html" class="reference internal ">Extra - Sistemul de fișiere</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../files/cheatsheet.html" class="reference internal ">Sumar - Cheatsheet</a>
 
             
           </li>
@@ -287,31 +290,7 @@
       </p>
       <ul class="current">
         
-          <li class="toctree-l1 "><a href="git-intro.html" class="reference internal ">Introducere în Git și GitHub</a>
-
-            
-          </li>
-
-        
-          <li class="toctree-l1 "><a href="git-first-commit.html" class="reference internal ">Primul commit</a>
-
-            
-          </li>
-
-        
-          <li class="toctree-l1 "><a href="git-more-commits.html" class="reference internal ">Crearea unui nou commit</a>
-
-            
-          </li>
-
-        
-          <li class="toctree-l1 "><a href="git-contribute.html" class="reference internal ">Contribuirea la un alt repository</a>
-
-            
-          </li>
-
-        
-          <li class="toctree-l1 "><a href="make-setup.html" class="reference internal ">Pregătirea mediului de lucru</a>
+          <li class="toctree-l1 "><a href="intro.html" class="reference internal ">Introducere</a>
 
             
           </li>
@@ -335,24 +314,20 @@
           </li>
 
         
-          <li class="toctree-l1 "><a href="make-debug.html" class="reference internal ">Depanare condițională / configurabilă</a>
-
-            
-          </li>
-
-        
           <li class="toctree-l1 current"><a href="#" class="reference internal current">Introducere în utilitarul Make și fișiere Makefile</a>
 
             
               <ul>
                 
-                  <li class="toctree-l2"><a href="#folosirea-unui-makefile-existent" class="reference internal">1) Folosirea unui Makefile existent</a></li>
+                  <li class="toctree-l2"><a href="#folosirea-unui-makefile-existent" class="reference internal">Folosirea unui Makefile existent</a></li>
                 
-                  <li class="toctree-l2"><a href="#crearea-primului-makefile" class="reference internal">2) Crearea primului Makefile</a></li>
+                  <li class="toctree-l2"><a href="#intelegerea-formatului-makefile" class="reference internal">Înțelegerea formatului Makefile</a></li>
                 
-                  <li class="toctree-l2"><a href="#fisiere-makefile-cu-alte-nume" class="reference internal">3) Fișiere Makefile cu alte nume</a></li>
+                  <li class="toctree-l2"><a href="#crearea-primului-makefile" class="reference internal">Crearea primului Makefile</a></li>
                 
-                  <li class="toctree-l2"><a href="#adaugarea-de-targeturi-pentru-crearea-fisierelor-obiect" class="reference internal">4) Adăugarea de targeturi pentru crearea fișierelor obiect</a></li>
+                  <li class="toctree-l2"><a href="#fisiere-makefile-cu-alte-nume" class="reference internal">Fișiere Makefile cu alte nume</a></li>
+                
+                  <li class="toctree-l2"><a href="#adaugarea-de-targeturi-pentru-crearea-fisierelor-obiect" class="reference internal">Adăugarea de targeturi pentru crearea fișierelor obiect</a></li>
                 
               </ul>
             
@@ -365,13 +340,31 @@
           </li>
 
         
-          <li class="toctree-l1 "><a href="make-contribute.html" class="reference internal ">Contribuirea la un proiect existent pe GitHub</a>
+          <li class="toctree-l1 "><a href="git-intro.html" class="reference internal ">Introducere în Git și GitHub</a>
 
             
           </li>
 
         
-          <li class="toctree-l1 "><a href="extra.html" class="reference internal ">Exerciții suplimentare</a>
+          <li class="toctree-l1 "><a href="git-first-commits.html" class="reference internal ">Primele commituri</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="git-branches.html" class="reference internal ">Lucrul pe branch-uri</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="git-first-pull-request.html" class="reference internal ">Crearea unui Pull Request (PR) pe GitHub</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="extra.html" class="reference internal ">Exercițîi suplimentare</a>
 
             
           </li>
@@ -386,19 +379,19 @@
       </p>
       <ul class="">
         
-          <li class="toctree-l1 "><a href="../net/browser.html" class="reference internal ">Folosirea eficientă a browser-ului</a>
+          <li class="toctree-l1 "><a href="../net/browser.html" class="reference internal ">Folosirea eficientă a browserului</a>
 
             
           </li>
 
         
-          <li class="toctree-l1 "><a href="../net/troubleshoot.html" class="reference internal ">Verificarea conectivităţii la reţea</a>
+          <li class="toctree-l1 "><a href="../net/connection.html" class="reference internal ">Conectarea la rețea și la Internet</a>
 
             
           </li>
 
         
-          <li class="toctree-l1 "><a href="../net/services.html" class="reference internal ">Servicii şi clienţi de reţea</a>
+          <li class="toctree-l1 "><a href="../net/services.html" class="reference internal ">Servicii și clienți de rețea</a>
 
             
           </li>
@@ -419,7 +412,7 @@
       </p>
       <ul class="">
         
-          <li class="toctree-l1 "><a href="../app-install/start.html" class="reference internal ">Pornirea aplicațiilor</a>
+          <li class="toctree-l1 "><a href="../app-install/start.html" class="reference internal ">Pornirea și oprirea aplicațiilor</a>
 
             
           </li>
@@ -431,13 +424,13 @@
           </li>
 
         
-          <li class="toctree-l1 "><a href="../app-install/config.html" class="reference internal ">Configurarea aplicațiilor</a>
+          <li class="toctree-l1 "><a href="../app-install/config.html" class="reference internal ">Configurarea rulării aplicațiilor</a>
 
             
           </li>
 
         
-          <li class="toctree-l1 "><a href="../app-install/summary1.html" class="reference internal ">Sumar: Pornirea, rularea și configurarea aplicațiilor</a>
+          <li class="toctree-l1 "><a href="../app-install/summary1.html" class="reference internal ">Exerciții: Pornirea, rularea și configurarea aplicațiilor</a>
 
             
           </li>
@@ -455,13 +448,7 @@
           </li>
 
         
-          <li class="toctree-l1 "><a href="../app-install/install-non-standard.html" class="reference internal ">Instalarea și dezinstalarea aplicațiilor în mod nestandard</a>
-
-            
-          </li>
-
-        
-          <li class="toctree-l1 "><a href="../app-install/update.html" class="reference internal ">Actualizarea aplicațiilor</a>
+          <li class="toctree-l1 "><a href="../app-install/install-non-standard.html" class="reference internal ">Alternative la instalarea și dezinstalarea aplicațiilor</a>
 
             
           </li>
@@ -473,7 +460,7 @@
           </li>
 
         
-          <li class="toctree-l1 "><a href="../app-install/summary2.html" class="reference internal ">Sumar: Instalarea, dezinstalarea, investigarea, actualizarea aplicațiilor</a>
+          <li class="toctree-l1 "><a href="../app-install/summary2.html" class="reference internal ">Exerciții: Instalarea și gestiunea aplicațiilor</a>
 
             
           </li>
@@ -599,18 +586,18 @@
   <ul class="breadcrumbs">
     <li><a href="../../index.html">Docs</a> &raquo;</li>
     
-    <li><span class="section-number">10. </span>Introducere în utilitarul Make și fișiere Makefile</li>
+    <li><span class="section-number">5. </span>Introducere în utilitarul Make și fișiere Makefile</li>
   </ul>
   
 
   <ul class="page-nav">
   <li class="prev">
-    <a href="make-debug.html"
-       title="previous chapter">← <span class="section-number">9. </span>Depanare condițională / configurabilă</a>
+    <a href="make-lib.html"
+       title="previous chapter">← <span class="section-number">4. </span>Legarea executabilelor folosind biblioteci externe</a>
   </li>
   <li class="next">
     <a href="make-advanced-automation.html"
-       title="next chapter"><span class="section-number">11. </span>Aprofundarea folosirii fișierelor Makefile →</a>
+       title="next chapter"><span class="section-number">6. </span>Aprofundarea folosirii fișierelor Makefile →</a>
   </li>
 </ul>
   
@@ -619,59 +606,244 @@
           <div class="content" role="main">
             
   <section id="introducere-in-utilitarul-make-si-fisiere-makefile">
-<h1><span class="section-number">10. </span>Introducere în utilitarul Make și fișiere Makefile<a class="headerlink" href="#introducere-in-utilitarul-make-si-fisiere-makefile" title="Permalink to this heading">¶</a></h1>
+<span id="app-dev-simple-make"></span><h1><span class="section-number">5. </span>Introducere în utilitarul Make și fișiere Makefile<a class="headerlink" href="#introducere-in-utilitarul-make-si-fisiere-makefile" title="Link to this heading">¶</a></h1>
+<p>În secțiunile anterioare, am compilat fișiere cod sursă C folosind compilatorul GCC.
+Dezvoltarea unui program este un proces <em>continuu</em>, nu scriem tot codul dintr-o singură iterație și de multe ori ajungem să îl modificăm pe parcurs.
+Vrem să testăm schimbările aduse în program.
+Pentru aceasta trebuie să <em>recompilăm</em> fișierele pe care le-am modificat și să creăm un nou executabil.</p>
+<p>Automatizarea procesului de compilare ne ajută să fim eficienți atunci când dezvoltăm un proiect:
+* În loc să dăm de fiecare dată toate comenzile pentru recompilarea fișierelor, putem să dăm o singură comandă care să le facă pe toate.
+* Putem să evităm compilarea unor fișiere pe care nu le-am modificat de la ultima compilare, astfel salvând mult timp.
+Acest proces se numește <em>build automation</em>.
+Există mai multe soluții de build automation <a class="footnote-reference brackets" href="#build-automation" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>.
+În această carte vom folosi utilitarul <a class="reference external" href="https://linux.die.net/man/1/make">Make</a> împreună cu fișiere <a class="reference external" href="https://www.gnu.org/software/make/manual/make.html#Makefiles">Makefile</a> ca să automatizăm procesul de compilare.</p>
+<p>În secțiunile următoare vom vedea cum funcționează utilitarul <code class="docutils literal notranslate"><span class="pre">make</span></code> și cum arată un fișier Makefile.
+După, vom crea un fișier Makefile pentru un proiect dat.</p>
 <section id="folosirea-unui-makefile-existent">
-<h2><span class="section-number">10.1. </span>1) Folosirea unui Makefile existent<a class="headerlink" href="#folosirea-unui-makefile-existent" title="Permalink to this heading">¶</a></h2>
-<p>Aici vor avea la dispoziție un director cu cod sursă și Makefile și vor
-rula toate targeturile din Makefile, pe rând, și vor observa care este efectul fiecăreia.
-Abia după ce se acomodează cu acest lucru își vor crea propriul Makefile.</p>
+<span id="app-dev-use-makefile"></span><h2><span class="section-number">5.1. </span>Folosirea unui Makefile existent<a class="headerlink" href="#folosirea-unui-makefile-existent" title="Link to this heading">¶</a></h2>
+<p>În această secțiune vom compila programul <a class="reference external" href="https://rextester.com/WYT71966">Hangman</a> folosind un fișier Makefile.</p>
+<p>Întrăm în directorul <code class="docutils literal notranslate"><span class="pre">~/support/simple-make</span></code> folosind comanda <code class="docutils literal notranslate"><span class="pre">cd</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>~/support/simple-make
+student@uso:~/support/simple-make$<span class="w"> </span>ls
+hangman.c<span class="w">  </span>Makefile
+</pre></div>
+</div>
+<p>Avem în director un fișier cod sursă C, <code class="docutils literal notranslate"><span class="pre">hangman.c</span></code>, și un fișier Makefile existent, astfel că putem utiliza comanda <code class="docutils literal notranslate"><span class="pre">make</span></code>.
+Aceasta va rula scriptul scris în Makefile, care, în cazul nostru, urmărește compilarea fișierului hangman.c.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/support/simple-make$<span class="w"> </span>make
+gcc<span class="w"> </span>-c<span class="w"> </span>hangman.c
+gcc<span class="w"> </span>-o<span class="w"> </span>hangman<span class="w"> </span>hangman.o
+student@uso:~/support/simple-make$<span class="w"> </span>ls
+hangman<span class="w">  </span>hangman.c<span class="w">  </span>hangman.o<span class="w">  </span>Makefile
+</pre></div>
+</div>
+<p>Comanda <code class="docutils literal notranslate"><span class="pre">make</span></code> a rulat, de fapt, 2 comenzi:</p>
+<ol class="arabic simple">
+<li><p>De <em>compilare</em>: <code class="docutils literal notranslate"><span class="pre">gcc</span> <span class="pre">-c</span> <span class="pre">hangman.c</span></code>, comandă prin care am creat fișierul obiect <code class="docutils literal notranslate"><span class="pre">hangman.o</span></code></p></li>
+<li><p>De <em>legare</em>: <code class="docutils literal notranslate"><span class="pre">gcc</span> <span class="pre">-o</span> <span class="pre">hangman</span> <span class="pre">hangman.o</span></code>, comandă prin care am creat executabilul <code class="docutils literal notranslate"><span class="pre">hangman</span></code>.</p></li>
+</ol>
+<p>Practic, scriind doar comanda <code class="docutils literal notranslate"><span class="pre">make</span></code>, am trecut fișierul <code class="docutils literal notranslate"><span class="pre">hangman.c</span></code> prin toate etapele compilării și am obținut executabilul final, așa cum am făcut în secțiunea <a class="reference internal" href="make-multiple.html#app-dev-compile-multiple-sources"><span class="std std-ref">Compilarea programului din surse multiple</span></a> pentru fișierele <code class="docutils literal notranslate"><span class="pre">main.c</span></code> și <code class="docutils literal notranslate"><span class="pre">algorithms.c</span></code>.</p>
+<p>Rulăm executabilul <code class="docutils literal notranslate"><span class="pre">hangman</span></code> ca să vedem că funcționează, ca în imaginea de mai jos:</p>
+<figure class="align-default">
+<img alt="Rularea programului ``hangman``" src="../../_images/run-hangman.gif" />
+</figure>
+</section>
+<section id="intelegerea-formatului-makefile">
+<span id="app-dev-understand-makefile"></span><h2><span class="section-number">5.2. </span>Înțelegerea formatului Makefile<a class="headerlink" href="#intelegerea-formatului-makefile" title="Link to this heading">¶</a></h2>
+<p>În secțiunea anterioară, <a class="reference internal" href="#app-dev-use-makefile"><span class="std std-ref">Folosirea unui Makefile existent</span></a>, am folosit fișierul <code class="docutils literal notranslate"><span class="pre">Makefile</span></code> ca să compilăm programul Hangman.
+Ca să putem crea un Makefile pentru un proiect al nostru, trebuie să înțelegem formatul fișierului Makefile.
+În această secțiune vom folosi fișierul Makefile pe care l-am folosit anterior ca suport.</p>
+<p>Fișierul <code class="docutils literal notranslate"><span class="pre">Makefile</span></code> folosit la programul Hangman are următorul conținut:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">all</span><span class="p">:</span> <span class="n">hangman</span>
+
+<span class="n">hangman</span><span class="p">:</span> <span class="n">hangman</span><span class="o">.</span><span class="n">o</span>
+    <span class="n">gcc</span> <span class="o">-</span><span class="n">o</span> <span class="n">hangman</span> <span class="n">hangman</span><span class="o">.</span><span class="n">o</span>
+
+<span class="n">hangman</span><span class="o">.</span><span class="n">o</span><span class="p">:</span> <span class="n">hangman</span><span class="o">.</span><span class="n">c</span>
+    <span class="n">gcc</span> <span class="o">-</span><span class="n">c</span> <span class="n">hangman</span><span class="o">.</span><span class="n">c</span>
+
+<span class="n">clean</span><span class="p">:</span>
+    <span class="n">rm</span> <span class="o">-</span><span class="n">rf</span> <span class="o">*.</span><span class="n">o</span> <span class="n">hangman</span>
+</pre></div>
+</div>
+<p>Liniile din fișier sunt de două tipuri:</p>
+<p>#. <strong>Regulă</strong>, care are formatul <code class="docutils literal notranslate"><span class="pre">regulă:</span> <span class="pre">&lt;dependență&gt;</span></code> (<code class="docutils literal notranslate"><span class="pre">all:</span> <span class="pre">hangman</span></code> sau <code class="docutils literal notranslate"><span class="pre">clean:</span></code>). Regula trebuie să existe, dependența este opțională. Vom explica ce este o dependentă în secțiunea <span class="xref std std-ref">app_dev_dependency_makefile</span>
+O <em>regulă</em> din fișierul Makefile este, de fapt, un nume asociat unui unei comenzi.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/support/simple-make$<span class="w"> </span>make<span class="w"> </span>clean
+rm<span class="w"> </span>*.o<span class="w"> </span>hangman
+student@uso:~/support/simple-make$<span class="w"> </span>ls
+hangman.c<span class="w">   </span>Makefile
+</pre></div>
+</div>
+<p>#. Observăm deci că putem rula <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">+</span> <span class="pre">&lt;nume</span> <span class="pre">regulă&gt;</span></code>, dar și <code class="docutils literal notranslate"><span class="pre">make</span></code> simplu. Utilizând prima formă, din fișierul Makefile se va executa doar regula dorită, în cazul nostru fiind codul specific regulii ‘clean’.
+Utilizând a doua formă, simplă, se va apela implicit prima regulă găsită din fișierul Makefile, în cazul nostru regula ‘all’. Aceasta la rândul ei poate trimite către una sau mai multe reguli care să fie executate în succesiune, în cazul nostru urmând regula ‘hangman’.</p>
 </section>
 <section id="crearea-primului-makefile">
-<h2><span class="section-number">10.2. </span>2) Crearea primului Makefile<a class="headerlink" href="#crearea-primului-makefile" title="Permalink to this heading">¶</a></h2>
-<p>Vor crea un Makefile simplu.</p>
-<section id="a-adaugarea-targetului-all">
-<h3><span class="section-number">10.2.1. </span>a. Adăugarea targetului all<a class="headerlink" href="#a-adaugarea-targetului-all" title="Permalink to this heading">¶</a></h3>
-<p>Vor adăuga targetul all.</p>
+<span id="app-dev-create-first-makefile"></span><h2><span class="section-number">5.3. </span>Crearea primului Makefile<a class="headerlink" href="#crearea-primului-makefile" title="Link to this heading">¶</a></h2>
+<p>În această secțiune vom crea un Makefile pentru programul TODO. Scopul final este să avem un target pentru compilare și unul pentru curățarea directorului sursă.</p>
+<section id="adaugarea-targetului-all">
+<span id="app-dev-add-all-target-makefile"></span><h3><span class="section-number">5.3.1. </span>Adăugarea targetului all<a class="headerlink" href="#adaugarea-targetului-all" title="Link to this heading">¶</a></h3>
+<p>În directorul TODO avem fișierul cod sursă TODO:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>TODO
+student@uso:<span class="w"> </span>ls
+TODO.c
+</pre></div>
+</div>
+<p>Creăm un fișier numit <cite>Makefile</cite> în care vom scrie primul target: <cite>all</cite> care trebuie să compileze codul sursă:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:<span class="w"> </span>touch<span class="w"> </span>Makefile
+student@uso:<span class="w"> </span>cat<span class="w"> </span>Makefile
+all:
+<span class="w">    </span>gcc<span class="w"> </span>-o<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>TODO.c
+</pre></div>
+</div>
+<p>Ne asigurăm că Makefile-ul funcționează corect:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:<span class="w"> </span>make<span class="w"> </span>all<span class="w"> </span><span class="c1"># sau doar simplu &#39;make&#39;, pentru că va chema prima regulă</span>
+gcc<span class="w"> </span>-o<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>TODO.c
+
+student@uso:<span class="w"> </span>./exec
+<span class="s2">&quot;Hello World!&quot;</span>
+</pre></div>
+</div>
 </section>
-<section id="b-adaugarea-targetului-clean">
-<h3><span class="section-number">10.2.2. </span>b. Adăugarea targetului clean<a class="headerlink" href="#b-adaugarea-targetului-clean" title="Permalink to this heading">¶</a></h3>
-<p>Vor adăuga targetul clean.</p>
-</section>
-<section id="c-adaugarea-fisierului-makefile-in-repository">
-<h3><span class="section-number">10.2.3. </span>c. Adăugarea fișierului Makefile în repository<a class="headerlink" href="#c-adaugarea-fisierului-makefile-in-repository" title="Permalink to this heading">¶</a></h3>
-<p>Vor comite modificările făcute anterior.</p>
+<section id="adaugarea-targetului-clean">
+<span id="app-dev-add-clean-target-makefile"></span><h3><span class="section-number">5.3.2. </span>Adăugarea targetului clean<a class="headerlink" href="#adaugarea-targetului-clean" title="Link to this heading">¶</a></h3>
+<p>Targetul <cite>clean</cite> este folositor pentru a șterge fișierele generate în urma procesului de compilare. Aceste fișiere sunt de obicei executabile și fișiere obiect, dar nu se limitează la acestea.
+Adăugăm targetul <cite>clean</cite> la fișierul <cite>Makefile</cite> creat anterior.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:<span class="w"> </span>cat<span class="w"> </span>Makefile
+all:
+<span class="w">    </span>gcc<span class="w"> </span>-o<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>TODO.c
+
+clean:
+<span class="w">    </span>rm<span class="w"> </span><span class="nb">exec</span>
+</pre></div>
+</div>
+<p>Testăm că regula funcționează corect.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:<span class="w"> </span>ls
+<span class="nb">exec</span>
+Makefile
+TODO.c
+student@uso:<span class="w"> </span>make<span class="w"> </span>clean
+rm<span class="w"> </span><span class="nb">exec</span>
+student@uso:<span class="w">  </span>ls
+Makefile
+TODO.c
+</pre></div>
+</div>
 </section>
 </section>
 <section id="fisiere-makefile-cu-alte-nume">
-<h2><span class="section-number">10.3. </span>3) Fișiere Makefile cu alte nume<a class="headerlink" href="#fisiere-makefile-cu-alte-nume" title="Permalink to this heading">¶</a></h2>
-<p>Aici vor redenumi fișierul Makefile creat anterior și îl vor folosi folosind <cite>make -f</cite>.
-De asemenea vor comite această schimbare.</p>
+<span id="app-dev-other-names-makefile"></span><h2><span class="section-number">5.4. </span>Fișiere Makefile cu alte nume<a class="headerlink" href="#fisiere-makefile-cu-alte-nume" title="Link to this heading">¶</a></h2>
+<p>Fișierele <cite>Makefile</cite> au în general numele <cite>Makefile</cite>, însă, într-un proiect mai mare pot exista mai multe fișiere Makefile în același loc, și deci vrem să le diferențiem. Facem asta dându-le câte un nume unic.
+Utilitarul <cite>make</cite> se uită, predefinit, după fișiere numite <cite>GNUmakefile</cite>, <cite>makefile</cite>, și <cite>Makefile</cite>. Pentru a putea avea un fișier Makefile cu nume propriu, folosim opțiunea <cite>make -f</cite>.</p>
+<p>Redenumim fișierul <cite>Makefile</cite> anterior în <cite>Makefile.TODO</cite> și compilăm din nou codul sursă:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:<span class="w"> </span>mv<span class="w"> </span>Makefile<span class="w"> </span>Makefile.TODO
+student@uso:<span class="w"> </span>make<span class="w"> </span>-f<span class="w"> </span>Makefile.TODO
+gcc<span class="w"> </span>-o<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>TODO.c
+student@uso:<span class="w"> </span>./exec
+<span class="s2">&quot;Hello World!&quot;</span>
+</pre></div>
+</div>
+<p>Observăm că efectul compilării este același.</p>
 </section>
 <section id="adaugarea-de-targeturi-pentru-crearea-fisierelor-obiect">
-<h2><span class="section-number">10.4. </span>4) Adăugarea de targeturi pentru crearea fișierelor obiect<a class="headerlink" href="#adaugarea-de-targeturi-pentru-crearea-fisierelor-obiect" title="Permalink to this heading">¶</a></h2>
-<p>Vor adăuga câte un target pentru fiecare fișier cod sursă pentru a-l compila până la modul obiect.</p>
+<span id="app-dev-add-target-for-object-files-makefile"></span><h2><span class="section-number">5.5. </span>Adăugarea de targeturi pentru crearea fișierelor obiect<a class="headerlink" href="#adaugarea-de-targeturi-pentru-crearea-fisierelor-obiect" title="Link to this heading">¶</a></h2>
+<p>Am văzut în secțiunea <a class="reference internal" href="#app-dev-use-makefile"><span class="std std-ref">Folosirea unui Makefile existent</span></a> că atunci când am compilat codul sursă pentru jocul Hangman, acesta a trecut mai întâi prin etapa de cod obiect și abia după am obținut fișierul executabil.</p>
+<p>Pentru a face acest lucru pentru proiectul TODO, vom crea mai întâi targeturi pentru crearea fișierelor obiect în fișierul Makefile. Creăm targetul <cite>TODO.o</cite> care are scopul de a compila fișierul <cite>TODO.c</cite> până în stadiul de fișier obiect.
+La fel facem și pentru celelalte fișiere cod sursă din proiect.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:<span class="w"> </span>cat<span class="w"> </span>Makefile
+all:
+<span class="w">    </span>gcc<span class="w"> </span>-o<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>TODO.c
+
+TODO.o:<span class="w"> </span>TODO.c
+<span class="w">    </span>gcc<span class="w"> </span>-c<span class="w"> </span>TODO.c
+
+clean:
+<span class="w">    </span>rm<span class="w"> </span><span class="nb">exec</span>
+</pre></div>
+</div>
+<p>Creăm fișierele obiect pentru fiecare cod sursă în parte:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:<span class="w"> </span>make<span class="w"> </span>TODO.o
+gcc<span class="w"> </span>-c<span class="w"> </span>TODO.c
+</pre></div>
+</div>
 <section id="modificarea-targetului-de-creare-a-executabilului">
-<h3><span class="section-number">10.4.1. </span>5) Modificarea targetului de creare a executabilului<a class="headerlink" href="#modificarea-targetului-de-creare-a-executabilului" title="Permalink to this heading">¶</a></h3>
-<p>Vor modifica targetul existent astfel încât executabilul final să fie
-obținut din module obiect.</p>
+<span id="app-dev-update-build-target-makefile"></span><h3><span class="section-number">5.5.1. </span>Modificarea targetului de creare a executabilului<a class="headerlink" href="#modificarea-targetului-de-creare-a-executabilului" title="Link to this heading">¶</a></h3>
+<p>Acum că avem targeturi pentru creearea fișierelor obiect, trebuie să modificăm targetul pentru compilarea executabilului final. Acesta trebuie să folosească acum fișierele obiect în loc de fișierele cod sursă pentru a compila programul.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:<span class="w"> </span>cat<span class="w"> </span>Makefile
+all:<span class="w"> </span>make_exec
+
+make_exec:<span class="w"> </span>TODO.o
+<span class="w">    </span>gcc<span class="w"> </span>-o<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>TODO.c
+
+TODO.o:<span class="w"> </span>TODO.c
+<span class="w">    </span>gcc<span class="w"> </span>-c<span class="w"> </span>TODO.c
+clean:
+<span class="w">    </span>rm<span class="w"> </span><span class="nb">exec</span>
+</pre></div>
+</div>
 </section>
 <section id="modificarea-targetului-clean">
-<h3><span class="section-number">10.4.2. </span>6) Modificarea targetului clean<a class="headerlink" href="#modificarea-targetului-clean" title="Permalink to this heading">¶</a></h3>
-<p>Vor adăuga fișierele obiect la targetul clean.</p>
+<span id="app-dev-update-clean-target-makefile"></span><h3><span class="section-number">5.5.2. </span>Modificarea targetului clean<a class="headerlink" href="#modificarea-targetului-clean" title="Link to this heading">¶</a></h3>
+<p>Fișierele obiect obținute prin targeturile intermediare sunt fișiere generate care nu ne trebuie pentru a putea rula programul final. Acestea sunt fișiere pe care nu vrem să le păstrăm în proiectul nostru mereu deoarece le vom regenera de fiecare dată când avem nevoie. Modificăm targetul <cite>clean</cite> astfel încât acesta să șteargă și fișierele obiect generate pe parcursul compilării.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:<span class="w"> </span>cat<span class="w"> </span>Makefile
+all:<span class="w"> </span>make_exec
+
+make_exec:<span class="w"> </span>TODO.o
+<span class="w">    </span>gcc<span class="w"> </span>-o<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>TODO.c
+
+TODO.o:<span class="w"> </span>TODO.c
+<span class="w">    </span>gcc<span class="w"> </span>-c<span class="w"> </span>TODO.c
+clean:
+<span class="w">    </span>rm<span class="w"> </span><span class="nb">exec</span>
+<span class="w">    </span>rm<span class="w"> </span>*.o
+</pre></div>
+</div>
 </section>
 <section id="testarea-fisierului-makefile">
-<h3><span class="section-number">10.4.3. </span>7) Testarea fișierului Makefile<a class="headerlink" href="#testarea-fisierului-makefile" title="Permalink to this heading">¶</a></h3>
-<p>Vor testa toate targeturile și vor observa încă de aici că fișierele se recompilează
-la fiecare rulare a targetului indiferent dacă fișierul obținut a fost modificat sau nu.</p>
-</section>
-<section id="crearea-unui-nou-commit-cu-modificarilor-facute">
-<h3><span class="section-number">10.4.4. </span>8) Crearea unui nou commit cu modificărilor făcute<a class="headerlink" href="#crearea-unui-nou-commit-cu-modificarilor-facute" title="Permalink to this heading">¶</a></h3>
-<p>Vor comite modificările aduse asupra fișierului Makefile.</p>
-</section>
-<section id="wildcards">
-<h3><span class="section-number">10.4.5. </span>9) Wildcards<a class="headerlink" href="#wildcards" title="Permalink to this heading">¶</a></h3>
-<p>Acum că ați înțeles importanța compilării separate, cum am proceda
-pentru un proiect care are sute de fișiere sursă? Goto wildcards.</p>
+<span id="app-dev-test-makefile"></span><h3><span class="section-number">5.5.3. </span>Testarea fișierului Makefile<a class="headerlink" href="#testarea-fisierului-makefile" title="Link to this heading">¶</a></h3>
+<p>În secțiunile anterioare, am creat un fișier Makefile care trece codul sursă al programului TODO mai întâi prin etapa de cod obiect, după care în aduce în starea finală de executabil. Testăm Makefile-ul pe care l-am făcut.
+Rulăm comanda <cite>make</cite> în terminal. În urma rulării ei obținem executabilul TODO.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:<span class="w"> </span>make
+gcc<span class="w"> </span>-c<span class="w"> </span>TODO.c
+gcc<span class="w"> </span>-o<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>TODO.c
+student@uso:<span class="w"> </span>ls
+<span class="nb">exec</span>
+Makefile
+TODO.c
+TODO.o
+</pre></div>
+</div>
+<p>Ștergem toate fișierele generate (obiect și executabil) folosind targetul <cite>clean</cite>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:<span class="w"> </span>make<span class="w"> </span>clean
+rm<span class="w"> </span><span class="nb">exec</span>
+rm<span class="w"> </span>*.o
+</pre></div>
+</div>
+<p>Anterior, când am rulat targetul <cite>make</cite>, acesta a putut să creeze fișierul executabil TODO din fișierele obiect TODO deoarece acestea erau deja generate.
+Acum, avem un director curat, fără fișiere generate. Compilăm încă o dată tot proiectul:</p>
+<p>Mai întâi generăm fișierele obiect, după care generăm fișierul executabil:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:<span class="w"> </span>make<span class="w"> </span>TODO.O
+gcc<span class="w"> </span>-c<span class="w"> </span>TODO.c
+student@uso:<span class="w"> </span>make<span class="w"> </span>TODO
+gcc<span class="w"> </span>-o<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>TODO.c
+</pre></div>
+</div>
+<p>Faptul că trebuie să dăm 2 comenzi în terminal pentru a compila un program nu este ideal. Ce ne facem dacă avem mai multe fișiere? În secțiunea următoare, <span class="xref std std-ref">app_dev_advanced_makefile</span>, vom vedea cum adăugăm dependențe pentru reguli astfel încât în final, să folosim doar comanda <cite>make</cite> în terminal pentru a trece fișierul cod sursă prin toate etapele compilării.</p>
+<p>Ștergem fișierele generate folosind comanda <cite>make clean</cite>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:<span class="w"> </span>make<span class="w"> </span>clean
+rm<span class="w"> </span><span class="nb">exec</span>
+rm<span class="w"> </span>*.o
+</pre></div>
+</div>
+<p class="rubric">Note de subsol</p>
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="build-automation" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
+<p>Exemple de soluții de build automation sunt <a class="reference external" href="https://maven.apache.org">Maven</a>, <a class="reference external" href="https://ant.apache.org">Ant</a>, <a class="reference external" href="https://gradle.org">Gradle</a>.</p>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/Build_automation">https://en.wikipedia.org/wiki/Build_automation</a></p>
+<p><a class="reference external" href="https://www.softwaretestinghelp.com/best-build-automation-software-tools/">https://www.softwaretestinghelp.com/best-build-automation-software-tools/</a></p>
+</aside>
+</aside>
 </section>
 </section>
 </section>
@@ -681,17 +853,17 @@ pentru un proiect care are sute de fișiere sursă? Goto wildcards.</p>
           <div class="page-nav">
             <div class="inner"><ul class="page-nav">
   <li class="prev">
-    <a href="make-debug.html"
-       title="previous chapter">← <span class="section-number">9. </span>Depanare condițională / configurabilă</a>
+    <a href="make-lib.html"
+       title="previous chapter">← <span class="section-number">4. </span>Legarea executabilelor folosind biblioteci externe</a>
   </li>
   <li class="next">
     <a href="make-advanced-automation.html"
-       title="next chapter"><span class="section-number">11. </span>Aprofundarea folosirii fișierelor Makefile →</a>
+       title="next chapter"><span class="section-number">6. </span>Aprofundarea folosirii fișierelor Makefile →</a>
   </li>
 </ul><div class="footer" role="contentinfo">
       &#169; Copyright 2020, USO Team.
     <br>
-    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 5.2.3 with <a href="https://github.com/romnn/sphinx_press_theme">Press Theme</a>.
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 7.2.5 with <a href="https://github.com/romnn/sphinx_press_theme">Press Theme</a>.
 </div>
             </div>
           </div>

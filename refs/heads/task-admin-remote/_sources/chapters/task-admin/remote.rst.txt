@@ -4,8 +4,6 @@ Conectarea la workstation
 =========================
 
 
-RD: Nota asta e doar pentru laboratorul de USO, trebuie adaptată pentru acest repository.
-
 .. note::
 
     Pentru a parcurge această secțiune este recomandat să descărcați ultima versiune a respository-ului laboratorului.
@@ -24,7 +22,7 @@ Câteva soluții de conectare la sistem pe care le vom aborda sunt:
 
 * VPN
 * tunel SSH
-* DDNS (*Dynamic Domain Name System)*
+* DDNS (*Dynamic Domain Name System*)
 
 Nu vom aborda soluția bazată pe DDNS, deoarece aceasta presupune că avem o adresă IP publică configurată pe ruterul primit de la furnizorul de Internet, dar acest lucru nu este valabil pentru majoritatea stațiilor.
 
@@ -38,9 +36,7 @@ Problema adreselor IP private
     Pentru rularea acestui demo, rulați în directorul ``~/uso.git/labs/03-user/lab-containers/`` comanda ``./lab_prepare.sh install remote`` și comanda  ``./lab_prepare.sh install local``
     Pentru a ne conecta la infrastructura pentru această secțiune, vom folosi comanda ``./lab_prepare.sh connect`` având ca parametru numele mașinii la care vrem să ne conectăm, ``local`` sau ``remote``.
 
-RD: Referință la capitolul de conectivitate
-
-Adresele IPv4 au fost proiectate pentru a fi identificatori unici în Internet pentru stații.
+Adresele IPv4 au fost proiectate pentru a fi identificatori unici în Internet pentru stații, așa cum este prezentat în capitolul :ref:`network_connection_internet`.
 Acestea pot să identifice maxim :math:`2^{32}` stații în Internet.
 Însă acum există mai multe dispozitive conectate la Internet decât există adrese IPv4 care se pot asigna pe dispozitive.
 
@@ -58,11 +54,12 @@ Intervalele adreselor IPv4 private sunt următoarele:
 
 Nicio adresă IP din intervalele de mai sunt nu poate fi accesată direct din Internet.
 
-În această subsecțiune vom lucra cu 3 (RD: 2?) stații care sunt distribuite în felul următor:
+În această subsecțiune vom lucra cu 2 stații care sunt distribuite în felul următor:
+
 * ``local``, reprezintă stația "locală", adică laptopul de pe care ne-am conecta, dacă ar fi vorba de un scenariu real; are o singură interfață de rețea cu adresa IP ``10.10.10.3``;
 * ``remote``, reprezintă workstationul la care vrem să ne conectăm; are o singură interfață cu adresa IP ``10.11.11.3``.
 
-Vom verifica conectivitatea cu stația ``remote`` de pe stația ``local`` folosind comanda ``ping`` (am introdus utilitarul ``ping`` în capitolul TODO):
+Vom verifica conectivitatea cu stația ``remote`` de pe stația ``local`` folosind comanda ``ping`` (am introdus utilitarul ``ping`` în secțiunea :ref:`network_connection_internet_ping`).
 
 .. code-block::
 
@@ -91,12 +88,10 @@ Conectarea prin VPN
 -------------------
 
 O primă soluție pentru conectarea la o stație care folosește o adresă IP privată o reprezintă serviciile de tip VPN (*Virtual Private Network*).
-Acestea conectează două stații care în mod fizic nu sunt conectate la aceeași rețea <TODO ref capitol rețea>.
+Acestea conectează două stații care în mod fizic nu sunt conectate la aceeași rețea.
 
 Pentru această soluție avem două moduri de conectare: folosind un server public pe care îl configurăm noi drept server de VPN, sau folosirea unui serviciu public de VPN cum ar fi `Hamachi <www.vpn.com/>`_ sau `ZeroTier <www.zerotier.com/>`_.
 Am folosit ca exemplu serviciile Hamachi sau ZeroTier, deoarece acestea pot fi folosite gratuit și sunt ușor de configurat, așa cum reiese din tabelul de mai jos.
-
-RD: sunt ciudate liniile libere în tabel. Ce reprezintă?
 
 .. list-table:: Soluții VPN
    :widths: 25 25 50
@@ -284,7 +279,7 @@ Pentru folosirea unui VPN privat este nevoie să avem o stație în Internet la 
 Putem obține acces la astfel de stații cumpărând acces la o mașină virtuală de la un serviciu de hosting, cum ar fi AWS, DigitalOcean, Microsoft Azure sau Linode.
 
 Odată ce am obținut o stație cu o adresă IP publică, este nevoie să configurăm un serviciu de VPN.
-Pentru aceasta putem folosi infrastructura pe care am prezentat-o în capitolul de rețelistică (TODO: referință), infrastructură care pornește un server OpenVPN.
+Pentru aceasta putem folosi infrastructura pe care am prezentat-o în secțiunea :ref:`network_connection`, infrastructură care pornește un server OpenVPN.
 
 .. _task_admin_remote_tunnel:
 
@@ -317,7 +312,7 @@ Stațiile ``local`` și ``remote`` nu au conectivitate între ele, dar au conect
 
 În continuare descriem pașii pentru folosirea tunelului SSH, pași care sunt prezentați și în animația de mai jos.
 
-.. figure:: ./img/reverse-ssh/reverse-ssh-tunnel.gif
+.. figure:: ./img/reverse-ssh-tunnel.gif
   :alt: Folosirea unui tunel invers SSH
   :align: center
 
