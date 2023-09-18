@@ -1,0 +1,1043 @@
+<!DOCTYPE html>
+<html  lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+      <title>5. Arhive</title>
+    
+      <link rel="stylesheet" href="../../_static/pygments.css">
+      <link rel="stylesheet" href="../../_static/theme.css">
+      <link rel="stylesheet" href="../../_static/romnn_sphinx_press_theme.css">
+          <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+          <link rel="stylesheet" href="../../_static/css/theme.css " type="text/css" />
+      
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+
+      <!-- sphinx script_files -->
+        <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../_static/my_actions.js?v=1451d81f"></script>
+
+      
+      <script src="../../_static/theme-vendors.js"></script>
+      <script src="../../_static/theme.js" defer></script>
+    
+  <link rel="index" title="Index" href="../../genindex.html" />
+  <link rel="search" title="Search" href="../../search.html" />
+  <link rel="next" title="6. Extra - Sistemul de fișiere" href="file_system.html" />
+  <link rel="prev" title="4. Redirectări" href="io_redirection.html" />
+    <link href="../../_static/my_theme.css" rel="stylesheet" type="text/css">
+
+  </head>
+
+  <body>
+    <div id="app" class="theme-container" :class="pageClasses"><navbar @toggle-sidebar="toggleSidebar">
+  <div class="home-link-container">
+      <router-link to="../../index.html" class="home-link">
+      
+        <span class="site-name">USO Lab Book</span>
+    </router-link>
+  </div>
+
+  <div class="links">
+    <navlinks class="can-hide">
+
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Acomodarea în Linux
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link  router-link-active">
+         Lucrul cu fișiere
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Dezvoltarea aplicațiilor
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Conectarea la Internet
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Instalarea și utilizarea aplicațiilor
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Îmbunătățirea lucrului în linia de comandă
+      </a>
+    </div>
+  
+
+
+
+  
+    <div class="nav-item">
+      <a href="https://github.com/Sergiu121/uso-lab-book"
+        class="nav-link external">
+          Github <outboundlink/>
+      </a>
+    </div>
+  
+
+    </navlinks>
+  </div>
+</navbar>
+
+      
+      <div class="sidebar-mask" @click="toggleSidebar(false)">
+      </div>
+        <sidebar @toggle-sidebar="toggleSidebar">
+          
+          <navlinks>
+            
+
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Acomodarea în Linux
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link  router-link-active">
+         Lucrul cu fișiere
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Dezvoltarea aplicațiilor
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Conectarea la Internet
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Instalarea și utilizarea aplicațiilor
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Îmbunătățirea lucrului în linia de comandă
+      </a>
+    </div>
+  
+
+
+
+  
+    <div class="nav-item">
+      <a href="https://github.com/Sergiu121/uso-lab-book"
+        class="nav-link external">
+          Github <outboundlink/>
+      </a>
+    </div>
+  
+
+            
+          </navlinks><div id="searchbox" class="searchbox" role="search">
+  <div class="caption"><span class="caption-text">Search</span>
+    <div class="searchformwrapper">
+      <form autocomplete="off" class="search" action="../../search.html" method="get">
+        <input type="text" name="q" autocomplete="off" />
+        <input type="submit" value="Go" />
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div><div class="sidebar-links" role="navigation" aria-label="main navigation">
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#uso-lab-book">Acomodarea în Linux</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../basic/apps.html" class="reference internal ">Pornirea și oprirea aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../basic/browser.html" class="reference internal ">Folosirea eficientă a browserului web</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../basic/terminal.html" class="reference internal ">Lucrul în terminal</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../basic/workspace.html" class="reference internal ">Lucrul cu workspace-uri</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../basic/cheatsheet.html" class="reference internal ">Sumar - Cheatsheet</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#uso-lab-book">Lucrul cu fișiere</a></span>
+      </p>
+      <ul class="current">
+        
+          <li class="toctree-l1 "><a href="paths.html" class="reference internal ">Căi în ierarhia de fișiere</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="files.html" class="reference internal ">Interacțiunea cu fișiere în linia de comandă</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="file_editor.html" class="reference internal ">Editor de text</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="io_redirection.html" class="reference internal ">Redirectări</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 current"><a href="#" class="reference internal current">Arhive</a>
+
+            
+              <ul>
+                
+                  <li class="toctree-l2"><a href="#arhivare-tar" class="reference internal">Arhivare - tar</a></li>
+                
+                  <li class="toctree-l2"><a href="#comprimare-zip" class="reference internal">Comprimare - zip</a></li>
+                
+              </ul>
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="file_system.html" class="reference internal ">Extra - Sistemul de fișiere</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="cheatsheet.html" class="reference internal ">Sumar - Cheatsheet</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#uso-lab-book">Dezvoltarea aplicațiilor</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../app-dev/intro.html" class="reference internal ">Introducere</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/make-intro.html" class="reference internal ">Compilarea unui fișier cod sursă C</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/make-multiple.html" class="reference internal ">Compilarea unui program din fișiere multiple</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/make-lib.html" class="reference internal ">Legarea executabilelor folosind biblioteci externe</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/make-simple-automation.html" class="reference internal ">Introducere în utilitarul Make și fișiere Makefile</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/make-advanced-automation.html" class="reference internal ">Aprofundarea folosirii fișierelor Makefile</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/git-intro.html" class="reference internal ">Introducere în Git și GitHub</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/git-first-commits.html" class="reference internal ">Primele commituri</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/git-branches.html" class="reference internal ">Lucrul pe branch-uri</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/git-first-pull-request.html" class="reference internal ">Crearea unui Pull Request (PR) pe GitHub</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/extra.html" class="reference internal ">Exerciții suplimentare</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#uso-lab-book">Conectarea la Internet</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../net/browser.html" class="reference internal ">Folosirea eficientă a browserului</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../net/connection.html" class="reference internal ">Conectarea la rețea și la Internet</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../net/services.html" class="reference internal ">Servicii și clienți de rețea</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../net/extra.html" class="reference internal ">Funcţionalităţi suplimentare de reţelistică</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#uso-lab-book">Instalarea și utilizarea aplicațiilor</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../app-install/start.html" class="reference internal ">Pornirea și oprirea aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-install/run.html" class="reference internal ">Rularea aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-install/config.html" class="reference internal ">Configurarea rulării aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-install/summary1.html" class="reference internal ">Exerciții: Pornirea, rularea și configurarea aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-install/show-config.html" class="reference internal ">Vizualizarea configurației sistemului</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-install/install.html" class="reference internal ">Instalarea și dezinstalarea aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-install/install-non-standard.html" class="reference internal ">Alternative la instalarea și dezinstalarea aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-install/show.html" class="reference internal ">Investigarea aplicațiilor instalate</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-install/summary2.html" class="reference internal ">Exerciții: Instalarea și gestiunea aplicațiilor</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#uso-lab-book">Îmbunătățirea lucrului în linia de comandă</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../improve-cli/improve-terminal.html" class="reference internal ">Îmbunătățirea lucrului în linia de comandă</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../improve-cli/inspect-fs.html" class="reference internal ">Inspectarea sistemului de fișiere</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../improve-cli/inspect-files.html" class="reference internal ">Inspectarea fișierelor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../improve-cli/improve-shell.html" class="reference internal ">O înțelegere mai bună a shellului</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../improve-cli/improve-cli-summary.html" class="reference internal ">Sumar: Îmbunătățirea lucrului în linia de comandă</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+</div>
+        </sidebar>
+
+      <page>
+          <div class="body-header" role="navigation" aria-label="navigation">
+  
+  <ul class="breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+    
+    <li><span class="section-number">5. </span>Arhive</li>
+  </ul>
+  
+
+  <ul class="page-nav">
+  <li class="prev">
+    <a href="io_redirection.html"
+       title="previous chapter">← <span class="section-number">4. </span>Redirectări</a>
+  </li>
+  <li class="next">
+    <a href="file_system.html"
+       title="next chapter"><span class="section-number">6. </span>Extra - Sistemul de fișiere →</a>
+  </li>
+</ul>
+  
+</div>
+<hr>
+          <div class="content" role="main">
+            
+  <section id="arhive">
+<h1><span class="section-number">5. </span>Arhive<a class="headerlink" href="#arhive" title="Link to this heading">¶</a></h1>
+<p>Sunt situații în care vrem să trimitem/stocăm o ierarhie de fișiere.
+Pentru a ușura acest lucru, folosim arhive.
+Arhivele sunt o concatenare a unei ierarhii de fișiere și directoare într-un singur fișier.</p>
+<p>Există două motive pentru care am vrea să folosim arhive:</p>
+<ol class="arabic simple">
+<li><p>Să avem o ierarhie de fișiere și directoare într-un singur fișier - <em>Arhivare</em>.
+De exemplu, vrem să trimitem pe mail o ierarhie de directoare cu laboratoarele și resursele materiei USO.</p></li>
+<li><p>Ne dorim ca fișierele să ocupe mai puțin spațiu - <em>Compresie</em>.</p></li>
+</ol>
+<p><em>Comprimarea</em> este o arhivare mai specială pentru că micșorează dimensiunea fișierului rezultat.
+Rezultatul este similar: agregarea într-un singur fișier.</p>
+<p>În acest capitol vom folosi arhive de tipul <em>zip</em> și <em>tar</em>.
+Vom folosi <em>tar</em> pentru arhivare și <em>zip</em> pentru arhivare comprimată.</p>
+<section id="arhivare-tar">
+<span id="arhiva-tar"></span><h2><span class="section-number">5.1. </span>Arhivare - <strong>tar</strong><a class="headerlink" href="#arhivare-tar" title="Link to this heading">¶</a></h2>
+<section id="crearea-arhivelor">
+<h3><span class="section-number">5.1.1. </span>Crearea arhivelor<a class="headerlink" href="#crearea-arhivelor" title="Link to this heading">¶</a></h3>
+<p>Arhivele sunt utile atunci când vrem să trimitem pe mail sau să încărcăm pe un site o ierarhie de fișiere și directoare.
+Pe scurt, atunci când vrem să agregăm totul într-un singur fișier. Acesta poate fi transmis foarte ușor și ulterior dezarhivat.</p>
+<p>Creăm o arhivă cu fișierele <code class="docutils literal notranslate"><span class="pre">înregistrare_lab01.mov</span></code>, <code class="docutils literal notranslate"><span class="pre">înregistrare_lab02.mov</span></code>, <code class="docutils literal notranslate"><span class="pre">înregistrare_lab03.mov</span></code> numită <code class="docutils literal notranslate"><span class="pre">înregistrări.tar</span></code> folosind utilitarul <code class="docutils literal notranslate"><span class="pre">tar</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$<span class="w"> </span>ls<span class="w"> </span>-lh
+total<span class="w"> </span><span class="m">9</span>.0M
+-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">5</span>.0M<span class="w"> </span>Aug<span class="w"> </span><span class="m">19</span><span class="w"> </span><span class="m">11</span>:55<span class="w"> </span>înregistrare_lab01.mov
+-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">3</span>.0M<span class="w"> </span>Aug<span class="w"> </span><span class="m">19</span><span class="w"> </span><span class="m">11</span>:55<span class="w"> </span>înregistrare_lab02.mov
+-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">1</span>.0M<span class="w"> </span>Aug<span class="w"> </span><span class="m">19</span><span class="w"> </span><span class="m">11</span>:55<span class="w"> </span>înregistrare_lab03.mov
+student@uso:~$<span class="w"> </span>tar<span class="w"> </span>cvf<span class="w"> </span>înregistrări.tar<span class="w"> </span>înregistrare_lab01.mov<span class="w"> </span>înregistrare_lab02.mov<span class="w"> </span>înregistrare_lab03.mov
+înregistrare_lab01.mov
+înregistrare_lab02.mov
+înregistrare_lab03.mov
+student@uso:~$<span class="w"> </span>ls<span class="w"> </span>-lh
+total<span class="w"> </span>19M
+-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">5</span>.0M<span class="w"> </span>Aug<span class="w"> </span><span class="m">19</span><span class="w"> </span><span class="m">11</span>:55<span class="w"> </span>înregistrare_lab01.mov
+-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">3</span>.0M<span class="w"> </span>Aug<span class="w"> </span><span class="m">19</span><span class="w"> </span><span class="m">11</span>:55<span class="w"> </span>înregistrare_lab02.mov
+-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">1</span>.0M<span class="w"> </span>Aug<span class="w"> </span><span class="m">19</span><span class="w"> </span><span class="m">11</span>:55<span class="w"> </span>înregistrare_lab03.mov
+-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">9</span>.1M<span class="w"> </span>Aug<span class="w"> </span><span class="m">19</span><span class="w"> </span><span class="m">11</span>:56<span class="w"> </span>înregistrări.tar
+</pre></div>
+</div>
+<p>Observăm cum după comanda de creare a arhivei <em>tar</em> am verificat corectitudinea operației.
+Avem acum în directorul curent arhiva <code class="docutils literal notranslate"><span class="pre">înregistrări.tar</span></code>.</p>
+<p>Având trei fișiere pe care vrem să le arhivăm, folosim utilitarul <code class="docutils literal notranslate"><span class="pre">tar</span></code> împreună cu parametrii următori:</p>
+<ul class="simple">
+<li><p>c: creează arhiva;</p></li>
+<li><p>v: afișează detalii despre operație (verbose);</p></li>
+<li><p>f: folosește arhiva dată ca parametru (în cazul de față, numele ei).</p></li>
+</ul>
+<p>Arhiva nou creată ocupă 9.1 MB.
+Fișierele ce compun arhiva ocupă 5M, 3M respectiv 1M.</p>
+<p>Fișierul de tipul <em>tar</em> nou creat nu ocupă mai puțin spațiu; din contră, ocupă mai mult spațiu din cauza metadatelor <a class="footnote-reference brackets" href="#id6" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a> fișierului.</p>
+<p>Verificăm tipul fișierului folosind utilitarul <code class="docutils literal notranslate"><span class="pre">file</span></code>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$<span class="w"> </span>file<span class="w"> </span>înregistrări.tar
+înregistrări.tar:<span class="w"> </span>POSIX<span class="w"> </span>tar<span class="w"> </span>archive<span class="w"> </span><span class="o">(</span>GNU<span class="o">)</span>
+</pre></div>
+</div>
+<p>Fișierul <code class="docutils literal notranslate"><span class="pre">înregistrări.tar</span></code> este o arhivă de tip <em>tar</em>.</p>
+<section id="exercitii-creare-arhive">
+<h4><span class="section-number">5.1.1.1. </span>Exerciții - creare arhive<a class="headerlink" href="#exercitii-creare-arhive" title="Link to this heading">¶</a></h4>
+<ol class="arabic simple">
+<li><ul class="simple">
+<li><p>Creați 3 fișiere noi care să conțină pe rând numele, prenumele și anul vostru de naștere.</p></li>
+<li><p>Creați o arhivă de tipul <em>tar</em> care să conțină cele trei fișiere și care să aibă  numele <code class="docutils literal notranslate"><span class="pre">personal_data.tar</span></code>.</p></li>
+<li><p>Verificați corectitudinea operațiilor.</p></li>
+<li><p>Afișați dimensiunea arhivei.</p></li>
+<li><p>Verificați că fișierul nou creat este o arhivă <em>tar</em>.</p></li>
+</ul>
+</li>
+<li><ul class="simple">
+<li><p>Creați o arhivă a fișierelor din interiorul directorului <code class="docutils literal notranslate"><span class="pre">/usr/include/net/</span></code> cu numele <code class="docutils literal notranslate"><span class="pre">net.tar</span></code>.</p></li>
+<li><p>Verificați corectitudinea operației.</p></li>
+<li><p>Afișați dimensiunea arhivei.</p></li>
+<li><p>Verificați că fișierul nou creat este o arhivă <em>tar</em>.</p></li>
+</ul>
+</li>
+</ol>
+</section>
+</section>
+<section id="afisarea-continutului-arhivelor">
+<h3><span class="section-number">5.1.2. </span>Afișarea conținutului arhivelor<a class="headerlink" href="#afisarea-continutului-arhivelor" title="Link to this heading">¶</a></h3>
+<p>Pentru ușurința de stocare și transmitere, un coleg ne-a transmis toate înregistrările laboratoarelor filmate de el, într-o arhivă.
+Noi vrem să vedem conținutul acestei arhive.
+Putem să vedem ce fișiere conține, fără a o deschide.</p>
+<p>Facem acest lucru folosind utilitarul <code class="docutils literal notranslate"><span class="pre">tar</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$<span class="w"> </span>tar<span class="w"> </span>tf<span class="w"> </span>înregistrări.tar
+înregistrare_lab01.mov
+înregistrare_lab02.mov
+înregistrare_lab03.mov
+</pre></div>
+</div>
+<p>Pentru a vizualiza arhiva <strong>fără</strong> dezarhivare am folosit opțiunea <code class="docutils literal notranslate"><span class="pre">t</span></code>.
+Folosim opțiunea <code class="docutils literal notranslate"><span class="pre">f</span></code> pentru a specifica ce arhivă vrem să afișăm.</p>
+<section id="exercitiu-afisarea-continutului-unei-arhive">
+<h4><span class="section-number">5.1.2.1. </span>Exercițiu - afișarea conținutului unei arhive<a class="headerlink" href="#exercitiu-afisarea-continutului-unei-arhive" title="Link to this heading">¶</a></h4>
+<ul class="simple">
+<li><p>Afișați conținutul arhivelor create la exercițiul anterior <code class="docutils literal notranslate"><span class="pre">personal_data.tar</span></code> și <code class="docutils literal notranslate"><span class="pre">net.tar</span></code> <strong>fără</strong> dezarhivare.</p></li>
+</ul>
+</section>
+</section>
+<section id="extragerea-arhivelor">
+<h3><span class="section-number">5.1.3. </span>Extragerea arhivelor<a class="headerlink" href="#extragerea-arhivelor" title="Link to this heading">¶</a></h3>
+<p>Dezarhivarea este procesul opus al arhivării.
+Avem deja o arhivă de tip <em>tar</em> și vrem să extragem ierarhia din ea.</p>
+<p>În momentul în care dezarhivăm un fișier de tip <em>tar</em>, fișierele din cadrul arhivei vor fi create în directorul curent (dacă nu se specifică altfel).
+Cu alte cuvinte, ierarhia de fișiere pe care am arhivat-o se păstrează, iar în momentul dezarhivării aceasta va arăta la fel ca înainte de arhivare.
+Pentru a vedea mai clar efectul operației de dezarhivare, ștergem fișierele <code class="docutils literal notranslate"><span class="pre">înregistrare_lab01.mov</span></code>, <code class="docutils literal notranslate"><span class="pre">înregistrare_lab02.mov</span></code>, <code class="docutils literal notranslate"><span class="pre">înregistrare_lab03.mov</span></code>, adică fișierele care se află în arhiva <code class="docutils literal notranslate"><span class="pre">înregistrări.tar</span></code>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$<span class="w"> </span>rm<span class="w"> </span>înregistrare_lab01.mov<span class="w"> </span>înregistrare_lab02.mov<span class="w"> </span>înregistrare_lab03.mov
+student@uso:~$<span class="w"> </span>ls
+înregistrări.tar
+</pre></div>
+</div>
+<p>Am verificat că fișierele nu mai există.</p>
+<p>În continuare extragem fișierele din arhivă folosind <code class="docutils literal notranslate"><span class="pre">tar</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$<span class="w"> </span>tar<span class="w"> </span>xvf<span class="w"> </span>înregistrări.tar
+înregistrare_lab01.mov
+înregistrare_lab02.mov
+înregistrare_lab03.mov
+student@uso:~$<span class="w"> </span>ls<span class="w"> </span>-lh
+total<span class="w"> </span>19M
+-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">5</span>.0M<span class="w"> </span>Aug<span class="w"> </span><span class="m">19</span><span class="w"> </span><span class="m">11</span>:55<span class="w"> </span>înregistrare_lab01.mov
+-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">3</span>.0M<span class="w"> </span>Aug<span class="w"> </span><span class="m">19</span><span class="w"> </span><span class="m">11</span>:55<span class="w"> </span>înregistrare_lab02.mov
+-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">1</span>.0M<span class="w"> </span>Aug<span class="w"> </span><span class="m">19</span><span class="w"> </span><span class="m">11</span>:55<span class="w"> </span>înregistrare_lab03.mov
+-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">9</span>.1M<span class="w"> </span>Aug<span class="w"> </span><span class="m">19</span><span class="w"> </span><span class="m">12</span>:04<span class="w"> </span>înregistrări.tar
+</pre></div>
+</div>
+<p>Pentru dezarhivare am folosit următorii parametrii ai utiliitarului <code class="docutils literal notranslate"><span class="pre">tar</span></code>:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">x</span></code>: extrage arhiva (<em>extract</em>);</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">v:</span></code> afișează detalii despre operație (<em>verbose</em>);</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">f</span></code>: folosește arhiva dată ca parametru (în cazul de față, numele ei).</p></li>
+</ul>
+</section>
+<section id="extragerea-arhivelor-la-o-cale-specifica">
+<h3><span class="section-number">5.1.4. </span>Extragerea arhivelor la o cale specifică<a class="headerlink" href="#extragerea-arhivelor-la-o-cale-specifica" title="Link to this heading">¶</a></h3>
+<p>Avem următorul scenariu: am descărcat scheletul de temă de la facultate, acesta se află în directorul <code class="docutils literal notranslate"><span class="pre">~/Downloads</span></code>, iar noi vrem să îl dezarhivăm în directorul <code class="docutils literal notranslate"><span class="pre">~/facultate/uso/teme/</span></code>.</p>
+<p>Sau am descărcat în <code class="docutils literal notranslate"><span class="pre">~/Downloads/</span></code> de la un prieten o arhivă cu înregistrările video ale laboratoarelor.
+Vrem să le dezarhivăm în directorul <code class="docutils literal notranslate"><span class="pre">~/facultate/uso/laboratoare/video/</span></code>.</p>
+<p>Creăm un director <code class="docutils literal notranslate"><span class="pre">dezarhivare/tar</span></code> și extragem arhiva acolo folosind <code class="docutils literal notranslate"><span class="pre">tar</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$<span class="w"> </span>ls<span class="w"> </span>-l
+total<span class="w"> </span><span class="m">18436</span>
+-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">5242880</span><span class="w"> </span>Aug<span class="w"> </span><span class="m">19</span><span class="w"> </span><span class="m">11</span>:55<span class="w"> </span>înregistrare_lab01.mov
+-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">3145728</span><span class="w"> </span>Aug<span class="w"> </span><span class="m">19</span><span class="w"> </span><span class="m">11</span>:55<span class="w"> </span>înregistrare_lab02.mov
+-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">1048576</span><span class="w"> </span>Aug<span class="w"> </span><span class="m">19</span><span class="w"> </span><span class="m">11</span>:55<span class="w"> </span>înregistrare_lab03.mov
+-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">9439088</span><span class="w"> </span>Aug<span class="w"> </span><span class="m">19</span><span class="w"> </span><span class="m">12</span>:04<span class="w"> </span>înregistrări.tar
+student@uso:~$<span class="w"> </span>mkdir<span class="w"> </span>-p<span class="w"> </span>dezarhivare/tar
+student@uso:~$<span class="w"> </span>tree
+.
+<span class="p">|</span>--<span class="w"> </span>dezarhivare
+<span class="p">|</span><span class="w">   </span><span class="sb">``</span>--<span class="w"> </span>tar
+<span class="p">|</span>--<span class="w"> </span>înregistrare_lab01.mov
+<span class="p">|</span>--<span class="w"> </span>înregistrare_lab02.mov
+<span class="p">|</span>--<span class="w"> </span>înregistrare_lab03.mov
+<span class="sb">``</span>--<span class="w"> </span>înregistrări.tar
+
+<span class="m">2</span><span class="w"> </span>directories,<span class="w"> </span><span class="m">4</span><span class="w"> </span>files
+student@uso:~$<span class="w"> </span>tar<span class="w"> </span>xvf<span class="w"> </span>înregistrări.tar<span class="w"> </span>--directory<span class="w"> </span>dezarhivare/tar/
+înregistrare_lab01.mov
+înregistrare_lab02.mov
+înregistrare_lab03.mov
+student@uso:~$<span class="w"> </span>tree
+.
+<span class="p">|</span>--<span class="w"> </span>dezarhivare
+<span class="p">|</span><span class="w">   </span><span class="sb">``</span>--<span class="w"> </span>tar
+<span class="p">|</span><span class="w">       </span><span class="p">|</span>--<span class="w"> </span>înregistrare_lab01.mov
+<span class="p">|</span><span class="w">       </span><span class="p">|</span>--<span class="w"> </span>înregistrare_lab02.mov
+<span class="p">|</span><span class="w">       </span><span class="sb">``</span>--<span class="w"> </span>înregistrare_lab03.mov
+<span class="p">|</span>--<span class="w"> </span>înregistrare_lab01.mov
+<span class="p">|</span>--<span class="w"> </span>înregistrare_lab02.mov
+<span class="p">|</span>--<span class="w"> </span>înregistrare_lab03.mov
+<span class="sb">``</span>--<span class="w"> </span>înregistrări.tar
+
+<span class="m">2</span><span class="w"> </span>directories,<span class="w"> </span><span class="m">7</span><span class="w"> </span>files
+</pre></div>
+</div>
+<p>Observăm că după crearea directoarelor și după extragerea arhivelor am verificat corectitudinea operațiilor.</p>
+<p>După cum observăm în exemplu de mai sus, pentru a extrage fișierele către o anumită cale, folosim opțiunea <code class="docutils literal notranslate"><span class="pre">--directory</span></code> (<em>- - d i r e c t o r y</em>):</p>
+<p>Putem extrage un singur fișier fără să fim obligați să dezarhivăm tot, folosind comanda <code class="docutils literal notranslate"><span class="pre">tar</span> <span class="pre">xvf</span></code> astfel:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$<span class="w"> </span>rm<span class="w"> </span>înregistrare_lab01.mov<span class="w"> </span>înregistrare_lab02.mov<span class="w"> </span>înregistrare_lab03.mov
+student@uso:~$<span class="w"> </span>ls
+dezarhivare<span class="w">  </span>înregistrări.tar
+student@uso:~$<span class="w"> </span>tar<span class="w"> </span>xvf<span class="w"> </span>înregistrări.tar<span class="w"> </span>înregistrare_lab01.mov
+înregistrare_lab01.mov
+student@uso:~$<span class="w"> </span>ls<span class="w"> </span>-l
+total<span class="w"> </span><span class="m">14344</span>
+drwxr-xr-x<span class="w"> </span><span class="m">3</span><span class="w"> </span>student<span class="w"> </span>student<span class="w">    </span><span class="m">4096</span><span class="w"> </span>Aug<span class="w"> </span><span class="m">19</span><span class="w"> </span><span class="m">12</span>:15<span class="w"> </span>dezarhivare
+-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">5242880</span><span class="w"> </span>Aug<span class="w"> </span><span class="m">19</span><span class="w"> </span><span class="m">11</span>:55<span class="w"> </span>înregistrare_lab01.mov
+-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">9439088</span><span class="w"> </span>Aug<span class="w"> </span><span class="m">19</span><span class="w"> </span><span class="m">12</span>:04<span class="w"> </span>înregistrări.tar
+</pre></div>
+</div>
+<p>Am extras doar fișierul <code class="docutils literal notranslate"><span class="pre">înregistrare_lab01.mov</span></code> din arhiva <code class="docutils literal notranslate"><span class="pre">înregistrări.tar</span></code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Obervăm cum după comenzile de ștergere și dezarhivare am verificat corectitudinea operațiilor.
+Este extrem de util acest lucru.</p>
+</div>
+<p>Am pus ca ultim parametru numele fișierului (<code class="docutils literal notranslate"><span class="pre">înregistrare_lab01.mov</span></code>).</p>
+<section id="exercitii-extragerea-dezarhivarea-unei-arhive">
+<h4><span class="section-number">5.1.4.1. </span>Exerciții - extragerea (dezarhivarea) unei arhive<a class="headerlink" href="#exercitii-extragerea-dezarhivarea-unei-arhive" title="Link to this heading">¶</a></h4>
+<ol class="arabic simple">
+<li><ul class="simple">
+<li><p>Creați un director cu numele <code class="docutils literal notranslate"><span class="pre">personal</span></code> și în acest director încă unul cu numele <code class="docutils literal notranslate"><span class="pre">documente</span></code> ca în ierarhia de mai sus.</p></li>
+<li><p>Extrageți arhiva <code class="docutils literal notranslate"><span class="pre">personal_data.tar</span></code> în directorul <code class="docutils literal notranslate"><span class="pre">personal/documente/</span></code>.</p></li>
+<li><p>Extrageți <em>doar</em> fișierul <code class="docutils literal notranslate"><span class="pre">nume</span></code> în directorul curent.</p></li>
+<li><p>Verificați corectitudinea operațiilor afișând conținutul arhivei și directoarelor după dezarhivare.</p></li>
+</ul>
+</li>
+<li><ul class="simple">
+<li><p>Extrageți arhiva <code class="docutils literal notranslate"><span class="pre">net.tar</span></code> în directorul <code class="docutils literal notranslate"><span class="pre">/tmp/</span></code>.</p></li>
+<li><p>Verificați corectitudinea operațiilor afișând conținutul arhivei și directorului după dezarhivare.</p></li>
+</ul>
+</li>
+</ol>
+</section>
+</section>
+<section id="adaugarea-de-noi-fisiere-la-arhive">
+<h3><span class="section-number">5.1.5. </span>Adăugarea de noi fișiere la arhive<a class="headerlink" href="#adaugarea-de-noi-fisiere-la-arhive" title="Link to this heading">¶</a></h3>
+<p>Adăugăm un nou fișier la arhivă folosind comanda <code class="docutils literal notranslate"><span class="pre">tar</span></code>, astfel:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$<span class="w"> </span>tar<span class="w"> </span>-tf<span class="w"> </span>înregistrări.tar
+înregistrare_lab01.mov
+înregistrare_lab02.mov
+înregistrare_lab03.mov
+student@uso:~$<span class="w"> </span>tar<span class="w"> </span>rvf<span class="w"> </span>înregistrări.tar<span class="w"> </span>înregistrare_lab04.mov
+înregistrare_lab04.mov
+student@uso:~$<span class="w"> </span>tar<span class="w"> </span>tf<span class="w"> </span>înregistrări.tar
+înregistrare_lab01.mov
+înregistrare_lab02.mov
+înregistrare_lab03.mov
+înregistrare_lab04.mov
+</pre></div>
+</div>
+<p>În primă fază am verificat că <code class="docutils literal notranslate"><span class="pre">înregistrare_lab04.mov</span></code> nu există în arhivă.
+În continuare am adăugat <code class="docutils literal notranslate"><span class="pre">înregistrare_lab04.mov</span></code> la arhivă folosind optiunea <code class="docutils literal notranslate"><span class="pre">r</span></code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Observăm cum după comanda de adăugare de fișier la arhivă, am verificat corectitudinea operației.</p>
+</div>
+<section id="exercitii-adaugare-de-noi-fisiere">
+<h4><span class="section-number">5.1.5.1. </span>Exerciții - adăugare de noi fișiere<a class="headerlink" href="#exercitii-adaugare-de-noi-fisiere" title="Link to this heading">¶</a></h4>
+<ul class="simple">
+<li><p>Creați un fișier <code class="docutils literal notranslate"><span class="pre">UPB</span></code>; verificați operația afișând conținutul directorului părinte;</p></li>
+<li><p>Adăugați textul <em>Make UPB Great Again!</em> în interiorul fișierului; verificați operația afișând conținutul fișierului;</p></li>
+<li><p>Adăugați-l la arhiva <code class="docutils literal notranslate"><span class="pre">personal_data.tar</span></code>, ca în exemplul de mai sus; verificați operația afișând conținutul arhivei.</p></li>
+</ul>
+</section>
+</section>
+<section id="comprimare-tar-gz">
+<h3><span class="section-number">5.1.6. </span>Comprimare <code class="docutils literal notranslate"><span class="pre">tar.gz</span></code><a class="headerlink" href="#comprimare-tar-gz" title="Link to this heading">¶</a></h3>
+<p>Am văzut mai sus că pentru a pune o ierarhie de fișiere într-unul singur, folosim <code class="docutils literal notranslate"><span class="pre">tar</span></code>.
+Pentru a reduce dimensiunea arhivei folosim utilitarul <code class="docutils literal notranslate"><span class="pre">tar</span></code> astfel:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$<span class="w"> </span>tar<span class="w"> </span>-czvf<span class="w"> </span>inregistrari.tar.gz<span class="w"> </span>inregistrare_lab01.mov<span class="w"> </span>inregistrare_lab02.mov<span class="w"> </span>inregistrare_lab03.mov
+inregistrare_lab01.mov
+inregistrare_lab02.mov
+inregistrare_lab03.mov
+student@uso:~$<span class="w"> </span>ls<span class="w"> </span>-l
+-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>student<span class="w"> </span>student<span class="w">   </span><span class="m">9441280</span><span class="w"> </span>Sep<span class="w"> </span><span class="m">29</span><span class="w"> </span><span class="m">04</span>:51<span class="w"> </span>inregistrari.tar
+-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>student<span class="w"> </span>student<span class="w">   </span><span class="m">9439133</span><span class="w"> </span>Oct<span class="w"> </span><span class="m">12</span><span class="w"> </span><span class="m">18</span>:55<span class="w"> </span>inregistrari.tar.gz
+</pre></div>
+</div>
+<p>Am folosit următorii parametrii:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">c</span></code>: creează arhiva;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">z</span></code>: pentru arhivare gzip;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">v</span></code>: afișează detalii despre operație (verbose);</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">f</span></code>: folosește arhiva dată ca parametru (în cazul de față, numele ei).</p></li>
+</ul>
+<p>Observăm că dimensiunea arhivei comprimate <code class="docutils literal notranslate"><span class="pre">inregistrari.tar.gz</span></code> a scăzut față de arhiva originală <code class="docutils literal notranslate"><span class="pre">inregistrari.tar</span></code>.</p>
+</section>
+</section>
+<section id="comprimare-zip">
+<h2><span class="section-number">5.2. </span>Comprimare - <code class="docutils literal notranslate"><span class="pre">zip</span></code><a class="headerlink" href="#comprimare-zip" title="Link to this heading">¶</a></h2>
+<p>Acțiunea de comprimare este compusă din doi pași: <strong>arhivare</strong> și <strong>reducerea dimensiunii</strong> (<em>comprimare</em>).
+Utilitarul <code class="docutils literal notranslate"><span class="pre">zip</span></code> face ambii pași simultan.</p>
+<p>În continuare folosim utilitarul <code class="docutils literal notranslate"><span class="pre">zip</span></code> pentru arhivare și comprimare.
+Arhivarea este similară cu cea prezentată în subsecțiunea <a class="reference internal" href="#arhiva-tar"><span class="std std-ref">Arhivare - tar</span></a>, unde am folosit utilitarul <code class="docutils literal notranslate"><span class="pre">tar</span></code>.</p>
+<section id="id2">
+<h3><span class="section-number">5.2.1. </span>Crearea arhivelor<a class="headerlink" href="#id2" title="Link to this heading">¶</a></h3>
+<p>Putem crea o arhivă folosind utilitarul <code class="docutils literal notranslate"><span class="pre">zip</span></code>, astfel:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$<span class="w"> </span>zip<span class="w"> </span>înregistrări.zip<span class="w"> </span>înregistrare_lab01.mov<span class="w"> </span>înregistrare_lab02.mov<span class="w"> </span>înregistrare_lab03.mov
+<span class="w">  </span>adding:<span class="w"> </span>înregistrare_lab01.mov<span class="w"> </span><span class="o">(</span>deflated<span class="w"> </span><span class="m">0</span>%<span class="o">)</span>
+<span class="w">  </span>adding:<span class="w"> </span>înregistrare_lab02.mov<span class="w"> </span><span class="o">(</span>deflated<span class="w"> </span><span class="m">0</span>%<span class="o">)</span>
+<span class="w">  </span>adding:<span class="w"> </span>înregistrare_lab03.mov<span class="w"> </span><span class="o">(</span>deflated<span class="w"> </span><span class="m">0</span>%<span class="o">)</span>
+student@uso:~$<span class="w"> </span>ls<span class="w"> </span>-lh
+total<span class="w"> </span>26M
+drwxr-xr-x<span class="w"> </span><span class="m">3</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">4</span>.0K<span class="w"> </span>Aug<span class="w"> </span><span class="m">19</span><span class="w"> </span><span class="m">12</span>:15<span class="w"> </span>dezarhivare
+-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">5</span>.0M<span class="w"> </span>Aug<span class="w"> </span><span class="m">19</span><span class="w"> </span><span class="m">11</span>:55<span class="w"> </span>înregistrare_lab01.mov
+-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">3</span>.0M<span class="w"> </span>Aug<span class="w"> </span><span class="m">19</span><span class="w"> </span><span class="m">11</span>:55<span class="w"> </span>înregistrare_lab02.mov
+-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">1</span>.0M<span class="w"> </span>Aug<span class="w"> </span><span class="m">19</span><span class="w"> </span><span class="m">11</span>:55<span class="w"> </span>înregistrare_lab03.mov
+-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">7</span>.0M<span class="w"> </span>Aug<span class="w"> </span><span class="m">19</span><span class="w"> </span><span class="m">12</span>:35<span class="w"> </span>înregistrare_lab04.mov
+-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">9</span>.1M<span class="w"> </span>Aug<span class="w"> </span><span class="m">19</span><span class="w"> </span><span class="m">17</span>:56<span class="w"> </span>înregistrări.tar
+-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">9</span>.1M<span class="w"> </span>Aug<span class="w"> </span><span class="m">19</span><span class="w"> </span><span class="m">17</span>:54<span class="w"> </span>înregistrări.zip
+</pre></div>
+</div>
+<p>Sintaxa este în felul următor: <code class="docutils literal notranslate"><span class="pre">zip</span> <span class="pre">numele_arhivă.zip</span> <span class="pre">ierarhia_de_fișiere</span></code>
+Observăm cum după comanda de creare a arhivei <code class="docutils literal notranslate"><span class="pre">zip</span></code> am verificat corectitudinea operației.</p>
+<p>Parametrul <code class="docutils literal notranslate"><span class="pre">-h</span></code> de la comanda <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-lh</span></code> transformă dimensiunea fișierului în format <em>human-readable</em>, adică folosește K pentru KiloOcteți, M pentru MegaOcteți, G pentru GigaOcteți.
+La prima vedere, folosind comanda <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-lh</span></code>  observăm că fișierul de tipul <em>zip</em> nou creat <strong>nu</strong> ocupă mai puțin spațiu decât suma dimensiunilor celor trei fișiere.
+Motivul este că în sistemul de fișiere a apărut un nou fișier ce conține arhiva nou creată și sistemul de fișiere stochează informații despre acest fișier.
+Exemplu de informații stocate: dimensiune, data creare, permisiuni, utilizatorul deținător.</p>
+<p>Observăm că dimensiunea arhivei <code class="docutils literal notranslate"><span class="pre">tar</span></code> este aceeași cu aceea a arhivei <code class="docutils literal notranslate"><span class="pre">zip</span></code>.
+De fapt, dacă ne uităm în detaliu, vom vedea că nu este așa.</p>
+<p>Mai sus vedeam afișarea dimensiuni în format <em>human-readable</em> adică în <em>MegaBytes</em> (MegaOcteți).
+Afișăm dimesniunea în octeți:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$<span class="w"> </span>ls<span class="w"> </span>-l
+-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">9441280</span><span class="w"> </span>Sep<span class="w"> </span><span class="m">29</span><span class="w"> </span><span class="m">04</span>:51<span class="w"> </span>înregistrări.tar
+-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">9439072</span><span class="w"> </span>Sep<span class="w"> </span><span class="m">29</span><span class="w"> </span><span class="m">04</span>:51<span class="w"> </span>înregistrări.zip
+</pre></div>
+</div>
+<p>Arhiva <code class="docutils literal notranslate"><span class="pre">tar</span></code> are 9441280 octeți, iar arhiva <code class="docutils literal notranslate"><span class="pre">zip</span></code> are 9439072.
+Observăm o mică diferență între cele două, varianta <code class="docutils literal notranslate"><span class="pre">zip</span></code> fiind mai mică.</p>
+<p>Mergem mai departe cu un experiment.
+Facem arhivare și comprimare a ierarhiei de directoare <code class="docutils literal notranslate"><span class="pre">/usr/bin</span></code> și comparăm dimensiunea:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$<span class="w"> </span>ls<span class="w"> </span>-l
+-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">100679680</span><span class="w"> </span>Sep<span class="w"> </span><span class="m">29</span><span class="w"> </span><span class="m">04</span>:46<span class="w"> </span>usr_bin.tar
+-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>student<span class="w"> </span>student<span class="w">  </span><span class="m">87282498</span><span class="w"> </span>Sep<span class="w"> </span><span class="m">29</span><span class="w"> </span><span class="m">04</span>:46<span class="w"> </span>usr_bin.zip
+student@uso:~$<span class="w"> </span>ls<span class="w"> </span>-lh
+-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span>97M<span class="w"> </span>Sep<span class="w"> </span><span class="m">29</span><span class="w"> </span><span class="m">04</span>:46<span class="w"> </span>usr_bin.tar
+-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span>84M<span class="w"> </span>Sep<span class="w"> </span><span class="m">29</span><span class="w"> </span><span class="m">04</span>:46<span class="w"> </span>usr_bin.zip
+</pre></div>
+</div>
+<p>Observăm deja o diferență mai mare de dimensiune între cele două.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Pentru o mai bună înțelegere a comenzii de creare a arhivelor, inspectați manualul: <code class="docutils literal notranslate"><span class="pre">man</span> <span class="pre">zip</span></code>.</p>
+</div>
+<section id="id3">
+<h4><span class="section-number">5.2.1.1. </span>Exerciții - creare arhive<a class="headerlink" href="#id3" title="Link to this heading">¶</a></h4>
+<ol class="arabic simple">
+<li><ul class="simple">
+<li><p>Creați 3 fișiere noi care să conțină pe rând orașul natal, țara natală și liceul absolvit; verificați crearea fișierelor afișând conținutul directorului părinte.</p></li>
+<li><p>Creați o arhivă de tipul <code class="docutils literal notranslate"><span class="pre">zip</span></code> care să conțină cele trei fișiere și care să aibă  numele <code class="docutils literal notranslate"><span class="pre">personal_data.zip</span></code>; verificați conținutul arhivei.</p></li>
+<li><p>Afișați dimensiunea arhivei.</p></li>
+</ul>
+</li>
+<li><ul class="simple">
+<li><p>Creați o arhivă de tipul <code class="docutils literal notranslate"><span class="pre">zip</span></code> a fișierelor din interiorul directorului <code class="docutils literal notranslate"><span class="pre">/usr/include/net/</span></code> cu numele <code class="docutils literal notranslate"><span class="pre">net.zip</span></code>.</p></li>
+<li><p>Comparați dimensiunea arhivei <code class="docutils literal notranslate"><span class="pre">zip</span></code> cu cea <code class="docutils literal notranslate"><span class="pre">tar</span></code> de la exercițiu precendent.</p></li>
+</ul>
+</li>
+</ol>
+</section>
+</section>
+<section id="id4">
+<h3><span class="section-number">5.2.2. </span>Afișarea conținutului arhivelor<a class="headerlink" href="#id4" title="Link to this heading">¶</a></h3>
+<p>Putem vizualiza conținutul arhivei astfel:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$<span class="w"> </span>zip<span class="w"> </span>-sf<span class="w"> </span>înregistrări.zip
+Archive<span class="w"> </span>contains:
+<span class="w">  </span>înregistrare_lab01.mov
+<span class="w">  </span>înregistrare_lab02.mov
+<span class="w">  </span>înregistrare_lab03.mov
+</pre></div>
+</div>
+<p>Pentru a vizualiza arhiva <strong>fără</strong> dezarhivare folosim opțiunea <code class="docutils literal notranslate"><span class="pre">-sf</span></code> (prescurtare de la <em>show-files</em>).</p>
+<section id="exercitii-afisarea-continutului-unei-arhivei">
+<h4><span class="section-number">5.2.2.1. </span>Exerciții - afișarea conținutului unei arhivei<a class="headerlink" href="#exercitii-afisarea-continutului-unei-arhivei" title="Link to this heading">¶</a></h4>
+<ul class="simple">
+<li><p>Acest exercițiu folosește arhiva creată la exercițiu anterior.</p></li>
+<li><p>Afișați conținutul arhivelor <code class="docutils literal notranslate"><span class="pre">personal_data.zip</span></code> și <code class="docutils literal notranslate"><span class="pre">net.zip</span></code> <strong>fără</strong> dezarhivare.</p></li>
+</ul>
+</section>
+</section>
+<section id="dezarhivarea-arhivelor">
+<h3><span class="section-number">5.2.3. </span>Dezarhivarea arhivelor<a class="headerlink" href="#dezarhivarea-arhivelor" title="Link to this heading">¶</a></h3>
+<p>În momentul în care dezarhivăm un fișier de tip <em>zip</em>, fișierele din cadrul arhivei vor fi create în directorul curent (dacă nu se specifică altfel).
+Cu alte cuvinte, ierarhia de fișiere pe care am arhivat-o se păstrează, iar în momentul dezarhivării aceasta va arăta la fel ca înainte de arhivare.
+Pentru a vedea mai clar efectul operației de dezarhivare, ștergem fișierele <code class="docutils literal notranslate"><span class="pre">înregistrare_lab01.mov</span></code>, <code class="docutils literal notranslate"><span class="pre">înregistrare_lab02.mov</span></code>, <code class="docutils literal notranslate"><span class="pre">înregistrare_lab03.mov</span></code>, adică fișierele care se află în arhiva <em>înregistrări.zip</em>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$<span class="w"> </span>ls<span class="w"> </span>-l
+total<span class="w"> </span><span class="m">29708</span>
+drwxr-xr-x<span class="w"> </span><span class="m">3</span><span class="w"> </span>student<span class="w"> </span>student<span class="w">    </span><span class="m">4096</span><span class="w"> </span>Aug<span class="w"> </span><span class="m">19</span><span class="w"> </span><span class="m">12</span>:15<span class="w"> </span>dezarhivare
+-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">5242880</span><span class="w"> </span>Aug<span class="w"> </span><span class="m">19</span><span class="w"> </span><span class="m">11</span>:55<span class="w"> </span>înregistrare_lab01.mov
+-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">3145728</span><span class="w"> </span>Aug<span class="w"> </span><span class="m">19</span><span class="w"> </span><span class="m">11</span>:55<span class="w"> </span>înregistrare_lab02.mov
+-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">1048576</span><span class="w"> </span>Aug<span class="w"> </span><span class="m">19</span><span class="w"> </span><span class="m">11</span>:55<span class="w"> </span>înregistrare_lab03.mov
+-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">7340032</span><span class="w"> </span>Aug<span class="w"> </span><span class="m">19</span><span class="w"> </span><span class="m">12</span>:35<span class="w"> </span>înregistrare_lab04.mov
+-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">9441280</span><span class="w"> </span>Aug<span class="w"> </span><span class="m">19</span><span class="w"> </span><span class="m">17</span>:56<span class="w"> </span>înregistrări.tar
+-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">4195250</span><span class="w"> </span>Aug<span class="w"> </span><span class="m">19</span><span class="w"> </span><span class="m">18</span>:00<span class="w"> </span>înregistrări.zip
+student@uso:~$<span class="w"> </span>rm<span class="w"> </span>înregistrări.zip
+</pre></div>
+</div>
+<p>În primă instanță, ștergem arhiva <code class="docutils literal notranslate"><span class="pre">înregistrări.zip</span></code>.
+În continuare, recreăm arhiva <code class="docutils literal notranslate"><span class="pre">înregistrări.zip</span></code> și ștergem fișierele <code class="docutils literal notranslate"><span class="pre">înregistrare_lab01.mov</span></code>, <code class="docutils literal notranslate"><span class="pre">înregistrare_lab02.mov</span></code>, <code class="docutils literal notranslate"><span class="pre">înregistrare_lab03.mov</span></code>:</p>
+<p>În momentul de față avem doar arhiva <em>zip</em> și urmează să obținem fișierele cu înregistrari,  folosind utilitarul <code class="docutils literal notranslate"><span class="pre">zip</span></code>:</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Observăm cum după operațiile de ștergere și dezarhivare, verificăm corectitudinea operațiilor.</p>
+</div>
+<p>Pentru a dezarhiva o arhivă folosim utilitarul <code class="docutils literal notranslate"><span class="pre">unzip</span></code>.
+Observați că am șters fișierele existente înainte de extragere.</p>
+<p>Putem extrage fișierele către o anumită cale:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$<span class="w"> </span>mkdir<span class="w"> </span>dezarhivare/zip
+student@uso:~$<span class="w"> </span>unzip<span class="w"> </span>înregistrări.zip<span class="w"> </span>-d<span class="w"> </span>dezarhivare/zip/
+Archive:<span class="w">  </span>înregistrări.zip
+<span class="w">  </span>inflating:<span class="w"> </span>dezarhivare/zip/înregistrare_lab01.mov
+<span class="w">  </span>inflating:<span class="w"> </span>dezarhivare/zip/înregistrare_lab02.mov
+<span class="w">  </span>inflating:<span class="w"> </span>dezarhivare/zip/înregistrare_lab03.mov
+student@uso:~$<span class="w"> </span>tree
+.
+<span class="p">|</span>--<span class="w"> </span>dezarhivare
+<span class="p">|</span><span class="w">   </span><span class="p">|</span>--<span class="w"> </span>tar
+<span class="p">|</span><span class="w">   </span><span class="sb">``</span>--<span class="w"> </span>zip
+<span class="p">|</span><span class="w">       </span><span class="p">|</span>--<span class="w"> </span>înregistrare_lab01.mov
+<span class="p">|</span><span class="w">       </span><span class="p">|</span>--<span class="w"> </span>înregistrare_lab02.mov
+<span class="p">|</span><span class="w">       </span><span class="sb">``</span>--<span class="w"> </span>înregistrare_lab03.mov
+<span class="p">|</span>--<span class="w"> </span>înregistrare_lab01.mov
+<span class="p">|</span>--<span class="w"> </span>înregistrare_lab02.mov
+<span class="p">|</span>--<span class="w"> </span>înregistrare_lab03.mov
+<span class="p">|</span>--<span class="w"> </span>înregistrare_lab04.mov
+<span class="p">|</span>--<span class="w"> </span>înregistrări.tar
+<span class="sb">``</span>--<span class="w"> </span>înregistrări.zip
+
+<span class="m">3</span><span class="w"> </span>directories,<span class="w"> </span><span class="m">9</span><span class="w"> </span>files
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Observăm că după crearea directoarelor și după extragerea arhivelor am verificat corectitudinea operațiilor.</p>
+</div>
+<p>Am folosit comanda <code class="docutils literal notranslate"><span class="pre">unzip</span> <span class="pre">-d</span> <span class="pre">destinație</span></code> pentru a extrage o arhivă <em>zip</em> la calea <em>destinație</em>.</p>
+<p>Putem dezarhiva <em>un singur</em> fișier/director din toată arhiva:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$<span class="w"> </span>rm<span class="w"> </span>înregistrare_lab03.mov
+student@uso:~$<span class="w"> </span>ls<span class="w"> </span>-lh
+total<span class="w"> </span>34M
+drwxr-xr-x<span class="w"> </span><span class="m">4</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">4</span>.0K<span class="w"> </span>Aug<span class="w"> </span><span class="m">19</span><span class="w"> </span><span class="m">18</span>:05<span class="w"> </span>dezarhivare
+-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">5</span>.0M<span class="w"> </span>Aug<span class="w"> </span><span class="m">19</span><span class="w"> </span><span class="m">11</span>:55<span class="w"> </span>înregistrare_lab01.mov
+-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">3</span>.0M<span class="w"> </span>Aug<span class="w"> </span><span class="m">19</span><span class="w"> </span><span class="m">11</span>:55<span class="w"> </span>înregistrare_lab02.mov
+-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">7</span>.0M<span class="w"> </span>Aug<span class="w"> </span><span class="m">19</span><span class="w"> </span><span class="m">12</span>:35<span class="w"> </span>înregistrare_lab04.mov
+-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">9</span>.1M<span class="w"> </span>Aug<span class="w"> </span><span class="m">19</span><span class="w"> </span><span class="m">17</span>:56<span class="w"> </span>înregistrări.tar
+-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">9</span>.1M<span class="w"> </span>Aug<span class="w"> </span><span class="m">19</span><span class="w"> </span><span class="m">18</span>:02<span class="w"> </span>înregistrări.zip
+student@uso:~$<span class="w"> </span>unzip<span class="w"> </span>înregistrări.zip<span class="w"> </span>înregistrare_lab03.mov
+Archive:<span class="w">  </span>înregistrări.zip
+inflating:<span class="w"> </span>înregistrare_lab03.mov
+student@uso:~$<span class="w"> </span>ls<span class="w"> </span>-lh
+total<span class="w"> </span>35M
+drwxr-xr-x<span class="w"> </span><span class="m">4</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">4</span>.0K<span class="w"> </span>Aug<span class="w"> </span><span class="m">19</span><span class="w"> </span><span class="m">18</span>:05<span class="w"> </span>dezarhivare
+-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">5</span>.0M<span class="w"> </span>Aug<span class="w"> </span><span class="m">19</span><span class="w"> </span><span class="m">11</span>:55<span class="w"> </span>înregistrare_lab01.mov
+-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">3</span>.0M<span class="w"> </span>Aug<span class="w"> </span><span class="m">19</span><span class="w"> </span><span class="m">11</span>:55<span class="w"> </span>înregistrare_lab02.mov
+-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">1</span>.0M<span class="w"> </span>Aug<span class="w"> </span><span class="m">19</span><span class="w"> </span><span class="m">11</span>:55<span class="w"> </span>înregistrare_lab03.mov
+-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">7</span>.0M<span class="w"> </span>Aug<span class="w"> </span><span class="m">19</span><span class="w"> </span><span class="m">12</span>:35<span class="w"> </span>înregistrare_lab04.mov
+-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">9</span>.1M<span class="w"> </span>Aug<span class="w"> </span><span class="m">19</span><span class="w"> </span><span class="m">17</span>:56<span class="w"> </span>înregistrări.tar
+-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">9</span>.1M<span class="w"> </span>Aug<span class="w"> </span><span class="m">19</span><span class="w"> </span><span class="m">18</span>:02<span class="w"> </span>înregistrări.zip
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Obervăm cum după comenzile de ștergere și dezarhivare s-a verificat corectitudinea operațiilor.</p>
+</div>
+<p>Puteți observa că am extras un singur fișier punând ca ultim parametru numele fișierului.</p>
+<section id="exercitii-dezarhivarea-unei-arhive">
+<h4><span class="section-number">5.2.3.1. </span>Exerciții - dezarhivarea unei arhive<a class="headerlink" href="#exercitii-dezarhivarea-unei-arhive" title="Link to this heading">¶</a></h4>
+<ol class="arabic simple">
+<li><ul class="simple">
+<li><p>Creați un director cu numele <code class="docutils literal notranslate"><span class="pre">zip</span></code> în directorului <code class="docutils literal notranslate"><span class="pre">dezarhivare</span></code> ca în ierarhia de mai sus; verificați crearea afișând conținutul directorului <code class="docutils literal notranslate"><span class="pre">dezarhivare</span></code>.</p></li>
+<li><p>Dezarhivați arhiva <code class="docutils literal notranslate"><span class="pre">personal_data.zip</span></code> în directorul <code class="docutils literal notranslate"><span class="pre">dezarhivare/zip/</span></code>; verificați operația de dezarhivare afișând conținutul directorului.</p></li>
+<li><p>Dezarhivați <strong>doar</strong> fișierul oraș natal în directorul curent; verificați operația afișând conținutul directorului curent.</p></li>
+</ul>
+</li>
+<li><ul class="simple">
+<li><p>Creați directorul <code class="docutils literal notranslate"><span class="pre">my_net</span></code> în directorul <code class="docutils literal notranslate"><span class="pre">dezarhivare</span></code> ca în ierarhia de mai sus; verificați crearea afișând conținutul directorului <code class="docutils literal notranslate"><span class="pre">dezarhivare</span></code>.</p></li>
+<li><p>Dezarhivați arhiva <code class="docutils literal notranslate"><span class="pre">net.zip</span></code> în directorul creat anterior <code class="docutils literal notranslate"><span class="pre">my_net</span></code>; verificați operația de dezarhivare afișând conținutul directorului.</p></li>
+</ul>
+</li>
+</ol>
+</section>
+</section>
+<section id="id5">
+<h3><span class="section-number">5.2.4. </span>Adăugarea de noi fișiere la arhive<a class="headerlink" href="#id5" title="Link to this heading">¶</a></h3>
+<p>Putem adăuga un nou fișier la arhivă folosind comanda <code class="docutils literal notranslate"><span class="pre">zip</span> <span class="pre">-u</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$<span class="w"> </span>zip<span class="w"> </span>-u<span class="w"> </span>înregistrări.zip<span class="w"> </span>înregistrare_lab04.mov
+<span class="w">  </span>adding:<span class="w"> </span>înregistrare_lab04.mov<span class="w"> </span><span class="o">(</span>deflated<span class="w"> </span><span class="m">0</span>%<span class="o">)</span>
+student@uso:~$<span class="w"> </span>zip<span class="w"> </span>-sf<span class="w"> </span>înregistrări.zip
+Archive<span class="w"> </span>contains:
+<span class="w">  </span>înregistrare_lab01.mov
+<span class="w">  </span>înregistrare_lab02.mov
+<span class="w">  </span>înregistrare_lab03.mov
+<span class="w">  </span>înregistrare_lab04.mov
+Total<span class="w"> </span><span class="m">4</span><span class="w"> </span>entries<span class="w"> </span><span class="o">(</span><span class="m">16777216</span><span class="w"> </span>bytes<span class="o">)</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Observăm cum după comanda de adăugare de fișier la arhivă, am verificat corectitudinea operației folosind comanda <code class="docutils literal notranslate"><span class="pre">zip</span> <span class="pre">-sf</span></code>.</p>
+</div>
+<p>În exemplul de mai sus am adăugat <code class="docutils literal notranslate"><span class="pre">înregistrare_lab04.mov</span></code> la arhivă.</p>
+<section id="exercitii-adaugarea-unui-fisier-in-arhiva">
+<h4><span class="section-number">5.2.4.1. </span>Exerciții - adăugarea unui fișier în arhivă<a class="headerlink" href="#exercitii-adaugarea-unui-fisier-in-arhiva" title="Link to this heading">¶</a></h4>
+<ul class="simple">
+<li><p>Creați un fișier <code class="docutils literal notranslate"><span class="pre">UPB</span></code> cu conținutul “Make UPB Great Again!”;</p></li>
+<li><p>Verificați conținutul arhivei <code class="docutils literal notranslate"><span class="pre">personal_data.zip</span></code>;</p></li>
+<li><p>Adăugați fișierul <code class="docutils literal notranslate"><span class="pre">UPB</span></code> în arhivă;</p></li>
+<li><p>Verificați adăugarea fișierului la arhivă fără dezarhivare;</p></li>
+<li><p>Dezarhivați arhiva în directorul <code class="docutils literal notranslate"><span class="pre">personal_data_zip</span></code>.</p></li>
+</ul>
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="id6" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
+<p>Metadatele sunt modalitatea sistemului de fișiere de a reține informații despre acesta: data creării, dimensiunea, utilizatorul ce deține fișierul, etc.</p>
+</aside>
+</aside>
+</section>
+</section>
+</section>
+</section>
+
+
+          </div>
+          <div class="page-nav">
+            <div class="inner"><ul class="page-nav">
+  <li class="prev">
+    <a href="io_redirection.html"
+       title="previous chapter">← <span class="section-number">4. </span>Redirectări</a>
+  </li>
+  <li class="next">
+    <a href="file_system.html"
+       title="next chapter"><span class="section-number">6. </span>Extra - Sistemul de fișiere →</a>
+  </li>
+</ul><div class="footer" role="contentinfo">
+      &#169; Copyright 2020, USO Team.
+    <br>
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 7.2.6 with <a href="https://github.com/romnn/sphinx_press_theme">Press Theme</a>.
+</div>
+            </div>
+          </div>
+      </page>
+    </div>
+    
+    
+  </body>
+</html>

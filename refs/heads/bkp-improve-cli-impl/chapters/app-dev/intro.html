@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html  lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+      <title>1. Introducere</title>
+    
+      <link rel="stylesheet" href="../../_static/pygments.css">
+      <link rel="stylesheet" href="../../_static/theme.css">
+      <link rel="stylesheet" href="../../_static/romnn_sphinx_press_theme.css">
+          <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+          <link rel="stylesheet" href="../../_static/css/theme.css " type="text/css" />
+      
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+
+      <!-- sphinx script_files -->
+        <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../_static/my_actions.js?v=1451d81f"></script>
+
+      
+      <script src="../../_static/theme-vendors.js"></script>
+      <script src="../../_static/theme.js" defer></script>
+    
+  <link rel="index" title="Index" href="../../genindex.html" />
+  <link rel="search" title="Search" href="../../search.html" />
+  <link rel="next" title="2. Compilarea unui fișier cod sursă C" href="make-intro.html" />
+  <link rel="prev" title="7. Sumar - Cheatsheet" href="../files/cheatsheet.html" />
+    <link href="../../_static/my_theme.css" rel="stylesheet" type="text/css">
+
+  </head>
+
+  <body>
+    <div id="app" class="theme-container" :class="pageClasses"><navbar @toggle-sidebar="toggleSidebar">
+  <div class="home-link-container">
+      <router-link to="../../index.html" class="home-link">
+      
+        <span class="site-name">USO Lab Book</span>
+    </router-link>
+  </div>
+
+  <div class="links">
+    <navlinks class="can-hide">
+
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Acomodarea în Linux
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Lucrul cu fișiere
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link  router-link-active">
+         Dezvoltarea aplicațiilor
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Conectarea la Internet
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Instalarea și utilizarea aplicațiilor
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Îmbunătățirea lucrului în linia de comandă
+      </a>
+    </div>
+  
+
+
+
+  
+    <div class="nav-item">
+      <a href="https://github.com/Sergiu121/uso-lab-book"
+        class="nav-link external">
+          Github <outboundlink/>
+      </a>
+    </div>
+  
+
+    </navlinks>
+  </div>
+</navbar>
+
+      
+      <div class="sidebar-mask" @click="toggleSidebar(false)">
+      </div>
+        <sidebar @toggle-sidebar="toggleSidebar">
+          
+          <navlinks>
+            
+
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Acomodarea în Linux
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Lucrul cu fișiere
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link  router-link-active">
+         Dezvoltarea aplicațiilor
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Conectarea la Internet
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Instalarea și utilizarea aplicațiilor
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Îmbunătățirea lucrului în linia de comandă
+      </a>
+    </div>
+  
+
+
+
+  
+    <div class="nav-item">
+      <a href="https://github.com/Sergiu121/uso-lab-book"
+        class="nav-link external">
+          Github <outboundlink/>
+      </a>
+    </div>
+  
+
+            
+          </navlinks><div id="searchbox" class="searchbox" role="search">
+  <div class="caption"><span class="caption-text">Search</span>
+    <div class="searchformwrapper">
+      <form autocomplete="off" class="search" action="../../search.html" method="get">
+        <input type="text" name="q" autocomplete="off" />
+        <input type="submit" value="Go" />
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div><div class="sidebar-links" role="navigation" aria-label="main navigation">
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#uso-lab-book">Acomodarea în Linux</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../basic/apps.html" class="reference internal ">Pornirea și oprirea aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../basic/browser.html" class="reference internal ">Folosirea eficientă a browserului web</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../basic/terminal.html" class="reference internal ">Lucrul în terminal</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../basic/workspace.html" class="reference internal ">Lucrul cu workspace-uri</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../basic/cheatsheet.html" class="reference internal ">Sumar - Cheatsheet</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#uso-lab-book">Lucrul cu fișiere</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../files/paths.html" class="reference internal ">Căi în ierarhia de fișiere</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../files/files.html" class="reference internal ">Interacțiunea cu fișiere în linia de comandă</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../files/file_editor.html" class="reference internal ">Editor de text</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../files/io_redirection.html" class="reference internal ">Redirectări</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../files/archive.html" class="reference internal ">Arhive</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../files/file_system.html" class="reference internal ">Extra - Sistemul de fișiere</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../files/cheatsheet.html" class="reference internal ">Sumar - Cheatsheet</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#uso-lab-book">Dezvoltarea aplicațiilor</a></span>
+      </p>
+      <ul class="current">
+        
+          <li class="toctree-l1 current"><a href="#" class="reference internal current">Introducere</a>
+
+            
+              <ul>
+                
+                  <li class="toctree-l2"><a href="#alegerea-limbajului-de-programare" class="reference internal">Alegerea limbajului de programare</a></li>
+                
+                  <li class="toctree-l2"><a href="#scrierea-codului-sursa" class="reference internal">Scrierea codului sursă</a></li>
+                
+              </ul>
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="make-intro.html" class="reference internal ">Compilarea unui fișier cod sursă C</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="make-multiple.html" class="reference internal ">Compilarea unui program din fișiere multiple</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="make-lib.html" class="reference internal ">Legarea executabilelor folosind biblioteci externe</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="make-simple-automation.html" class="reference internal ">Introducere în utilitarul Make și fișiere Makefile</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="make-advanced-automation.html" class="reference internal ">Aprofundarea folosirii fișierelor Makefile</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="git-intro.html" class="reference internal ">Introducere în Git și GitHub</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="git-first-commits.html" class="reference internal ">Primele commituri</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="git-branches.html" class="reference internal ">Lucrul pe branch-uri</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="git-first-pull-request.html" class="reference internal ">Crearea unui Pull Request (PR) pe GitHub</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="extra.html" class="reference internal ">Exerciții suplimentare</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#uso-lab-book">Conectarea la Internet</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../net/browser.html" class="reference internal ">Folosirea eficientă a browserului</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../net/connection.html" class="reference internal ">Conectarea la rețea și la Internet</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../net/services.html" class="reference internal ">Servicii și clienți de rețea</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../net/extra.html" class="reference internal ">Funcţionalităţi suplimentare de reţelistică</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#uso-lab-book">Instalarea și utilizarea aplicațiilor</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../app-install/start.html" class="reference internal ">Pornirea și oprirea aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-install/run.html" class="reference internal ">Rularea aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-install/config.html" class="reference internal ">Configurarea rulării aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-install/summary1.html" class="reference internal ">Exerciții: Pornirea, rularea și configurarea aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-install/show-config.html" class="reference internal ">Vizualizarea configurației sistemului</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-install/install.html" class="reference internal ">Instalarea și dezinstalarea aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-install/install-non-standard.html" class="reference internal ">Alternative la instalarea și dezinstalarea aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-install/show.html" class="reference internal ">Investigarea aplicațiilor instalate</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-install/summary2.html" class="reference internal ">Exerciții: Instalarea și gestiunea aplicațiilor</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#uso-lab-book">Îmbunătățirea lucrului în linia de comandă</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../improve-cli/improve-terminal.html" class="reference internal ">Îmbunătățirea lucrului în linia de comandă</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../improve-cli/inspect-fs.html" class="reference internal ">Inspectarea sistemului de fișiere</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../improve-cli/inspect-files.html" class="reference internal ">Inspectarea fișierelor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../improve-cli/improve-shell.html" class="reference internal ">O înțelegere mai bună a shellului</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../improve-cli/improve-cli-summary.html" class="reference internal ">Sumar: Îmbunătățirea lucrului în linia de comandă</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+</div>
+        </sidebar>
+
+      <page>
+          <div class="body-header" role="navigation" aria-label="navigation">
+  
+  <ul class="breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+    
+    <li><span class="section-number">1. </span>Introducere</li>
+  </ul>
+  
+
+  <ul class="page-nav">
+  <li class="prev">
+    <a href="../files/cheatsheet.html"
+       title="previous chapter">← <span class="section-number">7. </span>Sumar - Cheatsheet</a>
+  </li>
+  <li class="next">
+    <a href="make-intro.html"
+       title="next chapter"><span class="section-number">2. </span>Compilarea unui fișier cod sursă C →</a>
+  </li>
+</ul>
+  
+</div>
+<hr>
+          <div class="content" role="main">
+            
+  <section id="introducere">
+<span id="app-dev-intro"></span><h1><span class="section-number">1. </span>Introducere<a class="headerlink" href="#introducere" title="Link to this heading">¶</a></h1>
+<p>Toate dispozitivele electronice pe care le folosim în viața de zi cu zi, de la latopuri sau calculatoare personale, până la telefoane mobile sau smart watch-uri, au în comun un lucru: rulează software.
+Având în vedere cât de variate sunt sistemele pe care rulează aplicațiile, trebuie să avem mereu în minte sistemul pentru care creăm o aplicație.
+De exemplu, dacă aplicația noastră este gândită pentru un ceas inteligent, atunci trebuie să ținem în minte că resursele vor fi limitate; apare astfel o constrângere din punctul de vedere al memoriei disponibile.</p>
+<p>Astfel, trebuie să ținem cont de următoarele:</p>
+<ul class="simple">
+<li><p>ce limbaj de programare folosim</p></li>
+<li><p>cum scriem și compilăm codul sursă</p></li>
+<li><p>cum depanăm codul sursă</p></li>
+<li><p>cum versionăm codul sursă</p></li>
+</ul>
+<p>Vom vorbi despre toate aceste aspecte în acest capitol.</p>
+<section id="alegerea-limbajului-de-programare">
+<span id="app-dev-choose-programming-language"></span><h2><span class="section-number">1.1. </span>Alegerea limbajului de programare<a class="headerlink" href="#alegerea-limbajului-de-programare" title="Link to this heading">¶</a></h2>
+<p>Există trei categorii de limbaje de programare, grupate în funcție de modul în care codul sursă scris de noi (<em>de limbaj înalt</em>) ajunge să fie rulat pe procesor: <strong>compilate</strong>, <strong>interpretate</strong> și <strong>hibride</strong>.
+Alegem limbajul de programare potrivit pentru dezvoltarea programului nostru în funcție de ce avem nevoie: să avem un program portabil sau să avem un program rapid sau să avem acces mai ușor la memorie.</p>
+<p>În această carte vom folosi <em>limbajul C</em> ca să scriem codul sursă și <em>compilatorul gcc</em> pentru a compila codul sursă, însă mai jos descriem particularitățile fiecărui tip de limbaj de programare.</p>
+<section id="limbaje-de-programare-compilate">
+<span id="app-dev-compiled-languages"></span><h3><span class="section-number">1.1.1. </span>Limbaje de programare compilate<a class="headerlink" href="#limbaje-de-programare-compilate" title="Link to this heading">¶</a></h3>
+<p>Programele scrise într-un limbaj <strong>compilat</strong> sunt analizate de către un program numit <em>compilator</em> înainte ca ele să poată fi rulate pe sistem.
+În general, limbajele compilate sunt mai rapide în execuție decât cele interpretate sau hibride, deoarece problemele de <strong>sintaxă</strong> (<em>de scriere</em>) sunt eliminate din faza <em>compilării</em>, înainte să rulăm programul.
+Neajunsul programelor compilate este faptul că programele <strong>NU</strong> sunt <strong>portabile</strong>, adică nu putem lua un program compilat pe calculator să îl rulăm pe un smartwatch; trebuie să <em>recompilăm</em> codul sursă.</p>
+<p>Exemple de limbaje compilate sunt <strong>C</strong>, <strong>C++</strong>, <strong>Fortran</strong>, <strong>Rust</strong>, <strong>Go</strong>, <strong>D</strong>.</p>
+</section>
+<section id="limbaje-de-programare-interpretate">
+<span id="app-dev-interpreted-languages"></span><h3><span class="section-number">1.1.2. </span>Limbaje de programare interpretate<a class="headerlink" href="#limbaje-de-programare-interpretate" title="Link to this heading">¶</a></h3>
+<p>Atunci când scriem un program într-un limbaj <strong>interpretat</strong>, programul este trecut printr-un alt program, numit <em>interpretor</em> care analizează și rulează fiecare linie de cod scrisă, pe rând.
+Dacă alegem să scriem un program într-un limbaj de programare interpretat, atunci programul nostru este <strong>portabil</strong>, adică putem să îl rulăm pe orice sistem pe care avem interpretorul instalat.
+Din cauza faptului că programele sunt analizate și rulate linie cu linie, execuția lor poate fi mai lentă.</p>
+<p>Exemple de limbaje interpretate sunt <strong>PHP</strong> și <strong>Perl</strong>.</p>
+</section>
+<section id="limbaje-de-programare-hibride">
+<span id="app-dev-hybrid-languages"></span><h3><span class="section-number">1.1.3. </span>Limbaje de programare hibride<a class="headerlink" href="#limbaje-de-programare-hibride" title="Link to this heading">¶</a></h3>
+<p>Programele scrise într-un limbaj <strong>hibrid</strong> trec print-un proces care îmbină etapa de <em>compilare</em> și etapa de <em>interpretare</em>, scopul fiind de a avea în final un program portabil al cărui timp de execuție este mai redus decât în cazul programelor interpretate.</p>
+<p>Exemple de limbare hibride sunt <strong>Python</strong>, <strong>Java</strong> și <strong>C#</strong>.</p>
+</section>
+</section>
+<section id="scrierea-codului-sursa">
+<span id="app-dev-writing-source-code"></span><h2><span class="section-number">1.2. </span>Scrierea codului sursă<a class="headerlink" href="#scrierea-codului-sursa" title="Link to this heading">¶</a></h2>
+<p>Atunci când spunem că <em>dezvoltăm o aplicație</em>, spunem, de fapt, că scriem codul sursă, îl compilăm, îl verificăm de erori.
+Pentru scrierea codului sursă putem să alegem <strong>editoare de text</strong> sau <a class="reference external" href="https://www.redhat.com/en/topics/middleware/what-is-ide">medii de dezvoltare integrate</a> (<em>Integrated Development Environment</em>, <em>IDE</em>).</p>
+<p><em>Editoarele de text</em> sunt programe mai simple în care putem edita fișiere text, deci putem dezvolta programe.
+Ele pot permite instalarea de extensii care aduc funcționalități în plus, specifice pentru un anumit limbaj.
+Printre cele mai cunoscute editoare de text se numără <a class="reference external" href="https://www.nano-editor.org">GNU Nano</a>, <a class="reference external" href="https://www.vim.org">Vim</a>, <a class="reference external" href="http://sublimetext.com">Sublime</a>, <a class="reference external" href="https://atom.io">Atom</a>, <a class="reference external" href="https://code.visualstudio.com">Visual Studio Code</a>.</p>
+<p><em>IDE-urile</em> au anumite funcționalități avansate, multe dintre ele fiind adaptate unui singur limbaj de programare.
+În plus, ele au integrat un compilator/interpretor pentru limbajul suportat.
+Astfel, la o simplă apăsare de buton programul este rulat.
+Printre IDE-uri se număra: <a class="reference external" href="https://visualstudio.microsoft.com">Microsoft Visual Studio</a>, <a class="reference external" href="https://www.eclipse.org/ide/">Eclipse</a>, <a class="reference external" href="https://www.jetbrains.com/idea/">IntelliJ</a>, <a class="reference external" href="https://developer.apple.com/xcode/">XCode</a>.</p>
+<p>În această carte vom folosi <em>GNU Nano</em> ca editor de text principal.
+Este un editor CLI și se pornește folosind comanda <code class="docutils literal notranslate"><span class="pre">nano</span></code>, așa cum a fost prezentat în capitolul <em>Lucrul cu fișiere</em>.</p>
+</section>
+</section>
+
+
+          </div>
+          <div class="page-nav">
+            <div class="inner"><ul class="page-nav">
+  <li class="prev">
+    <a href="../files/cheatsheet.html"
+       title="previous chapter">← <span class="section-number">7. </span>Sumar - Cheatsheet</a>
+  </li>
+  <li class="next">
+    <a href="make-intro.html"
+       title="next chapter"><span class="section-number">2. </span>Compilarea unui fișier cod sursă C →</a>
+  </li>
+</ul><div class="footer" role="contentinfo">
+      &#169; Copyright 2020, USO Team.
+    <br>
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 7.2.6 with <a href="https://github.com/romnn/sphinx_press_theme">Press Theme</a>.
+</div>
+            </div>
+          </div>
+      </page>
+    </div>
+    
+    
+  </body>
+</html>

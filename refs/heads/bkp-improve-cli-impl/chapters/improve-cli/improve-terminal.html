@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html  lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+      <title>1. Îmbunătățirea lucrului în linia de comandă</title>
+    
+      <link rel="stylesheet" href="../../_static/pygments.css">
+      <link rel="stylesheet" href="../../_static/theme.css">
+      <link rel="stylesheet" href="../../_static/romnn_sphinx_press_theme.css">
+          <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+          <link rel="stylesheet" href="../../_static/css/theme.css " type="text/css" />
+      
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+
+      <!-- sphinx script_files -->
+        <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../_static/my_actions.js?v=1451d81f"></script>
+
+      
+      <script src="../../_static/theme-vendors.js"></script>
+      <script src="../../_static/theme.js" defer></script>
+    
+  <link rel="index" title="Index" href="../../genindex.html" />
+  <link rel="search" title="Search" href="../../search.html" />
+  <link rel="next" title="2. Inspectarea sistemului de fișiere" href="inspect-fs.html" />
+  <link rel="prev" title="9. Exerciții: Instalarea și gestiunea aplicațiilor" href="../app-install/summary2.html" />
+    <link href="../../_static/my_theme.css" rel="stylesheet" type="text/css">
+
+  </head>
+
+  <body>
+    <div id="app" class="theme-container" :class="pageClasses"><navbar @toggle-sidebar="toggleSidebar">
+  <div class="home-link-container">
+      <router-link to="../../index.html" class="home-link">
+      
+        <span class="site-name">USO Lab Book</span>
+    </router-link>
+  </div>
+
+  <div class="links">
+    <navlinks class="can-hide">
+
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Acomodarea în Linux
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Lucrul cu fișiere
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Dezvoltarea aplicațiilor
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Conectarea la Internet
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Instalarea și utilizarea aplicațiilor
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link  router-link-active">
+         Îmbunătățirea lucrului în linia de comandă
+      </a>
+    </div>
+  
+
+
+
+  
+    <div class="nav-item">
+      <a href="https://github.com/Sergiu121/uso-lab-book"
+        class="nav-link external">
+          Github <outboundlink/>
+      </a>
+    </div>
+  
+
+    </navlinks>
+  </div>
+</navbar>
+
+      
+      <div class="sidebar-mask" @click="toggleSidebar(false)">
+      </div>
+        <sidebar @toggle-sidebar="toggleSidebar">
+          
+          <navlinks>
+            
+
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Acomodarea în Linux
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Lucrul cu fișiere
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Dezvoltarea aplicațiilor
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Conectarea la Internet
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Instalarea și utilizarea aplicațiilor
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link  router-link-active">
+         Îmbunătățirea lucrului în linia de comandă
+      </a>
+    </div>
+  
+
+
+
+  
+    <div class="nav-item">
+      <a href="https://github.com/Sergiu121/uso-lab-book"
+        class="nav-link external">
+          Github <outboundlink/>
+      </a>
+    </div>
+  
+
+            
+          </navlinks><div id="searchbox" class="searchbox" role="search">
+  <div class="caption"><span class="caption-text">Search</span>
+    <div class="searchformwrapper">
+      <form autocomplete="off" class="search" action="../../search.html" method="get">
+        <input type="text" name="q" autocomplete="off" />
+        <input type="submit" value="Go" />
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div><div class="sidebar-links" role="navigation" aria-label="main navigation">
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#uso-lab-book">Acomodarea în Linux</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../basic/apps.html" class="reference internal ">Pornirea și oprirea aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../basic/browser.html" class="reference internal ">Folosirea eficientă a browserului web</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../basic/terminal.html" class="reference internal ">Lucrul în terminal</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../basic/workspace.html" class="reference internal ">Lucrul cu workspace-uri</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../basic/cheatsheet.html" class="reference internal ">Sumar - Cheatsheet</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#uso-lab-book">Lucrul cu fișiere</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../files/paths.html" class="reference internal ">Căi în ierarhia de fișiere</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../files/files.html" class="reference internal ">Interacțiunea cu fișiere în linia de comandă</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../files/file_editor.html" class="reference internal ">Editor de text</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../files/io_redirection.html" class="reference internal ">Redirectări</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../files/archive.html" class="reference internal ">Arhive</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../files/file_system.html" class="reference internal ">Extra - Sistemul de fișiere</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../files/cheatsheet.html" class="reference internal ">Sumar - Cheatsheet</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#uso-lab-book">Dezvoltarea aplicațiilor</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../app-dev/intro.html" class="reference internal ">Introducere</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/make-intro.html" class="reference internal ">Compilarea unui fișier cod sursă C</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/make-multiple.html" class="reference internal ">Compilarea unui program din fișiere multiple</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/make-lib.html" class="reference internal ">Legarea executabilelor folosind biblioteci externe</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/make-simple-automation.html" class="reference internal ">Introducere în utilitarul Make și fișiere Makefile</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/make-advanced-automation.html" class="reference internal ">Aprofundarea folosirii fișierelor Makefile</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/git-intro.html" class="reference internal ">Introducere în Git și GitHub</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/git-first-commits.html" class="reference internal ">Primele commituri</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/git-branches.html" class="reference internal ">Lucrul pe branch-uri</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/git-first-pull-request.html" class="reference internal ">Crearea unui Pull Request (PR) pe GitHub</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/extra.html" class="reference internal ">Exerciții suplimentare</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#uso-lab-book">Conectarea la Internet</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../net/browser.html" class="reference internal ">Folosirea eficientă a browserului</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../net/connection.html" class="reference internal ">Conectarea la rețea și la Internet</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../net/services.html" class="reference internal ">Servicii și clienți de rețea</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../net/extra.html" class="reference internal ">Funcţionalităţi suplimentare de reţelistică</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#uso-lab-book">Instalarea și utilizarea aplicațiilor</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../app-install/start.html" class="reference internal ">Pornirea și oprirea aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-install/run.html" class="reference internal ">Rularea aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-install/config.html" class="reference internal ">Configurarea rulării aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-install/summary1.html" class="reference internal ">Exerciții: Pornirea, rularea și configurarea aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-install/show-config.html" class="reference internal ">Vizualizarea configurației sistemului</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-install/install.html" class="reference internal ">Instalarea și dezinstalarea aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-install/install-non-standard.html" class="reference internal ">Alternative la instalarea și dezinstalarea aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-install/show.html" class="reference internal ">Investigarea aplicațiilor instalate</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-install/summary2.html" class="reference internal ">Exerciții: Instalarea și gestiunea aplicațiilor</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#uso-lab-book">Îmbunătățirea lucrului în linia de comandă</a></span>
+      </p>
+      <ul class="current">
+        
+          <li class="toctree-l1 current"><a href="#" class="reference internal current">Îmbunătățirea lucrului în linia de comandă</a>
+
+            
+              <ul>
+                
+                  <li class="toctree-l2"><a href="#scurtaturi-in-terminal" class="reference internal">Scurtături în terminal</a></li>
+                
+              </ul>
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="inspect-fs.html" class="reference internal ">Inspectarea sistemului de fișiere</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="inspect-files.html" class="reference internal ">Inspectarea fișierelor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="improve-shell.html" class="reference internal ">O înțelegere mai bună a shellului</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="improve-cli-summary.html" class="reference internal ">Sumar: Îmbunătățirea lucrului în linia de comandă</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+</div>
+        </sidebar>
+
+      <page>
+          <div class="body-header" role="navigation" aria-label="navigation">
+  
+  <ul class="breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+    
+    <li><span class="section-number">1. </span>Îmbunătățirea lucrului în linia de comandă</li>
+  </ul>
+  
+
+  <ul class="page-nav">
+  <li class="prev">
+    <a href="../app-install/summary2.html"
+       title="previous chapter">← <span class="section-number">9. </span>Exerciții: Instalarea și gestiunea aplicațiilor</a>
+  </li>
+  <li class="next">
+    <a href="inspect-fs.html"
+       title="next chapter"><span class="section-number">2. </span>Inspectarea sistemului de fișiere →</a>
+  </li>
+</ul>
+  
+</div>
+<hr>
+          <div class="content" role="main">
+            
+  <section id="imbunatatirea-lucrului-in-linia-de-comanda">
+<span id="improve-cli-improve-terminal"></span><h1><span class="section-number">1. </span>Îmbunătățirea lucrului în linia de comandă<a class="headerlink" href="#imbunatatirea-lucrului-in-linia-de-comanda" title="Link to this heading">¶</a></h1>
+<p>Principalul atu al utilizării aplicațiilor în linie de comandă, și nu în mediul grafic, este viteza cu care rezolvăm anumite sarcini.
+Această viteză este dată de posibilitatea de a combina utilitare în linia de comandă pentru a automatiza procese manuale, repetitive.
+Întotdeauna ne dorim să fim mai rapizi și să automatizăm cât mai mult din sarcinile noastre, deoarece cu cât ne terminăm treaba mai repede, cu atât avem mai mult timp liber la dispoziție.</p>
+<p>De regulă, cu cât petrecem mai mult timp cu mâna pe tastatură și mai puțin pe mouse, cu atât suntem mai rapizi.
+Aliniate la această idee, aplicațiile ne pun la dispoziție scurtături pe care suntem încurajați să le folosim pentru a ne utiliza timpul mai eficient.</p>
+<section id="scurtaturi-in-terminal">
+<h2><span class="section-number">1.1. </span>Scurtături în terminal<a class="headerlink" href="#scurtaturi-in-terminal" title="Link to this heading">¶</a></h2>
+<section id="tab-completion">
+<h3><span class="section-number">1.1.1. </span>Tab completion<a class="headerlink" href="#tab-completion" title="Link to this heading">¶</a></h3>
+<p>Funcția de <strong>tab completion</strong> este probabil una dintre cele mai utile funcții expuse de către terminal.
+Prin simpla apăsare a tastei <code class="docutils literal notranslate"><span class="pre">Tab</span></code> în timp ce scriem numele unei comenzi, al unei opțiuni a unei comenzi sau calea către un director sau fișier, terminalul va completa în mod automat textul.
+În cazul în care există mai multe opțiuni pentru auto-complete, prin dubla apăsare a tastei <code class="docutils literal notranslate"><span class="pre">Tab</span></code> ne va sugera opțiunile de auto-complete.</p>
+<p>În imaginea de mai jos putem observa că pentru comanda <code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">D</span></code> funcția de <code class="docutils literal notranslate"><span class="pre">Tab</span></code> completion a găsit mai multe opțiuni valide pentru auto-complete.
+În astfel de scenarii, cu mai multe opțiuni valide, apăsarea tastei <code class="docutils literal notranslate"><span class="pre">Tab</span></code> o singură dată nu produce niciun rezultat; trebuie să apăsăm tasta <code class="docutils literal notranslate"><span class="pre">Tab</span></code> de două ori consecutiv pentru a genera afișarea opțiunilor de auto-complete.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>D
+Desktop/<span class="w">   </span>Documents/<span class="w"> </span>Downloads/
+student@uso:~$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>D
+</pre></div>
+</div>
+<p>Funcția de auto-complete este extrem de utilă și îmbunătățește semnificativ viteza cu care realizăm acțiuni în terminal.</p>
+<p>Funcția este extrem de utilă atunci când lucrăm cu nume de fișiere, directoare și căi din sistem.
+În loc să scriem manual o cale către un nume foarte lung, lăsăm tasta <code class="docutils literal notranslate"><span class="pre">Tab</span></code> să facă asta pentru noi.</p>
+<p>Atunci când avem o eroare în comandă (am scris greșit o anumită parte din numele comenzii sau al fișierului, fișierul nu există, etc.), tasta <code class="docutils literal notranslate"><span class="pre">Tab</span></code> nu produce nici un rezultat.
+Acesta este un alt motiv pentru care să folosim tasta <code class="docutils literal notranslate"><span class="pre">Tab</span></code>.</p>
+<p>Folosiți funcția de <code class="docutils literal notranslate"><span class="pre">Tab</span></code> completion cât mai des cu putință <a class="footnote-reference brackets" href="#clear" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>.</p>
+</section>
+<section id="navigarea-in-istoricul-unei-comenzi">
+<span id="improve-cli-history-nav"></span><h3><span class="section-number">1.1.2. </span>Navigarea în istoricul unei comenzi<a class="headerlink" href="#navigarea-in-istoricul-unei-comenzi" title="Link to this heading">¶</a></h3>
+<p>Shellul implementează funcția de a reține istoricul comenzilor pe care le-am executat.
+Pentru a vedea istoricul curent putem rula comanda <code class="docutils literal notranslate"><span class="pre">history</span></code>.
+Vom obține un rezultat asemănător cu cel de mai jos:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$<span class="w"> </span><span class="nb">history</span>
+<span class="o">[</span>...<span class="o">]</span>
+<span class="m">21</span><span class="w">  </span>ls
+<span class="m">22</span><span class="w">  </span><span class="nb">cd</span><span class="w"> </span>sorting/
+<span class="m">23</span><span class="w">  </span>ls<span class="w"> </span>-l
+<span class="m">24</span><span class="w">  </span>ls
+<span class="m">25</span><span class="w">  </span><span class="nb">cd</span>
+<span class="m">26</span><span class="w">  </span>ls<span class="w"> </span>~/Desktop<span class="w"> </span>~/Documents<span class="w"> </span>~/Downloads
+<span class="m">27</span><span class="w">  </span>ls<span class="w"> </span>~/Desktop
+<span class="m">28</span><span class="w">  </span>ls<span class="w"> </span>Desktop/todos.txt
+<span class="m">29</span><span class="w">  </span>cp<span class="w"> </span>Desktop/todos.txt<span class="w"> </span>cp
+<span class="m">30</span><span class="w">  </span>ls
+<span class="m">31</span><span class="w">  </span>rm<span class="w"> </span>cp
+<span class="o">[</span>...<span class="o">]</span>
+</pre></div>
+</div>
+<p>Ciclăm prin comenzile date anterior folosind combinația de taste <code class="docutils literal notranslate"><span class="pre">Arrow</span> <span class="pre">Up</span></code> sau <code class="docutils literal notranslate"><span class="pre">Ctrl+p</span></code>, respectiv <code class="docutils literal notranslate"><span class="pre">Arrow</span> <span class="pre">Down</span></code> sau <code class="docutils literal notranslate"><span class="pre">Ctrl+n</span></code>.</p>
+<p><strong>Exercițiu</strong>: Ciclați prin istoricul de comenzi folosind combinația de taste <code class="docutils literal notranslate"><span class="pre">Ctrl+p</span></code>, respectiv <code class="docutils literal notranslate"><span class="pre">Ctrl+n</span></code>.</p>
+<section id="cautarea-in-istoricul-comenzilor">
+<h4><span class="section-number">1.1.2.1. </span>Căutarea în istoricul comenzilor<a class="headerlink" href="#cautarea-in-istoricul-comenzilor" title="Link to this heading">¶</a></h4>
+<p>Terminalul ne pune la dispoziție un mod mai inteligent de a căuta în istoricul comenzilor prin combinația de taste <code class="docutils literal notranslate"><span class="pre">Ctrl+r</span></code>, ordinea căutării fiind de la cea mai recentă comandă la cea mai veche.
+Funcția este cunoscută sub numele de <strong>history search</strong>.</p>
+<p>Pentru a porni căutarea, apăsați combinația de taste <code class="docutils literal notranslate"><span class="pre">Ctrl+r</span></code> și începeți să scrieți o parte din textul comenzii pe care o căutați, de exemplu <code class="docutils literal notranslate"><span class="pre">cd</span></code>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">(</span>reverse-i-search<span class="o">)</span><span class="sb">`</span>cd<span class="err">&#39;</span>:<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>workspace/hello
+</pre></div>
+</div>
+<p>De aici, avem următoarele opțiuni:</p>
+<ul class="simple">
+<li><p>Căutăm în continuare o comandă care conține șirul <code class="docutils literal notranslate"><span class="pre">cd</span></code>, folosind combinația de taste <code class="docutils literal notranslate"><span class="pre">Ctrl+r</span></code></p></li>
+<li><p>Rulăm comanda pe care am găsit-o, folosind combinația de taste <code class="docutils literal notranslate"><span class="pre">Ctrl+o</span></code></p></li>
+<li><p>Anulăm căutarea comenzii și revenim la starea inițială, folosind combinația de taste <code class="docutils literal notranslate"><span class="pre">Ctrl+g</span></code></p></li>
+</ul>
+<p>Căutarea este incrementală.
+Adică se rafinează pe măsură ce tastăm un caracter.
+Orice caracter apăsat rafinează căutarea.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Textul căutat se poate afla oriunde în interiorul comenzii; nu trebuie să fie primele litere din comandă.
+Pentru exemplul de mai sus, căutarea folosind textul <code class="docutils literal notranslate"><span class="pre">work</span></code> ar fi produs același rezultat</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">(</span>reverse-i-search<span class="o">)</span><span class="sb">`</span>work<span class="err">&#39;</span>:<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>workspace/hello
+</pre></div>
+</div>
+</div>
+</section>
+<section id="expandarea-comenzilor-anterioare">
+<h4><span class="section-number">1.1.2.2. </span>Expandarea comenzilor anterioare<a class="headerlink" href="#expandarea-comenzilor-anterioare" title="Link to this heading">¶</a></h4>
+<p>Terminalul ne pune la dispoziție și alte moduri prin care putem reutiliza comenzile din istoric.</p>
+<p>Atunci când rulăm comanda <code class="docutils literal notranslate"><span class="pre">history</span></code>, ca în subsecțiunea <a class="reference internal" href="#improve-cli-history-nav"><span class="std std-ref">Navigarea în istoricul unei comenzi</span></a> , vedem că fiecare comandă din istoric este precedată de un număr:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="m">23</span><span class="w">  </span>ls<span class="w"> </span>-l
+</pre></div>
+</div>
+<p>Acest număr funcționează ca un index pe care îl putem folosi pentru a executa comanda care îi corespunde:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$<span class="w"> </span>!23
+ls<span class="w"> </span>-l
+total<span class="w"> </span><span class="m">60</span>
+drwxr-xr-x<span class="w">  </span><span class="m">2</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">4096</span><span class="w"> </span>aug<span class="w">  </span><span class="m">6</span><span class="w">  </span><span class="m">2018</span><span class="w"> </span>Desktop
+drwxr-xr-x<span class="w">  </span><span class="m">3</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">4096</span><span class="w"> </span>aug<span class="w"> </span><span class="m">20</span><span class="w">  </span><span class="m">2018</span><span class="w"> </span>Documents
+drwxr-xr-x<span class="w">  </span><span class="m">2</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">4096</span><span class="w"> </span>aug<span class="w"> </span><span class="m">11</span><span class="w"> </span><span class="m">19</span>:35<span class="w"> </span>Downloads
+drwxr-xr-x<span class="w">  </span><span class="m">2</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">4096</span><span class="w"> </span>aug<span class="w">  </span><span class="m">6</span><span class="w">  </span><span class="m">2018</span><span class="w"> </span>Music
+drwxr-xr-x<span class="w">  </span><span class="m">2</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">4096</span><span class="w"> </span>aug<span class="w"> </span><span class="m">11</span><span class="w"> </span><span class="m">21</span>:08<span class="w"> </span>Pictures
+drwxr-xr-x<span class="w">  </span><span class="m">2</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">4096</span><span class="w"> </span>aug<span class="w">  </span><span class="m">6</span><span class="w">  </span><span class="m">2018</span><span class="w"> </span>Public
+drwxr-xr-x<span class="w">  </span><span class="m">2</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">4096</span><span class="w"> </span>aug<span class="w">  </span><span class="m">6</span><span class="w">  </span><span class="m">2018</span><span class="w"> </span>Templates
+drwxr-xr-x<span class="w">  </span><span class="m">2</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">4096</span><span class="w"> </span>aug<span class="w">  </span><span class="m">6</span><span class="w">  </span><span class="m">2018</span><span class="w"> </span>Videos
+-rw-r--r--<span class="w">  </span><span class="m">1</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">8980</span><span class="w"> </span>aug<span class="w">  </span><span class="m">6</span><span class="w">  </span><span class="m">2018</span><span class="w"> </span>examples.desktop
+drwxr-xr-x<span class="w"> </span><span class="m">14</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">4096</span><span class="w"> </span>aug<span class="w"> </span><span class="m">20</span><span class="w">  </span><span class="m">2018</span><span class="w"> </span>uso.git
+-rw-r--r--<span class="w">  </span><span class="m">1</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">4827</span><span class="w"> </span>aug<span class="w"> </span><span class="m">21</span><span class="w">  </span><span class="m">2018</span><span class="w"> </span>vm-actions-log.txt
+drwxr-xr-x<span class="w">  </span><span class="m">3</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">4096</span><span class="w"> </span>aug<span class="w"> </span><span class="m">11</span><span class="w"> </span><span class="m">20</span>:28<span class="w"> </span>workspace
+</pre></div>
+</div>
+<p>Observăm că <code class="docutils literal notranslate"><span class="pre">!23</span></code> a fost înlocuit (expandat, în abuz de limbaj) cu comanda <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-l</span></code> care corespundea indexului <strong>23</strong>.</p>
+<p>Un caz particular, foarte des folosit, este <code class="docutils literal notranslate"><span class="pre">!!</span></code>, care se va înlocui textual cu ultima comandă executată:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$<span class="w"> </span>ls
+Desktop<span class="w">    </span>Downloads<span class="w">  </span>Pictures<span class="w">  </span>Templates<span class="w">  </span>examples.desktop<span class="w">  </span>vm-actions-log.txt
+Documents<span class="w">  </span>Music<span class="w">      </span>Public<span class="w">    </span>Videos<span class="w">     </span>uso.git<span class="w">           </span>workspace
+student@uso:~$<span class="w"> </span>!!<span class="w"> </span>-l<span class="w"> </span>workspace
+ls<span class="w"> </span>-l<span class="w"> </span>workspace
+total<span class="w"> </span><span class="m">4</span>
+drwxr-xr-x<span class="w"> </span><span class="m">2</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">4096</span><span class="w"> </span>aug<span class="w"> </span><span class="m">11</span><span class="w"> </span><span class="m">21</span>:32<span class="w"> </span>hello
+</pre></div>
+</div>
+<p>În exemplul de mai sus observăm că <code class="docutils literal notranslate"><span class="pre">!!</span></code> a fost înlocuit cu <code class="docutils literal notranslate"><span class="pre">ls</span></code> în textul comenzii, pentru ca apoi să se execute comanda <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-l</span> <span class="pre">workspace</span></code>.
+Sintaxa <code class="docutils literal notranslate"><span class="pre">!!</span></code> este echivalentă cu <code class="docutils literal notranslate"><span class="pre">!-1</span></code>.</p>
+<p><strong>Exercițiu</strong>: Rulați trei comenzi din istoricul vostru folosind atât înlocuirea numerică (<code class="docutils literal notranslate"><span class="pre">!2</span></code>), cât și înlocuirea ultimei comenzi (<code class="docutils literal notranslate"><span class="pre">!!</span></code>).
+Folosiți-vă de faptul că această înlocuire are loc înaintea executării comenzii pentru a adăuga argumente comenzilor, similar exemplului de mai sus.</p>
+</section>
+<section id="reutilizarea-argumentelor-comenzii-anterioare">
+<h4><span class="section-number">1.1.2.3. </span>Reutilizarea argumentelor comenzii anterioare<a class="headerlink" href="#reutilizarea-argumentelor-comenzii-anterioare" title="Link to this heading">¶</a></h4>
+<p>Terminalul ne oferă și o sintaxă prin care avem posibilitatea de a reutiliza argumentele comenzii anterioare în corpul comenzii curente.
+Acest lucru este util în reutilizarea argumentelor lungi sau complicate, pentru că evităm rescrierea lor.
+Astfel nu doar că suntem mai rapizi, dar evităm și apariția unor probleme din categoria typourilor.</p>
+<p>Executăm următorul șir de comenzi:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$<span class="w"> </span>touch<span class="w"> </span>a/very/long/path/that-you-dont-want-to-retype
+student@uso:~$<span class="w"> </span>ls<span class="w"> </span>-l<span class="w"> </span>!$
+ls<span class="w"> </span>-l<span class="w"> </span>a/very/long/path/that-you-dont-want-to-retype
+</pre></div>
+</div>
+<p>Observăm că șirul <code class="docutils literal notranslate"><span class="pre">!$</span></code> din comanda <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-l</span> <span class="pre">!$</span></code> a fost înlocuit cu ultimul argument al comenzii, anterioare, <code class="docutils literal notranslate"><span class="pre">touch</span></code>.</p>
+<p>Executăm următoarele comenzi:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$<span class="w"> </span>ls<span class="w"> </span>~/Desktop<span class="w"> </span>~/Documents<span class="w"> </span>~/Downloads
+student@uso:~$<span class="w"> </span>ls<span class="w"> </span>-l<span class="w"> </span>!^
+</pre></div>
+</div>
+<p>Observăm că șirul <code class="docutils literal notranslate"><span class="pre">!^</span></code> din comanda <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-l</span> <span class="pre">!^</span></code> a fost înlocuit cu primul argument al comenzii, anterioare, <code class="docutils literal notranslate"><span class="pre">~/Desktop</span></code>.</p>
+</section>
+<section id="exercitii">
+<h4><span class="section-number">1.1.2.4. </span>Exerciții<a class="headerlink" href="#exercitii" title="Link to this heading">¶</a></h4>
+<ol class="arabic simple">
+<li><p>Afișați istoricul vostru de comenezi.
+Rulați a zecea comandă din istoric, folosind sintaxa <code class="docutils literal notranslate"><span class="pre">!#num</span></code>.</p></li>
+<li><p>Rulați comanda <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-lh</span></code>.
+Acum rulați comanda anterioară, folosind sintaxa <code class="docutils literal notranslate"><span class="pre">!!</span></code>, cu argumentul <code class="docutils literal notranslate"><span class="pre">~/Downloads</span></code>.</p></li>
+<li><p>Navigați către directorul <code class="docutils literal notranslate"><span class="pre">~/Downloads</span></code>, folosit ca argument în exercițiul anterior, folosind sintaxa <code class="docutils literal notranslate"><span class="pre">!$</span></code>.</p></li>
+<li><p>Navigați către directorul <code class="docutils literal notranslate"><span class="pre">~/Downloads</span></code>, folosit ca argument în exercițiul anterior, folosind sintaxa <code class="docutils literal notranslate"><span class="pre">!^</span></code>.</p></li>
+</ol>
+</section>
+</section>
+<section id="navigarea-in-interiorul-unei-comenzi">
+<h3><span class="section-number">1.1.3. </span>Navigarea în interiorul unei comenzi<a class="headerlink" href="#navigarea-in-interiorul-unei-comenzi" title="Link to this heading">¶</a></h3>
+<p>Ne găsim des în situația în care căutăm o comandă în istoric folosind funcția de history search, modificăm un argument al comenzii și apoi o executăm.
+Pentru navigarea în cadrul textului comenzii putem folosi <code class="docutils literal notranslate"><span class="pre">Arrow</span> <span class="pre">Keys</span></code>, iar pentru ștergeri putem folosi tasta <code class="docutils literal notranslate"><span class="pre">Backspace</span></code> sau <code class="docutils literal notranslate"><span class="pre">Del</span></code>.</p>
+<p>Terminalul ne pune la dispoziție și o serie de scurtături cu ajutorul cărora putem face realiza aceeași acțiune mai rapid.
+Dacă vreți să vă impresionați prietenii, acesta este un mod simplu, dar eficient, de a o face.</p>
+<p>Pentru a naviga în istoricul de comenzi putem folosi combinațiile de taste:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Ctrl+p</span></code> - accesăm ultima comandă dată; prin apăsări succesive ciclăm prin istoricul de comenzi, de la ultima la prima comandă dată</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Ctrl+n</span></code> - accesăm comenzile în sens invers față de <code class="docutils literal notranslate"><span class="pre">Ctrl+p</span></code>, de la comanda actuală până la ultima comandă dată</p></li>
+</ul>
+<p>Pentru a naviga în corpul textului putem folosi combinațiile de taste:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Ctrl+a</span></code> - mută cursorul la începutul liniei</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Ctrl+e</span></code> - mută cursorul la sfârșitul liniei</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Ctrl+f</span></code> - mută cursorul cu un caracter înainte</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Ctrl+b</span></code> - mută cursorul cu un caracter înapoi</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Alt+f</span></code> - mută cursorul cu un cuvânt înainte</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Alt+b</span></code> - mută cursorul cu un cuvânt înapoi</p></li>
+</ul>
+<p>Pentru a efectua ștergeri în corpul textului putem folosi combinațiile de taste:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Ctrl+k</span></code> - șterge tot textul de la cursor până la sfârșitul liniei</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Ctrl+u</span></code> - șterge tot textul de la cursor până la începutul liniei</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Alt+d</span></code> - șterge tot textul de la cursor până la sfârșitul cuvântului</p></li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Textul șters este salvat într-un registru și poate fi folosit folosind combinația de taste <code class="docutils literal notranslate"><span class="pre">Ctrl+y</span></code>.
+Funcționalitatea este similară cu procesul de <strong>Cut</strong> (<code class="docutils literal notranslate"><span class="pre">Ctrl+k</span></code>, <code class="docutils literal notranslate"><span class="pre">Ctrl+u</span></code> sau <code class="docutils literal notranslate"><span class="pre">Alt+d</span></code>) și <strong>Paste</strong> (<code class="docutils literal notranslate"><span class="pre">Ctrl+y</span></code>).</p>
+</div>
+<section id="id2">
+<h4><span class="section-number">1.1.3.1. </span>Exerciții<a class="headerlink" href="#id2" title="Link to this heading">¶</a></h4>
+<p>Rulați comanda <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">Documents/</span> <span class="pre">Downloads/</span> <span class="pre">Desktop/</span> <span class="pre">Pictures/</span> <span class="pre">Music/</span></code> înainte de a vă apuca de exerciții.</p>
+<ol class="arabic simple">
+<li><p>Apăsați tasta <code class="docutils literal notranslate"><span class="pre">Ctrl+p</span></code> pentru a accesa comanda rulată anterior.</p></li>
+<li><p>Plasați-vă la începutul comenzii folosind combinația de taste <code class="docutils literal notranslate"><span class="pre">Ctrl+a</span></code>.</p></li>
+<li><p>Plasați-vă la sfârșitul comenzii folosind combinația de taste <code class="docutils literal notranslate"><span class="pre">Ctrl+e</span></code>.</p></li>
+<li><p>Mergeți, cuvânt cu cuvânt, la începutul comenzii folosind combinația de taste <code class="docutils literal notranslate"><span class="pre">Alt+b</span></code>.</p></li>
+<li><p>Mergeți, cuvânt cu cuvânt, la sfârșitul comenzii folosind combinația de taste <code class="docutils literal notranslate"><span class="pre">Alt+f</span></code>.</p></li>
+<li><p>Rulați comanda <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">Docuents/</span> <span class="pre">Downlads/</span> <span class="pre">Dektop/</span> <span class="pre">Pitures/</span> <span class="pre">Muic/</span></code>.</p></li>
+<li><p>Apăsați tasta <code class="docutils literal notranslate"><span class="pre">Ctrl+p</span></code> pentru a accesa comanda rulată anterior.
+Corectați typourile (greșelile de scriere) din comanda anterioară.
+Folosiți combinațiile de taste <code class="docutils literal notranslate"><span class="pre">Ctrl+f</span></code>, <code class="docutils literal notranslate"><span class="pre">Ctrl+b</span></code> pentru a deplasa cursorul în cadrul comenzii.</p></li>
+<li><p>Apăsați tasta <code class="docutils literal notranslate"><span class="pre">Ctrl+p</span></code> pentru a accesa comanda rulată anterior (comanda corectată).
+Avansați până la începutul cuvântului <code class="docutils literal notranslate"><span class="pre">Desktop/</span></code>.
+Ștergeți tot până la final folosind combinația de taste <code class="docutils literal notranslate"><span class="pre">Ctrl+k</span></code>.
+Acum anulați comanda curentă apăsând combinația de taste <code class="docutils literal notranslate"><span class="pre">Ctrl+c</span></code>.
+În acest moment, textul pe care l-ați șters folosind <code class="docutils literal notranslate"><span class="pre">Ctrl+k</span></code> (<strong>Desktop/ Pictures/ Music/</strong>) se află într-un buffer.
+O să rulați comanda <code class="docutils literal notranslate"><span class="pre">ls</span></code> pe textul din buffer.
+Scrieți comanda <code class="docutils literal notranslate"><span class="pre">ls</span></code> și apoi apăsați combinația de taste <code class="docutils literal notranslate"><span class="pre">Ctrl+y</span></code>.
+Textul a fost scris din buffer în continuarea comenzii <code class="docutils literal notranslate"><span class="pre">ls</span></code> (scrisă de voi).</p></li>
+<li><p>Rulați comanda <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">Documents/</span> <span class="pre">Downloads/</span> <span class="pre">Desktop/</span> <span class="pre">Pictures/</span> <span class="pre">Music/</span></code>.
+Apăsați tasta <code class="docutils literal notranslate"><span class="pre">Ctrl+p</span></code> pentru a accesa comanda rulată anterior (comanda corectată).
+Avansați până la începutul cuvântului <code class="docutils literal notranslate"><span class="pre">Pictures/</span></code>.
+Ștergeți cuvântul folosind combinația de taste <code class="docutils literal notranslate"><span class="pre">Alt+d</span></code>.
+Acum anulați comanda curentă apăsând combinația de taste <code class="docutils literal notranslate"><span class="pre">Ctrl+c</span></code>.
+În acest moment, textul pe care l-ați șters folosind <code class="docutils literal notranslate"><span class="pre">Alt+d</span></code> (<strong>Pictures</strong>) se află într-un buffer.
+O să rulați comanda <code class="docutils literal notranslate"><span class="pre">ls</span></code> pe textul din buffer.
+Scrieți comanda <code class="docutils literal notranslate"><span class="pre">ls</span></code> și apoi apăsați combinația de taste <code class="docutils literal notranslate"><span class="pre">Ctrl+y</span></code>.
+Textul a fost scris din buffer în continuarea comenzii <code class="docutils literal notranslate"><span class="pre">ls</span></code> (scrisă de voi).</p></li>
+</ol>
+<p class="rubric">Note de subsol</p>
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="clear" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
+<p>Putem să ne găsim în situația în care ecranul terminalului nostru este plin cu rezultatele comenzilor rulate anterior sau cu opțiuni afișate de către auto-complete.
+Putem să curățăm ecranul folosind comanda <code class="docutils literal notranslate"><span class="pre">clear</span></code>.
+O alternativă mai rapidă este să folosim combinația de taste <code class="docutils literal notranslate"><span class="pre">Ctrl+l</span></code>.
+Aceasta va produce același rezultat (va curăța ecranul) și are avantajul că poate fi folosită în timp ce scriem deja o comandă.</p>
+</aside>
+</aside>
+</section>
+</section>
+</section>
+</section>
+
+
+          </div>
+          <div class="page-nav">
+            <div class="inner"><ul class="page-nav">
+  <li class="prev">
+    <a href="../app-install/summary2.html"
+       title="previous chapter">← <span class="section-number">9. </span>Exerciții: Instalarea și gestiunea aplicațiilor</a>
+  </li>
+  <li class="next">
+    <a href="inspect-fs.html"
+       title="next chapter"><span class="section-number">2. </span>Inspectarea sistemului de fișiere →</a>
+  </li>
+</ul><div class="footer" role="contentinfo">
+      &#169; Copyright 2020, USO Team.
+    <br>
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 7.2.6 with <a href="https://github.com/romnn/sphinx_press_theme">Press Theme</a>.
+</div>
+            </div>
+          </div>
+      </page>
+    </div>
+    
+    
+  </body>
+</html>

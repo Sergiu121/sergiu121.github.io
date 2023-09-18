@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html  lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+      <title>3. Configurarea rulării aplicațiilor</title>
+    
+      <link rel="stylesheet" href="../../_static/pygments.css">
+      <link rel="stylesheet" href="../../_static/theme.css">
+      <link rel="stylesheet" href="../../_static/romnn_sphinx_press_theme.css">
+          <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+          <link rel="stylesheet" href="../../_static/css/theme.css " type="text/css" />
+      
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+
+      <!-- sphinx script_files -->
+        <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../_static/my_actions.js?v=1451d81f"></script>
+
+      
+      <script src="../../_static/theme-vendors.js"></script>
+      <script src="../../_static/theme.js" defer></script>
+    
+  <link rel="index" title="Index" href="../../genindex.html" />
+  <link rel="search" title="Search" href="../../search.html" />
+  <link rel="next" title="4. Exerciții: Pornirea, rularea și configurarea aplicațiilor" href="summary1.html" />
+  <link rel="prev" title="2. Rularea aplicațiilor" href="run.html" />
+    <link href="../../_static/my_theme.css" rel="stylesheet" type="text/css">
+
+  </head>
+
+  <body>
+    <div id="app" class="theme-container" :class="pageClasses"><navbar @toggle-sidebar="toggleSidebar">
+  <div class="home-link-container">
+      <router-link to="../../index.html" class="home-link">
+      
+        <span class="site-name">USO Lab Book</span>
+    </router-link>
+  </div>
+
+  <div class="links">
+    <navlinks class="can-hide">
+
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Acomodarea în Linux
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Lucrul cu fișiere
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Dezvoltarea aplicațiilor
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Conectarea la Internet
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link  router-link-active">
+         Instalarea și utilizarea aplicațiilor
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Îmbunătățirea lucrului în linia de comandă
+      </a>
+    </div>
+  
+
+
+
+  
+    <div class="nav-item">
+      <a href="https://github.com/Sergiu121/uso-lab-book"
+        class="nav-link external">
+          Github <outboundlink/>
+      </a>
+    </div>
+  
+
+    </navlinks>
+  </div>
+</navbar>
+
+      
+      <div class="sidebar-mask" @click="toggleSidebar(false)">
+      </div>
+        <sidebar @toggle-sidebar="toggleSidebar">
+          
+          <navlinks>
+            
+
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Acomodarea în Linux
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Lucrul cu fișiere
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Dezvoltarea aplicațiilor
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Conectarea la Internet
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link  router-link-active">
+         Instalarea și utilizarea aplicațiilor
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#uso-lab-book"
+         class="nav-link ">
+         Îmbunătățirea lucrului în linia de comandă
+      </a>
+    </div>
+  
+
+
+
+  
+    <div class="nav-item">
+      <a href="https://github.com/Sergiu121/uso-lab-book"
+        class="nav-link external">
+          Github <outboundlink/>
+      </a>
+    </div>
+  
+
+            
+          </navlinks><div id="searchbox" class="searchbox" role="search">
+  <div class="caption"><span class="caption-text">Search</span>
+    <div class="searchformwrapper">
+      <form autocomplete="off" class="search" action="../../search.html" method="get">
+        <input type="text" name="q" autocomplete="off" />
+        <input type="submit" value="Go" />
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div><div class="sidebar-links" role="navigation" aria-label="main navigation">
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#uso-lab-book">Acomodarea în Linux</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../basic/apps.html" class="reference internal ">Pornirea și oprirea aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../basic/browser.html" class="reference internal ">Folosirea eficientă a browserului web</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../basic/terminal.html" class="reference internal ">Lucrul în terminal</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../basic/workspace.html" class="reference internal ">Lucrul cu workspace-uri</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../basic/cheatsheet.html" class="reference internal ">Sumar - Cheatsheet</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#uso-lab-book">Lucrul cu fișiere</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../files/paths.html" class="reference internal ">Căi în ierarhia de fișiere</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../files/files.html" class="reference internal ">Interacțiunea cu fișiere în linia de comandă</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../files/file_editor.html" class="reference internal ">Editor de text</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../files/io_redirection.html" class="reference internal ">Redirectări</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../files/archive.html" class="reference internal ">Arhive</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../files/file_system.html" class="reference internal ">Extra - Sistemul de fișiere</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../files/cheatsheet.html" class="reference internal ">Sumar - Cheatsheet</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#uso-lab-book">Dezvoltarea aplicațiilor</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../app-dev/intro.html" class="reference internal ">Introducere</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/make-intro.html" class="reference internal ">Compilarea unui fișier cod sursă C</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/make-multiple.html" class="reference internal ">Compilarea unui program din fișiere multiple</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/make-lib.html" class="reference internal ">Legarea executabilelor folosind biblioteci externe</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/make-simple-automation.html" class="reference internal ">Introducere în utilitarul Make și fișiere Makefile</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/make-advanced-automation.html" class="reference internal ">Aprofundarea folosirii fișierelor Makefile</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/git-intro.html" class="reference internal ">Introducere în Git și GitHub</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/git-first-commits.html" class="reference internal ">Primele commituri</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/git-branches.html" class="reference internal ">Lucrul pe branch-uri</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/git-first-pull-request.html" class="reference internal ">Crearea unui Pull Request (PR) pe GitHub</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../app-dev/extra.html" class="reference internal ">Exerciții suplimentare</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#uso-lab-book">Conectarea la Internet</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../net/browser.html" class="reference internal ">Folosirea eficientă a browserului</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../net/connection.html" class="reference internal ">Conectarea la rețea și la Internet</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../net/services.html" class="reference internal ">Servicii și clienți de rețea</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../net/extra.html" class="reference internal ">Funcţionalităţi suplimentare de reţelistică</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#uso-lab-book">Instalarea și utilizarea aplicațiilor</a></span>
+      </p>
+      <ul class="current">
+        
+          <li class="toctree-l1 "><a href="start.html" class="reference internal ">Pornirea și oprirea aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="run.html" class="reference internal ">Rularea aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 current"><a href="#" class="reference internal current">Configurarea rulării aplicațiilor</a>
+
+            
+              <ul>
+                
+                  <li class="toctree-l2"><a href="#configurarea-prin-argumente" class="reference internal">Configurarea prin argumente</a></li>
+                
+                  <li class="toctree-l2"><a href="#configurarea-prin-fisiere-de-configurare" class="reference internal">Configurarea prin fișiere de configurare</a></li>
+                
+                  <li class="toctree-l2"><a href="#configurarea-din-aplicatie" class="reference internal">Configurarea din aplicație</a></li>
+                
+                  <li class="toctree-l2"><a href="#configurarea-cu-variabile-de-mediu" class="reference internal">Configurarea cu variabile de mediu</a></li>
+                
+              </ul>
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="summary1.html" class="reference internal ">Exerciții: Pornirea, rularea și configurarea aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="show-config.html" class="reference internal ">Vizualizarea configurației sistemului</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="install.html" class="reference internal ">Instalarea și dezinstalarea aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="install-non-standard.html" class="reference internal ">Alternative la instalarea și dezinstalarea aplicațiilor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="show.html" class="reference internal ">Investigarea aplicațiilor instalate</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="summary2.html" class="reference internal ">Exerciții: Instalarea și gestiunea aplicațiilor</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#uso-lab-book">Îmbunătățirea lucrului în linia de comandă</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../improve-cli/improve-terminal.html" class="reference internal ">Îmbunătățirea lucrului în linia de comandă</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../improve-cli/inspect-fs.html" class="reference internal ">Inspectarea sistemului de fișiere</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../improve-cli/inspect-files.html" class="reference internal ">Inspectarea fișierelor</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../improve-cli/improve-shell.html" class="reference internal ">O înțelegere mai bună a shellului</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../improve-cli/improve-cli-summary.html" class="reference internal ">Sumar: Îmbunătățirea lucrului în linia de comandă</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+</div>
+        </sidebar>
+
+      <page>
+          <div class="body-header" role="navigation" aria-label="navigation">
+  
+  <ul class="breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+    
+    <li><span class="section-number">3. </span>Configurarea rulării aplicațiilor</li>
+  </ul>
+  
+
+  <ul class="page-nav">
+  <li class="prev">
+    <a href="run.html"
+       title="previous chapter">← <span class="section-number">2. </span>Rularea aplicațiilor</a>
+  </li>
+  <li class="next">
+    <a href="summary1.html"
+       title="next chapter"><span class="section-number">4. </span>Exerciții: Pornirea, rularea și configurarea aplicațiilor →</a>
+  </li>
+</ul>
+  
+</div>
+<hr>
+          <div class="content" role="main">
+            
+  <section id="configurarea-rularii-aplicatiilor">
+<span id="app-install-config"></span><h1><span class="section-number">3. </span>Configurarea rulării aplicațiilor<a class="headerlink" href="#configurarea-rularii-aplicatiilor" title="Link to this heading">¶</a></h1>
+<p>Modul în care o aplicație rulează este configurabil.
+Adică informațiile afișate, interfața expusă utilizatorului și opțiunile permise utilizatorului pot varia de la o rulare la altă rulare.
+Mai mult, o aplicație care rulează (un proces) poate să își modifice comportamentul în timpul rulării.</p>
+<p>Configurarea unei aplicații se realizează în diferite moduri.</p>
+<section id="configurarea-prin-argumente">
+<h2><span class="section-number">3.1. </span>Configurarea prin argumente<a class="headerlink" href="#configurarea-prin-argumente" title="Link to this heading">¶</a></h2>
+<p>O aplicație se comportă diferit prin transmiterea de opțiuni și argumente în linia de comandă.</p>
+<p>De exemplu, utilitarul <code class="docutils literal notranslate"><span class="pre">ls</span></code>, la fel ca majoritatea utilitarelor în linia de comandă, are comportament diferit în funcție de opțiuni, ca mai jos:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$<span class="w"> </span>ls
+Desktop<span class="w">  </span>Documents<span class="w">  </span>Downloads<span class="w">  </span>examples.desktop<span class="w">  </span>Music<span class="w">  </span>Pictures<span class="w">  </span>Public<span class="w">  </span>snap<span class="w">  </span>Templates<span class="w">  </span>uso.git<span class="w">  </span>Videos<span class="w">  </span>vm-actions-log.txt
+
+student@uso:~$<span class="w"> </span>ls<span class="w"> </span>-F
+Desktop/<span class="w">  </span>Documents/<span class="w">  </span>Downloads/<span class="w">  </span>examples.desktop<span class="w">  </span>Music/<span class="w">  </span>Pictures/<span class="w">  </span>Public/<span class="w">  </span>snap/<span class="w">  </span>Templates/<span class="w">  </span>uso.git/<span class="w">  </span>Videos/<span class="w">  </span>vm-actions-log.txt
+
+student@uso:~$<span class="w"> </span>ls<span class="w"> </span>-l
+total<span class="w"> </span><span class="m">60</span>
+drwxr-xr-x<span class="w">  </span><span class="m">2</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">4096</span><span class="w"> </span>Aug<span class="w">  </span><span class="m">6</span><span class="w">  </span><span class="m">2018</span><span class="w"> </span>Desktop
+drwxr-xr-x<span class="w">  </span><span class="m">3</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">4096</span><span class="w"> </span>Aug<span class="w"> </span><span class="m">20</span><span class="w">  </span><span class="m">2018</span><span class="w"> </span>Documents
+drwxr-xr-x<span class="w">  </span><span class="m">2</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">4096</span><span class="w"> </span>Aug<span class="w">  </span><span class="m">6</span><span class="w">  </span><span class="m">2018</span><span class="w"> </span>Downloads
+-rw-r--r--<span class="w">  </span><span class="m">1</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">8980</span><span class="w"> </span>Aug<span class="w">  </span><span class="m">6</span><span class="w">  </span><span class="m">2018</span><span class="w"> </span>examples.desktop
+drwxr-xr-x<span class="w">  </span><span class="m">2</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">4096</span><span class="w"> </span>Aug<span class="w">  </span><span class="m">6</span><span class="w">  </span><span class="m">2018</span><span class="w"> </span>Music
+drwxr-xr-x<span class="w">  </span><span class="m">3</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">4096</span><span class="w"> </span>Aug<span class="w"> </span><span class="m">25</span><span class="w"> </span><span class="m">21</span>:01<span class="w"> </span>Pictures
+drwxr-xr-x<span class="w">  </span><span class="m">2</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">4096</span><span class="w"> </span>Aug<span class="w">  </span><span class="m">6</span><span class="w">  </span><span class="m">2018</span><span class="w"> </span>Public
+drwxr-xr-x<span class="w">  </span><span class="m">3</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">4096</span><span class="w"> </span>Aug<span class="w">  </span><span class="m">8</span><span class="w"> </span><span class="m">09</span>:02<span class="w"> </span>snap
+drwxr-xr-x<span class="w">  </span><span class="m">2</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">4096</span><span class="w"> </span>Aug<span class="w">  </span><span class="m">6</span><span class="w">  </span><span class="m">2018</span><span class="w"> </span>Templates
+drwxr-xr-x<span class="w"> </span><span class="m">14</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">4096</span><span class="w"> </span>Aug<span class="w"> </span><span class="m">20</span><span class="w">  </span><span class="m">2018</span><span class="w"> </span>uso.git
+drwxr-xr-x<span class="w">  </span><span class="m">2</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">4096</span><span class="w"> </span>Aug<span class="w">  </span><span class="m">6</span><span class="w">  </span><span class="m">2018</span><span class="w"> </span>Videos
+-rw-r--r--<span class="w">  </span><span class="m">1</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">4827</span><span class="w"> </span>Aug<span class="w"> </span><span class="m">21</span><span class="w">  </span><span class="m">2018</span><span class="w"> </span>vm-actions-log.txt
+</pre></div>
+</div>
+<p>La o rulare simplă a comenzii <code class="docutils literal notranslate"><span class="pre">ls</span></code>, se afișează conținutul directorului curent.
+Opțiunea <code class="docutils literal notranslate"><span class="pre">-F</span></code> adaugă un sufix specific intrărilor pentru a indica tipul lor; de exemplu <code class="docutils literal notranslate"><span class="pre">/</span></code> (<em>slash</em>) în cazul directoarelor.
+Opțiunea <code class="docutils literal notranslate"><span class="pre">-l</span></code> afișează detalii despre intrări.</p>
+<p>La fel, dacă folosim comanda <code class="docutils literal notranslate"><span class="pre">emacs</span></code>, pornim aplicația Emacs (în mediul grafic).
+Pe când dacă folosim comanda <code class="docutils literal notranslate"><span class="pre">emacs</span> <span class="pre">-nw</span></code>, aplicația va porni în consolă, cu interfața în linia de comandă <a class="footnote-reference brackets" href="#emacs-close" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Pentru a afla argumentele posibile ale unei comenzi cel mai adesea vom folosi pagina de manual a acelui utilitar.
+De exemplu, pentru a afla argumentele posibile ale comenzii <code class="docutils literal notranslate"><span class="pre">ls</span></code>, vom folosi comanda <code class="docutils literal notranslate"><span class="pre">man</span> <span class="pre">ls</span></code> pentru a deschide pagina de manual a utilitarului <code class="docutils literal notranslate"><span class="pre">ls</span></code>.
+Mai multe informații despre folosirea paginilor de manual se găsesc în TODO (referință la capitolul de linia de comandă).</p>
+</div>
+<section id="exercitii">
+<h3><span class="section-number">3.1.1. </span>Exerciții<a class="headerlink" href="#exercitii" title="Link to this heading">¶</a></h3>
+<p>O aplicație poate fi pornită cu argumente în interfața grafică folosind combinația de taste <code class="docutils literal notranslate"><span class="pre">Alt+F2</span></code>.</p>
+<p>Folosiți <code class="docutils literal notranslate"><span class="pre">Alt+F2</span></code> și porniți aplicația <code class="docutils literal notranslate"><span class="pre">gedit</span></code> ca să deschidă fișierul <code class="docutils literal notranslate"><span class="pre">.bashrc</span></code>.</p>
+<p>Folosiți <code class="docutils literal notranslate"><span class="pre">Alt+F2</span></code> și porniți aplicația <code class="docutils literal notranslate"><span class="pre">gedit</span></code> ca să deschidă fișierul <code class="docutils literal notranslate"><span class="pre">.bashrc</span></code> la linia <code class="docutils literal notranslate"><span class="pre">90</span></code>.</p>
+</section>
+</section>
+<section id="configurarea-prin-fisiere-de-configurare">
+<h2><span class="section-number">3.2. </span>Configurarea prin fișiere de configurare<a class="headerlink" href="#configurarea-prin-fisiere-de-configurare" title="Link to this heading">¶</a></h2>
+<p>Fișierele de configurare ale unei aplicații modifică funcționarea acesteia.</p>
+<p>De exemplu, shellul Bash este configurat în fișiere de configurare precum <code class="docutils literal notranslate"><span class="pre">/etc/profile</span></code>, <code class="docutils literal notranslate"><span class="pre">/etc/bash.bashrc</span></code>, <code class="docutils literal notranslate"><span class="pre">~/.profile</span></code>, <code class="docutils literal notranslate"><span class="pre">~/.bashrc</span></code>.
+Editorul Vim este configurat în <code class="docutils literal notranslate"><span class="pre">/etc/vim/vimrc</span></code> și <code class="docutils literal notranslate"><span class="pre">~/.vimrc</span></code>.
+Browserul web Firefox are fișiere de configurare în directorul <code class="docutils literal notranslate"><span class="pre">~/.mozilla/</span></code>.
+În Linux, multe aplicații au fișiere de configurare în subdirectoare din directorul <code class="docutils literal notranslate"><span class="pre">~/.config/</span></code>.</p>
+<p>Fișierele de configurare sunt adesea text și pot fi modificate cu ajutorul unui editor.
+Altfel, sunt modificate de obicei din cadrul aplicației sau cu o aplicație auxiliară de configurare <a class="footnote-reference brackets" href="#winconfig" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a>.</p>
+<section id="inspectarea-fisierelor-de-configurare">
+<h3><span class="section-number">3.2.1. </span>Inspectarea fișierelor de configurare<a class="headerlink" href="#inspectarea-fisierelor-de-configurare" title="Link to this heading">¶</a></h3>
+<p>Urmăriți conținutul fișierelor de configurare <code class="docutils literal notranslate"><span class="pre">~/.gitconfig</span></code>, <code class="docutils literal notranslate"><span class="pre">~/.vimrc</span></code>, <code class="docutils literal notranslate"><span class="pre">~/.tmux.conf</span></code>.
+Aceste fișiere sunt folosite, respectiv, pentru a configura Git, Vim sau tmux.
+Nu ne interesează aici să înțelegem conținutul acestor fișiere de configurare; doar le avem în vedere ca exemple reale de fișiere de configurare.</p>
+<p>Fișierele de configurare pot fi editate cu un editor.
+Alternativ, pot fi editate cu ajutorul unui utilitar dedicat, precum e cazul Git, ca mai jos:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$<span class="w"> </span>cat<span class="w"> </span>.gitconfig
+<span class="o">[</span>color<span class="o">]</span>
+<span class="w">    </span><span class="nv">ui</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>auto
+<span class="o">[</span>user<span class="o">]</span>
+<span class="w">    </span><span class="nv">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>Student<span class="w"> </span>USO<span class="w"> </span>VM<span class="w"> </span>User
+<span class="w">    </span><span class="nv">email</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>student@stud.acs.upb.ro
+student@uso:~$<span class="w"> </span>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>user.email<span class="w"> </span>student@example.com
+student@uso:~$<span class="w"> </span>cat<span class="w"> </span>.gitconfig
+<span class="o">[</span>color<span class="o">]</span>
+<span class="w">    </span><span class="nv">ui</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>auto
+<span class="o">[</span>user<span class="o">]</span>
+<span class="w">    </span><span class="nv">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>Student<span class="w"> </span>USO<span class="w"> </span>VM<span class="w"> </span>User
+<span class="w">    </span><span class="nv">email</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>student@example.com
+</pre></div>
+</div>
+<p>Mai sus am folosit comanda <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">config</span></code> cu opțiunea <code class="docutils literal notranslate"><span class="pre">--global</span></code> pentru a modifica fișierul global de configurare <code class="docutils literal notranslate"><span class="pre">~/.gitconfig</span></code>.</p>
+</section>
+<section id="exercitiu-modificarea-unui-fisiere-de-configurare">
+<h3><span class="section-number">3.2.2. </span>Exercițiu: Modificarea unui fișiere de configurare<a class="headerlink" href="#exercitiu-modificarea-unui-fisiere-de-configurare" title="Link to this heading">¶</a></h3>
+<p>Dorim să configurăm o aplicație din fișierul de configurare.
+O aplicație simplă este editorul Nano, care funcționează în linia de comandă, și îl vom folosi pe acesta.
+Configurarea editorului Nano se face în fișierul <code class="docutils literal notranslate"><span class="pre">~/.nanorc</span></code>.</p>
+<p>Editați (și creați dacă este cazul) fișierul <code class="docutils literal notranslate"><span class="pre">~/.nanorc</span></code>.
+Puteți folosi chiar Nano ca editor.
+Configurați Nano să afișeze numărul liniilor, prin adăugarea următoarei linii în fișierul <code class="docutils literal notranslate"><span class="pre">~/.nanorc</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">set</span> <span class="n">linenumbers</span>
+</pre></div>
+</div>
+<p>Salvați fișierul.
+Porniți editorul Nano (folosind comanda <code class="docutils literal notranslate"><span class="pre">nano</span></code>) și verificați că sunt afișate numerele liniilor.</p>
+<p>Adăugați în fișierul de configurare <code class="docutils literal notranslate"><span class="pre">~/.nanorc</span></code> opțiunea pentru a permite indentarea automată (<code class="docutils literal notranslate"><span class="pre">autoindent</span></code>).
+Găsiți opțiunea în pagina de manual (<code class="docutils literal notranslate"><span class="pre">man</span> <span class="pre">nanorc</span></code>).
+Creați în Nano un fișier cod sursă C în care verificați adăugarea opțiunii.</p>
+</section>
+<section id="exercitiu-configurarea-clientului-ssh">
+<h3><span class="section-number">3.2.3. </span>Exercițiu: Configurarea clientului SSH<a class="headerlink" href="#exercitiu-configurarea-clientului-ssh" title="Link to this heading">¶</a></h3>
+<p>Configurați utilitarul <code class="docutils literal notranslate"><span class="pre">ssh</span></code> (client SSH), astfel încât folosirea comenzii <code class="docutils literal notranslate"><span class="pre">ssh</span> <span class="pre">fav</span></code> să însemne conectarea la un cont la distanță SSH la care aveți acces <a class="footnote-reference brackets" href="#ssh-config" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>4<span class="fn-bracket">]</span></a>.</p>
+<div class="admonition-pentru-studentii-de-la-acs-upb admonition">
+<p class="admonition-title">Pentru studenții de la ACS, UPB:</p>
+<p>Dacă sunteți student la ACS, UPB, vă puteți conecta, de exemplu, la contul vostru UPB de pe sistemul <code class="docutils literal notranslate"><span class="pre">fep.grid.pub.ro</span></code>.
+De exemplu, autorul acestui capitol se poate conecta la contul <code class="docutils literal notranslate"><span class="pre">razvan.deaconescu</span></code> pe sistemul <code class="docutils literal notranslate"><span class="pre">fep.grid.pub.ro</span></code>.</p>
+</div>
+<p>Configurarea clientului SSH se realizează în fișierul <code class="docutils literal notranslate"><span class="pre">~/.ssh/config</span></code>.
+Vedeți și <a class="reference external" href="https://linuxize.com/post/using-the-ssh-config-file/#shared-ssh-config-file-example">exemplul de aici</a>.</p>
+</section>
+</section>
+<section id="configurarea-din-aplicatie">
+<h2><span class="section-number">3.3. </span>Configurarea din aplicație<a class="headerlink" href="#configurarea-din-aplicatie" title="Link to this heading">¶</a></h2>
+<p>Modul în care rulează o aplicație poate fi configurat direct din aplicație.</p>
+<p>De exemplu, în cadrul interfeței browserului web Firefox, putem modifica pagina de start, sau putem activa anumite pluginuri, sau putem personaliza dispunerea meniurilor sau fonturile folosite.
+Aceste opțiuni sunt frecvente în majoritatea aplicațiilor grafice.</p>
+<section id="id4">
+<h3><span class="section-number">3.3.1. </span>Exerciții<a class="headerlink" href="#id4" title="Link to this heading">¶</a></h3>
+<p>Porniți editorul Gedit și configurați-l, din aplicație (mediu grafic), să afișeze numărul liniilor editate.</p>
+<p>Configurați editorul Gedit să folosească fundal închis (<em>dark background</em>).</p>
+<p>Porniți browserul de sistem de fișiere Nautilus.
+Configurați-l din aplicație (mediu grafic) pentru a afișa conținutul în formă de listă, nu în formă de icon (<em>tile</em>).</p>
+<p>Configurați browserul Nautilus să deschidă un fișier / director la un singur click, nu la două clickuri.</p>
+</section>
+</section>
+<section id="configurarea-cu-variabile-de-mediu">
+<h2><span class="section-number">3.4. </span>Configurarea cu variabile de mediu<a class="headerlink" href="#configurarea-cu-variabile-de-mediu" title="Link to this heading">¶</a></h2>
+<p>O variabilă de mediu (<em>environment variable</em>) este o valoare care poate fi configurată la pornirea unui proces sau în timpul rulării sale pentru a afecta comportamentul procesului.</p>
+<p>De exemplu, utilitarele <code class="docutils literal notranslate"><span class="pre">wget</span></code> și <code class="docutils literal notranslate"><span class="pre">curl</span></code>, clienți web, folosesc variabilele de mediu <code class="docutils literal notranslate"><span class="pre">http_proxy</span></code> și <code class="docutils literal notranslate"><span class="pre">https_proxy</span></code> pentru a folosi un proxy web <a class="footnote-reference brackets" href="#proxy" id="id5" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a>.
+Shellul folosește o serie de variabile de mediu pentru a configura funcționarea sa și modul în care pornește alte aplicații.
+De exemplu, variabila de mediu <code class="docutils literal notranslate"><span class="pre">PATH</span></code> reține căile unde shellul caută fișierul executabil corespunzător unei comenzi.</p>
+<section id="folosirea-de-varabile-de-mediu">
+<h3><span class="section-number">3.4.1. </span>Folosirea de varabile de mediu<a class="headerlink" href="#folosirea-de-varabile-de-mediu" title="Link to this heading">¶</a></h3>
+<p>Putem modifica ordinea afișată de utilitare de afișare (precum <code class="docutils literal notranslate"><span class="pre">ls</span></code>) folosind variabila de mediu <code class="docutils literal notranslate"><span class="pre">LC_ALL</span></code>, ca mai jos:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$<span class="w"> </span><span class="nv">LC_ALL</span><span class="o">=</span>en_US.UTF-8<span class="w"> </span>ls
+Desktop<span class="w">  </span>Documents<span class="w">  </span>Downloads<span class="w">  </span>examples.desktop<span class="w">  </span>Music<span class="w">  </span>Pictures<span class="w">  </span>Public<span class="w">  </span>snap<span class="w">  </span>Templates<span class="w">  </span>test.c<span class="w">  </span>uso.git<span class="w">  </span>Videos<span class="w">  </span>vm-actions-log.txt
+
+student@uso:~$<span class="w"> </span><span class="nv">LC_ALL</span><span class="o">=</span>POSIX<span class="w"> </span>ls
+Desktop<span class="w">  </span>Documents<span class="w">  </span>Downloads<span class="w">  </span>Music<span class="w">  </span>Pictures<span class="w">  </span>Public<span class="w">  </span>Templates<span class="w">  </span>Videos<span class="w">  </span>examples.desktop<span class="w">  </span>snap<span class="w">  </span>test.c<span class="w">  </span>uso.git<span class="w">  </span>vm-actions-log.txt
+</pre></div>
+</div>
+<p>Atunci când variabila de mediul <code class="docutils literal notranslate"><span class="pre">LC_ALL</span></code> folosește valoarea <code class="docutils literal notranslate"><span class="pre">en_US.UTF-8</span></code>, se afișează intrările în ordine alfabetică, indiferent dacă numele acestora începe cu literă mare sau literă mică.
+Atunci când folosește valoarea <code class="docutils literal notranslate"><span class="pre">POSIX</span></code>, se afișează întâi intrările al căror nume începe cu literă mare.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>În exemplele de comenzi de mai sus variabila de mediu <code class="docutils literal notranslate"><span class="pre">LC_ALL</span></code> este modificată doar la nivelul comenzii <code class="docutils literal notranslate"><span class="pre">ls</span></code>.
+La nevoie această variabilă se poate definiela nivelul întregului shell.
+În plus, o astfel de variabilă poate fi definită în mod persistent, într-un fișier de configurare al shellului; în felul acesta, orice proces shell nou pornit va avea acea variabilă definită.
+<strong>Dacă</strong> e cazul: Mai multe informații despre variabile de mediu se găsesc în TODO (referință la capitolul de linia de comandă).</p>
+</div>
+<p class="rubric">Note de subsol</p>
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="emacs-close" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
+<p>Pentru a închide editorul Emacs (pornit fie în mediul grafic, fie în consolă) folosim combinația de taste specifică pentru oprirea aplicației: <code class="docutils literal notranslate"><span class="pre">Ctrl+x</span></code> urmat de <code class="docutils literal notranslate"><span class="pre">Ctrl+c</span></code>.</p>
+</aside>
+<aside class="footnote brackets" id="winconfig" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">2</a><span class="fn-bracket">]</span></span>
+<p>În Windows, echivalentul fișierelor de configurare este Windows Registry.</p>
+</aside>
+<aside class="footnote brackets" id="proxy" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id5">3</a><span class="fn-bracket">]</span></span>
+<p>Un proxy web este o stație internemediară în comunicația web din Internet.
+Un proxy web este folosit pentru monitorizarea traficului, pentru a stoca informații local și a reduce încărcara traficului sau pentru anonimizare.
+Ceva mai detaliat este prezentată folosirea unui proxy web în TODO (referință la secțiunea de proxy web din capitolul “Conectarea la Internet”).</p>
+</aside>
+<aside class="footnote brackets" id="ssh-config" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id3">4</a><span class="fn-bracket">]</span></span>
+<p>Secțiunea TODO (referință la secțiunea “Configurarea scurtăturilor SSH”) prezintă un scenariu similar pentru folosirea unei scurtături SSH.</p>
+</aside>
+</aside>
+</section>
+</section>
+</section>
+
+
+          </div>
+          <div class="page-nav">
+            <div class="inner"><ul class="page-nav">
+  <li class="prev">
+    <a href="run.html"
+       title="previous chapter">← <span class="section-number">2. </span>Rularea aplicațiilor</a>
+  </li>
+  <li class="next">
+    <a href="summary1.html"
+       title="next chapter"><span class="section-number">4. </span>Exerciții: Pornirea, rularea și configurarea aplicațiilor →</a>
+  </li>
+</ul><div class="footer" role="contentinfo">
+      &#169; Copyright 2020, USO Team.
+    <br>
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 7.2.6 with <a href="https://github.com/romnn/sphinx_press_theme">Press Theme</a>.
+</div>
+            </div>
+          </div>
+      </page>
+    </div>
+    
+    
+  </body>
+</html>
