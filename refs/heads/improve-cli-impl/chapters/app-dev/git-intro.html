@@ -2,7 +2,7 @@
 <html  lang="en">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="viewport" content="width=device-width, initial-scale=1" />
 
       <title>7. Introducere în Git și GitHub</title>
     
@@ -15,13 +15,10 @@
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
 
       <!-- sphinx script_files -->
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/sphinx_highlight.js"></script>
-        <script src="../../_static/my_actions.js"></script>
+        <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../_static/my_actions.js?v=1451d81f"></script>
 
       
       <script src="../../_static/theme-vendors.js"></script>
@@ -522,7 +519,7 @@
           <div class="content" role="main">
             
   <section id="introducere-in-git-si-github">
-<span id="app-dev-git-intro"></span><h1><span class="section-number">7. </span>Introducere în Git și GitHub<a class="headerlink" href="#introducere-in-git-si-github" title="Permalink to this heading">¶</a></h1>
+<span id="app-dev-git-intro"></span><h1><span class="section-number">7. </span>Introducere în Git și GitHub<a class="headerlink" href="#introducere-in-git-si-github" title="Link to this heading">¶</a></h1>
 <p>Vor fi cazuri când vom <em>strica</em> o versiune a codului și vom avea nevoie să revenim la o versiune corectă, caz în care un istoric de versiuni ne-ar fi de folos.
 Vom putea să lucrăm la un proiect de pe un alt sistem, în afară de al nostru, sau vom vrea să cerem feedback pe codul scris de noi.</p>
 <p>Când vorbim despre un proiect software vrem să avem dezvoltatori, oameni care să lucreze împreună cu noi la proiect.
@@ -542,7 +539,7 @@ Comenzile pe care le vom studia se aplică pentru toate platformele care foloses
 În mare parte, acesta nu diferă foarte mult de alte platforme.</p>
 </div>
 <section id="crearea-unui-cont-pe-github-daca-nu-aveti-deja">
-<span id="app-dev-create-github-account"></span><h2><span class="section-number">7.1. </span>Crearea unui cont pe GitHub (dacă nu aveți deja)<a class="headerlink" href="#crearea-unui-cont-pe-github-daca-nu-aveti-deja" title="Permalink to this heading">¶</a></h2>
+<span id="app-dev-create-github-account"></span><h2><span class="section-number">7.1. </span>Crearea unui cont pe GitHub (dacă nu aveți deja)<a class="headerlink" href="#crearea-unui-cont-pe-github-daca-nu-aveti-deja" title="Link to this heading">¶</a></h2>
 <p>Înainte de toate, ne asigurăm că avem cont pe GitHub.
 Dacă aveți deja un cont pe GitHub, puteți trece la subsecțiunea următoare: <a class="reference internal" href="#app-dev-git-setup"><span class="std std-ref">Pregătirea inițială a mediului Git</span></a>.</p>
 <p>Dacă nu aveți cont, intrați pe <a class="reference external" href="http://www.github.com/">GitHub</a>.
@@ -561,22 +558,22 @@ Găsiți mai multe detalii pe <a class="reference external" href="https://educat
 </div>
 </section>
 <section id="pregatirea-initiala-a-mediului-git">
-<span id="app-dev-git-setup"></span><h2><span class="section-number">7.2. </span>Pregătirea inițială a mediului Git<a class="headerlink" href="#pregatirea-initiala-a-mediului-git" title="Permalink to this heading">¶</a></h2>
+<span id="app-dev-git-setup"></span><h2><span class="section-number">7.2. </span>Pregătirea inițială a mediului Git<a class="headerlink" href="#pregatirea-initiala-a-mediului-git" title="Link to this heading">¶</a></h2>
 <p>Ca să utilizăm Git, facem în primă fază niște pași de configurare. Adică vom configura numele și e-mail-ul nostru, ca mai jos:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ git config --global user.name <span class="s2">&quot;Prenume Nume&quot;</span>
-student@uso:~$ git config --global user.email <span class="s2">&quot;adresa_de_email@example.com&quot;</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$<span class="w"> </span>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>user.name<span class="w"> </span><span class="s2">&quot;Prenume Nume&quot;</span>
+student@uso:~$<span class="w"> </span>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>user.email<span class="w"> </span><span class="s2">&quot;adresa_de_email@example.com&quot;</span>
 </pre></div>
 </div>
 <p>În listingul de mai sus “Prenume Nume” și “<a class="reference external" href="mailto:adresa_de_email&#37;&#52;&#48;example&#46;com">adresa_de_email<span>&#64;</span>example<span>&#46;</span>com</a>” sunt placeholdere.
 Le înlocuiți cu datele voastre.
 De exemplu, pentru autorul acestei secțiuni, comenzile rulate sunt:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ git config --global user.name <span class="s2">&quot;Liza Babu&quot;</span>
-student@uso:~$ git config --global user.email <span class="s2">&quot;lizababu@example.com&quot;</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$<span class="w"> </span>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>user.name<span class="w"> </span><span class="s2">&quot;Liza Babu&quot;</span>
+student@uso:~$<span class="w"> </span>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>user.email<span class="w"> </span><span class="s2">&quot;lizababu@example.com&quot;</span>
 </pre></div>
 </div>
 </section>
 <section id="crearea-primului-repository">
-<span id="app-dev-create-first-repo"></span><h2><span class="section-number">7.3. </span>Crearea primului repository<a class="headerlink" href="#crearea-primului-repository" title="Permalink to this heading">¶</a></h2>
+<span id="app-dev-create-first-repo"></span><h2><span class="section-number">7.3. </span>Crearea primului repository<a class="headerlink" href="#crearea-primului-repository" title="Link to this heading">¶</a></h2>
 <p>Pentru a lucra la un proiect software, creăm un <strong>repository software</strong>.
 Vom crea unul pe GitHub, unul local, după care le vom interconecta.</p>
 <div class="admonition-repository-software admonition">
@@ -593,7 +590,7 @@ De obicei, într-un proiect Git / GitHub există un repository central (remote) 
 Vom detalia aceste operații când le vom folosi în acest capitol.</p>
 </div>
 <section id="crearea-unui-repository-gol-pe-github">
-<span id="app-dev-create-github-repo"></span><h3><span class="section-number">7.3.1. </span>Crearea unui repository gol pe GitHub<a class="headerlink" href="#crearea-unui-repository-gol-pe-github" title="Permalink to this heading">¶</a></h3>
+<span id="app-dev-create-github-repo"></span><h3><span class="section-number">7.3.1. </span>Crearea unui repository gol pe GitHub<a class="headerlink" href="#crearea-unui-repository-gol-pe-github" title="Link to this heading">¶</a></h3>
 <p>Ne autentificăm pe GitHub.
 Urmărim pașii prezentați în imaginea de mai jos și explicați imediat după.</p>
 <figure class="align-default">
@@ -618,17 +615,17 @@ Acest lucru este acoperit în secțiunile următoare.</p></li>
 <p>Acum avem un repository creat remote, pe GitHub, numit <code class="docutils literal notranslate"><span class="pre">array-sorting-algorithms</span></code>.</p>
 </section>
 <section id="crearea-unui-repository-gol-local">
-<span id="app-dev-create-local-repo"></span><h3><span class="section-number">7.3.2. </span>Crearea unui repository gol local<a class="headerlink" href="#crearea-unui-repository-gol-local" title="Permalink to this heading">¶</a></h3>
+<span id="app-dev-create-local-repo"></span><h3><span class="section-number">7.3.2. </span>Crearea unui repository gol local<a class="headerlink" href="#crearea-unui-repository-gol-local" title="Link to this heading">¶</a></h3>
 <p>Creăm un director din ierarhia de fișiere în care vom inițializa repository-ul Git.</p>
 <p>În acest tutorial creăm directorul <code class="docutils literal notranslate"><span class="pre">array-sorting-algorithms</span></code> în directorul home (adică <code class="docutils literal notranslate"><span class="pre">/home/student</span></code> sau <code class="docutils literal notranslate"><span class="pre">~</span></code>), folosind comenzile de mai jos:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ <span class="nb">pwd</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$<span class="w"> </span><span class="nb">pwd</span>
 /home/student
-student@uso:~$ mkdir array-sorting-algorithms
-student@uso:~$ <span class="nb">cd</span> array-sorting-algorithms
-student@uso:~/array-sorting-algorithms$ git init
-Initialized empty Git repository <span class="k">in</span> /home/student/array-sorting-algorithms/.git/
-student@uso:~/array-sorting-algorithms$ ls -a
-./    ../   .git/
+student@uso:~$<span class="w"> </span>mkdir<span class="w"> </span>array-sorting-algorithms
+student@uso:~$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>array-sorting-algorithms
+student@uso:~/array-sorting-algorithms$<span class="w"> </span>git<span class="w"> </span>init
+Initialized<span class="w"> </span>empty<span class="w"> </span>Git<span class="w"> </span>repository<span class="w"> </span><span class="k">in</span><span class="w"> </span>/home/student/array-sorting-algorithms/.git/
+student@uso:~/array-sorting-algorithms$<span class="w"> </span>ls<span class="w"> </span>-a
+./<span class="w">    </span>../<span class="w">   </span>.git/
 </pre></div>
 </div>
 <p>Mai sus am inițializat repository-ul local prin comanda <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">init</span></code>, dată în directorul ales (<code class="docutils literal notranslate"><span class="pre">array-sorting-algorithms</span></code>) din directorul home al utilizatorului student (<code class="docutils literal notranslate"><span class="pre">/home/student</span></code>).</p>
@@ -643,12 +640,12 @@ Directorul <code class="docutils literal notranslate"><span class="pre">.git</sp
 </div>
 </section>
 <section id="conectarea-celor-doua-repository-uri">
-<span id="app-dev-connect-repos"></span><h3><span class="section-number">7.3.3. </span>Conectarea celor două repository-uri<a class="headerlink" href="#conectarea-celor-doua-repository-uri" title="Permalink to this heading">¶</a></h3>
+<span id="app-dev-connect-repos"></span><h3><span class="section-number">7.3.3. </span>Conectarea celor două repository-uri<a class="headerlink" href="#conectarea-celor-doua-repository-uri" title="Link to this heading">¶</a></h3>
 <p>Am creat până în acest moment un repository local și unul remote.
 Trebuie să le interconectăm pentru a lucra cu ele.</p>
 <p>În cazul în care suntem mai mulți membri în echipă, fiecare membru va conecta repository-ul său local, la repository-ul remote.
 Pentru conectarea celor două repository-uri folosim comanda de mai jos, dată în directorul unde este repository-ul local Git (în cazul nostru <code class="docutils literal notranslate"><span class="pre">/home/student/array-sorting-algorithms</span></code>):</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/array-sorting-algorithms$ git remote add origin https://github.com/<span class="o">{</span>username<span class="o">}</span>/array-sorting-algorithms.git
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/array-sorting-algorithms$<span class="w"> </span>git<span class="w"> </span>remote<span class="w"> </span>add<span class="w"> </span>origin<span class="w"> </span>https://github.com/<span class="o">{</span>username<span class="o">}</span>/array-sorting-algorithms.git
 </pre></div>
 </div>
 <p>În comanda de mai sus <code class="docutils literal notranslate"><span class="pre">{username}</span></code> este numele utilizatorului nostru de pe GitHub.
@@ -678,7 +675,7 @@ Sincronizarea lor se face prin intermediul operațiilor <strong>push</strong> ș
 </ul><div class="footer" role="contentinfo">
       &#169; Copyright 2020, USO Team.
     <br>
-    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 5.2.2 with <a href="https://github.com/romnn/sphinx_press_theme">Press Theme</a>.
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 7.2.6 with <a href="https://github.com/romnn/sphinx_press_theme">Press Theme</a>.
 </div>
             </div>
           </div>

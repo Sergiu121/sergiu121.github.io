@@ -2,7 +2,7 @@
 <html  lang="en">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="viewport" content="width=device-width, initial-scale=1" />
 
       <title>4. Redirectări</title>
     
@@ -15,13 +15,10 @@
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
 
       <!-- sphinx script_files -->
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/sphinx_highlight.js"></script>
-        <script src="../../_static/my_actions.js"></script>
+        <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../_static/my_actions.js?v=1451d81f"></script>
 
       
       <script src="../../_static/theme-vendors.js"></script>
@@ -522,7 +519,7 @@
           <div class="content" role="main">
             
   <section id="redirectari">
-<h1><span class="section-number">4. </span>Redirectări<a class="headerlink" href="#redirectari" title="Permalink to this heading">¶</a></h1>
+<h1><span class="section-number">4. </span>Redirectări<a class="headerlink" href="#redirectari" title="Link to this heading">¶</a></h1>
 <p>Până acum am dat comenzi în terminal și am urmărit outputul (rezultatul) lor.
 <strong>Outputul</strong> (<em>rezultatul</em>) este afișat în terminal.
 Dacă voiam să salvăm outputul undeva (<em>de obicei într-un fișier</em>) trebuia să copiem outputul, să creăm un fișier nou sau să folosim unul deja existent, să îl deschidem, să lipim textul în el și să salvăm modificările.
@@ -531,20 +528,20 @@ Trecerea prin toți acești pași durează și devenim ineficienți în lucrul �
 <p>Rezultatul unei comenzi este format din două fluxuri de informații: informații de <strong>ieșire</strong> (<em>standard output, stdout</em>) și de <strong>eroare</strong> (<em>standard error, stderr</em>).
 Avem opțiunea de a direcționa (<em>redirecta</em>) doar ieșirea, doar eroarea sau ambele fluxuri într-un fișier.</p>
 <section id="redirectari-simple">
-<h2><span class="section-number">4.1. </span>Redirectări simple<a class="headerlink" href="#redirectari-simple" title="Permalink to this heading">¶</a></h2>
+<h2><span class="section-number">4.1. </span>Redirectări simple<a class="headerlink" href="#redirectari-simple" title="Link to this heading">¶</a></h2>
 <p>În directorul <code class="docutils literal notranslate"><span class="pre">/home/student</span></code> (<code class="docutils literal notranslate"><span class="pre">~</span></code>) avem mai multe fișiere, câte unul pentru fiecare materie.
 Afișăm fișierele folosind comanda <code class="docutils literal notranslate"><span class="pre">ls</span></code>:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ ls -lh
-total <span class="m">9</span>.0M
--rw-r--r-- <span class="m">1</span> student student <span class="m">5</span>.0M Aug <span class="m">19</span> <span class="m">11</span>:55 USO
--rw-r--r-- <span class="m">1</span> student student <span class="m">3</span>.0M Aug <span class="m">19</span> <span class="m">11</span>:55 RL
--rw-r--r-- <span class="m">1</span> student student <span class="m">1</span>.0M Aug <span class="m">19</span> <span class="m">11</span>:55 EGC
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$<span class="w"> </span>ls<span class="w"> </span>-lh
+total<span class="w"> </span><span class="m">9</span>.0M
+-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">5</span>.0M<span class="w"> </span>Aug<span class="w"> </span><span class="m">19</span><span class="w"> </span><span class="m">11</span>:55<span class="w"> </span>USO
+-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">3</span>.0M<span class="w"> </span>Aug<span class="w"> </span><span class="m">19</span><span class="w"> </span><span class="m">11</span>:55<span class="w"> </span>RL
+-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">1</span>.0M<span class="w"> </span>Aug<span class="w"> </span><span class="m">19</span><span class="w"> </span><span class="m">11</span>:55<span class="w"> </span>EGC
 </pre></div>
 </div>
 <p>Salvăm outputul comenzii <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-lh</span></code> de mai sus folosind caracterul <code class="docutils literal notranslate"><span class="pre">&gt;</span></code>, astfel:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ ls -lh &gt; lista_materii
-student@uso:~$ ls
-USO RL EGC lista_materii
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$<span class="w"> </span>ls<span class="w"> </span>-lh<span class="w"> </span>&gt;<span class="w"> </span>lista_materii
+student@uso:~$<span class="w"> </span>ls
+USO<span class="w"> </span>RL<span class="w"> </span>EGC<span class="w"> </span>lista_materii
 </pre></div>
 </div>
 <p>Observăm că acțiunea de mai sus a făcut două lucruri: a creat fișierul <code class="docutils literal notranslate"><span class="pre">lista_materii</span></code> și a introdus în conținutul fișierului rezultatul comenzii <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-lh</span></code>.</p>
@@ -553,10 +550,10 @@ USO RL EGC lista_materii
 Șirul <code class="docutils literal notranslate"><span class="pre">lista_materii</span></code> este calea relativă până la fișierul <code class="docutils literal notranslate"><span class="pre">lista_materii</span></code> care se află în directorul curent <code class="docutils literal notranslate"><span class="pre">/home/student</span></code>.</p>
 <p>Fișierul <code class="docutils literal notranslate"><span class="pre">lista_materii</span></code> nu exista. Prin direcționarea outputului am creat fișierul <code class="docutils literal notranslate"><span class="pre">lista_materii</span></code>.</p>
 <p>Vizualizăm conținutul fișierului <code class="docutils literal notranslate"><span class="pre">lista_materii</span></code> folosind comanda <code class="docutils literal notranslate"><span class="pre">cat</span></code>:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ cat lista_materii
--rw-r--r-- <span class="m">1</span> student student <span class="m">5</span>.0M Aug <span class="m">19</span> <span class="m">11</span>:55 USO
--rw-r--r-- <span class="m">1</span> student student <span class="m">3</span>.0M Aug <span class="m">19</span> <span class="m">11</span>:55 RL
--rw-r--r-- <span class="m">1</span> student student <span class="m">1</span>.0M Aug <span class="m">19</span> <span class="m">11</span>:55 EGC
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$<span class="w"> </span>cat<span class="w"> </span>lista_materii
+-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">5</span>.0M<span class="w"> </span>Aug<span class="w"> </span><span class="m">19</span><span class="w"> </span><span class="m">11</span>:55<span class="w"> </span>USO
+-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">3</span>.0M<span class="w"> </span>Aug<span class="w"> </span><span class="m">19</span><span class="w"> </span><span class="m">11</span>:55<span class="w"> </span>RL
+-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">1</span>.0M<span class="w"> </span>Aug<span class="w"> </span><span class="m">19</span><span class="w"> </span><span class="m">11</span>:55<span class="w"> </span>EGC
 </pre></div>
 </div>
 <p>Momentan fișierul <code class="docutils literal notranslate"><span class="pre">lista_materii</span></code> nu există pe sistemul vostru.
@@ -566,28 +563,28 @@ USO RL EGC lista_materii
 <p>Odată direcționat într-un fișier, fluxul de informații nu mai apare la ecran.</p>
 </div>
 <p>Folosirea caracterului <code class="docutils literal notranslate"><span class="pre">&gt;</span></code> suprascrie conținutul fișierului:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ <span class="nb">cd</span> comenzi/mkdir
-student@uso:~/comenzi/mkdir$ cat lista_materii
-cat: lista_materii: No such file or directory
-student@uso:~$ ls -l /usr/ &gt; lista_materii
-student@uso:~$ cat lista_materii
-total <span class="m">72</span>
-drwxr-xr-x   <span class="m">2</span> root root  <span class="m">32768</span> Sep  <span class="m">9</span> <span class="m">14</span>:07 bin
-drwxr-xr-x   <span class="m">2</span> root root   <span class="m">4096</span> Aug <span class="m">31</span>  <span class="m">2015</span> games
-drwxr-xr-x  <span class="m">34</span> root root   <span class="m">4096</span> Sep  <span class="m">9</span> <span class="m">14</span>:06 include
-drwxr-xr-x  <span class="m">74</span> root root   <span class="m">4096</span> Sep  <span class="m">9</span> <span class="m">14</span>:07 lib
-drwxr-xr-x   <span class="m">3</span> root root   <span class="m">4096</span> Nov <span class="m">21</span>  <span class="m">2015</span> lib64
-drwxr-xr-x   <span class="m">3</span> root root   <span class="m">4096</span> Nov <span class="m">21</span>  <span class="m">2015</span> libx32
-drwxrwsr-x  <span class="m">10</span> root staff  <span class="m">4096</span> Nov <span class="m">21</span>  <span class="m">2015</span> <span class="nb">local</span>
-drwxr-xr-x   <span class="m">2</span> root root   <span class="m">4096</span> Sep  <span class="m">9</span> <span class="m">14</span>:07 sbin
-drwxr-xr-x <span class="m">137</span> root root   <span class="m">4096</span> Sep  <span class="m">9</span> <span class="m">14</span>:07 share
-drwxr-xr-x   <span class="m">2</span> root root   <span class="m">4096</span> Aug <span class="m">31</span>  <span class="m">2015</span> src
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>comenzi/mkdir
+student@uso:~/comenzi/mkdir$<span class="w"> </span>cat<span class="w"> </span>lista_materii
+cat:<span class="w"> </span>lista_materii:<span class="w"> </span>No<span class="w"> </span>such<span class="w"> </span>file<span class="w"> </span>or<span class="w"> </span>directory
+student@uso:~$<span class="w"> </span>ls<span class="w"> </span>-l<span class="w"> </span>/usr/<span class="w"> </span>&gt;<span class="w"> </span>lista_materii
+student@uso:~$<span class="w"> </span>cat<span class="w"> </span>lista_materii
+total<span class="w"> </span><span class="m">72</span>
+drwxr-xr-x<span class="w">   </span><span class="m">2</span><span class="w"> </span>root<span class="w"> </span>root<span class="w">  </span><span class="m">32768</span><span class="w"> </span>Sep<span class="w">  </span><span class="m">9</span><span class="w"> </span><span class="m">14</span>:07<span class="w"> </span>bin
+drwxr-xr-x<span class="w">   </span><span class="m">2</span><span class="w"> </span>root<span class="w"> </span>root<span class="w">   </span><span class="m">4096</span><span class="w"> </span>Aug<span class="w"> </span><span class="m">31</span><span class="w">  </span><span class="m">2015</span><span class="w"> </span>games
+drwxr-xr-x<span class="w">  </span><span class="m">34</span><span class="w"> </span>root<span class="w"> </span>root<span class="w">   </span><span class="m">4096</span><span class="w"> </span>Sep<span class="w">  </span><span class="m">9</span><span class="w"> </span><span class="m">14</span>:06<span class="w"> </span>include
+drwxr-xr-x<span class="w">  </span><span class="m">74</span><span class="w"> </span>root<span class="w"> </span>root<span class="w">   </span><span class="m">4096</span><span class="w"> </span>Sep<span class="w">  </span><span class="m">9</span><span class="w"> </span><span class="m">14</span>:07<span class="w"> </span>lib
+drwxr-xr-x<span class="w">   </span><span class="m">3</span><span class="w"> </span>root<span class="w"> </span>root<span class="w">   </span><span class="m">4096</span><span class="w"> </span>Nov<span class="w"> </span><span class="m">21</span><span class="w">  </span><span class="m">2015</span><span class="w"> </span>lib64
+drwxr-xr-x<span class="w">   </span><span class="m">3</span><span class="w"> </span>root<span class="w"> </span>root<span class="w">   </span><span class="m">4096</span><span class="w"> </span>Nov<span class="w"> </span><span class="m">21</span><span class="w">  </span><span class="m">2015</span><span class="w"> </span>libx32
+drwxrwsr-x<span class="w">  </span><span class="m">10</span><span class="w"> </span>root<span class="w"> </span>staff<span class="w">  </span><span class="m">4096</span><span class="w"> </span>Nov<span class="w"> </span><span class="m">21</span><span class="w">  </span><span class="m">2015</span><span class="w"> </span><span class="nb">local</span>
+drwxr-xr-x<span class="w">   </span><span class="m">2</span><span class="w"> </span>root<span class="w"> </span>root<span class="w">   </span><span class="m">4096</span><span class="w"> </span>Sep<span class="w">  </span><span class="m">9</span><span class="w"> </span><span class="m">14</span>:07<span class="w"> </span>sbin
+drwxr-xr-x<span class="w"> </span><span class="m">137</span><span class="w"> </span>root<span class="w"> </span>root<span class="w">   </span><span class="m">4096</span><span class="w"> </span>Sep<span class="w">  </span><span class="m">9</span><span class="w"> </span><span class="m">14</span>:07<span class="w"> </span>share
+drwxr-xr-x<span class="w">   </span><span class="m">2</span><span class="w"> </span>root<span class="w"> </span>root<span class="w">   </span><span class="m">4096</span><span class="w"> </span>Aug<span class="w"> </span><span class="m">31</span><span class="w">  </span><span class="m">2015</span><span class="w"> </span>src
 </pre></div>
 </div>
 <p>Fișierul <code class="docutils literal notranslate"><span class="pre">lista_materii</span></code> nu era creat inițial.
 În urma comenzii <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-l</span> <span class="pre">/usr/</span> <span class="pre">&gt;</span> <span class="pre">lista_materii</span></code>, fișierul <code class="docutils literal notranslate"><span class="pre">lista_materii</span></code> a fost creat și populat cu ieșirea comenzii <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-l</span> <span class="pre">/usr/</span></code>.</p>
 <section id="exercitii-redirectari-simple">
-<h3><span class="section-number">4.1.1. </span>Exerciții - redirectări simple<a class="headerlink" href="#exercitii-redirectari-simple" title="Permalink to this heading">¶</a></h3>
+<h3><span class="section-number">4.1.1. </span>Exerciții - redirectări simple<a class="headerlink" href="#exercitii-redirectari-simple" title="Link to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>Folosiți <code class="docutils literal notranslate"><span class="pre">tree</span></code> pentru a afișa ierarhia de fișiere pornind de la <code class="docutils literal notranslate"><span class="pre">/home/student</span></code>;</p></li>
 <li><p>Folosiți <code class="docutils literal notranslate"><span class="pre">tree</span></code> pentru afișarea aceleiași ierarhii, dar de data asta direcționați-o în fișierul <code class="docutils literal notranslate"><span class="pre">ierarhie_student</span></code>;</p></li>
@@ -596,22 +593,22 @@ drwxr-xr-x   <span class="m">2</span> root root   <span class="m">4096</span> Au
 </section>
 </section>
 <section id="redirectari-prin-anexare">
-<h2><span class="section-number">4.2. </span>Redirectări prin anexare<a class="headerlink" href="#redirectari-prin-anexare" title="Permalink to this heading">¶</a></h2>
+<h2><span class="section-number">4.2. </span>Redirectări prin anexare<a class="headerlink" href="#redirectari-prin-anexare" title="Link to this heading">¶</a></h2>
 <p>Putem direcționa rezultatul comenzii, <em>fără</em> a suprascrie fișierul.
 Facem acest lucru folosim caracterele <code class="docutils literal notranslate"><span class="pre">&gt;&gt;</span></code> folosind fișierul trecut <code class="docutils literal notranslate"><span class="pre">lista_materii</span></code>:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ ls &gt;&gt; lista_materii
-student@uso:~$ ls
-USO RL EGC lista_materii
-student@uso:~$ cat lista_materii
--rw-r--r-- <span class="m">1</span> student student <span class="m">5</span>.0M Aug <span class="m">19</span> <span class="m">11</span>:55 USO
--rw-r--r-- <span class="m">1</span> student student <span class="m">3</span>.0M Aug <span class="m">19</span> <span class="m">11</span>:55 RL
--rw-r--r-- <span class="m">1</span> student student <span class="m">1</span>.0M Aug <span class="m">19</span> <span class="m">11</span>:55 EGC
-USO RL EGC lista_materii
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$<span class="w"> </span>ls<span class="w"> </span>&gt;&gt;<span class="w"> </span>lista_materii
+student@uso:~$<span class="w"> </span>ls
+USO<span class="w"> </span>RL<span class="w"> </span>EGC<span class="w"> </span>lista_materii
+student@uso:~$<span class="w"> </span>cat<span class="w"> </span>lista_materii
+-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">5</span>.0M<span class="w"> </span>Aug<span class="w"> </span><span class="m">19</span><span class="w"> </span><span class="m">11</span>:55<span class="w"> </span>USO
+-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">3</span>.0M<span class="w"> </span>Aug<span class="w"> </span><span class="m">19</span><span class="w"> </span><span class="m">11</span>:55<span class="w"> </span>RL
+-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">1</span>.0M<span class="w"> </span>Aug<span class="w"> </span><span class="m">19</span><span class="w"> </span><span class="m">11</span>:55<span class="w"> </span>EGC
+USO<span class="w"> </span>RL<span class="w"> </span>EGC<span class="w"> </span>lista_materii
 </pre></div>
 </div>
 <p>Acum avem în fișierul <code class="docutils literal notranslate"><span class="pre">lista_materii</span></code>, pe lângă conținutul vechi, și outputul comenzii <code class="docutils literal notranslate"><span class="pre">ls</span></code>.</p>
 <section id="exercitii-directionari-prin-anexare">
-<h3><span class="section-number">4.2.1. </span>Exerciții - direcționări prin anexare<a class="headerlink" href="#exercitii-directionari-prin-anexare" title="Permalink to this heading">¶</a></h3>
+<h3><span class="section-number">4.2.1. </span>Exerciții - direcționări prin anexare<a class="headerlink" href="#exercitii-directionari-prin-anexare" title="Link to this heading">¶</a></h3>
 <ol class="arabic simple">
 <li><ul class="simple">
 <li><p>Folosiți <code class="docutils literal notranslate"><span class="pre">tree</span></code> pentru a afișa ierarhia de fișiere pornind de la <code class="docutils literal notranslate"><span class="pre">/tmp</span></code>;</p></li>
@@ -630,20 +627,20 @@ Mai exista conținutul inițial al fișierului?</p></li>
 </section>
 </section>
 <section id="redirectari-de-eroare">
-<h2><span class="section-number">4.3. </span>Redirectări de eroare<a class="headerlink" href="#redirectari-de-eroare" title="Permalink to this heading">¶</a></h2>
+<h2><span class="section-number">4.3. </span>Redirectări de eroare<a class="headerlink" href="#redirectari-de-eroare" title="Link to this heading">¶</a></h2>
 <p>Atunci când direcționăm ieșirea unei comenzi folosind <code class="docutils literal notranslate"><span class="pre">&gt;</span></code> sau <code class="docutils literal notranslate"><span class="pre">&gt;&gt;</span></code>, ne referim <em>doar</em> la ieșirea standard, nu și la erori.</p>
 <p>Folosim caracterele <code class="docutils literal notranslate"><span class="pre">2&gt;</span></code> pentru a direcționa ieșirea de eroare către un fișier:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ ls
-USO RL EGC lista_materii
-student@uso:~$ cat lista_materie
-cat: lista_materie: No such file or directory
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$<span class="w"> </span>ls
+USO<span class="w"> </span>RL<span class="w"> </span>EGC<span class="w"> </span>lista_materii
+student@uso:~$<span class="w"> </span>cat<span class="w"> </span>lista_materie
+cat:<span class="w"> </span>lista_materie:<span class="w"> </span>No<span class="w"> </span>such<span class="w"> </span>file<span class="w"> </span>or<span class="w"> </span>directory
 </pre></div>
 </div>
 <p>Am vrut să afișăm conținutul fișierului <code class="docutils literal notranslate"><span class="pre">lista_materie</span></code>, însă acest fișier nu există.
 Am primit informația <em>No such file or Directory</em>, și aceasta este afișată sub formă de <strong>eroare</strong>.</p>
 <p>Direcționăm conținutul fișierului <code class="docutils literal notranslate"><span class="pre">SO2</span></code> în fișierul <code class="docutils literal notranslate"><span class="pre">materii</span></code>:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ cat SO2 &gt; materii
-cat: SO2: No such file or directory
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$<span class="w"> </span>cat<span class="w"> </span>SO2<span class="w"> </span>&gt;<span class="w"> </span>materii
+cat:<span class="w"> </span>SO2:<span class="w"> </span>No<span class="w"> </span>such<span class="w"> </span>file<span class="w"> </span>or<span class="w"> </span>directory
 </pre></div>
 </div>
 <p>Vedem că dacă folosim direcționarea simplă <code class="docutils literal notranslate"><span class="pre">&gt;</span></code>, eroarea tot este afișată.</p>
@@ -652,19 +649,19 @@ cat: SO2: No such file or directory
 <p>Deși comanda cat eșuează, direcționarea este făcută.
 Fișierul materii a fost creat și este gol.</p>
 </div>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ cat SO2 <span class="m">2</span>&gt; materii
-student@uso:~$ cat materii
-cat: SO2: No such file or directory
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$<span class="w"> </span>cat<span class="w"> </span>SO2<span class="w"> </span><span class="m">2</span>&gt;<span class="w"> </span>materii
+student@uso:~$<span class="w"> </span>cat<span class="w"> </span>materii
+cat:<span class="w"> </span>SO2:<span class="w"> </span>No<span class="w"> </span>such<span class="w"> </span>file<span class="w"> </span>or<span class="w"> </span>directory
 </pre></div>
 </div>
 <p>Observăm că nu am primit eroare la prima comandă unde am încercat să afișăm conținutul unui fișier inexistent.
 Informațiile de eroare au fost direcționate în fișier.</p>
 <p>Redirectările de eroare și ieșire pot fi folosite simultan folosind caracterele specifice <code class="docutils literal notranslate"><span class="pre">&gt;</span></code> pentru ieșire și <code class="docutils literal notranslate"><span class="pre">2&gt;</span></code> pentru eroare.
 Putem folosi sintaxa <code class="docutils literal notranslate"><span class="pre">comanda</span> <span class="pre">&gt;</span> <span class="pre">fișier_ieșire</span> <span class="pre">2&gt;</span> <span class="pre">fișier_erori</span></code> pentru a face acest lucru.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ cat ELTH USO SO2
-ELTH is the b3st
-USO RULLZ
-cat: SO2: No such file or directory
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$<span class="w"> </span>cat<span class="w"> </span>ELTH<span class="w"> </span>USO<span class="w"> </span>SO2
+ELTH<span class="w"> </span>is<span class="w"> </span>the<span class="w"> </span>b3st
+USO<span class="w"> </span>RULLZ
+cat:<span class="w"> </span>SO2:<span class="w"> </span>No<span class="w"> </span>such<span class="w"> </span>file<span class="w"> </span>or<span class="w"> </span>directory
 </pre></div>
 </div>
 <p>În exemplul de mai sus încercăm să afișăm conținutul fișierelor <code class="docutils literal notranslate"><span class="pre">ELTH</span></code>, <code class="docutils literal notranslate"><span class="pre">USO</span></code> și <code class="docutils literal notranslate"><span class="pre">SO2</span></code>, dar cu fișierul <code class="docutils literal notranslate"><span class="pre">SO2</span></code> neexistent.
@@ -673,12 +670,12 @@ Comanda <code class="docutils literal notranslate"><span class="pre">cat</span><
 Tot comanda <code class="docutils literal notranslate"><span class="pre">cat</span></code> a încercat să afișeze conținutul fișierului <code class="docutils literal notranslate"><span class="pre">SO2</span></code>, însă el nu există și a afișat eroarea <code class="docutils literal notranslate"><span class="pre">No</span> <span class="pre">such</span> <span class="pre">file</span> <span class="pre">or</span> <span class="pre">directory</span></code>.</p>
 <p>În continuare vom face o separare a fluxurilor: direcționăm ieșirea în fișierul <code class="docutils literal notranslate"><span class="pre">continut_materii</span></code> și erorile în fișierul <code class="docutils literal notranslate"><span class="pre">erori_comenzi</span></code>.
 Ca să redirectăm și outputul și erorile de la o comandă folosim și <code class="docutils literal notranslate"><span class="pre">&gt;</span></code> și <code class="docutils literal notranslate"><span class="pre">2&gt;</span></code> ca mai jos:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ cat ELTH USO SO2 &gt; continut_materii <span class="m">2</span>&gt; erori_comenzi
-student@uso:~$ cat continut_materii
-USO is the b3st
-USO RULLZ
-student@uso:~$ cat erori_comenzi
-cat: SO2: No such file or directory
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$<span class="w"> </span>cat<span class="w"> </span>ELTH<span class="w"> </span>USO<span class="w"> </span>SO2<span class="w"> </span>&gt;<span class="w"> </span>continut_materii<span class="w"> </span><span class="m">2</span>&gt;<span class="w"> </span>erori_comenzi
+student@uso:~$<span class="w"> </span>cat<span class="w"> </span>continut_materii
+USO<span class="w"> </span>is<span class="w"> </span>the<span class="w"> </span>b3st
+USO<span class="w"> </span>RULLZ
+student@uso:~$<span class="w"> </span>cat<span class="w"> </span>erori_comenzi
+cat:<span class="w"> </span>SO2:<span class="w"> </span>No<span class="w"> </span>such<span class="w"> </span>file<span class="w"> </span>or<span class="w"> </span>directory
 </pre></div>
 </div>
 <p>Observăm cum după executarea primei comenzi, la ecran nu mai apare nimic; atât ieșirea standard cât și erorile au fost direcționate în fișiere.
@@ -707,7 +704,7 @@ cat: SO2: No such file or directory
 </ul><div class="footer" role="contentinfo">
       &#169; Copyright 2020, USO Team.
     <br>
-    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 5.2.2 with <a href="https://github.com/romnn/sphinx_press_theme">Press Theme</a>.
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 7.2.6 with <a href="https://github.com/romnn/sphinx_press_theme">Press Theme</a>.
 </div>
             </div>
           </div>

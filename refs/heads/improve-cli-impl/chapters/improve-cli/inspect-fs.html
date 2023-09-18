@@ -2,7 +2,7 @@
 <html  lang="en">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="viewport" content="width=device-width, initial-scale=1" />
 
       <title>2. Inspectarea sistemului de fișiere</title>
     
@@ -15,13 +15,10 @@
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
 
       <!-- sphinx script_files -->
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/sphinx_highlight.js"></script>
-        <script src="../../_static/my_actions.js"></script>
+        <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../_static/my_actions.js?v=1451d81f"></script>
 
       
       <script src="../../_static/theme-vendors.js"></script>
@@ -524,45 +521,45 @@
           <div class="content" role="main">
             
   <section id="inspectarea-sistemului-de-fisiere">
-<span id="improve-cli-inspect-fs"></span><h1><span class="section-number">2. </span>Inspectarea sistemului de fișiere<a class="headerlink" href="#inspectarea-sistemului-de-fisiere" title="Permalink to this heading">¶</a></h1>
+<span id="improve-cli-inspect-fs"></span><h1><span class="section-number">2. </span>Inspectarea sistemului de fișiere<a class="headerlink" href="#inspectarea-sistemului-de-fisiere" title="Link to this heading">¶</a></h1>
 <section id="cea-mai-importanta-comanda">
-<h2><span class="section-number">2.1. </span>Cea mai importantă comandă<a class="headerlink" href="#cea-mai-importanta-comanda" title="Permalink to this heading">¶</a></h2>
+<h2><span class="section-number">2.1. </span>Cea mai importantă comandă<a class="headerlink" href="#cea-mai-importanta-comanda" title="Link to this heading">¶</a></h2>
 <p>Așa cum spuneam mai devreme, marele avantaj al utilizării terminalului este că ne ajută să rezolvăm sarcini foarte rapid.
 Rezolvăm sarcini folosind utilitarele pe care le avem disponibile în linia de comandă, fie că acestea fac parte din sistemul nostru sau le-am instalat.</p>
 <p>Cel mai important utilitar pe care îl avem la dispoziție este <code class="docutils literal notranslate"><span class="pre">man</span></code>.
 Utilitarul <code class="docutils literal notranslate"><span class="pre">man</span></code> ne deschide pagina de manual în care este documentat un alt utilitar pe care dorim să-l folosim.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ man
-What manual page <span class="k">do</span> you want?
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$<span class="w"> </span>man
+What<span class="w"> </span>manual<span class="w"> </span>page<span class="w"> </span><span class="k">do</span><span class="w"> </span>you<span class="w"> </span>want?
 </pre></div>
 </div>
 <p>Putem consulta însăși pagina de manual a utilitarului <code class="docutils literal notranslate"><span class="pre">man</span></code></p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ man man
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$<span class="w"> </span>man<span class="w"> </span>man
 </pre></div>
 </div>
 <p>Vom fi întâmpinați de următorul program interactiv:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>MAN<span class="o">(</span><span class="m">1</span><span class="o">)</span>                        Manual pager utils                        MAN<span class="o">(</span><span class="m">1</span><span class="o">)</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>MAN<span class="o">(</span><span class="m">1</span><span class="o">)</span><span class="w">                        </span>Manual<span class="w"> </span>pager<span class="w"> </span>utils<span class="w">                        </span>MAN<span class="o">(</span><span class="m">1</span><span class="o">)</span>
 
 NAME
-       man - an interface to the on-line reference manuals
+<span class="w">       </span>man<span class="w"> </span>-<span class="w"> </span>an<span class="w"> </span>interface<span class="w"> </span>to<span class="w"> </span>the<span class="w"> </span>on-line<span class="w"> </span>reference<span class="w"> </span>manuals
 
 SYNOPSIS
-       man  <span class="o">[</span>-C  file<span class="o">]</span>  <span class="o">[</span>-d<span class="o">]</span>  <span class="o">[</span>-D<span class="o">]</span>  <span class="o">[</span>--warnings<span class="o">[=</span>warnings<span class="o">]]</span>  <span class="o">[</span>-R encoding<span class="o">]</span> <span class="o">[</span>-L
-       locale<span class="o">]</span> <span class="o">[</span>-m system<span class="o">[</span>,...<span class="o">]]</span> <span class="o">[</span>-M path<span class="o">]</span> <span class="o">[</span>-S list<span class="o">]</span>  <span class="o">[</span>-e  extension<span class="o">]</span>  <span class="o">[</span>-i<span class="p">|</span>-I<span class="o">]</span>
-       <span class="o">[</span>--regex<span class="p">|</span>--wildcard<span class="o">]</span>   <span class="o">[</span>--names-only<span class="o">]</span>  <span class="o">[</span>-a<span class="o">]</span>  <span class="o">[</span>-u<span class="o">]</span>  <span class="o">[</span>--no-subpages<span class="o">]</span>  <span class="o">[</span>-P
-       pager<span class="o">]</span> <span class="o">[</span>-r prompt<span class="o">]</span> <span class="o">[</span>-7<span class="o">]</span> <span class="o">[</span>-E encoding<span class="o">]</span> <span class="o">[</span>--no-hyphenation<span class="o">]</span> <span class="o">[</span>--no-justifi‐
-       cation<span class="o">]</span>  <span class="o">[</span>-p  string<span class="o">]</span>  <span class="o">[</span>-t<span class="o">]</span>  <span class="o">[</span>-T<span class="o">[</span>device<span class="o">]]</span>  <span class="o">[</span>-H<span class="o">[</span>browser<span class="o">]]</span> <span class="o">[</span>-X<span class="o">[</span>dpi<span class="o">]]</span> <span class="o">[</span>-Z<span class="o">]</span>
-       <span class="o">[[</span>section<span class="o">]</span> page<span class="o">[</span>.section<span class="o">]</span> ...<span class="o">]</span> ...
-       man -k <span class="o">[</span>apropos options<span class="o">]</span> regexp ...
-       man -K <span class="o">[</span>-w<span class="p">|</span>-W<span class="o">]</span> <span class="o">[</span>-S list<span class="o">]</span> <span class="o">[</span>-i<span class="p">|</span>-I<span class="o">]</span> <span class="o">[</span>--regex<span class="o">]</span> <span class="o">[</span>section<span class="o">]</span> term ...
-       man -f <span class="o">[</span>whatis options<span class="o">]</span> page ...
-       man -l <span class="o">[</span>-C file<span class="o">]</span> <span class="o">[</span>-d<span class="o">]</span> <span class="o">[</span>-D<span class="o">]</span> <span class="o">[</span>--warnings<span class="o">[=</span>warnings<span class="o">]]</span>  <span class="o">[</span>-R  encoding<span class="o">]</span>  <span class="o">[</span>-L
-       locale<span class="o">]</span>  <span class="o">[</span>-P  pager<span class="o">]</span>  <span class="o">[</span>-r  prompt<span class="o">]</span>  <span class="o">[</span>-7<span class="o">]</span> <span class="o">[</span>-E encoding<span class="o">]</span> <span class="o">[</span>-p string<span class="o">]</span> <span class="o">[</span>-t<span class="o">]</span>
-       <span class="o">[</span>-T<span class="o">[</span>device<span class="o">]]</span> <span class="o">[</span>-H<span class="o">[</span>browser<span class="o">]]</span> <span class="o">[</span>-X<span class="o">[</span>dpi<span class="o">]]</span> <span class="o">[</span>-Z<span class="o">]</span> file ...
-       man -w<span class="p">|</span>-W <span class="o">[</span>-C file<span class="o">]</span> <span class="o">[</span>-d<span class="o">]</span> <span class="o">[</span>-D<span class="o">]</span> page ...
-       man -c <span class="o">[</span>-C file<span class="o">]</span> <span class="o">[</span>-d<span class="o">]</span> <span class="o">[</span>-D<span class="o">]</span> page ...
-       man <span class="o">[</span>-?V<span class="o">]</span>
+<span class="w">       </span>man<span class="w">  </span><span class="o">[</span>-C<span class="w">  </span>file<span class="o">]</span><span class="w">  </span><span class="o">[</span>-d<span class="o">]</span><span class="w">  </span><span class="o">[</span>-D<span class="o">]</span><span class="w">  </span><span class="o">[</span>--warnings<span class="o">[=</span>warnings<span class="o">]]</span><span class="w">  </span><span class="o">[</span>-R<span class="w"> </span>encoding<span class="o">]</span><span class="w"> </span><span class="o">[</span>-L
+<span class="w">       </span>locale<span class="o">]</span><span class="w"> </span><span class="o">[</span>-m<span class="w"> </span>system<span class="o">[</span>,...<span class="o">]]</span><span class="w"> </span><span class="o">[</span>-M<span class="w"> </span>path<span class="o">]</span><span class="w"> </span><span class="o">[</span>-S<span class="w"> </span>list<span class="o">]</span><span class="w">  </span><span class="o">[</span>-e<span class="w">  </span>extension<span class="o">]</span><span class="w">  </span><span class="o">[</span>-i<span class="p">|</span>-I<span class="o">]</span>
+<span class="w">       </span><span class="o">[</span>--regex<span class="p">|</span>--wildcard<span class="o">]</span><span class="w">   </span><span class="o">[</span>--names-only<span class="o">]</span><span class="w">  </span><span class="o">[</span>-a<span class="o">]</span><span class="w">  </span><span class="o">[</span>-u<span class="o">]</span><span class="w">  </span><span class="o">[</span>--no-subpages<span class="o">]</span><span class="w">  </span><span class="o">[</span>-P
+<span class="w">       </span>pager<span class="o">]</span><span class="w"> </span><span class="o">[</span>-r<span class="w"> </span>prompt<span class="o">]</span><span class="w"> </span><span class="o">[</span>-7<span class="o">]</span><span class="w"> </span><span class="o">[</span>-E<span class="w"> </span>encoding<span class="o">]</span><span class="w"> </span><span class="o">[</span>--no-hyphenation<span class="o">]</span><span class="w"> </span><span class="o">[</span>--no-justifi‐
+<span class="w">       </span>cation<span class="o">]</span><span class="w">  </span><span class="o">[</span>-p<span class="w">  </span>string<span class="o">]</span><span class="w">  </span><span class="o">[</span>-t<span class="o">]</span><span class="w">  </span><span class="o">[</span>-T<span class="o">[</span>device<span class="o">]]</span><span class="w">  </span><span class="o">[</span>-H<span class="o">[</span>browser<span class="o">]]</span><span class="w"> </span><span class="o">[</span>-X<span class="o">[</span>dpi<span class="o">]]</span><span class="w"> </span><span class="o">[</span>-Z<span class="o">]</span>
+<span class="w">       </span><span class="o">[[</span>section<span class="o">]</span><span class="w"> </span>page<span class="o">[</span>.section<span class="o">]</span><span class="w"> </span>...<span class="o">]</span><span class="w"> </span>...
+<span class="w">       </span>man<span class="w"> </span>-k<span class="w"> </span><span class="o">[</span>apropos<span class="w"> </span>options<span class="o">]</span><span class="w"> </span>regexp<span class="w"> </span>...
+<span class="w">       </span>man<span class="w"> </span>-K<span class="w"> </span><span class="o">[</span>-w<span class="p">|</span>-W<span class="o">]</span><span class="w"> </span><span class="o">[</span>-S<span class="w"> </span>list<span class="o">]</span><span class="w"> </span><span class="o">[</span>-i<span class="p">|</span>-I<span class="o">]</span><span class="w"> </span><span class="o">[</span>--regex<span class="o">]</span><span class="w"> </span><span class="o">[</span>section<span class="o">]</span><span class="w"> </span>term<span class="w"> </span>...
+<span class="w">       </span>man<span class="w"> </span>-f<span class="w"> </span><span class="o">[</span>whatis<span class="w"> </span>options<span class="o">]</span><span class="w"> </span>page<span class="w"> </span>...
+<span class="w">       </span>man<span class="w"> </span>-l<span class="w"> </span><span class="o">[</span>-C<span class="w"> </span>file<span class="o">]</span><span class="w"> </span><span class="o">[</span>-d<span class="o">]</span><span class="w"> </span><span class="o">[</span>-D<span class="o">]</span><span class="w"> </span><span class="o">[</span>--warnings<span class="o">[=</span>warnings<span class="o">]]</span><span class="w">  </span><span class="o">[</span>-R<span class="w">  </span>encoding<span class="o">]</span><span class="w">  </span><span class="o">[</span>-L
+<span class="w">       </span>locale<span class="o">]</span><span class="w">  </span><span class="o">[</span>-P<span class="w">  </span>pager<span class="o">]</span><span class="w">  </span><span class="o">[</span>-r<span class="w">  </span>prompt<span class="o">]</span><span class="w">  </span><span class="o">[</span>-7<span class="o">]</span><span class="w"> </span><span class="o">[</span>-E<span class="w"> </span>encoding<span class="o">]</span><span class="w"> </span><span class="o">[</span>-p<span class="w"> </span>string<span class="o">]</span><span class="w"> </span><span class="o">[</span>-t<span class="o">]</span>
+<span class="w">       </span><span class="o">[</span>-T<span class="o">[</span>device<span class="o">]]</span><span class="w"> </span><span class="o">[</span>-H<span class="o">[</span>browser<span class="o">]]</span><span class="w"> </span><span class="o">[</span>-X<span class="o">[</span>dpi<span class="o">]]</span><span class="w"> </span><span class="o">[</span>-Z<span class="o">]</span><span class="w"> </span>file<span class="w"> </span>...
+<span class="w">       </span>man<span class="w"> </span>-w<span class="p">|</span>-W<span class="w"> </span><span class="o">[</span>-C<span class="w"> </span>file<span class="o">]</span><span class="w"> </span><span class="o">[</span>-d<span class="o">]</span><span class="w"> </span><span class="o">[</span>-D<span class="o">]</span><span class="w"> </span>page<span class="w"> </span>...
+<span class="w">       </span>man<span class="w"> </span>-c<span class="w"> </span><span class="o">[</span>-C<span class="w"> </span>file<span class="o">]</span><span class="w"> </span><span class="o">[</span>-d<span class="o">]</span><span class="w"> </span><span class="o">[</span>-D<span class="o">]</span><span class="w"> </span>page<span class="w"> </span>...
+<span class="w">       </span>man<span class="w"> </span><span class="o">[</span>-?V<span class="o">]</span>
 
- Manual page man<span class="o">(</span><span class="m">1</span><span class="o">)</span> line <span class="m">1</span> <span class="o">(</span>press h <span class="k">for</span> <span class="nb">help</span> or q to quit<span class="o">)</span>
+<span class="w"> </span>Manual<span class="w"> </span>page<span class="w"> </span>man<span class="o">(</span><span class="m">1</span><span class="o">)</span><span class="w"> </span>line<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="o">(</span>press<span class="w"> </span>h<span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nb">help</span><span class="w"> </span>or<span class="w"> </span>q<span class="w"> </span>to<span class="w"> </span>quit<span class="o">)</span>
 </pre></div>
 </div>
 <p>Observăm că ultima linie din terminal, <strong>Manual page man(1) line 1 (press h for help or q to quit)</strong>, ne oferă mai multe informații:</p>
@@ -572,7 +569,7 @@ SYNOPSIS
 <li><p>Putem apăsa tasta <code class="docutils literal notranslate"><span class="pre">q</span></code> pentru a ieși din manual</p></li>
 </ul>
 <section id="navigarea-prin-paginile-manualului">
-<h3><span class="section-number">2.1.1. </span>Navigarea prin paginile manualului<a class="headerlink" href="#navigarea-prin-paginile-manualului" title="Permalink to this heading">¶</a></h3>
+<h3><span class="section-number">2.1.1. </span>Navigarea prin paginile manualului<a class="headerlink" href="#navigarea-prin-paginile-manualului" title="Link to this heading">¶</a></h3>
 <p>Navigăm cu câte o linie de terminal în joș și în sus folosind folosind tastele <code class="docutils literal notranslate"><span class="pre">Ctrl+n</span></code> și <code class="docutils literal notranslate"><span class="pre">Ctrl+p</span></code>.
 Putem folosi tastele <code class="docutils literal notranslate"><span class="pre">Ctrl+f</span></code> și <code class="docutils literal notranslate"><span class="pre">Ctrl+b</span></code> pentru a naviga, cu câte un ecran de terminal, în jos și în sus în pagină.
 Mai simplu, putem folosi tasta <code class="docutils literal notranslate"><span class="pre">Enter</span></code> pentru a naviga cu câte o linie în jos și tasta <code class="docutils literal notranslate"><span class="pre">Space</span></code> pentru a naviga cu câte un ecran în jos.
@@ -598,34 +595,34 @@ Dacă vrem să navigăm la un rezultat anterior apăsăm tasta <code class="docu
 Dacă am navigat deja în interiorul paginii, trebuie să avem în vedere că rezultatul de interes al căutării noastre se poate alfa undeva între începutul paginii și poziția noastră curentă <a class="footnote-reference brackets" href="#rev-search" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a>.</p>
 </section>
 <section id="interpretarea-paginii-de-manual">
-<h3><span class="section-number">2.1.2. </span>Interpretarea paginii de manual<a class="headerlink" href="#interpretarea-paginii-de-manual" title="Permalink to this heading">¶</a></h3>
+<h3><span class="section-number">2.1.2. </span>Interpretarea paginii de manual<a class="headerlink" href="#interpretarea-paginii-de-manual" title="Link to this heading">¶</a></h3>
 <p>La o primă vedere, textul paginii de manual poate fi intimidant; unele utilitare au mai multe opțiuni și argumente, unele opționale, altele nu.
 O să trecem prin sintaxă și o să vedem că lucrurile sunt mult mai simple decât par.
 Să analizăm pagina de manual a utilitarului <code class="docutils literal notranslate"><span class="pre">ls</span></code>; <code class="docutils literal notranslate"><span class="pre">man</span> <span class="pre">ls</span></code>:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>LS<span class="o">(</span><span class="m">1</span><span class="o">)</span>                            User Commands                           LS<span class="o">(</span><span class="m">1</span><span class="o">)</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>LS<span class="o">(</span><span class="m">1</span><span class="o">)</span><span class="w">                            </span>User<span class="w"> </span>Commands<span class="w">                           </span>LS<span class="o">(</span><span class="m">1</span><span class="o">)</span>
 
 NAME
-       ls - list directory contents
+<span class="w">       </span>ls<span class="w"> </span>-<span class="w"> </span>list<span class="w"> </span>directory<span class="w"> </span>contents
 
 SYNOPSIS
-       ls <span class="o">[</span>OPTION<span class="o">]</span>... <span class="o">[</span>FILE<span class="o">]</span>...
+<span class="w">       </span>ls<span class="w"> </span><span class="o">[</span>OPTION<span class="o">]</span>...<span class="w"> </span><span class="o">[</span>FILE<span class="o">]</span>...
 
 DESCRIPTION
-       List  information  about  the FILEs <span class="o">(</span>the current directory by default<span class="o">)</span>.
-       Sort entries alphabetically <span class="k">if</span> none of -cftuvSUX nor --sort  is  speci‐
-       fied.
+<span class="w">       </span>List<span class="w">  </span>information<span class="w">  </span>about<span class="w">  </span>the<span class="w"> </span>FILEs<span class="w"> </span><span class="o">(</span>the<span class="w"> </span>current<span class="w"> </span>directory<span class="w"> </span>by<span class="w"> </span>default<span class="o">)</span>.
+<span class="w">       </span>Sort<span class="w"> </span>entries<span class="w"> </span>alphabetically<span class="w"> </span><span class="k">if</span><span class="w"> </span>none<span class="w"> </span>of<span class="w"> </span>-cftuvSUX<span class="w"> </span>nor<span class="w"> </span>--sort<span class="w">  </span>is<span class="w">  </span>speci‐
+<span class="w">       </span>fied.
 
-       Mandatory  arguments  to  long  options are mandatory <span class="k">for</span> short options
-       too.
+<span class="w">       </span>Mandatory<span class="w">  </span>arguments<span class="w">  </span>to<span class="w">  </span>long<span class="w">  </span>options<span class="w"> </span>are<span class="w"> </span>mandatory<span class="w"> </span><span class="k">for</span><span class="w"> </span>short<span class="w"> </span>options
+<span class="w">       </span>too.
 
-       -a, --all
-              <span class="k">do</span> not ignore entries starting with .
+<span class="w">       </span>-a,<span class="w"> </span>--all
+<span class="w">              </span><span class="k">do</span><span class="w"> </span>not<span class="w"> </span>ignore<span class="w"> </span>entries<span class="w"> </span>starting<span class="w"> </span>with<span class="w"> </span>.
 
-       -A, --almost-all
-              <span class="k">do</span> not list implied . and ..
+<span class="w">       </span>-A,<span class="w"> </span>--almost-all
+<span class="w">              </span><span class="k">do</span><span class="w"> </span>not<span class="w"> </span>list<span class="w"> </span>implied<span class="w"> </span>.<span class="w"> </span>and<span class="w"> </span>..
 
-       --author
- Manual page ls<span class="o">(</span><span class="m">1</span><span class="o">)</span> line <span class="m">1</span> <span class="o">(</span>press h <span class="k">for</span> <span class="nb">help</span> or q to quit<span class="o">)</span>
+<span class="w">       </span>--author
+<span class="w"> </span>Manual<span class="w"> </span>page<span class="w"> </span>ls<span class="o">(</span><span class="m">1</span><span class="o">)</span><span class="w"> </span>line<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="o">(</span>press<span class="w"> </span>h<span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nb">help</span><span class="w"> </span>or<span class="w"> </span>q<span class="w"> </span>to<span class="w"> </span>quit<span class="o">)</span>
 </pre></div>
 </div>
 <ol class="arabic">
@@ -635,7 +632,7 @@ Citim descrierea și ne dăm seama dacă utilitarul ne va ajuta în rezolvarea s
 <li><p>Cea de-a doua secțiune care ne interesează este “SYNOPSIS”.
 Aceasta ne spune cum putem să rulăm utilitarul, ce opțiuni și argumente sunt opționale (pot lipsi) și ce opțiuni și argumente sunt obligatorii.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>SYNOPSIS
-       ls <span class="o">[</span>OPTION<span class="o">]</span>... <span class="o">[</span>FILE<span class="o">]</span>...
+<span class="w">       </span>ls<span class="w"> </span><span class="o">[</span>OPTION<span class="o">]</span>...<span class="w"> </span><span class="o">[</span>FILE<span class="o">]</span>...
 </pre></div>
 </div>
 <p>Sintaxa <strong>[ ]</strong> ne spune că acea categorie este opțională.
@@ -645,7 +642,7 @@ Cele trei puncte <code class="docutils literal notranslate"><span class="pre">..
 Opțiunile îi spun unei comenzi cum să își modifice comportamentul, și de obicei sunt precedate de <code class="docutils literal notranslate"><span class="pre">-</span></code> (ex. <code class="docutils literal notranslate"><span class="pre">-l</span></code>, <code class="docutils literal notranslate"><span class="pre">--verbose</span></code>, etc.).
 Argumentele îi spun unei comenzi pe ce să acționeze.</p>
 <p>În exemplul de mai jos:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ ls -l Desktop/
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$<span class="w"> </span>ls<span class="w"> </span>-l<span class="w"> </span>Desktop/
 </pre></div>
 </div>
 <p>Avem utilitarul <code class="docutils literal notranslate"><span class="pre">ls</span></code> care primește opțiunea <code class="docutils literal notranslate"><span class="pre">-l</span></code> și argumentul <code class="docutils literal notranslate"><span class="pre">Desktop/</span></code>.</p>
@@ -653,13 +650,13 @@ Argumentele îi spun unei comenzi pe ce să acționeze.</p>
 <li><p>Ultima observație pe care o facem este că opțiunile unei comenzi pot avea o formă prescurtată, <code class="docutils literal notranslate"><span class="pre">-a</span></code>, sau o formă lungă, <code class="docutils literal notranslate"><span class="pre">--all</span></code>.
 Nu este obligatoriu ca o opțiune să expună ambele forme, deși majoritatea o fac.
 Opțiunile în formă prescurtată pot fi concatenate și precedate de un singur <code class="docutils literal notranslate"><span class="pre">-</span></code>, ca în exemplul de mai jos:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ ls -la Desktop/
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$<span class="w"> </span>ls<span class="w"> </span>-la<span class="w"> </span>Desktop/
 </pre></div>
 </div>
 </li>
 </ol>
 <section id="exercitii">
-<h4><span class="section-number">2.1.2.1. </span>Exerciții<a class="headerlink" href="#exercitii" title="Permalink to this heading">¶</a></h4>
+<h4><span class="section-number">2.1.2.1. </span>Exerciții<a class="headerlink" href="#exercitii" title="Link to this heading">¶</a></h4>
 <p>Deschideți pagina de manual a utilitarului <code class="docutils literal notranslate"><span class="pre">ls</span></code>.</p>
 <ol class="arabic simple">
 <li><p>Căutați opțiunea <code class="docutils literal notranslate"><span class="pre">-a</span></code>.
@@ -676,117 +673,117 @@ Căutați cuvântul cheie <code class="docutils literal notranslate"><span class
 </section>
 </section>
 <section id="extra-utilizarea-sectiunilor-din-manual">
-<h3><span class="section-number">2.1.3. </span>Extra: Utilizarea secțiunilor din manual<a class="headerlink" href="#extra-utilizarea-sectiunilor-din-manual" title="Permalink to this heading">¶</a></h3>
+<h3><span class="section-number">2.1.3. </span>Extra: Utilizarea secțiunilor din manual<a class="headerlink" href="#extra-utilizarea-sectiunilor-din-manual" title="Link to this heading">¶</a></h3>
 <p>În descrierea manualului (<code class="docutils literal notranslate"><span class="pre">man</span> <span class="pre">man</span></code>) este specificat faptul că manualul este împărțit în diferite secțiuni:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>The table below shows the section numbers of the manual followed by the types of pages they contain.
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>The<span class="w"> </span>table<span class="w"> </span>below<span class="w"> </span>shows<span class="w"> </span>the<span class="w"> </span>section<span class="w"> </span>numbers<span class="w"> </span>of<span class="w"> </span>the<span class="w"> </span>manual<span class="w"> </span>followed<span class="w"> </span>by<span class="w"> </span>the<span class="w"> </span>types<span class="w"> </span>of<span class="w"> </span>pages<span class="w"> </span>they<span class="w"> </span>contain.
 
-<span class="m">1</span>   Executable programs or shell commands
-<span class="m">2</span>   System calls <span class="o">(</span>functions provided by the kernel<span class="o">)</span>
-<span class="m">3</span>   Library calls <span class="o">(</span>functions within program libraries<span class="o">)</span>
-<span class="m">4</span>   Special files <span class="o">(</span>usually found <span class="k">in</span> /dev<span class="o">)</span>
-<span class="m">5</span>   File formats and conventions eg /etc/passwd
-<span class="m">6</span>   Games
-<span class="m">7</span>   Miscellaneous <span class="o">(</span>including macro packages and conventions<span class="o">)</span>, e.g. man<span class="o">(</span><span class="m">7</span><span class="o">)</span>, groff<span class="o">(</span><span class="m">7</span><span class="o">)</span>
-<span class="m">8</span>   System administration commands <span class="o">(</span>usually only <span class="k">for</span> root<span class="o">)</span>
-<span class="m">9</span>   Kernel routines <span class="o">[</span>Non standard<span class="o">]</span>
+<span class="m">1</span><span class="w">   </span>Executable<span class="w"> </span>programs<span class="w"> </span>or<span class="w"> </span>shell<span class="w"> </span>commands
+<span class="m">2</span><span class="w">   </span>System<span class="w"> </span>calls<span class="w"> </span><span class="o">(</span>functions<span class="w"> </span>provided<span class="w"> </span>by<span class="w"> </span>the<span class="w"> </span>kernel<span class="o">)</span>
+<span class="m">3</span><span class="w">   </span>Library<span class="w"> </span>calls<span class="w"> </span><span class="o">(</span>functions<span class="w"> </span>within<span class="w"> </span>program<span class="w"> </span>libraries<span class="o">)</span>
+<span class="m">4</span><span class="w">   </span>Special<span class="w"> </span>files<span class="w"> </span><span class="o">(</span>usually<span class="w"> </span>found<span class="w"> </span><span class="k">in</span><span class="w"> </span>/dev<span class="o">)</span>
+<span class="m">5</span><span class="w">   </span>File<span class="w"> </span>formats<span class="w"> </span>and<span class="w"> </span>conventions<span class="w"> </span>eg<span class="w"> </span>/etc/passwd
+<span class="m">6</span><span class="w">   </span>Games
+<span class="m">7</span><span class="w">   </span>Miscellaneous<span class="w"> </span><span class="o">(</span>including<span class="w"> </span>macro<span class="w"> </span>packages<span class="w"> </span>and<span class="w"> </span>conventions<span class="o">)</span>,<span class="w"> </span>e.g.<span class="w"> </span>man<span class="o">(</span><span class="m">7</span><span class="o">)</span>,<span class="w"> </span>groff<span class="o">(</span><span class="m">7</span><span class="o">)</span>
+<span class="m">8</span><span class="w">   </span>System<span class="w"> </span>administration<span class="w"> </span>commands<span class="w"> </span><span class="o">(</span>usually<span class="w"> </span>only<span class="w"> </span><span class="k">for</span><span class="w"> </span>root<span class="o">)</span>
+<span class="m">9</span><span class="w">   </span>Kernel<span class="w"> </span>routines<span class="w"> </span><span class="o">[</span>Non<span class="w"> </span>standard<span class="o">]</span>
 </pre></div>
 </div>
 <p>Ce este important de reținut aici este că, folosind <code class="docutils literal notranslate"><span class="pre">man</span></code>, putem afla informații despre funcții de bibliotecă și de sistem, și multe altele, nu doar despre utilitare și comenzi shell.
 Totul este mai clar cu un exemplu.
 Dacă rulăm comanda <code class="docutils literal notranslate"><span class="pre">man</span> <span class="pre">printf</span></code> se va deschide pagina următoare din manual:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>PRINTF<span class="o">(</span><span class="m">1</span><span class="o">)</span>                        User Commands                       PRINTF<span class="o">(</span><span class="m">1</span><span class="o">)</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>PRINTF<span class="o">(</span><span class="m">1</span><span class="o">)</span><span class="w">                        </span>User<span class="w"> </span>Commands<span class="w">                       </span>PRINTF<span class="o">(</span><span class="m">1</span><span class="o">)</span>
 
 NAME
-       <span class="nb">printf</span> - format and print data
+<span class="w">       </span><span class="nb">printf</span><span class="w"> </span>-<span class="w"> </span>format<span class="w"> </span>and<span class="w"> </span>print<span class="w"> </span>data
 
 SYNOPSIS
-       <span class="nb">printf</span> FORMAT <span class="o">[</span>ARGUMENT<span class="o">]</span>...
-       <span class="nb">printf</span> OPTION
+<span class="w">       </span><span class="nb">printf</span><span class="w"> </span>FORMAT<span class="w"> </span><span class="o">[</span>ARGUMENT<span class="o">]</span>...
+<span class="w">       </span><span class="nb">printf</span><span class="w"> </span>OPTION
 
 DESCRIPTION
-       Print ARGUMENT<span class="o">(</span>s<span class="o">)</span> according to FORMAT, or execute according to OPTION:
+<span class="w">       </span>Print<span class="w"> </span>ARGUMENT<span class="o">(</span>s<span class="o">)</span><span class="w"> </span>according<span class="w"> </span>to<span class="w"> </span>FORMAT,<span class="w"> </span>or<span class="w"> </span>execute<span class="w"> </span>according<span class="w"> </span>to<span class="w"> </span>OPTION:
 
-       --help display this <span class="nb">help</span> and <span class="nb">exit</span>
+<span class="w">       </span>--help<span class="w"> </span>display<span class="w"> </span>this<span class="w"> </span><span class="nb">help</span><span class="w"> </span>and<span class="w"> </span><span class="nb">exit</span>
 
-       --version
-              output version information and <span class="nb">exit</span>
+<span class="w">       </span>--version
+<span class="w">              </span>output<span class="w"> </span>version<span class="w"> </span>information<span class="w"> </span>and<span class="w"> </span><span class="nb">exit</span>
 
-       FORMAT controls the output as <span class="k">in</span> C printf.  Interpreted sequences are:
+<span class="w">       </span>FORMAT<span class="w"> </span>controls<span class="w"> </span>the<span class="w"> </span>output<span class="w"> </span>as<span class="w"> </span><span class="k">in</span><span class="w"> </span>C<span class="w"> </span>printf.<span class="w">  </span>Interpreted<span class="w"> </span>sequences<span class="w"> </span>are:
 
-       <span class="se">\&quot;</span>     double quote
+<span class="w">       </span><span class="se">\&quot;</span><span class="w">     </span>double<span class="w"> </span>quote
 
-       <span class="se">\\</span>     backslash
+<span class="w">       </span><span class="se">\\</span><span class="w">     </span>backslash
 
- Manual page printf<span class="o">(</span><span class="m">1</span><span class="o">)</span> line <span class="m">1</span> <span class="o">(</span>press h <span class="k">for</span> <span class="nb">help</span> or q to quit<span class="o">)</span>
+<span class="w"> </span>Manual<span class="w"> </span>page<span class="w"> </span>printf<span class="o">(</span><span class="m">1</span><span class="o">)</span><span class="w"> </span>line<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="o">(</span>press<span class="w"> </span>h<span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nb">help</span><span class="w"> </span>or<span class="w"> </span>q<span class="w"> </span>to<span class="w"> </span>quit<span class="o">)</span>
 </pre></div>
 </div>
 <p>Această pagină este pentru utilitarul <code class="docutils literal notranslate"><span class="pre">printf</span></code>.
 Observați prima linie:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>PRINTF<span class="o">(</span><span class="m">1</span><span class="o">)</span>                        User Commands                       PRINTF<span class="o">(</span><span class="m">1</span><span class="o">)</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>PRINTF<span class="o">(</span><span class="m">1</span><span class="o">)</span><span class="w">                        </span>User<span class="w"> </span>Commands<span class="w">                       </span>PRINTF<span class="o">(</span><span class="m">1</span><span class="o">)</span>
 </pre></div>
 </div>
 <p>Textul <strong>PRINTF(1)</strong> ne spune că ne uităm la pagina de manual a utilitarului <code class="docutils literal notranslate"><span class="pre">printf</span></code> din secțiunea <strong>(1)</strong> a manualului.
 Exact cum ne spune descrierea din manual:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="m">1</span>   Executable programs or shell commands
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="m">1</span><span class="w">   </span>Executable<span class="w"> </span>programs<span class="w"> </span>or<span class="w"> </span>shell<span class="w"> </span>commands
 </pre></div>
 </div>
 <p>Dacă vrem să accesăm pagina de manual a funcției <code class="docutils literal notranslate"><span class="pre">printf</span></code> a bibliotecii standard C, folosim comanda <code class="docutils literal notranslate"><span class="pre">man</span> <span class="pre">3</span> <span class="pre">printf</span></code> și vom fi găsi pagina următoare din manual:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>PRINTF(3)                  Linux Programmer&#39;s Manual                 PRINTF(3)
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>PRINTF<span class="o">(</span><span class="m">3</span><span class="o">)</span><span class="w">                  </span>Linux<span class="w"> </span>Programmer<span class="err">&#39;</span>s<span class="w"> </span>Manual<span class="w">                 </span>PRINTF<span class="o">(</span><span class="m">3</span><span class="o">)</span>
 
 NAME
-       printf,   fprintf,   dprintf,  sprintf,  snprintf,  vprintf,  vfprintf,
-       vdprintf, vsprintf, vsnprintf - formatted output conversion
+<span class="w">       </span>printf,<span class="w">   </span>fprintf,<span class="w">   </span>dprintf,<span class="w">  </span>sprintf,<span class="w">  </span>snprintf,<span class="w">  </span>vprintf,<span class="w">  </span>vfprintf,
+<span class="w">       </span>vdprintf,<span class="w"> </span>vsprintf,<span class="w"> </span>vsnprintf<span class="w"> </span>-<span class="w"> </span>formatted<span class="w"> </span>output<span class="w"> </span>conversion
 
 SYNOPSIS
-       #include &lt;stdio.h&gt;
+<span class="w">       </span><span class="c1">#include &lt;stdio.h&gt;</span>
 
-       int printf(const char *format, ...);
-       int fprintf(FILE *stream, const char *format, ...);
-       int dprintf(int fd, const char *format, ...);
-       int sprintf(char *str, const char *format, ...);
-       int snprintf(char *str, size_t size, const char *format, ...);
+<span class="w">       </span>int<span class="w"> </span>printf<span class="o">(</span>const<span class="w"> </span>char<span class="w"> </span>*format,<span class="w"> </span>...<span class="o">)</span><span class="p">;</span>
+<span class="w">       </span>int<span class="w"> </span>fprintf<span class="o">(</span>FILE<span class="w"> </span>*stream,<span class="w"> </span>const<span class="w"> </span>char<span class="w"> </span>*format,<span class="w"> </span>...<span class="o">)</span><span class="p">;</span>
+<span class="w">       </span>int<span class="w"> </span>dprintf<span class="o">(</span>int<span class="w"> </span>fd,<span class="w"> </span>const<span class="w"> </span>char<span class="w"> </span>*format,<span class="w"> </span>...<span class="o">)</span><span class="p">;</span>
+<span class="w">       </span>int<span class="w"> </span>sprintf<span class="o">(</span>char<span class="w"> </span>*str,<span class="w"> </span>const<span class="w"> </span>char<span class="w"> </span>*format,<span class="w"> </span>...<span class="o">)</span><span class="p">;</span>
+<span class="w">       </span>int<span class="w"> </span>snprintf<span class="o">(</span>char<span class="w"> </span>*str,<span class="w"> </span>size_t<span class="w"> </span>size,<span class="w"> </span>const<span class="w"> </span>char<span class="w"> </span>*format,<span class="w"> </span>...<span class="o">)</span><span class="p">;</span>
 
-       #include &lt;stdarg.h&gt;
+<span class="w">       </span><span class="c1">#include &lt;stdarg.h&gt;</span>
 
-       int vprintf(const char *format, va_list ap);
-       int vfprintf(FILE *stream, const char *format, va_list ap);
-       int vdprintf(int fd, const char *format, va_list ap);
-       int vsprintf(char *str, const char *format, va_list ap);
-       int vsnprintf(char *str, size_t size, const char *format, va_list ap);
+<span class="w">       </span>int<span class="w"> </span>vprintf<span class="o">(</span>const<span class="w"> </span>char<span class="w"> </span>*format,<span class="w"> </span>va_list<span class="w"> </span>ap<span class="o">)</span><span class="p">;</span>
+<span class="w">       </span>int<span class="w"> </span>vfprintf<span class="o">(</span>FILE<span class="w"> </span>*stream,<span class="w"> </span>const<span class="w"> </span>char<span class="w"> </span>*format,<span class="w"> </span>va_list<span class="w"> </span>ap<span class="o">)</span><span class="p">;</span>
+<span class="w">       </span>int<span class="w"> </span>vdprintf<span class="o">(</span>int<span class="w"> </span>fd,<span class="w"> </span>const<span class="w"> </span>char<span class="w"> </span>*format,<span class="w"> </span>va_list<span class="w"> </span>ap<span class="o">)</span><span class="p">;</span>
+<span class="w">       </span>int<span class="w"> </span>vsprintf<span class="o">(</span>char<span class="w"> </span>*str,<span class="w"> </span>const<span class="w"> </span>char<span class="w"> </span>*format,<span class="w"> </span>va_list<span class="w"> </span>ap<span class="o">)</span><span class="p">;</span>
+<span class="w">       </span>int<span class="w"> </span>vsnprintf<span class="o">(</span>char<span class="w"> </span>*str,<span class="w"> </span>size_t<span class="w"> </span>size,<span class="w"> </span>const<span class="w"> </span>char<span class="w"> </span>*format,<span class="w"> </span>va_list<span class="w"> </span>ap<span class="o">)</span><span class="p">;</span>
 
- Manual page printf(3) line 1 (press h for help or q to quit)
+<span class="w"> </span>Manual<span class="w"> </span>page<span class="w"> </span>printf<span class="o">(</span><span class="m">3</span><span class="o">)</span><span class="w"> </span>line<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="o">(</span>press<span class="w"> </span>h<span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nb">help</span><span class="w"> </span>or<span class="w"> </span>q<span class="w"> </span>to<span class="w"> </span>quit<span class="o">)</span>
 </pre></div>
 </div>
 <p>Observăm că s-a căutat în secțiunea <strong>(3)</strong> din manual:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="m">3</span>   Library calls <span class="o">(</span>functions within program libraries<span class="o">)</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="m">3</span><span class="w">   </span>Library<span class="w"> </span>calls<span class="w"> </span><span class="o">(</span>functions<span class="w"> </span>within<span class="w"> </span>program<span class="w"> </span>libraries<span class="o">)</span>
 </pre></div>
 </div>
 </section>
 <section id="bonus-utilizarea-pachetului-tldr">
-<h3><span class="section-number">2.1.4. </span>Bonus: Utilizarea pachetului <code class="docutils literal notranslate"><span class="pre">tldr</span></code><a class="headerlink" href="#bonus-utilizarea-pachetului-tldr" title="Permalink to this heading">¶</a></h3>
+<h3><span class="section-number">2.1.4. </span>Bonus: Utilizarea pachetului <code class="docutils literal notranslate"><span class="pre">tldr</span></code><a class="headerlink" href="#bonus-utilizarea-pachetului-tldr" title="Link to this heading">¶</a></h3>
 <p>Utilitarul <code class="docutils literal notranslate"><span class="pre">tldr</span></code> (too long, didn’t read) oferă o versiune simplificată a paginilor de manual.
 Acesta ne va arăta un rezumat al utilizării unei comenzi cu opțiunile cele mai des folosite în comunitate.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ tldr ls
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$<span class="w"> </span>tldr<span class="w"> </span>ls
 ls
-List directory contents.
+List<span class="w"> </span>directory<span class="w"> </span>contents.
 
- - List files one per line:
-   ls -1
+<span class="w"> </span>-<span class="w"> </span>List<span class="w"> </span>files<span class="w"> </span>one<span class="w"> </span>per<span class="w"> </span>line:
+<span class="w">   </span>ls<span class="w"> </span>-1
 
- - List all files, including hidden files:
-   ls -a
+<span class="w"> </span>-<span class="w"> </span>List<span class="w"> </span>all<span class="w"> </span>files,<span class="w"> </span>including<span class="w"> </span>hidden<span class="w"> </span>files:
+<span class="w">   </span>ls<span class="w"> </span>-a
 
- - Long format list <span class="o">(</span>permissions, ownership, size and modification date<span class="o">)</span> of all files:
-   ls -la
+<span class="w"> </span>-<span class="w"> </span>Long<span class="w"> </span>format<span class="w"> </span>list<span class="w"> </span><span class="o">(</span>permissions,<span class="w"> </span>ownership,<span class="w"> </span>size<span class="w"> </span>and<span class="w"> </span>modification<span class="w"> </span>date<span class="o">)</span><span class="w"> </span>of<span class="w"> </span>all<span class="w"> </span>files:
+<span class="w">   </span>ls<span class="w"> </span>-la
 
- - Long format list with size displayed using human readable units <span class="o">(</span>KB, MB, GB<span class="o">)</span>:
-   ls -lh
+<span class="w"> </span>-<span class="w"> </span>Long<span class="w"> </span>format<span class="w"> </span>list<span class="w"> </span>with<span class="w"> </span>size<span class="w"> </span>displayed<span class="w"> </span>using<span class="w"> </span>human<span class="w"> </span>readable<span class="w"> </span>units<span class="w"> </span><span class="o">(</span>KB,<span class="w"> </span>MB,<span class="w"> </span>GB<span class="o">)</span>:
+<span class="w">   </span>ls<span class="w"> </span>-lh
 
- - Long format list sorted by size <span class="o">(</span>descending<span class="o">)</span>:
-   ls -lS
+<span class="w"> </span>-<span class="w"> </span>Long<span class="w"> </span>format<span class="w"> </span>list<span class="w"> </span>sorted<span class="w"> </span>by<span class="w"> </span>size<span class="w"> </span><span class="o">(</span>descending<span class="o">)</span>:
+<span class="w">   </span>ls<span class="w"> </span>-lS
 
- - Long format list of all files, sorted by modification date <span class="o">(</span>oldest first<span class="o">)</span>:
-   ls -ltr
+<span class="w"> </span>-<span class="w"> </span>Long<span class="w"> </span>format<span class="w"> </span>list<span class="w"> </span>of<span class="w"> </span>all<span class="w"> </span>files,<span class="w"> </span>sorted<span class="w"> </span>by<span class="w"> </span>modification<span class="w"> </span>date<span class="w"> </span><span class="o">(</span>oldest<span class="w"> </span>first<span class="o">)</span>:
+<span class="w">   </span>ls<span class="w"> </span>-ltr
 </pre></div>
 </div>
 <div class="admonition note">
@@ -798,7 +795,7 @@ Feriți-vă să rulați comenzi orbește, pentru că așa ați găsit pe StackOv
 Întotdeauna asigurați-vă că ați înțeles cum și de ce rulați comanda și abia apoi treceți la fapte.</p>
 </div>
 <section id="exercitii-utilizarea-pachetului-tldr">
-<h4><span class="section-number">2.1.4.1. </span>Exerciții: Utilizarea pachetului <code class="docutils literal notranslate"><span class="pre">tldr</span></code><a class="headerlink" href="#exercitii-utilizarea-pachetului-tldr" title="Permalink to this heading">¶</a></h4>
+<h4><span class="section-number">2.1.4.1. </span>Exerciții: Utilizarea pachetului <code class="docutils literal notranslate"><span class="pre">tldr</span></code><a class="headerlink" href="#exercitii-utilizarea-pachetului-tldr" title="Link to this heading">¶</a></h4>
 <p>Instalați pachetul <code class="docutils literal notranslate"><span class="pre">tldr</span></code> pe mașina voastră.</p>
 <ol class="arabic simple">
 <li><p>Accesați pagina <code class="docutils literal notranslate"><span class="pre">tldr</span></code> a utilitarului <code class="docutils literal notranslate"><span class="pre">ls</span></code>.</p></li>
@@ -811,26 +808,26 @@ Feriți-vă să rulați comenzi orbește, pentru că așa ați găsit pe StackOv
 </section>
 </section>
 <section id="explorarea-sistemului-de-fisiere-comanda-ls">
-<h2><span class="section-number">2.2. </span>Explorarea sistemului de fișiere: comanda <code class="docutils literal notranslate"><span class="pre">ls</span></code><a class="headerlink" href="#explorarea-sistemului-de-fisiere-comanda-ls" title="Permalink to this heading">¶</a></h2>
+<h2><span class="section-number">2.2. </span>Explorarea sistemului de fișiere: comanda <code class="docutils literal notranslate"><span class="pre">ls</span></code><a class="headerlink" href="#explorarea-sistemului-de-fisiere-comanda-ls" title="Link to this heading">¶</a></h2>
 <p>În capitolul <strong>Lucrul cu fișiere</strong> am văzut cum folosim comanda <code class="docutils literal notranslate"><span class="pre">ls</span></code> pentru a afișa conținutul unui director și pentru a explora sistemul de fișiere.
 În continuare vom vedea cum folosim <code class="docutils literal notranslate"><span class="pre">ls</span></code> pentru a afișa mai multe informații despre conținutul unui director sau despre fișiere.</p>
 <section id="afisarea-fisierelor-ascunse">
-<h3><span class="section-number">2.2.1. </span>Afișarea fișierelor ascunse<a class="headerlink" href="#afisarea-fisierelor-ascunse" title="Permalink to this heading">¶</a></h3>
+<h3><span class="section-number">2.2.1. </span>Afișarea fișierelor ascunse<a class="headerlink" href="#afisarea-fisierelor-ascunse" title="Link to this heading">¶</a></h3>
 <p>În mediul linux, un fișier este ascuns dacă numele său începe cu caracterul <code class="docutils literal notranslate"><span class="pre">.</span></code> (punct).
 În mod implicit, utilitarul <code class="docutils literal notranslate"><span class="pre">ls</span></code> omite fișierele ascunse.
 Pentru a afișa fișierele ascunse folosim opțiunea <code class="docutils literal notranslate"><span class="pre">-a</span></code> (all).</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ ls -a
-.              .emacs.d         .ssh                       Pictures
-..             .gconf           .sudo_as_admin_successful  Public
-.ICEauthority  .gitconfig       .tmux                      Templates
-.bash_aliases  .gnome2          .tmux.conf                 Videos
-.bash_history  .gnome2_private  .vim                       examples.desktop
-.bash_logout   .gnupg           .viminfo                   uso.git
-.bashrc        .java            .vimrc                     vm-actions-log.txt
-.cache         .lesshst         Desktop                    workspace
-.config        .local           Documents
-.dbus          .mozilla         Downloads
-.emacs         .profile         Music
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$<span class="w"> </span>ls<span class="w"> </span>-a
+.<span class="w">              </span>.emacs.d<span class="w">         </span>.ssh<span class="w">                       </span>Pictures
+..<span class="w">             </span>.gconf<span class="w">           </span>.sudo_as_admin_successful<span class="w">  </span>Public
+.ICEauthority<span class="w">  </span>.gitconfig<span class="w">       </span>.tmux<span class="w">                      </span>Templates
+.bash_aliases<span class="w">  </span>.gnome2<span class="w">          </span>.tmux.conf<span class="w">                 </span>Videos
+.bash_history<span class="w">  </span>.gnome2_private<span class="w">  </span>.vim<span class="w">                       </span>examples.desktop
+.bash_logout<span class="w">   </span>.gnupg<span class="w">           </span>.viminfo<span class="w">                   </span>uso.git
+.bashrc<span class="w">        </span>.java<span class="w">            </span>.vimrc<span class="w">                     </span>vm-actions-log.txt
+.cache<span class="w">         </span>.lesshst<span class="w">         </span>Desktop<span class="w">                    </span>workspace
+.config<span class="w">        </span>.local<span class="w">           </span>Documents
+.dbus<span class="w">          </span>.mozilla<span class="w">         </span>Downloads
+.emacs<span class="w">         </span>.profile<span class="w">         </span>Music
 </pre></div>
 </div>
 <p>Observăm că avem o mulțime de fișiere ascunse prezente în directorul nostru home.
@@ -838,27 +835,27 @@ Multe dintre acestea sunt fișiere de configurare (<code class="docutils literal
 Vom vorbi mai multe despre acestea în viitorul apropriat.</p>
 </section>
 <section id="afisarea-informatiilor-extinse-despre-fisiere">
-<h3><span class="section-number">2.2.2. </span>Afișarea informațiilor extinse despre fișiere<a class="headerlink" href="#afisarea-informatiilor-extinse-despre-fisiere" title="Permalink to this heading">¶</a></h3>
+<h3><span class="section-number">2.2.2. </span>Afișarea informațiilor extinse despre fișiere<a class="headerlink" href="#afisarea-informatiilor-extinse-despre-fisiere" title="Link to this heading">¶</a></h3>
 <p>De cele mai multe ori suntem interesați să aflăm mai multe informații despre fișiere: cum ar fi tipul fișierului, permisiuni, ownership, dimensiunea și data ultimei modificări.
 Așa cum am văzut în secțiunea <a class="reference internal" href="../files/files.html#files-long-listing"><span class="std std-ref">Afișarea conținutului unui director</span></a>, toate acestea sunt afișate prin utilizarea opțiunii <code class="docutils literal notranslate"><span class="pre">-l</span></code>:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ ls -l
-total <span class="m">60</span>
-drwxr-xr-x  <span class="m">2</span> student student <span class="m">4096</span> aug  <span class="m">6</span>  <span class="m">2018</span> Desktop
-drwxr-xr-x  <span class="m">3</span> student student <span class="m">4096</span> aug <span class="m">20</span>  <span class="m">2018</span> Documents
-drwxr-xr-x  <span class="m">2</span> student student <span class="m">4096</span> aug <span class="m">11</span> <span class="m">19</span>:35 Downloads
-drwxr-xr-x  <span class="m">2</span> student student <span class="m">4096</span> aug  <span class="m">6</span>  <span class="m">2018</span> Music
-drwxr-xr-x  <span class="m">3</span> student student <span class="m">4096</span> aug <span class="m">31</span> <span class="m">23</span>:26 Pictures
-drwxr-xr-x  <span class="m">2</span> student student <span class="m">4096</span> aug  <span class="m">6</span>  <span class="m">2018</span> Public
-drwxr-xr-x  <span class="m">2</span> student student <span class="m">4096</span> aug  <span class="m">6</span>  <span class="m">2018</span> Templates
-drwxr-xr-x  <span class="m">2</span> student student <span class="m">4096</span> aug  <span class="m">6</span>  <span class="m">2018</span> Videos
--rw-r--r--  <span class="m">1</span> student student <span class="m">8980</span> aug  <span class="m">6</span>  <span class="m">2018</span> examples.desktop
-drwxr-xr-x <span class="m">14</span> student student <span class="m">4096</span> aug <span class="m">20</span>  <span class="m">2018</span> uso.git
--rw-r--r--  <span class="m">1</span> student student <span class="m">4827</span> aug <span class="m">21</span>  <span class="m">2018</span> vm-actions-log.txt
-drwxr-xr-x  <span class="m">4</span> student student <span class="m">4096</span> aug <span class="m">13</span> <span class="m">18</span>:38 workspace
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$<span class="w"> </span>ls<span class="w"> </span>-l
+total<span class="w"> </span><span class="m">60</span>
+drwxr-xr-x<span class="w">  </span><span class="m">2</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">4096</span><span class="w"> </span>aug<span class="w">  </span><span class="m">6</span><span class="w">  </span><span class="m">2018</span><span class="w"> </span>Desktop
+drwxr-xr-x<span class="w">  </span><span class="m">3</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">4096</span><span class="w"> </span>aug<span class="w"> </span><span class="m">20</span><span class="w">  </span><span class="m">2018</span><span class="w"> </span>Documents
+drwxr-xr-x<span class="w">  </span><span class="m">2</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">4096</span><span class="w"> </span>aug<span class="w"> </span><span class="m">11</span><span class="w"> </span><span class="m">19</span>:35<span class="w"> </span>Downloads
+drwxr-xr-x<span class="w">  </span><span class="m">2</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">4096</span><span class="w"> </span>aug<span class="w">  </span><span class="m">6</span><span class="w">  </span><span class="m">2018</span><span class="w"> </span>Music
+drwxr-xr-x<span class="w">  </span><span class="m">3</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">4096</span><span class="w"> </span>aug<span class="w"> </span><span class="m">31</span><span class="w"> </span><span class="m">23</span>:26<span class="w"> </span>Pictures
+drwxr-xr-x<span class="w">  </span><span class="m">2</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">4096</span><span class="w"> </span>aug<span class="w">  </span><span class="m">6</span><span class="w">  </span><span class="m">2018</span><span class="w"> </span>Public
+drwxr-xr-x<span class="w">  </span><span class="m">2</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">4096</span><span class="w"> </span>aug<span class="w">  </span><span class="m">6</span><span class="w">  </span><span class="m">2018</span><span class="w"> </span>Templates
+drwxr-xr-x<span class="w">  </span><span class="m">2</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">4096</span><span class="w"> </span>aug<span class="w">  </span><span class="m">6</span><span class="w">  </span><span class="m">2018</span><span class="w"> </span>Videos
+-rw-r--r--<span class="w">  </span><span class="m">1</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">8980</span><span class="w"> </span>aug<span class="w">  </span><span class="m">6</span><span class="w">  </span><span class="m">2018</span><span class="w"> </span>examples.desktop
+drwxr-xr-x<span class="w"> </span><span class="m">14</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">4096</span><span class="w"> </span>aug<span class="w"> </span><span class="m">20</span><span class="w">  </span><span class="m">2018</span><span class="w"> </span>uso.git
+-rw-r--r--<span class="w">  </span><span class="m">1</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">4827</span><span class="w"> </span>aug<span class="w"> </span><span class="m">21</span><span class="w">  </span><span class="m">2018</span><span class="w"> </span>vm-actions-log.txt
+drwxr-xr-x<span class="w">  </span><span class="m">4</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">4096</span><span class="w"> </span>aug<span class="w"> </span><span class="m">13</span><span class="w"> </span><span class="m">18</span>:38<span class="w"> </span>workspace
 </pre></div>
 </div>
 <p>Vom analiza informațiile afișate pentru directorul <strong>Desktop</strong>.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>drwxr-xr-x  <span class="m">2</span> student student <span class="m">4096</span> aug  <span class="m">6</span>  <span class="m">2018</span> Desktop
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>drwxr-xr-x<span class="w">  </span><span class="m">2</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">4096</span><span class="w"> </span>aug<span class="w">  </span><span class="m">6</span><span class="w">  </span><span class="m">2018</span><span class="w"> </span>Desktop
 </pre></div>
 </div>
 <ol class="arabic">
@@ -900,9 +897,9 @@ Astfel observăm că directorul <strong>Desktop</strong> este deținut de către
 Asta înseamnă că permisiunile <code class="docutils literal notranslate"><span class="pre">r-x</span></code> se aplică oricărui utilizator care este membru al grupului <code class="docutils literal notranslate"><span class="pre">student</span></code>.</p></li>
 <li><p>Cea de-a cincea coloană ne arată dimensiunea fișierului, exprimată în octeți.
 Putem să-i cerem utilitarului <code class="docutils literal notranslate"><span class="pre">ls</span></code> să ne afișeze dimensiunea folosind multiplii (K(ilo), M(ega), G(iga), etc) utilizând opțiunea <code class="docutils literal notranslate"><span class="pre">-h</span></code> (human readable)</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ ls -lh
-total 60K
-drwxr-xr-x  <span class="m">2</span> student student <span class="m">4</span>,0K aug  <span class="m">6</span>  <span class="m">2018</span> Desktop
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$<span class="w"> </span>ls<span class="w"> </span>-lh
+total<span class="w"> </span>60K
+drwxr-xr-x<span class="w">  </span><span class="m">2</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">4</span>,0K<span class="w"> </span>aug<span class="w">  </span><span class="m">6</span><span class="w">  </span><span class="m">2018</span><span class="w"> </span>Desktop
 <span class="o">[</span>...<span class="o">]</span>
 </pre></div>
 </div>
@@ -910,16 +907,16 @@ drwxr-xr-x  <span class="m">2</span> student student <span class="m">4</span>,0K
 <li><p>Ultimele coloane ne arată data ultimei modificări, în ordinea lună, zi, an.</p></li>
 </ol>
 <section id="afisarea-informatiilor-extinse-despre-un-fisier-de-tip-director">
-<h4><span class="section-number">2.2.2.1. </span>Afișarea informațiilor extinse despre un fișier de tip director<a class="headerlink" href="#afisarea-informatiilor-extinse-despre-un-fisier-de-tip-director" title="Permalink to this heading">¶</a></h4>
+<h4><span class="section-number">2.2.2.1. </span>Afișarea informațiilor extinse despre un fișier de tip director<a class="headerlink" href="#afisarea-informatiilor-extinse-despre-un-fisier-de-tip-director" title="Link to this heading">¶</a></h4>
 <p>Am observat că, în mod implicit, utilitarul <code class="docutils literal notranslate"><span class="pre">ls</span></code> ne afișază informații despre conținutul unui director atunci când primește calea către un director ca argument:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ ls -l Desktop/
-total <span class="m">0</span>
--rw-r--r-- <span class="m">1</span> student student <span class="m">0</span> sep  <span class="m">2</span> <span class="m">19</span>:39 todos.txt
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$<span class="w"> </span>ls<span class="w"> </span>-l<span class="w"> </span>Desktop/
+total<span class="w"> </span><span class="m">0</span>
+-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">0</span><span class="w"> </span>sep<span class="w">  </span><span class="m">2</span><span class="w"> </span><span class="m">19</span>:39<span class="w"> </span>todos.txt
 </pre></div>
 </div>
 <p>Pentru a-i specifica lui <code class="docutils literal notranslate"><span class="pre">ls</span></code> că suntem interesați de informații despre fișierul de tip director, și nu despre conținutul său, folosim opțiunea <code class="docutils literal notranslate"><span class="pre">-d</span></code>.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ ls -ld Desktop/
-drwxr-xr-x <span class="m">2</span> student student <span class="m">4096</span> sep  <span class="m">2</span> <span class="m">19</span>:39 Desktop/
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$<span class="w"> </span>ls<span class="w"> </span>-ld<span class="w"> </span>Desktop/
+drwxr-xr-x<span class="w"> </span><span class="m">2</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">4096</span><span class="w"> </span>sep<span class="w">  </span><span class="m">2</span><span class="w"> </span><span class="m">19</span>:39<span class="w"> </span>Desktop/
 </pre></div>
 </div>
 <ol class="arabic simple">
@@ -930,7 +927,7 @@ drwxr-xr-x <span class="m">2</span> student student <span class="m">4096</span> 
 </section>
 </section>
 <section id="selectarea-multiplor-fisiere-folosind-globbing">
-<h2><span class="section-number">2.3. </span>Selectarea multiplor fișiere folosind globbing<a class="headerlink" href="#selectarea-multiplor-fisiere-folosind-globbing" title="Permalink to this heading">¶</a></h2>
+<h2><span class="section-number">2.3. </span>Selectarea multiplor fișiere folosind globbing<a class="headerlink" href="#selectarea-multiplor-fisiere-folosind-globbing" title="Link to this heading">¶</a></h2>
 <p>Întotdeauna când deschidem un terminal o facem pentru că vrem să realizăm o sarcină: vrem să redenumim rapid ultimele poze făcute cu telefonul de la genericul <strong>DCIM1001</strong> la ceva util <strong>Excursie Sinaia, Ian 2020, 1001</strong>, vrem să ne testăm proiectul și să urcăm modificările pe GitHub, etc.</p>
 <p>Până acum am aplicat diferite comenzi fie pe fișiere individuale, fie pe întreg directorul.
 Foarte des vom avea nevoie de un mijloc prin care să putem selecta un număr variabil de fișiere care au un nume care corespunde unui tipar (<em>pattern</em>) comun.</p>
@@ -939,24 +936,24 @@ Foarte des vom avea nevoie de un mijloc prin care să putem selecta un număr va
 Știm că pozele din excursie încep toate cu numele <strong>DCIM</strong> și apoi sunt urmate de un număr.
 Ceea ce vrem să facem este să selectăm toate pozele al căror nume corespunde acestui tipar și să le mutăm într-un director separat.
 Pentru a face acest lucru, folosim <strong>globbing</strong>, ca în exemplul de mai jos:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/Pictures$ mv DCIM* excursie-Sinaia-2020/
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/Pictures$<span class="w"> </span>mv<span class="w"> </span>DCIM*<span class="w"> </span>excursie-Sinaia-2020/
 </pre></div>
 </div>
 <p>Observăm argumentul pe care l-am dat comenzii <code class="docutils literal notranslate"><span class="pre">mv</span></code>, și anume <code class="docutils literal notranslate"><span class="pre">DCIM*</span></code>.
 Expresia <code class="docutils literal notranslate"><span class="pre">DCIM*</span></code> este un exemplu de globbing: adică o expresie care descrie un tipar prin folosirea unor caractere speciale, așa cum este caracterul <code class="docutils literal notranslate"><span class="pre">*</span></code>.
 În cazul de față, expresia <code class="docutils literal notranslate"><span class="pre">DCIM*</span></code> înseamnă orice fișier al cărui nume începe cu șirul de caractere <code class="docutils literal notranslate"><span class="pre">DCIM</span></code>.</p>
 <section id="caracterul-special">
-<h3><span class="section-number">2.3.1. </span>Caracterul special <code class="docutils literal notranslate"><span class="pre">*</span></code><a class="headerlink" href="#caracterul-special" title="Permalink to this heading">¶</a></h3>
+<h3><span class="section-number">2.3.1. </span>Caracterul special <code class="docutils literal notranslate"><span class="pre">*</span></code><a class="headerlink" href="#caracterul-special" title="Link to this heading">¶</a></h3>
 <p>În sintaxa globbing, caracterul <code class="docutils literal notranslate"><span class="pre">*</span></code> poate fi înlocuit cu orice caracter de oricâte ori, sau poate lipsi cu totul.
 În directorul nostru home (<code class="docutils literal notranslate"><span class="pre">~</span></code>), executăm următoarele comenzi:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ ls
-Desktop    Downloads  Pictures  Templates  examples.desktop  vm-actions-log.txt
-Documents  Music      Public    Videos     uso.git           workspace
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$<span class="w"> </span>ls
+Desktop<span class="w">    </span>Downloads<span class="w">  </span>Pictures<span class="w">  </span>Templates<span class="w">  </span>examples.desktop<span class="w">  </span>vm-actions-log.txt
+Documents<span class="w">  </span>Music<span class="w">      </span>Public<span class="w">    </span>Videos<span class="w">     </span>uso.git<span class="w">           </span>workspace
 
-student@uso:~$ ls -d D*
-Desktop  Documents  Downloads
+student@uso:~$<span class="w"> </span>ls<span class="w"> </span>-d<span class="w"> </span>D*
+Desktop<span class="w">  </span>Documents<span class="w">  </span>Downloads
 
-student@uso:~$ ls -d Music*
+student@uso:~$<span class="w"> </span>ls<span class="w"> </span>-d<span class="w"> </span>Music*
 Music
 </pre></div>
 </div>
@@ -964,31 +961,31 @@ Music
 Observăm că în cazul expresie <code class="docutils literal notranslate"><span class="pre">Music*</span></code>, <code class="docutils literal notranslate"><span class="pre">*</span></code> nu ține locul nici unui caracter.</p>
 </section>
 <section id="id3">
-<h3><span class="section-number">2.3.2. </span>Caracterul special <code class="docutils literal notranslate"><span class="pre">?</span></code><a class="headerlink" href="#id3" title="Permalink to this heading">¶</a></h3>
+<h3><span class="section-number">2.3.2. </span>Caracterul special <code class="docutils literal notranslate"><span class="pre">?</span></code><a class="headerlink" href="#id3" title="Link to this heading">¶</a></h3>
 <p>În sintaxa globbing, caracterul <code class="docutils literal notranslate"><span class="pre">?</span></code> înlocuiește exact un caracter, oricare ar fi acela.
 În directorul nostru home (<code class="docutils literal notranslate"><span class="pre">~</span></code>), executăm următoarele comenzi:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ ls -d Musi?
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$<span class="w"> </span>ls<span class="w"> </span>-d<span class="w"> </span>Musi?
 Music
 
-student@uso:~$ ls -d Mus??
+student@uso:~$<span class="w"> </span>ls<span class="w"> </span>-d<span class="w"> </span>Mus??
 Music
 
-student@uso:~$ ls -d Music?
-ls: cannot access <span class="s1">&#39;Music?&#39;</span>: No such file or directory
+student@uso:~$<span class="w"> </span>ls<span class="w"> </span>-d<span class="w"> </span>Music?
+ls:<span class="w"> </span>cannot<span class="w"> </span>access<span class="w"> </span><span class="s1">&#39;Music?&#39;</span>:<span class="w"> </span>No<span class="w"> </span>such<span class="w"> </span>file<span class="w"> </span>or<span class="w"> </span>directory
 </pre></div>
 </div>
 <p>Observăm că expresiile <code class="docutils literal notranslate"><span class="pre">Musi?</span></code> și <code class="docutils literal notranslate"><span class="pre">Mus??</span></code> s-au înlocuit cu succes cu numele directorului <code class="docutils literal notranslate"><span class="pre">Music</span></code>, dar expresia <code class="docutils literal notranslate"><span class="pre">Music?</span></code> a generat o eroare deoarece nu există nici un fișier <strong>Music</strong> urmat de un caracter.</p>
 </section>
 <section id="extra-sintaxa-speciala">
-<h3><span class="section-number">2.3.3. </span>Extra: Sintaxa specială <code class="docutils literal notranslate"><span class="pre">[]</span></code><a class="headerlink" href="#extra-sintaxa-speciala" title="Permalink to this heading">¶</a></h3>
+<h3><span class="section-number">2.3.3. </span>Extra: Sintaxa specială <code class="docutils literal notranslate"><span class="pre">[]</span></code><a class="headerlink" href="#extra-sintaxa-speciala" title="Link to this heading">¶</a></h3>
 <p>În sintaxa globbing, folosim sintaxa <code class="docutils literal notranslate"><span class="pre">[]</span></code> pentru a defini o listă de caractere care pot fi folosite în înlocuire.
 Această sintaxă înlocuiește exact un caracter din lista oferită.
 În directorul nostru home (<code class="docutils literal notranslate"><span class="pre">~</span></code>), executăm următoarele comenzi:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ ls -d Mus<span class="o">[</span>ijk<span class="o">]</span>c
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$<span class="w"> </span>ls<span class="w"> </span>-d<span class="w"> </span>Mus<span class="o">[</span>ijk<span class="o">]</span>c
 Music
 
-student@uso:~$ ls -d Mus<span class="o">[</span>abc<span class="o">]</span>c
-ls: cannot access <span class="s1">&#39;Mus[abc]c&#39;</span>: No such file or directory
+student@uso:~$<span class="w"> </span>ls<span class="w"> </span>-d<span class="w"> </span>Mus<span class="o">[</span>abc<span class="o">]</span>c
+ls:<span class="w"> </span>cannot<span class="w"> </span>access<span class="w"> </span><span class="s1">&#39;Mus[abc]c&#39;</span>:<span class="w"> </span>No<span class="w"> </span>such<span class="w"> </span>file<span class="w"> </span>or<span class="w"> </span>directory
 </pre></div>
 </div>
 <p>În expresia <code class="docutils literal notranslate"><span class="pre">Musi[ijk]c</span></code>, i-am “spus” shellului că al patrulea caracter poate să fie oricare din lista <code class="docutils literal notranslate"><span class="pre">[ijk]</span></code>.
@@ -997,7 +994,7 @@ ls: cannot access <span class="s1">&#39;Mus[abc]c&#39;</span>: No such file or d
 Deoarece nu avem niciun fișier numit <strong>Musac</strong>, <strong>Musbc</strong> sau <strong>Muscc</strong>, comanda ne-a afișat mesajul de eroare corespunzător.</p>
 <p>Sintaxa <code class="docutils literal notranslate"><span class="pre">[]</span></code> nu ne limitează la a oferi enumarații de caractere, așa cum am făcut cu <code class="docutils literal notranslate"><span class="pre">[ijk]</span></code> sau <code class="docutils literal notranslate"><span class="pre">[abc]</span></code>.
 Sintaxa accepta și intervale, cum observăm în exemplul de mai jos:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ ls -d Mus<span class="o">[</span>A-Za-z0-9<span class="o">]</span>c
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$<span class="w"> </span>ls<span class="w"> </span>-d<span class="w"> </span>Mus<span class="o">[</span>A-Za-z0-9<span class="o">]</span>c
 Music
 </pre></div>
 </div>
@@ -1005,40 +1002,40 @@ Music
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>Folosind sintaxa <code class="docutils literal notranslate"><span class="pre">[]</span></code> putem rescrie mutarea pozelor a.î. să o facem mai precisă:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/Pictures$ mv DCIM<span class="o">[</span><span class="m">0</span>-9<span class="o">][</span><span class="m">0</span>-9<span class="o">][</span><span class="m">0</span>-9<span class="o">][</span><span class="m">0</span>-9<span class="o">]</span> excursie-Sinaia-2020/
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/Pictures$<span class="w"> </span>mv<span class="w"> </span>DCIM<span class="o">[</span><span class="m">0</span>-9<span class="o">][</span><span class="m">0</span>-9<span class="o">][</span><span class="m">0</span>-9<span class="o">][</span><span class="m">0</span>-9<span class="o">]</span><span class="w"> </span>excursie-Sinaia-2020/
 </pre></div>
 </div>
 <p>Cu expresia de mai sus vom muta toate pozele din intervalul <strong>DCIM0000</strong> - <strong>DCIM9999</strong>.</p>
 </div>
 </section>
 <section id="id5">
-<h3><span class="section-number">2.3.4. </span>Extra: Sintaxa specială <code class="docutils literal notranslate"><span class="pre">{}</span></code><a class="headerlink" href="#id5" title="Permalink to this heading">¶</a></h3>
+<h3><span class="section-number">2.3.4. </span>Extra: Sintaxa specială <code class="docutils literal notranslate"><span class="pre">{}</span></code><a class="headerlink" href="#id5" title="Link to this heading">¶</a></h3>
 <p>În sintaxa globbing, folosim sintaxa <code class="docutils literal notranslate"><span class="pre">{}</span></code> pentru a defini o listă de cuvinte (grupuri de caractere) care pot fi folosite în înlocuire.
 Această sintaxă înlocuiește exact un cuvânt din lista oferită.
 În directorul vostru home (<code class="docutils literal notranslate"><span class="pre">~</span></code>), executați următoarele comenzi:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ ls -d <span class="o">{</span>Downloads,Music<span class="o">}</span>
-Downloads  Music
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$<span class="w"> </span>ls<span class="w"> </span>-d<span class="w"> </span><span class="o">{</span>Downloads,Music<span class="o">}</span>
+Downloads<span class="w">  </span>Music
 
-student@uso:~$ ls -d <span class="o">{</span>Down,Mus<span class="o">}</span>*
-Downloads  Music
+student@uso:~$<span class="w"> </span>ls<span class="w"> </span>-d<span class="w"> </span><span class="o">{</span>Down,Mus<span class="o">}</span>*
+Downloads<span class="w">  </span>Music
 </pre></div>
 </div>
 <p>Citim expresia <code class="docutils literal notranslate"><span class="pre">{Downloads,Music}</span></code>: în locul acestei expresii poate să existe cuvântul <strong>Downloads</strong> sau cuvântul <strong>Music</strong>.
 Observăm că putem să combinăm orice elemente de globbing, așa cum am făcut în expresia <code class="docutils literal notranslate"><span class="pre">{Down,Mus}*</span></code>.</p>
 </section>
 <section id="extra-folosirea-ad-litteram-a-caracterelor-speciale">
-<h3><span class="section-number">2.3.5. </span>Extra: Folosirea ad-litteram a caracterelor speciale<a class="headerlink" href="#extra-folosirea-ad-litteram-a-caracterelor-speciale" title="Permalink to this heading">¶</a></h3>
+<h3><span class="section-number">2.3.5. </span>Extra: Folosirea ad-litteram a caracterelor speciale<a class="headerlink" href="#extra-folosirea-ad-litteram-a-caracterelor-speciale" title="Link to this heading">¶</a></h3>
 <p>Există cazuri când numele fișierelor conțin caractere speciale.
 Unele fișiere pot fi prefixate cu o categorie din care fac parte, ca în exemplul de mai jos:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ ls Documents/uni
-<span class="s1">&#39;[PC] Course 01.pdf&#39;</span>  <span class="s1">&#39;[USO] Course 01.pdf&#39;</span>  <span class="s1">&#39;[USO] Course 02.pdf&#39;</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$<span class="w"> </span>ls<span class="w"> </span>Documents/uni
+<span class="s1">&#39;[PC] Course 01.pdf&#39;</span><span class="w">  </span><span class="s1">&#39;[USO] Course 01.pdf&#39;</span><span class="w">  </span><span class="s1">&#39;[USO] Course 02.pdf&#39;</span>
 </pre></div>
 </div>
 <p>În exemplul de mai sus, fișierele pdf de curs sunt prefixate cu numele materiei: [PC], [USO].
 Vrem să îi spunem sintaxei de globbing că în acest caz, șirul <strong>[USO]</strong> nu trebuie tratat ca o expresie, ci ca un șir de caracter normale.
 Pentru a face acest lucru, încadrăm șirul între <strong>“</strong>:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ ls Documents/uni/<span class="s2">&quot;[USO]&quot;</span>*
-<span class="s1">&#39;Documents/uni/[USO] Course 01.pdf&#39;</span>  <span class="s1">&#39;Documents/uni/[USO] Course 02.pdf&#39;</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$<span class="w"> </span>ls<span class="w"> </span>Documents/uni/<span class="s2">&quot;[USO]&quot;</span>*
+<span class="s1">&#39;Documents/uni/[USO] Course 01.pdf&#39;</span><span class="w">  </span><span class="s1">&#39;Documents/uni/[USO] Course 02.pdf&#39;</span>
 </pre></div>
 </div>
 <p>Citim expresia <code class="docutils literal notranslate"><span class="pre">&quot;[USO]&quot;*</span></code>: orice fișier al cărui nume începe cu șirul de caractere <strong>[USO]</strong> și este urmat de orice caracter.
@@ -1046,7 +1043,7 @@ Operația prin care eliminăm semnificația specială a unui caracter poartă nu
 Termenul vine de la cuvântul <strong>escape</strong> (a scăpa), și exprimă că scăpăm de semnificația specială a unui caracter / set de caractere.</p>
 </section>
 <section id="id6">
-<h3><span class="section-number">2.3.6. </span>Exerciții<a class="headerlink" href="#id6" title="Permalink to this heading">¶</a></h3>
+<h3><span class="section-number">2.3.6. </span>Exerciții<a class="headerlink" href="#id6" title="Link to this heading">¶</a></h3>
 <p>Pentru exercițiile următoare vom folosi fișierele din directorul de suport <code class="docutils literal notranslate"><span class="pre">support-globbing</span></code>.</p>
 <ol class="arabic simple">
 <li><p>Creați un director numit <code class="docutils literal notranslate"><span class="pre">pdfs</span></code>.
@@ -1060,29 +1057,29 @@ Extra: Folosiți sintaxa <code class="docutils literal notranslate"><span class=
 </section>
 </section>
 <section id="cautarea-unui-fisier-in-sistem">
-<h2><span class="section-number">2.4. </span>Căutarea unui fișier în sistem<a class="headerlink" href="#cautarea-unui-fisier-in-sistem" title="Permalink to this heading">¶</a></h2>
+<h2><span class="section-number">2.4. </span>Căutarea unui fișier în sistem<a class="headerlink" href="#cautarea-unui-fisier-in-sistem" title="Link to this heading">¶</a></h2>
 <p>De multe ori ne aflăm în situația în care căutăm un fișier pe disc: ex. doar ce am clonat un proiect de pe GitHub și vrem să inspectăm fișierul <strong>Makefile</strong> pentru a vedea cum compilăm și rulăm proiectul.
 Un alt exemplu poate fi că vrem să vedem cum arată fișierele de test existente în proiect; de multe ori, ințelegem mai bine proiectul doar prin simpla inspectare a testelor.</p>
 <p>Există două utilitare care ne permit să căutăm în cadrul sistemului de fișiere: <code class="docutils literal notranslate"><span class="pre">locate</span></code> și <code class="docutils literal notranslate"><span class="pre">find</span></code>.</p>
 <section id="utilitarul-locate">
-<h3><span class="section-number">2.4.1. </span>Utilitarul <code class="docutils literal notranslate"><span class="pre">locate</span></code><a class="headerlink" href="#utilitarul-locate" title="Permalink to this heading">¶</a></h3>
+<h3><span class="section-number">2.4.1. </span>Utilitarul <code class="docutils literal notranslate"><span class="pre">locate</span></code><a class="headerlink" href="#utilitarul-locate" title="Link to this heading">¶</a></h3>
 <p>Utilitarul <code class="docutils literal notranslate"><span class="pre">locate</span></code> folosește o bază de date pentru a căuta în fișierele de pe sistem.
 Inspectăm pagina de manual a utilitarului pentru a vedea cum îl putem folosi, folosind comanda <code class="docutils literal notranslate"><span class="pre">man</span></code>:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ man locate
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$<span class="w"> </span>man<span class="w"> </span>locate
 
 SYNOPSIS
-       locate <span class="o">[</span>OPTION<span class="o">]</span>... PATTERN...
+<span class="w">       </span>locate<span class="w"> </span><span class="o">[</span>OPTION<span class="o">]</span>...<span class="w"> </span>PATTERN...
 </pre></div>
 </div>
 <p>Observăm că <code class="docutils literal notranslate"><span class="pre">locate</span></code> primește ca argument un șir de caractere, <strong>PATTERN</strong>, care fac parte din numele fișierului pe care în căutăm, dar nu trebuie să-i dăm numele exact:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ locate todos.txt
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$<span class="w"> </span>locate<span class="w"> </span>todos.txt
 /home/student/Desktop/todos.txt
-student@uso:~$ locate todos
+student@uso:~$<span class="w"> </span>locate<span class="w"> </span>todos
 /home/student/Desktop/todos.txt
 </pre></div>
 </div>
 <p>Putem să folosim și sintaxa globbing pentru a descrie numele fișierului căutat:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ locate <span class="s2">&quot;*.txt&quot;</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$<span class="w"> </span>locate<span class="w"> </span><span class="s2">&quot;*.txt&quot;</span>
 /home/student/vm-actions-log.txt
 /home/student/.local/lib/python2.7/site-packages/Keras_Applications-1.0.8.dist-info/top_level.txt
 /home/student/.local/lib/python2.7/site-packages/Keras_Preprocessing-1.1.2.dist-info/top_level.txt
@@ -1098,26 +1095,26 @@ Asta înseamnă că <code class="docutils literal notranslate"><span class="pre"
 Dacă vrem să reconstruim baza de date, folosim comanda <code class="docutils literal notranslate"><span class="pre">updatedb</span></code>.</p>
 <p>Hai să clonăm repository-ul <strong>TheAlgorithms/C</strong>.
 Acesta conține implementările diferitor algoritmi folosind limbajul de programare C.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ <span class="nb">cd</span> workspace
-student@uso:~/workspace$ git clone https://github.com/TheAlgorithms/C.git
-student@uso:~/workspace$ <span class="nb">cd</span> C
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>workspace
+student@uso:~/workspace$<span class="w"> </span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/TheAlgorithms/C.git
+student@uso:~/workspace$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>C
 </pre></div>
 </div>
 <p>Fiind vorba despre un repository care implementează algoritmi clasici, ne așteptăm să găsim și algoritmi de căutare, cum ar fi binary-search.
 Hai să căutăm după cuvântul cheie <strong>search</strong>.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/workspace$ locate search <span class="p">|</span> grep workspace/C
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/workspace$<span class="w"> </span>locate<span class="w"> </span>search<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>workspace/C
 student@uso:~/workspace$
 </pre></div>
 </div>
 <p>Observăm că nu am găsit nici un rezultat.
 Cum spuneam mai devreme, trebuie să reconstruim baza de date pentru a căuta în fișierele nou create.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/workspace/C$ sudo updatedb
-<span class="o">[</span>sudo<span class="o">]</span> password <span class="k">for</span> student:
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/workspace/C$<span class="w"> </span>sudo<span class="w"> </span>updatedb
+<span class="o">[</span>sudo<span class="o">]</span><span class="w"> </span>password<span class="w"> </span><span class="k">for</span><span class="w"> </span>student:
 </pre></div>
 </div>
 <p>Comanda <code class="docutils literal notranslate"><span class="pre">updatedb</span></code> trebuie executată în mod privilegiat, așa că folosim <code class="docutils literal notranslate"><span class="pre">sudo</span></code>.
 Parola utilizatorului <strong>student</strong>, pe mașina noastră virtuală, este <strong>student</strong>.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/workspace/C$ locate search <span class="p">|</span> grep workspace/C
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~/workspace/C$<span class="w"> </span>locate<span class="w"> </span>search<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>workspace/C
 /home/student/workspace/C/searching
 /home/student/workspace/C/data_structures/binary_trees/binary_search_tree.c
 /home/student/workspace/C/searching/CMakeLists.txt
@@ -1137,7 +1134,7 @@ Parola utilizatorului <strong>student</strong>, pe mașina noastră virtuală, e
 </pre></div>
 </div>
 <section id="id7">
-<h4><span class="section-number">2.4.1.1. </span>Exerciții<a class="headerlink" href="#id7" title="Permalink to this heading">¶</a></h4>
+<h4><span class="section-number">2.4.1.1. </span>Exerciții<a class="headerlink" href="#id7" title="Link to this heading">¶</a></h4>
 <ol class="arabic simple">
 <li><p>Folosind <code class="docutils literal notranslate"><span class="pre">locate</span></code> căutați fișierele care conțin șirul <code class="docutils literal notranslate"><span class="pre">bubble_sort</span></code> în nume.</p></li>
 <li><p>Folosind <code class="docutils literal notranslate"><span class="pre">locate</span></code> căutați fișierele care conțin șirul <code class="docutils literal notranslate"><span class="pre">quick_sort</span></code> în nume.</p></li>
@@ -1147,21 +1144,21 @@ Parola utilizatorului <strong>student</strong>, pe mașina noastră virtuală, e
 </section>
 </section>
 <section id="utilitarul-find">
-<h3><span class="section-number">2.4.2. </span>Utilitarul <code class="docutils literal notranslate"><span class="pre">find</span></code><a class="headerlink" href="#utilitarul-find" title="Permalink to this heading">¶</a></h3>
+<h3><span class="section-number">2.4.2. </span>Utilitarul <code class="docutils literal notranslate"><span class="pre">find</span></code><a class="headerlink" href="#utilitarul-find" title="Link to this heading">¶</a></h3>
 <p>Utilitarul <code class="docutils literal notranslate"><span class="pre">find</span></code> îndeplinește același scop: căuta în fișierele de pe sistem.
 <code class="docutils literal notranslate"><span class="pre">find</span></code> este un utilitar mai complex decât <code class="docutils literal notranslate"><span class="pre">locate</span></code>.
 Acesta ne permite să căutăm fișiere după nume, permisiuni, tipul fișierelor, data ultimei modificări și multe altele.
 Inspectăm pagina de manual a utilitarului pentru a vedea cum îl putem folosi.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ man find
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$<span class="w"> </span>man<span class="w"> </span>find
 
 SYNOPSIS
-       find  <span class="o">[</span>-H<span class="o">]</span>  <span class="o">[</span>-L<span class="o">]</span>  <span class="o">[</span>-P<span class="o">]</span>  <span class="o">[</span>-D  debugopts<span class="o">]</span>  <span class="o">[</span>-Olevel<span class="o">]</span>  <span class="o">[</span>starting-point...<span class="o">]</span>
-       <span class="o">[</span>expression<span class="o">]</span>
+<span class="w">       </span>find<span class="w">  </span><span class="o">[</span>-H<span class="o">]</span><span class="w">  </span><span class="o">[</span>-L<span class="o">]</span><span class="w">  </span><span class="o">[</span>-P<span class="o">]</span><span class="w">  </span><span class="o">[</span>-D<span class="w">  </span>debugopts<span class="o">]</span><span class="w">  </span><span class="o">[</span>-Olevel<span class="o">]</span><span class="w">  </span><span class="o">[</span>starting-point...<span class="o">]</span>
+<span class="w">       </span><span class="o">[</span>expression<span class="o">]</span>
 </pre></div>
 </div>
 <p>La o primă vedere, <code class="docutils literal notranslate"><span class="pre">find</span></code> poate părea complex și intimidant, dar lucrurile stau foarte simplu.
 Folosim <code class="docutils literal notranslate"><span class="pre">find</span></code> cu sintaxa <code class="docutils literal notranslate"><span class="pre">find</span> <span class="pre">[starting-point]</span> <span class="pre">[expression]</span></code>, ca în exemplul de mai jos:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ find . -name <span class="s2">&quot;*search*&quot;</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$<span class="w"> </span>find<span class="w"> </span>.<span class="w"> </span>-name<span class="w"> </span><span class="s2">&quot;*search*&quot;</span>
 ./C/searching
 ./C/searching/linear_search.c
 ./C/searching/other_binary_search.c
@@ -1171,7 +1168,7 @@ Folosim <code class="docutils literal notranslate"><span class="pre">find</span>
 ./C/searching/interpolation_search.c
 ./C/searching/fibonacci_search.c
 ./C/searching/ternary_search.c
-./C/searching/pattern_searc h
+./C/searching/pattern_searc<span class="w"> </span>h
 ./C/searching/pattern_search/naive_search.c
 ./C/searching/pattern_search/boyer_moore_search.c
 ./C/searching/pattern_search/rabin_karp_search.c
@@ -1188,10 +1185,10 @@ Exact ca în cazul utilitarului <code class="docutils literal notranslate"><span
 Trebuie să facem asta pentru ca sintaxa globbing să fie interpretată de către utilitarul <code class="docutils literal notranslate"><span class="pre">find</span></code> și nu de către terminalul (<code class="docutils literal notranslate"><span class="pre">bash</span></code>) din care lansăm utilitarul.</p>
 </div>
 <section id="extra-scenarii-complexe-de-cautare">
-<h4><span class="section-number">2.4.2.1. </span>Extra: Scenarii complexe de căutare<a class="headerlink" href="#extra-scenarii-complexe-de-cautare" title="Permalink to this heading">¶</a></h4>
+<h4><span class="section-number">2.4.2.1. </span>Extra: Scenarii complexe de căutare<a class="headerlink" href="#extra-scenarii-complexe-de-cautare" title="Link to this heading">¶</a></h4>
 <p>Utilitarul <code class="docutils literal notranslate"><span class="pre">find</span></code> are o lungă listă de opțiuni pe care le putem folosi în expresii de căutare.
 Una din opțiunile mai cunoscute este <code class="docutils literal notranslate"><span class="pre">-type</span></code> care ne oferă posibilitatea de a căuta după tipul unui fișier:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ find workspace/C -type f
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$<span class="w"> </span>find<span class="w"> </span>workspace/C<span class="w"> </span>-type<span class="w"> </span>f
 workspace/C/leetcode/src/226.c
 workspace/C/leetcode/src/700.c
 workspace/C/leetcode/src/278.c
@@ -1206,7 +1203,7 @@ Căutați în directorul <code class="docutils literal notranslate"><span class=
 <p>Reminder: pentru a căuta în man folosim <code class="docutils literal notranslate"><span class="pre">/</span></code> pentru a intra în search mode și apoi introducem textul pe care îl căutam <code class="docutils literal notranslate"><span class="pre">-type</span></code> urmat de tasta <code class="docutils literal notranslate"><span class="pre">Enter</span></code>; pentru a ne duce la următorul rezultat al căutării folosim tasta <code class="docutils literal notranslate"><span class="pre">n</span></code> (next).</p>
 </div>
 <p>În cadrul unei căutări putem să combinăm opțiunile de căutare:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ find workspace/C -type f -name <span class="s2">&quot;*search*&quot;</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$<span class="w"> </span>find<span class="w"> </span>workspace/C<span class="w"> </span>-type<span class="w"> </span>f<span class="w"> </span>-name<span class="w"> </span><span class="s2">&quot;*search*&quot;</span>
 workspace/C/searching/modified_binary_search.c
 workspace/C/searching/ternary_search.c
 workspace/C/searching/jump_search.c
@@ -1218,12 +1215,12 @@ workspace/C/searching/binary_search.c
 Facem acest cu opțiunea <code class="docutils literal notranslate"><span class="pre">-exec</span> <span class="pre">command</span> <span class="pre">{}</span> <span class="pre">;</span></code>.
 Atunci când folosim <code class="docutils literal notranslate"><span class="pre">-exec</span></code>, rezultatul căutării va înlocui șirul <strong>‘{}’</strong> în textul comenzii; comanda de executat trebuie să se termine în caracterul <code class="docutils literal notranslate"><span class="pre">;</span></code>.</p>
 <p>Observăm exemplul de mai jos:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$ find workspace/C -type f -name <span class="s2">&quot;*search*&quot;</span> -exec ls -l <span class="o">{}</span> <span class="se">\;</span>
--rw-r--r-- <span class="m">1</span> student student <span class="m">3312</span> sep <span class="m">17</span> <span class="m">19</span>:20 workspace/C/searching/modified_binary_search.c
--rw-r--r-- <span class="m">1</span> student student <span class="m">1782</span> sep <span class="m">17</span> <span class="m">19</span>:20 workspace/C/searching/ternary_search.c
--rw-r--r-- <span class="m">1</span> student student <span class="m">1624</span> sep <span class="m">17</span> <span class="m">19</span>:20 workspace/C/searching/jump_search.c
--rw-r--r-- <span class="m">1</span> student student <span class="m">2799</span> sep <span class="m">17</span> <span class="m">19</span>:20 workspace/C/searching/binary_search.c
--rw-r--r-- <span class="m">1</span> student student <span class="m">867</span> sep <span class="m">17</span> <span class="m">19</span>:20 workspace/C/searching/other_binary_search.c
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@uso:~$<span class="w"> </span>find<span class="w"> </span>workspace/C<span class="w"> </span>-type<span class="w"> </span>f<span class="w"> </span>-name<span class="w"> </span><span class="s2">&quot;*search*&quot;</span><span class="w"> </span>-exec<span class="w"> </span>ls<span class="w"> </span>-l<span class="w"> </span><span class="o">{}</span><span class="w"> </span><span class="se">\;</span>
+-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">3312</span><span class="w"> </span>sep<span class="w"> </span><span class="m">17</span><span class="w"> </span><span class="m">19</span>:20<span class="w"> </span>workspace/C/searching/modified_binary_search.c
+-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">1782</span><span class="w"> </span>sep<span class="w"> </span><span class="m">17</span><span class="w"> </span><span class="m">19</span>:20<span class="w"> </span>workspace/C/searching/ternary_search.c
+-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">1624</span><span class="w"> </span>sep<span class="w"> </span><span class="m">17</span><span class="w"> </span><span class="m">19</span>:20<span class="w"> </span>workspace/C/searching/jump_search.c
+-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">2799</span><span class="w"> </span>sep<span class="w"> </span><span class="m">17</span><span class="w"> </span><span class="m">19</span>:20<span class="w"> </span>workspace/C/searching/binary_search.c
+-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>student<span class="w"> </span>student<span class="w"> </span><span class="m">867</span><span class="w"> </span>sep<span class="w"> </span><span class="m">17</span><span class="w"> </span><span class="m">19</span>:20<span class="w"> </span>workspace/C/searching/other_binary_search.c
 </pre></div>
 </div>
 <p>În exemplul de mai sus, argumetul opțiunii <code class="docutils literal notranslate"><span class="pre">exec</span></code> este <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-l</span> <span class="pre">{}</span> <span class="pre">\;</span></code>.
@@ -1232,7 +1229,7 @@ Observăm că <code class="docutils literal notranslate"><span class="pre">-exec
 <p>În secțiunile ce urmează vom vedea cum ne folosim de opțiunea <code class="docutils literal notranslate"><span class="pre">exec</span></code> pentru a face recursiv search &amp; replace în fișiere.</p>
 </section>
 <section id="id8">
-<h4><span class="section-number">2.4.2.2. </span>Exerciții<a class="headerlink" href="#id8" title="Permalink to this heading">¶</a></h4>
+<h4><span class="section-number">2.4.2.2. </span>Exerciții<a class="headerlink" href="#id8" title="Link to this heading">¶</a></h4>
 <ol class="arabic simple">
 <li><p>Folosind <code class="docutils literal notranslate"><span class="pre">find</span></code> căutați fișierele care conțin șirul <code class="docutils literal notranslate"><span class="pre">bubble_sort</span></code> în nume.</p></li>
 <li><p>Folosind <code class="docutils literal notranslate"><span class="pre">find</span></code> căutați fișierele care conțin șirul <code class="docutils literal notranslate"><span class="pre">quick_sort</span></code> în nume.</p></li>
@@ -1241,20 +1238,20 @@ Observăm că <code class="docutils literal notranslate"><span class="pre">-exec
 </ol>
 <p class="rubric">Note de subsol</p>
 <aside class="footnote-list brackets">
-<aside class="footnote brackets" id="glob-list" role="note">
+<aside class="footnote brackets" id="glob-list" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id4">1</a><span class="fn-bracket">]</span></span>
 <p>Folosim forma <code class="docutils literal notranslate"><span class="pre">A-Za-z</span></code> pentru a preciza orice caracter din alfabetul englez, indiferent dacă este majusculă sau nu.
 Nu putem folosi forma <code class="docutils literal notranslate"><span class="pre">A-z</span></code> datorită reprezentării caracterelor în tabelul ASCII.
 Caracterele <strong>A-Z</strong> sunt reprezentate în intervalul <strong>65-90</strong>, iar caracterele <strong>a-z</strong> în intervalul <strong>97-122</strong> în tabelul ascii.
 Dacă am folosi forma <strong>A-z</strong>, i-am indica expresiei globbing să includă și caracterele din intervalul <strong>91-96</strong> din tabelul ascii în expresia noastră.</p>
 </aside>
-<aside class="footnote brackets" id="search-case" role="note">
+<aside class="footnote brackets" id="search-case" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">2</a><span class="fn-bracket">]</span></span>
 <p>Căutarea este case-sensitive.
 Putem să schimbăm acest comportament prin introducerea opțiunii <code class="docutils literal notranslate"><span class="pre">-I</span></code> în sesiunea interactivă, înainte de a porni căutarea.
 Dacă doriți să aflați mai multe despre opțiunile pe care le putem introduce apăsați tasta <code class="docutils literal notranslate"><span class="pre">h</span></code> într-o sesiune interactivă și căutați textul “OPTIONS”.</p>
 </aside>
-<aside class="footnote brackets" id="rev-search" role="note">
+<aside class="footnote brackets" id="rev-search" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">3</a><span class="fn-bracket">]</span></span>
 <p>Putem folosi tasta <code class="docutils literal notranslate"><span class="pre">?</span></code> pentru a porni o căutare de la poziția curentă către începutul paginii.
 Alternativ, putem naviga la începutul paginii prin apăsarea unei singure taste (<code class="docutils literal notranslate"><span class="pre">g</span></code>) și apoi pornim căutarea <code class="docutils literal notranslate"><span class="pre">/</span></code> de acolo.</p>
@@ -1280,7 +1277,7 @@ Alternativ, putem naviga la începutul paginii prin apăsarea unei singure taste
 </ul><div class="footer" role="contentinfo">
       &#169; Copyright 2020, USO Team.
     <br>
-    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 5.2.2 with <a href="https://github.com/romnn/sphinx_press_theme">Press Theme</a>.
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 7.2.6 with <a href="https://github.com/romnn/sphinx_press_theme">Press Theme</a>.
 </div>
             </div>
           </div>
