@@ -666,10 +666,11 @@ root<span class="w">           </span><span class="m">1</span><span class="w">  
 <li><p>replicarea unui serviciu din producție local</p></li>
 <li><p>configurarea unui mediu replicabil pentru testare</p></li>
 </ul>
-<p>:::note
-Comanda <code class="docutils literal notranslate"><span class="pre">ps</span> <span class="pre">-ef</span></code> afișează toate procesele active din sistem.
-Observăm că în rezultatul de mai sus apare o singură comandă, deoarece rulăm într-un mediu izolat.
-::</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Comanda <code class="docutils literal notranslate"><span class="pre">ps</span> <span class="pre">-ef</span></code> afișează toate procesele active din sistem.
+Observăm că în rezultatul de mai sus apare o singură comandă, deoarece rulăm într-un mediu izolat.</p>
+</div>
 <p>Cu toate acestea, nu dorim să rulăm întotdeauna containere în prim plan.
 Dacă vrem să rulăm un script care nu poate fi rulat în mediul gazdă, iar acest script va rula mult timp, preferăm să rulăm comanda în fundal.</p>
 <p>Pentru a rula un script în fundal în cadrul unui container Docker vom folosi opțiunea <code class="docutils literal notranslate"><span class="pre">-d</span></code> a comenzii <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">run</span></code> în felul următor:</p>
@@ -688,9 +689,11 @@ root@a63ee06826a3:/#<span class="w"> </span><span class="nb">exit</span>
 </pre></div>
 </div>
 <p>Putem vedea dacă containerul pornit de noi încă rulează rulând comanda <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">ps</span></code>.
-Coloane relevante sunt:
-* <code class="docutils literal notranslate"><span class="pre">CONTAINER</span> <span class="pre">ID</span></code>;
-* <code class="docutils literal notranslate"><span class="pre">NAMES</span></code>.</p>
+Coloane relevante sunt:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">CONTAINER</span> <span class="pre">ID</span></code>;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">NAMES</span></code>.</p></li>
+</ul>
 <p>Pentru a ne conecta la un container care rulează în fundal, ne folosim de comanda <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">exec</span></code> împreună cu ID-ul containerului sau numele selectat folosind comanda <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">ps</span></code>:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>student@lab-docker:~$<span class="w"> </span>sudo<span class="w"> </span>docker<span class="w"> </span>ps
 CONTAINER<span class="w"> </span>ID<span class="w">   </span>IMAGE<span class="w">          </span>COMMAND<span class="w">         </span>CREATED<span class="w">         </span>STATUS<span class="w">         </span>PORTS<span class="w">     </span>NAMES
@@ -712,12 +715,14 @@ CONTAINER<span class="w"> </span>ID<span class="w">   </span>IMAGE<span class="w
 student@lab-docker:~$
 </pre></div>
 </div>
-<p>## Exerciții: Gestionarea containerelor</p>
+<section id="exercitii-gestionarea-containerelor">
+<h4><span class="section-number">6.1.2.1. </span>Exerciții: Gestionarea containerelor<a class="headerlink" href="#exercitii-gestionarea-containerelor" title="Link to this heading">¶</a></h4>
 <ul class="simple">
 <li><p>Porniți un nou container în fundal folosind imaginea de bază <code class="docutils literal notranslate"><span class="pre">centos:7</span></code>;</p></li>
 <li><p>Conectați-vă la containerul tocmai pornit și instalați aplicația <code class="docutils literal notranslate"><span class="pre">bind-utils</span></code> folosind comanda <code class="docutils literal notranslate"><span class="pre">yum</span> <span class="pre">install</span> <span class="pre">bind-utils</span></code>. Pentru a verifica faptu că ați instalat aplicația corect, verificați-vă rulând comanda <code class="docutils literal notranslate"><span class="pre">nslookup</span> <span class="pre">google.com</span></code>;</p></li>
 <li><p>Deconectați-vă de la container și opriți-l.</p></li>
 </ul>
+</section>
 </section>
 </section>
 <section id="instalarea-serviciilor-folosind-docker">
@@ -940,7 +945,9 @@ Este suficient doar să descărcăm containerul și să îl pornim folosind coma
 <p>Observăm că avem două posibilități de containere oficiale, primul este
 împachetat și oferit de <a class="reference external" href="https://hub.docker.com/r/linuxserver/plex">linuxserver.io</a>, iar al doilea este oferit de <a class="reference external" href="https://hub.docker.com/r/linuxserver/plex/">Plex Inc</a>.
 Vom folosi soluția oferită de linuxserver.io, deoarece aceștia oferă, în general, containere împachetate optim pentru folosirea în containere.</p>
-<p><strong>Exercițiu</strong></p>
+</section>
+<section id="exercitiu">
+<h4><span class="section-number">6.2.3.2. </span>Exercițiu<a class="headerlink" href="#exercitiu" title="Link to this heading">¶</a></h4>
 <p>Pe baza exemplului de fișier <code class="docutils literal notranslate"><span class="pre">docker-compose.yaml</span></code> oferit de linuxserver.io pe pagina de Docker Hub, realizați configurările necesare astfel încât să porniți un server de media Plex care are încărcată biblioteca folosind un volum din directorul <code class="docutils literal notranslate"><span class="pre">/home/student/uso.git/labs/09-task-admin/lab-container/plex</span></code> și expune portul de acces 32400 către sistemul gazdă.</p>
 <p>Verificați că puteți reda melodia încărcată în directorul <code class="docutils literal notranslate"><span class="pre">/home/student/uso.git/labs/09-task-admin/lab-container/plex</span></code> folosind Plex.</p>
 </section>
@@ -963,7 +970,7 @@ Vom folosi soluția oferită de linuxserver.io, deoarece aceștia oferă, în ge
 </ul><div class="footer" role="contentinfo">
       &#169; Copyright 2020, USO Team.
     <br>
-    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 7.2.5 with <a href="https://github.com/romnn/sphinx_press_theme">Press Theme</a>.
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 7.2.6 with <a href="https://github.com/romnn/sphinx_press_theme">Press Theme</a>.
 </div>
             </div>
           </div>
